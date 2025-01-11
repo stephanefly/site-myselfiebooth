@@ -21,6 +21,15 @@ const Navbar = () => {
           <li>
             <a href="#events">Événements ▾</a>
           </li>
+          <li>
+            {/* Numéro de téléphone */}
+            <div className="phone-container">
+              <span className="phone-icon">📞</span>
+              <a href="tel:0699733998" className="phone-number">
+                06 99 73 39 98
+              </a>
+            </div>
+          </li>
         </ul>
 
         {/* Call-to-Action Button */}
@@ -60,10 +69,11 @@ const Navbar = () => {
         }
 
         .cta-button {
-          background: linear-gradient(to top, #6e6031, #ffe57e);
+          background: linear-gradient(to top, #514514, #ffe57e);
           color: white;
           border: none;
-          padding: 10px 18px; /* Taille réduite */
+          padding: 10px 10px 10px 10px; /* Taille réduite */
+          margin-left: 20px;
           border-radius: 4px;
           font-size: 1rem; /* Taille légèrement réduite */
           cursor: pointer;
@@ -76,6 +86,7 @@ const Navbar = () => {
           font-size: 22px; /* Taille réduite */
           cursor: pointer;
           display: none; /* Cacher sur écrans larges */
+          padding-left: 60px;
         }
 
         .navbar-links {
@@ -83,7 +94,12 @@ const Navbar = () => {
           display: flex;
           gap: 20px;
           margin: 0;
-          padding: 0;
+          padding-left: 60px;
+        }
+
+        .navbar-links li {
+          display: flex;
+          align-items: center;
         }
 
         .navbar-links li a {
@@ -91,6 +107,24 @@ const Navbar = () => {
           color: white;
           font-weight: bold;
           font-size: 1rem; /* Taille légèrement réduite */
+        }
+
+        .phone-container {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #ffc107;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+
+        .phone-icon {
+          font-size: 1.2rem;
+        }
+
+        .phone-number {
+          text-decoration: none;
+          color: #ffc107;
         }
 
         /* Menu pour les écrans mobiles */
@@ -105,7 +139,7 @@ const Navbar = () => {
             gap: 10px;
             width: 100%;
             text-align: center;
-            background-color: #0a0f24;
+            background: linear-gradient(45deg, #000000, #393400);
             position: absolute;
             top: 60px; /* Sous la navbar */
             left: 0;
@@ -113,6 +147,8 @@ const Navbar = () => {
 
           .navbar-links.open {
             display: flex; /* Afficher le menu quand ouvert */
+            padding: 20px;
+            margin-top: 0px;
           }
 
           .navbar-container {

@@ -11,37 +11,45 @@ export default function Hero() {
       </div>
 
       {/* Vidéos */}
-      <div className="videos-container flex justify-between items-center flex-wrap mt-4">
+      <div className="videos-container flex justify-between items-center flex-wrap mt-4 relative">
         {/* Vidéo 1 */}
-        <div className="video-container">
+        <div className="video-container video-left">
           <video
             className="object-cover"
-            src="/videos/PUB_2024.mp4"
+            src="/videos/PUB_2024.webm"
             autoPlay
             loop
             muted
+            playsInline
           ></video>
         </div>
 
-        {/* Vidéo 2 */}
-        <div className="video-container">
+        {/* Vidéo 2 avec le bouton */}
+        <div className="video-container video-center relative">
           <video
             className="object-cover"
-            src="/videos/PUB_2024.mp4"
+            src="/videos/PUB_2024.webm"
             autoPlay
             loop
             muted
+            playsInline
           ></video>
+
+          {/* Bouton */}
+          <button className="center-button">
+            Réservez !
+          </button>
         </div>
 
         {/* Vidéo 3 */}
-        <div className="video-container">
+        <div className="video-container video-right">
           <video
             className="object-cover"
-            src="/videos/PUB_2024.mp4"
+            src="/videos/PUB_2024.webm"
             autoPlay
             loop
             muted
+            playsInline
           ></video>
         </div>
       </div>
@@ -53,8 +61,7 @@ export default function Hero() {
           background-color: #ffd800;
           color: black;
           width: 100%;
-          margin-top: 15px;
-          margin-bottom: 0px;
+          margin-top: 40px;
           text-align: center;
           font-size: 1.2rem;
           z-index: 10;
@@ -63,34 +70,69 @@ export default function Hero() {
         /* Vidéos */
         .videos-container {
           display: flex;
-          justify-content: space-between; /* Espace égal entre les vidéos */
-          flex-wrap: wrap; /* Permet aux vidéos de passer à la ligne si nécessaire */
+          justify-content: space-between;
+          flex-wrap: nowrap;
+          gap: 0;
         }
 
         .video-container {
-          flex: 0 1 calc(33.33% - 16px); /* Assure trois vidéos sur une ligne */
-          margin: 8px;
+          flex: 1 1 auto;
+          margin: 0;
+          position: relative; /* Nécessaire pour positionner le bouton */
         }
 
         video {
           width: 100%;
           height: auto;
-          border-radius: 8px; /* Coins arrondis */
+          border-radius: 8px;
+        }
+
+        /* Bouton centré */
+        .center-button {
+          position: absolute;
+          top: 85%; /* À 25% plus bas */
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: linear-gradient(to top, #60552d, #b19f55, #d6c16b);
+          color: #ffffff;
+          border: none; /* Ajout d'une bordure noire */
+          padding: 1rem 1.5rem; /* Ajusté pour plus de largeur */
+          font-size: 1.5rem;
+          font-weight: bold;
+          border-radius: 20px; /* Bouton bien arrondi */
+          box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 1); /* Ombre plus forte */
+          cursor: pointer;
+          z-index: 10;
+          transition: all 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Effet au survol */
+        .center-button:hover {
+          background: linear-gradient(to top, #ffdd70, #dbbe60);
+          transform: translate(-50%, -50%) scale(1.1); /* Légère mise en avant */
+          box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Accentue l’ombre */
+        }
+
+
+        /* Assombrir les vidéos sur les côtés */
+        .video-left video,
+        .video-right video {
+          filter: brightness(50%);
         }
 
         /* Pour les écrans mobiles */
         @media screen and (max-width: 768px) {
           .video-container:nth-child(1),
           .video-container:nth-child(3) {
-            display: none; /* Cache les vidéos 1 et 3 */
+            display: none;
           }
 
           .video-container {
-            flex: 0 1 100%; /* La vidéo restante occupe toute la largeur */
+            flex: 0 1 100%;
           }
 
           .banner {
-            font-size: 1rem; /* Taille réduite pour mobile */
+            font-size: 1rem;
           }
         }
       `}</style>
