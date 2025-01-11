@@ -35,10 +35,15 @@ export default function Hero() {
             playsInline
           ></video>
 
-          {/* Bouton */}
-          <button className="center-button">
+          {/* Lien stylé comme un bouton */}
+          <a
+            href="https://reservation.myselfiebooth-paris.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="center-button"
+          >
             Réservez !
-          </button>
+          </a>
         </div>
 
         {/* Vidéo 3 */}
@@ -61,7 +66,7 @@ export default function Hero() {
           background-color: #ffd800;
           color: black;
           width: 100%;
-          margin-top: 40px;
+          margin-top: 25px;
           text-align: center;
           font-size: 1.2rem;
           z-index: 10;
@@ -93,17 +98,20 @@ export default function Hero() {
           top: 85%; /* À 25% plus bas */
           left: 50%;
           transform: translate(-50%, -50%);
-          background: linear-gradient(to top, #60552d, #b19f55, #d6c16b);
           color: #ffffff;
-          border: none; /* Ajout d'une bordure noire */
+          text-decoration: none; /* Supprime le soulignement */
           padding: 1rem 1.5rem; /* Ajusté pour plus de largeur */
           font-size: 1.5rem;
           font-weight: bold;
-          border-radius: 20px; /* Bouton bien arrondi */
           box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 1); /* Ombre plus forte */
           cursor: pointer;
           z-index: 10;
           transition: all 0.3s ease, box-shadow 0.3s ease;
+          display: inline-block; /* Pour garder le style du bouton */
+         border: 2px solid #897943;
+         border-radius: 10px;
+         margin: 0 10px;
+         background-image: linear-gradient(to bottom, #ffef96, #5a4300);;
         }
 
         /* Effet au survol */
@@ -113,11 +121,10 @@ export default function Hero() {
           box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Accentue l’ombre */
         }
 
-
         /* Assombrir les vidéos sur les côtés */
         .video-left video,
         .video-right video {
-          filter: brightness(50%);
+          filter: brightness(20%);
         }
 
         /* Pour les écrans mobiles */
