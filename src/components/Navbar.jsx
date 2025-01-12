@@ -16,7 +16,7 @@ const Navbar = () => {
         {/* Navigation Links */}
         <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
           <li>
-            <a href="#services">Location photobooth ▾</a>
+            <a href="#services">Nos Prestations ▾</a>
           </li>
           <li>
             <a href="#events">Événements ▾</a>
@@ -57,7 +57,7 @@ const Navbar = () => {
           top: 0;
           left: 0;
           width: 100%;
-          background: linear-gradient(45deg, #000000, #393400);
+          background: linear-gradient(45deg, #000000, #675e32);
           color: white;
           padding: 10px 15px 10px 100px;
           z-index: 1000;
@@ -69,7 +69,7 @@ const Navbar = () => {
           font-family: "Great Vibes", cursive;
           font-size: 1.5rem; /* Augmenté pour plus de présence */
           font-weight: bold;
-          letter-spacing: 0.5px; /* Espacement subtil entre les lettres */
+          letter-spacing: 0.2px; /* Espacement subtil entre les lettres */
           background: linear-gradient(150deg, #ffffff, #cabd8c, #b8860b); /* Gradient raffiné */
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -203,9 +203,11 @@ const Navbar = () => {
             display: flex; /* Affiche le menu quand ouvert */
             padding: 20px;
           }
+
           .navbar-logo {
             margin-top: 10px;
           }
+
           .cta-button {
             display: block; /* Bouton affiché dans le menu mobile */
             margin-top: 10px;

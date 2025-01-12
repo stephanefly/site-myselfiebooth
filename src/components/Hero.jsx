@@ -66,10 +66,11 @@ export default function Hero() {
           background-color: #ffd800;
           color: black;
           width: 100%;
-          margin-top: 25px;
+          margin-top: 75px;
           text-align: center;
           font-size: 1.2rem;
           z-index: 10;
+          padding: 5px 0px;
         }
 
         /* Vidéos */
@@ -95,7 +96,7 @@ export default function Hero() {
         /* Bouton centré */
         .center-button {
           position: absolute;
-          top: 85%; /* À 25% plus bas */
+          top: 80%;
           left: 50%;
           transform: translate(-50%, -50%);
           color: #ffffff;
