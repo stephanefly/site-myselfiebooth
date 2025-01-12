@@ -12,19 +12,6 @@ body {
   color: #333;
 }
 
-/* --- Reset CSS --- */
-* {
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  background-color: #ffffff;
-  color: #333;
-}
-
 
 /* --- Sections --- */
 section {

@@ -77,7 +77,6 @@ const Navbar = () => {
           display: inline-block;
           text-align: center;
           padding: 5px 10px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre subtile pour donner de la profondeur */
           transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effet moderne */
         }
 
