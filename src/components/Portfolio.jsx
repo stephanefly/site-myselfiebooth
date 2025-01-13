@@ -18,7 +18,7 @@ export default function Portfolio() {
 
   const styles = {
     section: {
-      backgroundColor: "#c1c1c1",
+      backgroundColor: "#b6b6b6",
       padding: "1rem 1rem",
     },
     container: {

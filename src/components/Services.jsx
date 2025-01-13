@@ -1,3 +1,5 @@
+import Photobooth from "../pages/photobooth";
+
 export default function Services() {
   const services = [
     {
@@ -11,6 +13,9 @@ export default function Services() {
         "Livraison et installation",
       ],
       image: "/images/photobooth.jpg",
+      infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+            price: "A Partir de 350€",
     },
     {
       title: "Miroirbooth",
@@ -23,6 +28,9 @@ export default function Services() {
         "Service complet sur place",
       ],
       image: "/images/miroirbooth.jpg",
+            infoLink: "/test", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+            price: "A Partir de 450€",
     },
     {
       title: "360 Booth",
@@ -35,6 +43,9 @@ export default function Services() {
         "Gestion complète sur place",
       ],
       image: "/images/360booth.jpg",
+            infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+                  price: "A Partir de 400€",
     },
     {
       title: "iPad Booth",
@@ -47,6 +58,9 @@ export default function Services() {
         "Conception compacte pour les petits espaces",
       ],
       image: "/images/ipadbooth.jpg",
+            infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+                  price: "A Partir de 250€",
     },
     {
       title: "Vogue Booth",
@@ -59,6 +73,9 @@ export default function Services() {
         "Équipe d'assistance sur place",
       ],
       image: "/images/voguebooth.jpg",
+            infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+      price: "A partir de 500€",
     },
     {
       title: "Air360 Booth",
@@ -73,6 +90,9 @@ export default function Services() {
         "Galerie Web",
       ],
       image: "/images/360booth.jpg",
+            infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+                  price: "A Partir de 400€",
     },
     {
       title: "Pack VIP",
@@ -86,6 +106,9 @@ export default function Services() {
         "Personnalisation",
       ],
       image: "/images/pack.jpg",
+            infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+                  price: "A Partir de 850€",
     },
     {
       title: "Options Supplémentaires",
@@ -98,6 +121,9 @@ export default function Services() {
         "Accessoires sur mesure",
       ],
       image: "/images/all_options.jpg",
+      infoLink: "/photobooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+                  price: "A Partir de 50€",
     },
   ];
 
@@ -151,6 +177,14 @@ export default function Services() {
       fontSize: "1rem",
       color: "#666",
       marginBottom: "1rem",
+          },
+    price: {
+      textAlign: "center",
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+      color: "#333",
+      paddingBottom: "1rem",
+      fontStyle: "italic",
     },
     featuresList: {
       listStyle: "none",
@@ -169,6 +203,28 @@ export default function Services() {
       color: "#d3a14a",
       fontSize: "1.2rem",
       marginRight: "0.5rem",
+    },
+
+    buttonWrapper: {
+      display: "flex",
+      justifyContent: "space-around",
+      marginTop: "auto",
+    },
+    button: {
+      color: "white",
+      padding: "10px 20px",
+      fontSize: "1rem",
+      border: "2px solid #897943",
+      textDecoration: "none",
+      borderRadius: "10px",
+      backgroundImage: "linear-gradient(to bottom, #ffef96, #5a4300)",
+      cursor: "pointer",
+      fontWeight: "bold",
+      transition: "transform 0.2s ease, background-color 0.3s ease",
+    },
+    buttonHover: {
+      backgroundImage: "linear-gradient(to bottom, #ffe600, #4a3200)",
+      transform: "scale(1.05)",
     },
   };
 
@@ -207,6 +263,15 @@ export default function Services() {
                       </li>
                   ))}
                 </ul>
+                <h3 style={styles.price}>{service.price}</h3>
+                <div style={styles.buttonWrapper}>
+                  <a href={service.infoLink} style={styles.button}>
+                    + d'info
+                  </a>
+                  <a href={service.reserveLink} style={styles.button}>
+                    Réserver !
+                  </a>
+                </div>
               </div>
           ))}
         </div>

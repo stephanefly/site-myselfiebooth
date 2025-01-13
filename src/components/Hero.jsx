@@ -1,14 +1,6 @@
 export default function Hero() {
   return (
     <section className="h-screen bg-black flex flex-col items-center justify-start text-white relative">
-      {/* Bannière */}
-      <div className="banner">
-        <p className="text-lg font-bold uppercase">
-          <b>
-            PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de remise!
-          </b>
-        </p>
-      </div>
 
       {/* Vidéos */}
       <div className="videos-container flex justify-between items-center flex-wrap mt-4 relative">
@@ -58,7 +50,14 @@ export default function Hero() {
           ></video>
         </div>
       </div>
-
+      {/* Bannière */}
+      <div className="banner">
+        <p className="text-lg font-bold uppercase">
+          <b>
+            PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de remise!
+          </b>
+        </p>
+      </div>
       {/* Styles CSS */}
       <style jsx>{`
         /* Bannière */
@@ -66,7 +65,7 @@ export default function Hero() {
           background-color: #ffd800;
           color: black;
           width: 100%;
-          margin-top: 75px;
+          margin-top: -10px;
           text-align: center;
           font-size: 1.2rem;
           z-index: 10;

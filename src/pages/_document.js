@@ -4,7 +4,8 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel="stylesheet" href="/styles/styles.css" />
+        {/* Chemin correct pour inclure un fichier CSS dans le dossier public */}
+        <link rel="stylesheet" href="public/styles/styles.css" />
       </Head>
       <body>
         <Main />

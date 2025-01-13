@@ -1,4 +1,4 @@
-import '../styles/styles.css';
+import '../../public/styles/styles.css';
 import Head from 'next/head';
 
 export default function App({ Component, pageProps }) {
@@ -18,6 +18,8 @@ export default function App({ Component, pageProps }) {
             <meta property="og:image" content="https://myselfiebooth-paris.fr/assets/images/photobooth.jpg"/>
             <meta property="og:url" content="https://myselfiebooth-paris.fr"/>
             <meta name="twitter:card" content="summary_large_image"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:site_name" content="MySelfieBooth"/>
             <link rel="icon" href="/favicon.ico"/>
         </Head>
         <Component {...pageProps} />
