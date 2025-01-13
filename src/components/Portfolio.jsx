@@ -18,20 +18,20 @@ export default function Portfolio() {
 
   const styles = {
     section: {
-      backgroundColor: "#b6b6b6",
-      padding: "1rem 1rem",
+      backgroundColor: "#d8d8d8",
+      padding: "1rem 2rem",
     },
     container: {
-      maxWidth: "1200px",
+      maxWidth: "1500px",
       margin: "0 auto",
       overflow: "hidden",
       position: "relative",
     },
     title: {
       textAlign: "center",
-      fontSize: "2.5rem",
+      fontSize: "1.7rem",
       fontWeight: "bold",
-      color: "#333",
+      color: "#3e3e3e",
       marginTop: "1rem",
     },
     logoWrapper: {
@@ -48,7 +48,7 @@ export default function Portfolio() {
       transition: "transform 0.3s ease",
     },
     logoHover: {
-      transform: "scale(1.1)",
+      transform: "scale(0.5)",
     },
   };
 
@@ -68,7 +68,7 @@ export default function Portfolio() {
         `}
         </style>
         <div style={styles.container}>
-          <h2 style={styles.title}>Ils nous ont fait confiance !</h2>
+          <h2 style={styles.title}>Ils nous ont fait confiance!</h2>
           <div style={{display: "flex", overflow: "hidden", width: "100%"}}>
             <div style={styles.logoWrapper}>
               {logos.concat(logos).map((logo, index) => (

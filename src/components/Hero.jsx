@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="video-container video-left">
           <video
             className="object-cover"
-            src="/videos/PUB_2024.webm"
+            src="/videos/compress-TOUR-EIFFEL-FINAL.mp4"
             autoPlay
             loop
             muted
@@ -42,7 +42,7 @@ export default function Hero() {
         <div className="video-container video-right">
           <video
             className="object-cover"
-            src="/videos/PUB_2024.webm"
+            src="/videos/compress-voguebooth.mp4"
             autoPlay
             loop
             muted
@@ -52,7 +52,7 @@ export default function Hero() {
       </div>
       {/* Bannière */}
       <div className="banner">
-        <p className="text-lg font-bold uppercase">
+        <p className="text-lg font-bold uppercase" style={{ color: '#990000' }}>
           <b>
             PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de remise!
           </b>
@@ -62,14 +62,14 @@ export default function Hero() {
       <style jsx>{`
         /* Bannière */
         .banner {
-          background-color: #ffd800;
-          color: black;
+          background: linear-gradient(150deg, #ae7e0b, #ffce00, #655c31);
           width: 100%;
-          margin-top: -10px;
+          margin-top: -12px;
           text-align: center;
           font-size: 1.2rem;
           z-index: 10;
-          padding: 5px 0px;
+          padding: 5px 2px;
+          border: #5a4300 2px solid;
         }
 
         /* Vidéos */
@@ -108,10 +108,10 @@ export default function Hero() {
           z-index: 10;
           transition: all 0.3s ease, box-shadow 0.3s ease;
           display: inline-block; /* Pour garder le style du bouton */
-         border: 2px solid #897943;
-         border-radius: 10px;
-         margin: 0 10px;
-         background-image: linear-gradient(to bottom, #ffef96, #5a4300);;
+          border: 2px solid #897943;
+          border-radius: 10px;
+          margin: 0 10px;
+          background-image: linear-gradient(to bottom, #ffef96, #5a4300);;
         }
 
         /* Effet au survol */
