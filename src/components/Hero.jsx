@@ -1,38 +1,34 @@
 export default function Hero() {
   return (
     <section className="h-screen bg-black flex flex-col items-center justify-start text-white relative">
+      <h1 className="text-center text-3xl font-bold my-4">
+        Louez un photobooth à Paris, Lyon et Rouen
+      </h1>
 
       {/* Vidéos */}
       <div className="videos-container flex justify-between items-center flex-wrap mt-4 relative">
         {/* Vidéo 1 */}
         <div className="video-container video-left">
-          <video
-            className="object-cover"
-            src="/videos/compress-TOUR-EIFFEL-FINAL.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-          ></video>
+          <video className="object-cover" autoPlay loop muted playsInline poster="/images/hero.jpg">
+            <source src="/videos/compress-TOUR-EIFFEL-FINAL.webm" type="video/webm" />
+            <source src="/videos/compress-TOUR-EIFFEL-FINAL.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
         </div>
 
         {/* Vidéo 2 avec le bouton */}
         <div className="video-container video-center relative">
-          <video
-            className="object-cover"
-            src="/videos/PUB_2024.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-          ></video>
-
-          {/* Lien stylé comme un bouton */}
+          <video className="object-cover" autoPlay loop muted playsInline poster="/images/hero.jpg">
+            <source src="/videos/PUB_2024.webm" type="video/webm" />
+            <source src="/videos/PUB_2024.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
           <a
             href="https://reservation.myselfiebooth-paris.fr"
             target="_blank"
             rel="noopener noreferrer"
             className="center-button"
+            title="Réservez votre photobooth sur notre plateforme"
           >
             Réservez !
           </a>
@@ -40,16 +36,14 @@ export default function Hero() {
 
         {/* Vidéo 3 */}
         <div className="video-container video-right">
-          <video
-            className="object-cover"
-            src="/videos/compress-voguebooth.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-          ></video>
+          <video className="object-cover" autoPlay loop muted playsInline poster="/images/hero.jpg">
+            <source src="/videos/compress-voguebooth.webm" type="video/webm" />
+            <source src="/videos/compress-voguebooth.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
         </div>
       </div>
+
       {/* Bannière */}
       <div className="banner">
         <p className="text-lg font-bold uppercase" style={{ color: '#990000' }}>
@@ -58,11 +52,12 @@ export default function Hero() {
           </b>
         </p>
       </div>
+
       {/* Styles CSS */}
       <style jsx>{`
         /* Bannière */
         .banner {
-          background: linear-gradient(150deg, #ae7e0b, #ffce00, #655c31);
+          background: linear-gradient(to left, #ac9b56, #7a7a7a);
           width: 100%;
           margin-top: -12px;
           text-align: center;
@@ -90,6 +85,7 @@ export default function Hero() {
           width: 100%;
           height: auto;
           border-radius: 8px;
+          transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
         }
 
         /* Bouton centré */
@@ -111,10 +107,9 @@ export default function Hero() {
           border: 2px solid #897943;
           border-radius: 10px;
           margin: 0 10px;
-          background-image: linear-gradient(to bottom, #ffef96, #5a4300);;
+          background-image: linear-gradient(to bottom, #ffef96, #5a4300);
         }
 
-        /* Effet au survol */
         .center-button:hover {
           background: linear-gradient(to top, #ffdd70, #dbbe60);
           transform: translate(-50%, -50%) scale(1.1); /* Légère mise en avant */

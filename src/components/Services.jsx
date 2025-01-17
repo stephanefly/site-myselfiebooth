@@ -129,7 +129,7 @@ export default function Services() {
 
   const styles = {
     section: {
-      backgroundColor: "#f9f9f9",
+      background: "linear-gradient(#ffffff, #ffffff, #34301a)",
       padding: "1rem 1rem",
     },
     container: {
@@ -149,7 +149,7 @@ export default function Services() {
       gap: "2rem",
     },
     card: {
-      backgroundColor: "#fff",
+      backgroundColor: "white",
       border: "2px solid #d3a14a",
       borderRadius: "15px",
       boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
@@ -231,7 +231,6 @@ export default function Services() {
   return (
     <section style={styles.section}>
       <div style={styles.container}>
-        <hr/>
         <h2 style={styles.title}>Nos Prestations</h2>
         <div style={styles.grid}>
           {services.map((service, index) => (
