@@ -9,22 +9,37 @@ export default function Hero() {
       <div className="videos-container flex justify-between items-center flex-wrap mt-4 relative">
         {/* Vidéo 1 */}
         <div className="video-container video-left">
-          <video className="object-cover" autoPlay loop muted playsInline poster="/images/hero.jpg">
-            <source src="/videos/compress-TOUR-EIFFEL-FINAL.webm" type="video/webm" />
-            <source src="/videos/compress-TOUR-EIFFEL-FINAL.mp4" type="video/mp4" />
+          <video
+              className="object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              loading="lazy"
+              poster="/images/hero.jpg"
+          >
+            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/TOUR-EIFFEL-FINAL.mp4"
+                    type="video/mp4"/>
             Votre navigateur ne supporte pas la vidéo.
           </video>
         </div>
 
-        {/* Vidéo 2 avec le bouton */}
+        {/* Vidéo 2 avec bouton */}
         <div className="video-container video-center relative">
-          <video className="object-cover" autoPlay loop muted playsInline poster="/images/hero.jpg">
-            <source src="/videos/PUB_2024.webm" type="video/webm" />
-            <source src="/videos/PUB_2024.mp4" type="video/mp4" />
+          <video
+              className="object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            loading="lazy"
+            poster="/images/hero.jpg"
+          >
+            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/PUB_2024.webm" type="video/webm"/>
             Votre navigateur ne supporte pas la vidéo.
           </video>
           <a
-            href="https://reservation.myselfiebooth-paris.fr"
+              href="https://reservation.myselfiebooth-paris.fr"
             target="_blank"
             rel="noopener noreferrer"
             className="center-button"
@@ -36,9 +51,17 @@ export default function Hero() {
 
         {/* Vidéo 3 */}
         <div className="video-container video-right">
-          <video className="object-cover" autoPlay loop muted playsInline poster="/images/hero.jpg">
-            <source src="/videos/compress-voguebooth.webm" type="video/webm" />
-            <source src="/videos/compress-voguebooth.mp4" type="video/mp4" />
+          <video
+            className="object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            loading="lazy"
+            poster="/images/hero.jpg"
+          >
+            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-voguebooth.mp4"
+                    type="video/mp4"/>
             Votre navigateur ne supporte pas la vidéo.
           </video>
         </div>
@@ -46,7 +69,7 @@ export default function Hero() {
 
       {/* Bannière */}
       <div className="banner">
-        <p className="text-lg font-bold uppercase" style={{ color: '#990000' }}>
+        <p className="text-lg font-bold uppercase" style={{ color: "#990000" }}>
           <b>
             PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de remise!
           </b>
@@ -71,8 +94,8 @@ export default function Hero() {
         .videos-container {
           display: flex;
           justify-content: space-between;
-          flex-wrap: nowrap;
-          gap: 0;
+          flex-wrap: nowrap;    
+          width: 100%;
         }
 
         .video-container {
@@ -95,25 +118,23 @@ export default function Hero() {
           left: 50%;
           transform: translate(-50%, -50%);
           color: #ffffff;
-          text-decoration: none; /* Supprime le soulignement */
-          padding: 1rem 1.5rem; /* Ajusté pour plus de largeur */
+          text-decoration: none;
+          padding: 1rem 1.5rem;
           font-size: 1.5rem;
           font-weight: bold;
-          box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 1); /* Ombre plus forte */
+          box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 1);
           cursor: pointer;
           z-index: 10;
           transition: all 0.3s ease, box-shadow 0.3s ease;
-          display: inline-block; /* Pour garder le style du bouton */
           border: 2px solid #897943;
           border-radius: 10px;
-          margin: 0 10px;
           background-image: linear-gradient(to bottom, #ffef96, #5a4300);
         }
 
         .center-button:hover {
           background: linear-gradient(to top, #ffdd70, #dbbe60);
-          transform: translate(-50%, -50%) scale(1.1); /* Légère mise en avant */
-          box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Accentue l’ombre */
+          transform: translate(-50%, -50%) scale(1.1);
+          box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Assombrir les vidéos sur les côtés */
@@ -122,11 +143,11 @@ export default function Hero() {
           filter: brightness(20%);
         }
 
-        /* Pour les écrans mobiles */
+        /* Responsive pour les mobiles */
         @media screen and (max-width: 768px) {
           .video-container:nth-child(1),
           .video-container:nth-child(3) {
-            display: none;
+            display: none; /* Cache les vidéos gauche et droite */
           }
 
           .video-container {
