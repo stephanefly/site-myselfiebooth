@@ -15,7 +15,7 @@ export default function Hero() {
             loop
             muted
             playsInline
-            poster="/images/hero-min.jpg"
+            poster="/images/hero-min.wepb"
             aria-label="Vidéo promotionnelle de Paris"
           >
             <source
@@ -34,7 +34,7 @@ export default function Hero() {
             loop
             muted
             playsInline
-            poster="/images/hero-min.jpg"
+            poster="/images/hero-min.wepb"
             aria-label="Vidéo promotionnelle centrale"
           >
             <source
@@ -63,7 +63,7 @@ export default function Hero() {
             loop
             muted
             playsInline
-            poster="/images/hero-min.jpg"
+            poster="/images/hero-min.wepb"
             aria-label="Vidéo promotionnelle de Rouen"
           >
             <source
