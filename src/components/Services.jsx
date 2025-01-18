@@ -12,7 +12,7 @@ export default function Services() {
         "Galerie Web",
         "Livraison et installation",
       ],
-      image: "/images/photobooth.jpg",
+      image: "/images/photobooth.wepb",
       infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
             price: "A Partir de 350€",
@@ -27,7 +27,7 @@ export default function Services() {
         "Accessoires de déguisement",
         "Service complet sur place",
       ],
-      image: "/images/miroirbooth.jpg",
+      image: "/images/miroirbooth.wepb",
             infoLink: "/test", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
             price: "A Partir de 450€",
@@ -42,7 +42,7 @@ export default function Services() {
         "Partage instantané sur les réseaux sociaux",
         "Gestion complète sur place",
       ],
-      image: "/images/360booth.jpg",
+      image: "/images/360booth.wepb",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 400€",
@@ -57,7 +57,7 @@ export default function Services() {
         "Personnalisation des photos",
         "Conception compacte pour les petits espaces",
       ],
-      image: "/images/ipadbooth.jpg",
+      image: "/images/ipadbooth.wepb",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 250€",
@@ -72,7 +72,7 @@ export default function Services() {
         "Personnalisation des décors",
         "Équipe d'assistance sur place",
       ],
-      image: "/images/voguebooth.jpg",
+      image: "/images/voguebooth.wepb",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
       price: "A partir de 500€",
@@ -89,7 +89,7 @@ export default function Services() {
         "Personnalisation",
         "Galerie Web",
       ],
-      image: "/images/360booth.jpg",
+      image: "/images/360booth.wepb",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 400€",
@@ -105,7 +105,7 @@ export default function Services() {
         "Galerie Web",
         "Personnalisation",
       ],
-      image: "/images/pack.jpg",
+      image: "/images/pack.wepb",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 850€",
@@ -120,7 +120,7 @@ export default function Services() {
         "Hologrammes 3D",
         "Accessoires sur mesure",
       ],
-      image: "/images/all_options.jpg",
+      image: "/images/all_options.wepb",
       infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 50€",

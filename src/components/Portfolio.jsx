@@ -1,19 +1,19 @@
 export default function Portfolio() {
   const logos = [
-    "/logos/sephora.png",
-    "/logos/prada.png",
-    "/logos/fitnesspark.png",
-    "/logos/safran.png",
-    "/logos/decathlon.png",
-    "/logos/leclerc.png",
-    "/logos/leroymerlin.png",
-    "/logos/bouygues.png",
-    "/logos/airfrance.png",
-    "/logos/renault.png",
-    "/logos/sncf.png",
-    "/logos/veolia.png",
-    "/logos/orange.png",
-    "/logos/axa.png",
+    "/logos/sephora.webp",
+    "/logos/prada.webp",
+    "/logos/fitnesspark.webp",
+    "/logos/safran.webp",
+    "/logos/decathlon.webp",
+    "/logos/leclerc.webp",
+    "/logos/leroymerlin.webp",
+    "/logos/bouygues.webp",
+    "/logos/airfrance.webp",
+    "/logos/renault.webp",
+    "/logos/sncf.webp",
+    "/logos/veolia.webp",
+    "/logos/orange.webp",
+    "/logos/axa.webp",
   ];
 
   const styles = {

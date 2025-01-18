@@ -50,7 +50,6 @@ const Navbar = () => {
 
       {/* Styles CSS */}
       <style jsx>{`
-        @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
         .navbar {
           position: fixed;
