@@ -35,7 +35,7 @@ export default function Hero() {
             loading="lazy"
             poster="/images/hero.jpg"
           >
-            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/PUB_2024.mp4" type="video/webm"/>
+            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/PUB_2024.mp4" type="video/mp4"/>
             Votre navigateur ne supporte pas la vidéo.
           </video>
           <a
