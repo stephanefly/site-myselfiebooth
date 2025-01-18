@@ -6,62 +6,70 @@ export default function Hero() {
       </h1>
 
       {/* Vidéos */}
-      <div className="videos-container flex justify-between items-center flex-wrap mt-4 relative">
+      <div className="videos-container flex items-center mt-4 relative">
         {/* Vidéo 1 */}
-        <div className="video-container video-left">
-          <video
-              className="object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              loading="lazy"
-              poster="/images/hero.jpg"
-          >
-            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-TOUR-EIFFEL-FINAL.mp4"
-                    type="video/mp4"/>
-            Votre navigateur ne supporte pas la vidéo.
-          </video>
-        </div>
-
-        {/* Vidéo 2 avec bouton */}
-        <div className="video-container video-center relative">
-          <video
-              className="object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline
-            loading="lazy"
-            poster="/images/hero.jpg"
-          >
-            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/PUB_2024.mp4" type="video/mp4"/>
-            Votre navigateur ne supporte pas la vidéo.
-          </video>
-          <a
-              href="https://reservation.myselfiebooth-paris.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="center-button"
-            title="Réservez votre photobooth sur notre plateforme"
-          >
-            Réservez !
-          </a>
-        </div>
-
-        {/* Vidéo 3 */}
-        <div className="video-container video-right">
+        <div className="video-container">
           <video
             className="object-cover"
             autoPlay
             loop
             muted
             playsInline
-            loading="lazy"
-            poster="/images/hero.jpg"
+            poster="/images/hero-min.jpg"
+            aria-label="Vidéo promotionnelle de Paris"
           >
-            <source src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-voguebooth.mp4"
-                    type="video/mp4"/>
+            <source
+              src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-TOUR-EIFFEL-FINAL.mp4"
+              type="video/mp4"
+            />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+        </div>
+
+        {/* Vidéo 2 avec bouton */}
+        <div className="video-container relative">
+          <video
+            className="object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/hero-min.jpg"
+            aria-label="Vidéo promotionnelle centrale"
+          >
+            <source
+              src="https://stephanefly.github.io/site-myselfiebooth/public/videos/PUB_2024.mp4"
+              type="video/mp4"
+            />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+          <a
+            href="https://reservation.myselfiebooth-paris.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="center-button"
+            title="Réservez votre photobooth sur notre plateforme"
+            aria-label="Réservez votre photobooth"
+          >
+            Réservez !
+          </a>
+        </div>
+
+        {/* Vidéo 3 */}
+        <div className="video-container">
+          <video
+            className="object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/hero-min.jpg"
+            aria-label="Vidéo promotionnelle de Rouen"
+          >
+            <source
+              src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-voguebooth.mp4"
+              type="video/mp4"
+            />
             Votre navigateur ne supporte pas la vidéo.
           </video>
         </div>
@@ -71,7 +79,8 @@ export default function Hero() {
       <div className="banner">
         <p className="text-lg font-bold uppercase" style={{ color: "#990000" }}>
           <b>
-            PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de remise!
+            PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de
+            remise!
           </b>
         </p>
       </div>
@@ -93,15 +102,16 @@ export default function Hero() {
         /* Vidéos */
         .videos-container {
           display: flex;
-          justify-content: space-between;
-          flex-wrap: nowrap;    
+          justify-content: center;
+          align-items: center;
           width: 100%;
         }
 
         .video-container {
-          flex: 1 1 auto;
-          margin: 0;
-          position: relative; /* Nécessaire pour positionner le bouton */
+          flex: 1 1 3%;
+          margin: 0; /* Supprime tout espace entre les vidéos */
+          position: relative;
+          overflow: hidden;
         }
 
         video {
@@ -138,15 +148,15 @@ export default function Hero() {
         }
 
         /* Assombrir les vidéos sur les côtés */
-        .video-left video,
-        .video-right video {
+        .video-container:first-child video,
+        .video-container:last-child video {
           filter: brightness(20%);
         }
 
         /* Responsive pour les mobiles */
         @media screen and (max-width: 768px) {
-          .video-container:nth-child(1),
-          .video-container:nth-child(3) {
+          .video-container:first-child,
+          .video-container:last-child {
             display: none; /* Cache les vidéos gauche et droite */
           }
 
