@@ -127,106 +127,111 @@ export default function Services() {
     },
   ];
 
-  const styles = {
-    section: {
-      background: "linear-gradient(#ffffff, #ffffff, #34301a)",
-      padding: "1rem 1rem",
-    },
-    container: {
-      maxWidth: "1200px",
-      margin: "0 auto",
-    },
-    title: {
-      textAlign: "center",
-      fontSize: "2.5rem",
-      fontWeight: "bold",
-      color: "#333",
-      margin: "1rem",
-    },
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
-      gap: "2rem",
-    },
-    card: {
-      backgroundColor: "white",
-      border: "2px solid #d3a14a",
-      borderRadius: "15px",
-      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
-      padding: "1.5rem",
-      textAlign: "center",
-      transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    },
-    cardHover: {
-      transform: "translateY(-10px)",
-      boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
-    },
-    image: {
-      width: "100%",
-      height: "auto",
-      borderRadius: "10px",
-      marginBottom: "1rem",
-    },
-    cardTitle: {
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-      color: "#333",
-      marginBottom: "1rem",
-    },
-    cardDescription: {
-      fontSize: "1rem",
-      color: "#666",
-      marginBottom: "1rem",
-          },
-    price: {
-      textAlign: "center",
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-      color: "#333",
-      paddingBottom: "1rem",
-      fontStyle: "italic",
-    },
-    featuresList: {
-      listStyle: "none",
-      padding: 0,
-      margin: 0,
-      textAlign: "left",
-    },
-    featureItem: {
-      display: "flex",
-      alignItems: "center",
-      marginBottom: "0.5rem",
-      fontSize: "1rem",
-      color: "#333",
-    },
-    featureIcon: {
-      color: "#d3a14a",
-      fontSize: "1.2rem",
-      marginRight: "0.5rem",
-    },
-
-    buttonWrapper: {
-      display: "flex",
-      justifyContent: "space-around",
-      marginTop: "auto",
-    },
-    button: {
-      color: "white",
-      padding: "10px 20px",
-      fontSize: "1rem",
-      border: "2px solid #897943",
-      textDecoration: "none",
-      borderRadius: "10px",
-      backgroundImage: "linear-gradient(to bottom, #ffef96, #5a4300)",
-      cursor: "pointer",
-      fontWeight: "bold",
-      transition: "transform 0.2s ease, background-color 0.3s ease",
-    },
-    buttonHover: {
-      background: "linear-gradient(to top, #ffdd70, #dbbe60)",
-      boxShadow: "0 12px 20px rgba(0, 0, 0, 0.3)",
-    },
-  };
+ const styles = {
+  section: {
+    background: "linear-gradient(to bottom, #ffffff, #f5f5f5)",
+    padding: "2rem 1rem",
+  },
+  container: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "0 1rem",
+  },
+  title: {
+    textAlign: "center",
+    fontSize: "2.5rem",
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: "2rem",
+  },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Responsive grid
+    gap: "2rem",
+  },
+  card: {
+    backgroundColor: "#fff",
+    border: "1px solid #ddd",
+    borderRadius: "15px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    padding: "1.5rem",
+    textAlign: "center",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  cardHover: {
+    transform: "translateY(-10px)",
+    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+    borderRadius: "10px",
+    marginBottom: "1rem",
+  },
+  cardTitle: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: "0.5rem",
+  },
+  cardDescription: {
+    fontSize: "1rem",
+    color: "#666",
+    marginBottom: "1rem",
+    lineHeight: "1.5",
+  },
+  price: {
+    textAlign: "center",
+    fontSize: "1.25rem",
+    fontWeight: "bold",
+    color: "#444",
+    margin: "1rem 0",
+  },
+  featuresList: {
+    listStyle: "none",
+    padding: 0,
+    margin: 0,
+    textAlign: "left",
+    fontSize: "0.9rem",
+    color: "#555",
+  },
+  featureItem: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: "0.5rem",
+  },
+  featureIcon: {
+    color: "#d3a14a",
+    fontSize: "1.2rem",
+    marginRight: "0.5rem",
+  },
+  buttonWrapper: {
+    display: "flex",
+    justifyContent: "space-around",
+    marginTop: "1rem",
+  },
+  button: {
+    color: "#fff",
+    padding: "10px 20px",
+    fontSize: "1rem",
+    textDecoration: "none",
+    borderRadius: "10px",
+    background: "linear-gradient(rgb(236 219 133), rgb(126 104 32))",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    transition: "transform 0.2s ease, background-color 0.3s ease",
+    fontWeight: "bold",
+    border: "none",
+    cursor: "pointer",
+  },
+  buttonHover: {
+    background: "linear-gradient(to top, #ffcc00, #ffdd00)",
+    transform: "translateY(-3px)",
+    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+  },
+};
 
   return (
     <section style={styles.section}>
