@@ -3,9 +3,14 @@ import React, { useState } from 'react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleEventsDropdown = () => {
+    setEventsDropdownOpen(!eventsDropdownOpen);
   };
 
   return (
@@ -32,8 +37,18 @@ const Navbar = () => {
             </ul>
           </li>
 
-
-          <li><a href="#events">Événements ▾</a></li>
+          <li className="dropdown">
+            <a href="#events" onClick={toggleEventsDropdown}>
+              Nos Événements ▾
+            </a>
+            <ul className={`dropdown-menu ${eventsDropdownOpen ? 'show' : ''}`}>
+              <li><a href="/mariages">Mariages</a></li>
+              <li><a href="/anniversaires">Anniversaires</a></li>
+              <li><a href="/corporate">Corporate</a></li>
+              <li><a href="/soirees">Soirées</a></li>
+              <li><a href="/baptemes">Baptêmes</a></li>
+            </ul>
+          </li>
           <li>
             <div className="phone-container">
               <span className="phone-icon">📞</span>
@@ -88,7 +103,7 @@ const Navbar = () => {
           list-style: none;
           display: flex;
           gap: 20px;
-          margin: 0;
+          margin-top: 20px;
           padding: 0;
           align-items: center;
         }
