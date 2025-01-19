@@ -129,7 +129,7 @@ const Navbar = () => {
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgb(38 32 0 / 90%);
   border-radius: 10px;
   padding: 0;
   list-style: none;
