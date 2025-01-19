@@ -89,7 +89,7 @@ export default function Hero() {
       <style jsx>{`
         /* Bannière */
         .banner {
-          background: linear-gradient(to left, #ac9b56, #7a7a7a);
+          background: linear-gradient(to left, #ac9b56, #eee0a2);
           width: 100%;
           margin-top: -12px;
           text-align: center;

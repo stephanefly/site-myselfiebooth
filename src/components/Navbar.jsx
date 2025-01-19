@@ -108,7 +108,9 @@ const Navbar = () => {
           background-image: linear-gradient(to bottom, #ffef96, #5a4300);
           display: none; /* Cacher sur mobile */
         }
-
+        .cta-button:hover {
+          background-image: linear-gradient(to bottom, #ffcc00, #dbbe60);
+        }
         .menu-button {
           background: none;
           border: none;
