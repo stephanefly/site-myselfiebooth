@@ -12,7 +12,7 @@ export default function Services() {
         "Galerie Web",
         "Livraison et installation",
       ],
-      image: "/images/photobooth.wepb",
+      image: "/images/photobooth.webp",
       infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
             price: "A Partir de 350€",
@@ -27,7 +27,7 @@ export default function Services() {
         "Accessoires de déguisement",
         "Service complet sur place",
       ],
-      image: "/images/miroirbooth.wepb",
+      image: "/images/miroirbooth.webp",
             infoLink: "/test", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
             price: "A Partir de 450€",
@@ -42,7 +42,7 @@ export default function Services() {
         "Partage instantané sur les réseaux sociaux",
         "Gestion complète sur place",
       ],
-      image: "/images/360booth.wepb",
+      image: "/images/360booth.webp",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 400€",
@@ -57,7 +57,7 @@ export default function Services() {
         "Personnalisation des photos",
         "Conception compacte pour les petits espaces",
       ],
-      image: "/images/ipadbooth.wepb",
+      image: "/images/ipadbooth.webp",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 250€",
@@ -72,7 +72,7 @@ export default function Services() {
         "Personnalisation des décors",
         "Équipe d'assistance sur place",
       ],
-      image: "/images/voguebooth.wepb",
+      image: "/images/voguebooth.webp",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
       price: "A partir de 500€",
@@ -89,7 +89,7 @@ export default function Services() {
         "Personnalisation",
         "Galerie Web",
       ],
-      image: "/images/360booth.wepb",
+      image: "/images/360booth.webp",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 400€",
@@ -105,7 +105,7 @@ export default function Services() {
         "Galerie Web",
         "Personnalisation",
       ],
-      image: "/images/pack.wepb",
+      image: "/images/pack.webp",
             infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 850€",
@@ -120,7 +120,7 @@ export default function Services() {
         "Hologrammes 3D",
         "Accessoires sur mesure",
       ],
-      image: "/images/all_options.wepb",
+      image: "/images/all_options.webp",
       infoLink: "/photobooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 50€",
@@ -145,7 +145,7 @@ export default function Services() {
     },
     grid: {
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+      gridTemplateColumns: "repeat(3, 1fr)",
       gap: "2rem",
     },
     card: {
@@ -223,8 +223,8 @@ export default function Services() {
       transition: "transform 0.2s ease, background-color 0.3s ease",
     },
     buttonHover: {
-      backgroundImage: "linear-gradient(to bottom, #ffe600, #4a3200)",
-      transform: "scale(1.05)",
+      background: "linear-gradient(to top, #ffdd70, #dbbe60)",
+      boxShadow: "0 12px 20px rgba(0, 0, 0, 0.3)",
     },
   };
 
@@ -264,10 +264,28 @@ export default function Services() {
                 </ul>
                 <h3 style={styles.price}>{service.price}</h3>
                 <div style={styles.buttonWrapper}>
-                  <a href={service.infoLink} style={styles.button}>
+                  <a
+                      href={service.infoLink}
+                      style={styles.button}
+                      onMouseEnter={(e) =>
+                          Object.assign(e.currentTarget.style, styles.buttonHover)
+                      }
+                      onMouseLeave={(e) =>
+                          Object.assign(e.currentTarget.style, styles.button)
+                      }
+                  >
                     + d'info
                   </a>
-                  <a href={service.reserveLink} style={styles.button}>
+                  <a
+                      href={service.reserveLink}
+                      style={styles.button}
+                      onMouseEnter={(e) =>
+                          Object.assign(e.currentTarget.style, styles.buttonHover)
+                      }
+                      onMouseLeave={(e) =>
+                          Object.assign(e.currentTarget.style, styles.button)
+                      }
+                  >
                     Réserver !
                   </a>
                 </div>
