@@ -2,55 +2,57 @@ import React, { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Texte à la place du logo */}
         <div className="navbar-logo">
-          <a href="/" className="brand-name">
-            MySelfieBooth
-          </a>
+          <a href="/" className="brand-name">MySelfieBooth</a>
         </div>
 
-        {/* Navigation Links */}
         <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
-          <li>
-            <a href="#services">Nos Prestations ▾</a>
+          <li className="dropdown">
+            <a href="#services" onClick={toggleDropdown}>
+              Nos Prestations ▾
+            </a>
+            <ul className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
+              <li><a href="/photobooth">Photobooth</a></li>
+              <li><a href="/miroirbooth">Miroirbooth</a></li>
+              <li><a href="/360booth">360 Booth</a></li>
+              <li><a href="/ipadbooth">iPad Booth</a></li>
+              <li><a href="/voguebooth">Vogue Booth</a></li>
+              <li><a href="/air360booth">Air360 Booth</a></li>
+              <li><a href="/packvip">Pack VIP</a></li>
+              <li><a href="/options">Options Supplémentaires</a></li>
+            </ul>
           </li>
+
+
+          <li><a href="#events">Événements ▾</a></li>
           <li>
-            <a href="#events">Événements ▾</a>
-          </li>
-          <li>
-            {/* Numéro de téléphone */}
             <div className="phone-container">
               <span className="phone-icon">📞</span>
-              <a href="tel:0699733998" className="phone-number">
-                06 99 73 39 98
-              </a>
+              <a href="tel:0699733998" className="phone-number">06 99 73 39 98</a>
             </div>
           </li>
         </ul>
 
-        {/* Call-to-Action Button */}
-        <a
-          className="cta-button"
-          href="https://reservation.myselfiebooth-paris.fr"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a className="cta-button" href="https://reservation.myselfiebooth-paris.fr" target="_blank"
+           rel="noopener noreferrer">
           Estimer mon prix
         </a>
 
-        {/* Menu Button */}
         <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </button>
       </div>
 
-      {/* Styles CSS */}
       <style jsx>{`
-
         .navbar {
           position: fixed;
           top: 0;
@@ -58,66 +60,28 @@ const Navbar = () => {
           width: 100%;
           background: linear-gradient(45deg, #000000, #675e32);
           color: white;
-          padding: 10px 15px 10px 100px;
+          padding: 15px 20px;
           z-index: 1000;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
         }
-
-        /* Texte avec Great Vibes et gradient */
-        .navbar-logo .brand-name {
-          font-family: "Great Vibes", cursive;
-          font-size: 1.5rem; /* Augmenté pour plus de présence */
-          font-weight: bold;
-          letter-spacing: 0.2px; /* Espacement subtil entre les lettres */
-          background: linear-gradient(150deg, #ffffff, #cabd8c, #b8860b); /* Gradient raffiné */
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          text-decoration: none;
-          display: inline-block;
-          text-align: center;
-          padding: 5px 10px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Effet moderne */
-        }
-
-        .navbar-logo .brand-name:hover {
-          transform: scale(1.05); /* Légère mise en avant au survol */
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Accentue l’ombre au survol */
-        }
-
 
         .navbar-container {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 100%;
           max-width: 1200px;
+          margin: 0 auto;
           padding: 0 20px;
         }
 
-        .navbar-logo .logo {
-          height: 50px;
-        }
-
-        .cta-button {
-          color: white;
-          padding: 10px 10px;
-          font-size: 1rem;
-          border: 2px solid #897943;
+        .navbar-logo .brand-name {
+          font-family: "Great Vibes", cursive;
+          font-size: 1.8rem;
+          font-weight: bold;
+          background: linear-gradient(150deg, #ffffff, #cabd8c, #b8860b);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           text-decoration: none;
-          border-radius: 10px;
-          background-image: linear-gradient(to bottom, #ffef96, #5a4300);
-          display: none; /* Cacher sur mobile */
-        }
-        .cta-button:hover {
-          background-image: linear-gradient(to bottom, #ffcc00, #dbbe60);
-        }
-        .menu-button {
-          background: none;
-          border: none;
-          color: white;
-          font-size: 22px;
-          cursor: pointer;
-          display: none; /* Cacher sur écrans larges */
         }
 
         .navbar-links {
@@ -125,12 +89,7 @@ const Navbar = () => {
           display: flex;
           gap: 20px;
           margin: 0;
-          padding-left: 20px;
-          align-items: center;
-        }
-
-        .navbar-links li {
-          display: flex;
+          padding: 0;
           align-items: center;
         }
 
@@ -139,77 +98,131 @@ const Navbar = () => {
           color: white;
           font-weight: bold;
           font-size: 1rem;
+          transition: color 0.3s ease;
+        }
+
+        .navbar-links li a:hover {
+          color: #ffcc00;
+        }
+        
+        .dropdown {
+  position: relative;
+}
+        
+/* Positionnement du menu sur les écrans larges */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 0;
+  list-style: none;
+  min-width: 220px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  transition: all 0.4s ease-in-out;
+  transform: translateY(-10px);
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  max-height: 500px;
+  transform: translateY(0);
+  padding: 10px 0;
+}
+
+        .dropdown-menu li {
+          padding: 12px 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu li:last-child {
+          border-bottom: none;
+        }
+
+        .dropdown-menu li a {
+          text-decoration: none;
+          color: #fff;
+          font-size: 1rem;
+          font-weight: bold;
+          display: block;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .dropdown-menu li a:hover {
+          background: linear-gradient(to right, #ffef96, #5a4300);
+          color: #000;
+          padding-left: 25px;
+        }
+
+        .cta-button {
+          color: white;
+          padding: 10px 20px;
+          font-size: 1rem;
+          border: 2px solid #897943;
+          border-radius: 10px;
+          background-image: linear-gradient(to bottom, #ffef96, #5a4300);
+          text-decoration: none;
+        }
+
+        .cta-button:hover {
+          background-image: linear-gradient(to bottom, #ffcc00, #dbbe60);
+        }
+
+        .menu-button {
+          background: none;
+          border: none;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          display: none;
         }
 
         .phone-container {
           display: flex;
           align-items: center;
-          gap: 8px;
           color: #ffc107;
-          font-weight: bold;
-          font-size: 1rem;
-        }
-
-        .phone-icon {
-          font-size: 1.2rem;
         }
 
         .phone-number {
           text-decoration: none;
           color: #ffc107;
+          font-weight: bold;
         }
 
-        /* Alignement sur écrans larges */
-        @media (min-width: 1024px) {
-
-          .navbar-links {
-            margin-left: auto; /* Pousse les liens à droite */
-          }
-
-          .cta-button {
-            display: inline-block; /* Affiche le bouton sur écran large */
-            margin-left: 20px;
-          }
-
-          .menu-button {
-            display: none; /* Masque le menu hamburger */
-          }
-        }
-
-        /* Menu pour les écrans mobiles */
         @media (max-width: 1024px) {
           .menu-button {
-            display: block; /* Affiche le bouton hamburger */
-          }
-
-          .navbar {
-            padding: 5px 0px 10px 0px; /* Pousse les liens à droite */
-            margin-bottom: 5px;
+            display: block;
           }
 
           .navbar-links {
             flex-direction: column;
-            display: none; /* Masque les liens par défaut */
-            gap: 10px;
-            width: 100%;
-            text-align: center;
-            background: linear-gradient(45deg, #000000, #393400);
+            display: none;
             position: absolute;
             top: 60px;
             left: 0;
+            width: 100%;
+            background: linear-gradient(45deg, #000000, #393400);
+            padding: 20px 0;
           }
 
           .navbar-links.open {
-            display: flex; /* Affiche le menu quand ouvert */
-            padding: 20px;
+            display: flex;
           }
 
-          .navbar-logo {
-            margin-top: 10px;
+          .dropdown-menu {
+            position: relative;
+            width: 100%;
+            text-align: center;
           }
 
           .cta-button {
-            display: block; /* Bouton affiché dans le menu mobile */
+            display: block;
             margin-top: 10px;
           }
         }
