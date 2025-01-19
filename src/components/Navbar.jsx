@@ -86,7 +86,6 @@ const Navbar = () => {
           align-items: center;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 20px;
         }
 
         .navbar-logo .brand-name {
