@@ -43,10 +43,9 @@ const Navbar = () => {
             </a>
             <ul className={`dropdown-menu ${eventsDropdownOpen ? 'show' : ''}`}>
               <li><a href="/mariages">Mariages</a></li>
-              <li><a href="/anniversaires">Anniversaires</a></li>
               <li><a href="/corporate">Corporate</a></li>
+              <li><a href="/anniversaires">Anniversaires</a></li>
               <li><a href="/soirees">Soirées</a></li>
-              <li><a href="/baptemes">Baptêmes</a></li>
             </ul>
           </li>
           <li>
@@ -118,37 +117,37 @@ const Navbar = () => {
         .navbar-links li a:hover {
           color: #ffcc00;
         }
-        
-        .dropdown {
-  position: relative;
-}
-        
-/* Positionnement du menu sur les écrans larges */
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: rgb(38 32 0 / 90%);
-  border-radius: 10px;
-  padding: 0;
-  list-style: none;
-  min-width: 220px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-  transition: all 0.4s ease-in-out;
-  transform: translateY(-10px);
-}
 
-.dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
-  max-height: 500px;
-  transform: translateY(0);
-  padding: 10px 0;
-}
+        .dropdown {
+          position: relative;
+        }
+
+        /* Positionnement du menu sur les écrans larges */
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: rgb(38 32 0 / 90%);
+          border-radius: 10px;
+          padding: 0;
+          list-style: none;
+          min-width: 220px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+          overflow: hidden;
+          opacity: 0;
+          visibility: hidden;
+          max-height: 0;
+          transition: all 0.4s ease-in-out;
+          transform: translateY(-10px);
+        }
+
+        .dropdown-menu.show {
+          opacity: 1;
+          visibility: visible;
+          max-height: 500px;
+          transform: translateY(0);
+          padding: 10px 0;
+        }
 
         .dropdown-menu li {
           padding: 12px 20px;
@@ -185,7 +184,7 @@ const Navbar = () => {
         }
 
         .cta-button:hover {
-          background: #fbe9a3;
+          background: linear-gradient(to bottom, #77611f, #ffef96);
           box-shadow: 0 10px 30px rgba(255, 255, 255, 0.99);
         }
 

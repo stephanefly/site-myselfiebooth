@@ -136,7 +136,6 @@ export default function Hero() {
           cursor: pointer;
           z-index: 10;
           transition: all 0.3s ease, box-shadow 0.3s ease;
-          border: 2px solid #897943;
           border-radius: 10px;
           background-image: linear-gradient(to bottom, #ffef96, #5a4300);
         }

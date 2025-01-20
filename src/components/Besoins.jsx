@@ -13,29 +13,29 @@ const Besoins = () => {
 
 
         <div className="needs-grid">
-          <div className="needs-item">
-            <img src="/images/template_model.jpg" alt="Particulier" className="background-image"/>
+          <div className="needs-item" onClick={() => window.location.href = '/mariage'}>
+            <img src="/images/template_model.jpg" alt="Mariage" className="background-image"/>
             <div className="overlay">
               <h3>Mariage</h3>
             </div>
           </div>
 
-          <div className="needs-item">
+          <div className="needs-item" onClick={() => window.location.href = '/entreprise'}>
             <img src="/images/template_model.jpg" alt="Entreprise" className="background-image"/>
+            <div className="overlay">
+              <h3>Entreprise</h3>
+            </div>
+          </div>
+          <div className="needs-item" onClick={() => window.location.href = '/anniversaire'}>
+            <img src="/images/template_model.jpg" alt="Anniversaire" className="background-image"/>
             <div className="overlay">
               <h3>Anniversaire</h3>
             </div>
           </div>
-          <div className="needs-item">
-            <img src="/images/template_model.jpg" alt="Entreprise" className="background-image"/>
+          <div className="needs-item" onClick={() => window.location.href = '/soirees'}>
+            <img src="/images/template_model.jpg" alt="Soirees" className="background-image"/>
             <div className="overlay">
-              <h3>Corporate</h3>
-            </div>
-          </div>
-          <div className="needs-item">
-            <img src="/images/template_model.jpg" alt="Entreprise" className="background-image"/>
-            <div className="overlay">
-              <h3>Soirée</h3>
+              <h3>Soirées</h3>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ const Besoins = () => {
 
       <style jsx>{`
         .douleur-section {
-          padding: 20px 20px;
+          padding: 30px 20px;
           background: linear-gradient(45deg, #dddacb, #675e32);
           color: #fff;
           text-align: center;
@@ -70,7 +70,7 @@ const Besoins = () => {
         .description {
           font-size: 1.2rem;
           color: #ddd;
-          margin-bottom: 10px;
+          margin-bottom: 15px;
           line-height: 1.5;
         }
 
@@ -89,11 +89,13 @@ const Besoins = () => {
           overflow: hidden;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
           transition: all 0.3s ease;
+
         }
 
         .needs-item:hover {
           transform: translateY(-10px);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+          cursor: pointer; /* Ajout pour changer le pointeur */
+          box-shadow: 0 10px 25px rgb(255, 255, 255);
         }
 
         .background-image {
@@ -110,7 +112,7 @@ const Besoins = () => {
           position: relative;
           z-index: 2;
           padding: 120px 20px;
-          background: rgba(248, 248, 248, 0.81);
+          background: rgb(248 248 248 / 73%);
           color: #fff;
           text-align: center;
           border-radius: 15px;
@@ -136,7 +138,7 @@ const Besoins = () => {
         }
 
         .cta-btn:hover {
-          background: #fbe9a3;
+          background: linear-gradient(to bottom, #a69850, #e8d07a);
           box-shadow: 0 10px 30px rgba(255, 255, 255, 0.99);
         }
 
