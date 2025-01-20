@@ -220,16 +220,17 @@ export default function Services() {
     textDecoration: "none",
     borderRadius: "10px",
     background: "linear-gradient(rgb(236 219 133), rgb(126 104 32))",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    boxShadow: "0 2px 5px rgb(11, 11, 11)",
     transition: "transform 0.2s ease, background-color 0.3s ease",
     fontWeight: "bold",
     border: "none",
     cursor: "pointer",
+
   },
   buttonHover: {
-    background: "linear-gradient(to top, #ffcc00, #ffdd00)",
-    transform: "translateY(-3px)",
-    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+    background: "#fbe9a3",
+    transform: "translateY(-5px)",
+    boxShadow: "0 10px 30px rgba(255, 255, 255, 0.99)",
   },
 };
 

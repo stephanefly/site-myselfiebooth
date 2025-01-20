@@ -144,7 +144,7 @@ export default function Hero() {
         .center-button:hover {
           background: linear-gradient(to top, #ffdd70, #dbbe60);
           transform: translate(-50%, -50%) scale(1.1);
-          box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 30px rgba(255, 255, 255, 0.99);
         }
 
         /* Assombrir les vidéos sur les côtés */

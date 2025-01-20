@@ -178,14 +178,15 @@ const Navbar = () => {
           color: white;
           padding: 10px 20px;
           font-size: 1rem;
-          border: 2px solid #897943;
           border-radius: 10px;
           background-image: linear-gradient(to bottom, #ffef96, #5a4300);
           text-decoration: none;
+          box-shadow: 0 5px 15px rgb(11, 11, 11);
         }
 
         .cta-button:hover {
-          background-image: linear-gradient(to bottom, #ffcc00, #dbbe60);
+          background: #fbe9a3;
+          box-shadow: 0 10px 30px rgba(255, 255, 255, 0.99);
         }
 
         .menu-button {
