@@ -1,19 +1,30 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [PrestationdropdownOpen, setPrestationDropdownOpen] = useState(false);
   const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
+  const [OptionsDropdownOpen, setOptionsDropdownOpen] = useState(false);
+  const router = useRouter();
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    // BasePath dynamique (utile si basePath est défini dans next.config.js)
+  const basePath = router.basePath || '';
+
+  const togglePrestationDropdown = () => {
+    setPrestationDropdownOpen(!PrestationdropdownOpen);
   };
 
   const toggleEventsDropdown = () => {
     setEventsDropdownOpen(!eventsDropdownOpen);
   };
 
-  return (
+  const toggleOptionDropdown = () => {
+    setOptionsDropdownOpen(!OptionsDropdownOpen);
+  };
+    
+    return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
@@ -22,30 +33,39 @@ const Navbar = () => {
 
         <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
           <li className="dropdown">
-            <a href="#services" onClick={toggleDropdown}>
+            <a href="#prestation" onClick={togglePrestationDropdown}>
               Nos Prestations ▾
             </a>
-            <ul className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
-              <li><a href="/photobooth">Photobooth</a></li>
-              <li><a href="/miroirbooth">Miroirbooth</a></li>
-              <li><a href="/360booth">360 Booth</a></li>
-              <li><a href="/ipadbooth">iPad Booth</a></li>
-              <li><a href="/voguebooth">Vogue Booth</a></li>
-              <li><a href="/air360booth">Air360 Booth</a></li>
-              <li><a href="/packvip">Pack VIP</a></li>
-              <li><a href="/options">Options Supplémentaires</a></li>
+            <ul className={`dropdown-menu ${PrestationdropdownOpen ? 'show' : ''}`}>
+              <li><Link href={`${basePath}/prestation/photobooth`} legacyBehavior><a>Photobooth</a></Link></li>
+              <li><Link href={`${basePath}/prestation/miroirbooth`} legacyBehavior><a>Miroirbooth</a></Link></li>
+              <li><Link href={`${basePath}/prestation/360booth`} legacyBehavior><a>360 Booth</a></Link></li>
+              <li><Link href={`${basePath}/prestation/ipadbooth`} legacyBehavior><a>iPad Booth</a></Link></li>
+              <li><Link href={`${basePath}/prestation/voguebooth`} legacyBehavior><a>Vogue Booth</a></Link></li>
+              <li><Link href={`${basePath}/prestation/air360booth`} legacyBehavior><a>Air360 Booth</a></Link></li>
+              <li><Link href={`${basePath}/prestation/packvip`} legacyBehavior><a>Pack VIP</a></Link></li>
+              <li><Link href={`${basePath}/prestation/options`} legacyBehavior><a>Options Supplémentaires</a></Link>
+              </li>
             </ul>
           </li>
 
           <li className="dropdown">
-            <a href="#events" onClick={toggleEventsDropdown}>
+            <a href="#evenement" onClick={toggleEventsDropdown}>
               Nos Événements ▾
             </a>
             <ul className={`dropdown-menu ${eventsDropdownOpen ? 'show' : ''}`}>
-              <li><a href="/mariages">Mariages</a></li>
-              <li><a href="/corporate">Corporate</a></li>
-              <li><a href="/anniversaires">Anniversaires</a></li>
-              <li><a href="/soirees">Soirées</a></li>
+              <li><Link href={`${basePath}/evenement/mariages`} legacyBehavior><a>Mariages</a></Link></li>
+              <li><Link href={`${basePath}/evenement/corporate`} legacyBehavior><a>Corporate</a></Link></li>
+              <li><Link href={`${basePath}/evenement/anniversaires`} legacyBehavior><a>Anniversaires</a></Link></li>
+              <li><Link href={`${basePath}/evenement/soirees`} legacyBehavior><a>Soirées</a></Link></li>
+            </ul>
+          </li>
+          <li className="dropdown">
+            <a href="#evenement" onClick={toggleOptionDropdown}>
+              Nos Options ▾
+            </a>
+            <ul className={`dropdown-menu ${OptionsDropdownOpen ? 'show' : ''}`}>
+              <li><Link href={`${basePath}/option/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
             </ul>
           </li>
           <li>
@@ -101,6 +121,7 @@ const Navbar = () => {
           list-style: none;
           display: flex;
           gap: 20px;
+          color: #fff !important;  /* Forcer la couleur blanche */
           margin-top: 20px;
           padding: 0;
           align-items: center;
@@ -115,7 +136,7 @@ const Navbar = () => {
         }
 
         .navbar-links li a:hover {
-          color: #ffcc00;
+          color: #000000;
         }
 
         .dropdown {
@@ -158,16 +179,22 @@ const Navbar = () => {
           border-bottom: none;
         }
 
-        .dropdown-menu li a {
+        .dropdown-menu li {
           text-decoration: none;
-          color: #fff;
+          color: #fff !important;  /* Forcer la couleur blanche */
           font-size: 1rem;
           font-weight: bold;
           display: block;
           transition: all 0.3s ease-in-out;
         }
-
-        .dropdown-menu li a:hover {
+        /* Empêcher le navigateur de changer la couleur après clic */
+        .dropdown-menu li a:visited,
+        .dropdown-menu li a:active,
+        .dropdown-menu li a:focus {
+          color: #fff !important; /* Reste blanc */
+        }
+        
+        .dropdown-menu li:hover {
           background: linear-gradient(to right, #ffef96, #5a4300);
           color: #000;
           padding-left: 25px;

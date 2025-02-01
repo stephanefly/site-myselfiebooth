@@ -1,4 +1,4 @@
-import Photobooth from "../pages/photobooth";
+import Photobooth from "../pages/prestation/photobooth";
 
 export default function Services() {
   const services = [
@@ -28,7 +28,7 @@ export default function Services() {
         "Service complet sur place",
       ],
       image: "/images/miroirbooth.webp",
-            infoLink: "/test", // Lien vers plus d'infos
+            infoLink: "/miroirbooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
             price: "A Partir de 450€",
     },
@@ -43,7 +43,7 @@ export default function Services() {
         "Gestion complète sur place",
       ],
       image: "/images/360booth.webp",
-            infoLink: "/photobooth", // Lien vers plus d'infos
+            infoLink: "/360booth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 400€",
     },
@@ -58,7 +58,7 @@ export default function Services() {
         "Conception compacte pour les petits espaces",
       ],
       image: "/images/ipadbooth.webp",
-            infoLink: "/photobooth", // Lien vers plus d'infos
+            infoLink: "/ipadbooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 250€",
     },
@@ -73,7 +73,7 @@ export default function Services() {
         "Équipe d'assistance sur place",
       ],
       image: "/images/voguebooth.webp",
-            infoLink: "/photobooth", // Lien vers plus d'infos
+            infoLink: "/voguebooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
       price: "A partir de 500€",
     },
@@ -89,8 +89,8 @@ export default function Services() {
         "Personnalisation",
         "Galerie Web",
       ],
-      image: "/images/360booth.webp",
-            infoLink: "/photobooth", // Lien vers plus d'infos
+      image: "/images/airbooth.webp",
+            infoLink: "/air360booth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 400€",
     },
@@ -106,11 +106,43 @@ export default function Services() {
         "Personnalisation",
       ],
       image: "/images/pack.webp",
-            infoLink: "/photobooth", // Lien vers plus d'infos
+            infoLink: "/packvip", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
                   price: "A Partir de 850€",
     },
     {
+      title: "Pack VIP",
+      description:
+        "Profitez d'une expérience unique en combinant le Vogue Booth, le 360 Booth et le Photobooth. Idéal pour les événements exclusifs, mariages et soirées de prestige.",
+      features: [
+        "Livraison et installation incluses",
+        "3 Animateurs sur place",
+        "Vidéos et impressions illimitées",
+        "Galerie Web pour partager les moments",
+        "Personnalisation des animations et décors",
+      ],
+      image: "/images/pack.webp",  // ✅ Assure-toi que cette image existe
+      infoLink: "/sous-pages/packvip", // ✅ Chemin mis à jour selon ta structure
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/",
+      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestation complète
+    },
+          {
+      title: "Pack VIP",
+      description:
+        "Profitez d'une expérience unique en combinant le Vogue Booth, le 360 Booth et le Photobooth. Idéal pour les événements exclusifs, mariages et soirées de prestige.",
+      features: [
+        "Livraison et installation incluses",
+        "3 Animateurs sur place",
+        "Vidéos et impressions illimitées",
+        "Galerie Web pour partager les moments",
+        "Personnalisation des animations et décors",
+      ],
+      image: "/images/pack.webp",  // ✅ Assure-toi que cette image existe
+      infoLink: "/sous-pages/packvip", // ✅ Chemin mis à jour selon ta structure
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/",
+      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestation complète
+    },
+      {
       title: "Options Supplémentaires",
       description:
         "Enrichissez votre événement avec des options supplémentaires comme les murs floraux, les fonds personnalisés, ou encore des livres d'or numériques. Ces extras apportent une touche d'élégance et de divertissement supplémentaire.",
