@@ -121,22 +121,23 @@ const Navbar = () => {
           list-style: none;
           display: flex;
           gap: 20px;
-          color: #fff !important;  /* Forcer la couleur blanche */
+          color: #fff !important; /* Forcer la couleur blanche */
           margin-top: 20px;
           padding: 0;
           align-items: center;
         }
+
 
         .navbar-links li a {
           text-decoration: none;
           color: white;
           font-weight: bold;
           font-size: 1rem;
-          transition: color 0.3s ease;
+          transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
         .navbar-links li a:hover {
-          color: #000000;
+          color: #855f00;
         }
 
         .dropdown {
@@ -158,7 +159,7 @@ const Navbar = () => {
           opacity: 0;
           visibility: hidden;
           max-height: 0;
-          transition: all 0.4s ease-in-out;
+          transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
           transform: translateY(-10px);
         }
 
@@ -181,22 +182,23 @@ const Navbar = () => {
 
         .dropdown-menu li {
           text-decoration: none;
-          color: #fff !important;  /* Forcer la couleur blanche */
+          color: #fff !important; /* Forcer la couleur blanche */
           font-size: 1rem;
           font-weight: bold;
           display: block;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.2s ease-in-out;
         }
+
         /* Empêcher le navigateur de changer la couleur après clic */
         .dropdown-menu li a:visited,
         .dropdown-menu li a:active,
         .dropdown-menu li a:focus {
           color: #fff !important; /* Reste blanc */
         }
-        
+
         .dropdown-menu li:hover {
           background: linear-gradient(to right, #ffef96, #5a4300);
-          color: #000;
+          color: #855f00;
           padding-left: 25px;
         }
 
@@ -235,26 +237,35 @@ const Navbar = () => {
           color: #ffc107;
           font-weight: bold;
         }
-
+          
         @media (max-width: 1024px) {
           .menu-button {
             display: block;
           }
-
+        
+          /* Menu caché par défaut */
           .navbar-links {
             flex-direction: column;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
             position: absolute;
             top: 60px;
             left: 0;
             width: 100%;
             background: linear-gradient(45deg, #000000, #393400);
             padding: 20px 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
           }
-
+        
+          /* Menu visible avec animation */
           .navbar-links.open {
-            display: flex;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
           }
+        }
+          
 
           .dropdown-menu {
             position: relative;
