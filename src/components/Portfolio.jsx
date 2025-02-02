@@ -16,7 +16,17 @@ export default function Portfolio() {
     "/logos/axa.webp",
   ];
 
-  const styles = {
+const styles = {
+  portfolioImage: {
+    width: "100%",
+    borderRadius: "10px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    marginBottom: "1rem",
+    transition: "transform 0.3s ease",
+  },
+  portfolioImageHover: {
+    transform: "scale(1.05)",
+  },
     section: {
       background: "linear-gradient(#ffffff, #838383)",
       padding: "1rem 2rem",

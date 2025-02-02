@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Panneau from "../pages/options/panneau";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,39 +34,40 @@ const Navbar = () => {
 
         <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
           <li className="dropdown">
-            <a href="#prestation" onClick={togglePrestationDropdown}>
+            <a onClick={togglePrestationDropdown}>
               Nos Prestations ▾
             </a>
             <ul className={`dropdown-menu ${PrestationdropdownOpen ? 'show' : ''}`}>
-              <li><Link href={`${basePath}/prestation/photobooth`} legacyBehavior><a>Photobooth</a></Link></li>
-              <li><Link href={`${basePath}/prestation/miroirbooth`} legacyBehavior><a>Miroirbooth</a></Link></li>
-              <li><Link href={`${basePath}/prestation/360booth`} legacyBehavior><a>360 Booth</a></Link></li>
-              <li><Link href={`${basePath}/prestation/ipadbooth`} legacyBehavior><a>iPad Booth</a></Link></li>
-              <li><Link href={`${basePath}/prestation/voguebooth`} legacyBehavior><a>Vogue Booth</a></Link></li>
-              <li><Link href={`${basePath}/prestation/air360booth`} legacyBehavior><a>Air360 Booth</a></Link></li>
-              <li><Link href={`${basePath}/prestation/packvip`} legacyBehavior><a>Pack VIP</a></Link></li>
-              <li><Link href={`${basePath}/prestation/options`} legacyBehavior><a>Options Supplémentaires</a></Link>
-              </li>
+              <li><Link href={`${basePath}/prestations/photobooth`} legacyBehavior><a>Photobooth</a></Link></li>
+              <li><Link href={`${basePath}/prestations/miroirbooth`} legacyBehavior><a>Miroirbooth</a></Link></li>
+              <li><Link href={`${basePath}/prestations/videobooth`} legacyBehavior><a>360Booth</a></Link></li>
+              <li><Link href={`${basePath}/prestations/ipadbooth`} legacyBehavior><a>iPadBooth</a></Link></li>
+              <li><Link href={`${basePath}/prestations/voguebooth`} legacyBehavior><a>VogueBooth</a></Link></li>
+              <li><Link href={`${basePath}/prestations/air360booth`} legacyBehavior><a>Air360Booth</a></Link></li>
+              <li><Link href={`${basePath}/prestations/packvip`} legacyBehavior><a>Pack VIP</a></Link></li>
             </ul>
           </li>
 
           <li className="dropdown">
-            <a href="#evenement" onClick={toggleEventsDropdown}>
+            <a onClick={toggleEventsDropdown}>
               Nos Événements ▾
             </a>
             <ul className={`dropdown-menu ${eventsDropdownOpen ? 'show' : ''}`}>
-              <li><Link href={`${basePath}/evenement/mariages`} legacyBehavior><a>Mariages</a></Link></li>
-              <li><Link href={`${basePath}/evenement/corporate`} legacyBehavior><a>Corporate</a></Link></li>
-              <li><Link href={`${basePath}/evenement/anniversaires`} legacyBehavior><a>Anniversaires</a></Link></li>
-              <li><Link href={`${basePath}/evenement/soirees`} legacyBehavior><a>Soirées</a></Link></li>
+              <li><Link href={`${basePath}/evenements/mariages`} legacyBehavior><a>Mariages</a></Link></li>
+              <li><Link href={`${basePath}/evenements/corporates`} legacyBehavior><a>Corporates</a></Link></li>
+              <li><Link href={`${basePath}/evenements/anniversaires`} legacyBehavior><a>Anniversaires</a></Link></li>
+              <li><Link href={`${basePath}/evenements/soirees`} legacyBehavior><a>Soirées</a></Link></li>
             </ul>
           </li>
           <li className="dropdown">
-            <a href="#evenement" onClick={toggleOptionDropdown}>
+            <a onClick={toggleOptionDropdown}>
               Nos Options ▾
             </a>
             <ul className={`dropdown-menu ${OptionsDropdownOpen ? 'show' : ''}`}>
-              <li><Link href={`${basePath}/option/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
+              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
+              <li><Link href={`${basePath}/options/panneau`} legacyBehavior><a>Panneau de Bienvenue</a></Link></li>
+              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
+              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
             </ul>
           </li>
           <li>
@@ -97,6 +99,7 @@ const Navbar = () => {
           padding: 15px 20px;
           z-index: 1000;
           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+          padding-top: 10px;
         }
 
         .navbar-container {
@@ -137,7 +140,7 @@ const Navbar = () => {
         }
 
         .navbar-links li a:hover {
-          color: #855f00;
+          color: #af983f;
         }
 
         .dropdown {
@@ -159,7 +162,7 @@ const Navbar = () => {
           opacity: 0;
           visibility: hidden;
           max-height: 0;
-          transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
+          transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
           transform: translateY(-10px);
         }
 
@@ -186,7 +189,7 @@ const Navbar = () => {
           font-size: 1rem;
           font-weight: bold;
           display: block;
-          transition: all 0.2s ease-in-out;
+          transition: all 0.3s ease-in-out;
         }
 
         /* Empêcher le navigateur de changer la couleur après clic */
@@ -198,7 +201,7 @@ const Navbar = () => {
 
         .dropdown-menu li:hover {
           background: linear-gradient(to right, #ffef96, #5a4300);
-          color: #855f00;
+          color: #000;
           padding-left: 25px;
         }
 
@@ -237,13 +240,12 @@ const Navbar = () => {
           color: #ffc107;
           font-weight: bold;
         }
-          
+
         @media (max-width: 1024px) {
           .menu-button {
             display: block;
           }
-        
-          /* Menu caché par défaut */
+
           .navbar-links {
             flex-direction: column;
             opacity: 0;
@@ -257,15 +259,12 @@ const Navbar = () => {
             padding: 20px 0;
             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
           }
-        
-          /* Menu visible avec animation */
+
           .navbar-links.open {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
           }
-        }
-          
 
           .dropdown-menu {
             position: relative;

@@ -1,11 +1,11 @@
-import Photobooth from "../pages/prestation/photobooth";
+import Photobooth from "../pages/prestations/photobooth";
 
 export default function Services() {
   const services = [
     {
       title: "Photobooth",
       description:
-        "Le Photobooth Classique est l'option parfaite pour capturer des souvenirs inoubliables. Offrant des impressions illimitées, des animations en direct et une personnalisation complète, il est idéal pour tout type d'événement.",
+        "Le Photobooth Classique est l'options parfaite pour capturer des souvenirs inoubliables. Offrant des impressions illimitées, des animations en direct et une personnalisation complète, il est idéal pour tout type d'événement.",
       features: [
         "Impressions illimitées",
         "Animateur sur place",
@@ -50,7 +50,7 @@ export default function Services() {
     {
       title: "iPad Booth",
       description:
-        "Le iPad Booth est une option simple et efficace pour les petits événements. Compact et rapide à installer, il permet de capturer des photos numériques de haute qualité, avec la possibilité de les partager immédiatement.",
+        "Le iPad Booth est une options simple et efficace pour les petits événements. Compact et rapide à installer, il permet de capturer des photos numériques de haute qualité, avec la possibilité de les partager immédiatement.",
       features: [
         "Installation rapide",
         "Partage numérique instantané",
@@ -124,7 +124,7 @@ export default function Services() {
       image: "/images/pack.webp",  // ✅ Assure-toi que cette image existe
       infoLink: "/sous-pages/packvip", // ✅ Chemin mis à jour selon ta structure
       reserveLink: "https://reservation.myselfiebooth-paris.fr/",
-      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestation complète
+      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestations complète
     },
           {
       title: "Pack VIP",
@@ -140,7 +140,7 @@ export default function Services() {
       image: "/images/pack.webp",  // ✅ Assure-toi que cette image existe
       infoLink: "/sous-pages/packvip", // ✅ Chemin mis à jour selon ta structure
       reserveLink: "https://reservation.myselfiebooth-paris.fr/",
-      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestation complète
+      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestations complète
     },
       {
       title: "Options Supplémentaires",

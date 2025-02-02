@@ -14,9 +14,9 @@ const Besoins = () => {
 
         <div className="needs-grid">
           <div className="needs-item" onClick={() => window.location.href = '/mariage'}>
-            <img src="/images/template_model.jpg" alt="Mariage" className="background-image"/>
+            <img src="/images/template_model.jpg" alt="Mariages" className="background-image"/>
             <div className="overlay">
-              <h3>Mariage</h3>
+              <h3>Mariages</h3>
             </div>
           </div>
 
