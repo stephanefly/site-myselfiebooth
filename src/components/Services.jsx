@@ -48,21 +48,6 @@ export default function Services() {
                   price: "A Partir de 400€",
     },
     {
-      title: "iPad Booth",
-      description:
-        "Le iPad Booth est une options simple et efficace pour les petits événements. Compact et rapide à installer, il permet de capturer des photos numériques de haute qualité, avec la possibilité de les partager immédiatement.",
-      features: [
-        "Installation rapide",
-        "Partage numérique instantané",
-        "Personnalisation des photos",
-        "Conception compacte pour les petits espaces",
-      ],
-      image: "/images/ipadbooth.webp",
-            infoLink: "/ipadbooth", // Lien vers plus d'infos
-      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
-                  price: "A Partir de 250€",
-    },
-    {
       title: "Vogue Booth",
       description:
         "Le Vogue Booth vous permet d’apporter une touche de glamour à votre événement. Inspiré des tapis rouges, ce stand est parfait pour les événements VIP avec des effets lumineux spectaculaires et des prises de vue professionnelles.",
@@ -76,6 +61,21 @@ export default function Services() {
             infoLink: "/voguebooth", // Lien vers plus d'infos
       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
       price: "A partir de 500€",
+    },
+    {
+      title: "iPad Booth",
+      description:
+        "Le iPad Booth est une options simple et efficace pour les petits événements. Compact et rapide à installer, il permet de capturer des photos numériques de haute qualité, avec la possibilité de les partager immédiatement.",
+      features: [
+        "Installation rapide",
+        "Partage numérique instantané",
+        "Personnalisation des photos",
+        "Conception compacte pour les petits espaces",
+      ],
+      image: "/images/ipadbooth.webp",
+            infoLink: "/ipadbooth", // Lien vers plus d'infos
+      reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+                  price: "A Partir de 250€",
     },
     {
       title: "Air360 Booth",
@@ -165,7 +165,7 @@ export default function Services() {
     padding: "2rem 1rem",
   },
   container: {
-    maxWidth: "1200px",
+    maxWidth: "1400px",
     margin: "0 auto",
     padding: "0 1rem",
   },
