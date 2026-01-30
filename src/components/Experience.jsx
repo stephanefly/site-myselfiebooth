@@ -36,10 +36,10 @@ export default function Experience() {
   ];
 
   const galleryImages = [
-    "/images/decoration-voguebooth.webp",
-    "/images/ALL-MURS.webp",
-    "/images/fond 360.webp",
-    "/images/Welcomeboard.webp",
+    "/images/ia/home/tile-02_r1c2.webp",
+    "/images/ia/home/tile-03_r1c3.webp",
+    "/images/ia/home/tile-07_r3c1.webp",
+    "/images/ia/home/tile-12_r4c3.webp",
   ];
 
   return (

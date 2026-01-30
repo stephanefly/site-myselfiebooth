@@ -17,9 +17,18 @@ export default function Portfolio() {
   ];
 
   const moments = [
-    "/images/mariages/mariage1.JPG",
-    "/images/photobooth.webp",
-    "/images/miroirbooth.webp",
+    {
+      src: "/images/ia/home/tile-01_r1c1.webp",
+      alt: "Photobooth premium dans un décor raffiné",
+    },
+    {
+      src: "/images/ia/home/tile-05_r2c2.webp",
+      alt: "Invités élégants autour d'un photobooth de luxe",
+    },
+    {
+      src: "/images/ia/home/tile-09_r3c3.webp",
+      alt: "Détails lumineux d'une animation photobooth",
+    },
   ];
 
 const styles = {
@@ -93,9 +102,9 @@ const styles = {
             premium.
           </p>
           <div className="portfolio-gallery fade-up">
-            {moments.map((src) => (
-              <div key={src} className="portfolio-gallery-card">
-                <img src={src} alt="Moment photobooth" />
+            {moments.map((moment) => (
+              <div key={moment.src} className="portfolio-gallery-card">
+                <img src={moment.src} alt={moment.alt} />
               </div>
             ))}
           </div>

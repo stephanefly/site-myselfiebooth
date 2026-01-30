@@ -1,64 +1,7 @@
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero-content">
-        <p className="hero-kicker fade-up">MySelfieBooth • Paris, Lyon, Rouen</p>
-        <h1 className="hero-title fade-up stagger-1">
-          Louez un photobooth premium pour des souvenirs inoubliables
-        </h1>
-        <p className="hero-subtitle fade-up stagger-2">
-          Offrez une animation élégante et clé en main à vos invités : livraison,
-          installation, personnalisation et galerie en ligne pour revivre vos
-          moments.
-        </p>
-        <p className="hero-subtitle fade-up stagger-3">
-          Ambiance 2025, transitions douces, impression instantanée et partage
-          mobile : tout est pensé pour une expérience fluide, chic et mémorable.
-        </p>
-        <div className="hero-actions fade-up stagger-4">
-          <a
-            href="https://reservation.myselfiebooth-paris.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hero-button primary"
-          >
-            Estimer mon prix
-          </a>
-          <a href="#prestations" className="hero-button secondary">
-            Voir les prestations
-          </a>
-        </div>
-        <div className="hero-highlights">
-          <div className="highlight-card fade-left">
-            <span>📸</span>
-            <p>Photos & impressions illimitées</p>
-          </div>
-          <div className="highlight-card fade-up">
-            <span>🛠️</span>
-            <p>Installation & assistance sur place</p>
-          </div>
-          <div className="highlight-card fade-right">
-            <span>⭐</span>
-            <p>Expérience premium et personnalisée</p>
-          </div>
-        </div>
-        <div className="hero-stats">
-          <div className="stat-card fade-left stagger-1">
-            <h3>+500</h3>
-            <p>Événements accompagnés en France.</p>
-          </div>
-          <div className="stat-card fade-up stagger-2">
-            <h3>24h</h3>
-            <p>Support réactif avant, pendant et après.</p>
-          </div>
-          <div className="stat-card fade-right stagger-3">
-            <h3>100%</h3>
-            <p>Personnalisation sur mesure pour votre marque.</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Vidéos */}
+              {/* Vidéos */}
       <div className="videos-container flex items-center mt-4 relative fade-up">
         {/* Vidéo 1 */}
         <div className="video-container">
@@ -128,15 +71,64 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bannière */}
-        <div className="banner fade-up">
-          <p className="text-lg font-bold uppercase" style={{ color: "#990000" }}>
-            <b>
-              PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de
-            remise!
-          </b>
+      <div className="hero-content">
+        <p className="hero-kicker fade-up">MySelfieBooth • Paris, Lyon, Rouen</p>
+        <h1 className="hero-title fade-up stagger-1">
+          Louez un photobooth premium pour des souvenirs inoubliables
+        </h1>
+        <p className="hero-subtitle fade-up stagger-2">
+          Offrez une animation élégante et clé en main à vos invités : livraison,
+          installation, personnalisation et galerie en ligne pour revivre vos
+          moments.
         </p>
+        <p className="hero-subtitle fade-up stagger-3">
+          Ambiance 2025, transitions douces, impression instantanée et partage
+          mobile : tout est pensé pour une expérience fluide, chic et mémorable.
+        </p>
+        <div className="hero-actions fade-up stagger-4">
+          <a
+            href="https://reservation.myselfiebooth-paris.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-button primary"
+          >
+            Estimer mon prix
+          </a>
+          <a href="#prestations" className="hero-button secondary">
+            Voir les prestations
+          </a>
+        </div>
+        <div className="hero-highlights">
+          <div className="highlight-card fade-left">
+            <span>📸</span>
+            <p>Photos & impressions illimitées</p>
+          </div>
+          <div className="highlight-card fade-up">
+            <span>🛠️</span>
+            <p>Installation & assistance sur place</p>
+          </div>
+          <div className="highlight-card fade-right">
+            <span>⭐</span>
+            <p>Expérience premium et personnalisée</p>
+          </div>
+        </div>
+        <div className="hero-stats">
+          <div className="stat-card fade-left stagger-1">
+            <h3>+500</h3>
+            <p>Événements accompagnés en France.</p>
+          </div>
+          <div className="stat-card fade-up stagger-2">
+            <h3>24h</h3>
+            <p>Support réactif avant, pendant et après.</p>
+          </div>
+          <div className="stat-card fade-right stagger-3">
+            <h3>100%</h3>
+            <p>Personnalisation sur mesure pour votre marque.</p>
+          </div>
+        </div>
       </div>
+
+
 
       {/* Styles CSS */}
       <style jsx>{`
@@ -148,7 +140,7 @@ export default function Hero() {
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
-          padding: 6.5rem 1.5rem 2rem;
+          padding: 6.5rem 1rem 1rem;
           text-align: center;
           position: relative;
         }
