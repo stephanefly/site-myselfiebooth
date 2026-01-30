@@ -28,20 +28,26 @@ const Besoins = () => {
   return (
     <section id="douleur" className="douleur-section">
       <div className="container">
-        <h2 className="title">
+        <h2 className="title fade-up">
           Immortalisez vos événements avec MySelfieBooth
         </h2>
-        <p className="description">
+        <p className="description fade-up stagger-1">
           Mariages, anniversaires, soirées privées ou événements d&apos;entreprise,
           chaque occasion est unique et mérite d&apos;être gravée dans les
           mémoires. Offrez à vos invités une animation ludique et originale avec
           nos photobooths, pour des souvenirs à partager et à conserver.
         </p>
+        <p className="description fade-up stagger-2">
+          Nous orchestrons toute la logistique, de la livraison à la mise en
+          scène, pour que vous profitiez de votre moment sans stress. Résultat :
+          un rendu élégant, une expérience fluide et des visuels dignes d&apos;un
+          magazine.
+        </p>
 
         <div className="needs-grid">
-          {needs.map((item) => (
+          {needs.map((item, index) => (
             <Link key={item.title} href={item.href} legacyBehavior>
-              <a className="needs-item">
+              <a className={`needs-item fade-${index % 2 === 0 ? "left" : "right"}`}>
                 <img
                   src={item.image}
                   alt={`Événement ${item.title}`}
@@ -54,8 +60,21 @@ const Besoins = () => {
             </Link>
           ))}
         </div>
-        <br/>
-        <div className="cta">
+        <div className="trust-grid fade-up">
+          <div>
+            <strong>0 souci technique</strong>
+            <span>Assistance sur place + backup complet.</span>
+          </div>
+          <div>
+            <strong>Livraison premium</strong>
+            <span>Installation anticipée et check qualité.</span>
+          </div>
+          <div>
+            <strong>Galerie privée</strong>
+            <span>Accès sécurisé pour vos invités.</span>
+          </div>
+        </div>
+        <div className="cta fade-up">
           <a href="https://reservation.myselfiebooth-paris.fr" className="cta-btn">
             Obtenir un devis personnalisé
           </a>
@@ -140,6 +159,30 @@ const Besoins = () => {
           color: #493f0d;
         }
 
+        .trust-grid {
+          margin: 2.5rem auto 2rem;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1rem;
+          color: #fff;
+        }
+
+        .trust-grid div {
+          background: rgba(0, 0, 0, 0.35);
+          border-radius: 14px;
+          padding: 1rem 1.2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.4rem;
+        }
+
+        .trust-grid strong {
+          font-size: 1.1rem;
+        }
+
+        .trust-grid span {
+          color: #f4f4f4;
+        }
 
         .cta-btn {
           display: inline-block;

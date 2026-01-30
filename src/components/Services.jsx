@@ -127,6 +127,12 @@ export default function Services() {
     },
   ];
 
+  const showcaseImages = [
+    "/images/photobooth.webp",
+    "/images/miroirbooth.webp",
+    "/images/voguebooth.webp",
+  ];
+
  const styles = {
   section: {
     background: "linear-gradient(to bottom, #ffffff, #f5f5f5)",
@@ -260,16 +266,35 @@ export default function Services() {
   return (
     <section id="prestations" style={styles.section}>
       <div style={styles.container}>
-        <h2 style={styles.title}>Nos Prestations</h2>
-        <p style={styles.subtitle}>
+        <p className="services-kicker fade-up">Prestations premium</p>
+        <h2 style={styles.title} className="fade-up stagger-1">
+          Nos Prestations
+        </h2>
+        <p style={styles.subtitle} className="fade-up stagger-2">
           Des solutions clés en main pour tous vos événements, avec livraison,
-          installation et accompagnement sur place.
+          installation, personnalisation graphique et accompagnement sur place.
         </p>
+        <p style={styles.subtitle} className="fade-up stagger-3">
+          Choisissez le format parfait, ajoutez vos options et laissez-nous
+          orchestrer l&apos;expérience complète : du premier brief créatif à la
+          galerie finale.
+        </p>
+        <div className="services-gallery fade-up">
+          {showcaseImages.map((src, index) => (
+            <div
+              key={src}
+              className={`services-gallery-item ${index === 1 ? "is-center" : ""}`}
+            >
+              <img src={src} alt="Photobooth MySelfieBooth" />
+            </div>
+          ))}
+        </div>
         <div style={styles.grid}>
           {services.map((service, index) => (
               <div
                   key={index}
                   style={styles.card}
+                  className={index % 2 === 0 ? "fade-left" : "fade-right"}
                   onMouseEnter={(e) =>
                       Object.assign(e.currentTarget.style, styles.cardHover)
                   }
@@ -336,6 +361,42 @@ export default function Services() {
           </a>
         </div>
       </div>
+      <style jsx>{`
+        .services-kicker {
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 0.3rem;
+          font-size: 0.85rem;
+          color: #9b7b1f;
+          margin-bottom: 0.6rem;
+        }
+
+        .services-gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1.5rem;
+          margin: 2.5rem auto 3rem;
+        }
+
+        .services-gallery-item {
+          border-radius: 18px;
+          overflow: hidden;
+          box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          background: #fff;
+        }
+
+        .services-gallery-item img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+        }
+
+        .services-gallery-item.is-center {
+          transform: translateY(-8px);
+        }
+      `}</style>
     </section>
   );
 }

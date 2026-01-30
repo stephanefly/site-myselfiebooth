@@ -16,6 +16,12 @@ export default function Portfolio() {
     "/logos/axa.webp",
   ];
 
+  const moments = [
+    "/images/mariages/mariage1.JPG",
+    "/images/photobooth.webp",
+    "/images/miroirbooth.webp",
+  ];
+
 const styles = {
   portfolioImage: {
     width: "100%",
@@ -78,7 +84,21 @@ const styles = {
         `}
         </style>
         <div style={styles.container}>
-          <h2 style={styles.title}>Ils nous ont fait confiance!</h2>
+          <h2 style={styles.title} className="fade-up">
+            Ils nous ont fait confiance!
+          </h2>
+          <p className="portfolio-subtitle fade-up stagger-1">
+            Des maisons iconiques et des marques ambitieuses choisissent
+            MySelfieBooth pour sublimer leurs événements et créer des souvenirs
+            premium.
+          </p>
+          <div className="portfolio-gallery fade-up">
+            {moments.map((src) => (
+              <div key={src} className="portfolio-gallery-card">
+                <img src={src} alt="Moment photobooth" />
+              </div>
+            ))}
+          </div>
           <div style={{display: "flex", overflow: "hidden", width: "100%"}}>
             <div style={styles.logoWrapper}>
               {logos.concat(logos).map((logo, index) => (
@@ -99,6 +119,34 @@ const styles = {
           </div>
         </div>
         <hr/>
+        <style jsx>{`
+          .portfolio-subtitle {
+            text-align: center;
+            margin: 0.5rem auto 1.5rem;
+            max-width: 760px;
+            color: #444;
+          }
+
+          .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem auto 2rem;
+          }
+
+          .portfolio-gallery-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+          }
+
+          .portfolio-gallery-card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+          }
+        `}</style>
       </section>
   );
 }
