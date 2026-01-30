@@ -1,132 +1,202 @@
 import Layout from "../../components/Layout";
 
+const tarifs = [
+  { label: "Formule 3h", price: "350€" },
+  { label: "Formule 5h", price: "450€" },
+];
+
+const inclus = [
+  "Impressions illimitées",
+  "Livraison et installation",
+  "Animateur sur place",
+  "Photos numériques illimitées",
+  "Personnalisation des cadres",
+  "Galerie web privée",
+];
+
+const options = [
+  "GIFs et vidéos",
+  "Fond vert",
+  "Arrière-plans premium",
+  "Livre d'or numérique",
+];
+
 export default function Photobooth() {
   return (
     <Layout>
-      <div className="container">
-        <section className="section orange">
-          <h1>📸 MySelfieBooth - L'expérience Photobooth Ultime ! 🎉</h1>
+      <section className="hero">
+        <div className="hero-content">
+          <span className="tag">Best seller</span>
+          <h1>Photobooth Classique</h1>
           <p>
-            Transformez vos événements en souvenirs inoubliables avec notre photobooth haut de gamme.
-            Offrez à vos invités une animation interactive, fun et élégante, idéale pour les mariages,
-            anniversaires, soirées d'entreprise et bien plus encore !
+            L'animation photo incontournable pour vos mariages, soirées privées
+            et événements d'entreprise. Des souvenirs imprimés en illimité et
+            une expérience fluide pour vos invités.
           </p>
-        </section>
+          <div className="hero-actions">
+            <a
+              href="https://reservation.myselfiebooth-paris.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta"
+            >
+              Réserver le photobooth
+            </a>
+            <a href="/options/phonebooth" className="ghost">
+              Voir les options
+            </a>
+          </div>
+        </div>
+        <div className="hero-image">
+          <img src="/images/photobooth.webp" alt="Photobooth MySelfieBooth" />
+        </div>
+      </section>
 
-        <section className="section white">
-          <h2>✨ Pourquoi choisir le Photobooth ?</h2>
-          <ul>
-            <li>📷 <strong>Qualité photo professionnelle :</strong> Des clichés nets et lumineux grâce à un équipement dernier cri.</li>
-            <li>🎭 <strong>Personnalisation totale :</strong> Filtres, cadres, effets, arrière-plans... tout est personnalisable !</li>
-            <li>🚀 <strong>Installation rapide :</strong> Une mise en place efficace pour un événement sans stress.</li>
-            <li>💾 <strong>Partage instantané :</strong> Recevez et partagez vos photos en quelques secondes sur vos réseaux sociaux.</li>
-            <li>🎨 <strong>Design élégant :</strong> Un photobooth au look moderne qui s’intègre parfaitement à toutes vos ambiances.</li>
-          </ul>
-        </section>
+      <section className="section">
+        <h2>Tarifs transparents</h2>
+        <div className="grid">
+          {tarifs.map((item) => (
+            <div key={item.label} className="card">
+              <h3>{item.label}</h3>
+              <p className="price">{item.price}</p>
+              <p>Impressions et photos numériques illimitées.</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <section className="section gray">
-          <h2>🎊 Parfait pour tous vos événements</h2>
-          <p>
-            Que ce soit pour un <strong>mariage</strong>, une <strong>fête privée</strong>, un <strong>séminaire</strong> ou une <strong>inauguration</strong>,
-            MySelfieBooth apporte une touche d’originalité et d’élégance à votre événement.
-            Laissez vos invités repartir avec des souvenirs imprimés et digitaux inoubliables !
-          </p>
-        </section>
+      <section className="section alt">
+        <h2>Tout est inclus</h2>
+        <ul className="list">
+          {inclus.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
 
-        <section className="section white">
-          <h2>🛠 Nos options sur-mesure</h2>
-          <ul>
-            <li>🖼 <strong>Personnalisation des impressions :</strong> Ajoutez votre logo, un message ou un design unique.</li>
-            <li>🎞 <strong>GIFs et vidéos :</strong> Offrez à vos invités une expérience encore plus immersive.</li>
-            <li>🌟 <strong>Effets spéciaux :</strong> Fond vert, filtres dynamiques et animations pour un rendu incroyable.</li>
-            <li>📲 <strong>Galerie en ligne :</strong> Accédez à toutes les photos après l’événement via un espace dédié.</li>
-          </ul>
-        </section>
+      <section className="section">
+        <h2>Options disponibles</h2>
+        <ul className="list">
+          {options.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
 
-        <section className="section orange">
-          <h2>📅 Réservez votre Photobooth dès maintenant !</h2>
-          <p>
-            Ne manquez pas l'opportunité d'ajouter une animation unique à votre événement !
-            Consultez nos tarifs et réservez en quelques clics :
-          </p>
-          <a href="https://reservation.myselfiebooth-paris.fr" className="cta-button">
-            🎟 Réservez votre photobooth
-          </a>
-        </section>
-      </div>
+      <section className="section cta-section">
+        <h2>Prêt à réserver ?</h2>
+        <p>
+          Nous répondons rapidement et personnalisons chaque prestation selon
+          votre événement.
+        </p>
+        <a
+          href="https://reservation.myselfiebooth-paris.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta"
+        >
+          Estimer mon prix
+        </a>
+      </section>
 
-      {/* Styles en ligne */}
       <style jsx>{`
-        .container {
-          text-align: center;
-          max-width: 100%;
-          margin: auto;
-          padding-top: 80px;
+        .hero {
+          display: grid;
+          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          padding: 120px 20px 60px;
+          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
+          color: #fff;
+          align-items: center;
         }
-
+        .hero-content {
+          max-width: 520px;
+        }
+        .tag {
+          display: inline-block;
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          color: #2b2100;
+          padding: 6px 14px;
+          border-radius: 999px;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 1.5rem;
+        }
+        .cta {
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          color: #2b2100;
+          padding: 12px 24px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .ghost {
+          border: 1px solid #fff;
+          color: #fff;
+          padding: 12px 24px;
+          border-radius: 999px;
+          text-decoration: none;
+        }
+        .hero-image img {
+          width: 100%;
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
         .section {
           padding: 60px 20px;
+          max-width: 1100px;
+          margin: 0 auto;
         }
-
-        .orange {
-          background-color: #ffdca8;
-          color: white;
+        .section h2 {
+          text-align: center;
+          margin-bottom: 2rem;
         }
-
-        .white {
-          background-color: white;
-          color: #333;
+        .alt {
+          background: #f8f5ef;
         }
-
-        .gray {
-          background-color: #f4f4f4;
-          color: #333;
+        .grid {
+          display: grid;
+          gap: 1.5rem;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         }
-
-        h1, h2 {
-          margin-bottom: 20px;
-        }
-
-        p {
-          font-size: 24px;
-          line-height: 1.8;
-          max-width: 80%;
-          margin: auto;
-        }
-
-        ul {
-          list-style: none;
-          padding: 0;
-        }
-
-        li {
-          font-size: 22px;
-          margin-bottom: 15px;
+        .card {
+          background: #fff;
+          padding: 1.5rem;
+          border-radius: 16px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
           text-align: center;
         }
-
-        .cta-button {
-          display: inline-block;
-          background-color: white;
-          color: #ff9800;
-          padding: 20px 40px;
-          font-size: 24px;
-          border-radius: 10px;
-          text-decoration: none;
-          margin-top: 30px;
-          transition: background 0.3s ease;
+        .price {
+          font-size: 2rem;
+          font-weight: bold;
+          color: #5a4300;
+          margin: 0.5rem 0 1rem;
         }
-
-        .cta-button:hover {
-          background-color: #e68900;
-          color: white;
+        .list {
+          list-style: none;
+          padding: 0;
+          display: grid;
+          gap: 0.75rem;
+          max-width: 760px;
+          margin: 0 auto;
         }
-
-        @media (max-width: 768px) {
-          p {
-            font-size: 18px;
-            max-width: 90%;
-          }
+        .list li {
+          background: #fff;
+          padding: 0.75rem 1rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .cta-section {
+          text-align: center;
+        }
+        .cta-section p {
+          max-width: 640px;
+          margin: 0 auto 1.5rem;
         }
       `}</style>
     </Layout>

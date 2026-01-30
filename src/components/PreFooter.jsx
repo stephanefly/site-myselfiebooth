@@ -9,17 +9,25 @@ export default function Footer() {
           <a href="/" className="brand-name">
             MySelfieBooth
           </a>
+          <p className="footer-tagline">
+            Photobooths premium pour mariages, soirées privées et événements
+            professionnels.
+          </p>
 
           {/* Section Informations */}
           <div className="footer-section">
             <h3 className="footer-title">Information</h3>
             <ul className="footer-list">
+              <li><a href="/prestations/photobooth">Prestations</a></li>
+              <li><a href="/evenements/mariages">Événements</a></li>
+              <li><a href="/options/phonebooth">Options</a></li>
+              <li><a href="/blog">Blog</a></li>
               <li><a href="/privacy-policy">Politique de confidentialité</a></li>
               <li><a href="/terms">Mentions légales</a></li>
-              <li><a href="/conditions">Conditions générales de location</a></li>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/paris">Paris</a></li>
-              <li><a href="/bordeaux">Lyon</a></li>
+              <li><a href="/conditions">Conditions générales</a></li>
+              <li><a href="https://reservation.myselfiebooth-paris.fr">Réservation</a></li>
+              <li><a href="mailto:contact@myselfiebooth-paris.fr">Nous contacter</a></li>
+              <li><a href="tel:+33699733998">Appelez-nous</a></li>
             </ul>
           </div>
 
@@ -29,11 +37,18 @@ export default function Footer() {
             <ul className="footer-list">
               <li className="footer-item">
                 <span className="footer-icon">📞</span>
-                <a href="tel:+33189272727">Téléphone : 0699733998</a>
+                <a href="tel:+33699733998">Téléphone : 06 99 73 39 98</a>
               </li>
               <li className="footer-item">
                 <span className="footer-icon">📧</span>
-                <a href="mailto:contact@myselfiebooth.fr">contact@myselfiebooth-paris.fr</a>
+                <a href="mailto:contact@myselfiebooth-paris.fr">contact@myselfiebooth-paris.fr</a>
+              </li>
+              <li className="footer-item">
+                <span className="footer-icon">📍</span>
+                <span>
+                  <a href="/paris">Paris</a> • <a href="/lyon">Lyon</a> •{" "}
+                  <a href="/rouen">Rouen</a>
+                </span>
               </li>
               <li className="footer-item">
                 <span className="footer-icon">📸</span>
@@ -97,6 +112,14 @@ export default function Footer() {
         .footer-section {
           display: flex;
           flex-direction: column;
+        }
+
+        .footer-tagline {
+          margin: 0;
+          max-width: 280px;
+          font-size: 0.95rem;
+          color: #d7d7d7;
+          line-height: 1.5;
         }
 
         .footer-title {

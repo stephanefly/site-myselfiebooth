@@ -1,9 +1,44 @@
 export default function Hero() {
   return (
-    <section className="h-screen bg-black flex flex-col items-center justify-start text-white relative">
-      <h1 className="text-center text-3xl font-bold my-4">
-        Louez un photobooth à Paris, Lyon et Rouen
-      </h1>
+    <section className="hero">
+      <div className="hero-content">
+        <p className="hero-kicker">MySelfieBooth • Paris, Lyon, Rouen</p>
+        <h1 className="hero-title">
+          Louez un photobooth premium pour des souvenirs inoubliables
+        </h1>
+        <p className="hero-subtitle">
+          Offrez une animation élégante et clé en main à vos invités : livraison,
+          installation, personnalisation et galerie en ligne pour revivre vos
+          moments.
+        </p>
+        <div className="hero-actions">
+          <a
+            href="https://reservation.myselfiebooth-paris.fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-button primary"
+          >
+            Estimer mon prix
+          </a>
+          <a href="#prestations" className="hero-button secondary">
+            Voir les prestations
+          </a>
+        </div>
+        <div className="hero-highlights">
+          <div className="highlight-card">
+            <span>📸</span>
+            <p>Photos & impressions illimitées</p>
+          </div>
+          <div className="highlight-card">
+            <span>🛠️</span>
+            <p>Installation & assistance sur place</p>
+          </div>
+          <div className="highlight-card">
+            <span>⭐</span>
+            <p>Expérience premium et personnalisée</p>
+          </div>
+        </div>
+      </div>
 
       {/* Vidéos */}
       <div className="videos-container flex items-center mt-4 relative">
@@ -87,6 +122,97 @@ export default function Hero() {
 
       {/* Styles CSS */}
       <style jsx>{`
+        .hero {
+          min-height: 100vh;
+          background: #000;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 6.5rem 1.5rem 2rem;
+          text-align: center;
+          position: relative;
+        }
+
+        .hero-content {
+          max-width: 980px;
+        }
+
+        .hero-kicker {
+          font-size: 0.9rem;
+          text-transform: uppercase;
+          letter-spacing: 0.2rem;
+          color: #ffef96;
+          margin-bottom: 0.75rem;
+        }
+
+        .hero-title {
+          font-size: clamp(2rem, 4vw, 3.2rem);
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+          font-size: clamp(1rem, 2.2vw, 1.3rem);
+          color: #dcdcdc;
+          line-height: 1.6;
+          margin-bottom: 1.75rem;
+        }
+
+        .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          justify-content: center;
+          margin-bottom: 2rem;
+        }
+
+        .hero-button {
+          padding: 0.9rem 1.6rem;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: 700;
+          font-size: 1rem;
+          transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-button.primary {
+          color: #000;
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-button.secondary {
+          color: #fff;
+          border: 1px solid #fff;
+          background: transparent;
+        }
+
+        .hero-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-highlights {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .highlight-card {
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 12px;
+          padding: 1rem 1.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.75rem;
+          font-weight: 600;
+          color: #f7f7f7;
+        }
+
         /* Bannière */
         .banner {
           background: linear-gradient(to left, #ac9b56, #eee0a2);
@@ -105,6 +231,7 @@ export default function Hero() {
           justify-content: center;
           align-items: center;
           width: 100%;
+          max-width: 1200px;
         }
 
         .video-container {
@@ -154,6 +281,10 @@ export default function Hero() {
 
         /* Responsive pour les mobiles */
         @media screen and (max-width: 768px) {
+          .hero {
+            padding-top: 7rem;
+          }
+
           .video-container:first-child,
           .video-container:last-child {
             display: none; /* Cache les vidéos gauche et droite */

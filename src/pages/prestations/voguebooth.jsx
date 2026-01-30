@@ -1,29 +1,171 @@
 import Layout from "../../components/Layout";
 
+const tarifs = [
+  { label: "Offre de lancement", price: "550€" },
+];
+
+const inclus = [
+  "Livraison et installation",
+  "Personnalisation",
+  "Décoration",
+  "Option photographe + impressions (+150€)",
+];
+
 export default function Voguebooth() {
   return (
     <Layout>
-      <div className="container">
-        <div className="loader"></div>
-        <h1>🚧Page en construction4🚧</h1>
-        <p>Nous travaillons activement sur cette section.</p>
-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
-      </div>
+      <section className="hero">
+        <div className="hero-content">
+          <span className="tag">En vogue</span>
+          <h1>Vogue Booth</h1>
+          <p>
+            Une expérience glamour inspirée des tapis rouges. Décorations,
+            éclairages et poses dignes des plus beaux shootings.
+          </p>
+          <div className="hero-actions">
+            <a
+              href="https://reservation.myselfiebooth-paris.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta"
+            >
+              Réserver le Vogue Booth
+            </a>
+          </div>
+        </div>
+        <div className="hero-image">
+          <img src="/images/voguebooth.webp" alt="Vogue Booth" />
+        </div>
+      </section>
 
-      {/* Styles en ligne */}
+      <section className="section">
+        <h2>Tarif</h2>
+        <div className="grid">
+          {tarifs.map((item) => (
+            <div key={item.label} className="card">
+              <h3>{item.label}</h3>
+              <p className="price">{item.price}</p>
+              <p>Un rendu visuel premium et élégant.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section alt">
+        <h2>Inclus dans la prestation</h2>
+        <ul className="list">
+          {inclus.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="section cta-section">
+        <h2>Créez un effet tapis rouge</h2>
+        <p>
+          Idéal pour soirées VIP, événements de marque ou lancements exclusifs.
+        </p>
+        <a
+          href="https://reservation.myselfiebooth-paris.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta"
+        >
+          Demander un devis
+        </a>
+      </section>
+
       <style jsx>{`
-        .container {
+        .hero {
+          display: grid;
+          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          padding: 120px 20px 60px;
+          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
+          color: #fff;
+          align-items: center;
+        }
+        .hero-content {
+          max-width: 520px;
+        }
+        .tag {
+          display: inline-block;
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          color: #2b2100;
+          padding: 6px 14px;
+          border-radius: 999px;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-top: 1.5rem;
+        }
+        .cta {
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          color: #2b2100;
+          padding: 12px 24px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .hero-image img {
+          width: 100%;
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .section {
+          padding: 60px 20px;
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+        .section h2 {
           text-align: center;
-          padding: 20px;
-          margin-top: 60px;  
+          margin-bottom: 2rem;
         }
-
-        h1 {
-          color: #ff9800;
+        .alt {
+          background: #f8f5ef;
         }
-        p {
-          color: #333;
-          font-size: 18px;
+        .grid {
+          display: grid;
+          gap: 1.5rem;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+        .card {
+          background: #fff;
+          padding: 1.5rem;
+          border-radius: 16px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          text-align: center;
+        }
+        .price {
+          font-size: 2rem;
+          font-weight: bold;
+          color: #5a4300;
+          margin: 0.5rem 0 1rem;
+        }
+        .list {
+          list-style: none;
+          padding: 0;
+          display: grid;
+          gap: 0.75rem;
+          max-width: 760px;
+          margin: 0 auto;
+        }
+        .list li {
+          background: #fff;
+          padding: 0.75rem 1rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+        .cta-section {
+          text-align: center;
+        }
+        .cta-section p {
+          max-width: 640px;
+          margin: 0 auto 1.5rem;
         }
       `}</style>
     </Layout>

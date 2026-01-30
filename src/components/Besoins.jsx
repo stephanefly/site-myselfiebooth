@@ -1,43 +1,58 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
+
+const needs = [
+  {
+    title: "Mariages",
+    href: "/evenements/mariages",
+    image: "/images/mariages/mariage1.JPG",
+  },
+  {
+    title: "Entreprises",
+    href: "/evenements/corporates",
+    image: "/images/photobooth.webp",
+  },
+  {
+    title: "Anniversaires",
+    href: "/evenements/anniversaires",
+    image: "/images/miroirbooth.webp",
+  },
+  {
+    title: "Soirées",
+    href: "/evenements/soirees",
+    image: "/images/voguebooth.webp",
+  },
+];
 
 const Besoins = () => {
   return (
     <section id="douleur" className="douleur-section">
       <div className="container">
-        <h2 className="title">Immortaliser vos évènnement avec MySelfieBooth</h2>
+        <h2 className="title">
+          Immortalisez vos événements avec MySelfieBooth
+        </h2>
         <p className="description">
-          Mariages, anniversaires, soirées privées ou événements d'entreprise, chaque occasion est unique et mérite
-          d’être gravée dans les mémoires. Offrez à vos invités une animation ludique et originale avec nos photobooths,
-          pour des souvenirs à partager et à conserver.
+          Mariages, anniversaires, soirées privées ou événements d&apos;entreprise,
+          chaque occasion est unique et mérite d&apos;être gravée dans les
+          mémoires. Offrez à vos invités une animation ludique et originale avec
+          nos photobooths, pour des souvenirs à partager et à conserver.
         </p>
 
-
         <div className="needs-grid">
-          <div className="needs-item" onClick={() => window.location.href = '/mariage'}>
-            <img src="/images/template_model.jpg" alt="Mariages" className="background-image"/>
-            <div className="overlay">
-              <h3>Mariages</h3>
-            </div>
-          </div>
-
-          <div className="needs-item" onClick={() => window.location.href = '/entreprise'}>
-            <img src="/images/template_model.jpg" alt="Entreprise" className="background-image"/>
-            <div className="overlay">
-              <h3>Entreprise</h3>
-            </div>
-          </div>
-          <div className="needs-item" onClick={() => window.location.href = '/anniversaire'}>
-            <img src="/images/template_model.jpg" alt="Anniversaire" className="background-image"/>
-            <div className="overlay">
-              <h3>Anniversaire</h3>
-            </div>
-          </div>
-          <div className="needs-item" onClick={() => window.location.href = '/soirees'}>
-            <img src="/images/template_model.jpg" alt="Soirees" className="background-image"/>
-            <div className="overlay">
-              <h3>Soirées</h3>
-            </div>
-          </div>
+          {needs.map((item) => (
+            <Link key={item.title} href={item.href} legacyBehavior>
+              <a className="needs-item">
+                <img
+                  src={item.image}
+                  alt={`Événement ${item.title}`}
+                  className="background-image"
+                />
+                <div className="overlay">
+                  <h3>{item.title}</h3>
+                </div>
+              </a>
+            </Link>
+          ))}
         </div>
         <br/>
         <div className="cta">
@@ -89,6 +104,7 @@ const Besoins = () => {
           overflow: hidden;
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
           transition: all 0.3s ease;
+          text-decoration: none;
 
         }
 

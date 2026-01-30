@@ -1,33 +1,116 @@
 import Layout from "../../components/Layout";
 
+const inclus = [
+  "Livre d'or audio vintage",
+  "Messages audio illimités",
+  "Livraison et installation",
+  "Fichiers audio remis après l'événement",
+];
+
 export default function Phonebooth() {
   return (
     <Layout>
-      <div className="container">
-        <div className="loader"></div>
-        <h1>🚧Page en construction🚧</h1>
-        <p>Nous travaillons activement sur cette section.</p>
-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
-      </div>
+      <section className="hero">
+        <div className="hero-content">
+          <span className="tag">Option audio</span>
+          <h1>Phonebooth</h1>
+          <p>
+            Offrez à vos invités la possibilité de laisser des messages audio
+            inoubliables grâce à notre livre d'or vintage.
+          </p>
+          <div className="hero-actions">
+            <a
+              href="https://reservation.myselfiebooth-paris.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta"
+            >
+              Ajouter le Phonebooth
+            </a>
+          </div>
+        </div>
+        <div className="hero-image">
+          <img src="/images/phonebooth.webp" alt="Phonebooth" />
+        </div>
+      </section>
 
-      {/* Styles en ligne */}
+      <section className="section alt">
+        <h2>Inclus</h2>
+        <ul className="list">
+          {inclus.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="section cta-section">
+        <h2>Une option pleine d'émotions</h2>
+        <p>
+          Idéal pour collecter des messages touchants et authentiques de vos
+          invités.
+        </p>
+      </section>
+
       <style jsx>{`
-        .container {
+        .hero {
+          display: grid;
+          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          padding: 120px 20px 60px;
+          background: linear-gradient(135deg, #101010, #3b2f0f);
+          color: #fff;
+          align-items: center;
+        }
+        .hero-content {
+          max-width: 520px;
+        }
+        .tag {
+          display: inline-block;
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          color: #2b2100;
+          padding: 6px 14px;
+          border-radius: 999px;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+        .hero-actions {
+          margin-top: 1.5rem;
+        }
+        .cta {
+          background: linear-gradient(to right, #ffef96, #caa85f);
+          color: #2b2100;
+          padding: 12px 24px;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: bold;
+        }
+        .hero-image img {
+          width: 100%;
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        .section {
+          padding: 60px 20px;
+          max-width: 1000px;
+          margin: 0 auto;
           text-align: center;
-          padding: 20px;
-          margin-top: 60px;  
         }
-
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        .alt {
+          background: #f8f5ef;
         }
-        h1 {
-          color: #ff9800;
+        .list {
+          list-style: none;
+          padding: 0;
+          display: grid;
+          gap: 0.75rem;
+          max-width: 760px;
+          margin: 2rem auto 0;
         }
-        p {
-          color: #333;
-          font-size: 18px;
+        .list li {
+          background: #fff;
+          padding: 0.75rem 1rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
       `}</style>
     </Layout>

@@ -1,0 +1,4222 @@
+diff --git a/src/components/Besoins.jsx b/src/components/Besoins.jsx
+index 976c0cdae4d6c0beb381beeb43eab4c8ed116ee4..fd99ebcc7925067511c2961c9993cb456af825ea 100644
+--- a/src/components/Besoins.jsx
++++ b/src/components/Besoins.jsx
+@@ -1,65 +1,80 @@
+-import React from 'react';
++import React from "react";
++import Link from "next/link";
++
++const needs = [
++  {
++    title: "Mariages",
++    href: "/evenements/mariages",
++    image: "/images/mariages/mariage1.JPG",
++  },
++  {
++    title: "Entreprises",
++    href: "/evenements/corporates",
++    image: "/images/photobooth.webp",
++  },
++  {
++    title: "Anniversaires",
++    href: "/evenements/anniversaires",
++    image: "/images/miroirbooth.webp",
++  },
++  {
++    title: "Soirées",
++    href: "/evenements/soirees",
++    image: "/images/voguebooth.webp",
++  },
++];
+ 
+ const Besoins = () => {
+   return (
+     <section id="douleur" className="douleur-section">
+       <div className="container">
+-        <h2 className="title">Immortaliser vos évènnement avec MySelfieBooth</h2>
++        <h2 className="title">
++          Immortalisez vos événements avec MySelfieBooth
++        </h2>
+         <p className="description">
+-          Mariages, anniversaires, soirées privées ou événements d'entreprise, chaque occasion est unique et mérite
+-          d’être gravée dans les mémoires. Offrez à vos invités une animation ludique et originale avec nos photobooths,
+-          pour des souvenirs à partager et à conserver.
++          Mariages, anniversaires, soirées privées ou événements d&apos;entreprise,
++          chaque occasion est unique et mérite d&apos;être gravée dans les
++          mémoires. Offrez à vos invités une animation ludique et originale avec
++          nos photobooths, pour des souvenirs à partager et à conserver.
+         </p>
+ 
+-
+         <div className="needs-grid">
+-          <div className="needs-item" onClick={() => window.location.href = '/mariage'}>
+-            <img src="/images/template_model.jpg" alt="Mariages" className="background-image"/>
+-            <div className="overlay">
+-              <h3>Mariages</h3>
+-            </div>
+-          </div>
+-
+-          <div className="needs-item" onClick={() => window.location.href = '/entreprise'}>
+-            <img src="/images/template_model.jpg" alt="Entreprise" className="background-image"/>
+-            <div className="overlay">
+-              <h3>Entreprise</h3>
+-            </div>
+-          </div>
+-          <div className="needs-item" onClick={() => window.location.href = '/anniversaire'}>
+-            <img src="/images/template_model.jpg" alt="Anniversaire" className="background-image"/>
+-            <div className="overlay">
+-              <h3>Anniversaire</h3>
+-            </div>
+-          </div>
+-          <div className="needs-item" onClick={() => window.location.href = '/soirees'}>
+-            <img src="/images/template_model.jpg" alt="Soirees" className="background-image"/>
+-            <div className="overlay">
+-              <h3>Soirées</h3>
+-            </div>
+-          </div>
++          {needs.map((item) => (
++            <Link key={item.title} href={item.href} legacyBehavior>
++              <a className="needs-item">
++                <img
++                  src={item.image}
++                  alt={`Événement ${item.title}`}
++                  className="background-image"
++                />
++                <div className="overlay">
++                  <h3>{item.title}</h3>
++                </div>
++              </a>
++            </Link>
++          ))}
+         </div>
+         <br/>
+         <div className="cta">
+           <a href="https://reservation.myselfiebooth-paris.fr" className="cta-btn">
+             Obtenir un devis personnalisé
+           </a>
+         </div>
+       </div>
+ 
+       <style jsx>{`
+         .douleur-section {
+           padding: 30px 20px;
+           background: linear-gradient(45deg, #dddacb, #675e32);
+           color: #fff;
+           text-align: center;
+         }
+ 
+         .container {
+           max-width: 1200px;
+           margin: 0 auto;
+         }
+ 
+         .title {
+           font-size: 2rem;
+           font-weight: bold;
+@@ -67,50 +82,51 @@ const Besoins = () => {
+           color: #ffffff;
+         }
+ 
+         .description {
+           font-size: 1.2rem;
+           color: #ddd;
+           margin-bottom: 15px;
+           line-height: 1.5;
+         }
+ 
+         .needs-grid {
+           display: flex;
+           flex-wrap: wrap;
+           gap: 30px;
+           justify-content: center;
+         }
+ 
+         .needs-item {
+           flex: 1 1 calc(50% - 30px);
+           max-width: 550px;
+           position: relative;
+           border-radius: 15px;
+           overflow: hidden;
+           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+           transition: all 0.3s ease;
++          text-decoration: none;
+ 
+         }
+ 
+         .needs-item:hover {
+           transform: translateY(-10px);
+           cursor: pointer; /* Ajout pour changer le pointeur */
+           box-shadow: 0 10px 25px rgb(255, 255, 255);
+         }
+ 
+         .background-image {
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           position: absolute;
+           top: 0;
+           left: 0;
+           z-index: 1;
+         }
+ 
+         .overlay {
+           position: relative;
+           z-index: 2;
+           padding: 120px 20px;
+           background: rgb(248 248 248 / 73%);
+           color: #fff;
+diff --git a/src/components/Hero.jsx b/src/components/Hero.jsx
+index da40094315a15c0c5b5653a658eabafc061e8872..56a985c53f5d5ba43dfed7985c2594d4a1ac86cd 100644
+--- a/src/components/Hero.jsx
++++ b/src/components/Hero.jsx
+@@ -1,31 +1,66 @@
+ export default function Hero() {
+   return (
+-    <section className="h-screen bg-black flex flex-col items-center justify-start text-white relative">
+-      <h1 className="text-center text-3xl font-bold my-4">
+-        Louez un photobooth à Paris, Lyon et Rouen
+-      </h1>
++    <section className="hero">
++      <div className="hero-content">
++        <p className="hero-kicker">MySelfieBooth • Paris, Lyon, Rouen</p>
++        <h1 className="hero-title">
++          Louez un photobooth premium pour des souvenirs inoubliables
++        </h1>
++        <p className="hero-subtitle">
++          Offrez une animation élégante et clé en main à vos invités : livraison,
++          installation, personnalisation et galerie en ligne pour revivre vos
++          moments.
++        </p>
++        <div className="hero-actions">
++          <a
++            href="https://reservation.myselfiebooth-paris.fr"
++            target="_blank"
++            rel="noopener noreferrer"
++            className="hero-button primary"
++          >
++            Estimer mon prix
++          </a>
++          <a href="#prestations" className="hero-button secondary">
++            Voir les prestations
++          </a>
++        </div>
++        <div className="hero-highlights">
++          <div className="highlight-card">
++            <span>📸</span>
++            <p>Photos & impressions illimitées</p>
++          </div>
++          <div className="highlight-card">
++            <span>🛠️</span>
++            <p>Installation & assistance sur place</p>
++          </div>
++          <div className="highlight-card">
++            <span>⭐</span>
++            <p>Expérience premium et personnalisée</p>
++          </div>
++        </div>
++      </div>
+ 
+       {/* Vidéos */}
+       <div className="videos-container flex items-center mt-4 relative">
+         {/* Vidéo 1 */}
+         <div className="video-container">
+           <video
+             className="object-cover"
+             autoPlay
+             loop
+             muted
+             playsInline
+             poster="/images/hero-min.jpg"
+             aria-label="Vidéo promotionnelle de Paris"
+           >
+             <source
+               src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-TOUR-EIFFEL-FINAL.mp4"
+               type="video/mp4"
+             />
+             Votre navigateur ne supporte pas la vidéo.
+           </video>
+         </div>
+ 
+         {/* Vidéo 2 avec bouton */}
+         <div className="video-container relative">
+           <video
+@@ -65,109 +100,205 @@ export default function Hero() {
+             playsInline
+             poster="/images/hero-min.jpg"
+             aria-label="Vidéo promotionnelle de Rouen"
+           >
+             <source
+               src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-voguebooth.mp4"
+               type="video/mp4"
+             />
+             Votre navigateur ne supporte pas la vidéo.
+           </video>
+         </div>
+       </div>
+ 
+       {/* Bannière */}
+       <div className="banner">
+         <p className="text-lg font-bold uppercase" style={{ color: "#990000" }}>
+           <b>
+             PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de
+             remise!
+           </b>
+         </p>
+       </div>
+ 
+       {/* Styles CSS */}
+       <style jsx>{`
++        .hero {
++          min-height: 100vh;
++          background: #000;
++          color: #fff;
++          display: flex;
++          flex-direction: column;
++          align-items: center;
++          justify-content: flex-start;
++          padding: 6.5rem 1.5rem 2rem;
++          text-align: center;
++          position: relative;
++        }
++
++        .hero-content {
++          max-width: 980px;
++        }
++
++        .hero-kicker {
++          font-size: 0.9rem;
++          text-transform: uppercase;
++          letter-spacing: 0.2rem;
++          color: #ffef96;
++          margin-bottom: 0.75rem;
++        }
++
++        .hero-title {
++          font-size: clamp(2rem, 4vw, 3.2rem);
++          font-weight: 700;
++          margin-bottom: 1rem;
++        }
++
++        .hero-subtitle {
++          font-size: clamp(1rem, 2.2vw, 1.3rem);
++          color: #dcdcdc;
++          line-height: 1.6;
++          margin-bottom: 1.75rem;
++        }
++
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          justify-content: center;
++          margin-bottom: 2rem;
++        }
++
++        .hero-button {
++          padding: 0.9rem 1.6rem;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: 700;
++          font-size: 1rem;
++          transition: transform 0.2s ease, box-shadow 0.3s ease;
++        }
++
++        .hero-button.primary {
++          color: #000;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
++        }
++
++        .hero-button.secondary {
++          color: #fff;
++          border: 1px solid #fff;
++          background: transparent;
++        }
++
++        .hero-button:hover {
++          transform: translateY(-2px);
++          box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
++        }
++
++        .hero-highlights {
++          display: grid;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++          gap: 1rem;
++          margin-bottom: 2rem;
++        }
++
++        .highlight-card {
++          background: rgba(255, 255, 255, 0.08);
++          border-radius: 12px;
++          padding: 1rem 1.25rem;
++          display: flex;
++          align-items: center;
++          justify-content: center;
++          gap: 0.75rem;
++          font-weight: 600;
++          color: #f7f7f7;
++        }
++
+         /* Bannière */
+         .banner {
+           background: linear-gradient(to left, #ac9b56, #eee0a2);
+           width: 100%;
+           margin-top: -12px;
+           text-align: center;
+           font-size: 1.2rem;
+           z-index: 10;
+           padding: 5px 2px;
+           border: #5a4300 2px solid;
+         }
+ 
+         /* Vidéos */
+         .videos-container {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           width: 100%;
++          max-width: 1200px;
+         }
+ 
+         .video-container {
+           flex: 1 1 3%;
+           margin: 0; /* Supprime tout espace entre les vidéos */
+           position: relative;
+           overflow: hidden;
+         }
+ 
+         video {
+           width: 100%;
+           height: auto;
+           border-radius: 8px;
+           transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+         }
+ 
+         /* Bouton centré */
+         .center-button {
+           position: absolute;
+           top: 80%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           color: #ffffff;
+           text-decoration: none;
+           padding: 1rem 1.5rem;
+           font-size: 1.5rem;
+           font-weight: bold;
+           box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 1);
+           cursor: pointer;
+           z-index: 10;
+           transition: all 0.3s ease, box-shadow 0.3s ease;
+           border-radius: 10px;
+           background-image: linear-gradient(to bottom, #ffef96, #5a4300);
+         }
+ 
+         .center-button:hover {
+           background: linear-gradient(to top, #ffdd70, #dbbe60);
+           transform: translate(-50%, -50%) scale(1.1);
+           box-shadow: 0 10px 30px rgba(255, 255, 255, 0.99);
+         }
+ 
+         /* Assombrir les vidéos sur les côtés */
+         .video-container:first-child video,
+         .video-container:last-child video {
+           filter: brightness(20%);
+         }
+ 
+         /* Responsive pour les mobiles */
+         @media screen and (max-width: 768px) {
++          .hero {
++            padding-top: 7rem;
++          }
++
+           .video-container:first-child,
+           .video-container:last-child {
+             display: none; /* Cache les vidéos gauche et droite */
+           }
+ 
+           .video-container {
+             flex: 0 1 100%;
+           }
+ 
+           .banner {
+             font-size: 1rem;
+           }
+         }
+       `}</style>
+     </section>
+   );
+ }
+diff --git a/src/components/Navbar.jsx b/src/components/Navbar.jsx
+index fe3f291120118f0c0031507442b49ed6915cb6e9..064c324069c5e8a673ada4bb6582395b613713f9 100644
+--- a/src/components/Navbar.jsx
++++ b/src/components/Navbar.jsx
+@@ -1,167 +1,271 @@
+-import React, { useState } from 'react';
+-import Link from 'next/link';
+-import { useRouter } from 'next/router';
+-import Panneau from "../pages/options/panneau";
++import React, { useState } from "react";
++import Link from "next/link";
++import { useRouter } from "next/router";
+ 
+ const Navbar = () => {
+   const [isOpen, setIsOpen] = useState(false);
+   const [PrestationdropdownOpen, setPrestationDropdownOpen] = useState(false);
+   const [eventsDropdownOpen, setEventsDropdownOpen] = useState(false);
+   const [OptionsDropdownOpen, setOptionsDropdownOpen] = useState(false);
+   const router = useRouter();
+ 
+-    // BasePath dynamique (utile si basePath est défini dans next.config.js)
+-  const basePath = router.basePath || '';
++  // BasePath dynamique (utile si basePath est défini dans next.config.js)
++  const basePath = router.basePath || "";
+ 
+   const togglePrestationDropdown = () => {
+     setPrestationDropdownOpen(!PrestationdropdownOpen);
++    setEventsDropdownOpen(false);
++    setOptionsDropdownOpen(false);
+   };
+ 
+   const toggleEventsDropdown = () => {
+     setEventsDropdownOpen(!eventsDropdownOpen);
++    setPrestationDropdownOpen(false);
++    setOptionsDropdownOpen(false);
+   };
+ 
+   const toggleOptionDropdown = () => {
+     setOptionsDropdownOpen(!OptionsDropdownOpen);
++    setPrestationDropdownOpen(false);
++    setEventsDropdownOpen(false);
+   };
+-    
+-    return (
++
++  const closeMenus = () => {
++    setIsOpen(false);
++    setPrestationDropdownOpen(false);
++    setEventsDropdownOpen(false);
++    setOptionsDropdownOpen(false);
++  };
++  return (
+     <nav className="navbar">
+       <div className="navbar-container">
+         <div className="navbar-logo">
+           <a href="/" className="brand-name">MySelfieBooth</a>
+         </div>
+ 
+-        <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
++        <ul className={`navbar-links ${isOpen ? "open" : ""}`}>
+           <li className="dropdown">
+-            <a onClick={togglePrestationDropdown}>
+-              Nos Prestations ▾
+-            </a>
+-            <ul className={`dropdown-menu ${PrestationdropdownOpen ? 'show' : ''}`}>
+-              <li><Link href={`${basePath}/prestations/photobooth`} legacyBehavior><a>Photobooth</a></Link></li>
+-              <li><Link href={`${basePath}/prestations/miroirbooth`} legacyBehavior><a>Miroirbooth</a></Link></li>
+-              <li><Link href={`${basePath}/prestations/videobooth`} legacyBehavior><a>360Booth</a></Link></li>
+-              <li><Link href={`${basePath}/prestations/ipadbooth`} legacyBehavior><a>iPadBooth</a></Link></li>
+-              <li><Link href={`${basePath}/prestations/voguebooth`} legacyBehavior><a>VogueBooth</a></Link></li>
+-              <li><Link href={`${basePath}/prestations/air360booth`} legacyBehavior><a>Air360Booth</a></Link></li>
+-              <li><Link href={`${basePath}/prestations/packvip`} legacyBehavior><a>Pack VIP</a></Link></li>
++            <button
++              type="button"
++              className="dropdown-toggle"
++              onClick={togglePrestationDropdown}
++              aria-expanded={PrestationdropdownOpen}
++              aria-controls="prestations-menu"
++            >
++              Nos Prestations <span aria-hidden="true">▾</span>
++            </button>
++            <ul
++              id="prestations-menu"
++              className={`dropdown-menu ${PrestationdropdownOpen ? "show" : ""}`}
++            >
++              <li>
++                <Link href={`${basePath}/prestations/photobooth`} legacyBehavior>
++                  <a onClick={closeMenus}>Photobooth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/prestations/miroirbooth`} legacyBehavior>
++                  <a onClick={closeMenus}>Miroirbooth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/prestations/videobooth`} legacyBehavior>
++                  <a onClick={closeMenus}>360Booth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/prestations/ipadbooth`} legacyBehavior>
++                  <a onClick={closeMenus}>iPadBooth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/prestations/voguebooth`} legacyBehavior>
++                  <a onClick={closeMenus}>VogueBooth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/prestations/air360booth`} legacyBehavior>
++                  <a onClick={closeMenus}>Air360Booth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/prestations/packvip`} legacyBehavior>
++                  <a onClick={closeMenus}>Pack VIP</a>
++                </Link>
++              </li>
+             </ul>
+           </li>
+ 
+           <li className="dropdown">
+-            <a onClick={toggleEventsDropdown}>
+-              Nos Événements ▾
+-            </a>
+-            <ul className={`dropdown-menu ${eventsDropdownOpen ? 'show' : ''}`}>
+-              <li><Link href={`${basePath}/evenements/mariages`} legacyBehavior><a>Mariages</a></Link></li>
+-              <li><Link href={`${basePath}/evenements/corporates`} legacyBehavior><a>Corporates</a></Link></li>
+-              <li><Link href={`${basePath}/evenements/anniversaires`} legacyBehavior><a>Anniversaires</a></Link></li>
+-              <li><Link href={`${basePath}/evenements/soirees`} legacyBehavior><a>Soirées</a></Link></li>
++            <button
++              type="button"
++              className="dropdown-toggle"
++              onClick={toggleEventsDropdown}
++              aria-expanded={eventsDropdownOpen}
++              aria-controls="events-menu"
++            >
++              Nos Événements <span aria-hidden="true">▾</span>
++            </button>
++            <ul
++              id="events-menu"
++              className={`dropdown-menu ${eventsDropdownOpen ? "show" : ""}`}
++            >
++              <li>
++                <Link href={`${basePath}/evenements/mariages`} legacyBehavior>
++                  <a onClick={closeMenus}>Mariages</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/evenements/corporates`} legacyBehavior>
++                  <a onClick={closeMenus}>Corporates</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/evenements/anniversaires`} legacyBehavior>
++                  <a onClick={closeMenus}>Anniversaires</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/evenements/soirees`} legacyBehavior>
++                  <a onClick={closeMenus}>Soirées</a>
++                </Link>
++              </li>
+             </ul>
+           </li>
+           <li className="dropdown">
+-            <a onClick={toggleOptionDropdown}>
+-              Nos Options ▾
+-            </a>
+-            <ul className={`dropdown-menu ${OptionsDropdownOpen ? 'show' : ''}`}>
+-              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
+-              <li><Link href={`${basePath}/options/panneau`} legacyBehavior><a>Panneau de Bienvenue</a></Link></li>
+-              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
+-              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
++            <button
++              type="button"
++              className="dropdown-toggle"
++              onClick={toggleOptionDropdown}
++              aria-expanded={OptionsDropdownOpen}
++              aria-controls="options-menu"
++            >
++              Nos Options <span aria-hidden="true">▾</span>
++            </button>
++            <ul
++              id="options-menu"
++              className={`dropdown-menu ${OptionsDropdownOpen ? "show" : ""}`}
++            >
++              <li>
++                <Link href={`${basePath}/options/phonebooth`} legacyBehavior>
++                  <a onClick={closeMenus}>Phonebooth</a>
++                </Link>
++              </li>
++              <li>
++                <Link href={`${basePath}/options/panneau`} legacyBehavior>
++                  <a onClick={closeMenus}>Panneau de bienvenue</a>
++                </Link>
++              </li>
+             </ul>
+           </li>
+           <li>
+             <div className="phone-container">
+               <span className="phone-icon">📞</span>
+               <a href="tel:0699733998" className="phone-number">06 99 73 39 98</a>
+             </div>
+           </li>
+         </ul>
+ 
+-        <a className="cta-button" href="https://reservation.myselfiebooth-paris.fr" target="_blank"
+-           rel="noopener noreferrer">
++        <a
++          className="cta-button"
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          onClick={closeMenus}
++        >
+           Estimer mon prix
+         </a>
+ 
+-        <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
++        <button
++          className="menu-button"
++          onClick={() => setIsOpen(!isOpen)}
++          aria-label="Ouvrir le menu"
++          aria-expanded={isOpen}
++        >
+           ☰
+         </button>
+       </div>
+ 
+       <style jsx>{`
+         .navbar {
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           background: linear-gradient(45deg, #000000, #675e32);
+           color: white;
+           padding: 15px 20px;
+           z-index: 1000;
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+           padding-top: 10px;
+         }
+ 
+         .navbar-container {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           max-width: 1200px;
+           margin: 0 auto;
+         }
+ 
+         .navbar-logo .brand-name {
+           font-family: "Great Vibes", cursive;
+           font-size: 1.8rem;
+           font-weight: bold;
+           background: linear-gradient(150deg, #ffffff, #cabd8c, #b8860b);
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+           text-decoration: none;
+         }
+ 
+         .navbar-links {
+           list-style: none;
+           display: flex;
+           gap: 20px;
+           color: #fff !important; /* Forcer la couleur blanche */
+           margin-top: 20px;
+           padding: 0;
+           align-items: center;
+         }
+ 
+ 
+-        .navbar-links li a {
++        .navbar-links li a,
++        .dropdown-toggle {
+           text-decoration: none;
+           color: white;
+           font-weight: bold;
+           font-size: 1rem;
+           transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
++          background: none;
++          border: none;
++          padding: 0;
++          cursor: pointer;
+         }
+ 
+-        .navbar-links li a:hover {
++        .navbar-links li a:hover,
++        .dropdown-toggle:hover {
+           color: #af983f;
+         }
+ 
+         .dropdown {
+           position: relative;
+         }
+ 
+         /* Positionnement du menu sur les écrans larges */
+         .dropdown-menu {
+           position: absolute;
+           top: 100%;
+           left: 0;
+           background: rgb(38 32 0 / 90%);
+           border-radius: 10px;
+           padding: 0;
+           list-style: none;
+           min-width: 220px;
+           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+           overflow: hidden;
+           opacity: 0;
+           visibility: hidden;
+           max-height: 0;
+           transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+           transform: translateY(-10px);
+         }
+diff --git a/src/components/PreFooter.jsx b/src/components/PreFooter.jsx
+index 74115173ef9dae6e360c1cf534f0b3de45eea319..c4fc38e7d26a251ea1efba3eb1fb1bd4d08f578d 100644
+--- a/src/components/PreFooter.jsx
++++ b/src/components/PreFooter.jsx
+@@ -1,61 +1,76 @@
+ import React from "react";
+ 
+ export default function Footer() {
+   return (
+     <>
+       <footer className="footer-container">
+         <div className="footer-content">
+           {/* Section Logo */}
+           <a href="/" className="brand-name">
+             MySelfieBooth
+           </a>
++          <p className="footer-tagline">
++            Photobooths premium pour mariages, soirées privées et événements
++            professionnels.
++          </p>
+ 
+           {/* Section Informations */}
+           <div className="footer-section">
+             <h3 className="footer-title">Information</h3>
+             <ul className="footer-list">
++              <li><a href="/prestations/photobooth">Prestations</a></li>
++              <li><a href="/evenements/mariages">Événements</a></li>
++              <li><a href="/options/phonebooth">Options</a></li>
++              <li><a href="/blog">Blog</a></li>
+               <li><a href="/privacy-policy">Politique de confidentialité</a></li>
+               <li><a href="/terms">Mentions légales</a></li>
+-              <li><a href="/conditions">Conditions générales de location</a></li>
+-              <li><a href="/blog">Blog</a></li>
+-              <li><a href="/paris">Paris</a></li>
+-              <li><a href="/bordeaux">Lyon</a></li>
++              <li><a href="/conditions">Conditions générales</a></li>
++              <li><a href="https://reservation.myselfiebooth-paris.fr">Réservation</a></li>
++              <li><a href="mailto:contact@myselfiebooth-paris.fr">Nous contacter</a></li>
++              <li><a href="tel:+33699733998">Appelez-nous</a></li>
+             </ul>
+           </div>
+ 
+           {/* Section Contact */}
+           <div className="footer-section">
+             <h3 className="footer-title">Contact</h3>
+             <ul className="footer-list">
+               <li className="footer-item">
+                 <span className="footer-icon">📞</span>
+-                <a href="tel:+33189272727">Téléphone : 0699733998</a>
++                <a href="tel:+33699733998">Téléphone : 06 99 73 39 98</a>
+               </li>
+               <li className="footer-item">
+                 <span className="footer-icon">📧</span>
+-                <a href="mailto:contact@myselfiebooth.fr">contact@myselfiebooth-paris.fr</a>
++                <a href="mailto:contact@myselfiebooth-paris.fr">contact@myselfiebooth-paris.fr</a>
++              </li>
++              <li className="footer-item">
++                <span className="footer-icon">📍</span>
++                <span>
++                  <a href="/paris">Paris</a> • <a href="/lyon">Lyon</a> •{" "}
++                  <a href="/rouen">Rouen</a>
++                </span>
+               </li>
+               <li className="footer-item">
+                 <span className="footer-icon">📸</span>
+                 <a href="https://instagram.com/myselfiebooth_paris">Instagram</a>
+               </li>
+               <li className="footer-item">
+                 <span className="footer-icon">🔗</span>
+                 <a href="https://linkedin.com/myselfiebooth_paris">LinkedIn</a>
+               </li>
+             </ul>
+ 
+             {/* Google Reviews */}
+             <div className="google-reviews">
+               <img src="/icons/google.png" alt="Google Logo" className="google-icon"/>
+               <div>
+                 <p className="google-title">MySelfieBooth</p>
+                 <p className="google-rating">
+                   <span className="rating-value">4.9</span> ★★★★★ (167 avis)
+                 </p>
+               </div>
+             </div>
+           </div>
+         </div>
+       </footer>
+ 
+@@ -77,50 +92,58 @@ export default function Footer() {
+         .footer-container {
+           background: linear-gradient(to right, #000000, #675e32)  ;
+           color: white;
+           padding: 2.5rem 1rem;
+         }
+ 
+         .footer-content {
+           max-width: 1200px;
+           margin: 0 auto;
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+           gap: 2rem;
+           text-align: left;
+         }
+ 
+         .footer-logo img {
+           width: 150px;
+           margin-bottom: 1rem;
+         }
+ 
+         .footer-section {
+           display: flex;
+           flex-direction: column;
+         }
+ 
++        .footer-tagline {
++          margin: 0;
++          max-width: 280px;
++          font-size: 0.95rem;
++          color: #d7d7d7;
++          line-height: 1.5;
++        }
++
+         .footer-title {
+           font-size: 1.25rem;
+           font-weight: bold;
+           margin-bottom: 1rem;
+         }
+ 
+         .footer-list {
+           list-style: none;
+           padding: 0;
+           margin: 0;
+         }
+ 
+         .footer-list li {
+           margin-bottom: 0.5rem;
+         }
+ 
+         .footer-item {
+           display: flex;
+           align-items: center;
+         }
+ 
+         .footer-icon {
+           margin-right: 0.5rem;
+         }
+ 
+diff --git a/src/components/Services.jsx b/src/components/Services.jsx
+index cea1963e3ba592b0f20fae6c0b48e466534a18f5..b69823de695d02667bb2a5b0abbe9153f0dfd9b5 100644
+--- a/src/components/Services.jsx
++++ b/src/components/Services.jsx
+@@ -1,203 +1,179 @@
+-import Photobooth from "../pages/prestations/photobooth";
+-
+ export default function Services() {
+   const services = [
+     {
+       title: "Photobooth",
+       description:
+-        "Le Photobooth Classique est l'options parfaite pour capturer des souvenirs inoubliables. Offrant des impressions illimitées, des animations en direct et une personnalisation complète, il est idéal pour tout type d'événement.",
++        "Le Photobooth Classique est l'option parfaite pour capturer des souvenirs inoubliables. Offrant des impressions illimitées, des animations en direct et une personnalisation complète, il est idéal pour tout type d'événement.",
+       features: [
+         "Impressions illimitées",
+         "Animateur sur place",
+         "Galerie Web",
+         "Livraison et installation",
+       ],
+       image: "/images/photobooth.webp",
+-      infoLink: "/photobooth", // Lien vers plus d'infos
++      infoLink: "/prestations/photobooth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-            price: "A Partir de 350€",
++      price: "À partir de 350€",
+     },
+     {
+       title: "Miroirbooth",
+       description:
+         "Le Miroirbooth est une solution élégante et interactive qui combine technologie et divertissement. Vos invités seront éblouis par ce miroir tactile qui capture des photos et des souvenirs de manière unique.",
+       features: [
+         "Écran tactile interactif",
+         "Animations personnalisées",
+         "Accessoires de déguisement",
+         "Service complet sur place",
+       ],
+       image: "/images/miroirbooth.webp",
+-            infoLink: "/miroirbooth", // Lien vers plus d'infos
++      infoLink: "/prestations/miroirbooth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-            price: "A Partir de 450€",
++      price: "À partir de 450€",
+     },
+     {
+       title: "360 Booth",
+       description:
+         "Le 360 Booth permet de capturer des vidéos à 360° pour une expérience immersive. Idéal pour les événements modernes, ce stand propose des effets visuels dynamiques que vos invités pourront partager sur les réseaux sociaux.",
+       features: [
+         "Vidéo HD à 360°",
+         "Personnalisation des effets",
+         "Partage instantané sur les réseaux sociaux",
+         "Gestion complète sur place",
+       ],
+       image: "/images/360booth.webp",
+-            infoLink: "/360booth", // Lien vers plus d'infos
++      infoLink: "/prestations/videobooth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-                  price: "A Partir de 400€",
++      price: "À partir de 400€",
+     },
+     {
+       title: "Vogue Booth",
+       description:
+         "Le Vogue Booth vous permet d’apporter une touche de glamour à votre événement. Inspiré des tapis rouges, ce stand est parfait pour les événements VIP avec des effets lumineux spectaculaires et des prises de vue professionnelles.",
+       features: [
+         "Éclairage de style passerelle",
+         "Photos de qualité professionnelle",
+         "Personnalisation des décors",
+         "Équipe d'assistance sur place",
+       ],
+       image: "/images/voguebooth.webp",
+-            infoLink: "/voguebooth", // Lien vers plus d'infos
++      infoLink: "/prestations/voguebooth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-      price: "A partir de 500€",
++      price: "À partir de 500€",
+     },
+     {
+       title: "iPad Booth",
+       description:
+-        "Le iPad Booth est une options simple et efficace pour les petits événements. Compact et rapide à installer, il permet de capturer des photos numériques de haute qualité, avec la possibilité de les partager immédiatement.",
++        "Le iPad Booth est une option simple et efficace pour les petits événements. Compact et rapide à installer, il permet de capturer des photos numériques de haute qualité, avec la possibilité de les partager immédiatement.",
+       features: [
+         "Installation rapide",
+         "Partage numérique instantané",
+         "Personnalisation des photos",
+         "Conception compacte pour les petits espaces",
+       ],
+       image: "/images/ipadbooth.webp",
+-            infoLink: "/ipadbooth", // Lien vers plus d'infos
++      infoLink: "/prestations/ipadbooth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-                  price: "A Partir de 250€",
++      price: "À partir de 250€",
+     },
+     {
+       title: "Air360 Booth",
+       description:
+         "Le Air360 Booth est une expérience unique avec des vidéos 4K illimitées et une capacité d'accueil jusqu'à 10 personnes par session. Parfait pour les événements modernes et immersifs.",
+       features: [
+-        "Vidéo 4K illimitées",
++        "Vidéos 4K illimitées",
+         "Jusqu'à 10 personnes",
+         "Livraison et installation",
+         "Animateur sur place",
+         "Personnalisation",
+         "Galerie Web",
+       ],
+       image: "/images/airbooth.webp",
+-            infoLink: "/air360booth", // Lien vers plus d'infos
++      infoLink: "/prestations/air360booth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-                  price: "A Partir de 400€",
++      price: "À partir de 400€",
+     },
+     {
+       title: "Pack VIP",
+       description:
+         "Combinez le Miroirbooth et le 360 Booth pour une expérience exclusive. Parfait pour les grandes réceptions ou les événements professionnels de haut niveau.",
+       features: [
+         "Livraison et installation",
+         "2 Animateurs sur place",
+         "Vidéo et impressions illimitées",
+         "Galerie Web",
+         "Personnalisation",
+       ],
+       image: "/images/pack.webp",
+-            infoLink: "/packvip", // Lien vers plus d'infos
++      infoLink: "/prestations/packvip", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-                  price: "A Partir de 850€",
++      price: "À partir de 850€",
+     },
+     {
+-      title: "Pack VIP",
+-      description:
+-        "Profitez d'une expérience unique en combinant le Vogue Booth, le 360 Booth et le Photobooth. Idéal pour les événements exclusifs, mariages et soirées de prestige.",
+-      features: [
+-        "Livraison et installation incluses",
+-        "3 Animateurs sur place",
+-        "Vidéos et impressions illimitées",
+-        "Galerie Web pour partager les moments",
+-        "Personnalisation des animations et décors",
+-      ],
+-      image: "/images/pack.webp",  // ✅ Assure-toi que cette image existe
+-      infoLink: "/sous-pages/packvip", // ✅ Chemin mis à jour selon ta structure
+-      reserveLink: "https://reservation.myselfiebooth-paris.fr/",
+-      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestations complète
+-    },
+-          {
+-      title: "Pack VIP",
+-      description:
+-        "Profitez d'une expérience unique en combinant le Vogue Booth, le 360 Booth et le Photobooth. Idéal pour les événements exclusifs, mariages et soirées de prestige.",
+-      features: [
+-        "Livraison et installation incluses",
+-        "3 Animateurs sur place",
+-        "Vidéos et impressions illimitées",
+-        "Galerie Web pour partager les moments",
+-        "Personnalisation des animations et décors",
+-      ],
+-      image: "/images/pack.webp",  // ✅ Assure-toi que cette image existe
+-      infoLink: "/sous-pages/packvip", // ✅ Chemin mis à jour selon ta structure
+-      reserveLink: "https://reservation.myselfiebooth-paris.fr/",
+-      price: "À partir de 1200€", // ✅ Prix mis à jour selon la prestations complète
+-    },
+-      {
+       title: "Options Supplémentaires",
+       description:
+-        "Enrichissez votre événement avec des options supplémentaires comme les murs floraux, les fonds personnalisés, ou encore des livres d'or numériques. Ces extras apportent une touche d'élégance et de divertissement supplémentaire.",
++        "Enrichissez votre événement avec des options supplémentaires comme le phonebooth, les panneaux de bienvenue, les murs floraux ou encore les livres d'or numériques. Ces extras apportent une touche d'élégance et de divertissement supplémentaire.",
+       features: [
++        "Panneaux de bienvenue personnalisés",
++        "Phonebooth",
+         "Murs floraux et arrière-plans personnalisés",
+         "Livre d'or numérique",
+         "Hologrammes 3D",
+         "Accessoires sur mesure",
+       ],
+       image: "/images/all_options.webp",
+-      infoLink: "/photobooth", // Lien vers plus d'infos
++      infoLink: "/options/phonebooth", // Lien vers plus d'infos
+       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
+-                  price: "A Partir de 50€",
++      price: "À partir de 50€",
+     },
+   ];
+ 
+  const styles = {
+   section: {
+     background: "linear-gradient(to bottom, #ffffff, #f5f5f5)",
+     padding: "2rem 1rem",
+   },
+   container: {
+     maxWidth: "1400px",
+     margin: "0 auto",
+     padding: "0 1rem",
+   },
+   title: {
+     textAlign: "center",
+     fontSize: "2.5rem",
+     fontWeight: "bold",
+     color: "#333",
+     marginBottom: "2rem",
+   },
++  subtitle: {
++    textAlign: "center",
++    fontSize: "1.1rem",
++    color: "#666",
++    maxWidth: "760px",
++    margin: "0 auto 2.5rem",
++    lineHeight: "1.6",
++  },
+   grid: {
+     display: "grid",
+     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Responsive grid
+     gap: "2rem",
+   },
+   card: {
+     backgroundColor: "#fff",
+     border: "1px solid #ddd",
+     borderRadius: "15px",
+     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+     padding: "1.5rem",
+     textAlign: "center",
+     transition: "transform 0.3s ease, box-shadow 0.3s ease",
+     display: "flex",
+     flexDirection: "column",
+     justifyContent: "space-between",
+   },
+   cardHover: {
+     transform: "translateY(-10px)",
+     boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+   },
+   image: {
+     width: "100%",
+     height: "auto",
+     borderRadius: "10px",
+@@ -242,56 +218,75 @@ export default function Services() {
+   },
+   buttonWrapper: {
+     display: "flex",
+     justifyContent: "space-around",
+     marginTop: "1rem",
+   },
+   button: {
+     color: "#fff",
+     padding: "10px 20px",
+     fontSize: "1rem",
+     textDecoration: "none",
+     borderRadius: "10px",
+     background: "linear-gradient(rgb(236 219 133), rgb(126 104 32))",
+     boxShadow: "0 2px 5px rgb(11, 11, 11)",
+     transition: "transform 0.2s ease, background-color 0.3s ease",
+     fontWeight: "bold",
+     border: "none",
+     cursor: "pointer",
+ 
+   },
+   buttonHover: {
+     background: "#fbe9a3",
+     transform: "translateY(-5px)",
+     boxShadow: "0 10px 30px rgba(255, 255, 255, 0.99)",
+   },
++  ctaWrapper: {
++    marginTop: "2.5rem",
++    display: "flex",
++    justifyContent: "center",
++  },
++  cta: {
++    padding: "14px 28px",
++    borderRadius: "999px",
++    background: "linear-gradient(to right, #ffef96, #caa85f)",
++    color: "#2b2100",
++    textDecoration: "none",
++    fontWeight: "bold",
++    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
++    transition: "transform 0.2s ease",
++  },
+ };
+ 
+   return (
+-    <section style={styles.section}>
++    <section id="prestations" style={styles.section}>
+       <div style={styles.container}>
+         <h2 style={styles.title}>Nos Prestations</h2>
++        <p style={styles.subtitle}>
++          Des solutions clés en main pour tous vos événements, avec livraison,
++          installation et accompagnement sur place.
++        </p>
+         <div style={styles.grid}>
+           {services.map((service, index) => (
+               <div
+                   key={index}
+                   style={styles.card}
+                   onMouseEnter={(e) =>
+                       Object.assign(e.currentTarget.style, styles.cardHover)
+                   }
+                   onMouseLeave={(e) =>
+                       Object.assign(e.currentTarget.style, {
+                         transform: "translateY(0)",
+                         boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
+                       })
+                   }
+               >
+                 <img
+                     src={service.image}
+                     alt={service.title}
+                     style={styles.image}
+                 />
+                 <h3 style={styles.cardTitle}>{service.title}</h3>
+                 <p style={styles.cardDescription}>{service.description}</p>
+                 <ul style={styles.featuresList}>
+                   {service.features.map((feature, i) => (
+                       <li key={i} style={styles.featureItem}>
+@@ -308,29 +303,39 @@ export default function Services() {
+                       onMouseEnter={(e) =>
+                           Object.assign(e.currentTarget.style, styles.buttonHover)
+                       }
+                       onMouseLeave={(e) =>
+                           Object.assign(e.currentTarget.style, styles.button)
+                       }
+                   >
+                     + d'info
+                   </a>
+                   <a
+                       href={service.reserveLink}
+                       style={styles.button}
+                       onMouseEnter={(e) =>
+                           Object.assign(e.currentTarget.style, styles.buttonHover)
+                       }
+                       onMouseLeave={(e) =>
+                           Object.assign(e.currentTarget.style, styles.button)
+                       }
+                   >
+                     Réserver !
+                   </a>
+                 </div>
+               </div>
+           ))}
+         </div>
++        <div style={styles.ctaWrapper}>
++          <a
++            href="https://reservation.myselfiebooth-paris.fr/"
++            style={styles.cta}
++            target="_blank"
++            rel="noopener noreferrer"
++          >
++            Obtenir un devis en 2 minutes
++          </a>
++        </div>
+       </div>
+     </section>
+   );
+ }
+diff --git a/src/pages/_document.js b/src/pages/_document.js
+index ca7cd9a74d7a21a39c438b22582b8b7b75ef0e7b..bca9e9c408ce7dcfea35169d1c4ad86947a8af35 100644
+--- a/src/pages/_document.js
++++ b/src/pages/_document.js
+@@ -1,16 +1,15 @@
+ import { Html, Head, Main, NextScript } from 'next/document';
+ 
+ export default function Document() {
+   return (
+     <Html>
+       <Head>
+         {/* Chemin correct pour inclure un fichier CSS dans le dossier public */}
+-        <link rel="stylesheet" href="public/styles/styles.css" />
+       </Head>
+       <body>
+         <Main />
+         <NextScript />
+       </body>
+     </Html>
+   );
+ }
+diff --git a/src/pages/blog.jsx b/src/pages/blog.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..5ecd470ae8b6de2996be4c54e725beb0fca59b20
+--- /dev/null
++++ b/src/pages/blog.jsx
+@@ -0,0 +1,47 @@
++import Layout from "../components/Layout";
++
++export default function Blog() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Blog MySelfieBooth</h1>
++          <p>
++            Retrouvez bientôt nos conseils, inspirations et retours
++            d'expérience pour réussir vos événements.
++          </p>
++          <div className="card">
++            <h2>Articles à venir</h2>
++            <ul>
++              <li>Comment choisir un photobooth pour son mariage ?</li>
++              <li>Nos idées d'animations pour entreprises</li>
++              <li>Les meilleures tendances photo de l'année</li>
++            </ul>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++        }
++        .card {
++          margin-top: 2rem;
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++        ul {
++          padding-left: 1.2rem;
++          line-height: 1.8;
++        }
++      `}</style>
++    </Layout>
++  );
++}
+diff --git a/src/pages/conditions.jsx b/src/pages/conditions.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..1ac7506b3987d4e68d2fc1774e18cc53ba72db61
+--- /dev/null
++++ b/src/pages/conditions.jsx
+@@ -0,0 +1,53 @@
++import Layout from "../components/Layout";
++
++export default function Conditions() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Conditions générales de location</h1>
++          <p>
++            Retrouvez ici les conditions principales de réservation et de
++            prestation. Notre équipe reste disponible pour toute précision.
++          </p>
++          <div className="card">
++            <h2>Réservation</h2>
++            <p>
++              La réservation est confirmée après validation du devis et versement
++              de l'acompte. Les dates sont bloquées dès réception de la
++              confirmation.
++            </p>
++            <h2>Livraison et installation</h2>
++            <p>
++              Nous assurons la livraison, l'installation et la reprise du matériel
++              selon les horaires convenus.
++            </p>
++            <h2>Annulation</h2>
++            <p>
++              Toute annulation doit être notifiée par écrit. Des frais peuvent
++              s'appliquer selon le délai.
++            </p>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++        }
++        .card {
++          margin-top: 2rem;
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++      `}</style>
++    </Layout>
++  );
++}
+diff --git a/src/pages/evenements/anniversaires.jsx b/src/pages/evenements/anniversaires.jsx
+index 7537b138bd9ec739d8c6bfd73ab7a520ce981f00..2fefd178ac5fe8d3bd9b9ebe5fe2497949744179 100644
+--- a/src/pages/evenements/anniversaires.jsx
++++ b/src/pages/evenements/anniversaires.jsx
+@@ -1,31 +1,118 @@
+ import Layout from "../../components/Layout";
+ 
++const points = [
++  "Animation fun pour tous les âges",
++  "Impressions instantanées",
++  "Accessoires et personnalisation",
++  "Galerie en ligne pour revivre la soirée",
++];
++
+ export default function Anniversaires() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Anniversaires</span>
++          <h1>Faites de votre anniversaire un moment inoubliable</h1>
++          <p>
++            Une animation photo ludique qui fait sourire vos invités et crée des
++            souvenirs à partager.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver pour mon anniversaire
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/miroirbooth.webp" alt="Photobooth anniversaire" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tout pour une fête réussie</h2>
++        <ul className="list">
++          {points.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section alt">
++        <h2>Souvenirs personnalisés</h2>
++        <p>
++          Créez des cadres photo personnalisés avec votre prénom, votre âge et
++          le thème de la soirée.
++        </p>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #221b12, #5a4300);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1000px;
++          margin: 0 auto;
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/evenements/corporates.jsx b/src/pages/evenements/corporates.jsx
+index 7a4b7f3729d89181faff9536d32a8694128a16cc..dd3be3465d3661186d4af81d1fe32538e3e9e726 100644
+--- a/src/pages/evenements/corporates.jsx
++++ b/src/pages/evenements/corporates.jsx
+@@ -1,31 +1,118 @@
+ import Layout from "../../components/Layout";
+ 
++const points = [
++  "Valorisation de votre marque",
++  "Animations personnalisées aux couleurs de l'entreprise",
++  "Partage instantané sur les réseaux",
++  "Accompagnement sur place",
++];
++
+ export default function Corporates() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Événements corporate</span>
++          <h1>Activez votre marque avec un photobooth premium</h1>
++          <p>
++            Séminaires, lancements de produit, soirées d'entreprise : nous
++            créons une expérience photo impactante pour vos invités.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver pour mon événement
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/photobooth.webp" alt="Photobooth corporate" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Vos objectifs, notre expertise</h2>
++        <ul className="list">
++          {points.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section alt">
++        <h2>Une visibilité maximale</h2>
++        <p>
++          Nos photobooths favorisent l'engagement et la viralité avec des
++          contenus partagés immédiatement par vos invités.
++        </p>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #101010, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1000px;
++          margin: 0 auto;
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/evenements/mariages.jsx b/src/pages/evenements/mariages.jsx
+index 50601bb316552b5389956f3f095902e8e83d7e08..7f157e9b2d3b16df0e37d0d1afecbb564dbe69dd 100644
+--- a/src/pages/evenements/mariages.jsx
++++ b/src/pages/evenements/mariages.jsx
+@@ -1,31 +1,118 @@
+ import Layout from "../../components/Layout";
+ 
++const points = [
++  "Animation élégante pour vos invités",
++  "Impressions personnalisées avec vos prénoms",
++  "Galerie web pour partager vos souvenirs",
++  "Installation et assistance incluses",
++];
++
+ export default function Mariages() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Mariages</span>
++          <h1>Un photobooth pour le plus beau jour</h1>
++          <p>
++            Offrez à vos invités une animation fun et chic. Des photos imprimées
++            en illimité et un souvenir unique pour chacun.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver pour mon mariage
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/mariages/mariage1.JPG" alt="Photobooth mariage" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Pourquoi choisir MySelfieBooth ?</h2>
++        <ul className="list">
++          {points.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section alt">
++        <h2>Des souvenirs personnalisés</h2>
++        <p>
++          Nous créons des cadres photo sur-mesure et adaptons l'expérience à
++          votre thème pour une harmonie parfaite.
++        </p>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #221b12, #5a4300);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1000px;
++          margin: 0 auto;
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/evenements/soirees.jsx b/src/pages/evenements/soirees.jsx
+index c656af1729f92091ffc1262f571a2d63386a3982..02812dd6181818537f92d3510d92a42bf25d3a2e 100644
+--- a/src/pages/evenements/soirees.jsx
++++ b/src/pages/evenements/soirees.jsx
+@@ -1,31 +1,118 @@
+ import Layout from "../../components/Layout";
+ 
++const points = [
++  "Animation tendance et immersive",
++  "Photos et vidéos partageables",
++  "Personnalisation du décor",
++  "Assistance et installation incluses",
++];
++
+ export default function Soirees() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Soirées privées</span>
++          <h1>Un photobooth qui met l'ambiance</h1>
++          <p>
++            Apportez une touche fun et élégante à vos soirées privées ou
++            événementielles.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver pour ma soirée
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/voguebooth.webp" alt="Photobooth soirée" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Une ambiance mémorable</h2>
++        <ul className="list">
++          {points.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section alt">
++        <h2>Des souvenirs à partager</h2>
++        <p>
++          Vos invités repartent avec des photos imprimées et une galerie en
++          ligne pour revivre la soirée.
++        </p>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #101010, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1000px;
++          margin: 0 auto;
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/lyon.jsx b/src/pages/lyon.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..fec0a8704c5b81f49e75dcf115d6e147ccc40c39
+--- /dev/null
++++ b/src/pages/lyon.jsx
+@@ -0,0 +1,65 @@
++import Layout from "../components/Layout";
++
++export default function Lyon() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Photobooth à Lyon</h1>
++          <p>
++            Pour vos mariages, soirées privées et événements d'entreprise à
++            Lyon, profitez d'une animation photobooth élégante et clé en main.
++          </p>
++          <div className="card">
++            <h2>Pourquoi nous choisir à Lyon ?</h2>
++            <ul>
++              <li>Équipe locale réactive.</li>
++              <li>Options premium (miroirbooth, 360, Vogue Booth).</li>
++              <li>Galerie en ligne et partage instantané.</li>
++            </ul>
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver à Lyon
++            </a>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++        }
++        .card {
++          margin-top: 2rem;
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++        ul {
++          padding-left: 1.2rem;
++          line-height: 1.8;
++        }
++        .cta {
++          display: inline-block;
++          margin-top: 1.5rem;
++          padding: 12px 24px;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++      `}</style>
++    </Layout>
++  );
++}
+diff --git a/src/pages/options/panneau.jsx b/src/pages/options/panneau.jsx
+index 331d3627f5a1a1b44fd897583e239ec48936fd65..30694ed388a3bb9e4c13500e038f3a8ad27172aa 100644
+--- a/src/pages/options/panneau.jsx
++++ b/src/pages/options/panneau.jsx
+@@ -1,31 +1,118 @@
+ import Layout from "../../components/Layout";
+ 
++const inclus = [
++  "Panneau de bienvenue personnalisé",
++  "Choix des couleurs et typographies",
++  "Impression haute qualité",
++  "Mise en place sur site",
++];
++
+ export default function Panneau() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Option déco</span>
++          <h1>Panneau de bienvenue</h1>
++          <p>
++            Accueillez vos invités avec un panneau élégant qui reprend le thème
++            de votre événement.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Ajouter le panneau
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/Welcomeboard.webp" alt="Panneau de bienvenue" />
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Une première impression mémorable</h2>
++        <p>
++          Combinez ce panneau avec nos photobooths pour une scénographie
++          complète.
++        </p>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #101010, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1000px;
++          margin: 0 auto;
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/options/phonebooth.jsx b/src/pages/options/phonebooth.jsx
+index 058803719cd18d281da92031017414721668c26f..024dea66fbd74d88b5c5c657add777ebe0fe9d7a 100644
+--- a/src/pages/options/phonebooth.jsx
++++ b/src/pages/options/phonebooth.jsx
+@@ -1,35 +1,118 @@
+ import Layout from "../../components/Layout";
+ 
++const inclus = [
++  "Livre d'or audio vintage",
++  "Messages audio illimités",
++  "Livraison et installation",
++  "Fichiers audio remis après l'événement",
++];
++
+ export default function Phonebooth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Option audio</span>
++          <h1>Phonebooth</h1>
++          <p>
++            Offrez à vos invités la possibilité de laisser des messages audio
++            inoubliables grâce à notre livre d'or vintage.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Ajouter le Phonebooth
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/phonebooth.webp" alt="Phonebooth" />
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Une option pleine d'émotions</h2>
++        <p>
++          Idéal pour collecter des messages touchants et authentiques de vos
++          invités.
++        </p>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #101010, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1000px;
++          margin: 0 auto;
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-
+-        @keyframes spin {
+-          0% { transform: rotate(0deg); }
+-          100% { transform: rotate(360deg); }
++        .alt {
++          background: #f8f5ef;
+         }
+-        h1 {
+-          color: #ff9800;
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/paris.jsx b/src/pages/paris.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..e7d889404c2e37ed5b3dc83f68751e5ccb5dbdb0
+--- /dev/null
++++ b/src/pages/paris.jsx
+@@ -0,0 +1,65 @@
++import Layout from "../components/Layout";
++
++export default function Paris() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Photobooth à Paris</h1>
++          <p>
++            MySelfieBooth accompagne vos événements parisiens avec des
++            photobooths premium, élégants et faciles à installer.
++          </p>
++          <div className="card">
++            <h2>Nos engagements à Paris</h2>
++            <ul>
++              <li>Livraison rapide et installation discrète.</li>
++              <li>Personnalisation des cadres photo.</li>
++              <li>Assistance sur place pendant votre événement.</li>
++            </ul>
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver à Paris
++            </a>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++        }
++        .card {
++          margin-top: 2rem;
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++        ul {
++          padding-left: 1.2rem;
++          line-height: 1.8;
++        }
++        .cta {
++          display: inline-block;
++          margin-top: 1.5rem;
++          padding: 12px 24px;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++      `}</style>
++    </Layout>
++  );
++}
+diff --git a/src/pages/prestations/air360booth.jsx b/src/pages/prestations/air360booth.jsx
+index 4b41611ee65a1af0e8ead6fccd154a214787bfba..eba03f4d325fb08cab83fbc3fc2b43c2d2f5578e 100644
+--- a/src/pages/prestations/air360booth.jsx
++++ b/src/pages/prestations/air360booth.jsx
+@@ -1,30 +1,174 @@
+ import Layout from "../../components/Layout";
+ 
++const tarifs = [
++  { label: "Formule 3h", price: "400€" },
++  { label: "Formule 5h", price: "500€" },
++];
++
++const inclus = [
++  "Vidéos 4K illimitées",
++  "Jusqu'à 10 personnes",
++  "Livraison et installation",
++  "Animateur sur place",
++  "Personnalisation",
++  "Galerie web",
++];
++
+ export default function Air360booth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Nouveau</span>
++          <h1>Air360 Booth</h1>
++          <p>
++            Une version XXL du 360 Booth pour accueillir jusqu'à 10 personnes.
++            L'effet wow garanti.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver l'Air360 Booth
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/airbooth.webp" alt="Air360 Booth" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tarifs</h2>
++        <div className="grid">
++          {tarifs.map((item) => (
++            <div key={item.label} className="card">
++              <h3>{item.label}</h3>
++              <p className="price">{item.price}</p>
++              <p>Expérience immersive et spectaculaire.</p>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus dans la prestation</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Créez un moment unique</h2>
++        <p>Parfait pour les grands événements et lancements de marque.</p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Demander un devis
++        </a>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++        }
++        .section h2 {
++          text-align: center;
++          margin-bottom: 2rem;
++        }
++        .alt {
++          background: #f8f5ef;
++        }
++        .grid {
++          display: grid;
++          gap: 1.5rem;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++        }
++        .card {
++          background: #fff;
++          padding: 1.5rem;
++          border-radius: 16px;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-        h1 {
+-          color: #ff9800;
++        .price {
++          font-size: 2rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 0.5rem 0 1rem;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++        .cta-section {
++          text-align: center;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/ipadbooth.jsx b/src/pages/prestations/ipadbooth.jsx
+index c75098399dcf4a71d841f6e006a993b9bb7a077b..99dff438089441f88add7085b48ac47315a58965 100644
+--- a/src/pages/prestations/ipadbooth.jsx
++++ b/src/pages/prestations/ipadbooth.jsx
+@@ -1,30 +1,174 @@
+ import Layout from "../../components/Layout";
+ 
++const tarifs = [
++  { label: "Location 24-48h", price: "250€" },
++];
++
++const inclus = [
++  "Montage en 5 minutes",
++  "Photos numériques illimitées",
++  "Personnalisation",
++  "Galerie web",
++  "Livraison & installation (option +100€)",
++];
++
+ export default function Ipadbooth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Formule éco</span>
++          <h1>iPad Booth (Ring Booth)</h1>
++          <p>
++            Une solution compacte et rapide à installer pour les petits
++            événements, avec partage numérique instantané.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver l'iPad Booth
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/ipadbooth.webp" alt="iPad Booth" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tarif unique</h2>
++        <div className="grid">
++          {tarifs.map((item) => (
++            <div key={item.label} className="card">
++              <h3>{item.label}</h3>
++              <p className="price">{item.price}</p>
++              <p>Idéal pour anniversaires et soirées privées.</p>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus dans la prestation</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Une solution simple et efficace</h2>
++        <p>
++          Parfait pour les espaces réduits et les événements en autonomie.
++        </p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Demander un devis
++        </a>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #121212, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++        }
++        .section h2 {
++          text-align: center;
++          margin-bottom: 2rem;
++        }
++        .alt {
++          background: #f8f5ef;
++        }
++        .grid {
++          display: grid;
++          gap: 1.5rem;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++        }
++        .card {
++          background: #fff;
++          padding: 1.5rem;
++          border-radius: 16px;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
+         }
+-        h1 {
+-          color: #ff9800;
++        .price {
++          font-size: 2rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 0.5rem 0 1rem;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++        .cta-section {
++          text-align: center;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/miroirbooth.jsx b/src/pages/prestations/miroirbooth.jsx
+index 3db38b79f0fdc4d86790d8e9bff755b187caffe7..fc0488b7cc5274c9ed498e4112a6ef78797d819d 100644
+--- a/src/pages/prestations/miroirbooth.jsx
++++ b/src/pages/prestations/miroirbooth.jsx
+@@ -1,31 +1,187 @@
+ import Layout from "../../components/Layout";
+ 
++const tarifs = [
++  { label: "Formule 3h", price: "450€" },
++  { label: "Formule 5h", price: "550€" },
++];
++
++const inclus = [
++  "Impressions illimitées",
++  "Livraison et installation",
++  "Animateur sur place",
++  "Photos numériques illimitées",
++  "Personnalisation",
++  "Galerie web privée",
++];
++
+ export default function Miroirbooth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction2🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">En promo</span>
++          <h1>Miroirbooth interactif</h1>
++          <p>
++            Le miroir tactile qui sublime vos événements. Une animation élégante
++            et immersive pour des photos mémorables.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver le miroirbooth
++            </a>
++            <a href="/options/panneau" className="ghost">
++              Ajouter une option
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/miroirbooth.webp" alt="Miroirbooth" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tarifs</h2>
++        <div className="grid">
++          {tarifs.map((item) => (
++            <div key={item.label} className="card">
++              <h3>{item.label}</h3>
++              <p className="price">{item.price}</p>
++              <p>Expérience photo premium avec effets interactifs.</p>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus dans la prestation</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Une animation haut de gamme</h2>
++        <p>
++          Le miroirbooth est parfait pour les mariages et événements VIP.
++          Contactez-nous pour une mise en scène personnalisée.
++        </p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Demander un devis
++        </a>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #1a1a1a, #4d3b13);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .ghost {
++          border: 1px solid #fff;
++          color: #fff;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++        }
++        .section h2 {
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
++          margin-bottom: 2rem;
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .grid {
++          display: grid;
++          gap: 1.5rem;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++        }
++        .card {
++          background: #fff;
++          padding: 1.5rem;
++          border-radius: 16px;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
++          text-align: center;
++        }
++        .price {
++          font-size: 2rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 0.5rem 0 1rem;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++        .cta-section {
++          text-align: center;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/packvip.jsx b/src/pages/prestations/packvip.jsx
+index 3ec51af0f19646c3c8750fe65625e1be1b004e1e..5df1ed81376a03511326514a67601d02267705ad 100644
+--- a/src/pages/prestations/packvip.jsx
++++ b/src/pages/prestations/packvip.jsx
+@@ -1,31 +1,161 @@
+ import Layout from "../../components/Layout";
+ 
++const inclus = [
++  "Livraison et installation",
++  "2 animateurs sur place",
++  "Vidéos et impressions illimitées",
++  "Galerie web",
++  "Personnalisation complète",
++];
++
+ export default function Packvip() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Pack VIP</span>
++          <h1>Pack VIP</h1>
++          <p>
++            Combinez le Miroirbooth et le 360 Booth pour une expérience
++            spectaculaire et haut de gamme.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver le Pack VIP
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/pack.webp" alt="Pack VIP" />
++        </div>
++      </section>
++
++      <section className="section">
++        <div className="card price-card">
++          <h2>Tarif unique</h2>
++          <p className="price">850€ / 5h</p>
++          <p>Deux animations pour un événement inoubliable.</p>
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus dans la prestation</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Une offre exclusive</h2>
++        <p>
++          Idéal pour les grandes réceptions, les soirées d'entreprise ou les
++          événements VIP.
++        </p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Demander un devis
++        </a>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++        }
++        .section h2 {
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
++          margin-bottom: 2rem;
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .price-card {
++          text-align: center;
++          background: #fff;
++          border-radius: 16px;
++          padding: 2rem;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
++        }
++        .price {
++          font-size: 2.4rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 1rem 0;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++        .cta-section {
++          text-align: center;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/personnalise.jsx b/src/pages/prestations/personnalise.jsx
+index c98190f4cfcd42aa5b5b3aca5f0f78b68f49822d..60b1937be816be41c31efaecda044848a70a654b 100644
+--- a/src/pages/prestations/personnalise.jsx
++++ b/src/pages/prestations/personnalise.jsx
+@@ -1,17 +1,126 @@
+ import Layout from "../../components/Layout";
+ 
++const options = [
++  "Photobooth + Miroirbooth",
++  "360 Booth + Vogue Booth",
++  "Pack photo + livre d'or vidéo",
++  "Décors et personnalisation sur-mesure",
++];
++
+ export default function Personnalise() {
+   return (
+-      <Layout>
+-          <h1>Photobooth</h1>
+-          <p>Bienvenue sur la page Photobooth.</p>
+-          <p>Bienvenue sur la page Photobooth.</p>
+-          v          <p>Bienvenue sur la page Photobooth.</p>
++    <Layout>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Offre personnalisée</span>
++          <h1>Créez votre pack sur-mesure</h1>
++          <p>
++            Combinez plusieurs animations et bénéficiez d'une offre adaptée à
++            votre budget et à votre événement.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="mailto:contact@myselfiebooth-paris.fr"
++              className="cta"
++            >
++              Demander un devis personnalisé
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/all_presta.webp" alt="Offre personnalisée" />
++        </div>
++      </section>
+ 
+-          <p>Bienvenue sur la page Photobooth.</p>
++      <section className="section">
++        <h2>Exemples de combinaisons</h2>
++        <ul className="list">
++          {options.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
+ 
+-          <p>Bienvenue sur la page Photobooth.</p>
++      <section className="section alt">
++        <h2>Parlons de votre événement</h2>
++        <p>
++          Indiquez-nous la date, la ville et le format de votre événement pour
++          recevoir une proposition détaillée.
++        </p>
++        <a
++          href="mailto:contact@myselfiebooth-paris.fr"
++          className="cta"
++        >
++          Contacter l'équipe
++        </a>
++      </section>
+ 
+-      </Layout>
++      <style jsx>{`
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++          display: inline-block;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++          text-align: center;
++        }
++        .alt {
++          background: #f8f5ef;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 2rem auto 0;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++      `}</style>
++    </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/photobooth.jsx b/src/pages/prestations/photobooth.jsx
+index de1c0a9b7baa9185c66298e701285a49b30e637e..002da246790dbb16081f9ccd3bc3a3f1653e6ec9 100644
+--- a/src/pages/prestations/photobooth.jsx
++++ b/src/pages/prestations/photobooth.jsx
+@@ -1,134 +1,204 @@
+ import Layout from "../../components/Layout";
+ 
++const tarifs = [
++  { label: "Formule 3h", price: "350€" },
++  { label: "Formule 5h", price: "450€" },
++];
++
++const inclus = [
++  "Impressions illimitées",
++  "Livraison et installation",
++  "Animateur sur place",
++  "Photos numériques illimitées",
++  "Personnalisation des cadres",
++  "Galerie web privée",
++];
++
++const options = [
++  "GIFs et vidéos",
++  "Fond vert",
++  "Arrière-plans premium",
++  "Livre d'or numérique",
++];
++
+ export default function Photobooth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <section className="section orange">
+-          <h1>📸 MySelfieBooth - L'expérience Photobooth Ultime ! 🎉</h1>
+-          <p>
+-            Transformez vos événements en souvenirs inoubliables avec notre photobooth haut de gamme.
+-            Offrez à vos invités une animation interactive, fun et élégante, idéale pour les mariages,
+-            anniversaires, soirées d'entreprise et bien plus encore !
+-          </p>
+-        </section>
+-
+-        <section className="section white">
+-          <h2>✨ Pourquoi choisir le Photobooth ?</h2>
+-          <ul>
+-            <li>📷 <strong>Qualité photo professionnelle :</strong> Des clichés nets et lumineux grâce à un équipement dernier cri.</li>
+-            <li>🎭 <strong>Personnalisation totale :</strong> Filtres, cadres, effets, arrière-plans... tout est personnalisable !</li>
+-            <li>🚀 <strong>Installation rapide :</strong> Une mise en place efficace pour un événement sans stress.</li>
+-            <li>💾 <strong>Partage instantané :</strong> Recevez et partagez vos photos en quelques secondes sur vos réseaux sociaux.</li>
+-            <li>🎨 <strong>Design élégant :</strong> Un photobooth au look moderne qui s’intègre parfaitement à toutes vos ambiances.</li>
+-          </ul>
+-        </section>
+-
+-        <section className="section gray">
+-          <h2>🎊 Parfait pour tous vos événements</h2>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Best seller</span>
++          <h1>Photobooth Classique</h1>
+           <p>
+-            Que ce soit pour un <strong>mariage</strong>, une <strong>fête privée</strong>, un <strong>séminaire</strong> ou une <strong>inauguration</strong>,
+-            MySelfieBooth apporte une touche d’originalité et d’élégance à votre événement.
+-            Laissez vos invités repartir avec des souvenirs imprimés et digitaux inoubliables !
++            L'animation photo incontournable pour vos mariages, soirées privées
++            et événements d'entreprise. Des souvenirs imprimés en illimité et
++            une expérience fluide pour vos invités.
+           </p>
+-        </section>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver le photobooth
++            </a>
++            <a href="/options/phonebooth" className="ghost">
++              Voir les options
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/photobooth.webp" alt="Photobooth MySelfieBooth" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tarifs transparents</h2>
++        <div className="grid">
++          {tarifs.map((item) => (
++            <div key={item.label} className="card">
++              <h3>{item.label}</h3>
++              <p className="price">{item.price}</p>
++              <p>Impressions et photos numériques illimitées.</p>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Tout est inclus</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section">
++        <h2>Options disponibles</h2>
++        <ul className="list">
++          {options.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Prêt à réserver ?</h2>
++        <p>
++          Nous répondons rapidement et personnalisons chaque prestation selon
++          votre événement.
++        </p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Estimer mon prix
++        </a>
++      </section>
+ 
+-        <section className="section white">
+-          <h2>🛠 Nos options sur-mesure</h2>
+-          <ul>
+-            <li>🖼 <strong>Personnalisation des impressions :</strong> Ajoutez votre logo, un message ou un design unique.</li>
+-            <li>🎞 <strong>GIFs et vidéos :</strong> Offrez à vos invités une expérience encore plus immersive.</li>
+-            <li>🌟 <strong>Effets spéciaux :</strong> Fond vert, filtres dynamiques et animations pour un rendu incroyable.</li>
+-            <li>📲 <strong>Galerie en ligne :</strong> Accédez à toutes les photos après l’événement via un espace dédié.</li>
+-          </ul>
+-        </section>
+-
+-        <section className="section orange">
+-          <h2>📅 Réservez votre Photobooth dès maintenant !</h2>
+-          <p>
+-            Ne manquez pas l'opportunité d'ajouter une animation unique à votre événement !
+-            Consultez nos tarifs et réservez en quelques clics :
+-          </p>
+-          <a href="https://reservation.myselfiebooth-paris.fr" className="cta-button">
+-            🎟 Réservez votre photobooth
+-          </a>
+-        </section>
+-      </div>
+-
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
+-          text-align: center;
+-          max-width: 100%;
+-          margin: auto;
+-          padding-top: 80px;
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .ghost {
++          border: 1px solid #fff;
++          color: #fff;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+         }
+-
+         .section {
+           padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
+         }
+-
+-        .orange {
+-          background-color: #ffdca8;
+-          color: white;
++        .section h2 {
++          text-align: center;
++          margin-bottom: 2rem;
+         }
+-
+-        .white {
+-          background-color: white;
+-          color: #333;
++        .alt {
++          background: #f8f5ef;
+         }
+-
+-        .gray {
+-          background-color: #f4f4f4;
+-          color: #333;
++        .grid {
++          display: grid;
++          gap: 1.5rem;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+         }
+-
+-        h1, h2 {
+-          margin-bottom: 20px;
++        .card {
++          background: #fff;
++          padding: 1.5rem;
++          border-radius: 16px;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
++          text-align: center;
+         }
+-
+-        p {
+-          font-size: 24px;
+-          line-height: 1.8;
+-          max-width: 80%;
+-          margin: auto;
++        .price {
++          font-size: 2rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 0.5rem 0 1rem;
+         }
+-
+-        ul {
++        .list {
+           list-style: none;
+           padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
+         }
+-
+-        li {
+-          font-size: 22px;
+-          margin-bottom: 15px;
+-          text-align: center;
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+         }
+-
+-        .cta-button {
+-          display: inline-block;
+-          background-color: white;
+-          color: #ff9800;
+-          padding: 20px 40px;
+-          font-size: 24px;
+-          border-radius: 10px;
+-          text-decoration: none;
+-          margin-top: 30px;
+-          transition: background 0.3s ease;
+-        }
+-
+-        .cta-button:hover {
+-          background-color: #e68900;
+-          color: white;
++        .cta-section {
++          text-align: center;
+         }
+-
+-        @media (max-width: 768px) {
+-          p {
+-            font-size: 18px;
+-            max-width: 90%;
+-          }
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/videobooth.jsx b/src/pages/prestations/videobooth.jsx
+index fbc1dc46ec0eeceb003596c2c7d0a979aa5a30c5..bf77a4e647335a5516ff727319094c13bfd29e7d 100644
+--- a/src/pages/prestations/videobooth.jsx
++++ b/src/pages/prestations/videobooth.jsx
+@@ -1,31 +1,187 @@
+ import Layout from "../../components/Layout";
+ 
++const tarifs = [
++  { label: "Formule 3h", price: "400€" },
++  { label: "Formule 5h", price: "500€" },
++];
++
++const inclus = [
++  "Vidéos 4K illimitées",
++  "Jusqu'à 5 personnes par passage",
++  "Livraison et installation",
++  "Animateur sur place",
++  "Personnalisation",
++  "Galerie web",
++];
++
+ export default function Videobooth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction3🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">Vidéo 4K</span>
++          <h1>360 Booth</h1>
++          <p>
++            Captures vidéo spectaculaires à 360°. Idéal pour créer du contenu
++            dynamique et viral.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver le 360 Booth
++            </a>
++            <a href="/options/phonebooth" className="ghost">
++              Voir les options
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/360booth.webp" alt="360 Booth" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tarifs</h2>
++        <div className="grid">
++          {tarifs.map((item) => (
++            <div key={item.label} className="card">
++              <h3>{item.label}</h3>
++              <p className="price">{item.price}</p>
++              <p>Clips 360° livrés en HD et prêts à partager.</p>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus dans la prestation</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Faites rayonner votre événement</h2>
++        <p>
++          Offrez à vos invités une expérience immersive et partageable sur les
++          réseaux sociaux.
++        </p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Demander un devis
++        </a>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .ghost {
++          border: 1px solid #fff;
++          color: #fff;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++        }
++        .section h2 {
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
++          margin-bottom: 2rem;
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .grid {
++          display: grid;
++          gap: 1.5rem;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++        }
++        .card {
++          background: #fff;
++          padding: 1.5rem;
++          border-radius: 16px;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
++          text-align: center;
++        }
++        .price {
++          font-size: 2rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 0.5rem 0 1rem;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++        .cta-section {
++          text-align: center;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/prestations/voguebooth.jsx b/src/pages/prestations/voguebooth.jsx
+index ba5019c617033818107391419b991b343f5d7d01..dd51e94d7c003d5c0caca12b909272918fe1eec0 100644
+--- a/src/pages/prestations/voguebooth.jsx
++++ b/src/pages/prestations/voguebooth.jsx
+@@ -1,31 +1,173 @@
+ import Layout from "../../components/Layout";
+ 
++const tarifs = [
++  { label: "Offre de lancement", price: "550€" },
++];
++
++const inclus = [
++  "Livraison et installation",
++  "Personnalisation",
++  "Décoration",
++  "Option photographe + impressions (+150€)",
++];
++
+ export default function Voguebooth() {
+   return (
+     <Layout>
+-      <div className="container">
+-        <div className="loader"></div>
+-        <h1>🚧Page en construction4🚧</h1>
+-        <p>Nous travaillons activement sur cette section.</p>
+-        <p>Revenez bientôt pour découvrir nos offres pour 2025!</p>
+-      </div>
++      <section className="hero">
++        <div className="hero-content">
++          <span className="tag">En vogue</span>
++          <h1>Vogue Booth</h1>
++          <p>
++            Une expérience glamour inspirée des tapis rouges. Décorations,
++            éclairages et poses dignes des plus beaux shootings.
++          </p>
++          <div className="hero-actions">
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver le Vogue Booth
++            </a>
++          </div>
++        </div>
++        <div className="hero-image">
++          <img src="/images/voguebooth.webp" alt="Vogue Booth" />
++        </div>
++      </section>
++
++      <section className="section">
++        <h2>Tarif</h2>
++        <div className="grid">
++          {tarifs.map((item) => (
++            <div key={item.label} className="card">
++              <h3>{item.label}</h3>
++              <p className="price">{item.price}</p>
++              <p>Un rendu visuel premium et élégant.</p>
++            </div>
++          ))}
++        </div>
++      </section>
++
++      <section className="section alt">
++        <h2>Inclus dans la prestation</h2>
++        <ul className="list">
++          {inclus.map((item) => (
++            <li key={item}>{item}</li>
++          ))}
++        </ul>
++      </section>
++
++      <section className="section cta-section">
++        <h2>Créez un effet tapis rouge</h2>
++        <p>
++          Idéal pour soirées VIP, événements de marque ou lancements exclusifs.
++        </p>
++        <a
++          href="https://reservation.myselfiebooth-paris.fr"
++          target="_blank"
++          rel="noopener noreferrer"
++          className="cta"
++        >
++          Demander un devis
++        </a>
++      </section>
+ 
+-      {/* Styles en ligne */}
+       <style jsx>{`
+-        .container {
++        .hero {
++          display: grid;
++          gap: 2rem;
++          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++          padding: 120px 20px 60px;
++          background: linear-gradient(135deg, #0f0f0f, #3b2f0f);
++          color: #fff;
++          align-items: center;
++        }
++        .hero-content {
++          max-width: 520px;
++        }
++        .tag {
++          display: inline-block;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 6px 14px;
++          border-radius: 999px;
++          font-weight: bold;
++          margin-bottom: 1rem;
++        }
++        .hero-actions {
++          display: flex;
++          flex-wrap: wrap;
++          gap: 1rem;
++          margin-top: 1.5rem;
++        }
++        .cta {
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          padding: 12px 24px;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++        .hero-image img {
++          width: 100%;
++          border-radius: 20px;
++          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
++        }
++        .section {
++          padding: 60px 20px;
++          max-width: 1100px;
++          margin: 0 auto;
++        }
++        .section h2 {
+           text-align: center;
+-          padding: 20px;
+-          margin-top: 60px;  
++          margin-bottom: 2rem;
+         }
+-
+-        h1 {
+-          color: #ff9800;
++        .alt {
++          background: #f8f5ef;
++        }
++        .grid {
++          display: grid;
++          gap: 1.5rem;
++          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++        }
++        .card {
++          background: #fff;
++          padding: 1.5rem;
++          border-radius: 16px;
++          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
++          text-align: center;
++        }
++        .price {
++          font-size: 2rem;
++          font-weight: bold;
++          color: #5a4300;
++          margin: 0.5rem 0 1rem;
++        }
++        .list {
++          list-style: none;
++          padding: 0;
++          display: grid;
++          gap: 0.75rem;
++          max-width: 760px;
++          margin: 0 auto;
++        }
++        .list li {
++          background: #fff;
++          padding: 0.75rem 1rem;
++          border-radius: 12px;
++          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
++        }
++        .cta-section {
++          text-align: center;
+         }
+-        p {
+-          color: #333;
+-          font-size: 18px;
++        .cta-section p {
++          max-width: 640px;
++          margin: 0 auto 1.5rem;
+         }
+       `}</style>
+     </Layout>
+   );
+ }
+diff --git a/src/pages/privacy-policy.jsx b/src/pages/privacy-policy.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..3232dd5199bc098fe084309e1fd900c4665b5588
+--- /dev/null
++++ b/src/pages/privacy-policy.jsx
+@@ -0,0 +1,71 @@
++import Layout from "../components/Layout";
++
++export default function PrivacyPolicy() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Politique de confidentialité</h1>
++          <p>
++            Chez MySelfieBooth, la confidentialité de vos données est une
++            priorité. Cette page explique quelles informations nous collectons
++            et comment elles sont utilisées.
++          </p>
++          <div className="card">
++            <h2>Données collectées</h2>
++            <p>
++              Nous collectons uniquement les informations nécessaires à la
++              gestion de votre réservation et à l'amélioration de nos services
++              (coordonnées, informations sur l'événement, préférences).
++            </p>
++            <h2>Utilisation des données</h2>
++            <p>
++              Vos données servent à vous répondre, planifier l'événement et vous
++              proposer des solutions personnalisées. Elles ne sont jamais
++              revendues.
++            </p>
++            <h2>Vos droits</h2>
++            <p>
++              Vous pouvez demander l'accès, la modification ou la suppression
++              de vos données à tout moment via{" "}
++              <a href="mailto:contact@myselfiebooth-paris.fr">
++                contact@myselfiebooth-paris.fr
++              </a>
++              .
++            </p>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++          text-align: left;
++        }
++        h1 {
++          margin-bottom: 1rem;
++        }
++        .card {
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++        h2 {
++          margin-top: 1.5rem;
++        }
++        p {
++          line-height: 1.7;
++        }
++        a {
++          color: #5a4300;
++        }
++      `}</style>
++    </Layout>
++  );
++}
+diff --git a/src/pages/rouen.jsx b/src/pages/rouen.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..6bb9c0533ceed6bea929ff63952343610cc1ecf3
+--- /dev/null
++++ b/src/pages/rouen.jsx
+@@ -0,0 +1,66 @@
++import Layout from "../components/Layout";
++
++export default function Rouen() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Photobooth à Rouen</h1>
++          <p>
++            Nous accompagnons vos événements à Rouen avec des photobooths
++            élégants et une prestation complète : livraison, installation et
++            assistance.
++          </p>
++          <div className="card">
++            <h2>Une prestation sur-mesure</h2>
++            <ul>
++              <li>Installation rapide sur site.</li>
++              <li>Personnalisation des visuels.</li>
++              <li>Expérience fun pour tous vos invités.</li>
++            </ul>
++            <a
++              href="https://reservation.myselfiebooth-paris.fr"
++              target="_blank"
++              rel="noopener noreferrer"
++              className="cta"
++            >
++              Réserver à Rouen
++            </a>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++        }
++        .card {
++          margin-top: 2rem;
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++        ul {
++          padding-left: 1.2rem;
++          line-height: 1.8;
++        }
++        .cta {
++          display: inline-block;
++          margin-top: 1.5rem;
++          padding: 12px 24px;
++          background: linear-gradient(to right, #ffef96, #caa85f);
++          color: #2b2100;
++          border-radius: 999px;
++          text-decoration: none;
++          font-weight: bold;
++        }
++      `}</style>
++    </Layout>
++  );
++}
+diff --git a/src/pages/terms.jsx b/src/pages/terms.jsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..ffaa02b15a32080b902e4889b6fece7d25daad7f
+--- /dev/null
++++ b/src/pages/terms.jsx
+@@ -0,0 +1,54 @@
++import Layout from "../components/Layout";
++
++export default function Terms() {
++  return (
++    <Layout>
++      <section className="page">
++        <div className="container">
++          <h1>Mentions légales</h1>
++          <p>
++            Ce site est édité par MySelfieBooth. Pour toute question, contactez
++            notre équipe à{" "}
++            <a href="mailto:contact@myselfiebooth-paris.fr">
++              contact@myselfiebooth-paris.fr
++            </a>
++            .
++          </p>
++          <div className="card">
++            <h2>Éditeur</h2>
++            <p>MySelfieBooth — Photobooths premium pour événements.</p>
++            <h2>Hébergement</h2>
++            <p>Ce site est hébergé par un prestataire professionnel.</p>
++            <h2>Propriété intellectuelle</h2>
++            <p>
++              L'ensemble des contenus (textes, images, logos) est protégé par
++              le droit d'auteur. Toute reproduction est interdite sans accord
++              écrit.
++            </p>
++          </div>
++        </div>
++      </section>
++
++      <style jsx>{`
++        .page {
++          padding: 120px 20px 60px;
++          background: #f9f7f2;
++        }
++        .container {
++          max-width: 900px;
++          margin: 0 auto;
++        }
++        .card {
++          margin-top: 2rem;
++          background: #fff;
++          padding: 2rem;
++          border-radius: 16px;
++          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
++        }
++        a {
++          color: #5a4300;
++        }
++      `}</style>
++    </Layout>
++  );
++}

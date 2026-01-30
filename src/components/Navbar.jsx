@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import Panneau from "../pages/options/panneau";
+import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,64 +9,153 @@ const Navbar = () => {
   const [OptionsDropdownOpen, setOptionsDropdownOpen] = useState(false);
   const router = useRouter();
 
-    // BasePath dynamique (utile si basePath est défini dans next.config.js)
-  const basePath = router.basePath || '';
+  // BasePath dynamique (utile si basePath est défini dans next.config.js)
+  const basePath = router.basePath || "";
 
   const togglePrestationDropdown = () => {
     setPrestationDropdownOpen(!PrestationdropdownOpen);
+    setEventsDropdownOpen(false);
+    setOptionsDropdownOpen(false);
   };
 
   const toggleEventsDropdown = () => {
     setEventsDropdownOpen(!eventsDropdownOpen);
+    setPrestationDropdownOpen(false);
+    setOptionsDropdownOpen(false);
   };
 
   const toggleOptionDropdown = () => {
     setOptionsDropdownOpen(!OptionsDropdownOpen);
+    setPrestationDropdownOpen(false);
+    setEventsDropdownOpen(false);
   };
-    
-    return (
+
+  const closeMenus = () => {
+    setIsOpen(false);
+    setPrestationDropdownOpen(false);
+    setEventsDropdownOpen(false);
+    setOptionsDropdownOpen(false);
+  };
+  return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
           <a href="/" className="brand-name">MySelfieBooth</a>
         </div>
 
-        <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
+        <ul className={`navbar-links ${isOpen ? "open" : ""}`}>
           <li className="dropdown">
-            <a onClick={togglePrestationDropdown}>
-              Nos Prestations ▾
-            </a>
-            <ul className={`dropdown-menu ${PrestationdropdownOpen ? 'show' : ''}`}>
-              <li><Link href={`${basePath}/prestations/photobooth`} legacyBehavior><a>Photobooth</a></Link></li>
-              <li><Link href={`${basePath}/prestations/miroirbooth`} legacyBehavior><a>Miroirbooth</a></Link></li>
-              <li><Link href={`${basePath}/prestations/videobooth`} legacyBehavior><a>360Booth</a></Link></li>
-              <li><Link href={`${basePath}/prestations/ipadbooth`} legacyBehavior><a>iPadBooth</a></Link></li>
-              <li><Link href={`${basePath}/prestations/voguebooth`} legacyBehavior><a>VogueBooth</a></Link></li>
-              <li><Link href={`${basePath}/prestations/air360booth`} legacyBehavior><a>Air360Booth</a></Link></li>
-              <li><Link href={`${basePath}/prestations/packvip`} legacyBehavior><a>Pack VIP</a></Link></li>
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={togglePrestationDropdown}
+              aria-expanded={PrestationdropdownOpen}
+              aria-controls="prestations-menu"
+            >
+              Nos Prestations <span aria-hidden="true">▾</span>
+            </button>
+            <ul
+              id="prestations-menu"
+              className={`dropdown-menu ${PrestationdropdownOpen ? "show" : ""}`}
+            >
+              <li>
+                <Link href={`${basePath}/prestations/photobooth`} legacyBehavior>
+                  <a onClick={closeMenus}>Photobooth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/prestations/miroirbooth`} legacyBehavior>
+                  <a onClick={closeMenus}>Miroirbooth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/prestations/videobooth`} legacyBehavior>
+                  <a onClick={closeMenus}>360Booth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/prestations/ipadbooth`} legacyBehavior>
+                  <a onClick={closeMenus}>iPadBooth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/prestations/voguebooth`} legacyBehavior>
+                  <a onClick={closeMenus}>VogueBooth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/prestations/air360booth`} legacyBehavior>
+                  <a onClick={closeMenus}>Air360Booth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/prestations/packvip`} legacyBehavior>
+                  <a onClick={closeMenus}>Pack VIP</a>
+                </Link>
+              </li>
             </ul>
           </li>
 
           <li className="dropdown">
-            <a onClick={toggleEventsDropdown}>
-              Nos Événements ▾
-            </a>
-            <ul className={`dropdown-menu ${eventsDropdownOpen ? 'show' : ''}`}>
-              <li><Link href={`${basePath}/evenements/mariages`} legacyBehavior><a>Mariages</a></Link></li>
-              <li><Link href={`${basePath}/evenements/corporates`} legacyBehavior><a>Corporates</a></Link></li>
-              <li><Link href={`${basePath}/evenements/anniversaires`} legacyBehavior><a>Anniversaires</a></Link></li>
-              <li><Link href={`${basePath}/evenements/soirees`} legacyBehavior><a>Soirées</a></Link></li>
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={toggleEventsDropdown}
+              aria-expanded={eventsDropdownOpen}
+              aria-controls="events-menu"
+            >
+              Nos Événements <span aria-hidden="true">▾</span>
+            </button>
+            <ul
+              id="events-menu"
+              className={`dropdown-menu ${eventsDropdownOpen ? "show" : ""}`}
+            >
+              <li>
+                <Link href={`${basePath}/evenements/mariages`} legacyBehavior>
+                  <a onClick={closeMenus}>Mariages</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/evenements/corporates`} legacyBehavior>
+                  <a onClick={closeMenus}>Corporates</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/evenements/anniversaires`} legacyBehavior>
+                  <a onClick={closeMenus}>Anniversaires</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/evenements/soirees`} legacyBehavior>
+                  <a onClick={closeMenus}>Soirées</a>
+                </Link>
+              </li>
             </ul>
           </li>
           <li className="dropdown">
-            <a onClick={toggleOptionDropdown}>
-              Nos Options ▾
-            </a>
-            <ul className={`dropdown-menu ${OptionsDropdownOpen ? 'show' : ''}`}>
-              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
-              <li><Link href={`${basePath}/options/panneau`} legacyBehavior><a>Panneau de Bienvenue</a></Link></li>
-              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
-              <li><Link href={`${basePath}/options/phonebooth`} legacyBehavior><a>Phonebooth</a></Link></li>
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={toggleOptionDropdown}
+              aria-expanded={OptionsDropdownOpen}
+              aria-controls="options-menu"
+            >
+              Nos Options <span aria-hidden="true">▾</span>
+            </button>
+            <ul
+              id="options-menu"
+              className={`dropdown-menu ${OptionsDropdownOpen ? "show" : ""}`}
+            >
+              <li>
+                <Link href={`${basePath}/options/phonebooth`} legacyBehavior>
+                  <a onClick={closeMenus}>Phonebooth</a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${basePath}/options/panneau`} legacyBehavior>
+                  <a onClick={closeMenus}>Panneau de bienvenue</a>
+                </Link>
+              </li>
             </ul>
           </li>
           <li>
@@ -78,12 +166,22 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <a className="cta-button" href="https://reservation.myselfiebooth-paris.fr" target="_blank"
-           rel="noopener noreferrer">
+        <a
+          className="cta-button"
+          href="https://reservation.myselfiebooth-paris.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={closeMenus}
+        >
           Estimer mon prix
         </a>
 
-        <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="menu-button"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Ouvrir le menu"
+          aria-expanded={isOpen}
+        >
           ☰
         </button>
       </div>
@@ -131,15 +229,21 @@ const Navbar = () => {
         }
 
 
-        .navbar-links li a {
+        .navbar-links li a,
+        .dropdown-toggle {
           text-decoration: none;
           color: white;
           font-weight: bold;
           font-size: 1rem;
           transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+          background: none;
+          border: none;
+          padding: 0;
+          cursor: pointer;
         }
 
-        .navbar-links li a:hover {
+        .navbar-links li a:hover,
+        .dropdown-toggle:hover {
           color: #af983f;
         }
 
