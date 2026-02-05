@@ -1,647 +1,71 @@
-diff --git a/src/components/Besoins.jsx b/src/components/Besoins.jsx
-index fd99ebcc7925067511c2961c9993cb456af825ea..0b5eb710311ca1fb0a66005ca5ef0d765a41a69d 100644
---- a/src/components/Besoins.jsx
-+++ b/src/components/Besoins.jsx
-@@ -6,78 +6,97 @@ const needs = [
-     title: "Mariages",
-     href: "/evenements/mariages",
-     image: "/images/mariages/mariage1.JPG",
-   },
-   {
-     title: "Entreprises",
-     href: "/evenements/corporates",
-     image: "/images/photobooth.webp",
-   },
-   {
-     title: "Anniversaires",
-     href: "/evenements/anniversaires",
-     image: "/images/miroirbooth.webp",
-   },
-   {
-     title: "Soirées",
-     href: "/evenements/soirees",
-     image: "/images/voguebooth.webp",
-   },
- ];
-
- const Besoins = () => {
-   return (
-     <section id="douleur" className="douleur-section">
-       <div className="container">
--        <h2 className="title">
-+        <h2 className="title fade-up">
-           Immortalisez vos événements avec MySelfieBooth
-         </h2>
--        <p className="description">
-+        <p className="description fade-up stagger-1">
-           Mariages, anniversaires, soirées privées ou événements d&apos;entreprise,
-           chaque occasion est unique et mérite d&apos;être gravée dans les
-           mémoires. Offrez à vos invités une animation ludique et originale avec
-           nos photobooths, pour des souvenirs à partager et à conserver.
-         </p>
-+        <p className="description fade-up stagger-2">
-+          Nous orchestrons toute la logistique, de la livraison à la mise en
-+          scène, pour que vous profitiez de votre moment sans stress. Résultat :
-+          un rendu élégant, une expérience fluide et des visuels dignes d&apos;un
-+          magazine.
-+        </p>
-
-         <div className="needs-grid">
--          {needs.map((item) => (
-+          {needs.map((item, index) => (
-             <Link key={item.title} href={item.href} legacyBehavior>
--              <a className="needs-item">
-+              <a className={`needs-item fade-${index % 2 === 0 ? "left" : "right"}`}>
-                 <img
-                   src={item.image}
-                   alt={`Événement ${item.title}`}
-                   className="background-image"
-                 />
-                 <div className="overlay">
-                   <h3>{item.title}</h3>
-                 </div>
-               </a>
-             </Link>
-           ))}
-         </div>
--        <br/>
--        <div className="cta">
-+        <div className="trust-grid fade-up">
-+          <div>
-+            <strong>0 souci technique</strong>
-+            <span>Assistance sur place + backup complet.</span>
-+          </div>
-+          <div>
-+            <strong>Livraison premium</strong>
-+            <span>Installation anticipée et check qualité.</span>
-+          </div>
-+          <div>
-+            <strong>Galerie privée</strong>
-+            <span>Accès sécurisé pour vos invités.</span>
-+          </div>
-+        </div>
-+        <div className="cta fade-up">
-           <a href="https://reservation.myselfiebooth-paris.fr" className="cta-btn">
-             Obtenir un devis personnalisé
-           </a>
-         </div>
-       </div>
-
-       <style jsx>{`
-         .douleur-section {
-           padding: 30px 20px;
-           background: linear-gradient(45deg, #dddacb, #675e32);
-           color: #fff;
-           text-align: center;
-         }
-
-         .container {
-           max-width: 1200px;
-           margin: 0 auto;
-         }
-
-         .title {
-           font-size: 2rem;
-           font-weight: bold;
-           margin-bottom: 10px;
-           color: #ffffff;
-         }
-@@ -118,50 +137,74 @@ const Besoins = () => {
-           width: 100%;
-           height: 100%;
-           object-fit: cover;
-           position: absolute;
-           top: 0;
-           left: 0;
-           z-index: 1;
-         }
-
-         .overlay {
-           position: relative;
-           z-index: 2;
-           padding: 120px 20px;
-           background: rgb(248 248 248 / 73%);
-           color: #fff;
-           text-align: center;
-           border-radius: 15px;
-         }
-
-         .overlay h3 {
-           font-size: 2rem;
-           margin-bottom: 15px;
-           color: #493f0d;
-         }
-
-+        .trust-grid {
-+          margin: 2.5rem auto 2rem;
-+          display: grid;
-+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-+          gap: 1rem;
-+          color: #fff;
-+        }
-+
-+        .trust-grid div {
-+          background: rgba(0, 0, 0, 0.35);
-+          border-radius: 14px;
-+          padding: 1rem 1.2rem;
-+          display: flex;
-+          flex-direction: column;
-+          gap: 0.4rem;
-+        }
-+
-+        .trust-grid strong {
-+          font-size: 1.1rem;
-+        }
-+
-+        .trust-grid span {
-+          color: #f4f4f4;
-+        }
-
-         .cta-btn {
-           display: inline-block;
-           padding: 20px 40px;
-           font-size: 1.6rem;
-           background-image: linear-gradient(to bottom, #ffef96, #5a4300);
-           color: #fff;
-           border-radius: 50px;
-           text-decoration: none;
-           box-shadow: 0 5px 15px rgb(11, 11, 11);
-           transition: all 0.3s ease;
-         }
-
-         .cta-btn:hover {
-           background: linear-gradient(to bottom, #a69850, #e8d07a);
-           box-shadow: 0 10px 30px rgba(255, 255, 255, 0.99);
-         }
-
-         @media (max-width: 768px) {
-           .needs-item {
-             flex: 1 1 100%;
-           }
-         }
-       `}</style>
-     </section>
 diff --git a/src/components/Experience.jsx b/src/components/Experience.jsx
-new file mode 100644
-index 0000000000000000000000000000000000000000..86ce8a3efd840f8a1fe30cdfaa9a471d1e4bff48
---- /dev/null
+index 86ce8a3efd840f8a1fe30cdfaa9a471d1e4bff48..bc379cb2ff8b3ea013a95414ee5513add8c77bbd 100644
+--- a/src/components/Experience.jsx
 +++ b/src/components/Experience.jsx
-@@ -0,0 +1,216 @@
-+export default function Experience() {
-+  const highlights = [
-+    {
-+      title: "Ambiance 2025",
-+      description:
-+        "Design lumineux, transitions douces et une narration visuelle qui met vos invités au cœur de l'expérience.",
-+      accent: "fade-left",
-+    },
-+    {
-+      title: "Parcours ultra fluide",
-+      description:
-+        "Une prise en main en 2 minutes : installation, cadrage, impression et partage instantané, tout est optimisé.",
-+      accent: "fade-up",
-+    },
-+    {
-+      title: "Premium & humain",
-+      description:
-+        "Une équipe dédiée, des accessoires soignés et un suivi personnalisé pour rendre chaque événement unique.",
-+      accent: "fade-right",
-+    },
-+  ];
-+
-+  const steps = [
-+    {
-+      title: "On prépare ensemble",
-+      text: "Brief créatif, choix des fonds, templates sur-mesure et plan de salle pour un rendu impeccable.",
-+    },
-+    {
-+      title: "On installe sans stress",
-+      text: "Livraison, montage, réglages lumière et tests : tout est prêt avant l'arrivée des invités.",
-+    },
-+    {
-+      title: "On crée des souvenirs",
-+      text: "Photos, GIF et vidéos partagés en direct + galerie privée livrée après l'événement.",
-+    },
-+  ];
-+
-+  const galleryImages = [
-+    "/images/decoration-voguebooth.webp",
-+    "/images/ALL-MURS.webp",
-+    "/images/fond 360.webp",
-+    "/images/Welcomeboard.webp",
-+  ];
-+
-+  return (
-+    <section className="experience-section">
-+      <div className="experience-container">
-+        <div className="experience-header fade-up">
-+          <p className="experience-kicker">Expérience signature</p>
-+          <h2>Un photobooth complet, esthétique et ultra moderne</h2>
-+          <p className="experience-lead">
-+            Nous concevons des expériences photobooth premium qui mixent style,
-+            technologie et émotions. Le résultat : un flow continu, des visuels
-+            impeccables et des invités conquis du premier flash au dernier
-+            souvenir partagé.
-+          </p>
-+        </div>
-+
-+        <div className="experience-gallery fade-up">
-+          {galleryImages.map((src, index) => (
-+            <div
-+              key={src}
-+              className={`gallery-tile ${index % 2 === 0 ? "fade-left" : "fade-right"}`}
-+            >
-+              <img src={src} alt="Ambiance photobooth premium" />
-+            </div>
-+          ))}
-+        </div>
-+
-+        <div className="highlight-grid">
-+          {highlights.map((item) => (
-+            <div key={item.title} className={`highlight-card ${item.accent}`}>
-+              <h3>{item.title}</h3>
-+              <p>{item.description}</p>
-+            </div>
-+          ))}
-+        </div>
-+
-+        <div className="step-grid">
-+          {steps.map((step, index) => (
-+            <div key={step.title} className={`step-card fade-up stagger-${index + 1}`}>
-+              <span className="step-index">0{index + 1}</span>
-+              <div>
-+                <h4>{step.title}</h4>
-+                <p>{step.text}</p>
-+              </div>
-+            </div>
-+          ))}
-+        </div>
-+      </div>
-+
-+      <style jsx>{`
-+        .experience-section {
-+          padding: 5rem 1.5rem;
-+          background: linear-gradient(120deg, #0d0d0d 0%, #201b13 100%);
-+          color: #fff;
-+        }
-+
-+        .experience-container {
-+          max-width: 1200px;
-+          margin: 0 auto;
-+        }
-+
-+        .experience-header {
-+          text-align: center;
-+          margin-bottom: 3rem;
-+        }
-+
-+        .experience-kicker {
-+          text-transform: uppercase;
-+          letter-spacing: 0.3rem;
-+          font-size: 0.8rem;
-+          color: #ffef96;
-+          margin-bottom: 1rem;
-+        }
-+
-+        .experience-header h2 {
-+          font-size: clamp(2rem, 3.4vw, 3rem);
-+          margin-bottom: 1rem;
-+        }
-+
-+        .experience-lead {
-+          color: #d8d2c4;
-+          max-width: 820px;
-+          margin: 0 auto;
-+          line-height: 1.7;
-+        }
-+
-+        .highlight-grid {
-+          display: grid;
-+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-+          gap: 1.5rem;
-+          margin-bottom: 3rem;
-+        }
-+
-+        .experience-gallery {
-+          display: grid;
-+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-+          gap: 1.2rem;
-+          margin: 2.5rem auto 3rem;
-+        }
-+
-+        .gallery-tile {
-+          border-radius: 18px;
-+          overflow: hidden;
-+          border: 1px solid rgba(255, 255, 255, 0.18);
-+          box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
-+        }
-+
-+        .gallery-tile img {
-+          width: 100%;
-+          height: 100%;
-+          object-fit: cover;
-+          display: block;
-+        }
-+
-+        .highlight-card {
-+          padding: 1.8rem;
-+          border-radius: 16px;
-+          background: rgba(255, 255, 255, 0.08);
-+          border: 1px solid rgba(255, 255, 255, 0.12);
-+          box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
-+        }
-+
-+        .highlight-card h3 {
-+          font-size: 1.25rem;
-+          margin-bottom: 0.6rem;
-+          color: #ffef96;
-+        }
-+
-+        .highlight-card p {
-+          color: #ede7dd;
-+          line-height: 1.6;
-+        }
-+
-+        .step-grid {
-+          display: grid;
-+          gap: 1.5rem;
-+        }
-+
-+        .step-card {
-+          display: flex;
-+          gap: 1.5rem;
-+          align-items: center;
-+          padding: 1.5rem 2rem;
-+          border-radius: 20px;
-+          background: rgba(255, 255, 255, 0.08);
-+          border: 1px solid rgba(255, 255, 255, 0.12);
-+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-+        }
-+
-+        .step-index {
-+          font-size: 2rem;
-+          font-weight: 700;
-+          color: #ffef96;
-+        }
-+
-+        .step-card h4 {
-+          margin-bottom: 0.4rem;
-+        }
-+
-+        .step-card p {
-+          color: #e3dccf;
-+          line-height: 1.6;
-+        }
-+
-+        @media (max-width: 768px) {
-+          .step-card {
-+            flex-direction: column;
-+            text-align: center;
-+          }
-+        }
-+      `}</style>
-+    </section>
-+  );
-+}
-diff --git a/src/components/Hero.jsx b/src/components/Hero.jsx
-index 56a985c53f5d5ba43dfed7985c2594d4a1ac86cd..77e58fec326dbbfbf531580393eac4a6bb85db81 100644
---- a/src/components/Hero.jsx
-+++ b/src/components/Hero.jsx
-@@ -1,69 +1,87 @@
- export default function Hero() {
+@@ -14,54 +14,54 @@ export default function Experience() {
+     },
+     {
+       title: "Premium & humain",
+       description:
+         "Une équipe dédiée, des accessoires soignés et un suivi personnalisé pour rendre chaque événement unique.",
+       accent: "fade-right",
+     },
+   ];
+
+   const steps = [
+     {
+       title: "On prépare ensemble",
+       text: "Brief créatif, choix des fonds, templates sur-mesure et plan de salle pour un rendu impeccable.",
+     },
+     {
+       title: "On installe sans stress",
+       text: "Livraison, montage, réglages lumière et tests : tout est prêt avant l'arrivée des invités.",
+     },
+     {
+       title: "On crée des souvenirs",
+       text: "Photos, GIF et vidéos partagés en direct + galerie privée livrée après l'événement.",
+     },
+   ];
+
+   const galleryImages = [
+-    "/images/decoration-voguebooth.webp",
+-    "/images/ALL-MURS.webp",
+-    "/images/fond 360.webp",
+-    "/images/Welcomeboard.webp",
++    "/images/ia/home/tile-02_r1c2.webp",
++    "/images/ia/home/tile-03_r1c3.webp",
++    "/images/ia/home/tile-07_r3c1.webp",
++    "/images/ia/home/tile-12_r4c3.webp",
+   ];
+
    return (
-     <section className="hero">
-       <div className="hero-content">
--        <p className="hero-kicker">MySelfieBooth • Paris, Lyon, Rouen</p>
--        <h1 className="hero-title">
-+        <p className="hero-kicker fade-up">MySelfieBooth • Paris, Lyon, Rouen</p>
-+        <h1 className="hero-title fade-up stagger-1">
-           Louez un photobooth premium pour des souvenirs inoubliables
-         </h1>
--        <p className="hero-subtitle">
-+        <p className="hero-subtitle fade-up stagger-2">
-           Offrez une animation élégante et clé en main à vos invités : livraison,
-           installation, personnalisation et galerie en ligne pour revivre vos
-           moments.
-         </p>
--        <div className="hero-actions">
-+        <p className="hero-subtitle fade-up stagger-3">
-+          Ambiance 2025, transitions douces, impression instantanée et partage
-+          mobile : tout est pensé pour une expérience fluide, chic et mémorable.
-+        </p>
-+        <div className="hero-actions fade-up stagger-4">
-           <a
-             href="https://reservation.myselfiebooth-paris.fr"
-             target="_blank"
-             rel="noopener noreferrer"
-             className="hero-button primary"
-           >
-             Estimer mon prix
-           </a>
-           <a href="#prestations" className="hero-button secondary">
-             Voir les prestations
-           </a>
-         </div>
-         <div className="hero-highlights">
--          <div className="highlight-card">
-+          <div className="highlight-card fade-left">
-             <span>📸</span>
-             <p>Photos & impressions illimitées</p>
-           </div>
--          <div className="highlight-card">
-+          <div className="highlight-card fade-up">
-             <span>🛠️</span>
-             <p>Installation & assistance sur place</p>
-           </div>
--          <div className="highlight-card">
-+          <div className="highlight-card fade-right">
-             <span>⭐</span>
-             <p>Expérience premium et personnalisée</p>
-           </div>
-         </div>
-+        <div className="hero-stats">
-+          <div className="stat-card fade-left stagger-1">
-+            <h3>+500</h3>
-+            <p>Événements accompagnés en France.</p>
-+          </div>
-+          <div className="stat-card fade-up stagger-2">
-+            <h3>24h</h3>
-+            <p>Support réactif avant, pendant et après.</p>
-+          </div>
-+          <div className="stat-card fade-right stagger-3">
-+            <h3>100%</h3>
-+            <p>Personnalisation sur mesure pour votre marque.</p>
-+          </div>
-+        </div>
-       </div>
-
-       {/* Vidéos */}
--      <div className="videos-container flex items-center mt-4 relative">
-+      <div className="videos-container flex items-center mt-4 relative fade-up">
-         {/* Vidéo 1 */}
-         <div className="video-container">
-           <video
-             className="object-cover"
-             autoPlay
-             loop
-             muted
-             playsInline
-             poster="/images/hero-min.jpg"
-             aria-label="Vidéo promotionnelle de Paris"
-           >
-             <source
-               src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-TOUR-EIFFEL-FINAL.mp4"
-               type="video/mp4"
-             />
-             Votre navigateur ne supporte pas la vidéo.
-           </video>
+     <section className="experience-section">
+       <div className="experience-container">
+         <div className="experience-header fade-up">
+           <p className="experience-kicker">Expérience signature</p>
+           <h2>Un photobooth complet, esthétique et ultra moderne</h2>
+           <p className="experience-lead">
+             Nous concevons des expériences photobooth premium qui mixent style,
+             technologie et émotions. Le résultat : un flow continu, des visuels
+             impeccables et des invités conquis du premier flash au dernier
+             souvenir partagé.
+           </p>
          </div>
 
-         {/* Vidéo 2 avec bouton */}
-         <div className="video-container relative">
-           <video
-             className="object-cover"
-             autoPlay
-             loop
-@@ -89,54 +107,54 @@ export default function Hero() {
-             Réservez !
-           </a>
-         </div>
-
-         {/* Vidéo 3 */}
-         <div className="video-container">
-           <video
-             className="object-cover"
-             autoPlay
-             loop
-             muted
-             playsInline
-             poster="/images/hero-min.jpg"
-             aria-label="Vidéo promotionnelle de Rouen"
-           >
-             <source
-               src="https://stephanefly.github.io/site-myselfiebooth/public/videos/compress-voguebooth.mp4"
-               type="video/mp4"
-             />
-             Votre navigateur ne supporte pas la vidéo.
-           </video>
-         </div>
-       </div>
-
-       {/* Bannière */}
--      <div className="banner">
--        <p className="text-lg font-bold uppercase" style={{ color: "#990000" }}>
--          <b>
--            PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de
-+        <div className="banner fade-up">
-+          <p className="text-lg font-bold uppercase" style={{ color: "#990000" }}>
-+            <b>
-+              PARIS - LYON - ROUEN <br /> Promotion spéciale : jusqu'à -100€ de
-             remise!
-           </b>
-         </p>
-       </div>
-
-       {/* Styles CSS */}
-       <style jsx>{`
-         .hero {
-           min-height: 100vh;
-           background: #000;
-           color: #fff;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           justify-content: flex-start;
-           padding: 6.5rem 1.5rem 2rem;
-           text-align: center;
-           position: relative;
-         }
-
-         .hero-content {
-           max-width: 980px;
-         }
-
-         .hero-kicker {
-@@ -191,50 +209,74 @@ export default function Hero() {
-
-         .hero-button:hover {
-           transform: translateY(-2px);
-           box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
-         }
-
-         .hero-highlights {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-           gap: 1rem;
-           margin-bottom: 2rem;
-         }
-
-         .highlight-card {
-           background: rgba(255, 255, 255, 0.08);
-           border-radius: 12px;
-           padding: 1rem 1.25rem;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           gap: 0.75rem;
-           font-weight: 600;
-           color: #f7f7f7;
-         }
-
-+        .hero-stats {
-+          display: grid;
-+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-+          gap: 1rem;
-+          margin-bottom: 2.5rem;
-+        }
-+
-+        .stat-card {
-+          padding: 1rem 1.25rem;
-+          border-radius: 14px;
-+          background: rgba(255, 255, 255, 0.08);
-+          border: 1px solid rgba(255, 255, 255, 0.12);
-+        }
-+
-+        .stat-card h3 {
-+          font-size: 1.6rem;
-+          color: #ffef96;
-+          margin-bottom: 0.4rem;
-+        }
-+
-+        .stat-card p {
-+          color: #ddd;
-+        }
-+
-         /* Bannière */
-         .banner {
-           background: linear-gradient(to left, #ac9b56, #eee0a2);
-           width: 100%;
-           margin-top: -12px;
-           text-align: center;
-           font-size: 1.2rem;
-           z-index: 10;
-           padding: 5px 2px;
-           border: #5a4300 2px solid;
-         }
-
-         /* Vidéos */
-         .videos-container {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           width: 100%;
-           max-width: 1200px;
-         }
-
-         .video-container {
-           flex: 1 1 3%;
-           margin: 0; /* Supprime tout espace entre les vidéos */
-           position: relative;
+         <div className="experience-gallery fade-up">
+           {galleryImages.map((src, index) => (
+             <div
+               key={src}
+               className={`gallery-tile ${index % 2 === 0 ? "fade-left" : "fade-right"}`}
+             >
+               <img src={src} alt="Ambiance photobooth premium" />
+             </div>
+           ))}
 diff --git a/src/components/Portfolio.jsx b/src/components/Portfolio.jsx
-index 9765fe423c9afebe5315136b2774b715911499e9..b04b54c2c87e77d404fbff8c2ca1338235b11371 100644
+index b04b54c2c87e77d404fbff8c2ca1338235b11371..68e8ccf12c7ddf0e16637104629474433f9f9b7e 100644
 --- a/src/components/Portfolio.jsx
 +++ b/src/components/Portfolio.jsx
-@@ -1,43 +1,49 @@
+@@ -1,47 +1,56 @@
  export default function Portfolio() {
    const logos = [
      "/logos/sephora.webp",
@@ -660,12 +84,24 @@ index 9765fe423c9afebe5315136b2774b715911499e9..b04b54c2c87e77d404fbff8c2ca13382
      "/logos/axa.webp",
    ];
 
-+  const moments = [
-+    "/images/mariages/mariage1.JPG",
-+    "/images/photobooth.webp",
-+    "/images/miroirbooth.webp",
-+  ];
-+
+   const moments = [
+-    "/images/mariages/mariage1.JPG",
+-    "/images/photobooth.webp",
+-    "/images/miroirbooth.webp",
++    {
++      src: "/images/ia/home/tile-01_r1c1.webp",
++      alt: "Photobooth premium dans un décor raffiné",
++    },
++    {
++      src: "/images/ia/home/tile-05_r2c2.webp",
++      alt: "Invités élégants autour d'un photobooth de luxe",
++    },
++    {
++      src: "/images/ia/home/tile-09_r3c3.webp",
++      alt: "Détails lumineux d'une animation photobooth",
++    },
+   ];
+
  const styles = {
    portfolioImage: {
      width: "100%",
@@ -689,18 +125,7 @@ index 9765fe423c9afebe5315136b2774b715911499e9..b04b54c2c87e77d404fbff8c2ca13382
      },
      title: {
        textAlign: "center",
-       fontSize: "1.7rem",
-       fontWeight: "bold",
-@@ -56,49 +62,91 @@ const styles = {
-       margin: "0 30px",
-       filter: "grayscale(100%)",
-       transition: "transform 0.3s ease",
-     },
-     logoHover: {
-       transform: "scale(0.5)",
-     },
-   };
-
+@@ -71,53 +80,53 @@ const styles = {
    return (
        <section style={styles.section}>
          <hr/>
@@ -717,22 +142,24 @@ index 9765fe423c9afebe5315136b2774b715911499e9..b04b54c2c87e77d404fbff8c2ca13382
          `}
          </style>
          <div style={styles.container}>
--          <h2 style={styles.title}>Ils nous ont fait confiance!</h2>
-+          <h2 style={styles.title} className="fade-up">
-+            Ils nous ont fait confiance!
-+          </h2>
-+          <p className="portfolio-subtitle fade-up stagger-1">
-+            Des maisons iconiques et des marques ambitieuses choisissent
-+            MySelfieBooth pour sublimer leurs événements et créer des souvenirs
-+            premium.
-+          </p>
-+          <div className="portfolio-gallery fade-up">
-+            {moments.map((src) => (
-+              <div key={src} className="portfolio-gallery-card">
-+                <img src={src} alt="Moment photobooth" />
-+              </div>
-+            ))}
-+          </div>
+           <h2 style={styles.title} className="fade-up">
+             Ils nous ont fait confiance!
+           </h2>
+           <p className="portfolio-subtitle fade-up stagger-1">
+             Des maisons iconiques et des marques ambitieuses choisissent
+             MySelfieBooth pour sublimer leurs événements et créer des souvenirs
+             premium.
+           </p>
+           <div className="portfolio-gallery fade-up">
+-            {moments.map((src) => (
+-              <div key={src} className="portfolio-gallery-card">
+-                <img src={src} alt="Moment photobooth" />
++            {moments.map((moment) => (
++              <div key={moment.src} className="portfolio-gallery-card">
++                <img src={moment.src} alt={moment.alt} />
+               </div>
+             ))}
+           </div>
            <div style={{display: "flex", overflow: "hidden", width: "100%"}}>
              <div style={styles.logoWrapper}>
                {logos.concat(logos).map((logo, index) => (
@@ -753,383 +180,5 @@ index 9765fe423c9afebe5315136b2774b715911499e9..b04b54c2c87e77d404fbff8c2ca13382
            </div>
          </div>
          <hr/>
-+        <style jsx>{`
-+          .portfolio-subtitle {
-+            text-align: center;
-+            margin: 0.5rem auto 1.5rem;
-+            max-width: 760px;
-+            color: #444;
-+          }
-+
-+          .portfolio-gallery {
-+            display: grid;
-+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-+            gap: 1.2rem;
-+            margin: 1.5rem auto 2rem;
-+          }
-+
-+          .portfolio-gallery-card {
-+            border-radius: 16px;
-+            overflow: hidden;
-+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
-+          }
-+
-+          .portfolio-gallery-card img {
-+            width: 100%;
-+            height: 100%;
-+            display: block;
-+            object-fit: cover;
-+          }
-+        `}</style>
-       </section>
-   );
- }
-diff --git a/src/components/Services.jsx b/src/components/Services.jsx
-index b69823de695d02667bb2a5b0abbe9153f0dfd9b5..59af90134ea3e2645a81993c91540648af5204b0 100644
---- a/src/components/Services.jsx
-+++ b/src/components/Services.jsx
-@@ -105,50 +105,56 @@ export default function Services() {
-       ],
-       image: "/images/pack.webp",
-       infoLink: "/prestations/packvip", // Lien vers plus d'infos
-       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
-       price: "À partir de 850€",
-     },
-     {
-       title: "Options Supplémentaires",
-       description:
-         "Enrichissez votre événement avec des options supplémentaires comme le phonebooth, les panneaux de bienvenue, les murs floraux ou encore les livres d'or numériques. Ces extras apportent une touche d'élégance et de divertissement supplémentaire.",
-       features: [
-         "Panneaux de bienvenue personnalisés",
-         "Phonebooth",
-         "Murs floraux et arrière-plans personnalisés",
-         "Livre d'or numérique",
-         "Hologrammes 3D",
-         "Accessoires sur mesure",
-       ],
-       image: "/images/all_options.webp",
-       infoLink: "/options/phonebooth", // Lien vers plus d'infos
-       reserveLink: "https://reservation.myselfiebooth-paris.fr/", // Lien vers réservation
-       price: "À partir de 50€",
-     },
-   ];
-
-+  const showcaseImages = [
-+    "/images/photobooth.webp",
-+    "/images/miroirbooth.webp",
-+    "/images/voguebooth.webp",
-+  ];
-+
-  const styles = {
-   section: {
-     background: "linear-gradient(to bottom, #ffffff, #f5f5f5)",
-     padding: "2rem 1rem",
-   },
-   container: {
-     maxWidth: "1400px",
-     margin: "0 auto",
-     padding: "0 1rem",
-   },
-   title: {
-     textAlign: "center",
-     fontSize: "2.5rem",
-     fontWeight: "bold",
-     color: "#333",
-     marginBottom: "2rem",
-   },
-   subtitle: {
-     textAlign: "center",
-     fontSize: "1.1rem",
-     color: "#666",
-     maxWidth: "760px",
-     margin: "0 auto 2.5rem",
-     lineHeight: "1.6",
-   },
-@@ -238,60 +244,79 @@ export default function Services() {
-   buttonHover: {
-     background: "#fbe9a3",
-     transform: "translateY(-5px)",
-     boxShadow: "0 10px 30px rgba(255, 255, 255, 0.99)",
-   },
-   ctaWrapper: {
-     marginTop: "2.5rem",
-     display: "flex",
-     justifyContent: "center",
-   },
-   cta: {
-     padding: "14px 28px",
-     borderRadius: "999px",
-     background: "linear-gradient(to right, #ffef96, #caa85f)",
-     color: "#2b2100",
-     textDecoration: "none",
-     fontWeight: "bold",
-     boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
-     transition: "transform 0.2s ease",
-   },
- };
-
-   return (
-     <section id="prestations" style={styles.section}>
-       <div style={styles.container}>
--        <h2 style={styles.title}>Nos Prestations</h2>
--        <p style={styles.subtitle}>
-+        <p className="services-kicker fade-up">Prestations premium</p>
-+        <h2 style={styles.title} className="fade-up stagger-1">
-+          Nos Prestations
-+        </h2>
-+        <p style={styles.subtitle} className="fade-up stagger-2">
-           Des solutions clés en main pour tous vos événements, avec livraison,
--          installation et accompagnement sur place.
-+          installation, personnalisation graphique et accompagnement sur place.
-+        </p>
-+        <p style={styles.subtitle} className="fade-up stagger-3">
-+          Choisissez le format parfait, ajoutez vos options et laissez-nous
-+          orchestrer l&apos;expérience complète : du premier brief créatif à la
-+          galerie finale.
-         </p>
-+        <div className="services-gallery fade-up">
-+          {showcaseImages.map((src, index) => (
-+            <div
-+              key={src}
-+              className={`services-gallery-item ${index === 1 ? "is-center" : ""}`}
-+            >
-+              <img src={src} alt="Photobooth MySelfieBooth" />
-+            </div>
-+          ))}
-+        </div>
-         <div style={styles.grid}>
-           {services.map((service, index) => (
-               <div
-                   key={index}
-                   style={styles.card}
-+                  className={index % 2 === 0 ? "fade-left" : "fade-right"}
-                   onMouseEnter={(e) =>
-                       Object.assign(e.currentTarget.style, styles.cardHover)
-                   }
-                   onMouseLeave={(e) =>
-                       Object.assign(e.currentTarget.style, {
-                         transform: "translateY(0)",
-                         boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
-                       })
-                   }
-               >
-                 <img
-                     src={service.image}
-                     alt={service.title}
-                     style={styles.image}
-                 />
-                 <h3 style={styles.cardTitle}>{service.title}</h3>
-                 <p style={styles.cardDescription}>{service.description}</p>
-                 <ul style={styles.featuresList}>
-                   {service.features.map((feature, i) => (
-                       <li key={i} style={styles.featureItem}>
-                         <span style={styles.featureIcon}>✔</span>
-                         {feature}
-                       </li>
-                   ))}
-                 </ul>
-@@ -314,28 +339,64 @@ export default function Services() {
-                       style={styles.button}
-                       onMouseEnter={(e) =>
-                           Object.assign(e.currentTarget.style, styles.buttonHover)
-                       }
-                       onMouseLeave={(e) =>
-                           Object.assign(e.currentTarget.style, styles.button)
-                       }
-                   >
-                     Réserver !
-                   </a>
-                 </div>
-               </div>
-           ))}
-         </div>
-         <div style={styles.ctaWrapper}>
-           <a
-             href="https://reservation.myselfiebooth-paris.fr/"
-             style={styles.cta}
-             target="_blank"
-             rel="noopener noreferrer"
-           >
-             Obtenir un devis en 2 minutes
-           </a>
-         </div>
-       </div>
-+      <style jsx>{`
-+        .services-kicker {
-+          text-align: center;
-+          text-transform: uppercase;
-+          letter-spacing: 0.3rem;
-+          font-size: 0.85rem;
-+          color: #9b7b1f;
-+          margin-bottom: 0.6rem;
-+        }
-+
-+        .services-gallery {
-+          display: grid;
-+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-+          gap: 1.5rem;
-+          margin: 2.5rem auto 3rem;
-+        }
-+
-+        .services-gallery-item {
-+          border-radius: 18px;
-+          overflow: hidden;
-+          box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
-+          border: 1px solid rgba(0, 0, 0, 0.08);
-+          background: #fff;
-+        }
-+
-+        .services-gallery-item img {
-+          width: 100%;
-+          height: 100%;
-+          display: block;
-+          object-fit: cover;
-+        }
-+
-+        .services-gallery-item.is-center {
-+          transform: translateY(-8px);
-+        }
-+      `}</style>
-     </section>
-   );
- }
-diff --git a/src/pages/index.jsx b/src/pages/index.jsx
-index 9efefa1e195518429f652ffcab53c558676f015d..372d54ade96583a0b05cb3869763cfbf4a08d712 100644
---- a/src/pages/index.jsx
-+++ b/src/pages/index.jsx
-@@ -1,16 +1,18 @@
- import Layout from "../components/Layout";
- import Hero from "../components/Hero";
- import Besoins from "../components/Besoins";
- import Services from "../components/Services";
- import Portfolio from "../components/Portfolio";
-+import Experience from "../components/Experience";
-
- export default function Home() {
-   return (
-     <Layout>
-       <Hero />
-+      <Experience />
-       <Besoins />
-       <Portfolio />
-       <Services />
-     </Layout>
-   );
- }
-diff --git a/src/styles/styles.css b/src/styles/styles.css
-index c6a6f0791e883f51ef06805a422f2806adbe150a..6da8a5b569d06deeaed4ddce57edc8b65f417c3d 100644
---- a/src/styles/styles.css
-+++ b/src/styles/styles.css
-@@ -1,39 +1,112 @@
- /* --- Reset CSS --- */
- * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
- }
-
- body {
-   font-family: 'Roboto', sans-serif;
-   line-height: 1.6;
-   background-color: #ffffff;
-   color: #333;
- }
-
-+:root {
-+  color-scheme: light;
-+  scroll-behavior: smooth;
-+}
-+
-+@keyframes fadeInUp {
-+  0% {
-+    opacity: 0;
-+    transform: translateY(24px);
-+  }
-+  100% {
-+    opacity: 1;
-+    transform: translateY(0);
-+  }
-+}
-+
-+@keyframes fadeInLeft {
-+  0% {
-+    opacity: 0;
-+    transform: translateX(-40px);
-+  }
-+  100% {
-+    opacity: 1;
-+    transform: translateX(0);
-+  }
-+}
-+
-+@keyframes fadeInRight {
-+  0% {
-+    opacity: 0;
-+    transform: translateX(40px);
-+  }
-+  100% {
-+    opacity: 1;
-+    transform: translateX(0);
-+  }
-+}
-+
-+.fade-up {
-+  animation: fadeInUp 0.9s ease forwards;
-+}
-+
-+.fade-left {
-+  animation: fadeInLeft 0.9s ease forwards;
-+}
-+
-+.fade-right {
-+  animation: fadeInRight 0.9s ease forwards;
-+}
-+
-+.stagger-1 {
-+  animation-delay: 0.1s;
-+}
-+
-+.stagger-2 {
-+  animation-delay: 0.2s;
-+}
-+
-+.stagger-3 {
-+  animation-delay: 0.3s;
-+}
-+
-+.stagger-4 {
-+  animation-delay: 0.4s;
-+}
-+
-+.glass-card {
-+  background: rgba(255, 255, 255, 0.12);
-+  border: 1px solid rgba(255, 255, 255, 0.25);
-+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-+  backdrop-filter: blur(10px);
-+}
-+
-
- /* --- Sections --- */
- section {
-   text-align: center;
- }
-
- section h2 {
-   font-size: 2.5rem;
-   color: #333;
- }
-
- section p {
-   font-size: 1.1rem;
-   color: #555;
- }
-
- /* --- Services Section --- */
- .services {
-   background-color: #f9f9f9;
- }
-
- .services .service-card {
-   background: white;
-   border-radius: 10px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         <style jsx>{`
+           .portfolio-subtitle {

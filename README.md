@@ -38,3 +38,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 cd C:\Users\FAURE-Stephane\PycharmProjects\site-MySelfiebooth
 npm install
 npm run dev
+
+npm run build
