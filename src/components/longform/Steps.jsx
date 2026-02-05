@@ -25,7 +25,8 @@ export default function Steps({ steps = [] }) {
           padding: 1.2rem 1.4rem;
           background: #fff;
           border-radius: 16px;
-          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
           align-items: center;
         }
         .index {

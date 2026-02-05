@@ -17486,10 +17486,10 @@ index 0000000000000000000000000000000000000000..7f62c8e464a6f48d347678fc4423bf0f
 +}
 diff --git a/src/components/longform/FeatureGrid.jsx b/src/components/longform/FeatureGrid.jsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..3c11c7548855e498d2045d73c56ac3365a7f6bc9
+index 0000000000000000000000000000000000000000..19a3be163ab6be6748c6510491d55d07adcc7008
 --- /dev/null
 +++ b/src/components/longform/FeatureGrid.jsx
-@@ -0,0 +1,53 @@
+@@ -0,0 +1,54 @@
 +export default function FeatureGrid({ items = [], columns = 3 }) {
 +  return (
 +    <div className={`grid cols-${columns}`}>
@@ -17524,7 +17524,8 @@ index 0000000000000000000000000000000000000000..3c11c7548855e498d2045d73c56ac336
 +          background: #fff;
 +          padding: 1.5rem;
 +          border-radius: 18px;
-+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
++          border: 1px solid rgba(0, 0, 0, 0.06);
++          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
 +          text-align: left;
 +        }
 +        .card h3 {
@@ -17545,10 +17546,10 @@ index 0000000000000000000000000000000000000000..3c11c7548855e498d2045d73c56ac336
 +}
 diff --git a/src/components/longform/GalleryGrid.jsx b/src/components/longform/GalleryGrid.jsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..4fb4f07c392044a0e6f5bac7520d02e9e0f7ea09
+index 0000000000000000000000000000000000000000..725356015b500ddd4f6859b20adc00d7c3fe654b
 --- /dev/null
 +++ b/src/components/longform/GalleryGrid.jsx
-@@ -0,0 +1,32 @@
+@@ -0,0 +1,33 @@
 +import Image from "next/image";
 +
 +export default function GalleryGrid({ images = [] }) {
@@ -17575,7 +17576,8 @@ index 0000000000000000000000000000000000000000..4fb4f07c392044a0e6f5bac7520d02e9
 +        .tile {
 +          border-radius: 16px;
 +          overflow: hidden;
-+          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
++          border: 1px solid rgba(0, 0, 0, 0.06);
++          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
 +        }
 +      `}</style>
 +    </div>
@@ -17583,10 +17585,10 @@ index 0000000000000000000000000000000000000000..4fb4f07c392044a0e6f5bac7520d02e9
 +}
 diff --git a/src/components/longform/HeroSplit.jsx b/src/components/longform/HeroSplit.jsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..d1b6c47ab90e302cd116f7422674255053a3a5e5
+index 0000000000000000000000000000000000000000..a9e3155b2e93474879b534dfd83c5710274b4783
 --- /dev/null
 +++ b/src/components/longform/HeroSplit.jsx
-@@ -0,0 +1,137 @@
+@@ -0,0 +1,145 @@
 +import Image from "next/image";
 +
 +export default function HeroSplit({
@@ -17648,12 +17650,19 @@ index 0000000000000000000000000000000000000000..d1b6c47ab90e302cd116f74226742550
 +          gap: 1.75rem;
 +          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 +          padding: 90px 20px 50px;
-+          background: linear-gradient(135deg, #0f0f0f, #4b3a13);
++          background: radial-gradient(circle at top left, #2b2100, #0f0f0f);
 +          color: #fff;
 +          align-items: center;
++          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 +        }
 +        .hero-content {
 +          max-width: 520px;
++        }
++        .hero-content h1 {
++          font-size: clamp(2.1rem, 3vw, 3rem);
++          line-height: 1.15;
++          margin-bottom: 0.8rem;
++          letter-spacing: -0.01em;
 +        }
 +        .tag {
 +          display: inline-block;
@@ -17667,6 +17676,7 @@ index 0000000000000000000000000000000000000000..d1b6c47ab90e302cd116f74226742550
 +        .lead {
 +          font-size: 1.1rem;
 +          opacity: 0.9;
++          margin-top: 0.2rem;
 +        }
 +        .bullets {
 +          list-style: none;
@@ -17726,10 +17736,10 @@ index 0000000000000000000000000000000000000000..d1b6c47ab90e302cd116f74226742550
 +}
 diff --git a/src/components/longform/ProofSection.jsx b/src/components/longform/ProofSection.jsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..ad84629e21080d7d4ae980e0abfe9092e5ffad25
+index 0000000000000000000000000000000000000000..ea6eed94439c370df34f9284d7c5986a5d2e246b
 --- /dev/null
 +++ b/src/components/longform/ProofSection.jsx
-@@ -0,0 +1,75 @@
+@@ -0,0 +1,77 @@
 +export default function ProofSection({ stats = [], testimonials = [] }) {
 +  return (
 +    <div className="proof">
@@ -17767,7 +17777,8 @@ index 0000000000000000000000000000000000000000..ad84629e21080d7d4ae980e0abfe9092
 +          border-radius: 16px;
 +          padding: 1.5rem;
 +          text-align: center;
-+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
++          border: 1px solid rgba(0, 0, 0, 0.06);
++          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
 +        }
 +        .stat strong {
 +          font-size: 2rem;
@@ -17787,7 +17798,8 @@ index 0000000000000000000000000000000000000000..ad84629e21080d7d4ae980e0abfe9092
 +          background: #fff;
 +          border-radius: 18px;
 +          padding: 1.6rem;
-+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
++          border: 1px solid rgba(0, 0, 0, 0.06);
++          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 +        }
 +        blockquote p {
 +          color: #444;
@@ -17807,10 +17819,10 @@ index 0000000000000000000000000000000000000000..ad84629e21080d7d4ae980e0abfe9092
 +}
 diff --git a/src/components/longform/Section.jsx b/src/components/longform/Section.jsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..569611c263fc8a878220868bf490015a1ebf5832
+index 0000000000000000000000000000000000000000..341e7c95f3949430324a0f5741682afa8e64e746
 --- /dev/null
 +++ b/src/components/longform/Section.jsx
-@@ -0,0 +1,62 @@
+@@ -0,0 +1,63 @@
 +export default function Section({ id, eyebrow, title, lead, children, variant = "default" }) {
 +  return (
 +    <section id={id} className={`section ${variant}`}>
@@ -17832,7 +17844,7 @@ index 0000000000000000000000000000000000000000..569611c263fc8a878220868bf490015a
 +          background: #fff;
 +        }
 +        .section.alt {
-+          background: #f8f5ef;
++          background: #f7f5f0;
 +        }
 +        .section.dark {
 +          background: #131313;
@@ -17849,6 +17861,7 @@ index 0000000000000000000000000000000000000000..569611c263fc8a878220868bf490015a
 +        .section-header h2 {
 +          font-size: clamp(1.8rem, 3vw, 2.6rem);
 +          margin-bottom: 0.8rem;
++          letter-spacing: -0.01em;
 +        }
 +        .eyebrow {
 +          display: inline-block;
@@ -17961,10 +17974,10 @@ index 0000000000000000000000000000000000000000..7dbd73b26c4d18e6f095ba6ba123874b
 +}
 diff --git a/src/components/longform/Steps.jsx b/src/components/longform/Steps.jsx
 new file mode 100644
-index 0000000000000000000000000000000000000000..699499ded936a89ad3fedea4b33d1adeabe15cf4
+index 0000000000000000000000000000000000000000..dea41810945b93e1b9bdcc44644b667067b13055
 --- /dev/null
 +++ b/src/components/longform/Steps.jsx
-@@ -0,0 +1,45 @@
+@@ -0,0 +1,46 @@
 +export default function Steps({ steps = [] }) {
 +  return (
 +    <ol className="steps">
@@ -17992,7 +18005,8 @@ index 0000000000000000000000000000000000000000..699499ded936a89ad3fedea4b33d1ade
 +          padding: 1.2rem 1.4rem;
 +          background: #fff;
 +          border-radius: 16px;
-+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
++          border: 1px solid rgba(0, 0, 0, 0.06);
++          box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
 +          align-items: center;
 +        }
 +        .index {

@@ -35,7 +35,8 @@ export default function ProofSection({ stats = [], testimonials = [] }) {
           border-radius: 16px;
           padding: 1.5rem;
           text-align: center;
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
         }
         .stat strong {
           font-size: 2rem;
@@ -55,7 +56,8 @@ export default function ProofSection({ stats = [], testimonials = [] }) {
           background: #fff;
           border-radius: 18px;
           padding: 1.6rem;
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
         }
         blockquote p {
           color: #444;

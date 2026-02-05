@@ -59,12 +59,19 @@ export default function HeroSplit({
           gap: 1.75rem;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           padding: 90px 20px 50px;
-          background: linear-gradient(135deg, #0f0f0f, #4b3a13);
+          background: radial-gradient(circle at top left, #2b2100, #0f0f0f);
           color: #fff;
           align-items: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
         .hero-content {
           max-width: 520px;
+        }
+        .hero-content h1 {
+          font-size: clamp(2.1rem, 3vw, 3rem);
+          line-height: 1.15;
+          margin-bottom: 0.8rem;
+          letter-spacing: -0.01em;
         }
         .tag {
           display: inline-block;
@@ -78,6 +85,7 @@ export default function HeroSplit({
         .lead {
           font-size: 1.1rem;
           opacity: 0.9;
+          margin-top: 0.2rem;
         }
         .bullets {
           list-style: none;

@@ -19,7 +19,7 @@ export default function Section({ id, eyebrow, title, lead, children, variant = 
           background: #fff;
         }
         .section.alt {
-          background: #f8f5ef;
+          background: #f7f5f0;
         }
         .section.dark {
           background: #131313;
@@ -36,6 +36,7 @@ export default function Section({ id, eyebrow, title, lead, children, variant = 
         .section-header h2 {
           font-size: clamp(1.8rem, 3vw, 2.6rem);
           margin-bottom: 0.8rem;
+          letter-spacing: -0.01em;
         }
         .eyebrow {
           display: inline-block;

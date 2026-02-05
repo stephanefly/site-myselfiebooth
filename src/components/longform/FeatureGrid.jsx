@@ -32,7 +32,8 @@ export default function FeatureGrid({ items = [], columns = 3 }) {
           background: #fff;
           padding: 1.5rem;
           border-radius: 18px;
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
           text-align: left;
         }
         .card h3 {

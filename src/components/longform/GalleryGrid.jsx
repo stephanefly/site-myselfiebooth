@@ -24,7 +24,8 @@ export default function GalleryGrid({ images = [] }) {
         .tile {
           border-radius: 16px;
           overflow: hidden;
-          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
         }
       `}</style>
     </div>
