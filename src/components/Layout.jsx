@@ -4,10 +4,10 @@ import PreFooter from "./PreFooter";
 import Footer from "./Footer";
 import Meta from "./Meta";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, metaProps }) => {
   return (
     <>
-      <Meta />
+      <Meta {...metaProps} />
       <Navbar />
       <main>{children}</main>
       <SocialMedia />
