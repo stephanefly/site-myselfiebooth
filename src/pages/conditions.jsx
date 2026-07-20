@@ -1,53 +1,24 @@
-import Layout from "../components/Layout";
+import LegalPage from "../components/legal/LegalPage";
 
 export default function Conditions() {
   return (
-    <Layout>
-      <section className="page">
-        <div className="container">
-          <h1>Conditions générales de location</h1>
-          <p>
-            Retrouvez ici les conditions principales de réservation et de
-            prestation. Notre équipe reste disponible pour toute précision.
-          </p>
-          <div className="card">
-            <h2>Réservation</h2>
-            <p>
-              La réservation est confirmée après validation du devis et versement
-              de l'acompte. Les dates sont bloquées dès réception de la
-              confirmation.
-            </p>
-            <h2>Livraison et installation</h2>
-            <p>
-              Nous assurons la livraison, l'installation et la reprise du matériel
-              selon les horaires convenus.
-            </p>
-            <h2>Annulation</h2>
-            <p>
-              Toute annulation doit être notifiée par écrit. Des frais peuvent
-              s'appliquer selon le délai.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <style jsx>{`
-        .page {
-          padding: 120px 20px 60px;
-          background: #f9f7f2;
-        }
-        .container {
-          max-width: 900px;
-          margin: 0 auto;
-        }
-        .card {
-          margin-top: 2rem;
-          background: #fff;
-          padding: 2rem;
-          border-radius: 16px;
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-        }
-      `}</style>
-    </Layout>
+    <LegalPage
+      title="Conditions generales de location"
+      intro="Les conditions principales de reservation, livraison et annulation sont resumees ici pour clarifier le deroule."
+      sections={[
+        {
+          title: "Reservation",
+          text: "La reservation est confirmee apres validation du devis et versement de l'acompte prevu. La date est bloquee apres confirmation.",
+        },
+        {
+          title: "Livraison et installation",
+          text: "MySelfieBooth assure la livraison, l'installation, les tests et la reprise du materiel selon les horaires convenus.",
+        },
+        {
+          title: "Annulation",
+          text: "Toute annulation doit etre notifiee par ecrit. Des frais peuvent s'appliquer selon le delai et les conditions du devis signe.",
+        },
+      ]}
+    />
   );
 }

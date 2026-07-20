@@ -1,0 +1,340 @@
+const bookingUrl = "https://reservation.myselfiebooth-paris.fr";
+
+const commonProof = [
+  { value: "+500", label: "evenements accompagnes" },
+  { value: "4.9/5", label: "note moyenne" },
+  { value: "167", label: "avis clients" },
+  { value: "3 villes", label: "Paris, Lyon, Rouen" },
+];
+
+const gallery = [
+  { src: "/images/photobooth.webp", alt: "Photobooth premium" },
+  { src: "/images/miroirbooth.webp", alt: "Miroirbooth elegant" },
+  { src: "/images/voguebooth.webp", alt: "Vogue booth lumineux" },
+  { src: "/images/360booth.webp", alt: "360 booth evenementiel" },
+  { src: "/images/pack.webp", alt: "Pack VIP MySelfieBooth" },
+];
+
+const coreSections = [
+  {
+    eyebrow: "Experience",
+    title: "Une prestation pensee pour rassurer avant, pendant et apres",
+    text: "Chaque page garde la meme logique: clarte, preuve, projection et demande de devis simple.",
+    cards: [
+      {
+        title: "Brief clair",
+        text: "On cadre votre objectif, le lieu, le timing, le public et le niveau de personnalisation attendu.",
+      },
+      {
+        title: "Installation maitrisee",
+        text: "Livraison, montage, reglages et tests sont anticipes pour que le jour J reste fluide.",
+      },
+      {
+        title: "Souvenirs exploitables",
+        text: "Photos, videos, impressions et galerie privee prolongent l'impact de votre evenement.",
+      },
+    ],
+  },
+  {
+    eyebrow: "Confiance",
+    title: "Le rendu doit paraitre premium sans avoir besoin d'en faire trop",
+    text: "Une page efficace parle moins, montre mieux et repond vite aux questions importantes.",
+    cards: [
+      {
+        title: "Design sobre",
+        text: "Une direction artistique noire, blanche et doree, plus proche d'une marque premium.",
+      },
+      {
+        title: "Preuves visibles",
+        text: "Avis, chiffres, logos clients et exemples concrets rassurent le visiteur.",
+      },
+      {
+        title: "CTA utiles",
+        text: "Le chemin vers le devis reste visible sans etre agressif.",
+      },
+    ],
+  },
+];
+
+const defaultFaq = [
+  {
+    question: "Combien de temps faut-il pour installer ?",
+    answer: "Selon le format, il faut generalement prevoir entre 45 et 90 minutes pour installer et tester.",
+  },
+  {
+    question: "Peut-on personnaliser les visuels ?",
+    answer: "Oui. Les cadres, ecrans et elements de partage peuvent reprendre vos couleurs, textes ou logos.",
+  },
+  {
+    question: "Comment obtenir un tarif precis ?",
+    answer: "Le devis depend de la date, du lieu, du format choisi, de la duree et des options.",
+  },
+];
+
+function page({
+  key,
+  eyebrow,
+  title,
+  description,
+  image,
+  path,
+  highlights,
+  sections = [],
+  finalTitle,
+}) {
+  return {
+    key,
+    eyebrow,
+    title,
+    description,
+    image,
+    imageAlt: title,
+    highlights,
+    proof: commonProof,
+    sections: [...sections, ...coreSections],
+    gallery,
+    faq: defaultFaq,
+    finalTitle,
+    primaryCta: { label: "Demander un devis", href: bookingUrl },
+    secondaryCta: { label: "Voir les prestations", href: "/prestations" },
+    meta: {
+      title: `${title} | MySelfieBooth`,
+      description,
+      ogImage: image,
+      ogUrl: `https://www.myselfiebooth-paris.fr${path}`,
+    },
+  };
+}
+
+const prestationCards = [
+  { title: "Photobooth", text: "Photos imprimees, galerie en ligne et animation simple pour tous les publics." },
+  { title: "Miroirbooth", text: "Objet premium et interactif, parfait pour receptions elegantes et galas." },
+  { title: "360 Booth", text: "Videos immersives et partageables pour creer un effet social media." },
+  { title: "Vogue Booth", text: "Couloir lumineux fort visuellement pour une experience VIP." },
+  { title: "Pack VIP", text: "Combinaison haut de gamme pour les grands evenements." },
+  { title: "Options", text: "Phonebooth, panneaux, murs floraux, livre d'or et decors sur mesure." },
+];
+
+export const marketingPages = {
+  "prestations-index": page({
+    key: "prestations-index",
+    eyebrow: "Prestations",
+    title: "Des photobooths premium pour chaque format d'evenement",
+    description: "Comparez les formats MySelfieBooth et choisissez l'experience la plus adaptee a votre public.",
+    image: "/images/all_presta.webp",
+    path: "/prestations",
+    highlights: ["Gamme claire", "Options premium", "Devis rapide"],
+    sections: [
+      {
+        eyebrow: "Catalogue",
+        title: "Une offre courte, lisible et facile a comparer",
+        text: "Le visiteur doit comprendre rapidement la difference entre chaque format.",
+        cards: prestationCards,
+      },
+    ],
+  }),
+  photobooth: page({
+    key: "photobooth",
+    eyebrow: "Best seller",
+    title: "Photobooth classique pour des souvenirs instantanes",
+    description: "Une animation photo fiable, elegante et facile a utiliser pour mariages, entreprises et soirees privees.",
+    image: "/images/photobooth.webp",
+    path: "/prestations/photobooth",
+    highlights: ["Impressions", "Galerie privee", "Animateur"],
+  }),
+  miroirbooth: page({
+    key: "miroirbooth",
+    eyebrow: "Elegant",
+    title: "Miroirbooth interactif pour une reception premium",
+    description: "Un miroir tactile qui attire les invites, habille l'espace et cree des photos memorables.",
+    image: "/images/miroirbooth.webp",
+    path: "/prestations/miroirbooth",
+    highlights: ["Miroir tactile", "Design premium", "Photos imprimees"],
+  }),
+  videobooth: page({
+    key: "videobooth",
+    eyebrow: "360 Booth",
+    title: "360 Booth pour des videos immersives et partageables",
+    description: "Une experience video spectaculaire pour dynamiser vos soirees, salons et activations de marque.",
+    image: "/images/360booth.webp",
+    path: "/prestations/videobooth",
+    highlights: ["Video 360", "Social media", "Effets personnalises"],
+  }),
+  voguebooth: page({
+    key: "voguebooth",
+    eyebrow: "VIP",
+    title: "Vogue Booth pour un effet tapis rouge",
+    description: "Un couloir lumineux fort, elegant et photogenique pour creer une scene premium.",
+    image: "/images/voguebooth.webp",
+    path: "/prestations/voguebooth",
+    highlights: ["Lumiere", "Scene premium", "Impact visuel"],
+  }),
+  ipadbooth: page({
+    key: "ipadbooth",
+    eyebrow: "Compact",
+    title: "iPad Booth compact pour collecte et partage rapide",
+    description: "Une solution discrete et efficace pour photos digitales, GIF, signatures et contenus de marque.",
+    image: "/images/ipadbooth.webp",
+    path: "/prestations/ipadbooth",
+    highlights: ["Compact", "Digital", "Rapide"],
+  }),
+  air360booth: page({
+    key: "air360booth",
+    eyebrow: "Immersif",
+    title: "Air360 Booth pour une experience video grand format",
+    description: "Une animation video moderne, pensee pour les grandes ambiances et les souvenirs spectaculaires.",
+    image: "/images/airbooth.webp",
+    path: "/prestations/air360booth",
+    highlights: ["Video 4K", "Grand format", "Animation forte"],
+  }),
+  packvip: page({
+    key: "packvip",
+    eyebrow: "Pack VIP",
+    title: "Pack VIP pour les evenements haut de gamme",
+    description: "Combinez plusieurs experiences pour creer un parcours photo et video complet.",
+    image: "/images/pack.webp",
+    path: "/prestations/packvip",
+    highlights: ["Deux formats", "Equipe dediee", "Effet premium"],
+  }),
+  personnalise: page({
+    key: "personnalise",
+    eyebrow: "Sur mesure",
+    title: "Prestation personnalisee pour marques et grands evenements",
+    description: "Une experience adaptee a votre scenographie, votre campagne et vos objectifs.",
+    image: "/images/all_presta.webp",
+    path: "/prestations/personnalise",
+    highlights: ["Branding", "Scenario", "Objectifs"],
+  }),
+  "evenements-index": page({
+    key: "evenements-index",
+    eyebrow: "Evenements",
+    title: "Une animation photo adaptee a chaque public",
+    description: "Entreprises, mariages, anniversaires ou soirees: chaque contexte merite un parcours clair.",
+    image: "/images/hero-min.jpg",
+    path: "/evenements",
+    highlights: ["B2B", "Mariages", "Prive"],
+    sections: [
+      {
+        eyebrow: "Choisir",
+        title: "Orientez vite le visiteur vers le bon usage",
+        text: "Les pages evenement expliquent le contexte et recommandent les bons formats.",
+        cards: [
+          { title: "Entreprises", text: "Activation, salon, lancement produit, soiree interne ou seminaire." },
+          { title: "Mariages", text: "Une animation elegante et fluide pour tous les invites." },
+          { title: "Soirees privees", text: "Une experience festive, simple et facile a partager." },
+        ],
+      },
+    ],
+  }),
+  corporates: page({
+    key: "corporates",
+    eyebrow: "Corporate",
+    title: "Photobooth entreprise pour marques, salons et soirees internes",
+    description: "Une animation premium qui renforce votre image, cree du contenu et engage vos invites.",
+    image: "/images/voguebooth.webp",
+    path: "/evenements/corporates",
+    highlights: ["Branding", "Reporting", "B2B"],
+  }),
+  mariages: page({
+    key: "mariages",
+    eyebrow: "Mariage",
+    title: "Photobooth mariage pour des souvenirs elegants et naturels",
+    description: "Une animation simple, chic et rassurante pour vos invites, avec installation cle en main.",
+    image: "/images/mariages/mariage1.JPG",
+    path: "/evenements/mariages",
+    highlights: ["Invites", "Impressions", "Galerie"],
+  }),
+  anniversaires: page({
+    key: "anniversaires",
+    eyebrow: "Anniversaire",
+    title: "Photobooth anniversaire pour une soiree vivante et memorables",
+    description: "Un point photo convivial qui rythme la soiree et cree des souvenirs instantanes.",
+    image: "/images/miroirbooth.webp",
+    path: "/evenements/anniversaires",
+    highlights: ["Festif", "Simple", "Souvenirs"],
+  }),
+  soirees: page({
+    key: "soirees",
+    eyebrow: "Soirees",
+    title: "Photobooth pour soirees privees et evenements VIP",
+    description: "Une experience photo et video qui habille la soiree et donne envie de participer.",
+    image: "/images/voguebooth.webp",
+    path: "/evenements/soirees",
+    highlights: ["VIP", "Ambiance", "Partage"],
+  }),
+  "options-index": page({
+    key: "options-index",
+    eyebrow: "Options",
+    title: "Des options pour personnaliser l'experience",
+    description: "Ajoutez des decors, accessoires, panneaux et modules audio pour rendre l'animation unique.",
+    image: "/images/all_options.webp",
+    path: "/options",
+    highlights: ["Decor", "Audio", "Personnalisation"],
+  }),
+  phonebooth: page({
+    key: "phonebooth",
+    eyebrow: "Phonebooth",
+    title: "Phonebooth audio pour capter les messages des invites",
+    description: "Une option emotionnelle pour garder les voix, les mots et les souvenirs spontanes.",
+    image: "/images/phonebooth.webp",
+    path: "/options/phonebooth",
+    highlights: ["Audio", "Messages", "Souvenirs"],
+  }),
+  panneau: page({
+    key: "panneau",
+    eyebrow: "Signaletique",
+    title: "Panneau de bienvenue et decor photo personnalise",
+    description: "Un detail visuel qui structure l'espace, accueille les invites et renforce votre univers.",
+    image: "/images/Welcomeboard.webp",
+    path: "/options/panneau",
+    highlights: ["Bienvenue", "Decor", "Marque"],
+  }),
+  paris: page({
+    key: "paris",
+    eyebrow: "Paris",
+    title: "Location photobooth premium a Paris",
+    description: "Une prestation elegante pour evenements professionnels et prives a Paris et en Ile-de-France.",
+    image: "/images/hero-min.jpg",
+    path: "/paris",
+    highlights: ["Paris", "Ile-de-France", "Premium"],
+  }),
+  lyon: page({
+    key: "lyon",
+    eyebrow: "Lyon",
+    title: "Location photobooth premium a Lyon",
+    description: "Une animation photo cle en main pour entreprises, mariages et soirees a Lyon.",
+    image: "/images/photobooth.webp",
+    path: "/lyon",
+    highlights: ["Lyon", "Entreprise", "Mariage"],
+  }),
+  rouen: page({
+    key: "rouen",
+    eyebrow: "Rouen",
+    title: "Location photobooth premium a Rouen",
+    description: "Un service photobooth elegant et rassurant pour vos evenements a Rouen et en Normandie.",
+    image: "/images/miroirbooth.webp",
+    path: "/rouen",
+    highlights: ["Rouen", "Normandie", "Cle en main"],
+  }),
+  blog: page({
+    key: "blog",
+    eyebrow: "Blog",
+    title: "Conseils photobooth pour mieux preparer vos evenements",
+    description: "Guides, idees et inspirations pour choisir le bon format et maximiser l'impact de votre animation.",
+    image: "/images/all_presta.webp",
+    path: "/blog",
+    highlights: ["Conseils", "SEO", "Inspiration"],
+    sections: [
+      {
+        eyebrow: "A venir",
+        title: "Des articles utiles pour le B2B et le prive",
+        text: "Le blog doit servir le referencement tout en aidant les clients a choisir.",
+        cards: [
+          { title: "Photobooth entreprise", text: "Comment choisir une animation pour un salon ou une soiree interne." },
+          { title: "Photobooth mariage", text: "Les erreurs a eviter pour une experience fluide." },
+          { title: "ROI evenementiel", text: "Comment mesurer l'impact d'une animation de marque." },
+        ],
+      },
+    ],
+  }),
+};
