@@ -2,6 +2,7 @@ import {
   audiences,
   brandLogos,
   faqs,
+  galleryHighlights,
   processSteps,
   proofPoints,
   services,
@@ -35,12 +36,10 @@ export default function HomePage() {
     <>
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
-          <video autoPlay loop muted playsInline poster="/images/hero-min.jpg">
-            <source
-              src="https://stephanefly.github.io/site-myselfiebooth/public/videos/PUB_2024.mp4"
-              type="video/mp4"
-            />
-          </video>
+          <img
+            src="/images/generated/premium-corporate-photobooth.webp"
+            alt=""
+          />
         </div>
         <div className="home-hero-overlay" />
 
@@ -115,6 +114,27 @@ export default function HomePage() {
               <article key={item.title} className="home-trust-card">
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section-light">
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Realisations"
+            title="Des images qui parlent avant meme le devis"
+            text="Une selection plus proche de l'univers Instagram MySelfieBooth: tirages, invites, options et installations soignees, avec une direction visuelle premium."
+          />
+          <div className="home-gallery-grid">
+            {galleryHighlights.map((item) => (
+              <article key={item.title} className="home-gallery-card">
+                <img src={item.image} alt={item.title} />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
               </article>
             ))}
           </div>

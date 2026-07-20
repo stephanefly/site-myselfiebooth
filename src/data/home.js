@@ -14,7 +14,7 @@ export const services = [
     title: "Photobooth",
     tag: "Best seller",
     text: "Le format le plus polyvalent pour des photos imprimees, une galerie en ligne et une animation simple a comprendre.",
-    image: "/images/photobooth.webp",
+    image: "/images/generated/instagram-print-strips.webp",
     href: "/prestations/photobooth",
     price: "A partir de 350 euros",
   },
@@ -30,7 +30,7 @@ export const services = [
     title: "360 Booth",
     tag: "Social media",
     text: "Une animation video immersive pour generer du contenu dynamique, partageable et memorable.",
-    image: "/images/360booth.webp",
+    image: "/images/generated/premium-360-booth-event.webp",
     href: "/prestations/videobooth",
     price: "A partir de 400 euros",
   },
@@ -38,7 +38,7 @@ export const services = [
     title: "Vogue Booth",
     tag: "Premium",
     text: "Un couloir lumineux spectaculaire pour creer une scene photo forte, ideale pour une marque ou une soiree VIP.",
-    image: "/images/voguebooth.webp",
+    image: "/images/generated/instagram-vogue-booth.webp",
     href: "/prestations/voguebooth",
     price: "A partir de 500 euros",
   },
@@ -49,19 +49,52 @@ export const audiences = [
     title: "Entreprises",
     text: "Soirees internes, salons, lancements produit, activations de marque, seminaires et operations RH.",
     href: "/evenements/corporates",
-    image: "/images/photobooth.webp",
+    image: "/images/generated/premium-corporate-photobooth.webp",
   },
   {
     title: "Mariages",
     text: "Une animation elegante, simple pour les invites et parfaitement integree a votre reception.",
     href: "/evenements/mariages",
-    image: "/images/mariages/mariage1.JPG",
+    image: "/images/generated/premium-wedding-photobooth.webp",
   },
   {
     title: "Evenements prives",
     text: "Anniversaires, soirees et moments familiaux avec une experience cle en main.",
     href: "/evenements/soirees",
-    image: "/images/voguebooth.webp",
+    image: "/images/generated/premium-360-booth-event.webp",
+  },
+];
+
+export const galleryHighlights = [
+  {
+    title: "Tirages premium",
+    text: "Des cadres imprimes propres, coherents avec l'identite de l'evenement.",
+    image: "/images/generated/instagram-print-strips.webp",
+  },
+  {
+    title: "Invites engages",
+    text: "Une animation qui donne envie de poser, partager et repartir avec un souvenir.",
+    image: "/images/generated/instagram-party-guests.webp",
+  },
+  {
+    title: "Options memorables",
+    text: "Porte-cles, impressions et details personnalises prolongent l'experience.",
+    image: "/images/generated/instagram-keychain-favors.webp",
+  },
+  {
+    title: "Installation maitrisee",
+    text: "Un montage prepare, teste et integre proprement dans votre decor.",
+    image: "/images/generated/instagram-backstage-setup.webp",
+  },
+  {
+    title: "Effet VIP",
+    text: "Le Vogue Booth cree un point fort visuel pour les soirees haut de gamme.",
+    image: "/images/generated/instagram-vogue-booth.webp",
+  },
+  {
+    title: "Grand evenement",
+    text: "Une experience fluide pour les marques, galas et formats corporate.",
+    image: "/images/generated/instagram-corporate-activation.webp",
   },
 ];
 
