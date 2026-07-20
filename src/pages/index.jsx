@@ -1,18 +1,19 @@
 import Layout from "../components/Layout";
-import Hero from "../components/Hero";
-import Besoins from "../components/Besoins";
-import Services from "../components/Services";
-import Portfolio from "../components/Portfolio";
-import Experience from "../components/Experience";
+import HomePage from "../components/home/HomePage";
 
 export default function Home() {
   return (
-    <Layout>
-      <Hero />
-      <Experience />
-      <Besoins />
-      <Portfolio />
-      <Services />
+    <Layout
+      metaProps={{
+        title: "MySelfieBooth - Photobooth premium pour entreprises et evenements",
+        description:
+          "Location de photobooth premium pour entreprises, mariages, salons, soirees et evenements prives a Paris, Lyon et Rouen.",
+        ogTitle: "MySelfieBooth - Photobooth premium pour evenements",
+        ogDescription:
+          "Une animation photo elegante, cle en main et rassurante pour entreprises, marques, mariages et evenements prives.",
+      }}
+    >
+      <HomePage />
     </Layout>
   );
 }

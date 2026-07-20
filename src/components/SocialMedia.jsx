@@ -1,88 +1,97 @@
-export default function SocialMediaSection() {
-  const socialLinks = [
-    { name: "LinkedIn", icon: "/icons/linkedin.png", link: "https://www.linkedin.com/myselfiebooth_paris/" },
-    { name: "Instagram", icon: "/icons/instagram.png", link: "https://www.instagram.com/myselfiebooth_paris/" },
-    { name: "TikTok", icon: "/icons/tiktok.png", link: "https://www.tiktok.com/@myselfiebooth_paris" },
-  ];
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    icon: "/icons/linkedin.png",
+    href: "https://www.linkedin.com/myselfiebooth_paris/",
+  },
+  {
+    name: "Instagram",
+    icon: "/icons/instagram.png",
+    href: "https://www.instagram.com/myselfiebooth_paris/",
+  },
+  {
+    name: "TikTok",
+    icon: "/icons/tiktok.png",
+    href: "https://www.tiktok.com/@myselfiebooth_paris",
+  },
+];
 
+export default function SocialMedia() {
   return (
-    <>
-      <section className="social-media-section">
-        <div className="social-media-container">
-          <h2 className="social-media-title">Rejoignez-nous sur les réseaux sociaux</h2>
-          <div className="social-media-icons-wrapper">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-media-icon-container"
-              >
-                <img
-                  src={social.icon}
-                  alt={social.name}
-                  className="social-media-icon"
-                />
-              </a>
-            ))}
-          </div>
+    <section className="social-section">
+      <div className="social-container">
+        <p>Suivre les coulisses, les evenements et les realisations</p>
+        <div className="social-links">
+          {socialLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+            >
+              <img src={social.icon} alt="" />
+              <span>{social.name}</span>
+            </a>
+          ))}
         </div>
-      </section>
+      </div>
 
       <style jsx>{`
-        /* Section générale */
-        .social-media-section {
-          background: linear-gradient(to right, #000000, #675e32)  ;
-          padding: 2rem 1rem;
-        }
-
-        /* Conteneur centré */
-        .social-media-container {
-          max-width: 800px;
-          margin: 0 auto;
-          text-align: center;
-        }
-
-        /* Titre */
-        .social-media-title {
-          font-size: 1.5rem;
-          font-weight: bold;
+        .social-section {
+          padding: 28px 0;
           color: #fff;
-          margin-bottom: 1rem;
+          background: #111;
+          text-align: left;
         }
 
-        /* Conteneur des icônes */
-        .social-media-icons-wrapper {
-          display: flex;
-          justify-content: center;
-          gap: 1rem; /* Espacement entre les icônes */
-        }
-
-        /* Conteneur individuel des icônes */
-        .social-media-icon-container {
+        .social-container {
+          width: min(1180px, calc(100% - 32px));
+          margin: 0 auto;
           display: flex;
           align-items: center;
-          justify-content: center;
-          width: 3rem; /* Taille du conteneur (48px) */
-          height: 3rem;
-          background-color: #fff; /* Fond blanc */
-          border-radius: 50%; /* Cercle */
-          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre */
-          transition: transform 0.3s ease; /* Animation au survol */
+          justify-content: space-between;
+          gap: 24px;
         }
 
-        /* Icônes */
-        .social-media-icon {
-          width: 1.5rem; /* Taille de l'icône (24px) */
-          height: 1.5rem;
+        p {
+          margin: 0;
+          color: #efe9dd;
+          font-weight: 800;
         }
 
-        /* Effet au survol */
-        .social-media-icon-container:hover {
-          transform: scale(1.2); /* Agrandissement au survol */
+        .social-links {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .social-links a {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          min-height: 40px;
+          padding: 0 12px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 999px;
+          color: #fff;
+          text-decoration: none;
+          font-weight: 800;
+          background: rgba(255, 255, 255, 0.06);
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+
+        @media (max-width: 720px) {
+          .social-container {
+            align-items: flex-start;
+            flex-direction: column;
+          }
         }
       `}</style>
-    </>
+    </section>
   );
 }
