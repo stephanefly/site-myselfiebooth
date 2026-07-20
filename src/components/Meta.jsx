@@ -2,19 +2,18 @@ import Head from "next/head";
 import Script from "next/script";
 
 export default function Meta({
-  title = "MySelfieBooth - Location de Photobooth pour Mariages, Événements et Soirées à Paris",
-  description = "Louez un photobooth moderne pour capturer des souvenirs mémorables lors de vos événements à Paris : mariages, anniversaires, soirées d'entreprise et plus encore.",
-  keywords = "photobooth paris, location photobooth, photobooth mariage, miroir photo, photobooth entreprise, selfie box, photobooth événementiel",
-  ogTitle = "MySelfieBooth - Transformez Vos Événements avec Nos Photobooths",
-  ogDescription = "Découvrez nos photobooths modernes et interactifs pour capturer des souvenirs inoubliables lors de vos mariages, anniversaires ou soirées professionnelles à Paris.",
+  title = "MySelfieBooth - Location photobooth entreprise, mariage et evenement a Paris",
+  description = "Louez un photobooth premium pour vos evenements professionnels et prives: soirees d'entreprise, salons, lancements produit, mariages et anniversaires a Paris, Lyon et Rouen.",
+  keywords = "photobooth entreprise paris, location photobooth paris, photobooth mariage, animation evenementielle, miroir photobooth, selfie box, photobooth corporate",
+  ogTitle = "MySelfieBooth - Photobooth premium pour entreprises et evenements prives",
+  ogDescription = "Decouvrez des photobooths modernes et personnalises pour vos soirees d'entreprise, activations de marque, mariages et receptions privees.",
   ogImage = "/images/logo.jpg",
-  ogUrl = "https://www.myselfiebooth-paris.com",
+  ogUrl = "https://www.myselfiebooth-paris.fr",
   twitterCard = "summary_large_image",
 }) {
   return (
     <>
       <Head>
-        {/* SEO General */}
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -22,33 +21,27 @@ export default function Meta({
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Canonical URL */}
         <link rel="canonical" href={ogUrl} />
 
-        {/* Open Graph (OG) Meta Tags */}
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={ogDescription} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:url" content={ogUrl} />
         <meta property="og:type" content="website" />
 
-        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content={twitterCard} />
         <meta name="twitter:title" content={ogTitle} />
         <meta name="twitter:description" content={ogDescription} />
         <meta name="twitter:image" content={ogImage} />
 
-        {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
 
-        {/* Theme Color */}
         <meta name="theme-color" content="#000000" />
 
-        {/* Structured Data (JSON-LD for SEO) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -57,7 +50,7 @@ export default function Meta({
               "@type": "LocalBusiness",
               name: "MySelfieBooth",
               description:
-                "Louez des photobooths modernes et interactifs pour capturer des souvenirs inoubliables lors de vos événements à Paris.",
+                "Location de photobooths premium pour evenements professionnels et prives a Paris, Lyon et Rouen.",
               url: ogUrl,
               logo: ogImage,
               sameAs: [
@@ -75,12 +68,28 @@ export default function Meta({
                 telephone: "+33 6 99 73 39 98",
                 contactType: "customer service",
               },
+              areaServed: ["Paris", "Lyon", "Rouen", "France"],
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Location photobooth entreprise",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: "Location photobooth mariage",
+                  },
+                },
+              ],
             }),
           }}
         />
       </Head>
 
-      {/* Google Analytics (gtag.js) */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-4297YBLGR6"
         strategy="afterInteractive"

@@ -1,37 +1,37 @@
 export default function Experience() {
   const highlights = [
     {
-      title: "Ambiance 2025",
+      title: "Image de marque respectee",
       description:
-        "Design lumineux, transitions douces et une narration visuelle qui met vos invités au cœur de l'expérience.",
+        "Habillage graphique, ecran d'accueil, templates photo et galerie peuvent reprendre vos couleurs, votre logo et votre campagne.",
       accent: "fade-left",
     },
     {
-      title: "Parcours ultra fluide",
+      title: "Parcours invite fluide",
       description:
-        "Une prise en main en 2 minutes : installation, cadrage, impression et partage instantané, tout est optimisé.",
+        "Installation anticipee, cadrage, impression, partage instantane et accompagnement sur place pour garder un rythme naturel.",
       accent: "fade-up",
     },
     {
-      title: "Premium & humain",
+      title: "Preuves et souvenirs",
       description:
-        "Une équipe dédiée, des accessoires soignés et un suivi personnalisé pour rendre chaque événement unique.",
+        "Photos, GIF, videos et galerie privee livree apres l'evenement pour prolonger l'impact de votre reception ou operation.",
       accent: "fade-right",
     },
   ];
 
   const steps = [
     {
-      title: "On prépare ensemble",
-      text: "Brief créatif, choix des fonds, templates sur-mesure et plan de salle pour un rendu impeccable.",
+      title: "Brief et recommandation",
+      text: "Nous cadrons votre objectif: animation de marque, mariage, salon, lancement produit ou soiree interne.",
     },
     {
-      title: "On installe sans stress",
-      text: "Livraison, montage, réglages lumière et tests : tout est prêt avant l'arrivée des invités.",
+      title: "Preparation graphique",
+      text: "Nous adaptons les visuels, les formats de partage et les options pour un rendu coherent avec votre univers.",
     },
     {
-      title: "On crée des souvenirs",
-      text: "Photos, GIF et vidéos partagés en direct + galerie privée livrée après l'événement.",
+      title: "Exploitation le jour J",
+      text: "Livraison, montage, tests, assistance et galerie finale: l'experience reste simple pour vous comme pour vos invites.",
     },
   ];
 
@@ -46,13 +46,12 @@ export default function Experience() {
     <section className="experience-section">
       <div className="experience-container">
         <div className="experience-header fade-up">
-          <p className="experience-kicker">Expérience signature</p>
-          <h2>Un photobooth complet, esthétique et ultra moderne</h2>
+          <p className="experience-kicker">Experience signature</p>
+          <h2>Une animation photo premium, prete pour le B2B comme pour le prive</h2>
           <p className="experience-lead">
-            Nous concevons des expériences photobooth premium qui mixent style,
-            technologie et émotions. Le résultat : un flow continu, des visuels
-            impeccables et des invités conquis du premier flash au dernier
-            souvenir partagé.
+            MySelfieBooth transforme un simple coin photo en experience de marque:
+            design soigne, materiel elegant, equipe presente et contenus faciles
+            a partager. Le resultat est visible, fluide et memorable.
           </p>
         </div>
 
@@ -108,7 +107,7 @@ export default function Experience() {
 
         .experience-kicker {
           text-transform: uppercase;
-          letter-spacing: 0.3rem;
+          letter-spacing: 0.28rem;
           font-size: 0.8rem;
           color: #ffef96;
           margin-bottom: 1rem;
@@ -141,7 +140,7 @@ export default function Experience() {
         }
 
         .gallery-tile {
-          border-radius: 18px;
+          border-radius: 8px;
           overflow: hidden;
           border: 1px solid rgba(255, 255, 255, 0.18);
           box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
@@ -156,7 +155,7 @@ export default function Experience() {
 
         .highlight-card {
           padding: 1.8rem;
-          border-radius: 16px;
+          border-radius: 8px;
           background: rgba(255, 255, 255, 0.08);
           border: 1px solid rgba(255, 255, 255, 0.12);
           box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
@@ -183,7 +182,7 @@ export default function Experience() {
           gap: 1.5rem;
           align-items: center;
           padding: 1.5rem 2rem;
-          border-radius: 20px;
+          border-radius: 8px;
           background: rgba(255, 255, 255, 0.08);
           border: 1px solid rgba(255, 255, 255, 0.12);
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
