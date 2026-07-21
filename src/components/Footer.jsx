@@ -1,39 +1,58 @@
-const linkGroups = [
-  {
-    title: "Prestations",
-    links: [
-      { label: "Photobooth", href: "/prestations/photobooth" },
-      { label: "Miroirbooth", href: "/prestations/miroirbooth" },
-      { label: "360 Booth", href: "/prestations/videobooth" },
-      { label: "Pack VIP", href: "/prestations/packvip" },
-    ],
-  },
-  {
-    title: "Evenements",
-    links: [
-      { label: "Entreprises", href: "/evenements/corporates" },
-      { label: "Mariages", href: "/evenements/mariages" },
-      { label: "Anniversaires", href: "/evenements/anniversaires" },
-      { label: "Soirees", href: "/evenements/soirees" },
-    ],
-  },
-  {
-    title: "Infos",
-    links: [
-      { label: "Blog", href: "/blog" },
-      { label: "Confidentialite", href: "/privacy-policy" },
-      { label: "Mentions legales", href: "/terms" },
-      { label: "Conditions", href: "/conditions" },
-    ],
-  },
+import { machines, options } from "../data/catalog";
+import { siteConfig, trustSignals } from "../data/site";
+
+const eventLinks = [
+  { label: "Entreprises", href: "/evenements/corporates" },
+  { label: "Mariages", href: "/evenements/mariages" },
+  { label: "Anniversaires", href: "/evenements/anniversaires" },
+  { label: "Soirees", href: "/evenements/soirees" },
+];
+
+const infoLinks = [
+  { label: "Blog", href: "/blog" },
+  { label: "Confidentialite", href: "/privacy-policy" },
+  { label: "Mentions legales", href: "/terms" },
+  { label: "Conditions", href: "/conditions" },
 ];
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+  const review = trustSignals.find((signal) => signal.value === "4.9/5");
+  const reviewCount = trustSignals.find((signal) => signal.value === "167");
+  const visibleOptions = options.slice(0, 6);
+  const linkGroups = [
+    {
+      title: "Animations",
+      links: machines.map((machine) => ({
+        label: machine.name,
+        href: machine.href,
+      })),
+    },
+    {
+      title: "Evenements",
+      links: eventLinks,
+    },
+    {
+      title: "Options",
+      links: [
+        { label: "Toutes les options", href: "/options" },
+        ...visibleOptions.map((option) => ({
+          label: option.name,
+          href: option.href || "/options",
+        })),
+      ],
+    },
+    {
+      title: "Infos",
+      links: infoLinks,
+    },
+  ];
+
   return (
-    <footer className="footer">
+    <footer id="contact" className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <a href="/">MySelfieBooth</a>
+          <a href="/">{siteConfig.name}</a>
           <p>
             Photobooths premium pour entreprises, marques, mariages et evenements
             prives a Paris, Lyon et Rouen.
@@ -41,37 +60,38 @@ export default function Footer() {
           <div className="footer-review">
             <img src="/icons/google.png" alt="Google" />
             <div>
-              <strong>4.9/5 sur Google</strong>
-              <span>167 avis clients</span>
+              <strong>{review?.value || "4.9/5"} affiche sur Google</strong>
+              <span>{reviewCount?.value || "167"} avis clients affiches</span>
             </div>
           </div>
+          <a className="footer-quote" href={siteConfig.quoteUrl}>
+            {siteConfig.primaryCtaLabel}
+          </a>
         </div>
 
         {linkGroups.map((group) => (
           <div key={group.title} className="footer-group">
             <h3>{group.title}</h3>
             {group.links.map((link) => (
-              <a key={link.href} href={link.href}>
+              <a key={`${group.title}-${link.href}-${link.label}`} href={link.href}>
                 {link.label}
               </a>
             ))}
           </div>
         ))}
 
-        <div className="footer-group">
+        <div className="footer-group footer-contact">
           <h3>Contact</h3>
-          <a href="tel:+33699733998">06 99 73 39 98</a>
-          <a href="mailto:contact@myselfiebooth-paris.fr">
-            contact@myselfiebooth-paris.fr
-          </a>
-          <a href="/paris">Paris</a>
-          <a href="/lyon">Lyon</a>
-          <a href="/rouen">Rouen</a>
+          <a href={siteConfig.phoneHref}>{siteConfig.phoneLabel}</a>
+          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          {siteConfig.servedAreas.map((area) => (
+            <span key={area}>{area}</span>
+          ))}
         </div>
       </div>
 
       <div className="footer-bottom">
-        <span>© 2026 MySelfieBooth. Tous droits reserves.</span>
+        <span>&copy; {year} {siteConfig.name}. Tous droits reserves.</span>
         <span>Location photobooth premium en France.</span>
       </div>
 
@@ -86,8 +106,8 @@ export default function Footer() {
           width: min(1180px, calc(100% - 32px));
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 1.4fr repeat(4, 1fr);
-          gap: 32px;
+          grid-template-columns: minmax(240px, 1.25fr) repeat(5, minmax(0, 1fr));
+          gap: 28px;
           padding: 56px 0 36px;
         }
 
@@ -109,7 +129,7 @@ export default function Footer() {
           display: flex;
           gap: 12px;
           align-items: center;
-          max-width: 260px;
+          max-width: 280px;
           padding: 12px;
           border-radius: 8px;
           color: #17130a;
@@ -132,6 +152,22 @@ export default function Footer() {
           font-size: 0.88rem;
         }
 
+        .footer-quote {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 44px;
+          margin-top: 18px;
+          padding: 0 18px;
+          border-radius: 8px;
+          color: #17130a;
+          background: #e5c46b;
+          font-size: 0.9rem;
+          font-weight: 900;
+          text-decoration: none;
+          text-align: center;
+        }
+
         .footer-group {
           display: grid;
           align-content: start;
@@ -146,7 +182,8 @@ export default function Footer() {
           text-transform: uppercase;
         }
 
-        .footer-group a {
+        .footer-group a,
+        .footer-group span {
           color: #efe9dd;
           text-decoration: none;
           line-height: 1.35;
@@ -154,6 +191,10 @@ export default function Footer() {
 
         .footer-group a:hover {
           color: #e5c46b;
+        }
+
+        .footer-contact span {
+          color: #b8afa0;
         }
 
         .footer-bottom {
@@ -168,25 +209,27 @@ export default function Footer() {
           font-size: 0.9rem;
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 1100px) {
           .footer-container {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
           }
 
           .footer-brand {
-            grid-column: span 2;
+            grid-column: span 3;
           }
         }
 
-        @media (max-width: 640px) {
-          .footer-container,
-          .footer-bottom {
+        @media (max-width: 720px) {
+          .footer-container {
             grid-template-columns: 1fr;
-            flex-direction: column;
           }
 
           .footer-brand {
             grid-column: span 1;
+          }
+
+          .footer-bottom {
+            flex-direction: column;
           }
         }
       `}</style>

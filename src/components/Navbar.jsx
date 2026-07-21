@@ -1,37 +1,43 @@
 import Link from "next/link";
 import { useState } from "react";
-
-const bookingUrl = "https://reservation.myselfiebooth-paris.fr";
+import { machines } from "../data/catalog";
+import { siteConfig } from "../data/site";
 
 const navGroups = [
   {
-    label: "Prestations",
-    links: [
-      { label: "Photobooth", href: "/prestations/photobooth" },
-      { label: "Miroirbooth", href: "/prestations/miroirbooth" },
-      { label: "360 Booth", href: "/prestations/videobooth" },
-      { label: "Vogue Booth", href: "/prestations/voguebooth" },
-      { label: "Air360 Booth", href: "/prestations/air360booth" },
-      { label: "Pack VIP", href: "/prestations/packvip" },
-    ],
+    label: "Nos animations",
+    links: machines.map((machine) => ({ label: machine.name, href: machine.href })),
   },
   {
-    label: "Evenements",
+    label: "Vos evenements",
     links: [
       { label: "Entreprises", href: "/evenements/corporates" },
       { label: "Mariages", href: "/evenements/mariages" },
       { label: "Anniversaires", href: "/evenements/anniversaires" },
-      { label: "Soirees", href: "/evenements/soirees" },
+      { label: "Soirees privees", href: "/evenements/soirees" },
     ],
   },
   {
-    label: "Options",
+    label: "Nos options",
     links: [
+      { label: "Toutes les options", href: "/options" },
       { label: "Phonebooth", href: "/options/phonebooth" },
       { label: "Panneau de bienvenue", href: "/options/panneau" },
     ],
   },
 ];
+
+const directLinks = [
+  { label: "Accueil", href: "/" },
+  { label: "Realisations", href: "/#realisations" },
+  { label: "Entreprises", href: "/evenements/corporates" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
+];
+
+function navId(label) {
+  return label.toLowerCase().replace(/\s+/g, "-");
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,26 +48,40 @@ export default function Navbar() {
     setOpenGroup(null);
   };
 
+  const toggleGroup = (label) => {
+    setOpenGroup(openGroup === label ? null : label);
+  };
+
   return (
-    <nav className="nav-shell">
+    <nav className="nav-shell" aria-label="Navigation principale">
       <div className="nav-container">
         <Link href="/" className="nav-brand" onClick={closeMenus}>
           MySelfieBooth
         </Link>
 
-        <div className={`nav-links ${isMenuOpen ? "is-open" : ""}`}>
+        <div className={`nav-links ${isMenuOpen ? "is-open" : ""}`} id="menu-principal">
+          {directLinks.map((link) => (
+            <Link key={link.href} href={link.href} className="nav-direct" onClick={closeMenus}>
+              {link.label}
+            </Link>
+          ))}
+
           {navGroups.map((group) => (
             <div className="nav-group" key={group.label}>
               <button
                 type="button"
                 className="nav-link"
-                onClick={() => setOpenGroup(openGroup === group.label ? null : group.label)}
+                onClick={() => toggleGroup(group.label)}
                 aria-expanded={openGroup === group.label}
+                aria-controls={`nav-${navId(group.label)}`}
               >
                 {group.label}
                 <span aria-hidden="true">+</span>
               </button>
-              <div className={`nav-menu ${openGroup === group.label ? "is-open" : ""}`}>
+              <div
+                id={`nav-${navId(group.label)}`}
+                className={`nav-menu ${openGroup === group.label ? "is-open" : ""}`}
+              >
                 {group.links.map((link) => (
                   <Link key={link.href} href={link.href} onClick={closeMenus}>
                     {link.label}
@@ -71,21 +91,22 @@ export default function Navbar() {
             </div>
           ))}
 
-          <a className="nav-phone" href="tel:+33699733998">
-            06 99 73 39 98
+          <a className="nav-phone" href={siteConfig.phoneHref} data-event="phone_click">
+            {siteConfig.phoneLabel}
           </a>
         </div>
 
-        <a className="nav-cta" href={bookingUrl} onClick={closeMenus}>
-          Estimer mon prix
+        <a className="nav-cta" href={siteConfig.quoteUrl} onClick={closeMenus} data-event="cta_quote_click">
+          {siteConfig.primaryCtaLabel}
         </a>
 
         <button
           type="button"
           className="nav-toggle"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Ouvrir le menu"
+          aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={isMenuOpen}
+          aria-controls="menu-principal"
         >
           <span />
           <span />
@@ -100,23 +121,23 @@ export default function Navbar() {
           z-index: 1000;
           width: 100%;
           border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-          background: rgba(6, 6, 6, 0.86);
+          background: rgba(8, 8, 8, 0.9);
           backdrop-filter: blur(18px);
         }
 
         .nav-container {
-          width: min(1180px, calc(100% - 32px));
+          width: min(1220px, calc(100% - 32px));
           min-height: 72px;
           margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 24px;
+          gap: 18px;
         }
 
         .nav-brand {
           color: #fff;
-          font-size: 1.35rem;
+          font-size: 1.28rem;
           font-weight: 900;
           letter-spacing: 0;
           text-decoration: none;
@@ -127,15 +148,13 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 22px;
+          gap: 16px;
           flex: 1;
         }
 
-        .nav-group {
-          position: relative;
-        }
-
+        .nav-direct,
         .nav-link {
+          min-height: 44px;
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -143,8 +162,9 @@ export default function Navbar() {
           border: 0;
           background: transparent;
           font: inherit;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           font-weight: 800;
+          text-decoration: none;
           cursor: pointer;
         }
 
@@ -152,11 +172,15 @@ export default function Navbar() {
           color: #d8b65b;
         }
 
+        .nav-group {
+          position: relative;
+        }
+
         .nav-menu {
           position: absolute;
-          top: calc(100% + 18px);
+          top: calc(100% + 14px);
           left: 0;
-          min-width: 220px;
+          min-width: 240px;
           display: grid;
           gap: 4px;
           padding: 10px;
@@ -177,8 +201,11 @@ export default function Navbar() {
         }
 
         .nav-menu :global(a) {
+          min-height: 42px;
+          display: flex;
+          align-items: center;
           color: #f8f4eb;
-          padding: 10px 12px;
+          padding: 8px 12px;
           border-radius: 6px;
           text-decoration: none;
           font-weight: 700;
@@ -190,6 +217,9 @@ export default function Navbar() {
         }
 
         .nav-phone {
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
           color: #e5c46b;
           font-weight: 900;
           text-decoration: none;
@@ -200,7 +230,7 @@ export default function Navbar() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          min-height: 42px;
+          min-height: 44px;
           padding: 0 18px;
           border-radius: 999px;
           color: #17130a;
@@ -212,8 +242,8 @@ export default function Navbar() {
 
         .nav-toggle {
           display: none;
-          width: 42px;
-          height: 42px;
+          width: 44px;
+          height: 44px;
           border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 999px;
           background: transparent;
@@ -228,7 +258,7 @@ export default function Navbar() {
           background: #fff;
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 1120px) {
           .nav-links {
             position: absolute;
             top: 72px;
@@ -248,7 +278,7 @@ export default function Navbar() {
           .nav-menu {
             position: static;
             min-width: 0;
-            margin-top: 10px;
+            margin-top: 6px;
             display: none;
             opacity: 1;
             pointer-events: auto;
@@ -260,11 +290,11 @@ export default function Navbar() {
             display: grid;
           }
 
+          .nav-direct,
           .nav-link,
           .nav-phone {
             width: 100%;
             justify-content: space-between;
-            padding: 10px 0;
           }
 
           .nav-cta {

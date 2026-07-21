@@ -1,15 +1,17 @@
 import {
   audiences,
   brandLogos,
+  comparisonRows,
   faqs,
   galleryHighlights,
+  optionHighlights,
   processSteps,
   proofPoints,
+  selectorNeeds,
   services,
   trustCards,
 } from "../../data/home";
-
-const bookingUrl = "https://reservation.myselfiebooth-paris.fr";
+import { siteConfig } from "../../data/site";
 
 function SectionIntro({ eyebrow, title, text }) {
   return (
@@ -21,11 +23,23 @@ function SectionIntro({ eyebrow, title, text }) {
   );
 }
 
+function QuoteButton({ className = "home-button home-button-primary" }) {
+  return (
+    <a
+      className={className}
+      href={siteConfig.quoteUrl}
+      data-event="cta_quote_click"
+    >
+      {siteConfig.primaryCtaLabel}
+    </a>
+  );
+}
+
 function LogoStrip() {
   return (
-    <div className="home-logo-strip" aria-label="References clients">
+    <div className="home-logo-strip" aria-label="References clients affichees">
       {brandLogos.map((logo) => (
-        <img key={logo.name} src={logo.src} alt={logo.name} />
+        <img key={logo.name} src={logo.src} alt={logo.name} width="140" height="42" />
       ))}
     </div>
   );
@@ -37,33 +51,39 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
           <img
-            src="/images/generated/premium-corporate-photobooth.webp"
+            src="/images/ai/hero-photobooth-evenement-premium.webp"
             alt=""
+            width="1672"
+            height="941"
+            fetchPriority="high"
           />
         </div>
         <div className="home-hero-overlay" />
 
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="home-eyebrow">Photobooth premium - Paris, Lyon, Rouen</p>
-            <h1>Une animation photo elegante qui donne confiance des le premier regard.</h1>
+            <p className="home-eyebrow">Photobooth premium - {siteConfig.mainArea}</p>
+            <h1>Location de photobooth pour mariages, entreprises et grands evenements.</h1>
             <p>
-              MySelfieBooth accompagne les entreprises, agences, marques et
-              particuliers avec des photobooths premium, une installation cle en
-              main et une experience fluide pour les invites.
+              MySelfieBooth installe des animations photo et video premium:
+              Photobooth, Miroirbooth, 360 Booth, Vogue Booth et options
+              souvenirs, avec un parcours de devis rapide et clair.
             </p>
             <div className="home-actions">
-              <a className="home-button home-button-primary" href={bookingUrl}>
-                Estimer mon prix
+              <QuoteButton />
+              <a className="home-button home-button-secondary" href="#comparateur">
+                {siteConfig.secondaryCtaLabel}
               </a>
-              <a className="home-button home-button-secondary" href="/evenements/corporates">
-                Voir l'offre entreprise
+              <a className="home-button home-button-ghost" href={siteConfig.phoneHref} data-event="phone_click">
+                {siteConfig.phoneCtaLabel}
               </a>
             </div>
+            <p className="home-microcopy">{siteConfig.microcopy}</p>
+            <p className="home-ai-note">Visuel d'ambiance genere par IA.</p>
           </div>
 
           <aside className="home-hero-panel" aria-label="Preuves MySelfieBooth">
-            <p>Deja choisi pour des evenements premium</p>
+            <p>Deja visible sur des evenements premium</p>
             <LogoStrip />
             <div className="home-proof-grid">
               {proofPoints.map((item) => (
@@ -80,62 +100,16 @@ export default function HomePage() {
       <section className="home-section home-section-light">
         <div className="home-container">
           <SectionIntro
-            eyebrow="Pour qui"
-            title="Un parcours clair pour chaque type d'evenement"
-            text="Le site doit guider vite. On distingue les besoins professionnels, les mariages et les evenements prives pour orienter le visiteur vers la bonne offre."
+            eyebrow="Choisir vite"
+            title="Quelle animation correspond a votre objectif ?"
+            text="Le bon format depend d'abord du resultat attendu: imprimer, filmer, recevoir beaucoup d'invites, economiser l'espace ou creer un effet premium."
           />
-          <div className="home-audience-grid">
-            {audiences.map((item) => (
-              <a key={item.title} className="home-audience-card" href={item.href}>
-                <img src={item.image} alt="" />
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                  <span>Decouvrir</span>
-                </div>
+          <div className="home-selector-grid">
+            {selectorNeeds.map((item) => (
+              <a key={item.need} href={item.href} className="home-selector-card">
+                <span>{item.need}</span>
+                <strong>{item.answer}</strong>
               </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section home-section-dark">
-        <div className="home-container home-split">
-          <div>
-            <p className="home-eyebrow">Positionnement</p>
-            <h2>Une presence sobre, premium et memorable.</h2>
-            <p>
-              Le site doit inspirer la meme chose qu'une grande marque: clarte,
-              maitrise, belles images, peu de bruit et des preuves visibles.
-            </p>
-          </div>
-          <div className="home-trust-grid">
-            {trustCards.map((item) => (
-              <article key={item.title} className="home-trust-card">
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section home-section-light">
-        <div className="home-container">
-          <SectionIntro
-            eyebrow="Realisations"
-            title="Des images qui parlent avant meme le devis"
-            text="Une selection plus proche de l'univers Instagram MySelfieBooth: tirages, invites, options et installations soignees, avec une direction visuelle premium."
-          />
-          <div className="home-gallery-grid">
-            {galleryHighlights.map((item) => (
-              <article key={item.title} className="home-gallery-card">
-                <img src={item.image} alt={item.title} />
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              </article>
             ))}
           </div>
         </div>
@@ -144,15 +118,15 @@ export default function HomePage() {
       <section id="prestations" className="home-section home-section-light">
         <div className="home-container">
           <SectionIntro
-            eyebrow="Prestations"
-            title="Les formats les plus efficaces"
-            text="Une gamme lisible, courte et orientee choix. Le visiteur comprend vite quel booth correspond a son evenement."
+            eyebrow="Nos animations"
+            title="Toutes les machines importantes sont faciles a comparer"
+            text="Chaque animation garde son role: photo imprimee, video 360, format compact, studio lumineux ou pack complet."
           />
           <div className="home-service-grid">
             {services.map((service) => (
               <article key={service.title} className="home-service-card">
-                <a href={service.href} className="home-service-image">
-                  <img src={service.image} alt={service.title} />
+                <a href={service.href} className="home-service-image" data-event="machine_view">
+                  <img src={service.image} alt={service.title} loading="lazy" width="520" height="390" />
                   <span>{service.tag}</span>
                 </a>
                 <div className="home-service-body">
@@ -169,13 +143,67 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section home-section-muted">
+      <section id="comparateur" className="home-section home-section-muted">
         <div className="home-container">
           <SectionIntro
-            eyebrow="Methode"
-            title="Un deroule simple, rassurant, professionnel"
-            text="Plus le parcours est clair, plus le client se projette. Chaque etape reduit l'incertitude avant la demande de devis."
+            eyebrow="Comparateur"
+            title="Comparer sans tableau illisible sur mobile"
+            text="Les informations ci-dessous restent prudentes lorsque la prestation depend de la formule, du lieu ou du volume d'invites."
           />
+          <div className="home-comparison-grid">
+            {comparisonRows.map((machine) => (
+              <article key={machine.name} className="home-comparison-card" data-event="machine_compare">
+                <img src={machine.image} alt={machine.name} loading="lazy" width="420" height="315" />
+                <div>
+                  <h3>{machine.name}</h3>
+                  <dl>
+                    <div><dt>Impression</dt><dd>{machine.print}</dd></div>
+                    <div><dt>Participants</dt><dd>{machine.participants}</dd></div>
+                    <div><dt>Espace</dt><dd>{machine.space}</dd></div>
+                    <div><dt>Animateur</dt><dd>{machine.attendant}</dd></div>
+                    <div><dt>Usage</dt><dd>{machine.bestFor}</dd></div>
+                  </dl>
+                  <a href={machine.href}>Voir la page</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section-light">
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Vos evenements"
+            title="Un parcours clair pour chaque contexte"
+            text="Mariage, entreprise, anniversaire ou soiree VIP: les contraintes ne sont pas les memes, les recommandations non plus."
+          />
+          <div className="home-audience-grid">
+            {audiences.map((item) => (
+              <a key={item.title} className="home-audience-card" href={item.href}>
+                <img src={item.image} alt="" loading="lazy" />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  <span>{item.bestMachines.join(" + ")}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section-dark">
+        <div className="home-container home-split">
+          <div>
+            <p className="home-eyebrow">Tout est pris en charge</p>
+            <h2>Une prestation qui rassure avant, pendant et apres.</h2>
+            <p>
+              Le site explique ce qui compte vraiment: preparation, logistique,
+              personnalisation, animation et recuperation des contenus.
+            </p>
+            <QuoteButton className="home-button home-button-primary home-inline-cta" />
+          </div>
           <div className="home-process-grid">
             {processSteps.map((step, index) => (
               <article key={step.title} className="home-process-card">
@@ -188,25 +216,113 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="options" className="home-section home-section-light">
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Packs et options"
+            title="Ajouter du souvenir sans compliquer le choix"
+            text="Le hub options reste complet, mais la home montre les complements qui aident le plus a se projeter."
+          />
+          <div className="home-option-grid">
+            {optionHighlights.map((option) => (
+              <article key={option.name} className="home-option-card">
+                <img src={option.image} alt={option.name} loading="lazy" width="360" height="360" />
+                <div>
+                  <h3>{option.name}</h3>
+                  <p>{option.text}</p>
+                  {option.href && <a href={option.href}>En savoir plus</a>}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="home-centered-action">
+            <a href="/options" className="home-button home-button-secondary-dark">
+              Voir toutes les options
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="realisations" className="home-section home-section-light">
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Realisations"
+            title="Des images pour comprendre le rendu attendu"
+            text="Photos reelles conservees et visuels d'ambiance IA clairement utilises comme supports editoriaux, jamais comme faux avis ou faux client."
+          />
+          <div className="home-gallery-grid">
+            {galleryHighlights.map((item) => (
+              <article key={item.title} className="home-gallery-card" data-event="gallery_open">
+                <img src={item.image} alt={item.title} loading="lazy" />
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  {item.note && <span>{item.note}</span>}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section-muted">
+        <div className="home-container home-split">
+          <div>
+            <p className="home-eyebrow">Confiance</p>
+            <h2>Une image premium, mais des preuves a garder honnetes.</h2>
+            <p>
+              Les logos et chiffres visibles sont conserves, centralises et
+              listes dans les contenus a valider lorsque leur source doit etre
+              confirmee.
+            </p>
+          </div>
+          <div className="home-trust-grid">
+            {trustCards.map((item) => (
+              <article key={item.title} className="home-trust-card is-light">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section-light">
+        <div className="home-container home-zone-layout">
+          <div>
+            <p className="home-eyebrow">Zone d'intervention</p>
+            <h2>Priorite a Paris et l'Ile-de-France, avec pages locales existantes conservees.</h2>
+            <p>
+              Les pages Paris, Lyon et Rouen restent accessibles. Les zones
+              doivent etre confirmees commercialement avant d'en faire des
+              cibles SEO plus agressives.
+            </p>
+          </div>
+          <div className="home-zone-links">
+            <a href="/paris">Paris</a>
+            <a href="/lyon">Lyon</a>
+            <a href="/rouen">Rouen</a>
+          </div>
+        </div>
+      </section>
+
       <section className="home-section home-section-light">
         <div className="home-container home-faq-layout">
           <div>
             <p className="home-eyebrow">Questions rapides</p>
             <h2>Les reponses qui rassurent avant le devis</h2>
             <p>
-              Le but est de lever les freins sans noyer le visiteur. Les details
-              commerciaux restent dans l'echange ou le formulaire.
+              Les details commerciaux restent dans le devis, mais les questions
+              logistiques importantes doivent etre visibles avant le clic.
             </p>
-            <a className="home-button home-button-primary" href={bookingUrl}>
-              Demander un devis
-            </a>
+            <QuoteButton />
           </div>
           <div className="home-faq-list">
             {faqs.map((item) => (
-              <article key={item.question}>
-                <h3>{item.question}</h3>
+              <details key={item.question}>
+                <summary>{item.question}</summary>
                 <p>{item.answer}</p>
-              </article>
+              </details>
             ))}
           </div>
         </div>

@@ -1,85 +1,39 @@
-const bookingUrl = "https://reservation.myselfiebooth-paris.fr";
+import { eventTypes, galleryHighlights, machines, options } from "./catalog";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  siteConfig,
+  trustSignals,
+  withSlash,
+} from "./site";
 
-const commonProof = [
-  { value: "+500", label: "evenements accompagnes" },
-  { value: "4.9/5", label: "note moyenne" },
-  { value: "167", label: "avis clients" },
-  { value: "3 villes", label: "Paris, Lyon, Rouen" },
-];
+const homeCrumb = { label: "Accueil", href: "/" };
 
-const gallery = [
-  { src: "/images/generated/premium-corporate-photobooth.webp", alt: "Photobooth corporate premium" },
-  { src: "/images/generated/premium-wedding-photobooth.webp", alt: "Photobooth mariage elegant" },
-  { src: "/images/generated/instagram-print-strips.webp", alt: "Tirages photobooth personnalises" },
-  { src: "/images/generated/instagram-party-guests.webp", alt: "Invites avec accessoires photobooth" },
-  { src: "/images/generated/instagram-keychain-favors.webp", alt: "Porte-cles photo personnalises" },
-  { src: "/images/generated/instagram-backstage-setup.webp", alt: "Installation photobooth professionnelle" },
-  { src: "/images/generated/instagram-vogue-booth.webp", alt: "Vogue Booth premium lumineux" },
-  { src: "/images/generated/instagram-corporate-activation.webp", alt: "Activation photobooth corporate" },
-  { src: "/images/generated/premium-booth-installation.webp", alt: "Installation photobooth premium" },
-  { src: "/images/generated/premium-360-booth-event.webp", alt: "Animation 360 booth premium" },
-  { src: "/images/generated/premium-phonebooth-detail.webp", alt: "Phonebooth audio premium" },
-  { src: "/images/generated/premium-welcome-board-decor.webp", alt: "Panneau de bienvenue premium" },
-  { src: "/images/generated/premium-team-installation.webp", alt: "Equipe installation photobooth" },
-  { src: "/images/photobooth.webp", alt: "Photobooth premium" },
-  { src: "/images/miroirbooth.webp", alt: "Miroirbooth elegant" },
-];
+function serviceJsonLd(page, category = "Service evenementiel") {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: page.title,
+    description: page.description,
+    serviceType: category,
+    provider: {
+      "@type": "LocalBusiness",
+      name: siteConfig.name,
+      url: siteConfig.baseUrl,
+      telephone: siteConfig.phoneInternational,
+    },
+    areaServed: siteConfig.servedAreas,
+    url: absoluteUrl(withSlash(page.path)),
+  };
+}
 
-const coreSections = [
-  {
-    eyebrow: "Experience",
-    title: "Une prestation pensee pour rassurer avant, pendant et apres",
-    text: "Chaque page garde la meme logique: clarte, preuve, projection et demande de devis simple.",
-    cards: [
-      {
-        title: "Brief clair",
-        text: "On cadre votre objectif, le lieu, le timing, le public et le niveau de personnalisation attendu.",
-      },
-      {
-        title: "Installation maitrisee",
-        text: "Livraison, montage, reglages et tests sont anticipes pour que le jour J reste fluide, avec une installation soignee.",
-      },
-      {
-        title: "Souvenirs exploitables",
-        text: "Photos, videos, impressions et galerie privee prolongent l'impact de votre evenement.",
-      },
-    ],
-  },
-  {
-    eyebrow: "Confiance",
-    title: "Le rendu doit paraitre premium sans avoir besoin d'en faire trop",
-    text: "Une page efficace parle moins, montre mieux et repond vite aux questions importantes.",
-    cards: [
-      {
-        title: "Design sobre",
-        text: "Une direction artistique noire, blanche et doree, plus proche d'une marque premium.",
-      },
-      {
-        title: "Preuves visibles",
-        text: "Avis, chiffres, logos clients et exemples concrets rassurent le visiteur.",
-      },
-      {
-        title: "CTA utiles",
-        text: "Le chemin vers le devis reste visible sans etre agressif.",
-      },
-    ],
-  },
-];
-
-const defaultFaq = [
-  {
-    question: "Combien de temps faut-il pour installer ?",
-    answer: "Selon le format, il faut generalement prevoir entre 45 et 90 minutes pour installer et tester.",
-  },
-  {
-    question: "Peut-on personnaliser les visuels ?",
-    answer: "Oui. Les cadres, ecrans et elements de partage peuvent reprendre vos couleurs, textes ou logos.",
-  },
-  {
-    question: "Comment obtenir un tarif precis ?",
-    answer: "Le devis depend de la date, du lieu, du format choisi, de la duree et des options.",
-  },
-];
+function cardsFrom(title, items) {
+  return items.map((item) => ({
+    title,
+    text: item,
+  }));
+}
 
 function page({
   key,
@@ -89,9 +43,24 @@ function page({
   image,
   path,
   highlights,
+  breadcrumbs = [],
   sections = [],
+  gallery = galleryHighlights,
+  faq = [],
   finalTitle,
+  relatedLinks = [],
+  optionGrid,
+  comparison,
+  aiNote,
+  category,
 }) {
+  const breadcrumbItems = [homeCrumb, ...breadcrumbs, { label: title, href: path }];
+  const jsonLd = [
+    breadcrumbJsonLd(breadcrumbItems),
+    serviceJsonLd({ title, description, path }, category),
+    faqJsonLd(faq),
+  ].filter(Boolean);
+
   return {
     key,
     eyebrow,
@@ -99,250 +68,515 @@ function page({
     description,
     image,
     imageAlt: title,
+    aiNote,
     highlights,
-    proof: commonProof,
-    sections: [...sections, ...coreSections],
+    proof: trustSignals,
+    breadcrumbs: breadcrumbItems,
+    sections,
     gallery,
-    faq: defaultFaq,
+    faq,
     finalTitle,
-    primaryCta: { label: "Demander un devis", href: bookingUrl },
-    secondaryCta: { label: "Voir les prestations", href: "/prestations" },
+    relatedLinks,
+    optionGrid,
+    comparison,
+    primaryCta: { label: siteConfig.primaryCtaLabel, href: siteConfig.quoteUrl },
+    secondaryCta: { label: siteConfig.secondaryCtaLabel, href: "/#comparateur" },
+    phoneCta: { label: siteConfig.phoneCtaLabel, href: siteConfig.phoneHref },
     meta: {
       title: `${title} | MySelfieBooth`,
       description,
+      ogTitle: title,
+      ogDescription: description,
       ogImage: image,
-      ogUrl: `https://www.myselfiebooth-paris.fr${path}`,
+      ogUrl: absoluteUrl(withSlash(path)),
+      jsonLd,
     },
   };
 }
 
-const prestationCards = [
-  { title: "Photobooth", text: "Photos imprimees, galerie en ligne et animation simple pour tous les publics." },
-  { title: "Miroirbooth", text: "Objet premium et interactif, parfait pour receptions elegantes et galas." },
-  { title: "360 Booth", text: "Videos immersives et partageables pour creer un effet social media." },
-  { title: "Vogue Booth", text: "Couloir lumineux fort visuellement pour une experience VIP." },
-  { title: "Pack VIP", text: "Combinaison haut de gamme pour les grands evenements." },
-  { title: "Options", text: "Phonebooth, panneaux, murs floraux, livre d'or et decors sur mesure." },
-];
+function machinePage(machine) {
+  const faq = [
+    ...(machine.faq || []),
+    {
+      question: `Cette animation convient-elle a mon evenement ?`,
+      answer: `${machine.bestFor} Le devis permet de confirmer la configuration exacte selon le lieu, la duree et le nombre d'invites.`,
+    },
+  ];
+
+  return page({
+    key: machine.key,
+    eyebrow: machine.tag,
+    title: machine.title,
+    description: machine.description,
+    image: machine.aiImage || machine.image,
+    path: machine.href,
+    aiNote: machine.aiImage ? "Visuel d'ambiance genere par IA. Les photos reelles du materiel restent conservees dans le site." : undefined,
+    highlights: [machine.print, machine.attendant, machine.sharing],
+    breadcrumbs: [
+      { label: "Nos animations", href: "/prestations" },
+    ],
+    category: "Location photobooth",
+    sections: [
+      {
+        eyebrow: "Experience invite",
+        title: `Ce que les invites vivent avec le ${machine.name}`,
+        text: machine.short,
+        cards: [
+          { title: "Meilleur usage", text: machine.bestFor },
+          { title: "Personnalisation", text: machine.personalization },
+          { title: "Partage", text: machine.sharing },
+        ],
+      },
+      {
+        eyebrow: "Inclus",
+        title: "Ce qui est compris ou a cadrer dans la formule",
+        text: "Les informations restent prudentes pour ne pas promettre une option qui depend du devis.",
+        cards: [
+          ...cardsFrom("Inclus", machine.includes),
+          ...cardsFrom("Selon formule", machine.depends),
+        ],
+      },
+      {
+        eyebrow: "Logistique",
+        title: "Les points a verifier avant le jour J",
+        text: "Un bon emplacement evite l'attente, les branchements compliques et les rendus decevants.",
+        cards: cardsFrom("A prevoir", machine.logistics),
+      },
+      {
+        eyebrow: "Options compatibles",
+        title: "Les complements qui renforcent cette animation",
+        text: "Les options doivent etre confirmees au moment du devis selon la machine et le lieu.",
+        cards: machine.options.map((option) => ({ title: option, text: "A integrer au devis si cette option correspond a votre objectif." })),
+      },
+    ],
+    faq,
+    relatedLinks: [
+      { label: "Comparer les animations", href: "/#comparateur" },
+      { label: "Voir les options", href: "/options" },
+      { label: "Evenements entreprise", href: "/evenements/corporates" },
+      { label: "Mariages", href: "/evenements/mariages" },
+    ],
+  });
+}
+
+const machineCards = machines.map((machine) => ({
+  title: machine.name,
+  text: `${machine.tag} - ${machine.short}`,
+}));
+
+const comparison = machines.map((machine) => ({
+  title: machine.name,
+  image: machine.image,
+  rows: [
+    ["Impression", machine.print],
+    ["Participants", machine.participants],
+    ["Espace", machine.space],
+    ["Animateur", machine.attendant],
+    ["Usage", machine.bestFor],
+  ],
+  href: machine.href,
+}));
+
+const eventPages = {
+  corporates: {
+    title: "Photobooth entreprise a Paris pour salons, marques et soirees internes",
+    description:
+      "Une animation photo et video premium pour activation de marque, salon, seminaire, lancement produit ou soiree interne.",
+    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    highlights: ["Branding", "Volume", "Partage"],
+    sections: [
+      {
+        eyebrow: "Objectifs B2B",
+        title: "Faire participer sans perturber le deroule professionnel",
+        text: "L'animation doit etre visible, rapide a comprendre et coherente avec l'image de marque.",
+        cards: [
+          { title: "Activation de marque", text: "Logo, couleurs et habillage peuvent etre integres aux visuels selon la formule." },
+          { title: "Salon et stand", text: "L'iPad Booth ou le Photobooth compact conviennent aux espaces plus controles." },
+          { title: "Grand volume", text: "Le Pack VIP ou une formule complete aide a repartir les flux sur plusieurs animations." },
+        ],
+      },
+      {
+        eyebrow: "Machines conseillees",
+        title: "Les formats les plus efficaces pour l'entreprise",
+        text: "Le choix depend de l'objectif: generer du contenu, animer un stand, offrir un souvenir ou creer un effet social media.",
+        cards: [
+          { title: "Photobooth", text: "Souvenir imprime et galerie pour soiree interne ou salon." },
+          { title: "360 Booth", text: "Video partageable pour activation et lancement produit." },
+          { title: "iPad Booth", text: "Format digital compact pour accueil, stand ou collecte de contenus simples." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Peut-on personnaliser l'animation aux couleurs de la marque ?",
+        answer: "Oui, les visuels peuvent reprendre logo, couleurs ou campagne lorsque la formule le prevoit.",
+      },
+      {
+        question: "Est-ce adapte a un salon professionnel ?",
+        answer: "Oui, a condition de cadrer l'espace, le flux d'invites, le format de partage et les contraintes du stand.",
+      },
+    ],
+  },
+  mariages: {
+    title: "Photobooth mariage a Paris pour souvenirs elegants et invites engages",
+    description:
+      "Une animation photo rassurante pour mariage, avec tirages selon formule, livre d'or, options souvenirs et galerie web.",
+    image: "/images/mariages/mariage1.JPG",
+    highlights: ["Souvenirs", "Livre d'or", "Invites"],
+    sections: [
+      {
+        eyebrow: "Mariage",
+        title: "Une animation qui doit rester fluide pour toutes les generations",
+        text: "Le bon photobooth s'integre au decor et laisse un souvenir simple a recuperer.",
+        cards: [
+          { title: "Timing", text: "Prevoir l'ouverture pendant le cocktail, le diner ou la soiree selon le rythme du mariage." },
+          { title: "Souvenir", text: "Tirages, porte-cles, magnets ou livre d'or prolongent le moment." },
+          { title: "Decor", text: "Mur floral, panneau ou fond adapte ameliorent le rendu des photos." },
+        ],
+      },
+      {
+        eyebrow: "Machines conseillees",
+        title: "Photobooth, Miroirbooth ou Pack VIP selon le volume",
+        text: "Le choix depend du nombre d'invites, du decor et de l'envie d'ajouter une experience video.",
+        cards: [
+          { title: "Photobooth", text: "Simple, efficace, imprime selon la formule." },
+          { title: "Miroirbooth", text: "Plus scenographique pour une reception elegante." },
+          { title: "Pack VIP", text: "Photo + video pour les grands mariages." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Quel photobooth choisir pour un mariage ?",
+        answer: "Le Photobooth suffit souvent pour les souvenirs imprimes. Le Miroirbooth ou le Pack VIP conviennent si l'effet decor ou video compte davantage.",
+      },
+      {
+        question: "Peut-on ajouter un livre d'or ?",
+        answer: "Oui, un livre d'or physique, audio ou video peut etre prevu selon l'animation et les options retenues.",
+      },
+    ],
+  },
+  anniversaires: {
+    title: "Photobooth anniversaire pour une soiree vivante et memorable",
+    description:
+      "Une animation photo ou video festive, simple a utiliser et personnalisable pour anniversaire adulte, famille ou grande soiree.",
+    image: "/images/ai/ambiance-photobooth-soiree-premium.webp",
+    highlights: ["Festif", "Accessoires", "Partage"],
+    sections: [
+      {
+        eyebrow: "Anniversaire",
+        title: "Creer un point photo qui rythme la soiree",
+        text: "Les invites doivent comprendre l'animation en quelques secondes et repartir avec un souvenir.",
+        cards: [
+          { title: "Convivial", text: "Accessoires et tirages rendent l'experience facile a adopter." },
+          { title: "Video", text: "Le 360 Booth ajoute un contenu dynamique pour les reseaux." },
+          { title: "Souvenirs", text: "Porte-cles et magnets peuvent transformer les photos en cadeaux." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Quelle animation marche le mieux pour un anniversaire ?",
+        answer: "Le Photobooth reste le plus simple. Le 360 Booth ou le Vogue Booth ajoutent un effet plus spectaculaire.",
+      },
+    ],
+  },
+  soirees: {
+    title: "Photobooth pour soiree privee et evenement VIP",
+    description:
+      "Une animation photo et video qui habille la soiree, engage les invites et reste coherente avec une ambiance premium.",
+    image: "/images/generated/instagram-party-guests.webp",
+    highlights: ["VIP", "Ambiance", "Partage"],
+    sections: [
+      {
+        eyebrow: "Soiree VIP",
+        title: "Un rendu visible sans surcharge",
+        text: "L'animation doit devenir un point fort de la soiree sans creer de congestion ni casser le decor.",
+        cards: [
+          { title: "Vogue Booth", text: "Scene lumineuse forte pour un effet magazine." },
+          { title: "360 Booth", text: "Video courte et partageable pour dynamiser la soiree." },
+          { title: "Pack VIP", text: "Plusieurs experiences pour repartir le flux d'invites." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Comment eviter l'attente sur une grande soiree ?",
+        answer: "Il faut adapter la machine, la duree, l'equipe et l'emplacement au nombre d'invites attendu.",
+      },
+    ],
+  },
+};
+
+function eventPage(key, path) {
+  const data = eventPages[key];
+  return page({
+    key,
+    eyebrow: "Evenement",
+    title: data.title,
+    description: data.description,
+    image: data.image,
+    path,
+    aiNote: data.image.includes("/ai/") || data.image.includes("/generated/")
+      ? "Visuel d'ambiance genere par IA."
+      : undefined,
+    highlights: data.highlights,
+    breadcrumbs: [{ label: "Vos evenements", href: "/evenements" }],
+    sections: data.sections,
+    faq: data.faq,
+    relatedLinks: [
+      { label: "Comparer les animations", href: "/#comparateur" },
+      { label: "Voir les options", href: "/options" },
+      { label: "Obtenir un devis", href: siteConfig.quoteUrl },
+    ],
+    category: "Animation evenementielle",
+  });
+}
 
 export const marketingPages = {
   "prestations-index": page({
     key: "prestations-index",
-    eyebrow: "Prestations",
-    title: "Des photobooths premium pour chaque format d'evenement",
-    description: "Comparez les formats MySelfieBooth et choisissez l'experience la plus adaptee a votre public.",
-    image: "/images/generated/premium-booth-installation.webp",
+    eyebrow: "Nos animations",
+    title: "Comparer les photobooths, bornes video et packs MySelfieBooth",
+    description:
+      "Photobooth, Miroirbooth, 360 Booth, Air360, iPad Booth, Vogue Booth, Pack VIP et formule complete: comparez les animations avant votre devis.",
+    image: "/images/ai/hero-photobooth-evenement-premium.webp",
     path: "/prestations",
-    highlights: ["Gamme claire", "Options premium", "Devis rapide"],
+    aiNote: "Visuel d'ambiance genere par IA.",
+    highlights: ["8 formats", "Comparateur", "Options"],
+    breadcrumbs: [],
     sections: [
       {
         eyebrow: "Catalogue",
-        title: "Une offre courte, lisible et facile a comparer",
-        text: "Le visiteur doit comprendre rapidement la difference entre chaque format.",
-        cards: prestationCards,
+        title: "Une gamme complete, lisible et orientee choix",
+        text: "Toutes les prestations existantes restent accessibles et chaque carte renvoie vers sa page dediee.",
+        cards: machineCards,
+      },
+    ],
+    comparison,
+    faq: [
+      {
+        question: "Quelle difference entre Photobooth et 360 Booth ?",
+        answer: "Le Photobooth vise surtout la photo et les tirages selon formule. Le 360 Booth vise la video dynamique et partageable.",
+      },
+      {
+        question: "Puis-je combiner plusieurs animations ?",
+        answer: "Oui, le Pack VIP ou la formule complete sont prevus pour combiner photo, video et options souvenirs.",
       },
     ],
   }),
-  photobooth: page({
-    key: "photobooth",
-    eyebrow: "Best seller",
-    title: "Photobooth classique pour des souvenirs instantanes",
-    description: "Une animation photo fiable, elegante et facile a utiliser pour mariages, entreprises et soirees privees.",
-    image: "/images/generated/instagram-print-strips.webp",
-    path: "/prestations/photobooth",
-    highlights: ["Impressions", "Galerie privee", "Animateur"],
-  }),
-  miroirbooth: page({
-    key: "miroirbooth",
-    eyebrow: "Elegant",
-    title: "Miroirbooth interactif pour une reception premium",
-    description: "Un miroir tactile qui attire les invites, habille l'espace et cree des photos memorables.",
-    image: "/images/generated/premium-booth-installation.webp",
-    path: "/prestations/miroirbooth",
-    highlights: ["Miroir tactile", "Design premium", "Photos imprimees"],
-  }),
-  videobooth: page({
-    key: "videobooth",
-    eyebrow: "360 Booth",
-    title: "360 Booth pour des videos immersives et partageables",
-    description: "Une experience video spectaculaire pour dynamiser vos soirees, salons et activations de marque.",
-    image: "/images/generated/premium-360-booth-event.webp",
-    path: "/prestations/videobooth",
-    highlights: ["Video 360", "Social media", "Effets personnalises"],
-  }),
-  voguebooth: page({
-    key: "voguebooth",
-    eyebrow: "VIP",
-    title: "Vogue Booth pour un effet tapis rouge",
-    description: "Un couloir lumineux fort, elegant et photogenique pour creer une scene premium.",
-    image: "/images/generated/instagram-vogue-booth.webp",
-    path: "/prestations/voguebooth",
-    highlights: ["Lumiere", "Scene premium", "Impact visuel"],
-  }),
-  ipadbooth: page({
-    key: "ipadbooth",
-    eyebrow: "Compact",
-    title: "iPad Booth compact pour collecte et partage rapide",
-    description: "Une solution discrete et efficace pour photos digitales, GIF, signatures et contenus de marque.",
-    image: "/images/ipadbooth.webp",
-    path: "/prestations/ipadbooth",
-    highlights: ["Compact", "Digital", "Rapide"],
-  }),
-  air360booth: page({
-    key: "air360booth",
-    eyebrow: "Immersif",
-    title: "Air360 Booth pour une experience video grand format",
-    description: "Une animation video moderne, pensee pour les grandes ambiances et les souvenirs spectaculaires.",
-    image: "/images/airbooth.webp",
-    path: "/prestations/air360booth",
-    highlights: ["Video 4K", "Grand format", "Animation forte"],
-  }),
-  packvip: page({
-    key: "packvip",
-    eyebrow: "Pack VIP",
-    title: "Pack VIP pour les evenements haut de gamme",
-    description: "Combinez plusieurs experiences pour creer un parcours photo et video complet.",
-    image: "/images/pack.webp",
-    path: "/prestations/packvip",
-    highlights: ["Deux formats", "Equipe dediee", "Effet premium"],
-  }),
-  personnalise: page({
-    key: "personnalise",
-    eyebrow: "Sur mesure",
-    title: "Prestation personnalisee pour marques et grands evenements",
-    description: "Une experience adaptee a votre scenographie, votre campagne et vos objectifs.",
-    image: "/images/generated/instagram-corporate-activation.webp",
-    path: "/prestations/personnalise",
-    highlights: ["Branding", "Scenario", "Objectifs"],
-  }),
+  photobooth: machinePage(machines.find((machine) => machine.key === "photobooth")),
+  miroirbooth: machinePage(machines.find((machine) => machine.key === "miroirbooth")),
+  videobooth: machinePage(machines.find((machine) => machine.key === "videobooth")),
+  voguebooth: machinePage(machines.find((machine) => machine.key === "voguebooth")),
+  ipadbooth: machinePage(machines.find((machine) => machine.key === "ipadbooth")),
+  air360booth: machinePage(machines.find((machine) => machine.key === "air360booth")),
+  packvip: machinePage(machines.find((machine) => machine.key === "packvip")),
+  personnalise: machinePage(machines.find((machine) => machine.key === "personnalise")),
   "evenements-index": page({
     key: "evenements-index",
-    eyebrow: "Evenements",
-    title: "Une animation photo adaptee a chaque public",
-    description: "Entreprises, mariages, anniversaires ou soirees: chaque contexte merite un parcours clair.",
-    image: "/images/generated/premium-corporate-photobooth.webp",
+    eyebrow: "Vos evenements",
+    title: "Choisir une animation photo adaptee a chaque public",
+    description:
+      "Mariage, entreprise, anniversaire ou soiree VIP: retrouvez les recommandations MySelfieBooth selon votre contexte.",
+    image: "/images/ai/hero-photobooth-evenement-premium.webp",
     path: "/evenements",
-    highlights: ["B2B", "Mariages", "Prive"],
+    aiNote: "Visuel d'ambiance genere par IA.",
+    highlights: ["Mariage", "Entreprise", "Prive"],
     sections: [
       {
-        eyebrow: "Choisir",
-        title: "Orientez vite le visiteur vers le bon usage",
-        text: "Les pages evenement expliquent le contexte et recommandent les bons formats.",
-        cards: [
-          { title: "Entreprises", text: "Activation, salon, lancement produit, soiree interne ou seminaire." },
-          { title: "Mariages", text: "Une animation elegante et fluide pour tous les invites." },
-          { title: "Soirees privees", text: "Une experience festive, simple et facile a partager." },
-        ],
+        eyebrow: "Orienter",
+        title: "Chaque evenement a ses contraintes",
+        text: "Le contenu evite la duplication: chaque page traite timing, volume, logistique et options adaptees.",
+        cards: eventTypes.map((event) => ({
+          title: event.title,
+          text: `${event.text} Machines conseillees: ${event.bestMachines.join(", ")}.`,
+        })),
+      },
+    ],
+    faq: [
+      {
+        question: "Faut-il choisir la machine avant le devis ?",
+        answer: "Non. Le comparateur aide a se projeter, mais le devis confirme la meilleure configuration selon le lieu et les invites.",
       },
     ],
   }),
-  corporates: page({
-    key: "corporates",
-    eyebrow: "Corporate",
-    title: "Photobooth entreprise pour marques, salons et soirees internes",
-    description: "Une animation premium qui renforce votre image, cree du contenu et engage vos invites.",
-    image: "/images/generated/premium-corporate-photobooth.webp",
-    path: "/evenements/corporates",
-    highlights: ["Branding", "Reporting", "B2B"],
-  }),
-  mariages: page({
-    key: "mariages",
-    eyebrow: "Mariage",
-    title: "Photobooth mariage pour des souvenirs elegants et naturels",
-    description: "Une animation simple, chic et rassurante pour vos invites, avec installation cle en main.",
-    image: "/images/generated/premium-wedding-photobooth.webp",
-    path: "/evenements/mariages",
-    highlights: ["Invites", "Impressions", "Galerie"],
-  }),
-  anniversaires: page({
-    key: "anniversaires",
-    eyebrow: "Anniversaire",
-    title: "Photobooth anniversaire pour une soiree vivante et memorables",
-    description: "Un point photo convivial qui rythme la soiree et cree des souvenirs instantanes.",
-    image: "/images/generated/instagram-party-guests.webp",
-    path: "/evenements/anniversaires",
-    highlights: ["Festif", "Simple", "Souvenirs"],
-  }),
-  soirees: page({
-    key: "soirees",
-    eyebrow: "Soirees",
-    title: "Photobooth pour soirees privees et evenements VIP",
-    description: "Une experience photo et video qui habille la soiree et donne envie de participer.",
-    image: "/images/generated/instagram-party-guests.webp",
-    path: "/evenements/soirees",
-    highlights: ["VIP", "Ambiance", "Partage"],
-  }),
+  corporates: eventPage("corporates", "/evenements/corporates"),
+  mariages: eventPage("mariages", "/evenements/mariages"),
+  anniversaires: eventPage("anniversaires", "/evenements/anniversaires"),
+  soirees: eventPage("soirees", "/evenements/soirees"),
   "options-index": page({
     key: "options-index",
     eyebrow: "Options",
-    title: "Des options pour personnaliser l'experience",
-    description: "Ajoutez des decors, accessoires, panneaux et modules audio pour rendre l'animation unique.",
-    image: "/images/generated/instagram-keychain-favors.webp",
+    title: "Toutes les options pour personnaliser votre photobooth",
+    description:
+      "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
+    image: "/images/ai/options-souvenirs-premium.webp",
     path: "/options",
-    highlights: ["Decor", "Audio", "Personnalisation"],
+    aiNote: "Visuel d'ambiance genere par IA.",
+    highlights: ["Souvenirs", "Decor", "Audio"],
+    sections: [
+      {
+        eyebrow: "Hub options",
+        title: "Completer l'animation sans creer de page pauvre",
+        text: "Les options sont toutes decouvrables ici. Les pages dediees existantes sont conservees pour Phonebooth et panneau de bienvenue.",
+        cards: options.map((option) => ({ title: option.name, text: option.text })),
+      },
+    ],
+    optionGrid: options,
+    faq: [
+      {
+        question: "Toutes les options sont-elles compatibles avec toutes les machines ?",
+        answer: "Non, la compatibilite depend de la machine, du lieu et de la formule. Elle doit etre confirmee dans le devis.",
+      },
+    ],
   }),
   phonebooth: page({
     key: "phonebooth",
-    eyebrow: "Phonebooth",
-    title: "Phonebooth audio pour capter les messages des invites",
-    description: "Une option emotionnelle pour garder les voix, les mots et les souvenirs spontanes.",
+    eyebrow: "Livre d'or audio",
+    title: "Phonebooth audio pour messages vocaux de mariage et soiree",
+    description:
+      "Un telephone retro pour enregistrer les messages vocaux des invites et conserver une trace plus emotionnelle de l'evenement.",
     image: "/images/phonebooth.webp",
     path: "/options/phonebooth",
-    highlights: ["Audio", "Messages", "Souvenirs"],
+    highlights: ["Audio", "Retro", "Souvenirs"],
+    breadcrumbs: [{ label: "Options", href: "/options" }],
+    sections: [
+      {
+        eyebrow: "Usage",
+        title: "Une option simple quand les mots comptent autant que les photos",
+        text: "Le Phonebooth audio capte les messages spontanes des invites sans remplacer l'animation photo.",
+        cards: [
+          { title: "Mariage", text: "Les proches laissent un message vocal pendant la reception." },
+          { title: "Soiree privee", text: "Les invites enregistrent anecdotes, voeux ou souvenirs." },
+          { title: "Association", text: "A combiner avec un livre d'or physique ou des tirages." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Le Phonebooth remplace-t-il un livre d'or classique ?",
+        answer: "Il peut le remplacer ou le completer selon l'ambiance souhaitee et les options retenues.",
+      },
+    ],
   }),
   panneau: page({
     key: "panneau",
     eyebrow: "Signaletique",
-    title: "Panneau de bienvenue et decor photo personnalise",
-    description: "Un detail visuel qui structure l'espace, accueille les invites et renforce votre univers.",
+    title: "Panneau de bienvenue personnalise pour decor photo",
+    description:
+      "Un panneau d'accueil pour guider les invites, structurer l'entree de salle et renforcer l'univers visuel de l'evenement.",
     image: "/images/Welcomeboard.webp",
     path: "/options/panneau",
-    highlights: ["Bienvenue", "Decor", "Marque"],
+    highlights: ["Accueil", "Decor", "Personnalisation"],
+    breadcrumbs: [{ label: "Options", href: "/options" }],
+    sections: [
+      {
+        eyebrow: "Decor",
+        title: "Un detail visuel qui aide l'entree de salle",
+        text: "Le panneau peut accueillir, orienter ou renforcer la coherence avec le photobooth.",
+        cards: [
+          { title: "Mariage", text: "Accueil des invites et rappel de l'univers graphique." },
+          { title: "Entreprise", text: "Signaletique propre pour stand, lancement ou reception." },
+          { title: "Photo", text: "A associer a un fond, un mur floral ou une zone souvenir." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Le panneau peut-il reprendre nos couleurs ?",
+        answer: "Oui, la personnalisation graphique peut etre cadree au moment du devis.",
+      },
+    ],
   }),
   paris: page({
     key: "paris",
     eyebrow: "Paris",
-    title: "Location photobooth premium a Paris",
-    description: "Une prestation elegante pour evenements professionnels et prives a Paris et en Ile-de-France.",
-    image: "/images/generated/instagram-corporate-activation.webp",
+    title: "Location photobooth premium a Paris et en Ile-de-France",
+    description:
+      "Photobooth, Miroirbooth, 360 Booth et options souvenirs pour evenements professionnels et prives a Paris et en Ile-de-France.",
+    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
     path: "/paris",
+    aiNote: "Visuel d'ambiance genere par IA.",
     highlights: ["Paris", "Ile-de-France", "Premium"],
+    sections: [
+      {
+        eyebrow: "Local",
+        title: "Une page locale utile, sans multiplier les villes artificielles",
+        text: "Paris et l'Ile-de-France restent la priorite commerciale du site.",
+        cards: [
+          { title: "Acces", text: "Les contraintes de livraison, stationnement et horaires doivent etre cadrees avant devis." },
+          { title: "Evenements", text: "Mariages, entreprises, salons, lancements et soirees privees." },
+          { title: "Formats", text: "Photobooth, Miroirbooth, 360 Booth, Vogue Booth et packs." },
+        ],
+      },
+    ],
   }),
   lyon: page({
     key: "lyon",
     eyebrow: "Lyon",
     title: "Location photobooth premium a Lyon",
-    description: "Une animation photo cle en main pour entreprises, mariages et soirees a Lyon.",
+    description:
+      "Animation photo cle en main pour entreprises, mariages et soirees a Lyon, sous reserve de validation commerciale de la zone.",
     image: "/images/generated/premium-welcome-board-decor.webp",
     path: "/lyon",
+    aiNote: "Visuel d'ambiance genere par IA.",
     highlights: ["Lyon", "Entreprise", "Mariage"],
+    sections: [
+      {
+        eyebrow: "Zone a valider",
+        title: "Une zone conservee car elle existe deja dans le site",
+        text: "La page reste accessible, mais les preuves locales specifiques doivent etre confirmees avant enrichissement SEO fort.",
+        cards: [
+          { title: "A verifier", text: "Disponibilite, delais et exemples locaux." },
+          { title: "A conserver", text: "URL existante et liens internes." },
+          { title: "A enrichir", text: "Logistique locale lorsque les informations seront validees." },
+        ],
+      },
+    ],
   }),
   rouen: page({
     key: "rouen",
     eyebrow: "Rouen",
     title: "Location photobooth premium a Rouen",
-    description: "Un service photobooth elegant et rassurant pour vos evenements a Rouen et en Normandie.",
+    description:
+      "Service photobooth pour evenements a Rouen et en Normandie, avec informations locales a confirmer avant ciblage SEO fort.",
     image: "/images/generated/premium-booth-installation.webp",
     path: "/rouen",
+    aiNote: "Visuel d'ambiance genere par IA.",
     highlights: ["Rouen", "Normandie", "Cle en main"],
+    sections: [
+      {
+        eyebrow: "Zone a valider",
+        title: "Conserver la page sans inventer de preuve locale",
+        text: "La page reste indexable et utile, mais les informations specifiques doivent etre validees.",
+        cards: [
+          { title: "A verifier", text: "Disponibilite, exemples et contraintes de livraison." },
+          { title: "A conserver", text: "URL existante et maillage interne." },
+          { title: "A enrichir", text: "Cas reels ou informations locales lorsque disponibles." },
+        ],
+      },
+    ],
   }),
   blog: page({
     key: "blog",
-    eyebrow: "Blog",
-    title: "Conseils photobooth pour mieux preparer vos evenements",
-    description: "Guides, idees et inspirations pour choisir le bon format et maximiser l'impact de votre animation.",
+    eyebrow: "Conseils",
+    title: "Conseils photobooth pour preparer votre evenement",
+    description:
+      "Guides pratiques pour choisir une animation photo, cadrer l'espace, personnaliser les tirages et preparer un evenement.",
     image: "/images/generated/instagram-backstage-setup.webp",
     path: "/blog",
-    highlights: ["Conseils", "SEO", "Inspiration"],
+    aiNote: "Visuel d'ambiance genere par IA.",
+    highlights: ["Guides", "Choix", "Preparation"],
     sections: [
       {
-        eyebrow: "A venir",
-        title: "Des articles utiles pour le B2B et le prive",
-        text: "Le blog doit servir le referencement tout en aidant les clients a choisir.",
+        eyebrow: "Editorial",
+        title: "Priorite aux sujets utiles avant de publier plus",
+        text: "Le plan editorial 6 mois est documente dans SEO_CONTENT_PLAN.md pour eviter les articles faibles.",
         cards: [
-          { title: "Photobooth entreprise", text: "Comment choisir une animation pour un salon ou une soiree interne." },
-          { title: "Photobooth mariage", text: "Les erreurs a eviter pour une experience fluide." },
-          { title: "ROI evenementiel", text: "Comment mesurer l'impact d'une animation de marque." },
+          { title: "Comparer les machines", text: "Photobooth, Miroirbooth, 360 Booth: choisir selon l'objectif." },
+          { title: "Preparer l'espace", text: "Surface, electricite, flux et acces de livraison." },
+          { title: "Personnaliser", text: "Tirages, videos, livres d'or et souvenirs." },
         ],
       },
     ],

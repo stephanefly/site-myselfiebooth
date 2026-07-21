@@ -1,9 +1,9 @@
-/** @type {import('next').NextConfig} */
+/** @type {import("next").NextConfig} */
 const nextConfig = {
-  output: 'export', // Permet d'exporter un site statique
-  trailingSlash: true, // Ajoute un "/" à la fin des URLs
+  output: "export",
+  trailingSlash: true,
   images: {
-    unoptimized: true, // ✅ Désactive l’optimisation des images
+    unoptimized: true,
   },
 };
 

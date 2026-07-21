@@ -10,13 +10,22 @@
 body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  background-color: #ffffff;
-  color: #333;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
 }
 
 :root {
   color-scheme: light;
   scroll-behavior: smooth;
+  --color-bg: #f7f3ea;
+  --color-surface: #ffffff;
+  --color-ink: #171717;
+  --color-panel: #111111;
+  --color-gold: #b89445;
+  --color-gold-light: #e4cf91;
+  --color-muted: #6f6a61;
+  --color-border: #ded5c3;
+  --shadow-soft: 0 18px 44px rgba(28, 22, 12, 0.1);
 }
 
 @keyframes fadeInUp {
@@ -85,6 +94,50 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-gold-light);
+  outline-offset: 4px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  transform: translateY(-140%);
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: #17130a;
+  background: var(--color-gold-light);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 

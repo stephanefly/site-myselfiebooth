@@ -1,16 +1,26 @@
 import Head from "next/head";
 import Script from "next/script";
+import {
+  organizationJsonLd,
+  siteConfig,
+  websiteJsonLd,
+} from "../data/site";
 
 export default function Meta({
-  title = "MySelfieBooth - Location photobooth entreprise, mariage et evenement a Paris",
-  description = "Louez un photobooth premium pour vos evenements professionnels et prives: soirees d'entreprise, salons, lancements produit, mariages et anniversaires a Paris, Lyon et Rouen.",
+  title = "MySelfieBooth - Location photobooth premium a Paris",
+  description = "Louez un photobooth premium pour vos evenements professionnels et prives: entreprises, mariages, anniversaires et soirees a Paris et en Ile-de-France.",
   keywords = "photobooth entreprise paris, location photobooth paris, photobooth mariage, animation evenementielle, miroir photobooth, selfie box, photobooth corporate",
-  ogTitle = "MySelfieBooth - Photobooth premium pour entreprises et evenements prives",
-  ogDescription = "Decouvrez des photobooths modernes et personnalises pour vos soirees d'entreprise, activations de marque, mariages et receptions privees.",
+  ogTitle,
+  ogDescription,
   ogImage = "/images/logo.jpg",
-  ogUrl = "https://www.myselfiebooth-paris.fr",
+  ogUrl = siteConfig.baseUrl,
   twitterCard = "summary_large_image",
+  jsonLd = [],
 }) {
+  const socialTitle = ogTitle || title;
+  const socialDescription = ogDescription || description;
+  const structuredData = [organizationJsonLd, websiteJsonLd, ...jsonLd];
+
   return (
     <>
       <Head>
@@ -23,15 +33,15 @@ export default function Meta({
 
         <link rel="canonical" href={ogUrl} />
 
-        <meta property="og:title" content={ogTitle} />
-        <meta property="og:description" content={ogDescription} />
+        <meta property="og:title" content={socialTitle} />
+        <meta property="og:description" content={socialDescription} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:url" content={ogUrl} />
         <meta property="og:type" content="website" />
 
         <meta name="twitter:card" content={twitterCard} />
-        <meta name="twitter:title" content={ogTitle} />
-        <meta name="twitter:description" content={ogDescription} />
+        <meta name="twitter:title" content={socialTitle} />
+        <meta name="twitter:description" content={socialDescription} />
         <meta name="twitter:image" content={ogImage} />
 
         <link rel="icon" href="/favicon.ico" />
@@ -42,52 +52,15 @@ export default function Meta({
 
         <meta name="theme-color" content="#000000" />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "MySelfieBooth",
-              description:
-                "Location de photobooths premium pour evenements professionnels et prives a Paris, Lyon et Rouen.",
-              url: ogUrl,
-              logo: ogImage,
-              sameAs: [
-                "https://www.instagram.com/myselfiebooth_paris/",
-                "https://www.linkedin.com/myselfiebooth_paris/",
-                "https://www.tiktok.com/@myselfiebooth_paris",
-              ],
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Paris",
-                addressCountry: "France",
-              },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+33 6 99 73 39 98",
-                contactType: "customer service",
-              },
-              areaServed: ["Paris", "Lyon", "Rouen", "France"],
-              makesOffer: [
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Location photobooth entreprise",
-                  },
-                },
-                {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Service",
-                    name: "Location photobooth mariage",
-                  },
-                },
-              ],
-            }),
-          }}
-        />
+        {structuredData.map((entry, index) => (
+          <script
+            key={`${entry["@type"]}-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(entry),
+            }}
+          />
+        ))}
       </Head>
 
       <Script

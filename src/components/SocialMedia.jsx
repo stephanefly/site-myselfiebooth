@@ -1,20 +1,4 @@
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    icon: "/icons/linkedin.png",
-    href: "https://www.linkedin.com/myselfiebooth_paris/",
-  },
-  {
-    name: "Instagram",
-    icon: "/icons/instagram.png",
-    href: "https://www.instagram.com/myselfiebooth_paris/",
-  },
-  {
-    name: "TikTok",
-    icon: "/icons/tiktok.png",
-    href: "https://www.tiktok.com/@myselfiebooth_paris",
-  },
-];
+import { siteConfig } from "../data/site";
 
 export default function SocialMedia() {
   return (
@@ -22,7 +6,7 @@ export default function SocialMedia() {
       <div className="social-container">
         <p>Suivre les coulisses, les evenements et les realisations</p>
         <div className="social-links">
-          {socialLinks.map((social) => (
+          {siteConfig.socialLinks.map((social) => (
             <a
               key={social.name}
               href={social.href}

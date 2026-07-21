@@ -3,16 +3,19 @@ import SocialMedia from "./SocialMedia";
 import PreFooter from "./PreFooter";
 import Footer from "./Footer";
 import Meta from "./Meta";
+import MobileQuoteBar from "./MobileQuoteBar";
 
 const Layout = ({ children, metaProps }) => {
   return (
     <>
       <Meta {...metaProps} />
+      <a className="skip-link" href="#contenu">Aller au contenu</a>
       <Navbar />
-      <main>{children}</main>
+      <main id="contenu">{children}</main>
       <SocialMedia />
       <PreFooter />
       <Footer />
+      <MobileQuoteBar />
     </>
   );
 };
