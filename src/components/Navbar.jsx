@@ -113,7 +113,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .nav-shell {
           position: fixed;
           top: 0;
@@ -200,7 +200,7 @@ export default function Navbar() {
           transform: translateY(0);
         }
 
-        .nav-menu :global(a) {
+        .nav-menu a {
           min-height: 42px;
           display: flex;
           align-items: center;
@@ -211,7 +211,7 @@ export default function Navbar() {
           font-weight: 700;
         }
 
-        .nav-menu :global(a:hover) {
+        .nav-menu a:hover {
           color: #17130a;
           background: #e5c46b;
         }

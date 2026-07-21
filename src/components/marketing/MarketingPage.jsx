@@ -350,7 +350,7 @@ export default function MarketingPage({ page }) {
         </section>
       </article>
 
-      <style jsx>{`
+      <style jsx global>{`
         .marketing-page {
           background: #f7f3ea;
           color: #161616;
