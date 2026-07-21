@@ -1,0 +1,448 @@
+export const machines = [
+  {
+    key: "photobooth",
+    name: "Photobooth",
+    tag: "Best-seller",
+    href: "/prestations/photobooth",
+    image: "/images/photobooth.webp",
+    aiImage: "/images/ai/ambiance-photobooth-mariage-premium.webp",
+    alt: "Borne photobooth pour animation photo imprimee",
+    short:
+      "La borne photo polyvalente pour imprimer des souvenirs et creer une galerie apres l'evenement.",
+    title: "Location photobooth a Paris pour photos imprimees",
+    description:
+      "Une animation photo simple a comprendre, avec tirages personnalises selon la formule, galerie web et installation cle en main.",
+    bestFor: "Mariage, anniversaire, soiree privee, salon et evenement d'entreprise.",
+    print: "Oui, selon la formule",
+    participants: "Petits et moyens groupes",
+    space: "Espace photo stable, decor ou fond recommande",
+    attendant: "Selon la formule",
+    personalization: "Modele de tirage personnalise, ecran et partage selon besoin",
+    sharing: "Photos numeriques et galerie web apres l'evenement",
+    price: "A partir de 350 euros",
+    includes: [
+      "Livraison et installation selon la formule choisie",
+      "Photos numeriques conservees",
+      "Modele de tirage personnalise",
+      "Galerie web apres l'evenement",
+    ],
+    depends: [
+      "Volume et format des impressions",
+      "Presence d'un animateur",
+      "Duree de location et options souvenirs",
+    ],
+    options: ["Porte-cles photo", "Magnets", "Livre d'or physique", "Mur floral"],
+    logistics: [
+      "Prevoir une prise electrique a proximite",
+      "Anticiper le fond photo, le passage des invites et l'acces de livraison",
+      "Verifier les contraintes exterieures si l'evenement se tient dehors",
+    ],
+    faq: [
+      {
+        question: "Le photobooth imprime-t-il toujours sur place ?",
+        answer:
+          "L'impression depend de la formule retenue. La page conserve donc une formulation prudente: impressions selon la formule.",
+      },
+      {
+        question: "Les photos sont-elles recuperees apres l'evenement ?",
+        answer:
+          "Oui, les photos numeriques et une galerie web peuvent etre prevues apres l'evenement.",
+      },
+    ],
+  },
+  {
+    key: "miroirbooth",
+    name: "Miroirbooth",
+    tag: "Elegant",
+    href: "/prestations/miroirbooth",
+    image: "/images/miroirbooth.webp",
+    aiImage: "/images/ai/ambiance-photobooth-mariage-premium.webp",
+    alt: "Miroirbooth tactile pour reception premium",
+    short:
+      "Un grand miroir tactile qui attire les invites et habille l'espace de reception.",
+    title: "Location Miroirbooth pour reception premium",
+    description:
+      "Le miroir photo interactif donne une presence forte a l'animation, avec personnalisation graphique, photos numeriques et galerie web.",
+    bestFor: "Mariage elegant, gala, reception premium, entreprise et soiree VIP.",
+    print: "Oui, selon la formule",
+    participants: "Du duo au groupe",
+    space: "Espace stable devant le miroir",
+    attendant: "Souvent recommande",
+    personalization: "Habillage graphique et messages personnalises",
+    sharing: "Photos numeriques et galerie web",
+    price: "A partir de 450 euros",
+    includes: [
+      "Grand miroir tactile",
+      "Livraison et installation",
+      "Personnalisation graphique",
+      "Photos numeriques et galerie web",
+    ],
+    depends: [
+      "Nombre de tirages",
+      "Duree de presence",
+      "Decor et options souvenirs",
+    ],
+    options: ["Mur floral", "Livre d'or physique", "Panneau de bienvenue", "Magnets premium"],
+    logistics: [
+      "Prevoir un espace visible et accessible",
+      "Eviter les zones de passage trop etroites",
+      "Confirmer l'acces de livraison pour le miroir",
+    ],
+    faq: [
+      {
+        question: "Pourquoi choisir un Miroirbooth plutot qu'un Photobooth ?",
+        answer:
+          "Le Miroirbooth est plus scenographique: il attire l'oeil dans la salle et convient mieux aux receptions qui cherchent un objet premium.",
+      },
+    ],
+  },
+  {
+    key: "videobooth",
+    name: "360 Booth",
+    tag: "Video",
+    href: "/prestations/videobooth",
+    image: "/images/360booth.webp",
+    aiImage: "/images/ai/ambiance-360-booth-premium.webp",
+    alt: "360 Booth pour video evenementielle",
+    short:
+      "Une animation video dynamique pour produire des contenus courts, immersifs et partageables.",
+    title: "Location 360 Booth a Paris pour video evenementielle",
+    description:
+      "Le 360 Booth capte des videos 4K avec habillage personnalise, animateur, installation et galerie web.",
+    bestFor: "Soiree d'entreprise, lancement produit, anniversaire, activation de marque.",
+    print: "Non, video avant tout",
+    participants: "Jusqu'a 5 personnes selon configuration",
+    space: "Zone circulaire securisee",
+    attendant: "Oui, animation recommandee",
+    personalization: "Habillage video personnalise",
+    sharing: "Videos partageables et galerie web",
+    price: "A partir de 400 euros",
+    includes: [
+      "Video 4K",
+      "Livraison et installation",
+      "Animateur",
+      "Habillage video personnalise",
+      "Galerie web",
+    ],
+    depends: [
+      "Espace disponible autour de la plateforme",
+      "Flux d'invites",
+      "Fond LED ou decor compatible",
+    ],
+    options: ["Fond LED 360", "Holo 3D", "Livre d'or video"],
+    logistics: [
+      "Prevoir une zone de rotation degagee",
+      "Canaliser la file d'attente sur les grands evenements",
+      "Confirmer hauteur, sol plat et alimentation electrique",
+    ],
+    faq: [
+      {
+        question: "Combien de personnes peuvent monter sur le 360 Booth ?",
+        answer:
+          "La base communiquee est jusqu'a 5 personnes selon configuration. Pour un groupe plus grand, l'Air360 Booth est plus adapte.",
+      },
+    ],
+  },
+  {
+    key: "air360booth",
+    name: "Air360 Booth",
+    tag: "Grand format",
+    href: "/prestations/air360booth",
+    image: "/images/airbooth.webp",
+    aiImage: "/images/ai/ambiance-360-booth-premium.webp",
+    alt: "Air360 Booth grand format pour video 4K",
+    short:
+      "La version spectaculaire du 360 Booth pour accueillir davantage de participants.",
+    title: "Air360 Booth grand format pour video 4K",
+    description:
+      "Une animation video 4K plus capacitaire, pensee pour les grands groupes et les evenements a fort passage.",
+    bestFor: "Grand mariage, gala, soiree entreprise et evenement a fort volume.",
+    print: "Non, video avant tout",
+    participants: "Jusqu'a 10 personnes selon configuration",
+    space: "Grand espace circulaire securise",
+    attendant: "Oui",
+    personalization: "Habillage video personnalise",
+    sharing: "Videos et galerie web",
+    includes: [
+      "Video 4K",
+      "Plateforme grand format",
+      "Livraison et installation",
+      "Animateur",
+      "Galerie web",
+    ],
+    depends: [
+      "Surface disponible",
+      "Nombre d'invites",
+      "Gestion de file et decor",
+    ],
+    options: ["Fond LED 360", "Livre d'or video", "Holo 3D"],
+    logistics: [
+      "Valider la surface au sol avant devis",
+      "Prevoir une circulation claire autour de l'animation",
+      "Confirmer les contraintes de livraison et de montage",
+    ],
+  },
+  {
+    key: "ipadbooth",
+    name: "iPad Booth",
+    tag: "Compact",
+    href: "/prestations/ipadbooth",
+    image: "/images/ipadbooth.webp",
+    aiImage: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    alt: "iPad Booth compact pour evenement professionnel",
+    short:
+      "Une solution digitale legere pour les lieux reduits, l'accueil ou la collecte de contenus simples.",
+    title: "iPad Booth compact pour evenement professionnel",
+    description:
+      "Un format discret pour photos numeriques, visuel personnalise et galerie web, avec installation rapide.",
+    bestFor: "Salon, stand, petit espace, accueil, evenement professionnel.",
+    print: "Non, digital d'abord",
+    participants: "Solo, duo, petits groupes",
+    space: "Tres faible encombrement",
+    attendant: "Selon formule",
+    personalization: "Visuel personnalise",
+    sharing: "Photos numeriques et galerie web",
+    includes: [
+      "Installation rapide",
+      "Photos numeriques",
+      "Visuel personnalise",
+      "Galerie web",
+    ],
+    depends: ["Livraison selon formule", "Duree et contexte d'utilisation"],
+    options: ["Panneau de bienvenue", "Livre d'or video"],
+    logistics: [
+      "Ideal quand la surface est limitee",
+      "Verifier la stabilite et la visibilite de l'emplacement",
+      "Prevoir l'alimentation selon la duree",
+    ],
+  },
+  {
+    key: "voguebooth",
+    name: "Vogue Booth",
+    tag: "Studio lumineux",
+    href: "/prestations/voguebooth",
+    image: "/images/voguebooth.webp",
+    aiImage: "/images/ai/ambiance-vogue-booth-premium.webp",
+    alt: "Vogue Booth lumineux effet magazine",
+    short:
+      "Un couloir lumineux premium pour creer une scene photo forte et memorable.",
+    title: "Location Vogue Booth pour effet magazine",
+    description:
+      "Un decor lumineux haut de gamme, personnalisable, avec options photographe, impressions et decoration.",
+    bestFor: "Soiree VIP, gala, lancement de marque, mariage haut de gamme.",
+    print: "En option",
+    participants: "Petits groupes",
+    space: "Couloir lumineux dedie",
+    attendant: "Selon formule",
+    personalization: "Visuel et decor personnalisables",
+    sharing: "Photos et options de tirage selon formule",
+    price: "A partir de 500 euros",
+    includes: [
+      "Decor lumineux premium",
+      "Livraison et installation",
+      "Personnalisation du visuel",
+    ],
+    depends: [
+      "Photographe en option",
+      "Impressions en option",
+      "Decoration additionnelle en option",
+    ],
+    options: ["Photographe Vogue Booth", "Impression Vogue Booth", "Decoration Vogue Booth"],
+    logistics: [
+      "Valider la surface et la hauteur disponibles",
+      "Prevoir une zone de file si l'effet photo devient central",
+      "Adapter la decoration a l'univers de l'evenement",
+    ],
+  },
+  {
+    key: "packvip",
+    name: "Pack VIP",
+    tag: "Complet",
+    href: "/prestations/packvip",
+    image: "/images/pack.webp",
+    aiImage: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    alt: "Pack VIP photobooth et 360 Booth",
+    short:
+      "La combinaison Miroirbooth + 360 Booth pour mixer photo imprimee et video partageable.",
+    title: "Pack VIP photobooth et 360 Booth",
+    description:
+      "Une offre recommandee pour creer un parcours photo et video complet, avec equipe adaptee, personnalisation et galerie.",
+    bestFor: "Grand mariage, gala, evenement corporate et soiree premium.",
+    print: "Oui, selon formule",
+    participants: "Flux important",
+    space: "Deux espaces d'animation",
+    attendant: "Equipe adaptee",
+    personalization: "Photo et video personnalisees",
+    sharing: "Galerie web photo et video",
+    includes: [
+      "Miroirbooth + 360 Booth",
+      "Photo imprimee et video",
+      "Installation",
+      "Equipe adaptee",
+      "Personnalisation et galerie",
+    ],
+    depends: ["Duree", "Nombre d'invites", "Options souvenirs"],
+    options: ["Mur floral", "Fond LED 360", "Livre d'or physique", "Porte-cles photo"],
+    logistics: [
+      "Prevoir deux zones pour eviter la congestion",
+      "Adapter l'equipe au nombre d'invites",
+      "Synchroniser montage, tests et ouverture de salle",
+    ],
+  },
+  {
+    key: "personnalise",
+    name: "Formule complete",
+    tag: "Sur mesure",
+    href: "/prestations/personnalise",
+    image: "/images/all_presta.webp",
+    aiImage: "/images/ai/hero-photobooth-evenement-premium.webp",
+    alt: "Formule photobooth complete sur mesure",
+    short:
+      "Une configuration adaptee au lieu, au nombre d'invites, aux options souvenirs et a la duree.",
+    title: "Formule photobooth complete sur mesure",
+    description:
+      "Plusieurs machines, options souvenirs, decoration, duree et equipe peuvent etre adaptees au format de votre evenement.",
+    bestFor: "Tres grand evenement, marque, reception multi-espaces.",
+    print: "Selon machines choisies",
+    participants: "Selon configuration",
+    space: "Plan d'implantation a cadrer",
+    attendant: "Equipe adaptee",
+    personalization: "Parcours sur mesure",
+    sharing: "Selon machines et options",
+    includes: [
+      "Selection de machines adaptees",
+      "Options souvenirs et decoration",
+      "Duree et equipe ajustees",
+      "Galerie selon configuration",
+    ],
+    depends: ["Lieu", "Nombre d'invites", "Objectifs et contraintes techniques"],
+    options: ["Toutes options compatibles apres validation technique"],
+    logistics: [
+      "Cadrer le plan d'implantation avant devis",
+      "Identifier les contraintes du lieu et les temps d'acces",
+      "Adapter l'equipe au volume invite et au rythme attendu",
+    ],
+  },
+];
+
+export const options = [
+  { name: "Mur floral", image: "/images/ALL-MURS.webp", text: "Decor photo premium pour un rendu plus elegant." },
+  { name: "Phonebooth audio", image: "/images/phonebooth.webp", href: "/options/phonebooth", text: "Telephone livre d'or audio retro enregistrant les messages vocaux." },
+  { name: "Porte-cles photo", image: "/images/ai/options-souvenirs-premium.webp", text: "Tirage personnalise place dans un porte-cles souvenir." },
+  { name: "Magnets premium", image: "/images/all_options.webp", text: "Support magnetique rigide 60 x 90 mm avec photo et protection plastifiee." },
+  { name: "Magnets simples", image: "/images/all_options.webp", text: "Tirage photo classique avec magnet au dos, solution plus economique." },
+  { name: "Panneau fontaine", image: "/images/Welcomeboard.webp", text: "Element d'accueil premium pour entree de salle et grands evenements." },
+  { name: "Livre d'or video", image: "/images/Livre-d'or.webp", text: "Enregistrement de messages video des invites." },
+  { name: "Holo 3D", image: "/images/3d Holo-site.webp", text: "Animation visuelle moderne, a cadrer selon le materiel disponible." },
+  { name: "Livre d'or physique", image: "/images/Livre-d'or.webp", text: "Album pour coller les tirages et ecrire des messages." },
+  { name: "Panneau de bienvenue", image: "/images/Welcomeboard.webp", href: "/options/panneau", text: "Panneau personnalise pour accueillir et guider les invites." },
+  { name: "Fond LED 360", image: "/images/fond 360.webp", text: "Fond lumineux compatible avec le 360 Booth pour ameliorer le rendu video." },
+  { name: "Photographe Vogue Booth", image: "/images/photographe-voguebooth.webp", text: "Photographe dedie pour le cadrage et la qualite des photos." },
+  { name: "Impression Vogue Booth", image: "/images/impression-voguebooth.webp", text: "Tirages instantanes en complement de l'experience Vogue Booth." },
+  { name: "Decoration Vogue Booth", image: "/images/decoration-voguebooth.webp", text: "Mise en scene specifique renforcant l'effet studio." },
+];
+
+export const selectorNeeds = [
+  { need: "Je veux imprimer", answer: "Photobooth ou Miroirbooth", href: "/prestations/photobooth" },
+  { need: "Je veux filmer", answer: "360 Booth ou Air360 Booth", href: "/prestations/videobooth" },
+  { need: "J'ai beaucoup d'invites", answer: "Pack VIP ou Formule complete", href: "/prestations/packvip" },
+  { need: "J'ai peu d'espace", answer: "iPad Booth", href: "/prestations/ipadbooth" },
+  { need: "Je veux un effet premium", answer: "Miroirbooth ou Vogue Booth", href: "/prestations/voguebooth" },
+];
+
+export const eventTypes = [
+  {
+    key: "mariages",
+    title: "Mariages",
+    href: "/evenements/mariages",
+    image: "/images/mariages/mariage1.JPG",
+    text: "Souvenirs imprimes, livre d'or et animation fluide pour tous les invites.",
+    bestMachines: ["Photobooth", "Miroirbooth", "Pack VIP"],
+  },
+  {
+    key: "corporates",
+    title: "Entreprises",
+    href: "/evenements/corporates",
+    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    text: "Activation de marque, salon, seminaire, lancement produit ou soiree interne.",
+    bestMachines: ["Photobooth", "360 Booth", "iPad Booth"],
+  },
+  {
+    key: "anniversaires",
+    title: "Anniversaires",
+    href: "/evenements/anniversaires",
+    image: "/images/ai/ambiance-photobooth-soiree-premium.webp",
+    text: "Animation festive, accessoires, souvenirs instantanes et partage simple.",
+    bestMachines: ["Photobooth", "360 Booth", "Vogue Booth"],
+  },
+  {
+    key: "soirees",
+    title: "Soirees privees et VIP",
+    href: "/evenements/soirees",
+    image: "/images/generated/instagram-party-guests.webp",
+    text: "Un point photo/video visible qui rythme la soiree sans casser l'elegance du lieu.",
+    bestMachines: ["Vogue Booth", "360 Booth", "Pack VIP"],
+  },
+];
+
+export const processSteps = [
+  {
+    title: "Preparation",
+    text: "Objectif, public, lieu, timing, contraintes techniques et niveau de personnalisation sont cadres avant validation.",
+  },
+  {
+    title: "Personnalisation",
+    text: "Tirages, habillages video, ecrans ou elements decoratifs sont prepares selon la formule retenue.",
+  },
+  {
+    title: "Installation",
+    text: "Livraison, montage, branchements et tests sont anticipes pour une ouverture fluide.",
+  },
+  {
+    title: "Animation",
+    text: "L'equipe ou l'animateur accompagne les invites selon la formule et le volume attendu.",
+  },
+  {
+    title: "Galerie",
+    text: "Les contenus numeriques et la galerie prolongent l'impact apres l'evenement.",
+  },
+];
+
+export const galleryHighlights = [
+  {
+    title: "Tirages personnalises",
+    text: "Cadres photo, formats verticaux et souvenirs prepares pour l'univers de l'evenement.",
+    image: "/images/generated/instagram-print-strips.webp",
+    note: "Visuel d'ambiance genere par IA.",
+  },
+  {
+    title: "Ambiance invite",
+    text: "Accessoires, sourires et participation naturelle, sans transformer l'animation en gadget.",
+    image: "/images/ai/ambiance-photobooth-soiree-premium.webp",
+    note: "Visuel d'ambiance genere par IA.",
+  },
+  {
+    title: "Options souvenirs",
+    text: "Porte-cles, magnets, livre d'or et details qui prolongent le souvenir.",
+    image: "/images/ai/options-souvenirs-premium.webp",
+    note: "Visuel d'ambiance genere par IA.",
+  },
+  {
+    title: "Installation propre",
+    text: "Materiel prepare, zone visible et integration soignee dans la salle.",
+    image: "/images/generated/instagram-backstage-setup.webp",
+    note: "Visuel d'ambiance genere par IA.",
+  },
+  {
+    title: "Effet magazine",
+    text: "Vogue Booth lumineux pour une scene photo forte et premium.",
+    image: "/images/ai/ambiance-vogue-booth-premium.webp",
+    note: "Visuel d'ambiance genere par IA.",
+  },
+  {
+    title: "Grand evenement",
+    text: "Parcours photo et video pense pour absorber un volume important d'invites.",
+    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    note: "Visuel d'ambiance genere par IA.",
+  },
+];
