@@ -15,6 +15,7 @@ export default function Meta({
   ogDescription,
   ogImage = siteConfig.defaultOgImage,
   ogUrl = siteConfig.baseUrl,
+  ogType = "website",
   twitterCard = "summary_large_image",
   jsonLd = [],
 }) {
@@ -40,7 +41,7 @@ export default function Meta({
         <meta property="og:description" content={socialDescription} />
         <meta property="og:image" content={socialImage} />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content={ogType} />
 
         <meta name="twitter:card" content={twitterCard} />
         <meta name="twitter:title" content={socialTitle} />

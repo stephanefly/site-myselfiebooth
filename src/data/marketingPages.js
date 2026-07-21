@@ -689,26 +689,4 @@ export const marketingPages = {
       },
     ],
   }),
-  blog: page({
-    key: "blog",
-    eyebrow: "Conseils",
-    title: "Conseils photobooth pour preparer votre evenement",
-    description:
-      "Guides pratiques pour choisir une animation photo, cadrer l'espace, personnaliser les tirages et preparer un evenement.",
-    image: "/images/generated/instagram-backstage-setup.webp",
-    path: "/blog",
-    highlights: ["Guides", "Choix", "Preparation"],
-    sections: [
-      {
-        eyebrow: "Editorial",
-        title: "Priorite aux sujets utiles avant de publier plus",
-        text: "Le plan editorial 6 mois est documente dans SEO_CONTENT_PLAN.md pour eviter les articles faibles.",
-        cards: [
-          { title: "Comparer les machines", text: "Photobooth, Miroirbooth, 360 Booth: choisir selon l'objectif." },
-          { title: "Preparer l'espace", text: "Surface, electricite, flux et acces de livraison." },
-          { title: "Personnaliser", text: "Tirages, videos, livres d'or et souvenirs." },
-        ],
-      },
-    ],
-  }),
 };

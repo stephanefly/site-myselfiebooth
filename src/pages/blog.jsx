@@ -1,6 +1,5 @@
-import MarketingPage from "../components/marketing/MarketingPage";
-import { marketingPages } from "../data/marketingPages";
+import BlogIndex from "../components/blog/BlogIndex";
 
 export default function Blog() {
-  return <MarketingPage page={marketingPages.blog} />;
+  return <BlogIndex />;
 }
