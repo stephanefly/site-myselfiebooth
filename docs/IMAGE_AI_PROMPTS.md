@@ -29,5 +29,9 @@ Abstract premium event-light background for a luxury photobooth website, black i
 
 ## Mentions recommandees
 
-- "Visuel d'ambiance genere par IA."
+- "Visuel d'ambiance généré par IA."
 - "Les photos reelles du materiel restent conservees dans le site."
+
+## Remplacement
+
+Chaque visuel IA utilisé dans un nouvel emplacement doit être remplaçable via `src/data/imageSlots.json` lorsqu'une photo réelle validée est disponible. Les images IA ne doivent pas être utilisées comme preuves clients.

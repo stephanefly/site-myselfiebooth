@@ -6,7 +6,7 @@
 - Augmenter les appels utiles depuis mobile.
 - Reduire l'incertitude avant contact grace au comparateur et aux pages machines.
 
-## Evenements a suivre
+## Événements à suivre
 
 | Evenement | Selecteur actuel | Objectif |
 | --- | --- | --- |
@@ -15,6 +15,22 @@
 | `machine_view` | cartes prestations home | Choix machine |
 | `machine_compare` | cartes comparateur home | Interet comparateur |
 | `gallery_open` | cartes realisations home | Interet preuve visuelle |
+| `market_path_click` | cartes Entreprises / Particuliers sur l'accueil | Choix du parcours |
+
+## Paramètres transmis
+
+- `event_category`: `conversion`
+- `event_label`: libellé visible ou `data-event-label`
+- `link_url`: URL du lien cliqué
+- `page_location`: URL complète de la page
+- `page_path`: chemin de la page
+
+## Méthode de test
+
+1. Ouvrir le site avec Google Analytics autorisé.
+2. Cliquer un CTA devis, un lien téléphone et une carte de parcours.
+3. Vérifier dans le DebugView GA4 que l'événement remonte une seule fois.
+4. Vérifier qu'aucun second script GA n'est chargé.
 
 ## KPI
 

@@ -27,6 +27,7 @@ Aucune route existante n'a ete supprimee. La refonte enrichit et structure les c
 - `/paris/`
 - `/lyon/`
 - `/rouen/`
+- `/a-propos/`
 - `/blog/`
 - `/terms/`
 - `/privacy-policy/`
@@ -41,13 +42,13 @@ Aucune route existante n'a ete supprimee. La refonte enrichit et structure les c
 - iPad Booth
 - Vogue Booth
 - Pack VIP
-- Formule complete
+- Formule complète
 
 ## Options conservees et clarifiees
 
 - Mur floral
 - Phonebooth audio
-- Porte-cles photo
+- Porte-clés photo
 - Magnets premium
 - Magnets simples
 - Panneau fontaine
@@ -64,5 +65,7 @@ Aucune route existante n'a ete supprimee. La refonte enrichit et structure les c
 
 - Les anciens medias dans `public/images/`, `public/logos/` et `public/icons/` sont conserves.
 - Les nouvelles images IA sont ajoutees dans `public/images/ai/`.
+- Les emplacements image remplaçables sont centralisés dans `src/data/imageSlots.json`.
+- Les slots manuels vides ne remplacent aucune photo existante et ne créent aucune balise `<img>` cassée.
 - Les images IA sont documentees dans `docs/IMAGE_AI_PROMPTS.md`.
 - Les composants `Footer.jsx` et `next.config.js` ont ete reecrits pour nettoyer l'encodage et la structure, sans retirer de route ni fonctionnalite.

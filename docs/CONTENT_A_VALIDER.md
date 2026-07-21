@@ -26,3 +26,20 @@ Ces elements ne doivent pas etre surpromis tant qu'ils ne sont pas confirmes par
 - Les images IA sont uniquement des visuels d'ambiance.
 - Les photos client reelles doivent avoir droits d'utilisation, droit a l'image et consentement.
 - Les visuels issus d'Instagram doivent etre integres seulement si les droits sont confirmes.
+
+## Données issues de la présentation 2026
+
+- `+50 événements professionnels cumulés` : publier seulement si période et méthode de comptage sont validées.
+- `+500 événements particuliers cumulés` : déjà présent comme signal à valider, à dater si publié.
+- `22 événements professionnels signés en 2025` : donnée interne, ne pas exposer publiquement.
+- `CA professionnel 2025` : donnée interne confidentielle, ne jamais exposer dans le site ou le bundle client.
+- `Taux de signature hors dossiers ouverts` : donnée de pilotage interne, ne pas publier.
+- `Objectif CA B2B 2027` : objectif interne, ne pas publier.
+
+## Parcours professionnel
+
+- Valider les cas clients B2B avant publication : contexte, contraintes, solution, résultat et droit d'image.
+- Valider les logos corporate avant affichage comme preuve.
+- Valider la réalité de chaque usage : salons, activations de marque, inaugurations, séminaires et conférences.
+- Valider la zone Normandie mentionnée dans la présentation par rapport aux pages Lyon et Rouen déjà présentes.
+- Fournir un portrait réel de Stéphane Faure avant de remplacer le slot `founder-portrait`.

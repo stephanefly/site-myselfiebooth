@@ -40,3 +40,12 @@ Publier des contenus utiles qui aident a choisir une animation et ramener vers l
 - CTA devis en haut, milieu et fin.
 - Liens vers au moins deux pages machines et une page evenement.
 - Photos reelles prioritaires; images IA signalees comme ambiance si utilisees.
+
+## Extension B2B
+
+- Guide: "Photobooth entreprise: préparer une soirée interne sans stress"
+- Guide: "Animation photo pour salon professionnel: espace, flux et personnalisation"
+- Guide: "360 Booth pour lancement produit: quand le choisir"
+- Guide: "Checklist brief entreprise avant demande de devis photobooth"
+
+Ces contenus doivent renvoyer vers `/evenements/corporates/` et vers les machines réellement adaptées, sans promettre reporting, collecte de données ou résultats marketing non confirmés.

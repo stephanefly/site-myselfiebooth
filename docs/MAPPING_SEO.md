@@ -23,6 +23,7 @@
 | `/paris/` | Requete locale prioritaire | location photobooth Paris | Page locale | Enrichie prudemment |
 | `/lyon/` | Requete locale secondaire | location photobooth Lyon | Page locale | A valider |
 | `/rouen/` | Requete locale secondaire | location photobooth Rouen | Page locale | A valider |
+| `/a-propos/` | Rassurer sur l'histoire et l'expertise | MySelfieBooth fondateur | Page confiance | Ajoutée |
 | `/blog/` | Education et longue traine | conseil photobooth evenement | Hub editorial | Enrichie |
 
 ## Maillage interne recommande
@@ -32,3 +33,12 @@
 - Pages evenements vers machines conseillees, options et devis.
 - Hub options vers Phonebooth, panneau et devis.
 - Blog vers guides de choix, logistique, personnalisation et pages machines.
+
+## Détails à compléter dans une prochaine passe
+
+| URL | Title proposé | H1 | CTA principal |
+| --- | --- | --- | --- |
+| `/evenements/corporates/` | Animations photo et vidéo entreprise à Paris \| MySelfieBooth | Animations photo et vidéo entreprise à Paris pour faire vivre votre marque | Demander un devis entreprise |
+| `/evenements/mariages/` | Photobooth mariage à Paris \| MySelfieBooth | Photobooth mariage à Paris pour souvenirs élégants et invités engagés | Obtenir mon devis en 2 minutes |
+| `/prestations/photobooth/` | Location photobooth à Paris \| MySelfieBooth | Location photobooth à Paris pour photos imprimées | Obtenir mon devis en 2 minutes |
+| `/a-propos/` | À propos de MySelfieBooth \| MySelfieBooth | L'expertise derrière les machines MySelfieBooth | Découvrir le parcours entreprise |

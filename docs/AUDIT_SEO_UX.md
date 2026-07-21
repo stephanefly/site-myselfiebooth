@@ -28,3 +28,15 @@ Le site avait deja une bonne base visuelle, des routes commerciales utiles et de
 - Ajouter des photos reelles optimisees avec droits verifies.
 - Publier des articles guides a forte intention avant de multiplier les pages locales.
 - Mesurer les clics devis, appels, scroll comparateur et clics machines.
+
+## Passe complémentaire 2026
+
+| Priorité | Point contrôlé | Décision |
+| --- | --- | --- |
+| Critique | Domaine canonique `www` vs sans `www` | Domaine sans `www` retenu car c'est celui du brief et du site public cité. |
+| Critique | Open Graph relatif | Conversion en URL absolue dans `Meta.jsx`. |
+| Critique | Manifest absent | Ajout de `public/site.webmanifest`. |
+| Important | Page Entreprises trop courte | Enrichissement de `/evenements/corporates/` sans créer de route concurrente. |
+| Important | Données internes B2B | Documentées comme confidentielles et non exposées dans le site. |
+| Important | Gestion manuelle des images | Ajout de `imageSlots.json`, `ImageSlot`, docs et contrôle npm. |
+| Amélioration | README générique App Router | Remplacé par une documentation Pages Router. |
