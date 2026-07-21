@@ -16,6 +16,9 @@ Les images IA servent uniquement de visuels d'ambiance. Elles ne doivent pas etr
 | `public/images/ai/ambiance-vogue-booth-premium.webp` | Ambiance Vogue Booth | Derive d'un asset IA existant |
 | `public/images/ai/ambiance-360-booth-premium.webp` | Ambiance 360 Booth | Derive d'un asset IA existant |
 | `public/images/ai/options-souvenirs-premium.webp` | Options souvenirs | Derive d'un asset IA existant |
+| `public/images/ai/b2b-case-salon-ai.png` | Illustration salon professionnel / activation de marque | Genere IA |
+| `public/images/ai/b2b-case-seminaire-ai.png` | Illustration seminaire / soiree interne entreprise | Genere IA |
+| `public/images/ai/founder-workshop-ai.png` | Illustration atelier / expertise fondatrice, sans portrait reel | Genere IA |
 
 ## Prompts utilises
 
@@ -27,10 +30,23 @@ Premium French event venue with an elegant photobooth installation area, chic we
 
 Abstract premium event-light background for a luxury photobooth website, black ivory and champagne gold palette, soft bokeh-like light reflections from real event lighting, elegant fabric and metallic highlights, no people, no text, no logos, no watermark, cinematic realistic photo texture, wide 16:9 composition with calm negative space.
 
+### Cas entreprise salon / activation
+
+Premium corporate event photobooth activation at a French trade show or brand booth, elegant indoor venue, refined exhibition stand, black ivory and champagne gold palette, sleek photobooth setup, tasteful floral and metallic decor, guests softly out of focus, no readable text, no logos, no watermark, realistic editorial event photography, 4:3 composition.
+
+### Cas entreprise seminaire / soiree interne
+
+Premium seminar or internal corporate evening with an elegant photobooth corner, upscale French hotel reception or conference lounge, warm ambient lighting, clean photobooth station near cocktail area, guests in smart attire blurred in background, no readable text, no logos, no fake client proof, 4:3 composition.
+
+### Atelier fondateur sans portrait reel
+
+Elegant French studio workshop where a photobooth is being prepared before an event, founder-like person shown from behind or in silhouette, no identifiable face, focus on craftsmanship and preparation, black ivory and champagne gold details, no readable text, no logos, 4:5 vertical composition.
+
 ## Mentions recommandees
 
 - "Visuel d'ambiance généré par IA."
 - "Les photos reelles du materiel restent conservees dans le site."
+- "Visuel d'ambiance généré par IA, sans portrait réel."
 
 ## Remplacement
 

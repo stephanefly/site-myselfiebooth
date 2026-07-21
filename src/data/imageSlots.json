@@ -22,32 +22,32 @@
   {
     "id": "b2b-case-salon",
     "page": "/evenements/corporates/",
-    "usage": "Cas client réel à ajouter pour salon professionnel ou activation de marque",
+    "usage": "Illustration IA pour salon professionnel ou activation de marque",
     "ratio": "4 / 3",
-    "kind": "manual",
-    "src": "",
-    "alt": "",
-    "note": "Emplacement réservé à une photo réelle validée."
+    "kind": "ai",
+    "src": "/images/ai/b2b-case-salon-ai.png",
+    "alt": "Visuel d'ambiance d'une activation photobooth premium sur salon professionnel",
+    "note": "Visuel d'ambiance généré par IA."
   },
   {
     "id": "b2b-case-seminaire",
     "page": "/evenements/corporates/",
-    "usage": "Cas client réel à ajouter pour séminaire, conférence ou soirée interne",
+    "usage": "Illustration IA pour séminaire, conférence ou soirée interne",
     "ratio": "4 / 3",
-    "kind": "manual",
-    "src": "",
-    "alt": "",
-    "note": "Emplacement réservé à une photo réelle validée."
+    "kind": "ai",
+    "src": "/images/ai/b2b-case-seminaire-ai.png",
+    "alt": "Visuel d'ambiance d'un photobooth premium lors d'une soirée interne d'entreprise",
+    "note": "Visuel d'ambiance généré par IA."
   },
   {
     "id": "founder-portrait",
     "page": "/a-propos/",
-    "usage": "Portrait réel du fondateur à ajouter après validation",
+    "usage": "Visuel IA d'atelier pour illustrer l'expertise fondatrice",
     "ratio": "4 / 5",
-    "kind": "manual",
-    "src": "",
-    "alt": "",
-    "note": "Portrait réel à fournir."
+    "kind": "ai",
+    "src": "/images/ai/founder-workshop-ai.png",
+    "alt": "Visuel d'ambiance d'un atelier premium de préparation photobooth",
+    "note": "Visuel d'ambiance généré par IA, sans portrait réel."
   },
   {
     "id": "wedding-real-hero",
@@ -74,9 +74,9 @@
     "page": "/",
     "usage": "Poster léger pour vidéo événementielle, sans lecture automatique",
     "ratio": "16 / 9",
-    "kind": "real",
-    "src": "/placeholders/placeholder-video.jpg",
-    "alt": "Aperçu décoratif d'une vidéo événementielle",
-    "note": ""
+    "kind": "ai",
+    "src": "/images/ai/hero-photobooth-evenement-premium.webp",
+    "alt": "Visuel d'ambiance photobooth premium pour vidéo événementielle",
+    "note": "Visuel d'ambiance généré par IA."
   }
 ]

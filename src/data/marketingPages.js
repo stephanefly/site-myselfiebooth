@@ -284,16 +284,16 @@ const eventPages = {
     caseStudies: [
       {
         title: "Salon professionnel ou activation de marque",
-        context: "Emplacement réservé à une réalisation réelle avec contexte client validé.",
-        solution: "Documenter la machine, la personnalisation et les contraintes de stand réellement utilisées.",
-        result: "Ajouter uniquement des résultats factuels validés : participation, retours, contenus remis ou usage interne.",
+        context: "Configuration type pour stand, lancement ou activation de marque avec flux invité à organiser.",
+        solution: "Mettre en scène une borne visible, un décor propre et une personnalisation cohérente avec l'univers de l'événement.",
+        result: "Rassurer sur le rendu premium avant devis, sans présenter le visuel comme une preuve client réelle.",
         imageSlotId: "b2b-case-salon",
       },
       {
         title: "Séminaire, conférence ou soirée interne",
-        context: "Emplacement réservé à une réalisation réelle avec droit d'image et droit d'affichage confirmés.",
-        solution: "Décrire la configuration, l'installation, le rôle de l'animateur et les options retenues.",
-        result: "Publier un résultat qualitatif uniquement après validation du client et de MySelfieBooth.",
+        context: "Configuration type pour fédérer les équipes pendant un cocktail, une conférence ou une soirée interne.",
+        solution: "Prévoir une zone claire, une animation facile à comprendre et une remise de contenus cadrée selon la formule.",
+        result: "Montrer l'ambiance possible tout en gardant une distinction nette avec les photos réelles validées.",
         imageSlotId: "b2b-case-seminaire",
       },
     ],
@@ -671,8 +671,9 @@ export const marketingPages = {
     title: "L'expertise derrière les machines MySelfieBooth",
     description:
       "Découvrez l'histoire de MySelfieBooth, une marque d'animations photo et vidéo premium fondée par Stéphane Faure.",
-    image: "/placeholders/placeholder-hero.jpg",
+    image: "/images/ai/founder-workshop-ai.png",
     path: "/a-propos",
+    aiNote: "Visuel d'ambiance généré par IA, sans portrait réel.",
     highlights: ["Fondateur", "Machines conçues", "Expériences premium"],
     sections: [
       {

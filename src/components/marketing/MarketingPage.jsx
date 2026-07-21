@@ -144,9 +144,9 @@ function CaseStudyGrid({ items = [] }) {
     <section className="marketing-section is-muted">
       <div className="marketing-container">
         <SectionHeader
-          eyebrow="Références entreprise"
-          title="Des cas clients réels à documenter proprement"
-          text="Les emplacements existent, mais ils restent prudents tant que contexte, droit d'image et droit d'affichage ne sont pas validés."
+          eyebrow="Configurations entreprise"
+          title="Des contextes premium faciles à visualiser"
+          text="Les visuels IA remplacent les emplacements blancs sans être présentés comme des références client réelles."
         />
         <div className="marketing-case-grid">
           {items.map((item) => (
@@ -156,7 +156,7 @@ function CaseStudyGrid({ items = [] }) {
                 <h3>{item.title}</h3>
                 <p><strong>Contexte :</strong> {item.context}</p>
                 <p><strong>Solution :</strong> {item.solution}</p>
-                <p><strong>Résultat à documenter :</strong> {item.result}</p>
+                <p><strong>Impact recherché :</strong> {item.result}</p>
               </div>
             </article>
           ))}

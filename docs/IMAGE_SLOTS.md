@@ -17,12 +17,12 @@ Le registre central se trouve dans `src/data/imageSlots.json`. Il sert à rempla
 | --- | --- | --- | --- |
 | `home-hero-ambience` | `/` | IA | Fichier présent |
 | `b2b-hero-ambience` | `/evenements/corporates/` | IA | Fichier présent |
-| `b2b-case-salon` | `/evenements/corporates/` | Manuel | À fournir |
-| `b2b-case-seminaire` | `/evenements/corporates/` | Manuel | À fournir |
-| `founder-portrait` | `/a-propos/` | Manuel | À fournir |
+| `b2b-case-salon` | `/evenements/corporates/` | IA | Fichier present |
+| `b2b-case-seminaire` | `/evenements/corporates/` | IA | Fichier present |
+| `founder-portrait` | `/a-propos/` | IA | Fichier present |
 | `wedding-real-hero` | `/evenements/mariages/` | Réel | Fichier présent |
 | `options-souvenirs-ai` | `/options/` | IA | Fichier présent |
-| `video-poster-event` | `/` | Réel | Placeholder léger présent |
+| `video-poster-event` | `/` | IA | Fichier present |
 
 ## Contrôle
 
