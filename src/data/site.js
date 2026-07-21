@@ -1,18 +1,27 @@
 export const siteConfig = {
   name: "MySelfieBooth",
-  baseUrl: "https://www.myselfiebooth-paris.fr",
+  baseUrl: "https://myselfiebooth-paris.fr",
   quoteUrl: "https://reservation.myselfiebooth-paris.fr/",
   phoneLabel: "06 99 73 39 98",
   phoneHref: "tel:0699733998",
   phoneInternational: "+33 6 99 73 39 98",
   email: "contact@myselfiebooth-paris.fr",
+  defaultOgImage: "/images/logo.jpg",
   primaryCtaLabel: "Obtenir mon devis en 2 minutes",
   secondaryCtaLabel: "Comparer les animations",
-  galleryCtaLabel: "Voir nos realisations",
+  galleryCtaLabel: "Voir nos réalisations",
   phoneCtaLabel: "Appeler MySelfieBooth",
-  microcopy: "Formulaire rapide, proposition personnalisee.",
-  mainArea: "Paris et Ile-de-France",
-  servedAreas: ["Paris", "Ile-de-France", "Lyon", "Rouen"],
+  professionalCtaLabel: "Demander un devis entreprise",
+  microcopy: "Formulaire rapide, proposition personnalisée.",
+  mainArea: "Paris et Île-de-France",
+  servedAreas: ["Paris", "Île-de-France", "Normandie", "Lyon", "Rouen"],
+  founder: {
+    name: "Stéphane Faure",
+    title: "Fondateur de MySelfieBooth",
+    summary:
+      "Ingénieur en aéronautique devenu entrepreneur en 2021, Stéphane a conçu ses propres photobooths pour proposer des expériences photo et vidéo différenciantes.",
+    needsValidation: true,
+  },
   socialLinks: [
     {
       name: "LinkedIn",
@@ -44,9 +53,9 @@ export const brandLogos = [
 ];
 
 export const trustSignals = [
-  { value: "+500", label: "evenements accompagnes", needsValidation: true },
-  { value: "4.9/5", label: "note moyenne affichee", needsValidation: true },
-  { value: "167", label: "avis clients affiches", needsValidation: true },
+  { value: "+500", label: "événements accompagnés", needsValidation: true },
+  { value: "4.9/5", label: "note moyenne affichée", needsValidation: true },
+  { value: "167", label: "avis clients affichés", needsValidation: true },
   { value: "3 zones", label: "Paris, Lyon, Rouen", needsValidation: true },
 ];
 
@@ -101,18 +110,13 @@ export function faqJsonLd(faq = []) {
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   name: siteConfig.name,
   description:
-    "Location de photobooths premium pour evenements professionnels et prives.",
+    "Location de photobooths premium pour événements professionnels et privés.",
   url: siteConfig.baseUrl,
-  logo: absoluteUrl("/images/logo.jpg"),
+  logo: absoluteUrl(siteConfig.defaultOgImage),
   sameAs: siteConfig.socialLinks.map((link) => link.href),
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Paris",
-    addressCountry: "FR",
-  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: siteConfig.phoneInternational,

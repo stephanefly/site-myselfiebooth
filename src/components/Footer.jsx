@@ -5,13 +5,14 @@ const eventLinks = [
   { label: "Entreprises", href: "/evenements/corporates" },
   { label: "Mariages", href: "/evenements/mariages" },
   { label: "Anniversaires", href: "/evenements/anniversaires" },
-  { label: "Soirees", href: "/evenements/soirees" },
+  { label: "Soirées", href: "/evenements/soirees" },
 ];
 
 const infoLinks = [
+  { label: "À propos", href: "/a-propos" },
   { label: "Blog", href: "/blog" },
-  { label: "Confidentialite", href: "/privacy-policy" },
-  { label: "Mentions legales", href: "/terms" },
+  { label: "Confidentialité", href: "/privacy-policy" },
+  { label: "Mentions légales", href: "/terms" },
   { label: "Conditions", href: "/conditions" },
 ];
 
@@ -29,7 +30,7 @@ export default function Footer() {
       })),
     },
     {
-      title: "Evenements",
+      title: "Événements",
       links: eventLinks,
     },
     {
@@ -54,14 +55,14 @@ export default function Footer() {
         <div className="footer-brand">
           <a href="/">{siteConfig.name}</a>
           <p>
-            Photobooths premium pour entreprises, marques, mariages et evenements
-            prives a Paris, Lyon et Rouen.
+            Photobooths premium pour entreprises, marques, mariages et événements
+            privés à Paris, Lyon et Rouen.
           </p>
           <div className="footer-review">
             <img src="/icons/google.png" alt="Google" />
             <div>
-              <strong>{review?.value || "4.9/5"} affiche sur Google</strong>
-              <span>{reviewCount?.value || "167"} avis clients affiches</span>
+              <strong>{review?.value || "4.9/5"} affiché sur Google</strong>
+              <span>{reviewCount?.value || "167"} avis clients affichés</span>
             </div>
           </div>
           <a className="footer-quote" href={siteConfig.quoteUrl}>
@@ -91,7 +92,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>&copy; {year} {siteConfig.name}. Tous droits reserves.</span>
+        <span>&copy; {year} {siteConfig.name}. Tous droits réservés.</span>
         <span>Location photobooth premium en France.</span>
       </div>
 

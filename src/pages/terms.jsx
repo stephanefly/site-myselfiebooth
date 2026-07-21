@@ -3,7 +3,7 @@ import LegalPage from "../components/legal/LegalPage";
 export default function Terms() {
   return (
     <LegalPage
-      title="Mentions legales"
+      title="Mentions légales"
       intro="Informations generales sur l'editeur du site MySelfieBooth et l'utilisation des contenus."
       sections={[
         {

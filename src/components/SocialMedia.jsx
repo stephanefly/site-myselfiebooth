@@ -4,7 +4,7 @@ export default function SocialMedia() {
   return (
     <section className="social-section">
       <div className="social-container">
-        <p>Suivre les coulisses, les evenements et les realisations</p>
+        <p>Suivre les coulisses, les événements et les réalisations</p>
         <div className="social-links">
           {siteConfig.socialLinks.map((social) => (
             <a

@@ -3,7 +3,9 @@ import {
   brandLogos,
   comparisonRows,
   faqs,
+  founderStory,
   galleryHighlights,
+  marketPaths,
   optionHighlights,
   processSteps,
   proofPoints,
@@ -12,6 +14,7 @@ import {
   trustCards,
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
+import ImageSlot from "../ImageSlot";
 
 function SectionIntro({ eyebrow, title, text }) {
   return (
@@ -63,9 +66,9 @@ export default function HomePage() {
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy">
             <p className="home-eyebrow">Photobooth premium - {siteConfig.mainArea}</p>
-            <h1>Location de photobooth pour mariages, entreprises et grands evenements.</h1>
+            <h1>Location de photobooth pour mariages, entreprises et grands événements.</h1>
             <p>
-              MySelfieBooth installe des animations photo et video premium:
+              MySelfieBooth installe des animations photo et vidéo premium :
               Photobooth, Miroirbooth, 360 Booth, Vogue Booth et options
               souvenirs, avec un parcours de devis rapide et clair.
             </p>
@@ -79,7 +82,7 @@ export default function HomePage() {
               </a>
             </div>
             <p className="home-microcopy">{siteConfig.microcopy}</p>
-            <p className="home-ai-note">Visuel d'ambiance genere par IA.</p>
+            <p className="home-ai-note">Visuel d'ambiance généré par IA.</p>
           </div>
 
           <aside className="home-hero-panel" aria-label="Preuves MySelfieBooth">
@@ -97,12 +100,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-section home-section-muted">
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Deux parcours"
+            title="Entreprises ou particuliers : trouvez le bon chemin sans fouiller."
+            text="Le site garde les mariages et événements privés au premier plan, tout en donnant aux professionnels un accès direct aux informations utiles."
+          />
+          <div className="home-path-grid">
+            {marketPaths.map((path) => (
+              <a
+                key={path.href}
+                href={path.href}
+                className="home-path-card"
+                data-event="market_path_click"
+                data-event-label={path.eyebrow}
+              >
+                <span>{path.eyebrow}</span>
+                <h3>{path.title}</h3>
+                <p>{path.text}</p>
+                <strong>{path.cta}</strong>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="home-section home-section-light">
         <div className="home-container">
           <SectionIntro
             eyebrow="Choisir vite"
             title="Quelle animation correspond a votre objectif ?"
-            text="Le bon format depend d'abord du resultat attendu: imprimer, filmer, recevoir beaucoup d'invites, economiser l'espace ou creer un effet premium."
+            text="Le bon format dépend d'abord du résultat attendu : imprimer, filmer, recevoir beaucoup d'invités, économiser l'espace ou créer un effet premium."
           />
           <div className="home-selector-grid">
             {selectorNeeds.map((item) => (
@@ -119,8 +148,8 @@ export default function HomePage() {
         <div className="home-container">
           <SectionIntro
             eyebrow="Nos animations"
-            title="Toutes les machines importantes sont faciles a comparer"
-            text="Chaque animation garde son role: photo imprimee, video 360, format compact, studio lumineux ou pack complet."
+            title="Toutes les machines importantes sont faciles à comparer"
+            text="Chaque animation garde son rôle : photo imprimée, vidéo 360, format compact, studio lumineux ou pack complet."
           />
           <div className="home-service-grid">
             {services.map((service) => (
@@ -148,7 +177,7 @@ export default function HomePage() {
           <SectionIntro
             eyebrow="Comparateur"
             title="Comparer sans tableau illisible sur mobile"
-            text="Les informations ci-dessous restent prudentes lorsque la prestation depend de la formule, du lieu ou du volume d'invites."
+            text="Les informations ci-dessous restent prudentes lorsque la prestation dépend de la formule, du lieu ou du volume d'invités."
           />
           <div className="home-comparison-grid">
             {comparisonRows.map((machine) => (
@@ -174,9 +203,9 @@ export default function HomePage() {
       <section className="home-section home-section-light">
         <div className="home-container">
           <SectionIntro
-            eyebrow="Vos evenements"
+            eyebrow="Vos événements"
             title="Un parcours clair pour chaque contexte"
-            text="Mariage, entreprise, anniversaire ou soiree VIP: les contraintes ne sont pas les memes, les recommandations non plus."
+            text="Mariage, entreprise, anniversaire ou soirée VIP : les contraintes ne sont pas les mêmes, les recommandations non plus."
           />
           <div className="home-audience-grid">
             {audiences.map((item) => (
@@ -197,7 +226,7 @@ export default function HomePage() {
         <div className="home-container home-split">
           <div>
             <p className="home-eyebrow">Tout est pris en charge</p>
-            <h2>Une prestation qui rassure avant, pendant et apres.</h2>
+            <h2>Une prestation qui rassure avant, pendant et après.</h2>
             <p>
               Le site explique ce qui compte vraiment: preparation, logistique,
               personnalisation, animation et recuperation des contenus.
@@ -221,7 +250,7 @@ export default function HomePage() {
           <SectionIntro
             eyebrow="Packs et options"
             title="Ajouter du souvenir sans compliquer le choix"
-            text="Le hub options reste complet, mais la home montre les complements qui aident le plus a se projeter."
+            text="Le hub options reste complet, mais la home montre les compléments qui aident le plus à se projeter."
           />
           <div className="home-option-grid">
             {optionHighlights.map((option) => (
@@ -246,9 +275,9 @@ export default function HomePage() {
       <section id="realisations" className="home-section home-section-light">
         <div className="home-container">
           <SectionIntro
-            eyebrow="Realisations"
+            eyebrow="Réalisations"
             title="Des images pour comprendre le rendu attendu"
-            text="Photos reelles conservees et visuels d'ambiance IA clairement utilises comme supports editoriaux, jamais comme faux avis ou faux client."
+            text="Photos réelles conservées et visuels d'ambiance IA clairement utilisés comme supports éditoriaux, jamais comme faux avis ou faux client."
           />
           <div className="home-gallery-grid">
             {galleryHighlights.map((item) => (
@@ -269,7 +298,7 @@ export default function HomePage() {
         <div className="home-container home-split">
           <div>
             <p className="home-eyebrow">Confiance</p>
-            <h2>Une image premium, mais des preuves a garder honnetes.</h2>
+            <h2>Une image premium, mais des preuves à garder honnêtes.</h2>
             <p>
               Les logos et chiffres visibles sont conserves, centralises et
               listes dans les contenus a valider lorsque leur source doit etre
@@ -288,10 +317,22 @@ export default function HomePage() {
       </section>
 
       <section className="home-section home-section-light">
+        <div className="home-container home-story-grid">
+          <ImageSlot slotId={founderStory.imageSlotId} />
+          <div>
+            <p className="home-eyebrow">{founderStory.eyebrow}</p>
+            <h2>{founderStory.title}</h2>
+            <p>{founderStory.text}</p>
+            <a href={founderStory.href}>{founderStory.linkLabel}</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-section-light">
         <div className="home-container home-zone-layout">
           <div>
             <p className="home-eyebrow">Zone d'intervention</p>
-            <h2>Priorite a Paris et l'Ile-de-France, avec pages locales existantes conservees.</h2>
+            <h2>Priorité à Paris et l'Île-de-France, avec pages locales existantes conservées.</h2>
             <p>
               Les pages Paris, Lyon et Rouen restent accessibles. Les zones
               doivent etre confirmees commercialement avant d'en faire des
@@ -310,7 +351,7 @@ export default function HomePage() {
         <div className="home-container home-faq-layout">
           <div>
             <p className="home-eyebrow">Questions rapides</p>
-            <h2>Les reponses qui rassurent avant le devis</h2>
+            <h2>Les réponses qui rassurent avant le devis</h2>
             <p>
               Les details commerciaux restent dans le devis, mais les questions
               logistiques importantes doivent etre visibles avant le clic.

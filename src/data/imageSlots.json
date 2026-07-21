@@ -1,0 +1,82 @@
+[
+  {
+    "id": "home-hero-ambience",
+    "page": "/",
+    "usage": "Hero principal de la page d'accueil",
+    "ratio": "16 / 9",
+    "kind": "ai",
+    "src": "/images/ai/hero-photobooth-evenement-premium.webp",
+    "alt": "Visuel illustratif d'une ambiance photobooth premium pour événement",
+    "note": "Visuel d'ambiance généré par IA."
+  },
+  {
+    "id": "b2b-hero-ambience",
+    "page": "/evenements/corporates/",
+    "usage": "Hero de la page Entreprises",
+    "ratio": "4 / 3",
+    "kind": "ai",
+    "src": "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    "alt": "Visuel illustratif d'une activation photobooth en contexte professionnel",
+    "note": "Visuel d'ambiance généré par IA."
+  },
+  {
+    "id": "b2b-case-salon",
+    "page": "/evenements/corporates/",
+    "usage": "Cas client réel à ajouter pour salon professionnel ou activation de marque",
+    "ratio": "4 / 3",
+    "kind": "manual",
+    "src": "",
+    "alt": "",
+    "note": "Emplacement réservé à une photo réelle validée."
+  },
+  {
+    "id": "b2b-case-seminaire",
+    "page": "/evenements/corporates/",
+    "usage": "Cas client réel à ajouter pour séminaire, conférence ou soirée interne",
+    "ratio": "4 / 3",
+    "kind": "manual",
+    "src": "",
+    "alt": "",
+    "note": "Emplacement réservé à une photo réelle validée."
+  },
+  {
+    "id": "founder-portrait",
+    "page": "/a-propos/",
+    "usage": "Portrait réel du fondateur à ajouter après validation",
+    "ratio": "4 / 5",
+    "kind": "manual",
+    "src": "",
+    "alt": "",
+    "note": "Portrait réel à fournir."
+  },
+  {
+    "id": "wedding-real-hero",
+    "page": "/evenements/mariages/",
+    "usage": "Photo réelle existante pour le parcours mariage",
+    "ratio": "4 / 3",
+    "kind": "real",
+    "src": "/images/mariages/mariage1.JPG",
+    "alt": "Photobooth installé lors d'un mariage MySelfieBooth",
+    "note": ""
+  },
+  {
+    "id": "options-souvenirs-ai",
+    "page": "/options/",
+    "usage": "Visuel éditorial des options souvenirs",
+    "ratio": "1 / 1",
+    "kind": "ai",
+    "src": "/images/ai/options-souvenirs-premium.webp",
+    "alt": "Visuel illustratif d'options souvenirs photobooth premium",
+    "note": "Visuel d'ambiance généré par IA."
+  },
+  {
+    "id": "video-poster-event",
+    "page": "/",
+    "usage": "Poster léger pour vidéo événementielle, sans lecture automatique",
+    "ratio": "16 / 9",
+    "kind": "real",
+    "src": "/placeholders/placeholder-video.jpg",
+    "alt": "Aperçu décoratif d'une vidéo événementielle",
+    "note": ""
+  }
+]

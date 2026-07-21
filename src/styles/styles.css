@@ -141,17 +141,17 @@ img {
 }
 
 
-/* --- Sections --- */
-section {
+/* --- Legacy Sections --- */
+section:not([class*="home-"]):not([class*="marketing-"]) {
   text-align: center;
 }
 
-section h2 {
+section:not([class*="home-"]):not([class*="marketing-"]) h2 {
   font-size: 2.5rem;
   color: #333;
 }
 
-section p {
+section:not([class*="home-"]):not([class*="marketing-"]) p {
   font-size: 1.1rem;
   color: #555;
 }

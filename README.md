@@ -1,42 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MySelfieBooth
 
-## Getting Started
+Site vitrine Next.js de MySelfieBooth, en Pages Router, export statique et contenus centralisés.
 
-First, run the development server:
+## Stack
+
+- Next.js 15
+- React 19
+- JavaScript et JSX
+- Pages Router dans `src/pages/`
+- Export statique avec `output: "export"`
+- URLs avec `trailingSlash: true`
+- npm et `package-lock.json`
+
+## Commandes
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run images:check
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm run build` génère déjà l'export statique grâce à `output: "export"`. Il ne faut pas lancer l'ancien `next export` après le build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure utile
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/pages/index.jsx` : page d'accueil.
+- `src/pages/evenements/corporates.jsx` : parcours Entreprises principal.
+- `src/components/Layout.jsx` : layout global.
+- `src/components/Meta.jsx` : title, description, canonical, Open Graph, JSON-LD et Google Analytics.
+- `src/components/home/HomePage.jsx` : accueil.
+- `src/components/marketing/MarketingPage.jsx` : gabarit commun des pages marketing.
+- `src/data/site.js` : coordonnées, domaine canonique, CTA, zones, fondateur et preuves.
+- `src/data/catalog.js` : machines, options, événements et galerie.
+- `src/data/marketingPages.js` : contenus des pages prestations, événements, options, locales, blog et À propos.
+- `src/data/imageSlots.json` : registre central des emplacements image remplaçables.
+- `docs/` : audit, mapping SEO, plan de mesure, contenus à valider et guide de remplacement des images.
 
-## Learn More
+## Règles de maintenance
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-cd C:\Users\FAURE-Stephane\PycharmProjects\site-MySelfiebooth
-npm install
-npm run dev
-
-npm run build
+- Ne pas créer de dossier `app/`.
+- Ne pas convertir en TypeScript.
+- Ne pas casser les slugs existants.
+- Ne pas publier de chiffres, logos, avis ou cas clients non validés.
+- Les visuels IA doivent rester identifiés comme visuels d'ambiance.
+- Les emplacements image vides doivent passer par `ImageSlot` et rester sans balise `<img>` tant qu'aucun fichier réel n'est fourni.

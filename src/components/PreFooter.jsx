@@ -5,7 +5,7 @@ export default function PreFooter() {
     <section className="prefooter">
       <div className="prefooter-container">
         <div>
-          <p className="prefooter-eyebrow">Pret a cadrer votre evenement ?</p>
+          <p className="prefooter-eyebrow">Prêt à cadrer votre événement ?</p>
           <h2>Recevez une proposition claire pour votre date, votre lieu et votre format.</h2>
           <span>{siteConfig.microcopy}</span>
         </div>

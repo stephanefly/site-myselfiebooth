@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "images:check": "node scripts/check-image-slots.mjs",
     "export": "next export",
     "start": "next start"
   },

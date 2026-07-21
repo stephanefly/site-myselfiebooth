@@ -9,12 +9,12 @@ const navGroups = [
     links: machines.map((machine) => ({ label: machine.name, href: machine.href })),
   },
   {
-    label: "Vos evenements",
+    label: "Vos événements",
     links: [
       { label: "Entreprises", href: "/evenements/corporates" },
       { label: "Mariages", href: "/evenements/mariages" },
       { label: "Anniversaires", href: "/evenements/anniversaires" },
-      { label: "Soirees privees", href: "/evenements/soirees" },
+      { label: "Soirées privées", href: "/evenements/soirees" },
     ],
   },
   {
@@ -29,7 +29,7 @@ const navGroups = [
 
 const directLinks = [
   { label: "Accueil", href: "/" },
-  { label: "Realisations", href: "/#realisations" },
+  { label: "Réalisations", href: "/#realisations" },
   { label: "Entreprises", href: "/evenements/corporates" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },

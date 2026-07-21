@@ -1,4 +1,5 @@
 import Layout from "../Layout";
+import ImageSlot from "../ImageSlot";
 
 const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
 
@@ -52,8 +53,8 @@ function ComparisonGrid({ items = [] }) {
       <div className="marketing-container">
         <SectionHeader
           eyebrow="Comparer"
-          title="Les criteres utiles avant de demander un devis"
-          text="Les donnees restent prudentes lorsque le format depend de la formule, de l'espace ou du volume d'invites."
+          title="Les critères utiles avant de demander un devis"
+          text="Les données restent prudentes lorsque le format dépend de la formule, de l'espace ou du volume d'invités."
         />
         <div className="marketing-comparison-grid">
           {items.map((item) => (
@@ -89,8 +90,8 @@ function OptionGrid({ items = [] }) {
       <div className="marketing-container">
         <SectionHeader
           eyebrow="Options"
-          title="Toutes les options restent decouvrables"
-          text="Les pages dediees existantes sont conservees, les autres options sont presentees dans le hub."
+          title="Toutes les options restent découvrables"
+          text="Les pages dédiées existantes sont conservées, les autres options sont présentées dans le hub."
         />
         <div className="marketing-option-grid">
           {items.map((item) => (
@@ -101,6 +102,84 @@ function OptionGrid({ items = [] }) {
               {item.href && <a href={item.href}>Details</a>}
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PathwayGrid({ items = [] }) {
+  if (!items.length) {
+    return null;
+  }
+
+  return (
+    <section className="marketing-section is-muted">
+      <div className="marketing-container">
+        <SectionHeader
+          eyebrow="Parcours"
+          title="Choisir vite selon votre objectif"
+          text="Le parcours professionnel devient direct, sans affaiblir les besoins mariage et particuliers."
+        />
+        <div className="marketing-pathway-grid">
+          {items.map((item) => (
+            <a key={item.href} href={item.href} className="marketing-pathway-card">
+              <span>{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CaseStudyGrid({ items = [] }) {
+  if (!items.length) {
+    return null;
+  }
+
+  return (
+    <section className="marketing-section is-muted">
+      <div className="marketing-container">
+        <SectionHeader
+          eyebrow="Références entreprise"
+          title="Des cas clients réels à documenter proprement"
+          text="Les emplacements existent, mais ils restent prudents tant que contexte, droit d'image et droit d'affichage ne sont pas validés."
+        />
+        <div className="marketing-case-grid">
+          {items.map((item) => (
+            <article key={item.title} className="marketing-case-card">
+              <ImageSlot slotId={item.imageSlotId} />
+              <div>
+                <h3>{item.title}</h3>
+                <p><strong>Contexte :</strong> {item.context}</p>
+                <p><strong>Solution :</strong> {item.solution}</p>
+                <p><strong>Résultat à documenter :</strong> {item.result}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FounderStory({ story }) {
+  if (!story) {
+    return null;
+  }
+
+  return (
+    <section className="marketing-section">
+      <div className="marketing-container marketing-story-grid">
+        <ImageSlot slotId={story.imageSlotId} />
+        <div>
+          <p className="marketing-eyebrow">{story.eyebrow}</p>
+          <h2>{story.title}</h2>
+          <p>{story.text}</p>
+          <a href={story.href}>{story.linkLabel}</a>
         </div>
       </div>
     </section>
@@ -119,19 +198,34 @@ export default function MarketingPage({ page }) {
               <h1>{page.title}</h1>
               <p>{page.description}</p>
               <div className="marketing-actions">
-                <a className="marketing-button primary" href={page.primaryCta?.href || bookingUrl}>
+                <a
+                  className="marketing-button primary"
+                  href={page.primaryCta?.href || bookingUrl}
+                  data-event={page.primaryCta?.event || "cta_quote_click"}
+                  data-event-label={page.primaryCta?.label || "Demander un devis"}
+                >
                   {page.primaryCta?.label || "Demander un devis"}
                 </a>
-                <a className="marketing-button secondary" href={page.secondaryCta?.href || "/prestations"}>
+                <a
+                  className="marketing-button secondary"
+                  href={page.secondaryCta?.href || "/prestations"}
+                  data-event={page.secondaryCta?.event}
+                  data-event-label={page.secondaryCta?.label}
+                >
                   {page.secondaryCta?.label || "Voir les prestations"}
                 </a>
                 {page.phoneCta && (
-                  <a className="marketing-button ghost" href={page.phoneCta.href}>
+                  <a
+                    className="marketing-button ghost"
+                    href={page.phoneCta.href}
+                    data-event="phone_click"
+                    data-event-label={page.phoneCta.label}
+                  >
                     {page.phoneCta.label}
                   </a>
                 )}
               </div>
-              <p className="marketing-microcopy">Formulaire rapide, proposition personnalisee.</p>
+              <p className="marketing-microcopy">Formulaire rapide, proposition personnalisée.</p>
             </div>
             <div className="marketing-hero-media">
               <img src={page.image} alt={page.imageAlt || page.title} width="934" height="700" />
@@ -158,9 +252,12 @@ export default function MarketingPage({ page }) {
           </section>
         )}
 
+        <PathwayGrid items={page.pathways} />
+
         {(page.sections || []).map((section, index) => (
           <section
             key={section.title}
+            id={section.anchor}
             className={`marketing-section ${index % 2 === 1 ? "is-muted" : ""}`}
           >
             <div className="marketing-container">
@@ -176,14 +273,15 @@ export default function MarketingPage({ page }) {
 
         <ComparisonGrid items={page.comparison} />
         <OptionGrid items={page.optionGrid} />
+        <CaseStudyGrid items={page.caseStudies} />
 
         {(page.gallery || []).length > 0 && (
           <section className="marketing-section is-dark">
             <div className="marketing-container">
               <SectionHeader
-                eyebrow="Apercu"
+                eyebrow="Aperçu"
                 title="Une image premium, des souvenirs exploitables"
-                text="Les visuels doivent rassurer avant meme la demande de devis."
+                text="Les visuels doivent rassurer avant même la demande de devis."
               />
               <div className="marketing-gallery">
                 {page.gallery.map((image) => (
@@ -207,8 +305,8 @@ export default function MarketingPage({ page }) {
             <div className="marketing-container marketing-faq-layout">
               <SectionHeader
                 eyebrow="FAQ"
-                title="Questions frequentes"
-                text="Les reponses importantes pour reserver sans friction."
+                title="Questions fréquentes"
+                text="Les réponses importantes pour réserver sans friction."
               />
               <div className="marketing-faq-list">
                 {page.faq.map((item) => (
@@ -239,11 +337,15 @@ export default function MarketingPage({ page }) {
           </section>
         )}
 
+        <FounderStory story={page.story} />
+
         <section className="marketing-final-cta">
           <div className="marketing-container">
-            <p>{page.finalEyebrow || "Votre evenement merite une experience claire"}</p>
-            <h2>{page.finalTitle || "Recevez une proposition adaptee a votre date et votre lieu."}</h2>
-            <a href={bookingUrl}>Obtenir mon devis en 2 minutes</a>
+            <p>{page.finalEyebrow || "Votre événement mérite une expérience claire"}</p>
+            <h2>{page.finalTitle || "Recevez une proposition adaptée à votre date et votre lieu."}</h2>
+            <a href={bookingUrl} data-event="cta_quote_click" data-event-label="CTA final">
+              Obtenir mon devis en 2 minutes
+            </a>
           </div>
         </section>
       </article>
@@ -484,7 +586,9 @@ export default function MarketingPage({ page }) {
         .marketing-faq-list article,
         .marketing-faq-list details,
         .marketing-comparison-card,
-        .marketing-option-card {
+        .marketing-option-card,
+        .marketing-pathway-card,
+        .marketing-case-card {
           padding: 24px;
           border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 8px;
@@ -495,7 +599,9 @@ export default function MarketingPage({ page }) {
         .marketing-card h3,
         .marketing-faq-list h3,
         .marketing-option-card h3,
-        .marketing-comparison-card h3 {
+        .marketing-comparison-card h3,
+        .marketing-pathway-card h3,
+        .marketing-case-card h3 {
           margin: 0;
           color: #151515;
           font-size: 1.24rem;
@@ -504,7 +610,9 @@ export default function MarketingPage({ page }) {
         .marketing-card p,
         .marketing-faq-list p,
         .marketing-option-card p,
-        .marketing-comparison-card p {
+        .marketing-comparison-card p,
+        .marketing-pathway-card p,
+        .marketing-case-card p {
           margin: 12px 0 0;
           color: #5d5a52;
           line-height: 1.65;
@@ -512,9 +620,81 @@ export default function MarketingPage({ page }) {
 
         .marketing-comparison-grid,
         .marketing-option-grid,
+        .marketing-pathway-grid,
+        .marketing-case-grid,
         .marketing-related-grid {
           display: grid;
           gap: 18px;
+        }
+
+        .marketing-pathway-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .marketing-pathway-card {
+          color: #151515;
+          text-decoration: none;
+          transition: transform 180ms ease, border-color 180ms ease;
+        }
+
+        .marketing-pathway-card:hover {
+          border-color: #b8913f;
+          transform: translateY(-3px);
+        }
+
+        .marketing-pathway-card span {
+          display: block;
+          margin-bottom: 18px;
+          color: #b8913f;
+          font-size: 0.78rem;
+          font-weight: 900;
+          letter-spacing: 0.14rem;
+          text-transform: uppercase;
+        }
+
+        .marketing-case-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .marketing-case-card {
+          display: grid;
+          grid-template-columns: 0.72fr 1fr;
+          gap: 18px;
+          align-items: start;
+        }
+
+        .marketing-case-card strong {
+          color: #151515;
+        }
+
+        .marketing-story-grid {
+          display: grid;
+          grid-template-columns: minmax(260px, 0.45fr) 1fr;
+          gap: 44px;
+          align-items: center;
+        }
+
+        .marketing-story-grid h2 {
+          max-width: 760px;
+          margin: 0;
+          color: #151515;
+          font-size: clamp(2rem, 3.6vw, 3.5rem);
+          line-height: 1.02;
+        }
+
+        .marketing-story-grid p:not(.marketing-eyebrow) {
+          max-width: 720px;
+          margin: 20px 0 0;
+          color: #5d5a52;
+          line-height: 1.75;
+        }
+
+        .marketing-story-grid a {
+          display: inline-flex;
+          margin-top: 24px;
+          color: #8a6520;
+          font-weight: 900;
+          text-decoration: none;
         }
 
         .marketing-comparison-grid {
@@ -684,8 +864,15 @@ export default function MarketingPage({ page }) {
           .marketing-gallery,
           .marketing-comparison-grid,
           .marketing-option-grid,
+          .marketing-pathway-grid,
+          .marketing-case-grid,
           .marketing-related-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .marketing-story-grid,
+          .marketing-case-card {
+            grid-template-columns: 1fr;
           }
         }
 
@@ -704,6 +891,8 @@ export default function MarketingPage({ page }) {
           .marketing-gallery,
           .marketing-comparison-grid,
           .marketing-option-grid,
+          .marketing-pathway-grid,
+          .marketing-case-grid,
           .marketing-related-grid {
             grid-template-columns: 1fr;
           }

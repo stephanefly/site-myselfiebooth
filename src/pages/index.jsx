@@ -7,12 +7,12 @@ export default function Home() {
     <Layout
       metaProps={{
         title:
-          "MySelfieBooth - Location photobooth premium a Paris et Ile-de-France",
+          "MySelfieBooth - Location photobooth premium à Paris et Île-de-France",
         description:
-          "Location de photobooth, miroirbooth, 360 booth, Vogue Booth et options premium pour entreprises, mariages et soirees a Paris, Lyon et Rouen.",
-        ogTitle: "MySelfieBooth - Photobooth premium pour evenements",
+          "Location de photobooth, miroirbooth, 360 booth, Vogue Booth et options premium pour entreprises, mariages et soirées à Paris, Lyon et Rouen.",
+        ogTitle: "MySelfieBooth - Photobooth premium pour événements",
         ogDescription:
-          "Une animation photo elegante, cle en main et rassurante pour entreprises, marques, mariages et evenements prives.",
+          "Une animation photo élégante, clé en main et rassurante pour entreprises, marques, mariages et événements privés.",
         ogUrl: absoluteUrl("/"),
         jsonLd: [
           {
@@ -20,11 +20,11 @@ export default function Home() {
             "@type": "Service",
             name: "Location photobooth premium",
             provider: {
-              "@type": "LocalBusiness",
+              "@type": "Organization",
               name: siteConfig.name,
             },
             areaServed: siteConfig.servedAreas,
-            serviceType: "Animation photo evenementielle",
+            serviceType: "Animation photo événementielle",
             url: siteConfig.baseUrl,
           },
         ],

@@ -6,7 +6,7 @@ import {
   processSteps,
   selectorNeeds,
 } from "./catalog";
-import { brandLogos, trustSignals } from "./site";
+import { brandLogos, siteConfig, trustSignals } from "./site";
 
 export { brandLogos, galleryHighlights, processSteps, selectorNeeds };
 
@@ -29,18 +29,35 @@ export const audiences = eventTypes.map((event) => ({
 
 export const proofPoints = trustSignals;
 
+export const marketPaths = [
+  {
+    eyebrow: "Entreprises",
+    title: "Animations photo et vidéo pour marques, équipes et agences",
+    text: "Un parcours pensé pour responsables communication, salons, séminaires, lancements, inaugurations et soirées internes.",
+    href: "/evenements/corporates",
+    cta: "Voir le parcours entreprise",
+  },
+  {
+    eyebrow: "Particuliers",
+    title: "Photobooths élégants pour mariages, anniversaires et soirées privées",
+    text: "Un parcours plus émotionnel pour souvenirs imprimés, livre d'or, options cadeaux et ambiance de réception.",
+    href: "/evenements/mariages",
+    cta: "Voir le parcours particulier",
+  },
+];
+
 export const trustCards = [
   {
     title: "Image premium",
-    text: "Machines soignees, visuels propres, photos et videos exploitables apres l'evenement.",
+    text: "Machines soignées, visuels propres, photos et vidéos exploitables après l'événement.",
   },
   {
     title: "Logistique rassurante",
-    text: "Preparation, livraison, montage, tests et accompagnement sont cadres avant le jour J.",
+    text: "Préparation, livraison, montage, tests et accompagnement sont cadrés avant le jour J.",
   },
   {
     title: "Personnalisation utile",
-    text: "Tirages, habillages video, decors et options souvenirs peuvent reprendre votre univers.",
+    text: "Tirages, habillages vidéo, décors et options souvenirs peuvent reprendre votre univers.",
   },
 ];
 
@@ -66,9 +83,9 @@ export const faqs = [
       "Le Photobooth et le Miroirbooth sont les plus simples pour des souvenirs imprimes. Le Pack VIP ajoute une dimension video si le volume d'invites est important.",
   },
   {
-    question: "Est-ce adapte aux entreprises ?",
+    question: "Est-ce adapté aux entreprises ?",
     answer:
-      "Oui. Les visuels peuvent reprendre votre logo, vos couleurs et le contexte de votre operation pour un salon, un seminaire, une activation ou une soiree interne.",
+      "Oui. Les visuels peuvent reprendre votre logo, vos couleurs et le contexte de votre opération pour un salon, un séminaire, une activation ou une soirée interne.",
   },
   {
     question: "Que faut-il prevoir sur place ?",
@@ -81,3 +98,12 @@ export const faqs = [
       "Le devis depend de la date, du lieu, de la duree, de la machine et des options. Le formulaire permet de cadrer rapidement ces informations.",
   },
 ];
+
+export const founderStory = {
+  eyebrow: "Notre histoire",
+  title: "Une expertise technique derrière une expérience événementielle premium",
+  text: siteConfig.founder.summary,
+  href: "/a-propos",
+  linkLabel: "Découvrir MySelfieBooth",
+  imageSlotId: "founder-portrait",
+};
