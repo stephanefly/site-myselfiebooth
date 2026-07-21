@@ -57,7 +57,6 @@ function page({
   primaryCta,
   secondaryCta,
   phoneCta,
-  aiNote,
   category,
 }) {
   const breadcrumbItems = [homeCrumb, ...breadcrumbs, { label: title, href: path }];
@@ -74,7 +73,6 @@ function page({
     description,
     image,
     imageAlt: title,
-    aiNote,
     highlights,
     proof: trustSignals,
     breadcrumbs: breadcrumbItems,
@@ -119,7 +117,6 @@ function machinePage(machine) {
     description: machine.description,
     image: machine.aiImage || machine.image,
     path: machine.href,
-    aiNote: machine.aiImage ? "Visuel d'ambiance généré par IA. Les photos réelles du matériel restent conservées dans le site." : undefined,
     highlights: [machine.print, machine.attendant, machine.sharing],
     breadcrumbs: [
       { label: "Nos animations", href: "/prestations" },
@@ -188,7 +185,7 @@ const comparison = machines.map((machine) => ({
 
 const eventPages = {
   corporates: {
-    title: "Animations photo et vidéo entreprise à Paris pour faire vivre votre marque",
+    title: "Animations photo et vidéo pour entreprise et activation de marque",
     description:
       "Photobooth, 360 Booth, iPad Booth et formats premium pour soirées d'entreprise, séminaires, lancements, inaugurations et activations de marque.",
     image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
@@ -321,7 +318,7 @@ const eventPages = {
     ],
   },
   mariages: {
-    title: "Photobooth mariage à Paris pour souvenirs élégants et invités engagés",
+    title: "Photobooth mariage pour des souvenirs élégants et des invités engagés",
     description:
       "Une animation photo rassurante pour mariage, avec tirages selon formule, livre d'or, options souvenirs et galerie web.",
     image: "/images/mariages/mariage1.JPG",
@@ -420,9 +417,6 @@ function eventPage(key, path) {
     description: data.description,
     image: data.image,
     path,
-    aiNote: data.image.includes("/ai/") || data.image.includes("/generated/")
-      ? "Visuel d'ambiance généré par IA."
-      : undefined,
     highlights: data.highlights,
     primaryCta: data.primaryCta,
     secondaryCta: data.secondaryCta,
@@ -449,7 +443,6 @@ export const marketingPages = {
       "Photobooth, Miroirbooth, 360 Booth, Air360, iPad Booth, Vogue Booth, Pack VIP et formule complete: comparez les animations avant votre devis.",
     image: "/images/ai/hero-photobooth-evenement-premium.webp",
     path: "/prestations",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["8 formats", "Comparateur", "Options"],
     breadcrumbs: [],
     sections: [
@@ -488,7 +481,6 @@ export const marketingPages = {
       "Mariage, entreprise, anniversaire ou soiree VIP: retrouvez les recommandations MySelfieBooth selon votre contexte.",
     image: "/images/ai/hero-photobooth-evenement-premium.webp",
     path: "/evenements",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["Mariage", "Entreprise", "Prive"],
     sections: [
       {
@@ -520,7 +512,6 @@ export const marketingPages = {
       "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
     image: "/images/ai/options-souvenirs-premium.webp",
     path: "/options",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["Souvenirs", "Decor", "Audio"],
     sections: [
       {
@@ -599,12 +590,11 @@ export const marketingPages = {
   paris: page({
     key: "paris",
     eyebrow: "Paris",
-    title: "Location photobooth premium à Paris et en Île-de-France",
+    title: "Location photobooth premium en Île-de-France",
     description:
-      "Photobooth, Miroirbooth, 360 Booth et options souvenirs pour événements professionnels et privés à Paris et en Île-de-France.",
+      "Photobooth, Miroirbooth, 360 Booth et options souvenirs pour événements professionnels et privés en Île-de-France.",
     image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
     path: "/paris",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["Paris", "Île-de-France", "Premium"],
     sections: [
       {
@@ -627,7 +617,6 @@ export const marketingPages = {
       "Animation photo cle en main pour entreprises, mariages et soirees a Lyon, sous reserve de validation commerciale de la zone.",
     image: "/images/generated/premium-welcome-board-decor.webp",
     path: "/lyon",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["Lyon", "Entreprise", "Mariage"],
     sections: [
       {
@@ -650,7 +639,6 @@ export const marketingPages = {
       "Service photobooth pour evenements a Rouen et en Normandie, avec informations locales a confirmer avant ciblage SEO fort.",
     image: "/images/generated/premium-booth-installation.webp",
     path: "/rouen",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["Rouen", "Normandie", "Cle en main"],
     sections: [
       {
@@ -673,7 +661,6 @@ export const marketingPages = {
       "Découvrez l'histoire de MySelfieBooth, une marque d'animations photo et vidéo premium fondée par Stéphane Faure.",
     image: "/images/ai/founder-workshop-ai.png",
     path: "/a-propos",
-    aiNote: "Visuel d'ambiance généré par IA, sans portrait réel.",
     highlights: ["Fondateur", "Machines conçues", "Expériences premium"],
     sections: [
       {
@@ -710,7 +697,6 @@ export const marketingPages = {
       "Guides pratiques pour choisir une animation photo, cadrer l'espace, personnaliser les tirages et preparer un evenement.",
     image: "/images/generated/instagram-backstage-setup.webp",
     path: "/blog",
-    aiNote: "Visuel d'ambiance généré par IA.",
     highlights: ["Guides", "Choix", "Preparation"],
     sections: [
       {

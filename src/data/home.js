@@ -32,15 +32,15 @@ export const proofPoints = trustSignals;
 export const marketPaths = [
   {
     eyebrow: "Entreprises",
-    title: "Animations photo et vidéo pour marques, équipes et agences",
-    text: "Un parcours pensé pour responsables communication, salons, séminaires, lancements, inaugurations et soirées internes.",
+    title: "Salons, séminaires et activations",
+    text: "Des formats pensés pour votre marque et vos invités.",
     href: "/evenements/corporates",
     cta: "Voir le parcours entreprise",
   },
   {
     eyebrow: "Particuliers",
-    title: "Photobooths élégants pour mariages, anniversaires et soirées privées",
-    text: "Un parcours plus émotionnel pour souvenirs imprimés, livre d'or, options cadeaux et ambiance de réception.",
+    title: "Mariages, anniversaires et soirées",
+    text: "Des souvenirs photo et vidéo faciles à partager.",
     href: "/evenements/mariages",
     cta: "Voir le parcours particulier",
   },

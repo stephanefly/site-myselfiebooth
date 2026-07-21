@@ -56,7 +56,7 @@ export default function Footer() {
           <a href="/">{siteConfig.name}</a>
           <p>
             Photobooths premium pour entreprises, marques, mariages et événements
-            privés à Paris, Lyon et Rouen.
+            privés en Île-de-France, à Lyon et à Rouen.
           </p>
           <div className="footer-review">
             <img src="/icons/google.png" alt="Google" />

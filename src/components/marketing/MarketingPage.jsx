@@ -1,28 +1,101 @@
 import Layout from "../Layout";
 import ImageSlot from "../ImageSlot";
+import useRevealMotion from "../../hooks/useRevealMotion";
 
 const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
 
-function SectionHeader({ eyebrow, title, text }) {
+function SectionHeader({ eyebrow, title }) {
   return (
     <header className="marketing-section-header">
       {eyebrow && <p>{eyebrow}</p>}
       <h2>{title}</h2>
-      {text && <span>{text}</span>}
     </header>
   );
+}
+
+function getSectionVisual(page, section, index) {
+  const visuals = page.gallery || [];
+
+  if (!visuals.length) {
+    return null;
+  }
+
+  const context = `${page.key} ${section.eyebrow || ""} ${section.title || ""}`.toLowerCase();
+  const findByFile = (filename) => visuals.find((visual) =>
+    (visual.image || visual.src || "").includes(filename)
+  );
+
+  if (/phonebooth|audio|livre d'or/.test(context)) {
+    return findByFile("phonebooth-audio") || visuals[index % visuals.length];
+  }
+
+  if (/360|vidéo|video|vogue|soirée|soiree|anniversaire/.test(context)) {
+    return findByFile("ambiance-360booth") || visuals[index % visuals.length];
+  }
+
+  if (/logistique|processus|installation|inclus|prévoir|prevoir|jour j/.test(context)) {
+    return findByFile("installation-photobooth") || visuals[index % visuals.length];
+  }
+
+  if (/option|souvenir|personnalis|tirage|galerie/.test(context)) {
+    return findByFile("detail-souvenirs") || visuals[index % visuals.length];
+  }
+
+  return visuals[index % visuals.length];
 }
 
 function CardGrid({ cards = [] }) {
   return (
     <div className="marketing-card-grid">
-      {cards.map((card, index) => (
-        <article key={`${card.title}-${index}`} className="marketing-card">
+      {cards.slice(0, 4).map((card, index) => (
+        <article
+          key={`${card.title}-${index}`}
+          className="marketing-card"
+          data-reveal
+          style={{ "--reveal-delay": `${Math.min(index, 5) * 45}ms` }}
+        >
           <h3>{card.title}</h3>
           <p>{card.text}</p>
         </article>
       ))}
     </div>
+  );
+}
+
+function getSectionId(section, index) {
+  return section.anchor || `section-${index + 1}`;
+}
+
+function QuickNavigation({ page }) {
+  const links = (page.sections || []).slice(0, 3).map((section, index) => ({
+    href: `#${getSectionId(section, index)}`,
+    label: section.eyebrow || section.title,
+  }));
+
+  if ((page.comparison || []).length) {
+    links.push({ href: "#comparatif", label: "Comparer" });
+  }
+
+  if ((page.gallery || []).length) {
+    links.push({ href: "#galerie", label: "Photos" });
+  }
+
+  if ((page.faq || []).length) {
+    links.push({ href: "#faq", label: "FAQ" });
+  }
+
+  return (
+    <nav className="marketing-quick-nav" aria-label="Accès rapide">
+      <div className="marketing-container marketing-quick-nav-inner">
+        <strong>Accès rapide</strong>
+        <div>
+          {links.slice(0, 6).map((link) => (
+            <a key={link.href} href={link.href}>{link.label}</a>
+          ))}
+        </div>
+        <a className="marketing-quick-cta" href={bookingUrl}>Devis</a>
+      </div>
+    </nav>
   );
 }
 
@@ -49,12 +122,11 @@ function ComparisonGrid({ items = [] }) {
   }
 
   return (
-    <section className="marketing-section is-muted">
+    <section id="comparatif" className="marketing-section is-muted" data-reveal>
       <div className="marketing-container">
         <SectionHeader
           eyebrow="Comparer"
-          title="Les critères utiles avant de demander un devis"
-          text="Les données restent prudentes lorsque le format dépend de la formule, de l'espace ou du volume d'invités."
+          title="Comparez les formats"
         />
         <div className="marketing-comparison-grid">
           {items.map((item) => (
@@ -86,19 +158,17 @@ function OptionGrid({ items = [] }) {
   }
 
   return (
-    <section className="marketing-section">
+    <section id="options-detail" className="marketing-section" data-reveal>
       <div className="marketing-container">
         <SectionHeader
           eyebrow="Options"
-          title="Toutes les options restent découvrables"
-          text="Les pages dédiées existantes sont conservées, les autres options sont présentées dans le hub."
+          title="Choisissez vos options"
         />
         <div className="marketing-option-grid">
           {items.map((item) => (
             <article key={item.name} className="marketing-option-card">
               <img src={item.image} alt={item.name} loading="lazy" />
               <h3>{item.name}</h3>
-              <p>{item.text}</p>
               {item.href && <a href={item.href}>Details</a>}
             </article>
           ))}
@@ -114,19 +184,17 @@ function PathwayGrid({ items = [] }) {
   }
 
   return (
-    <section className="marketing-section is-muted">
+    <section id="parcours" className="marketing-section is-muted" data-reveal>
       <div className="marketing-container">
         <SectionHeader
           eyebrow="Parcours"
-          title="Choisir vite selon votre objectif"
-          text="Le parcours professionnel devient direct, sans affaiblir les besoins mariage et particuliers."
+          title="Choisissez votre objectif"
         />
         <div className="marketing-pathway-grid">
           {items.map((item) => (
             <a key={item.href} href={item.href} className="marketing-pathway-card">
               <span>{item.eyebrow}</span>
               <h3>{item.title}</h3>
-              <p>{item.text}</p>
             </a>
           ))}
         </div>
@@ -141,12 +209,11 @@ function CaseStudyGrid({ items = [] }) {
   }
 
   return (
-    <section className="marketing-section is-muted">
+    <section id="cas-entreprise" className="marketing-section is-muted" data-reveal>
       <div className="marketing-container">
         <SectionHeader
-          eyebrow="Configurations entreprise"
-          title="Des contextes premium faciles à visualiser"
-          text="Les visuels IA remplacent les emplacements blancs sans être présentés comme des références client réelles."
+          eyebrow="Exemples"
+          title="Configurations entreprise"
         />
         <div className="marketing-case-grid">
           {items.map((item) => (
@@ -154,9 +221,8 @@ function CaseStudyGrid({ items = [] }) {
               <ImageSlot slotId={item.imageSlotId} />
               <div>
                 <h3>{item.title}</h3>
-                <p><strong>Contexte :</strong> {item.context}</p>
                 <p><strong>Solution :</strong> {item.solution}</p>
-                <p><strong>Impact recherché :</strong> {item.result}</p>
+                <p><strong>Objectif :</strong> {item.result}</p>
               </div>
             </article>
           ))}
@@ -172,7 +238,7 @@ function FounderStory({ story }) {
   }
 
   return (
-    <section className="marketing-section">
+    <section id="histoire" className="marketing-section" data-reveal>
       <div className="marketing-container marketing-story-grid">
         <ImageSlot slotId={story.imageSlotId} />
         <div>
@@ -187,12 +253,14 @@ function FounderStory({ story }) {
 }
 
 export default function MarketingPage({ page }) {
+  const pageRef = useRevealMotion(page.key);
+
   return (
     <Layout metaProps={page.meta}>
-      <article className="marketing-page">
+      <article className="marketing-page" ref={pageRef}>
         <section className="marketing-hero">
           <div className="marketing-container marketing-hero-grid">
-            <div className="marketing-hero-copy">
+            <div className="marketing-hero-copy" data-reveal>
               <Breadcrumbs items={page.breadcrumbs} />
               <p className="marketing-eyebrow">{page.eyebrow}</p>
               <h1>{page.title}</h1>
@@ -225,16 +293,14 @@ export default function MarketingPage({ page }) {
                   </a>
                 )}
               </div>
-              <p className="marketing-microcopy">Formulaire rapide, proposition personnalisée.</p>
             </div>
-            <div className="marketing-hero-media">
+            <div className="marketing-hero-media" data-reveal data-reveal-variant="scale">
               <img src={page.image} alt={page.imageAlt || page.title} width="934" height="700" />
               <div className="marketing-hero-proof">
                 {(page.highlights || []).map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
-              {page.aiNote && <p className="marketing-ai-note">{page.aiNote}</p>}
             </div>
           </div>
         </section>
@@ -252,45 +318,60 @@ export default function MarketingPage({ page }) {
           </section>
         )}
 
+        <QuickNavigation page={page} />
+
         <PathwayGrid items={page.pathways} />
 
-        {(page.sections || []).map((section, index) => (
-          <section
-            key={section.title}
-            id={section.anchor}
-            className={`marketing-section ${index % 2 === 1 ? "is-muted" : ""}`}
-          >
-            <div className="marketing-container">
-              <SectionHeader
-                eyebrow={section.eyebrow}
-                title={section.title}
-                text={section.text}
-              />
-              <CardGrid cards={section.cards} />
-            </div>
-          </section>
-        ))}
+        {(page.sections || []).map((section, index) => {
+          const visual = getSectionVisual(page, section, index);
+
+          return (
+            <section
+              key={section.title}
+              id={getSectionId(section, index)}
+              className={`marketing-section ${index % 2 === 1 ? "is-muted" : ""}`}
+            >
+              <div className="marketing-container">
+                <div className="marketing-section-heading-row" data-reveal>
+                  <SectionHeader
+                    eyebrow={section.eyebrow}
+                    title={section.title}
+                  />
+                  {visual && (
+                    <figure className="marketing-section-visual">
+                      <img
+                        src={visual.image || visual.src}
+                        alt={visual.title || visual.alt}
+                        loading="lazy"
+                      />
+                      {visual.title && <figcaption>{visual.title}</figcaption>}
+                    </figure>
+                  )}
+                </div>
+                <CardGrid cards={section.cards} />
+              </div>
+            </section>
+          );
+        })}
 
         <ComparisonGrid items={page.comparison} />
         <OptionGrid items={page.optionGrid} />
         <CaseStudyGrid items={page.caseStudies} />
 
         {(page.gallery || []).length > 0 && (
-          <section className="marketing-section is-dark">
+          <section id="galerie" className="marketing-section is-dark" data-reveal>
             <div className="marketing-container">
               <SectionHeader
-                eyebrow="Aperçu"
-                title="Une image premium, des souvenirs exploitables"
-                text="Les visuels doivent rassurer avant même la demande de devis."
+                eyebrow="Photos"
+                title="En images"
               />
               <div className="marketing-gallery">
-                {page.gallery.map((image) => (
+                {page.gallery.slice(0, 8).map((image) => (
                   <figure key={image.image || image.src}>
                     <img src={image.image || image.src} alt={image.title || image.alt} loading="lazy" />
-                    {(image.note || image.title) && (
+                    {image.title && (
                       <figcaption>
-                        {image.title && <strong>{image.title}</strong>}
-                        {image.note && <span>{image.note}</span>}
+                        <strong>{image.title}</strong>
                       </figcaption>
                     )}
                   </figure>
@@ -301,12 +382,11 @@ export default function MarketingPage({ page }) {
         )}
 
         {(page.faq || []).length > 0 && (
-          <section className="marketing-section">
+          <section id="faq" className="marketing-section" data-reveal>
             <div className="marketing-container marketing-faq-layout">
               <SectionHeader
                 eyebrow="FAQ"
                 title="Questions fréquentes"
-                text="Les réponses importantes pour réserver sans friction."
               />
               <div className="marketing-faq-list">
                 {page.faq.map((item) => (
@@ -321,12 +401,11 @@ export default function MarketingPage({ page }) {
         )}
 
         {(page.relatedLinks || []).length > 0 && (
-          <section className="marketing-section is-muted">
+          <section id="liens-utiles" className="marketing-section is-muted" data-reveal>
             <div className="marketing-container">
               <SectionHeader
-                eyebrow="Continuer"
-                title="Pages utiles pour finaliser votre choix"
-                text="Le maillage interne garde les anciennes URLs accessibles et guide vers le devis."
+                eyebrow="À découvrir"
+                title="Continuez votre visite"
               />
               <div className="marketing-related-grid">
                 {page.relatedLinks.map((link) => (
@@ -339,10 +418,10 @@ export default function MarketingPage({ page }) {
 
         <FounderStory story={page.story} />
 
-        <section className="marketing-final-cta">
+        <section className="marketing-final-cta" data-reveal>
           <div className="marketing-container">
-            <p>{page.finalEyebrow || "Votre événement mérite une expérience claire"}</p>
-            <h2>{page.finalTitle || "Recevez une proposition adaptée à votre date et votre lieu."}</h2>
+            <p>{page.finalEyebrow || "Votre événement"}</p>
+            <h2>{page.finalTitle || "Recevez votre proposition personnalisée."}</h2>
             <a href={bookingUrl} data-event="cta_quote_click" data-event-label="CTA final">
               Obtenir mon devis en 2 minutes
             </a>
@@ -363,7 +442,7 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-hero {
-          padding: 124px 0 72px;
+          padding: 104px 0 48px;
           color: #fff;
           background: #070707;
         }
@@ -385,8 +464,8 @@ export default function MarketingPage({ page }) {
 
         .marketing-hero-grid {
           display: grid;
-          grid-template-columns: 0.95fr 1.05fr;
-          gap: 48px;
+          grid-template-columns: 1.05fr 0.95fr;
+          gap: 36px;
           align-items: center;
         }
 
@@ -407,24 +486,24 @@ export default function MarketingPage({ page }) {
         .marketing-final-cta h2 {
           margin: 0;
           color: inherit;
-          font-size: clamp(2.2rem, 5vw, 4.9rem);
-          line-height: 0.98;
+          font-size: 3.45rem;
+          line-height: 1.03;
           letter-spacing: 0;
         }
 
         .marketing-hero-copy > p:not(.marketing-eyebrow) {
           max-width: 640px;
-          margin: 26px 0 0;
+          margin: 20px 0 0;
           color: #e8e0d3;
-          font-size: 1.12rem;
-          line-height: 1.7;
+          font-size: 1.02rem;
+          line-height: 1.55;
         }
 
         .marketing-actions {
           display: flex;
           flex-wrap: wrap;
           gap: 12px;
-          margin-top: 30px;
+          margin-top: 24px;
         }
 
         .marketing-button,
@@ -464,30 +543,30 @@ export default function MarketingPage({ page }) {
 
         .marketing-hero-media {
           position: relative;
+          width: min(100%, 500px);
+          justify-self: end;
           border-radius: 8px;
           overflow: hidden;
           box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
           background: #181818;
         }
 
-        .marketing-ai-note {
-          position: absolute;
-          right: 16px;
-          bottom: 16px;
-          max-width: 320px;
-          margin: 0;
-          padding: 8px 10px;
-          border-radius: 999px;
-          color: #fff;
-          background: rgba(0, 0, 0, 0.62);
-          font-size: 0.78rem;
-        }
-
         .marketing-hero-media img {
           width: 100%;
-          height: min(64vh, 620px);
+          height: clamp(300px, 38vw, 430px);
           display: block;
           object-fit: cover;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+          .marketing-page.motion-ready .marketing-hero-media img {
+            animation: marketingHeroDrift 16s ease-in-out infinite alternate;
+          }
+        }
+
+        @keyframes marketingHeroDrift {
+          from { transform: scale(1.01); }
+          to { transform: scale(1.05); }
         }
 
         .marketing-hero-proof {
@@ -511,7 +590,7 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-proof-band {
-          padding: 24px 0;
+          padding: 18px 0;
           border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           background: #f5f1e8;
         }
@@ -523,7 +602,7 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-proof-grid div {
-          padding: 18px;
+          padding: 14px;
           border-radius: 8px;
           background: #fff;
         }
@@ -531,7 +610,7 @@ export default function MarketingPage({ page }) {
         .marketing-proof-grid strong {
           display: block;
           color: #111;
-          font-size: 1.8rem;
+          font-size: 1.45rem;
           line-height: 1;
         }
 
@@ -540,10 +619,77 @@ export default function MarketingPage({ page }) {
           margin-top: 8px;
           color: #5d5a52;
           font-weight: 700;
+          font-size: 0.88rem;
+        }
+
+        .marketing-quick-nav {
+          position: sticky;
+          top: 72px;
+          z-index: 40;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(14px);
+        }
+
+        .marketing-quick-nav-inner {
+          min-height: 52px;
+          display: grid;
+          grid-template-columns: auto minmax(0, 1fr) auto;
+          gap: 22px;
+          align-items: center;
+        }
+
+        .marketing-quick-nav-inner > strong {
+          color: #171717;
+          font-size: 0.82rem;
+        }
+
+        .marketing-quick-nav-inner > div {
+          display: flex;
+          gap: 22px;
+          overflow-x: auto;
+          scrollbar-width: none;
+        }
+
+        .marketing-quick-nav-inner > div::-webkit-scrollbar {
+          display: none;
+        }
+
+        .marketing-quick-nav-inner > div a {
+          position: relative;
+          flex: 0 0 auto;
+          color: #4f4a42;
+          font-size: 0.86rem;
+          font-weight: 800;
+          text-decoration: none;
+        }
+
+        .marketing-quick-nav-inner > div a::after {
+          position: absolute;
+          right: 0;
+          bottom: -7px;
+          left: 0;
+          height: 2px;
+          content: "";
+          background: #b8913f;
+          transform: scaleX(0);
+          transition: transform 180ms ease;
+        }
+
+        .marketing-quick-nav-inner > div a:hover::after,
+        .marketing-quick-nav-inner > div a:focus-visible::after {
+          transform: scaleX(1);
+        }
+
+        .marketing-quick-cta {
+          color: #17130a;
+          font-size: 0.84rem;
+          font-weight: 900;
+          text-decoration: none;
         }
 
         .marketing-section {
-          padding: 84px 0;
+          padding: 64px 0;
         }
 
         .marketing-section.is-muted {
@@ -557,19 +703,59 @@ export default function MarketingPage({ page }) {
 
         .marketing-section-header {
           max-width: 760px;
-          margin-bottom: 34px;
+          margin-bottom: 26px;
+        }
+
+        .marketing-section-heading-row {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 260px;
+          gap: 32px;
+          align-items: end;
+          margin-bottom: 26px;
+        }
+
+        .marketing-section-heading-row .marketing-section-header {
+          margin-bottom: 0;
+        }
+
+        .marketing-section-visual {
+          position: relative;
+          height: 150px;
+          margin: 0;
+          overflow: hidden;
+          border-radius: 8px;
+          background: #111;
+        }
+
+        .marketing-section-visual img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+        }
+
+        .marketing-section-visual figcaption {
+          position: absolute;
+          inset: auto 0 0;
+          padding: 22px 12px 10px;
+          color: #fff;
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent);
+          font-size: 0.82rem;
+          font-weight: 800;
         }
 
         .marketing-section-header h2,
         .marketing-final-cta h2 {
-          font-size: clamp(2rem, 3.6vw, 3.5rem);
+          font-size: 2.35rem;
+          line-height: 1.1;
         }
 
         .marketing-section-header span {
           display: block;
-          margin-top: 18px;
+          margin-top: 12px;
           color: #5d5a52;
-          line-height: 1.7;
+          font-size: 0.98rem;
+          line-height: 1.55;
         }
 
         .is-dark .marketing-section-header span {
@@ -589,7 +775,7 @@ export default function MarketingPage({ page }) {
         .marketing-option-card,
         .marketing-pathway-card,
         .marketing-case-card {
-          padding: 24px;
+          padding: 18px;
           border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 8px;
           background: #fff;
@@ -604,7 +790,7 @@ export default function MarketingPage({ page }) {
         .marketing-case-card h3 {
           margin: 0;
           color: #151515;
-          font-size: 1.24rem;
+          font-size: 1.08rem;
         }
 
         .marketing-card p,
@@ -615,7 +801,8 @@ export default function MarketingPage({ page }) {
         .marketing-case-card p {
           margin: 12px 0 0;
           color: #5d5a52;
-          line-height: 1.65;
+          font-size: 0.94rem;
+          line-height: 1.52;
         }
 
         .marketing-comparison-grid,
@@ -678,15 +865,16 @@ export default function MarketingPage({ page }) {
           max-width: 760px;
           margin: 0;
           color: #151515;
-          font-size: clamp(2rem, 3.6vw, 3.5rem);
-          line-height: 1.02;
+          font-size: 2.35rem;
+          line-height: 1.1;
         }
 
         .marketing-story-grid p:not(.marketing-eyebrow) {
           max-width: 720px;
           margin: 20px 0 0;
           color: #5d5a52;
-          line-height: 1.75;
+          font-size: 0.98rem;
+          line-height: 1.55;
         }
 
         .marketing-story-grid a {
@@ -715,8 +903,8 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-comparison-card img {
-          height: 100%;
-          min-height: 220px;
+          height: 160px;
+          min-height: 0;
         }
 
         .marketing-comparison-card dl {
@@ -754,19 +942,20 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-option-card img {
-          aspect-ratio: 1;
+          height: 150px;
           margin-bottom: 18px;
         }
 
         .marketing-gallery {
           display: grid;
-          grid-template-columns: 1.2fr 0.8fr 0.8fr;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
           gap: 16px;
         }
 
         .marketing-gallery figure {
           position: relative;
-          min-height: 280px;
+          height: 190px;
+          min-height: 0;
           margin: 0;
           overflow: hidden;
           border-radius: 8px;
@@ -779,10 +968,6 @@ export default function MarketingPage({ page }) {
           object-fit: cover;
         }
 
-        .marketing-gallery figure:first-child {
-          grid-row: span 2;
-        }
-
         .marketing-gallery figcaption {
           position: absolute;
           inset: auto 0 0;
@@ -791,11 +976,6 @@ export default function MarketingPage({ page }) {
           padding: 18px;
           color: #fff;
           background: linear-gradient(0deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0));
-        }
-
-        .marketing-gallery figcaption span {
-          color: #d8d1c4;
-          font-size: 0.78rem;
         }
 
         .marketing-faq-layout {
@@ -837,7 +1017,7 @@ export default function MarketingPage({ page }) {
 
         .marketing-final-cta {
           position: relative;
-          padding: 72px 0;
+          padding: 56px 0;
           overflow: hidden;
           color: #fff;
           background:
@@ -854,6 +1034,16 @@ export default function MarketingPage({ page }) {
         }
 
         @media (max-width: 980px) {
+          .marketing-hero h1 {
+            font-size: 3.05rem;
+          }
+
+          .marketing-section-header h2,
+          .marketing-final-cta h2,
+          .marketing-story-grid h2 {
+            font-size: 2.15rem;
+          }
+
           .marketing-hero-grid,
           .marketing-faq-layout {
             grid-template-columns: 1fr;
@@ -874,16 +1064,72 @@ export default function MarketingPage({ page }) {
           .marketing-case-card {
             grid-template-columns: 1fr;
           }
+
+          .marketing-hero-media {
+            width: min(100%, 620px);
+            justify-self: start;
+          }
+
+          .marketing-section-heading-row {
+            grid-template-columns: minmax(0, 1fr) 220px;
+          }
         }
 
         @media (max-width: 680px) {
           .marketing-hero {
-            padding-top: 104px;
+            padding: 96px 0 44px;
+          }
+
+          .marketing-hero h1 {
+            font-size: 2.25rem;
+          }
+
+          .marketing-section-header h2,
+          .marketing-story-grid h2 {
+            font-size: 1.85rem;
+          }
+
+          .marketing-final-cta h2 {
+            font-size: 1.95rem;
+          }
+
+          .marketing-quick-nav-inner {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0;
+          }
+
+          .marketing-quick-nav-inner > strong,
+          .marketing-quick-cta {
+            display: none;
+          }
+
+          .marketing-quick-nav-inner > div {
+            gap: 18px;
+          }
+
+          .marketing-quick-nav-inner > div a {
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
           }
 
           .marketing-actions,
           .marketing-button {
             width: 100%;
+          }
+
+          .marketing-hero-media img {
+            height: 270px;
+          }
+
+          .marketing-section-heading-row {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+
+          .marketing-section-visual {
+            width: min(100%, 360px);
+            height: 160px;
           }
 
           .marketing-proof-grid,
@@ -897,8 +1143,17 @@ export default function MarketingPage({ page }) {
             grid-template-columns: 1fr;
           }
 
-          .marketing-gallery figure:first-child {
-            grid-row: auto;
+          .marketing-gallery {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .marketing-gallery figure {
+            height: 160px;
+          }
+
+          .marketing-gallery figcaption {
+            padding: 14px 10px 10px;
+            font-size: 0.78rem;
           }
 
           .marketing-comparison-card {

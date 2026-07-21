@@ -9,7 +9,7 @@ export const machines = [
     alt: "Borne photobooth pour animation photo imprimee",
     short:
       "La borne photo polyvalente pour imprimer des souvenirs et creer une galerie apres l'evenement.",
-    title: "Location photobooth à Paris pour photos imprimées",
+    title: "Location photobooth pour photos imprimées",
     description:
       "Une animation photo simple à comprendre, avec tirages personnalisés selon la formule, galerie web et installation clé en main.",
     bestFor: "Mariage, anniversaire, soirée privée, salon et événement d'entreprise.",
@@ -106,7 +106,7 @@ export const machines = [
     alt: "360 Booth pour video evenementielle",
     short:
       "Une animation video dynamique pour produire des contenus courts, immersifs et partageables.",
-    title: "Location 360 Booth à Paris pour vidéo événementielle",
+    title: "Location 360 Booth pour vidéo événementielle",
     description:
       "Le 360 Booth capte des videos 4K avec habillage personnalise, animateur, installation et galerie web.",
     bestFor: "Soirée d'entreprise, lancement produit, anniversaire, activation de marque.",
@@ -388,61 +388,75 @@ export const eventTypes = [
 export const processSteps = [
   {
     title: "Preparation",
-    text: "Objectif, public, lieu, timing, contraintes techniques et niveau de personnalisation sont cadrés avant validation.",
+    text: "Date, lieu et formule validés ensemble.",
   },
   {
     title: "Personnalisation",
-    text: "Tirages, habillages vidéo, écrans ou éléments décoratifs sont préparés selon la formule retenue.",
+    text: "Vos couleurs et vos souvenirs sont préparés.",
   },
   {
     title: "Installation",
-    text: "Livraison, montage, branchements et tests sont anticipés pour une ouverture fluide.",
+    text: "Livraison, montage et tests avant l'accueil.",
   },
   {
     title: "Animation",
-    text: "L'équipe ou l'animateur accompagne les invités selon la formule et le volume attendu.",
+    text: "Vos invités profitent, nous gérons le reste.",
   },
   {
     title: "Galerie",
-    text: "Les contenus numériques et la galerie prolongent l'impact après l'événement.",
+    text: "Retrouvez les contenus après l'événement.",
   },
 ];
 
 export const galleryHighlights = [
   {
+    title: "Souvenirs prêts à offrir",
+    text: "Tirages, porte-clés et livre d'or présentés dans une mise en scène élégante et lisible.",
+    image: "/images/ai/detail-souvenirs-premium-ai.webp",
+  },
+  {
+    title: "Expérience 360",
+    text: "Une animation vidéo dynamique qui garde une présence soignée dans la salle.",
+    image: "/images/ai/ambiance-360booth-premium-ai.webp",
+  },
+  {
+    title: "Livre d'or audio",
+    text: "Un téléphone rétro discret pour recueillir des messages spontanés pendant la réception.",
+    image: "/images/ai/phonebooth-audio-mariage-ai.webp",
+  },
+  {
+    title: "Installation maîtrisée",
+    text: "Réglages, lumière et zone d'impression préparés avant l'arrivée des invités.",
+    image: "/images/ai/installation-photobooth-premium-ai.webp",
+  },
+  {
     title: "Tirages personnalises",
     text: "Cadres photo, formats verticaux et souvenirs prepares pour l'univers de l'evenement.",
     image: "/images/generated/instagram-print-strips.webp",
-    note: "Visuel d'ambiance généré par IA.",
   },
   {
     title: "Ambiance invité",
     text: "Accessoires, sourires et participation naturelle, sans transformer l'animation en gadget.",
     image: "/images/ai/ambiance-photobooth-soiree-premium.webp",
-    note: "Visuel d'ambiance généré par IA.",
   },
   {
     title: "Options souvenirs",
     text: "Porte-clés, magnets, livre d'or et détails qui prolongent le souvenir.",
     image: "/images/ai/options-souvenirs-premium.webp",
-    note: "Visuel d'ambiance généré par IA.",
   },
   {
     title: "Installation propre",
     text: "Materiel prepare, zone visible et integration soignee dans la salle.",
     image: "/images/generated/instagram-backstage-setup.webp",
-    note: "Visuel d'ambiance généré par IA.",
   },
   {
     title: "Effet magazine",
     text: "Vogue Booth lumineux pour une scene photo forte et premium.",
     image: "/images/ai/ambiance-vogue-booth-premium.webp",
-    note: "Visuel d'ambiance généré par IA.",
   },
   {
     title: "Grand événement",
     text: "Parcours photo et video pense pour absorber un volume important d'invites.",
     image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
-    note: "Visuel d'ambiance généré par IA.",
   },
 ];

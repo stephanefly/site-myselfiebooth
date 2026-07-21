@@ -8,8 +8,8 @@ import {
 } from "../data/site";
 
 export default function Meta({
-  title = "MySelfieBooth - Location photobooth premium à Paris",
-  description = "Louez un photobooth premium pour vos événements professionnels et privés : entreprises, mariages, anniversaires et soirées à Paris et en Île-de-France.",
+  title = "MySelfieBooth - Location photobooth premium en Île-de-France",
+  description = "Louez un photobooth premium pour vos événements professionnels et privés : entreprises, mariages, anniversaires et soirées en Île-de-France.",
   keywords = "photobooth entreprise paris, location photobooth paris, photobooth mariage, animation événementielle, miroir photobooth, selfie box, photobooth corporate",
   ogTitle,
   ogDescription,

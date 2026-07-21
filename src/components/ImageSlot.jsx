@@ -48,7 +48,6 @@ export default function ImageSlot({ slotId, className = "", loading = "lazy" }) 
   return (
     <figure className={`image-slot ${className}`} style={style}>
       <img src={slot.src} alt={slot.alt} loading={loading} />
-      {slot.note && <figcaption>{slot.note}</figcaption>}
 
       <style jsx>{`
         .image-slot {
@@ -67,18 +66,6 @@ export default function ImageSlot({ slotId, className = "", loading = "lazy" }) 
           object-fit: cover;
         }
 
-        figcaption {
-          position: absolute;
-          right: 12px;
-          bottom: 12px;
-          max-width: calc(100% - 24px);
-          padding: 7px 10px;
-          border-radius: 999px;
-          color: #fff;
-          background: rgba(0, 0, 0, 0.62);
-          font-size: 0.75rem;
-          line-height: 1.25;
-        }
       `}</style>
     </figure>
   );

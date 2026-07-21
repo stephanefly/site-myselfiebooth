@@ -6,8 +6,7 @@
     "ratio": "16 / 9",
     "kind": "ai",
     "src": "/images/ai/hero-photobooth-evenement-premium.webp",
-    "alt": "Visuel illustratif d'une ambiance photobooth premium pour événement",
-    "note": "Visuel d'ambiance généré par IA."
+    "alt": "Ambiance photobooth premium pour événement"
   },
   {
     "id": "b2b-hero-ambience",
@@ -16,38 +15,34 @@
     "ratio": "4 / 3",
     "kind": "ai",
     "src": "/images/ai/ambiance-photobooth-corporate-premium.webp",
-    "alt": "Visuel illustratif d'une activation photobooth en contexte professionnel",
-    "note": "Visuel d'ambiance généré par IA."
+    "alt": "Activation photobooth en contexte professionnel"
   },
   {
     "id": "b2b-case-salon",
     "page": "/evenements/corporates/",
-    "usage": "Illustration IA pour salon professionnel ou activation de marque",
+    "usage": "Photobooth pour salon professionnel ou activation de marque",
     "ratio": "4 / 3",
     "kind": "ai",
     "src": "/images/ai/b2b-case-salon-ai.png",
-    "alt": "Visuel d'ambiance d'une activation photobooth premium sur salon professionnel",
-    "note": "Visuel d'ambiance généré par IA."
+    "alt": "Activation photobooth premium sur salon professionnel"
   },
   {
     "id": "b2b-case-seminaire",
     "page": "/evenements/corporates/",
-    "usage": "Illustration IA pour séminaire, conférence ou soirée interne",
+    "usage": "Photobooth pour séminaire, conférence ou soirée interne",
     "ratio": "4 / 3",
     "kind": "ai",
     "src": "/images/ai/b2b-case-seminaire-ai.png",
-    "alt": "Visuel d'ambiance d'un photobooth premium lors d'une soirée interne d'entreprise",
-    "note": "Visuel d'ambiance généré par IA."
+    "alt": "Photobooth premium lors d'une soirée interne d'entreprise"
   },
   {
     "id": "founder-portrait",
     "page": "/a-propos/",
-    "usage": "Visuel IA d'atelier pour illustrer l'expertise fondatrice",
+    "usage": "Atelier de préparation pour illustrer l'expertise fondatrice",
     "ratio": "4 / 5",
     "kind": "ai",
     "src": "/images/ai/founder-workshop-ai.png",
-    "alt": "Visuel d'ambiance d'un atelier premium de préparation photobooth",
-    "note": "Visuel d'ambiance généré par IA, sans portrait réel."
+    "alt": "Atelier premium de préparation photobooth"
   },
   {
     "id": "wedding-real-hero",
@@ -56,8 +51,7 @@
     "ratio": "4 / 3",
     "kind": "real",
     "src": "/images/mariages/mariage1.JPG",
-    "alt": "Photobooth installé lors d'un mariage MySelfieBooth",
-    "note": ""
+    "alt": "Photobooth installé lors d'un mariage MySelfieBooth"
   },
   {
     "id": "options-souvenirs-ai",
@@ -66,8 +60,7 @@
     "ratio": "1 / 1",
     "kind": "ai",
     "src": "/images/ai/options-souvenirs-premium.webp",
-    "alt": "Visuel illustratif d'options souvenirs photobooth premium",
-    "note": "Visuel d'ambiance généré par IA."
+    "alt": "Options souvenirs photobooth premium"
   },
   {
     "id": "video-poster-event",
@@ -76,7 +69,6 @@
     "ratio": "16 / 9",
     "kind": "ai",
     "src": "/images/ai/hero-photobooth-evenement-premium.webp",
-    "alt": "Visuel d'ambiance photobooth premium pour vidéo événementielle",
-    "note": "Visuel d'ambiance généré par IA."
+    "alt": "Ambiance photobooth premium pour vidéo événementielle"
   }
 ]
