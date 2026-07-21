@@ -1,4 +1,3 @@
-import { machines, options } from "../data/catalog";
 import { siteConfig, trustSignals } from "../data/site";
 
 const eventLinks = [
@@ -9,7 +8,7 @@ const eventLinks = [
 ];
 
 const infoLinks = [
-  { label: "À propos", href: "/a-propos" },
+  { label: "Qui sommes-nous", href: "/a-propos" },
   { label: "Blog", href: "/blog" },
   { label: "Confidentialité", href: "/privacy-policy" },
   { label: "Mentions légales", href: "/terms" },
@@ -20,32 +19,23 @@ export default function Footer() {
   const year = new Date().getFullYear();
   const review = trustSignals.find((signal) => signal.value === "4.9/5");
   const reviewCount = trustSignals.find((signal) => signal.value === "167");
-  const visibleOptions = options.slice(0, 6);
   const linkGroups = [
     {
-      title: "Animations",
-      links: machines.map((machine) => ({
-        label: machine.name,
-        href: machine.href,
-      })),
+      title: "Découvrir",
+      links: [
+        { label: "Toutes les prestations", href: "/prestations" },
+        { label: "Nos packs", href: "/prestations#packs" },
+        { label: "Toutes les options", href: "/prestations#options" },
+        { label: "Réalisations", href: "/#realisations" },
+      ],
     },
     {
       title: "Événements",
       links: eventLinks,
     },
     {
-      title: "Options",
-      links: [
-        { label: "Toutes les options", href: "/options" },
-        ...visibleOptions.map((option) => ({
-          label: option.name,
-          href: option.href || "/options",
-        })),
-      ],
-    },
-    {
       title: "Infos",
-      links: infoLinks,
+      links: infoLinks.slice(0, 4),
     },
   ];
 
@@ -107,9 +97,9 @@ export default function Footer() {
           width: min(1180px, calc(100% - 32px));
           margin: 0 auto;
           display: grid;
-          grid-template-columns: minmax(240px, 1.25fr) repeat(5, minmax(0, 1fr));
+          grid-template-columns: minmax(260px, 1.35fr) repeat(4, minmax(0, 1fr));
           gap: 28px;
-          padding: 56px 0 36px;
+          padding: 44px 0 30px;
         }
 
         .footer-brand > a {

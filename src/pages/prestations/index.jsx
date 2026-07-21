@@ -1,6 +1,5 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
-import { marketingPages } from "../../data/marketingPages";
+import ServicesCatalogPage from "../../components/services/ServicesCatalogPage";
 
 export default function Prestations() {
-  return <MarketingPage page={marketingPages["prestations-index"]} />;
+  return <ServicesCatalogPage />;
 }

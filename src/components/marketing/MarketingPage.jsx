@@ -26,19 +26,19 @@ function getSectionVisual(page, section, index) {
   );
 
   if (/phonebooth|audio|livre d'or/.test(context)) {
-    return findByFile("phonebooth-audio") || visuals[index % visuals.length];
+    return findByFile("phonebooth-reception") || visuals[index % visuals.length];
   }
 
   if (/360|vidéo|video|vogue|soirée|soiree|anniversaire/.test(context)) {
-    return findByFile("ambiance-360booth") || visuals[index % visuals.length];
+    return findByFile("360booth-entreprise") || visuals[index % visuals.length];
   }
 
   if (/logistique|processus|installation|inclus|prévoir|prevoir|jour j/.test(context)) {
-    return findByFile("installation-photobooth") || visuals[index % visuals.length];
+    return findByFile("atelier-machines") || visuals[index % visuals.length];
   }
 
   if (/option|souvenir|personnalis|tirage|galerie/.test(context)) {
-    return findByFile("detail-souvenirs") || visuals[index % visuals.length];
+    return findByFile("options-souvenirs") || visuals[index % visuals.length];
   }
 
   return visuals[index % visuals.length];
@@ -442,7 +442,7 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-hero {
-          padding: 104px 0 48px;
+          padding: 96px 0 36px;
           color: #fff;
           background: #070707;
         }
@@ -486,7 +486,7 @@ export default function MarketingPage({ page }) {
         .marketing-final-cta h2 {
           margin: 0;
           color: inherit;
-          font-size: 3.45rem;
+          font-size: 3rem;
           line-height: 1.03;
           letter-spacing: 0;
         }
@@ -553,7 +553,7 @@ export default function MarketingPage({ page }) {
 
         .marketing-hero-media img {
           width: 100%;
-          height: clamp(300px, 38vw, 430px);
+          height: clamp(280px, 34vw, 370px);
           display: block;
           object-fit: cover;
         }
@@ -590,7 +590,7 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-proof-band {
-          padding: 18px 0;
+          padding: 14px 0;
           border-bottom: 1px solid rgba(0, 0, 0, 0.08);
           background: #f5f1e8;
         }
@@ -689,7 +689,7 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-section {
-          padding: 64px 0;
+          padding: 44px 0;
         }
 
         .marketing-section.is-muted {
@@ -703,7 +703,7 @@ export default function MarketingPage({ page }) {
 
         .marketing-section-header {
           max-width: 760px;
-          margin-bottom: 26px;
+          margin-bottom: 20px;
         }
 
         .marketing-section-heading-row {
@@ -711,7 +711,7 @@ export default function MarketingPage({ page }) {
           grid-template-columns: minmax(0, 1fr) 260px;
           gap: 32px;
           align-items: end;
-          margin-bottom: 26px;
+          margin-bottom: 20px;
         }
 
         .marketing-section-heading-row .marketing-section-header {
@@ -1017,12 +1017,12 @@ export default function MarketingPage({ page }) {
 
         .marketing-final-cta {
           position: relative;
-          padding: 56px 0;
+          padding: 42px 0;
           overflow: hidden;
           color: #fff;
           background:
             linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.72)),
-            url("/images/ai/fond-cta-noir-dore-ivoire.webp") center / cover;
+            url("/images/machines-ai/hero-machines-myselfiebooth.webp") center / cover;
         }
 
         .marketing-final-cta h2 {

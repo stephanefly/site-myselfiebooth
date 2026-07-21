@@ -27,7 +27,7 @@ export default function PreFooter() {
           color: #fff;
           background:
             linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.7)),
-            url("/images/ai/fond-cta-noir-dore-ivoire.webp") center / cover;
+            url("/images/machines-ai/hero-machines-myselfiebooth.webp") center / cover;
           text-align: left;
         }
 

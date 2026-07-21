@@ -129,7 +129,7 @@
 }
 
 .marketing-hero {
-  padding: 104px 0 48px;
+  padding: 96px 0 36px;
   color: #fff;
   background: #070707;
 }
@@ -179,7 +179,7 @@
 .marketing-final-cta h2 {
   margin: 0;
   color: inherit;
-  font-size: 3.45rem;
+  font-size: 3rem;
   line-height: 1.03;
   letter-spacing: 0;
 }
@@ -235,7 +235,7 @@
 
 .marketing-hero-media img {
   width: 100%;
-  height: clamp(300px, 38vw, 430px);
+  height: clamp(280px, 34vw, 370px);
   display: block;
   object-fit: cover;
 }
@@ -263,7 +263,7 @@
 }
 
 .marketing-proof-band {
-  padding: 18px 0;
+  padding: 14px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   background: #f5f1e8;
 }
@@ -321,7 +321,7 @@
 }
 
 .marketing-section {
-  padding: 64px 0;
+  padding: 44px 0;
 }
 
 .marketing-section.is-muted {
@@ -335,7 +335,7 @@
 
 .marketing-section-header {
   max-width: 760px;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .marketing-section-heading-row {
@@ -343,7 +343,7 @@
   grid-template-columns: minmax(0, 1fr) 260px;
   gap: 32px;
   align-items: end;
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .marketing-section-heading-row .marketing-section-header {
@@ -450,7 +450,7 @@
 }
 
 .marketing-final-cta {
-  padding: 56px 0;
+  padding: 42px 0;
   color: #fff;
   background: #090909;
 }

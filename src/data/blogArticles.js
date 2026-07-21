@@ -54,7 +54,7 @@ export const blogArticles = [
     title: "Photobooth d'entreprise : réussir une animation de marque",
     excerpt:
       "Une animation efficace sert un objectif clair : attirer, faire participer, créer du contenu ou remercier les équipes.",
-    image: "/images/generated/instagram-corporate-activation.webp",
+    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
     imageAlt: "Activation photobooth personnalisée pour une entreprise",
     readTime: "5 min",
     publishedAt: "21 juillet 2026",
@@ -100,7 +100,7 @@ export const blogArticles = [
     title: "Quel espace prévoir pour installer un photobooth ?",
     excerpt:
       "La surface ne suffit pas : il faut aussi penser au recul photo, à la circulation, à l'électricité et à l'accès de livraison.",
-    image: "/images/ai/installation-photobooth-premium-ai.webp",
+    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
     imageAlt: "Installation et réglage d'un photobooth avant un événement",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
@@ -147,7 +147,7 @@ export const blogArticles = [
     title: "Personnaliser un photobooth : tirages, décor et souvenirs",
     excerpt:
       "Une bonne personnalisation relie le décor, les contenus et les souvenirs sans surcharger l'expérience.",
-    image: "/images/ai/detail-souvenirs-premium-ai.webp",
+    image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
     imageAlt: "Tirages et souvenirs personnalisés autour d'un photobooth",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",

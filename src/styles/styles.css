@@ -1,4 +1,6 @@
 @import "./home.css";
+@import "./services.css";
+@import "./about.css";
 
 /* --- Reset CSS --- */
 * {
@@ -166,16 +168,16 @@ section[id] {
 
 
 /* --- Legacy Sections --- */
-section:not([class*="home-"]):not([class*="marketing-"]) {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]) {
   text-align: center;
 }
 
-section:not([class*="home-"]):not([class*="marketing-"]) h2 {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]) h2 {
   font-size: 2.5rem;
   color: #333;
 }
 
-section:not([class*="home-"]):not([class*="marketing-"]) p {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]) p {
   font-size: 1.1rem;
   color: #555;
 }

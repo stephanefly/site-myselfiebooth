@@ -11,11 +11,12 @@ import { brandLogos, siteConfig, trustSignals } from "./site";
 export { brandLogos, galleryHighlights, processSteps, selectorNeeds };
 
 export const services = machines.map((machine) => ({
+  key: machine.key,
   title: machine.name,
   tag: machine.tag,
   text: machine.short,
-  image: machine.image,
-  href: machine.href,
+  image: machine.aiImage || machine.image,
+  href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));
 
@@ -66,7 +67,7 @@ export const optionHighlights = options.slice(0, 8);
 export const comparisonRows = machines.map((machine) => ({
   name: machine.name,
   href: machine.href,
-  image: machine.image,
+  image: machine.aiImage || machine.image,
   print: machine.print,
   participants: machine.participants,
   space: machine.space,

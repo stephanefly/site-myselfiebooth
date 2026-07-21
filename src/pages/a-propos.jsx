@@ -1,6 +1,5 @@
-import MarketingPage from "../components/marketing/MarketingPage";
-import { marketingPages } from "../data/marketingPages";
+import AboutPage from "../components/about/AboutPage";
 
 export default function APropos() {
-  return <MarketingPage page={marketingPages["a-propos"]} />;
+  return <AboutPage />;
 }

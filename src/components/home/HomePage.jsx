@@ -1,10 +1,6 @@
 import {
   brandLogos,
-  faqs,
   galleryHighlights,
-  marketPaths,
-  optionHighlights,
-  processSteps,
   proofPoints,
   selectorNeeds,
   services,
@@ -35,10 +31,10 @@ function QuoteButton({ className = "home-button home-button-primary" }) {
 
 function HomeQuickNavigation() {
   const links = [
-    ["#prestations", "Animations"],
-    ["#options", "Options"],
+    ["/prestations#machines", "Animations"],
+    ["/prestations#packs", "Packs"],
+    ["/prestations#options", "Options"],
     ["#realisations", "Photos"],
-    ["#faq", "FAQ"],
   ];
 
   return (
@@ -74,10 +70,10 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
           <img
-            src="/images/ai/hero-photobooth-evenement-premium.webp"
+            src="/images/machines-ai/hero-machines-myselfiebooth.webp"
             alt=""
-            width="1672"
-            height="941"
+            width="1600"
+            height="900"
             fetchPriority="high"
           />
         </div>
@@ -86,8 +82,8 @@ export default function HomePage() {
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy" data-reveal>
             <p className="home-eyebrow">Photobooth premium - {siteConfig.mainArea}</p>
-            <h1>Location de photobooth pour mariages, entreprises et grands événements.</h1>
-            <p>Photos, vidéos et souvenirs personnalisés, installés clé en main.</p>
+            <h1>L'animation photo ou vidéo qu'il faut à votre événement.</h1>
+            <p>8 machines, des packs clairs et une installation clé en main.</p>
             <div className="home-actions">
               <QuoteButton />
               <a className="home-button home-button-secondary" href="/prestations">
@@ -116,30 +112,6 @@ export default function HomePage() {
       </section>
 
       <HomeQuickNavigation />
-
-      <section className="home-section home-section-muted" data-reveal>
-        <div className="home-container">
-          <SectionIntro
-            eyebrow="Votre événement"
-            title="Choisissez votre parcours"
-          />
-          <div className="home-path-grid">
-            {marketPaths.map((path) => (
-              <a
-                key={path.href}
-                href={path.href}
-                className="home-path-card"
-                data-event="market_path_click"
-                data-event-label={path.eyebrow}
-              >
-                <span>{path.eyebrow}</span>
-                <h3>{path.title}</h3>
-                <strong>{path.cta}</strong>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container">
@@ -176,7 +148,7 @@ export default function HomePage() {
                   <p>{service.text}</p>
                   <div className="home-service-footer">
                     <strong>{service.price}</strong>
-                    <a href={service.href}>Details</a>
+                    <a href={service.href}>Voir</a>
                   </div>
                 </div>
               </article>
@@ -190,46 +162,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section home-section-dark" data-reveal>
-        <div className="home-container home-split">
+      <section className="home-section home-section-muted" data-reveal>
+        <div className="home-container home-story-grid">
+          <figure className="home-story-media">
+            <img
+              src="/images/equipe/equipe-myselfiebooth.webp"
+              alt="Une partie de l'équipe MySelfieBooth"
+              width="1350"
+              height="1800"
+              loading="lazy"
+            />
+          </figure>
           <div>
-            <p className="home-eyebrow">Tout est pris en charge</p>
-            <h2>Simple du devis au jour J.</h2>
-            <QuoteButton className="home-button home-button-primary home-inline-cta" />
-          </div>
-          <div className="home-process-grid">
-            {processSteps.slice(0, 4).map((step, index) => (
-              <article key={step.title} className="home-process-card">
-                <span>0{index + 1}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="options" className="home-section home-section-light" data-reveal>
-        <div className="home-container">
-          <SectionIntro
-            eyebrow="Options"
-            title="Personnalisez l'expérience"
-          />
-          <div className="home-option-grid">
-            {optionHighlights.slice(0, 4).map((option) => (
-              <article key={option.name} className="home-option-card">
-                <img src={option.image} alt={option.name} loading="lazy" width="360" height="360" />
-                <div>
-                  <h3>{option.name}</h3>
-                  {option.href && <a href={option.href}>En savoir plus</a>}
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="home-centered-action">
-            <a href="/options" className="home-button home-button-secondary-dark">
-              Voir toutes les options
-            </a>
+            <p className="home-eyebrow">Qui sommes-nous</p>
+            <h2>Une aventure familiale, une équipe de terrain.</h2>
+            <p>
+              De la fabrication de nos premières bornes jusqu'au montage sur votre événement,
+              nous suivons chaque projet avec la même équipe.
+            </p>
+            <a href="/a-propos">Découvrir notre histoire</a>
           </div>
         </div>
       </section>
@@ -241,7 +192,7 @@ export default function HomePage() {
             title="Voyez le rendu"
           />
           <div className="home-gallery-grid">
-            {galleryHighlights.slice(0, 8).map((item) => (
+            {galleryHighlights.slice(0, 6).map((item) => (
               <article key={item.title} className="home-gallery-card" data-event="gallery_open">
                 <img src={item.image} alt={item.title} loading="lazy" />
                 <div>
@@ -253,37 +204,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-section home-section-light" data-reveal>
-        <div className="home-container home-zone-layout">
-          <div>
-            <p className="home-eyebrow">Zone d'intervention</p>
-            <h2>Interventions en Île-de-France, à Lyon et à Rouen.</h2>
-          </div>
-          <div className="home-zone-links">
-            <a href="/paris">Paris</a>
-            <a href="/lyon">Lyon</a>
-            <a href="/rouen">Rouen</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" className="home-section home-section-light" data-reveal>
-        <div className="home-container home-faq-layout">
-          <div>
-            <p className="home-eyebrow">Questions rapides</p>
-            <h2>L'essentiel avant de réserver</h2>
-            <QuoteButton />
-          </div>
-          <div className="home-faq-list">
-            {faqs.slice(0, 3).map((item) => (
-              <details key={item.question}>
-                <summary>{item.question}</summary>
-                <p>{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

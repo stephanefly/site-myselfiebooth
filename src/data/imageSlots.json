@@ -5,7 +5,7 @@
     "usage": "Hero principal de la page d'accueil",
     "ratio": "16 / 9",
     "kind": "ai",
-    "src": "/images/ai/hero-photobooth-evenement-premium.webp",
+    "src": "/images/machines-ai/hero-machines-myselfiebooth.webp",
     "alt": "Ambiance photobooth premium pour événement"
   },
   {
@@ -14,7 +14,7 @@
     "usage": "Hero de la page Entreprises",
     "ratio": "4 / 3",
     "kind": "ai",
-    "src": "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    "src": "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
     "alt": "Activation photobooth en contexte professionnel"
   },
   {
@@ -23,7 +23,7 @@
     "usage": "Photobooth pour salon professionnel ou activation de marque",
     "ratio": "4 / 3",
     "kind": "ai",
-    "src": "/images/ai/b2b-case-salon-ai.png",
+    "src": "/images/machines-ai/air360-gala-myselfiebooth.webp",
     "alt": "Activation photobooth premium sur salon professionnel"
   },
   {
@@ -32,7 +32,7 @@
     "usage": "Photobooth pour séminaire, conférence ou soirée interne",
     "ratio": "4 / 3",
     "kind": "ai",
-    "src": "/images/ai/b2b-case-seminaire-ai.png",
+    "src": "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
     "alt": "Photobooth premium lors d'une soirée interne d'entreprise"
   },
   {
@@ -41,7 +41,7 @@
     "usage": "Atelier de préparation pour illustrer l'expertise fondatrice",
     "ratio": "4 / 5",
     "kind": "ai",
-    "src": "/images/ai/founder-workshop-ai.png",
+    "src": "/images/machines-ai/atelier-machines-myselfiebooth.webp",
     "alt": "Atelier premium de préparation photobooth"
   },
   {
@@ -59,7 +59,7 @@
     "usage": "Visuel éditorial des options souvenirs",
     "ratio": "1 / 1",
     "kind": "ai",
-    "src": "/images/ai/options-souvenirs-premium.webp",
+    "src": "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
     "alt": "Options souvenirs photobooth premium"
   },
   {
@@ -68,7 +68,7 @@
     "usage": "Poster léger pour vidéo événementielle, sans lecture automatique",
     "ratio": "16 / 9",
     "kind": "ai",
-    "src": "/images/ai/hero-photobooth-evenement-premium.webp",
+    "src": "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
     "alt": "Ambiance photobooth premium pour vidéo événementielle"
   }
 ]

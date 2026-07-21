@@ -45,7 +45,7 @@ function page({
   highlights,
   breadcrumbs = [],
   sections = [],
-  gallery = galleryHighlights,
+  gallery = galleryHighlights.slice(0, 4),
   faq = [],
   finalTitle,
   relatedLinks = [],
@@ -87,7 +87,7 @@ function page({
     caseStudies,
     story,
     primaryCta: primaryCta || { label: siteConfig.primaryCtaLabel, href: siteConfig.quoteUrl },
-    secondaryCta: secondaryCta || { label: siteConfig.secondaryCtaLabel, href: "/#comparateur" },
+    secondaryCta: secondaryCta || { label: siteConfig.secondaryCtaLabel, href: "/prestations#machines" },
     phoneCta: phoneCta || { label: siteConfig.phoneCtaLabel, href: siteConfig.phoneHref },
     meta: {
       title: `${title} | MySelfieBooth`,
@@ -135,12 +135,8 @@ function machinePage(machine) {
       },
       {
         eyebrow: "Inclus",
-        title: "Ce qui est compris ou a cadrer dans la formule",
-        text: "Les informations restent prudentes pour ne pas promettre une option qui depend du devis.",
-        cards: [
-          ...cardsFrom("Inclus", machine.includes),
-          ...cardsFrom("Selon formule", machine.depends),
-        ],
+        title: "Ce qui est prévu dans la formule",
+        cards: cardsFrom("Inclus", machine.includes.slice(0, 4)),
       },
       {
         eyebrow: "Logistique",
@@ -148,17 +144,11 @@ function machinePage(machine) {
         text: "Un bon emplacement evite l'attente, les branchements compliques et les rendus decevants.",
         cards: cardsFrom("A prevoir", machine.logistics),
       },
-      {
-        eyebrow: "Options compatibles",
-        title: "Les complements qui renforcent cette animation",
-        text: "Les options doivent etre confirmees au moment du devis selon la machine et le lieu.",
-        cards: machine.options.map((option) => ({ title: option, text: "A integrer au devis si cette option correspond a votre objectif." })),
-      },
     ],
     faq,
     relatedLinks: [
-      { label: "Comparer les animations", href: "/#comparateur" },
-      { label: "Voir les options", href: "/options" },
+      { label: "Comparer les animations", href: "/prestations#machines" },
+      { label: "Voir les options", href: "/prestations#options" },
       { label: "Événements entreprise", href: "/evenements/corporates" },
       { label: "Mariages", href: "/evenements/mariages" },
     ],
@@ -172,7 +162,7 @@ const machineCards = machines.map((machine) => ({
 
 const comparison = machines.map((machine) => ({
   title: machine.name,
-  image: machine.image,
+  image: machine.aiImage || machine.image,
   rows: [
     ["Impression", machine.print],
     ["Participants", machine.participants],
@@ -188,7 +178,7 @@ const eventPages = {
     title: "Animations photo et vidéo pour entreprise et activation de marque",
     description:
       "Photobooth, 360 Booth, iPad Booth et formats premium pour soirées d'entreprise, séminaires, lancements, inaugurations et activations de marque.",
-    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
     highlights: ["Branding", "Logistique", "Contenus"],
     primaryCta: {
       label: siteConfig.professionalCtaLabel,
@@ -360,7 +350,7 @@ const eventPages = {
     title: "Photobooth anniversaire pour une soiree vivante et memorable",
     description:
       "Une animation photo ou video festive, simple a utiliser et personnalisable pour anniversaire adulte, famille ou grande soiree.",
-    image: "/images/ai/ambiance-photobooth-soiree-premium.webp",
+    image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
     highlights: ["Festif", "Accessoires", "Partage"],
     sections: [
       {
@@ -385,7 +375,7 @@ const eventPages = {
     title: "Photobooth pour soiree privee et evenement VIP",
     description:
       "Une animation photo et video qui habille la soiree, engage les invites et reste coherente avec une ambiance premium.",
-    image: "/images/generated/instagram-party-guests.webp",
+    image: "/images/machines-ai/air360-gala-myselfiebooth.webp",
     highlights: ["VIP", "Ambiance", "Partage"],
     sections: [
       {
@@ -408,6 +398,33 @@ const eventPages = {
   },
 };
 
+const commonEventFaq = [
+  {
+    question: "Combien d'espace faut-il prévoir pour installer une animation ?",
+    answer: "L'espace dépend de la machine et du décor. Nous vérifions la surface disponible, la hauteur, les accès et la circulation avant de confirmer la configuration.",
+  },
+  {
+    question: "L'installation et le démontage sont-ils pris en charge ?",
+    answer: "Oui, les conditions de livraison, de montage, de tests et de démontage sont précisées dans la proposition selon le lieu et la formule.",
+  },
+  {
+    question: "Faut-il prévoir une prise électrique ou une connexion internet ?",
+    answer: "Une alimentation électrique à proximité est généralement nécessaire. La connexion internet dépend des fonctions de partage retenues et doit être vérifiée avec le lieu.",
+  },
+  {
+    question: "Un animateur reste-t-il présent pendant l'événement ?",
+    answer: "Cela dépend de la machine et de la formule choisie. Lorsque sa présence est prévue, il guide les invités et veille au bon fonctionnement de l'installation.",
+  },
+  {
+    question: "Peut-on personnaliser les photos et l'écran ?",
+    answer: "Oui, le cadre photo, les couleurs, le logo, certains écrans et plusieurs éléments du décor peuvent être personnalisés selon la prestation.",
+  },
+  {
+    question: "Combien de temps avant l'événement faut-il réserver ?",
+    answer: "Le plus tôt possible pour sécuriser la date, surtout en période chargée. Un délai supplémentaire est utile lorsque le projet demande un décor ou une personnalisation spécifique.",
+  },
+];
+
 function eventPage(key, path) {
   const data = eventPages[key];
   return page({
@@ -424,9 +441,9 @@ function eventPage(key, path) {
     caseStudies: data.caseStudies,
     breadcrumbs: [{ label: "Vos evenements", href: "/evenements" }],
     sections: data.sections,
-    faq: data.faq,
+    faq: [...data.faq, ...commonEventFaq],
     relatedLinks: [
-      { label: "Comparer les animations", href: "/#comparateur" },
+      { label: "Comparer les animations", href: "/prestations#machines" },
       { label: "Voir les options", href: "/options" },
       { label: "Obtenir un devis", href: siteConfig.quoteUrl },
     ],
@@ -441,7 +458,7 @@ export const marketingPages = {
     title: "Comparer les photobooths, bornes video et packs MySelfieBooth",
     description:
       "Photobooth, Miroirbooth, 360 Booth, Air360, iPad Booth, Vogue Booth, Pack VIP et formule complete: comparez les animations avant votre devis.",
-    image: "/images/ai/hero-photobooth-evenement-premium.webp",
+    image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
     path: "/prestations",
     highlights: ["8 formats", "Comparateur", "Options"],
     breadcrumbs: [],
@@ -479,7 +496,7 @@ export const marketingPages = {
     title: "Choisir une animation photo adaptee a chaque public",
     description:
       "Mariage, entreprise, anniversaire ou soiree VIP: retrouvez les recommandations MySelfieBooth selon votre contexte.",
-    image: "/images/ai/hero-photobooth-evenement-premium.webp",
+    image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
     path: "/evenements",
     highlights: ["Mariage", "Entreprise", "Prive"],
     sections: [
@@ -498,6 +515,11 @@ export const marketingPages = {
         question: "Faut-il choisir la machine avant le devis ?",
         answer: "Non. Le comparateur aide a se projeter, mais le devis confirme la meilleure configuration selon le lieu et les invites.",
       },
+      ...commonEventFaq,
+      {
+        question: "Récupère-t-on les photos ou vidéos après l'événement ?",
+        answer: "Oui, les modalités de remise des contenus numériques ou de la galerie sont indiquées dans la formule et confirmées dans le devis.",
+      },
     ],
   }),
   corporates: eventPage("corporates", "/evenements/corporates"),
@@ -510,7 +532,7 @@ export const marketingPages = {
     title: "Toutes les options pour personnaliser votre photobooth",
     description:
       "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
-    image: "/images/ai/options-souvenirs-premium.webp",
+    image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
     path: "/options",
     highlights: ["Souvenirs", "Decor", "Audio"],
     sections: [
@@ -535,7 +557,7 @@ export const marketingPages = {
     title: "Phonebooth audio pour messages vocaux de mariage et soiree",
     description:
       "Un telephone retro pour enregistrer les messages vocaux des invites et conserver une trace plus emotionnelle de l'evenement.",
-    image: "/images/phonebooth.webp",
+    image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
     path: "/options/phonebooth",
     highlights: ["Audio", "Retro", "Souvenirs"],
     breadcrumbs: [{ label: "Options", href: "/options" }],
@@ -564,7 +586,7 @@ export const marketingPages = {
     title: "Panneau de bienvenue personnalise pour decor photo",
     description:
       "Un panneau d'accueil pour guider les invites, structurer l'entree de salle et renforcer l'univers visuel de l'evenement.",
-    image: "/images/Welcomeboard.webp",
+    image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
     path: "/options/panneau",
     highlights: ["Accueil", "Decor", "Personnalisation"],
     breadcrumbs: [{ label: "Options", href: "/options" }],
@@ -593,7 +615,7 @@ export const marketingPages = {
     title: "Location photobooth premium en Île-de-France",
     description:
       "Photobooth, Miroirbooth, 360 Booth et options souvenirs pour événements professionnels et privés en Île-de-France.",
-    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
     path: "/paris",
     highlights: ["Paris", "Île-de-France", "Premium"],
     sections: [
@@ -615,7 +637,7 @@ export const marketingPages = {
     title: "Location photobooth premium a Lyon",
     description:
       "Animation photo cle en main pour entreprises, mariages et soirees a Lyon, sous reserve de validation commerciale de la zone.",
-    image: "/images/generated/premium-welcome-board-decor.webp",
+    image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
     path: "/lyon",
     highlights: ["Lyon", "Entreprise", "Mariage"],
     sections: [
@@ -637,7 +659,7 @@ export const marketingPages = {
     title: "Location photobooth premium a Rouen",
     description:
       "Service photobooth pour evenements a Rouen et en Normandie, avec informations locales a confirmer avant ciblage SEO fort.",
-    image: "/images/generated/premium-booth-installation.webp",
+    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
     path: "/rouen",
     highlights: ["Rouen", "Normandie", "Cle en main"],
     sections: [
@@ -659,7 +681,7 @@ export const marketingPages = {
     title: "L'expertise derrière les machines MySelfieBooth",
     description:
       "Découvrez l'histoire de MySelfieBooth, une marque d'animations photo et vidéo premium fondée par Stéphane Faure.",
-    image: "/images/ai/founder-workshop-ai.png",
+    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
     path: "/a-propos",
     highlights: ["Fondateur", "Machines conçues", "Expériences premium"],
     sections: [
