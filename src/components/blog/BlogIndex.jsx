@@ -38,7 +38,16 @@ export default function BlogIndex() {
               {blogArticles.map((article, index) => (
                 <article className={`blog-card ${index === 0 ? "is-featured" : ""}`} key={article.slug}>
                   <a className="blog-card-image" href={`/blog/${article.slug}/`}>
-                    <img src={article.image} alt={article.imageAlt} loading={index === 0 ? "eager" : "lazy"} />
+                    <picture>
+                      {article.motionImage && (
+                        <source media="(prefers-reduced-motion: reduce)" srcSet={article.image} />
+                      )}
+                      <img
+                        src={article.motionImage || article.image}
+                        alt={article.imageAlt}
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    </picture>
                   </a>
                   <div className="blog-card-body">
                     <div className="blog-card-meta">

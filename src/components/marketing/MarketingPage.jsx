@@ -4,6 +4,17 @@ import useRevealMotion from "../../hooks/useRevealMotion";
 
 const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
 
+const motionVisuals = {
+  photobooth: { src: "/images/reel-gifs/animation-impression.gif", title: "Photobooth en action" },
+  miroirbooth: { src: "/images/reel-gifs/animation-miroirbooth.gif", title: "Miroirbooth en action" },
+  voguebooth: { src: "/images/reel-gifs/animation-voguebooth.gif", title: "VogueBooth en action" },
+  packvip: { src: "/images/reel-gifs/animation-mariage.gif", title: "Ambiance de réception" },
+  mariages: { src: "/images/reel-gifs/animation-mariage.gif", title: "Ambiance de mariage" },
+  anniversaires: { src: "/images/reel-gifs/animation-mariage.gif", title: "Invités en mouvement" },
+  soirees: { src: "/images/reel-gifs/animation-mariage.gif", title: "Ambiance de soirée" },
+  corporates: { src: "/images/reel-gifs/animation-voguebooth.gif", title: "Animation événementielle" },
+};
+
 function SectionHeader({ eyebrow, title }) {
   return (
     <header className="marketing-section-header">
@@ -18,6 +29,14 @@ function getSectionVisual(page, section, index) {
 
   if (!visuals.length) {
     return null;
+  }
+
+  if (index === 0 && motionVisuals[page.key]) {
+    return {
+      image: motionVisuals[page.key].src,
+      fallbackImage: page.image,
+      title: motionVisuals[page.key].title,
+    };
   }
 
   const context = `${page.key} ${section.eyebrow || ""} ${section.title || ""}`.toLowerCase();
@@ -339,11 +358,16 @@ export default function MarketingPage({ page }) {
                   />
                   {visual && (
                     <figure className="marketing-section-visual">
-                      <img
-                        src={visual.image || visual.src}
-                        alt={visual.title || visual.alt}
-                        loading="lazy"
-                      />
+                      <picture>
+                        {visual.fallbackImage && (
+                          <source media="(prefers-reduced-motion: reduce)" srcSet={visual.fallbackImage} />
+                        )}
+                        <img
+                          src={visual.image || visual.src}
+                          alt={visual.title || visual.alt}
+                          loading="lazy"
+                        />
+                      </picture>
                       {visual.title && <figcaption>{visual.title}</figcaption>}
                     </figure>
                   )}
@@ -732,6 +756,12 @@ export default function MarketingPage({ page }) {
           height: 100%;
           display: block;
           object-fit: cover;
+        }
+
+        .marketing-section-visual picture {
+          width: 100%;
+          height: 100%;
+          display: block;
         }
 
         .marketing-section-visual figcaption {

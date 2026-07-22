@@ -1,5 +1,6 @@
 import {
   brandLogos,
+  featuredReels,
   galleryHighlights,
   proofPoints,
   selectorNeeds,
@@ -34,6 +35,7 @@ function HomeQuickNavigation() {
     ["/prestations#machines", "Animations"],
     ["/prestations#packs", "Packs"],
     ["/prestations#options", "Options"],
+    ["#reels", "Vidéos"],
     ["#realisations", "Photos"],
   ];
 
@@ -140,7 +142,12 @@ export default function HomePage() {
             {services.map((service) => (
               <article key={service.title} className="home-service-card">
                 <a href={service.href} className="home-service-image" data-event="machine_view">
-                  <img src={service.image} alt={service.title} loading="lazy" width="520" height="390" />
+                  <picture>
+                    {service.fallbackImage && (
+                      <source media="(prefers-reduced-motion: reduce)" srcSet={service.fallbackImage} />
+                    )}
+                    <img src={service.image} alt={service.title} loading="lazy" width="520" height="390" />
+                  </picture>
                   <span>{service.tag}</span>
                 </a>
                 <div className="home-service-body">
@@ -185,6 +192,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="reels" className="home-section home-section-dark" data-reveal>
+        <div className="home-container">
+          <SectionIntro eyebrow="En vidéo" title="Nos Reels" />
+          <div className="home-reels-grid">
+            {featuredReels.map((reel) => (
+              <article key={reel.video} className="home-reel-card">
+                <video
+                  controls
+                  controlsList="nodownload"
+                  muted
+                  playsInline
+                  preload="none"
+                  poster={reel.poster}
+                  aria-label={reel.title}
+                >
+                  <source src={reel.video} type="video/mp4" />
+                </video>
+                <div>
+                  <h3>{reel.title}</h3>
+                  <a href={reel.href} target="_blank" rel="noreferrer">
+                    Voir sur Instagram
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="realisations" className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro
@@ -194,7 +230,12 @@ export default function HomePage() {
           <div className="home-gallery-grid">
             {galleryHighlights.slice(0, 6).map((item) => (
               <article key={item.title} className="home-gallery-card" data-event="gallery_open">
-                <img src={item.image} alt={item.title} loading="lazy" />
+                <picture>
+                  {item.fallbackImage && (
+                    <source media="(prefers-reduced-motion: reduce)" srcSet={item.fallbackImage} />
+                  )}
+                  <img src={item.image} alt={item.title} loading="lazy" />
+                </picture>
                 <div>
                   <h3>{item.title}</h3>
                 </div>

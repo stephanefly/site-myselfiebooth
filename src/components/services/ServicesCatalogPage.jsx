@@ -41,6 +41,11 @@ const quickChoices = [
   },
 ];
 
+const machineMotionImages = {
+  miroirbooth: "/images/reel-gifs/animation-miroirbooth.gif",
+  voguebooth: "/images/reel-gifs/animation-voguebooth.gif",
+};
+
 const souvenirOptions = new Set([
   "Phonebooth audio",
   "Porte-clés photo",
@@ -65,17 +70,24 @@ function optionLabel(name) {
 
 function MachineCard({ machine }) {
   const guide = machineGuide[machine.key];
+  const stillImage = machine.aiImage || machine.image;
+  const motionImage = machineMotionImages[machine.key];
 
   return (
     <article id={`machine-${machine.key}`} className="catalog-machine-card">
       <div className="catalog-machine-media">
-        <img
-          src={machine.aiImage || machine.image}
-          alt={machine.alt}
-          loading="lazy"
-          width="720"
-          height="480"
-        />
+        <picture>
+          {motionImage && (
+            <source media="(prefers-reduced-motion: reduce)" srcSet={stillImage} />
+          )}
+          <img
+            src={motionImage || stillImage}
+            alt={machine.alt}
+            loading="lazy"
+            width="720"
+            height="480"
+          />
+        </picture>
         <span>{machine.tag}</span>
       </div>
       <div className="catalog-machine-body">

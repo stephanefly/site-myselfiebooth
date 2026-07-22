@@ -284,6 +284,12 @@
   object-fit: cover;
 }
 
+.catalog-machine-media picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
 .catalog-machine-media > span {
   position: absolute;
   top: 12px;

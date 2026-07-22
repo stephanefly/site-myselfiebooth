@@ -123,6 +123,12 @@
   transition: transform 350ms ease;
 }
 
+.blog-card-image picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .blog-card:hover .blog-card-image img {
   transform: scale(1.035);
 }

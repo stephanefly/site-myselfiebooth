@@ -474,6 +474,12 @@ export const processSteps = [
 
 export const galleryHighlights = [
   {
+    title: "GIF personnalisé",
+    text: "Une courte animation prête à partager après l'événement.",
+    image: "/images/animations/photobooth-souvenir-anime.gif",
+    fallbackImage: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
+  },
+  {
     title: "Souvenirs prêts à offrir",
     text: "Tirages, porte-clés et livre d'or présentés dans une mise en scène élégante et lisible.",
     image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",

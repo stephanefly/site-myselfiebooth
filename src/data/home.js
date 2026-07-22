@@ -10,12 +10,17 @@ import { brandLogos, siteConfig, trustSignals } from "./site";
 
 export { brandLogos, galleryHighlights, processSteps, selectorNeeds };
 
+const serviceMotionImages = {
+  voguebooth: "/images/reel-gifs/animation-voguebooth.gif",
+};
+
 export const services = machines.map((machine) => ({
   key: machine.key,
   title: machine.name,
   tag: machine.tag,
   text: machine.short,
-  image: machine.aiImage || machine.image,
+  image: serviceMotionImages[machine.key] || machine.aiImage || machine.image,
+  fallbackImage: serviceMotionImages[machine.key] ? machine.aiImage || machine.image : null,
   href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));
@@ -29,6 +34,33 @@ export const audiences = eventTypes.map((event) => ({
 }));
 
 export const proofPoints = trustSignals;
+
+export const featuredReels = [
+  {
+    title: "L'expérience MySelfieBooth",
+    video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
+    poster: "/videos/instagram/reel-1-DO30-rNiDdA.jpg",
+    href: "https://www.instagram.com/reel/DO30-rNiDdA/",
+  },
+  {
+    title: "VogueBooth",
+    video: "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
+    poster: "/videos/instagram/reel-2-C9Ftp2ctg4u.jpg",
+    href: "https://www.instagram.com/reel/C9Ftp2ctg4u/",
+  },
+  {
+    title: "Au salon du mariage",
+    video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+    poster: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
+    href: "https://www.instagram.com/reel/DQxM5TnCOKL/",
+  },
+  {
+    title: "Mariage Congo x Cap-Vert",
+    video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+    poster: "/videos/instagram/reel-4-Da-0z-to0VL.jpg",
+    href: "https://www.instagram.com/reel/Da-0z-to0VL/",
+  },
+];
 
 export const marketPaths = [
   {
