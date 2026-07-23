@@ -45,13 +45,13 @@
     "alt": "Atelier premium de préparation photobooth"
   },
   {
-    "id": "wedding-real-hero",
+    "id": "wedding-ai-hero",
     "page": "/evenements/mariages/",
-    "usage": "Photo réelle existante pour le parcours mariage",
+    "usage": "Mise en situation IA du Miroirbooth pour le parcours mariage",
     "ratio": "4 / 3",
-    "kind": "real",
-    "src": "/images/mariages/mariage1.JPG",
-    "alt": "Photobooth installé lors d'un mariage MySelfieBooth"
+    "kind": "ai",
+    "src": "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
+    "alt": "Miroirbooth MySelfieBooth mis en scène lors d'un mariage"
   },
   {
     "id": "options-souvenirs-ai",

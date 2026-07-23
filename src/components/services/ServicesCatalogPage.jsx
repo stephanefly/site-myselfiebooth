@@ -14,34 +14,6 @@ const machineGuide = {
   personnalise: { type: "Sur mesure", capacity: "Selon votre événement", ideal: "Plusieurs espaces" },
 };
 
-const machineMotionImages = {
-  photobooth: "/images/reel-gifs/photobooth-installation.gif",
-  miroirbooth: "/images/reel-gifs/miroirbooth-mariage.gif",
-  videobooth: "/images/reel-gifs/booth-360-sephora.gif",
-  air360booth: "/images/reel-gifs/air360-en-action.gif",
-  ipadbooth: "/images/reel-gifs/animation-ecran-partage.gif",
-  voguebooth: "/images/reel-gifs/animation-vogue-femme.gif",
-  packvip: "/images/reel-gifs/booth-360-mariage.gif",
-  personnalise: "/images/reel-gifs/booth-360-peniche.gif",
-};
-
-const optionMotionImages = {
-  "Mur floral": "/images/reel-gifs/animation-vogue-invites.gif",
-  "Phonebooth audio": "/images/reel-gifs/animation-phonebooth.gif",
-  "Porte-clés photo": "/images/reel-gifs/tirages-mariage.gif",
-  "Magnets premium": "/images/reel-gifs/tirages-gala.gif",
-  "Magnets simples": "/images/reel-gifs/tirages-mariage.gif",
-  "Panneau fontaine": "/images/reel-gifs/panneau-fontaine-coulisses.gif",
-  "Livre d'or vidéo": "/images/reel-gifs/livre-dor-video-en-action.gif",
-  "Holo 3D": "/images/reel-gifs/animation-ecran-partage.gif",
-  "Livre d'or physique": "/images/reel-gifs/tirages-gala.gif",
-  "Panneau de bienvenue": "/images/reel-gifs/panneau-fontaine-coulisses.gif",
-  "Fond LED 360": "/images/reel-gifs/air360-en-action.gif",
-  "Photographe Vogue Booth": "/images/reel-gifs/animation-vogue-homme.gif",
-  "Impression Vogue Booth": "/images/reel-gifs/animation-tirage.gif",
-  "Décoration Vogue Booth": "/images/reel-gifs/animation-vogue-invites.gif",
-};
-
 const souvenirOptions = new Set([
   "Phonebooth audio",
   "Porte-clés photo",
@@ -58,6 +30,37 @@ const decorOptions = new Set([
   "Fond LED 360",
 ]);
 
+const realVideoResults = [
+  {
+    title: "Coulisses MySelfieBooth",
+    category: "Équipe & installation",
+    image: "/videos/instagram/reel-1-DO30-rNiDdA.jpg",
+    video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
+    alt: "Installation réelle MySelfieBooth filmée pendant un événement",
+  },
+  {
+    title: "Portrait Vogue Booth",
+    category: "Vogue Booth",
+    image: "/videos/instagram/reel-2-C9Ftp2ctg4u.jpg",
+    video: "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
+    alt: "Portrait réel réalisé dans le Vogue Booth MySelfieBooth",
+  },
+  {
+    title: "Tirage Photobooth",
+    category: "Photobooth",
+    image: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
+    video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+    alt: "Tirage photo réel produit par un Photobooth MySelfieBooth",
+  },
+  {
+    title: "Réception grand format",
+    category: "Événement",
+    image: "/videos/instagram/reel-4-Da-0z-to0VL.jpg",
+    video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+    alt: "Ambiance réelle d'une grande réception équipée par MySelfieBooth",
+  },
+];
+
 function optionLabel(name) {
   if (souvenirOptions.has(name)) return "Souvenir";
   if (decorOptions.has(name)) return "Décor";
@@ -66,25 +69,13 @@ function optionLabel(name) {
 
 function MachineCard({ machine }) {
   const guide = machineGuide[machine.key];
-  const stillImage = machine.image;
-  const motionImage = machineMotionImages[machine.key];
 
   return (
     <article id={`machine-${machine.key}`} className="catalog-machine-card">
       <div className="catalog-machine-media">
         <div className="catalog-machine-media-pair">
-          <picture>
-            <source media="(prefers-reduced-motion: reduce)" srcSet={stillImage} />
-            <img
-              src={motionImage}
-              alt={`${machine.name} en utilisation`}
-              loading="lazy"
-              width="720"
-              height="480"
-            />
-          </picture>
           <img
-            src={stillImage}
+            src={machine.image}
             alt={machine.alt}
             loading="lazy"
             width="720"
@@ -239,6 +230,7 @@ export default function ServicesCatalogPage() {
             <a href="#machines">Machines</a>
             <a href="#packs">Packs</a>
             <a href="#options">Options</a>
+            <a href="#rendus-reels">Rendus réels</a>
             <a className="catalog-jump-cta" href={siteConfig.quoteUrl}>Devis</a>
           </div>
         </nav>
@@ -253,18 +245,13 @@ export default function ServicesCatalogPage() {
               {selectorNeeds.map((choice) => (
                 <a key={choice.need} href={choice.href} className={`catalog-choice ${choice.tone}`}>
                   <div className="catalog-choice-media">
-                    <picture>
-                      {choice.motionImage ? (
-                        <source media="(prefers-reduced-motion: no-preference)" srcSet={choice.motionImage} />
-                      ) : null}
-                      <img
-                        src={choice.image}
-                        alt={choice.imageAlt}
-                        loading="lazy"
-                        width="640"
-                        height="480"
-                      />
-                    </picture>
+                    <img
+                      src={choice.image}
+                      alt={choice.imageAlt}
+                      loading="lazy"
+                      width="640"
+                      height="480"
+                    />
                   </div>
                   <div className="catalog-choice-copy">
                     <span>{choice.need}</span>
@@ -320,22 +307,9 @@ export default function ServicesCatalogPage() {
               <p>Ajoutez uniquement ce qui apporte quelque chose à votre événement.</p>
             </header>
             <div className="catalog-option-grid">
-              {options.map((option) => {
-                const motionImage = optionMotionImages[option.name];
-
-                return (
+              {options.map((option) => (
                   <article key={option.name} className="catalog-option-card">
                     <div className="catalog-option-media-pair">
-                      <picture>
-                        <source media="(prefers-reduced-motion: reduce)" srcSet={option.image} />
-                        <img
-                          src={motionImage}
-                          alt={`${option.name} en situation`}
-                          loading="lazy"
-                          width="420"
-                          height="315"
-                        />
-                      </picture>
                       <img
                         src={option.image}
                         alt={option.name}
@@ -350,8 +324,45 @@ export default function ServicesCatalogPage() {
                       <p>{option.text}</p>
                     </div>
                   </article>
-                );
-              })}
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="rendus-reels" className="catalog-section catalog-real-results" data-reveal>
+          <div className="catalog-container">
+            <header className="catalog-section-heading catalog-heading-row">
+              <div>
+                <p className="catalog-eyebrow">Captures de nos vidéos</p>
+                <h2>Le rendu final, en vrai.</h2>
+              </div>
+              <p>Quatre moments filmés lors de vraies prestations, sans image générée par IA.</p>
+            </header>
+            <div className="catalog-real-grid">
+              {realVideoResults.map((result) => (
+                <a
+                  key={result.title}
+                  className="catalog-real-card"
+                  href={result.video}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Voir la vidéo : ${result.title}`}
+                >
+                  <img
+                    src={result.image}
+                    alt={result.alt}
+                    loading="lazy"
+                    width="720"
+                    height="900"
+                  />
+                  <span className="catalog-real-badge">Extrait réel</span>
+                  <div className="catalog-real-caption">
+                    <small>{result.category}</small>
+                    <strong>{result.title}</strong>
+                    <span>Voir la vidéo</span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>

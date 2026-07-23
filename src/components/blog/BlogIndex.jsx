@@ -8,7 +8,7 @@ export default function BlogIndex() {
       metaProps={{
         title: "Conseils photobooth pour vos événements | MySelfieBooth",
         description:
-          "Quatre guides pratiques pour choisir, installer et personnaliser votre photobooth de mariage ou d'entreprise.",
+          "Guides pratiques pour choisir, budgéter, installer et personnaliser votre animation photo ou vidéo.",
         ogTitle: "Le guide photobooth MySelfieBooth",
         ogDescription: "Des réponses courtes pour préparer votre animation photo ou vidéo.",
         ogImage: blogArticles[0].image,
@@ -20,7 +20,7 @@ export default function BlogIndex() {
           <div className="blog-container">
             <p className="blog-eyebrow">Le guide MySelfieBooth</p>
             <h1>Préparez votre photobooth sans perdre de temps.</h1>
-            <p>Quatre réponses simples pour choisir, installer et personnaliser votre animation.</p>
+            <p>Des réponses simples pour choisir, organiser et personnaliser votre animation.</p>
           </div>
         </header>
 
@@ -31,25 +31,20 @@ export default function BlogIndex() {
                 <p className="blog-eyebrow">Conseils</p>
                 <h2 id="articles-title">Les derniers articles</h2>
               </div>
-              <span>4 guides pratiques</span>
+              <span>{blogArticles.length} guides pratiques</span>
             </div>
 
             <div className="blog-card-grid">
               {blogArticles.map((article, index) => (
                 <article className={`blog-card ${index === 0 ? "is-featured" : ""}`} key={article.slug}>
                   <a className="blog-card-image" href={`/blog/${article.slug}/`}>
-                    <picture>
-                      {article.motionImage && (
-                        <source media="(prefers-reduced-motion: reduce)" srcSet={article.image} />
-                      )}
-                      <img
-                        src={article.motionImage || article.image}
-                        alt={article.imageAlt}
-                        loading={index === 0 ? "eager" : "lazy"}
-                        width="760"
-                        height="520"
-                      />
-                    </picture>
+                    <img
+                      src={article.image}
+                      alt={article.imageAlt}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      width="760"
+                      height="520"
+                    />
                   </a>
                   <div className="blog-card-body">
                     <div className="blog-card-meta">

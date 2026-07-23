@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import HomePage from "../components/home/HomePage";
-import { absoluteUrl, siteConfig } from "../data/site";
+import { faqs } from "../data/home";
+import { absoluteUrl, faqJsonLd, siteConfig } from "../data/site";
 
 export default function Home() {
   return (
@@ -13,11 +14,12 @@ export default function Home() {
         ogTitle: "MySelfieBooth - Photobooth premium pour événements",
         ogDescription:
           "Une animation photo élégante, clé en main et rassurante pour entreprises, marques, mariages et événements privés.",
-        ogImage: "/images/hero-pub-2024.webp",
+        ogImage: "/images/machines-ai/hero-machines-myselfiebooth.webp",
         ogUrl: absoluteUrl("/"),
         includeOrganization: true,
         includeWebsite: true,
         jsonLd: [
+          faqJsonLd(faqs),
           {
             "@context": "https://schema.org",
             "@type": "Service",

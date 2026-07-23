@@ -10,24 +10,12 @@ import { brandLogos, siteConfig, trustSignals } from "./site";
 
 export { brandLogos, galleryHighlights, processSteps, selectorNeeds };
 
-const serviceMotionImages = {
-  photobooth: "/images/reel-gifs/photobooth-installation.gif",
-  miroirbooth: "/images/reel-gifs/miroirbooth-mariage.gif",
-  videobooth: "/images/reel-gifs/booth-360-sephora.gif",
-  air360booth: "/images/reel-gifs/air360-en-action.gif",
-  ipadbooth: "/images/reel-gifs/animation-ecran-partage.gif",
-  voguebooth: "/images/reel-gifs/animation-vogue-femme.gif",
-  packvip: "/images/reel-gifs/booth-360-mariage.gif",
-  personnalise: "/images/reel-gifs/booth-360-peniche.gif",
-};
-
 export const services = machines.map((machine) => ({
   key: machine.key,
   title: machine.name,
   tag: machine.tag,
   text: machine.short,
-  motionImage: serviceMotionImages[machine.key],
-  stillImage: machine.image,
+  image: machine.image,
   href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));
@@ -46,26 +34,53 @@ export const featuredReels = [
   {
     title: "L'expérience MySelfieBooth",
     video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
-    poster: "/videos/instagram/reel-1-DO30-rNiDdA.jpg",
+    poster: "/images/machines-ai/hero-machines-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/DO30-rNiDdA/",
   },
   {
     title: "VogueBooth",
     video: "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
-    poster: "/videos/instagram/reel-2-C9Ftp2ctg4u.jpg",
+    poster: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/C9Ftp2ctg4u/",
   },
   {
     title: "Au salon du mariage",
     video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
-    poster: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
+    poster: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/DQxM5TnCOKL/",
   },
   {
     title: "Mariage Congo x Cap-Vert",
     video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
-    poster: "/videos/instagram/reel-4-Da-0z-to0VL.jpg",
+    poster: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/Da-0z-to0VL/",
+  },
+];
+
+export const caseStudies = [
+  {
+    category: "Activation de marque",
+    title: "360 Booth pour une activation de marque",
+    setup: "360 Booth · vidéo verticale",
+    result:
+      "Un format court et partageable, avec une installation pensée pour faire participer les visiteurs en continu.",
+    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
+  },
+  {
+    category: "Salon",
+    title: "Photobooth au salon du mariage",
+    setup: "Borne photo · tirage immédiat",
+    result:
+      "Une démonstration en conditions réelles pour montrer la prise de vue, la personnalisation et le souvenir imprimé.",
+    image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
+  },
+  {
+    category: "Mariage",
+    title: "Portraits dans le Vogue Booth",
+    setup: "Vogue Booth · rendu éditorial",
+    result:
+      "Un espace lumineux qui guide naturellement les invités et produit une série de portraits cohérente.",
+    image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
   },
 ];
 
@@ -101,27 +116,7 @@ export const trustCards = [
   },
 ];
 
-const optionMotionImages = [
-  "/images/reel-gifs/animation-vogue-invites.gif",
-  "/images/reel-gifs/animation-phonebooth.gif",
-  "/images/reel-gifs/tirages-mariage.gif",
-  "/images/reel-gifs/tirages-gala.gif",
-  "/images/reel-gifs/tirages-mariage.gif",
-  "/images/reel-gifs/panneau-fontaine-coulisses.gif",
-  "/images/reel-gifs/livre-dor-video-en-action.gif",
-  "/images/reel-gifs/animation-ecran-partage.gif",
-  "/images/reel-gifs/tirages-gala.gif",
-  "/images/reel-gifs/panneau-fontaine-coulisses.gif",
-  "/images/reel-gifs/air360-en-action.gif",
-  "/images/reel-gifs/animation-vogue-homme.gif",
-  "/images/reel-gifs/animation-tirage.gif",
-  "/images/reel-gifs/animation-vogue-invites.gif",
-];
-
-export const optionHighlights = options.map((option, index) => ({
-  ...option,
-  motionImage: optionMotionImages[index],
-}));
+export const optionHighlights = options;
 
 export const comparisonRows = machines.map((machine) => ({
   name: machine.name,
@@ -140,22 +135,62 @@ export const faqs = [
   {
     question: "Quelle animation choisir pour un mariage ?",
     answer:
-      "Le Photobooth et le Miroirbooth sont les plus simples pour des souvenirs imprimes. Le Pack VIP ajoute une dimension video si le volume d'invites est important.",
+      "Le Photobooth et le Miroirbooth conviennent aux souvenirs imprimés. Le 360 Booth apporte une vidéo dynamique, tandis que le Vogue Booth crée des portraits plus éditoriaux.",
   },
   {
-    question: "Est-ce adapté aux entreprises ?",
+    question: "Est-ce adapté à un événement d'entreprise ?",
     answer:
-      "Oui. Les visuels peuvent reprendre votre logo, vos couleurs et le contexte de votre opération pour un salon, un séminaire, une activation ou une soirée interne.",
+      "Oui. Le cadre photo, l'écran, les vidéos et certains décors peuvent reprendre votre logo, vos couleurs et le message de votre opération.",
   },
   {
-    question: "Que faut-il prevoir sur place ?",
+    question: "Que faut-il prévoir sur place ?",
     answer:
-      "Une zone stable, une prise electrique et un acces de livraison. Les besoins precis dependent de la machine, du lieu et du nombre d'invites.",
+      "Une zone stable, une prise électrique et un accès de livraison. L'espace exact dépend de la machine et nous le validons avec vous avant l'événement.",
+  },
+  {
+    question: "La livraison et l'installation sont-elles prises en charge ?",
+    answer:
+      "Oui. Le devis précise la livraison, le montage, les tests, l'accompagnement prévu et la reprise du matériel.",
+  },
+  {
+    question: "Un animateur reste-t-il pendant l'événement ?",
+    answer:
+      "Cela dépend de la machine et de la formule. Quand un animateur est prévu, il guide les invités et surveille le bon fonctionnement de l'installation.",
+  },
+  {
+    question: "Peut-on personnaliser les photos et les vidéos ?",
+    answer:
+      "Oui. Les cadres photo, écrans d'accueil, habillages vidéo et messages peuvent être adaptés à votre mariage ou à votre identité de marque.",
+  },
+  {
+    question: "Quels formats d'impression sont disponibles ?",
+    answer:
+      "Le format est défini avec vous selon la machine et le rendu souhaité : bande photo, format carte ou création personnalisée.",
+  },
+  {
+    question: "Récupère-t-on les photos et vidéos après l'événement ?",
+    answer:
+      "Oui. Selon la prestation, les fichiers sont remis via une galerie ou un lien de téléchargement après l'événement.",
+  },
+  {
+    question: "Combien d'invités peuvent utiliser les machines ?",
+    answer:
+      "Nous adaptons la machine, la durée et l'accompagnement au nombre d'invités. Pour un grand flux, nous recommandons une formule combinée ou plusieurs zones.",
+  },
+  {
+    question: "Les machines peuvent-elles être installées en extérieur ?",
+    answer:
+      "C'est possible sous réserve d'un sol stable, d'un abri, d'une alimentation protégée et de conditions météo compatibles.",
+  },
+  {
+    question: "Combien de temps avant l'événement faut-il réserver ?",
+    answer:
+      "Le plus tôt possible pour les week-ends et la saison des mariages. Nous vérifions néanmoins chaque demande, y compris à court délai.",
   },
   {
     question: "Comment obtenir un prix fiable ?",
     answer:
-      "Le devis depend de la date, du lieu, de la duree, de la machine et des options. Le formulaire permet de cadrer rapidement ces informations.",
+      "Indiquez la date, le lieu, la durée, le nombre d'invités et le résultat souhaité. Nous pouvons alors proposer une formule claire sans options inutiles.",
   },
 ];
 

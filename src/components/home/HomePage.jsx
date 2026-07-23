@@ -1,5 +1,8 @@
+import { useState } from "react";
 import {
   brandLogos,
+  caseStudies,
+  faqs,
   featuredReels,
   galleryHighlights,
   optionHighlights,
@@ -38,6 +41,7 @@ function HomeQuickNavigation() {
     ["#options", "Options"],
     ["#reels", "Vidéos"],
     ["#realisations", "Photos"],
+    ["#faq", "FAQ"],
   ];
 
   return (
@@ -65,7 +69,13 @@ function LogoStrip() {
   );
 }
 
+const galleryFilters = ["Tous", "Mariages", "Entreprises", "Machines"];
+
 export default function HomePage() {
+  const [galleryFilter, setGalleryFilter] = useState("Tous");
+  const visibleGallery = galleryFilter === "Tous"
+    ? galleryHighlights
+    : galleryHighlights.filter((item) => item.category === galleryFilter);
   const pageRef = useRevealMotion("home");
 
   return (
@@ -79,7 +89,7 @@ export default function HomePage() {
             muted
             playsInline
             preload="metadata"
-            poster="/images/voguebooth.webp"
+            poster="/images/machines-ai/voguebooth-studio-myselfiebooth.webp"
           >
             <source
               media="(min-width: 721px)"
@@ -94,7 +104,7 @@ export default function HomePage() {
             muted
             playsInline
             preload="metadata"
-            poster="/videos/instagram/reel-1-DO30-rNiDdA.jpg"
+            poster="/images/machines-ai/360booth-entreprise-myselfiebooth.webp"
           >
             <source
               media="(min-width: 721px)"
@@ -109,7 +119,7 @@ export default function HomePage() {
             muted
             playsInline
             preload="auto"
-            poster="/images/hero-pub-2024.webp"
+            poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
           >
             <source src="/videos/PUB_2024.mp4" type="video/mp4" />
           </video>
@@ -142,12 +152,22 @@ export default function HomePage() {
             <LogoStrip />
           </div>
           <div className="home-proof-grid">
-            {proofPoints.map((item) => (
-              <div key={item.label}>
-                <strong>{item.value}</strong>
-                <span>{item.label}</span>
-              </div>
-            ))}
+            {proofPoints.map((item) => {
+              const content = (
+                <>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </>
+              );
+
+              return item.href ? (
+                <a key={item.label} href={item.href} target="_blank" rel="noreferrer">
+                  {content}
+                </a>
+              ) : (
+                <div key={item.label}>{content}</div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -164,18 +184,13 @@ export default function HomePage() {
             {selectorNeeds.map((item) => (
               <a key={item.need} href={item.href} className="home-selector-card">
                 <div className="home-selector-media">
-                  <picture>
-                    {item.motionImage ? (
-                      <source media="(prefers-reduced-motion: no-preference)" srcSet={item.motionImage} />
-                    ) : null}
-                    <img
-                      src={item.image}
-                      alt={item.imageAlt}
-                      loading="lazy"
-                      width="640"
-                      height="480"
-                    />
-                  </picture>
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt}
+                    loading="lazy"
+                    width="640"
+                    height="480"
+                  />
                 </div>
                 <div className="home-selector-copy">
                   <span>{item.need}</span>
@@ -198,18 +213,8 @@ export default function HomePage() {
               <article key={service.title} className="home-service-card">
                 <a href={service.href} className="home-service-image" data-event="machine_view">
                   <div className="home-service-media-pair">
-                    <picture>
-                      <source media="(prefers-reduced-motion: reduce)" srcSet={service.stillImage} />
-                      <img
-                        src={service.motionImage}
-                        alt={`${service.title} en utilisation`}
-                        loading="lazy"
-                        width="520"
-                        height="390"
-                      />
-                    </picture>
                     <img
-                      src={service.stillImage}
+                      src={service.image}
                       alt={`Machine ${service.title}`}
                       loading="lazy"
                       width="520"
@@ -248,16 +253,6 @@ export default function HomePage() {
               <article key={option.name} className="home-option-card">
                 <a href="/prestations#options">
                   <div className="home-option-media-pair">
-                    <picture>
-                      <source media="(prefers-reduced-motion: reduce)" srcSet={option.image} />
-                      <img
-                        src={option.motionImage}
-                        alt={`${option.name} en situation`}
-                        loading="lazy"
-                        width="420"
-                        height="315"
-                      />
-                    </picture>
                     <img
                       src={option.image}
                       alt={option.name}
@@ -337,22 +332,74 @@ export default function HomePage() {
       <section id="realisations" className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro
-            eyebrow="En images"
-            title="Voyez le rendu"
+            eyebrow="Inspirations"
+            title="Nos machines dans leur univers"
           />
+          <div className="home-case-grid">
+            {caseStudies.map((study) => (
+              <article key={study.title} className="home-case-card">
+                <picture className="home-case-media">
+                  <img src={study.image} alt={study.title} loading="lazy" width="720" height="540" />
+                </picture>
+                <div className="home-case-body">
+                  <span>{study.category}</span>
+                  <h3>{study.title}</h3>
+                  <strong>{study.setup}</strong>
+                  <p>{study.result}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="home-gallery-heading">
+            <div>
+              <p className="home-eyebrow">Mises en scène</p>
+              <h3>Mariages, entreprises et machines</h3>
+            </div>
+            <div className="home-gallery-filters" role="group" aria-label="Filtrer les réalisations">
+              {galleryFilters.map((filter) => (
+                <button
+                  key={filter}
+                  type="button"
+                  className={galleryFilter === filter ? "is-active" : ""}
+                  aria-pressed={galleryFilter === filter}
+                  onClick={() => setGalleryFilter(filter)}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="home-gallery-grid">
-            {galleryHighlights.slice(0, 6).map((item) => (
+            {visibleGallery.map((item) => (
               <article key={item.title} className="home-gallery-card" data-event="gallery_open">
                 <picture>
-                  {item.fallbackImage && (
-                    <source media="(prefers-reduced-motion: reduce)" srcSet={item.fallbackImage} />
-                  )}
                   <img src={item.image} alt={item.title} loading="lazy" width="720" height="540" />
                 </picture>
                 <div>
+                  <span>{item.category}</span>
                   <h3>{item.title}</h3>
                 </div>
               </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="home-section home-section-muted" data-reveal>
+        <div className="home-container home-faq-layout">
+          <div>
+            <p className="home-eyebrow">Questions fréquentes</p>
+            <h2>Réserver sans zone d'ombre.</h2>
+            <p>Installation, espace, personnalisation et livraison des fichiers : l'essentiel avant de demander un devis.</p>
+            <QuoteButton />
+          </div>
+          <div className="home-faq-list">
+            {faqs.map((item) => (
+              <details key={item.question}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>

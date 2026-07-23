@@ -311,7 +311,7 @@ const eventPages = {
     title: "Photobooth mariage pour des souvenirs élégants et des invités engagés",
     description:
       "Une animation photo rassurante pour mariage, avec tirages selon formule, livre d'or, options souvenirs et galerie web.",
-    image: "/images/mariages/mariage1.JPG",
+    image: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
     highlights: ["Souvenirs", "Livre d'or", "Invites"],
     sections: [
       {
@@ -532,7 +532,7 @@ export const marketingPages = {
     title: "Toutes les options pour personnaliser votre photobooth",
     description:
       "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
-    image: "/images/all_options.webp",
+    image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
     path: "/options",
     highlights: ["Souvenirs", "Decor", "Audio"],
     sections: [
@@ -557,7 +557,7 @@ export const marketingPages = {
     title: "Phonebooth audio pour messages vocaux de mariage et soiree",
     description:
       "Un telephone retro pour enregistrer les messages vocaux des invites et conserver une trace plus emotionnelle de l'evenement.",
-    image: "/images/phonebooth.webp",
+    image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
     path: "/options/phonebooth",
     highlights: ["Audio", "Retro", "Souvenirs"],
     breadcrumbs: [{ label: "Options", href: "/options" }],
@@ -586,7 +586,7 @@ export const marketingPages = {
     title: "Panneau de bienvenue personnalise pour decor photo",
     description:
       "Un panneau d'accueil pour guider les invites, structurer l'entree de salle et renforcer l'univers visuel de l'evenement.",
-    image: "/images/Welcomeboard.webp",
+    image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
     path: "/options/panneau",
     highlights: ["Accueil", "Decor", "Personnalisation"],
     breadcrumbs: [{ label: "Options", href: "/options" }],

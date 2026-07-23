@@ -4,25 +4,25 @@ import useRevealMotion from "../../hooks/useRevealMotion";
 
 const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
 
-const motionVisuals = {
-  photobooth: { src: "/images/reel-gifs/photobooth-installation.gif", title: "Photobooth en action" },
-  miroirbooth: { src: "/images/reel-gifs/miroirbooth-mariage.gif", title: "Miroirbooth en action" },
-  videobooth: { src: "/images/reel-gifs/booth-360-sephora.gif", title: "360 Booth en action" },
-  air360booth: { src: "/images/reel-gifs/air360-en-action.gif", title: "Air360 Booth en action" },
-  ipadbooth: { src: "/images/reel-gifs/animation-ecran-partage.gif", title: "Partage instantané" },
-  voguebooth: { src: "/images/reel-gifs/animation-vogue-femme.gif", title: "VogueBooth en action" },
-  packvip: { src: "/images/reel-gifs/booth-360-mariage.gif", title: "Ambiance de réception" },
-  personnalise: { src: "/images/reel-gifs/booth-360-peniche.gif", title: "Expérience personnalisée" },
-  mariages: { src: "/images/reel-gifs/miroirbooth-mariage.gif", title: "Ambiance de mariage" },
-  anniversaires: { src: "/images/reel-gifs/animation-danse.gif", title: "Invités en mouvement" },
-  soirees: { src: "/images/reel-gifs/animation-danse.gif", title: "Ambiance de soirée" },
-  corporates: { src: "/images/reel-gifs/booth-360-sephora.gif", title: "Installation événementielle" },
-  "prestations-index": { src: "/images/reel-gifs/photobooth-installation.gif", title: "Photobooth en action" },
-  "evenements-index": { src: "/images/reel-gifs/booth-360-mariage.gif", title: "Une animation qui rassemble" },
-  "options-index": { src: "/images/reel-gifs/tirages-gala.gif", title: "Souvenirs personnalisés" },
-  phonebooth: { src: "/images/reel-gifs/animation-phonebooth.gif", title: "Messages audio des invités" },
-  panneau: { src: "/images/reel-gifs/panneau-fontaine-coulisses.gif", title: "Panneau en préparation" },
-  paris: { src: "/images/reel-gifs/booth-360-peniche.gif", title: "MySelfieBooth à Paris" },
+const featureVisuals = {
+  photobooth: { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Photobooth en réception" },
+  miroirbooth: { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", title: "Miroirbooth en réception" },
+  videobooth: { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", title: "360 Booth en événement" },
+  air360booth: { src: "/images/machines-ai/air360-gala-myselfiebooth.webp", title: "Air360 Booth en gala" },
+  ipadbooth: { src: "/images/machines-ai/ipadbooth-reception-myselfiebooth.webp", title: "iPad Booth en réception" },
+  voguebooth: { src: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", title: "Vogue Booth en studio" },
+  packvip: { src: "/images/ai-fusions/pack-duo-vip.webp", title: "Pack VIP en réception" },
+  personnalise: { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "Expérience personnalisée" },
+  mariages: { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", title: "Ambiance de mariage" },
+  anniversaires: { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Animation d'anniversaire" },
+  soirees: { src: "/images/machines-ai/air360-gala-myselfiebooth.webp", title: "Ambiance de soirée" },
+  corporates: { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", title: "Installation événementielle" },
+  "prestations-index": { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "Les machines MySelfieBooth" },
+  "evenements-index": { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Une animation qui rassemble" },
+  "options-index": { src: "/images/machines-ai/options-souvenirs-myselfiebooth.webp", title: "Souvenirs personnalisés" },
+  phonebooth: { src: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp", title: "Messages audio des invités" },
+  panneau: { src: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp", title: "Panneau de bienvenue" },
+  paris: { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "MySelfieBooth en événement" },
 };
 
 function SectionHeader({ eyebrow, title }) {
@@ -41,11 +41,10 @@ function getSectionVisual(page, section, index) {
     return null;
   }
 
-  if (index === 0 && motionVisuals[page.key]) {
+  if (index === 0 && featureVisuals[page.key]) {
     return {
-      image: motionVisuals[page.key].src,
-      fallbackImage: page.image,
-      title: motionVisuals[page.key].title,
+      image: featureVisuals[page.key].src,
+      title: featureVisuals[page.key].title,
     };
   }
 
@@ -283,7 +282,6 @@ function FounderStory({ story }) {
 
 export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
-  const heroMotion = motionVisuals[page.key];
 
   return (
     <Layout metaProps={page.meta}>
@@ -324,14 +322,8 @@ export default function MarketingPage({ page }) {
                 )}
               </div>
             </div>
-            <div className={`marketing-hero-media ${heroMotion ? "has-motion" : ""}`} data-reveal data-reveal-variant="scale">
+            <div className="marketing-hero-media" data-reveal data-reveal-variant="scale">
               <div className="marketing-hero-media-pair">
-                {heroMotion && (
-                  <picture>
-                    <source media="(prefers-reduced-motion: reduce)" srcSet={page.image} />
-                    <img src={heroMotion.src} alt={heroMotion.title} width="934" height="700" />
-                  </picture>
-                )}
                 <img src={page.image} alt={page.imageAlt || page.title} width="934" height="700" />
               </div>
               <div className="marketing-hero-proof">
