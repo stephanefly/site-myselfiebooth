@@ -5,14 +5,24 @@ import useRevealMotion from "../../hooks/useRevealMotion";
 const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
 
 const motionVisuals = {
-  photobooth: { src: "/images/reel-gifs/animation-impression.gif", title: "Photobooth en action" },
-  miroirbooth: { src: "/images/reel-gifs/animation-miroirbooth.gif", title: "Miroirbooth en action" },
-  voguebooth: { src: "/images/reel-gifs/animation-voguebooth.gif", title: "VogueBooth en action" },
-  packvip: { src: "/images/reel-gifs/animation-mariage.gif", title: "Ambiance de réception" },
-  mariages: { src: "/images/reel-gifs/animation-mariage.gif", title: "Ambiance de mariage" },
-  anniversaires: { src: "/images/reel-gifs/animation-mariage.gif", title: "Invités en mouvement" },
-  soirees: { src: "/images/reel-gifs/animation-mariage.gif", title: "Ambiance de soirée" },
-  corporates: { src: "/images/reel-gifs/animation-voguebooth.gif", title: "Animation événementielle" },
+  photobooth: { src: "/images/reel-gifs/photobooth-installation.gif", title: "Photobooth en action" },
+  miroirbooth: { src: "/images/reel-gifs/miroirbooth-mariage.gif", title: "Miroirbooth en action" },
+  videobooth: { src: "/images/reel-gifs/booth-360-sephora.gif", title: "360 Booth en action" },
+  air360booth: { src: "/images/reel-gifs/air360-en-action.gif", title: "Air360 Booth en action" },
+  ipadbooth: { src: "/images/reel-gifs/animation-ecran-partage.gif", title: "Partage instantané" },
+  voguebooth: { src: "/images/reel-gifs/animation-vogue-femme.gif", title: "VogueBooth en action" },
+  packvip: { src: "/images/reel-gifs/booth-360-mariage.gif", title: "Ambiance de réception" },
+  personnalise: { src: "/images/reel-gifs/booth-360-peniche.gif", title: "Expérience personnalisée" },
+  mariages: { src: "/images/reel-gifs/miroirbooth-mariage.gif", title: "Ambiance de mariage" },
+  anniversaires: { src: "/images/reel-gifs/animation-danse.gif", title: "Invités en mouvement" },
+  soirees: { src: "/images/reel-gifs/animation-danse.gif", title: "Ambiance de soirée" },
+  corporates: { src: "/images/reel-gifs/booth-360-sephora.gif", title: "Installation événementielle" },
+  "prestations-index": { src: "/images/reel-gifs/photobooth-installation.gif", title: "Photobooth en action" },
+  "evenements-index": { src: "/images/reel-gifs/booth-360-mariage.gif", title: "Une animation qui rassemble" },
+  "options-index": { src: "/images/reel-gifs/tirages-gala.gif", title: "Souvenirs personnalisés" },
+  phonebooth: { src: "/images/reel-gifs/animation-phonebooth.gif", title: "Messages audio des invités" },
+  panneau: { src: "/images/reel-gifs/panneau-fontaine-coulisses.gif", title: "Panneau en préparation" },
+  paris: { src: "/images/reel-gifs/booth-360-peniche.gif", title: "MySelfieBooth à Paris" },
 };
 
 function SectionHeader({ eyebrow, title }) {
@@ -273,6 +283,7 @@ function FounderStory({ story }) {
 
 export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
+  const heroMotion = motionVisuals[page.key];
 
   return (
     <Layout metaProps={page.meta}>
@@ -313,8 +324,16 @@ export default function MarketingPage({ page }) {
                 )}
               </div>
             </div>
-            <div className="marketing-hero-media" data-reveal data-reveal-variant="scale">
-              <img src={page.image} alt={page.imageAlt || page.title} width="934" height="700" />
+            <div className={`marketing-hero-media ${heroMotion ? "has-motion" : ""}`} data-reveal data-reveal-variant="scale">
+              <div className="marketing-hero-media-pair">
+                {heroMotion && (
+                  <picture>
+                    <source media="(prefers-reduced-motion: reduce)" srcSet={page.image} />
+                    <img src={heroMotion.src} alt={heroMotion.title} width="934" height="700" />
+                  </picture>
+                )}
+                <img src={page.image} alt={page.imageAlt || page.title} width="934" height="700" />
+              </div>
               <div className="marketing-hero-proof">
                 {(page.highlights || []).map((item) => (
                   <span key={item}>{item}</span>
@@ -351,23 +370,32 @@ export default function MarketingPage({ page }) {
               className={`marketing-section ${index % 2 === 1 ? "is-muted" : ""}`}
             >
               <div className="marketing-container">
-                <div className="marketing-section-heading-row" data-reveal>
+                <div className={`marketing-section-heading-row ${visual ? "has-visual" : ""}`} data-reveal>
                   <SectionHeader
                     eyebrow={section.eyebrow}
                     title={section.title}
                   />
                   {visual && (
                     <figure className="marketing-section-visual">
-                      <picture>
+                      <div className={`marketing-section-media-pair ${visual.fallbackImage ? "is-pair" : ""}`}>
+                        <picture>
+                          {visual.fallbackImage && (
+                            <source media="(prefers-reduced-motion: reduce)" srcSet={visual.fallbackImage} />
+                          )}
+                          <img
+                            src={visual.image || visual.src}
+                            alt={visual.title || visual.alt}
+                            loading="lazy"
+                          />
+                        </picture>
                         {visual.fallbackImage && (
-                          <source media="(prefers-reduced-motion: reduce)" srcSet={visual.fallbackImage} />
+                          <img
+                            src={visual.fallbackImage}
+                            alt={page.imageAlt || page.title}
+                            loading="lazy"
+                          />
                         )}
-                        <img
-                          src={visual.image || visual.src}
-                          alt={visual.title || visual.alt}
-                          loading="lazy"
-                        />
-                      </picture>
+                      </div>
                       {visual.title && <figcaption>{visual.title}</figcaption>}
                     </figure>
                   )}
@@ -582,8 +610,22 @@ export default function MarketingPage({ page }) {
           object-fit: cover;
         }
 
+        .marketing-hero-media-pair {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .marketing-hero-media.has-motion .marketing-hero-media-pair {
+          grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        }
+
+        .marketing-hero-media picture {
+          min-width: 0;
+          border-right: 2px solid #fff;
+        }
+
         @media (prefers-reduced-motion: no-preference) {
-          .marketing-page.motion-ready .marketing-hero-media img {
+          .marketing-page.motion-ready .marketing-hero-media-pair > img {
             animation: marketingHeroDrift 16s ease-in-out infinite alternate;
           }
         }
@@ -731,11 +773,16 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-section-heading-row {
-          display: grid;
-          grid-template-columns: minmax(0, 1fr) 260px;
+          display: block;
           gap: 32px;
           align-items: end;
           margin-bottom: 20px;
+        }
+
+        .marketing-section-heading-row.has-visual {
+          display: grid;
+          grid-template-columns: minmax(220px, 1fr) minmax(0, 3fr);
+          align-items: stretch;
         }
 
         .marketing-section-heading-row .marketing-section-header {
@@ -744,7 +791,7 @@ export default function MarketingPage({ page }) {
 
         .marketing-section-visual {
           position: relative;
-          height: 150px;
+          height: 230px;
           margin: 0;
           overflow: hidden;
           border-radius: 8px;
@@ -756,6 +803,22 @@ export default function MarketingPage({ page }) {
           height: 100%;
           display: block;
           object-fit: cover;
+        }
+
+        .marketing-section-media-pair {
+          width: 100%;
+          height: 100%;
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .marketing-section-media-pair.is-pair {
+          grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        }
+
+        .marketing-section-media-pair picture {
+          min-width: 0;
+          border-right: 2px solid #fff;
         }
 
         .marketing-section-visual picture {
@@ -1100,8 +1163,8 @@ export default function MarketingPage({ page }) {
             justify-self: start;
           }
 
-          .marketing-section-heading-row {
-            grid-template-columns: minmax(0, 1fr) 220px;
+          .marketing-section-heading-row.has-visual {
+            grid-template-columns: minmax(200px, 1fr) minmax(0, 3fr);
           }
         }
 
@@ -1157,9 +1220,13 @@ export default function MarketingPage({ page }) {
             gap: 20px;
           }
 
+          .marketing-section-heading-row.has-visual {
+            grid-template-columns: 1fr;
+          }
+
           .marketing-section-visual {
-            width: min(100%, 360px);
-            height: 160px;
+            width: 100%;
+            height: 260px;
           }
 
           .marketing-proof-grid,

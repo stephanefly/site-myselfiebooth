@@ -2,6 +2,7 @@ import {
   brandLogos,
   featuredReels,
   galleryHighlights,
+  optionHighlights,
   proofPoints,
   selectorNeeds,
   services,
@@ -34,7 +35,7 @@ function HomeQuickNavigation() {
   const links = [
     ["/prestations#machines", "Animations"],
     ["/prestations#packs", "Packs"],
-    ["/prestations#options", "Options"],
+    ["#options", "Options"],
     ["#reels", "Vidéos"],
     ["#realisations", "Photos"],
   ];
@@ -71,13 +72,41 @@ export default function HomePage() {
     <div className="home-page" ref={pageRef}>
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
-          <img
-            src="/images/machines-ai/hero-machines-myselfiebooth.webp"
-            alt=""
-            width="1600"
-            height="900"
-            fetchPriority="high"
-          />
+          <video
+            className="home-hero-video-side home-hero-video-vogue"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/images/voguebooth.webp"
+          >
+            <source src="/videos/compress-voguebooth.webm" type="video/webm" />
+            <source src="/videos/compress-voguebooth.mp4" type="video/mp4" />
+          </video>
+          <video
+            className="home-hero-video-primary"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/hero-pub-2024.webp"
+          >
+            <source src="/videos/PUB_2024.mp4" type="video/mp4" />
+          </video>
+          <video
+            className="home-hero-video-side home-hero-video-paris"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/videos/instagram/reel-1-DO30-rNiDdA.jpg"
+          >
+            <source src="/videos/compress-TOUR-EIFFEL-FINAL.webm" type="video/webm" />
+            <source src="/videos/compress-TOUR-EIFFEL-FINAL.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="home-hero-overlay" />
 
@@ -97,19 +126,23 @@ export default function HomePage() {
             </div>
             <p className="home-microcopy">{siteConfig.microcopy}</p>
           </div>
+        </div>
+      </section>
 
-          <aside className="home-hero-panel" aria-label="Preuves MySelfieBooth" data-reveal data-reveal-variant="scale">
+      <section className="home-trust-band" aria-label="Preuves MySelfieBooth">
+        <div className="home-container home-trust-band-inner">
+          <div className="home-trust-brands">
             <p>Ils nous font confiance</p>
             <LogoStrip />
-            <div className="home-proof-grid">
-              {proofPoints.map((item) => (
-                <div key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </aside>
+          </div>
+          <div className="home-proof-grid">
+            {proofPoints.map((item) => (
+              <div key={item.label}>
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -124,8 +157,14 @@ export default function HomePage() {
           <div className="home-selector-grid">
             {selectorNeeds.map((item) => (
               <a key={item.need} href={item.href} className="home-selector-card">
-                <span>{item.need}</span>
-                <strong>{item.answer}</strong>
+                <div className="home-selector-media">
+                  <img src={item.image} alt={item.imageAlt} loading="lazy" width="480" height="360" />
+                  <img src={item.realImage} alt="" loading="lazy" width="360" height="480" />
+                </div>
+                <div className="home-selector-copy">
+                  <span>{item.need}</span>
+                  <strong>{item.answer}</strong>
+                </div>
               </a>
             ))}
           </div>
@@ -142,12 +181,25 @@ export default function HomePage() {
             {services.map((service) => (
               <article key={service.title} className="home-service-card">
                 <a href={service.href} className="home-service-image" data-event="machine_view">
-                  <picture>
-                    {service.fallbackImage && (
-                      <source media="(prefers-reduced-motion: reduce)" srcSet={service.fallbackImage} />
-                    )}
-                    <img src={service.image} alt={service.title} loading="lazy" width="520" height="390" />
-                  </picture>
+                  <div className="home-service-media-pair">
+                    <picture>
+                      <source media="(prefers-reduced-motion: reduce)" srcSet={service.stillImage} />
+                      <img
+                        src={service.motionImage}
+                        alt={`${service.title} en utilisation`}
+                        loading="lazy"
+                        width="520"
+                        height="390"
+                      />
+                    </picture>
+                    <img
+                      src={service.stillImage}
+                      alt={`Machine ${service.title}`}
+                      loading="lazy"
+                      width="520"
+                      height="390"
+                    />
+                  </div>
                   <span>{service.tag}</span>
                 </a>
                 <div className="home-service-body">
@@ -164,6 +216,51 @@ export default function HomePage() {
           <div className="home-centered-action">
             <a href="/prestations" className="home-button home-button-secondary-dark">
               Voir toutes les animations
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="options" className="home-section home-section-muted" data-reveal>
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Nos options"
+            title="Personnalisez votre animation"
+          />
+          <div className="home-option-grid">
+            {optionHighlights.map((option) => (
+              <article key={option.name} className="home-option-card">
+                <a href="/prestations#options">
+                  <div className="home-option-media-pair">
+                    <picture>
+                      <source media="(prefers-reduced-motion: reduce)" srcSet={option.image} />
+                      <img
+                        src={option.motionImage}
+                        alt={`${option.name} en situation`}
+                        loading="lazy"
+                        width="420"
+                        height="315"
+                      />
+                    </picture>
+                    <img
+                      src={option.image}
+                      alt={option.name}
+                      loading="lazy"
+                      width="420"
+                      height="315"
+                    />
+                  </div>
+                  <div className="home-option-body">
+                    <h3>{option.name}</h3>
+                    <p>{option.text}</p>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+          <div className="home-centered-action">
+            <a href="/prestations#options" className="home-button home-button-secondary-dark">
+              Voir toutes les options
             </a>
           </div>
         </div>

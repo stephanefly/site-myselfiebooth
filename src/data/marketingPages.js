@@ -115,7 +115,7 @@ function machinePage(machine) {
     eyebrow: machine.tag,
     title: machine.title,
     description: machine.description,
-    image: machine.aiImage || machine.image,
+    image: machine.image,
     path: machine.href,
     highlights: [machine.print, machine.attendant, machine.sharing],
     breadcrumbs: [
@@ -162,7 +162,7 @@ const machineCards = machines.map((machine) => ({
 
 const comparison = machines.map((machine) => ({
   title: machine.name,
-  image: machine.aiImage || machine.image,
+  image: machine.image,
   rows: [
     ["Impression", machine.print],
     ["Participants", machine.participants],
@@ -532,7 +532,7 @@ export const marketingPages = {
     title: "Toutes les options pour personnaliser votre photobooth",
     description:
       "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
-    image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
+    image: "/images/all_options.webp",
     path: "/options",
     highlights: ["Souvenirs", "Decor", "Audio"],
     sections: [
@@ -557,7 +557,7 @@ export const marketingPages = {
     title: "Phonebooth audio pour messages vocaux de mariage et soiree",
     description:
       "Un telephone retro pour enregistrer les messages vocaux des invites et conserver une trace plus emotionnelle de l'evenement.",
-    image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
+    image: "/images/phonebooth.webp",
     path: "/options/phonebooth",
     highlights: ["Audio", "Retro", "Souvenirs"],
     breadcrumbs: [{ label: "Options", href: "/options" }],
@@ -586,7 +586,7 @@ export const marketingPages = {
     title: "Panneau de bienvenue personnalise pour decor photo",
     description:
       "Un panneau d'accueil pour guider les invites, structurer l'entree de salle et renforcer l'univers visuel de l'evenement.",
-    image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
+    image: "/images/Welcomeboard.webp",
     path: "/options/panneau",
     highlights: ["Accueil", "Decor", "Personnalisation"],
     breadcrumbs: [{ label: "Options", href: "/options" }],

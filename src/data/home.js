@@ -11,7 +11,14 @@ import { brandLogos, siteConfig, trustSignals } from "./site";
 export { brandLogos, galleryHighlights, processSteps, selectorNeeds };
 
 const serviceMotionImages = {
-  voguebooth: "/images/reel-gifs/animation-voguebooth.gif",
+  photobooth: "/images/reel-gifs/photobooth-installation.gif",
+  miroirbooth: "/images/reel-gifs/miroirbooth-mariage.gif",
+  videobooth: "/images/reel-gifs/booth-360-sephora.gif",
+  air360booth: "/images/reel-gifs/air360-en-action.gif",
+  ipadbooth: "/images/reel-gifs/animation-ecran-partage.gif",
+  voguebooth: "/images/reel-gifs/animation-vogue-femme.gif",
+  packvip: "/images/reel-gifs/booth-360-mariage.gif",
+  personnalise: "/images/reel-gifs/booth-360-peniche.gif",
 };
 
 export const services = machines.map((machine) => ({
@@ -19,8 +26,8 @@ export const services = machines.map((machine) => ({
   title: machine.name,
   tag: machine.tag,
   text: machine.short,
-  image: serviceMotionImages[machine.key] || machine.aiImage || machine.image,
-  fallbackImage: serviceMotionImages[machine.key] ? machine.aiImage || machine.image : null,
+  motionImage: serviceMotionImages[machine.key],
+  stillImage: machine.image,
   href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));
@@ -94,7 +101,27 @@ export const trustCards = [
   },
 ];
 
-export const optionHighlights = options.slice(0, 8);
+const optionMotionImages = [
+  "/images/reel-gifs/animation-vogue-invites.gif",
+  "/images/reel-gifs/animation-phonebooth.gif",
+  "/images/reel-gifs/tirages-mariage.gif",
+  "/images/reel-gifs/tirages-gala.gif",
+  "/images/reel-gifs/tirages-mariage.gif",
+  "/images/reel-gifs/panneau-fontaine-coulisses.gif",
+  "/images/reel-gifs/livre-dor-video-en-action.gif",
+  "/images/reel-gifs/animation-ecran-partage.gif",
+  "/images/reel-gifs/tirages-gala.gif",
+  "/images/reel-gifs/panneau-fontaine-coulisses.gif",
+  "/images/reel-gifs/air360-en-action.gif",
+  "/images/reel-gifs/animation-vogue-homme.gif",
+  "/images/reel-gifs/animation-tirage.gif",
+  "/images/reel-gifs/animation-vogue-invites.gif",
+];
+
+export const optionHighlights = options.map((option, index) => ({
+  ...option,
+  motionImage: optionMotionImages[index],
+}));
 
 export const comparisonRows = machines.map((machine) => ({
   name: machine.name,

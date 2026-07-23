@@ -8,6 +8,7 @@ export const blogArticles = [
     excerpt:
       "Photobooth, Miroirbooth ou 360 Booth : choisissez selon le souvenir voulu, le lieu et le rythme de votre réception.",
     image: "/images/mariages/mariage1.JPG",
+    motionImage: "/images/reel-gifs/miroirbooth-mariage.gif",
     imageAlt: "Photobooth installé pendant une réception de mariage",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
@@ -55,7 +56,7 @@ export const blogArticles = [
     excerpt:
       "Une animation efficace sert un objectif clair : attirer, faire participer, créer du contenu ou remercier les équipes.",
     image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
-    motionImage: "/images/reel-gifs/animation-voguebooth.gif",
+    motionImage: "/images/reel-gifs/booth-360-sephora.gif",
     imageAlt: "Activation photobooth personnalisée pour une entreprise",
     readTime: "5 min",
     publishedAt: "21 juillet 2026",
@@ -102,6 +103,7 @@ export const blogArticles = [
     excerpt:
       "La surface ne suffit pas : il faut aussi penser au recul photo, à la circulation, à l'électricité et à l'accès de livraison.",
     image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
+    motionImage: "/images/reel-gifs/photobooth-installation.gif",
     imageAlt: "Installation et réglage d'un photobooth avant un événement",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
@@ -149,7 +151,7 @@ export const blogArticles = [
     excerpt:
       "Une bonne personnalisation relie le décor, les contenus et les souvenirs sans surcharger l'expérience.",
     image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
-    motionImage: "/images/reel-gifs/animation-impression.gif",
+    motionImage: "/images/reel-gifs/tirages-gala.gif",
     imageAlt: "Tirages et souvenirs personnalisés autour d'un photobooth",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
