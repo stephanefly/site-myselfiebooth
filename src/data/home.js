@@ -49,6 +49,24 @@ export const googleReviews = [
     date: "Visité en mai",
     text: "Equipe disponible et à l écoute. Qualité des photos en tirage illimité parfaite. Une animation parfaite pour vos invités.",
   },
+  {
+    name: "Anne WANDUKISA",
+    rating: 5,
+    date: "Visité en juin",
+    text: "Nous avons contacté Monsieur Faure pour la kermesse de l’école. Tout était impeccable.",
+  },
+  {
+    name: "Lawrence ADZORMI",
+    rating: 5,
+    date: "Publié il y a un mois",
+    text: "Les invités étaient très contents de repartir avec de beaux souvenirs et nous aussi d’ailleurs.",
+  },
+  {
+    name: "Halima Lal",
+    rating: 5,
+    date: "Visité en juin",
+    text: "Equipe ponctuelle, souriante et professionnelle. Les templates personnalisés proposés sont très beaux et la qualité des photos est parfaite.",
+  },
 ];
 
 export const featuredReels = [
