@@ -160,7 +160,7 @@ function ComparisonGrid({ items = [] }) {
         <div className="marketing-comparison-grid">
           {items.map((item) => (
             <article key={item.title} className="marketing-comparison-card">
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img src={item.image} alt={item.title} loading="lazy" width="720" height="480" />
               <div>
                 <h3>{item.title}</h3>
                 <dl>
@@ -196,7 +196,7 @@ function OptionGrid({ items = [] }) {
         <div className="marketing-option-grid">
           {items.map((item) => (
             <article key={item.name} className="marketing-option-card">
-              <img src={item.image} alt={item.name} loading="lazy" />
+              <img src={item.image} alt={item.name} loading="lazy" width="640" height="480" />
               <h3>{item.name}</h3>
               {item.href && <a href={item.href}>Details</a>}
             </article>
@@ -420,7 +420,13 @@ export default function MarketingPage({ page }) {
               <div className="marketing-gallery">
                 {page.gallery.slice(0, 8).map((image) => (
                   <figure key={image.image || image.src}>
-                    <img src={image.image || image.src} alt={image.title || image.alt} loading="lazy" />
+                    <img
+                      src={image.image || image.src}
+                      alt={image.title || image.alt}
+                      loading="lazy"
+                      width="720"
+                      height="540"
+                    />
                     {image.title && (
                       <figcaption>
                         <strong>{image.title}</strong>

@@ -81,8 +81,8 @@
 
 .about-founder {
   position: relative;
-  width: min(100%, 360px);
-  height: 390px;
+  width: min(100%, 430px);
+  height: 360px;
   justify-self: end;
   margin: 0;
   overflow: hidden;
@@ -95,7 +95,7 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center 28%;
+  object-position: center 34%;
 }
 
 .about-founder figcaption,
@@ -212,8 +212,17 @@
   object-fit: cover;
 }
 
-.about-origin-media figure:last-child img {
+.about-origin-media figure:nth-child(2) img {
   object-position: center 35%;
+}
+
+.about-origin-media figure:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+.about-origin-media figure:nth-child(3) img {
+  height: 240px;
+  object-position: center 45%;
 }
 
 .about-origin-media figcaption {
@@ -264,6 +273,76 @@
   color: #5d5a52;
   font-size: 0.92rem;
   line-height: 1.52;
+}
+
+.about-field-section {
+  background: #f7f3ea;
+}
+
+.about-field-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: 38px;
+  align-items: center;
+}
+
+.about-field-grid figure {
+  margin: 0;
+}
+
+.about-field-grid figure img {
+  width: 100%;
+  height: 390px;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.about-field-grid figcaption {
+  margin-top: 8px;
+  color: #6f6a61;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.about-field-copy h2 {
+  margin: 0;
+  font-size: 2.35rem;
+  line-height: 1.1;
+}
+
+.about-field-copy > p:not(.about-eyebrow) {
+  margin: 14px 0 0;
+  color: #5d5a52;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.about-field-copy ul {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-field-copy li {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #d7ccba;
+}
+
+.about-field-copy li strong,
+.about-field-copy li span {
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.about-field-copy li span {
+  color: #666158;
 }
 
 .about-team-grid {
@@ -340,6 +419,7 @@
 @media (max-width: 980px) {
   .about-hero-grid,
   .about-origin-grid,
+  .about-field-grid,
   .about-team-grid {
     grid-template-columns: 1fr;
   }
@@ -365,6 +445,7 @@
 
   .about-origin-copy h2,
   .about-section-heading h2,
+  .about-field-copy h2,
   .about-final-cta h2 {
     font-size: 1.9rem;
   }
@@ -390,6 +471,20 @@
 
   .about-origin-media img {
     height: 250px;
+  }
+
+  .about-origin-media figure:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .about-origin-media figure:nth-child(3) img,
+  .about-field-grid figure img {
+    height: 250px;
+  }
+
+  .about-field-copy li {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   .about-team-main {

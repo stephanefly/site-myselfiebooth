@@ -81,8 +81,26 @@ export default function HomePage() {
             preload="metadata"
             poster="/images/voguebooth.webp"
           >
-            <source src="/videos/compress-voguebooth.webm" type="video/webm" />
-            <source src="/videos/compress-voguebooth.mp4" type="video/mp4" />
+            <source
+              media="(min-width: 721px)"
+              src="/videos/compress-voguebooth.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <video
+            className="home-hero-video-side home-hero-video-paris"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            poster="/videos/instagram/reel-1-DO30-rNiDdA.jpg"
+          >
+            <source
+              media="(min-width: 721px)"
+              src="/videos/compress-TOUR-EIFFEL-FINAL.mp4"
+              type="video/mp4"
+            />
           </video>
           <video
             className="home-hero-video-primary"
@@ -94,18 +112,6 @@ export default function HomePage() {
             poster="/images/hero-pub-2024.webp"
           >
             <source src="/videos/PUB_2024.mp4" type="video/mp4" />
-          </video>
-          <video
-            className="home-hero-video-side home-hero-video-paris"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster="/videos/instagram/reel-1-DO30-rNiDdA.jpg"
-          >
-            <source src="/videos/compress-TOUR-EIFFEL-FINAL.webm" type="video/webm" />
-            <source src="/videos/compress-TOUR-EIFFEL-FINAL.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="home-hero-overlay" />
@@ -158,8 +164,18 @@ export default function HomePage() {
             {selectorNeeds.map((item) => (
               <a key={item.need} href={item.href} className="home-selector-card">
                 <div className="home-selector-media">
-                  <img src={item.image} alt={item.imageAlt} loading="lazy" width="480" height="360" />
-                  <img src={item.realImage} alt="" loading="lazy" width="360" height="480" />
+                  <picture>
+                    {item.motionImage ? (
+                      <source media="(prefers-reduced-motion: no-preference)" srcSet={item.motionImage} />
+                    ) : null}
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt}
+                      loading="lazy"
+                      width="640"
+                      height="480"
+                    />
+                  </picture>
                 </div>
                 <div className="home-selector-copy">
                   <span>{item.need}</span>
@@ -331,7 +347,7 @@ export default function HomePage() {
                   {item.fallbackImage && (
                     <source media="(prefers-reduced-motion: reduce)" srcSet={item.fallbackImage} />
                   )}
-                  <img src={item.image} alt={item.title} loading="lazy" />
+                  <img src={item.image} alt={item.title} loading="lazy" width="720" height="540" />
                 </picture>
                 <div>
                   <h3>{item.title}</h3>

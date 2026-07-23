@@ -13,7 +13,10 @@ export default function Home() {
         ogTitle: "MySelfieBooth - Photobooth premium pour événements",
         ogDescription:
           "Une animation photo élégante, clé en main et rassurante pour entreprises, marques, mariages et événements privés.",
+        ogImage: "/images/hero-pub-2024.webp",
         ogUrl: absoluteUrl("/"),
+        includeOrganization: true,
+        includeWebsite: true,
         jsonLd: [
           {
             "@context": "https://schema.org",

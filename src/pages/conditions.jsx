@@ -4,6 +4,7 @@ export default function Conditions() {
   return (
     <LegalPage
       title="Conditions generales de location"
+      path="/conditions/"
       intro="Les conditions principales de reservation, livraison et annulation sont resumees ici pour clarifier le deroule."
       sections={[
         {

@@ -46,6 +46,8 @@ export default function BlogIndex() {
                         src={article.motionImage || article.image}
                         alt={article.imageAlt}
                         loading={index === 0 ? "eager" : "lazy"}
+                        width="760"
+                        height="520"
                       />
                     </picture>
                   </a>

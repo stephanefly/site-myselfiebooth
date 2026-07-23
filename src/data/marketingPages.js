@@ -199,7 +199,7 @@ const eventPages = {
       {
         eyebrow: "Particuliers",
         title: "Je prépare un mariage ou une soirée privée",
-        text: "Le parcours particuliers reste accessible avec les conseils mariage, anniversaire, souvenirs et options cadeaux.",
+        text: "Comparez les formats adaptés à votre nombre d'invités, au décor et aux souvenirs que vous souhaitez conserver.",
         href: "/evenements/mariages",
       },
     ],
@@ -211,20 +211,20 @@ const eventPages = {
         cards: [
           { title: "Engagement", text: "Créer une expérience mémorable qui fait participer collaborateurs, invités, prospects ou partenaires." },
           { title: "Image de marque", text: "Intégrer logo, couleurs, habillage, fond ou rendu vidéo lorsque la formule le permet." },
-          { title: "Contenu partageable", text: "Produire des photos ou vidéos exploitables après l'événement, sans promettre de reporting marketing non confirmé." },
+          { title: "Contenu partageable", text: "Produire des photos ou vidéos faciles à récupérer et à partager après l'événement." },
         ],
       },
       {
         eyebrow: "Événements couverts",
         title: "Des usages professionnels clairement identifiés",
-        text: "Ces catégories restent formulées prudemment et doivent être confirmées au devis selon le lieu, la date et la configuration.",
+        text: "Chaque configuration est ajustée au lieu, au volume d'invités et au niveau de personnalisation souhaité.",
         cards: [
           { title: "Soirées d'entreprise", text: "Fédérer les équipes avec une animation simple, visible et facile à utiliser." },
           { title: "Lancements de produits", text: "Créer une scène photo ou vidéo cohérente avec l'univers de lancement." },
           { title: "Séminaires et conférences", text: "Ajouter un point d'engagement sans alourdir l'organisation principale." },
           { title: "Inaugurations", text: "Marquer l'accueil, le photocall ou le moment de célébration." },
           { title: "Anniversaires d'entreprise", text: "Donner un souvenir collectif et personnalisable aux équipes." },
-          { title: "Salons et activations", text: "À confirmer selon stand, flux, électricité et droits d'affichage." },
+          { title: "Salons et activations", text: "Attirer sur un stand avec un format rapide, personnalisable et dimensionné au flux attendu." },
         ],
       },
       {
@@ -257,7 +257,7 @@ const eventPages = {
       {
         eyebrow: "Logistique",
         title: "Les informations dont une entreprise a besoin avant de réserver",
-        text: "La page évite les promesses floues et explique les points qui influencent vraiment le devis.",
+        text: "Ces six points permettent de recevoir une proposition adaptée et d'anticiper l'installation.",
         cards: [
           { title: "Espace", text: "Prévoir une zone stable, visible et dimensionnée selon la machine choisie." },
           { title: "Électricité", text: "Une alimentation à proximité est généralement nécessaire, à confirmer selon la configuration." },
@@ -273,14 +273,14 @@ const eventPages = {
         title: "Salon professionnel ou activation de marque",
         context: "Configuration type pour stand, lancement ou activation de marque avec flux invité à organiser.",
         solution: "Mettre en scène une borne visible, un décor propre et une personnalisation cohérente avec l'univers de l'événement.",
-        result: "Rassurer sur le rendu premium avant devis, sans présenter le visuel comme une preuve client réelle.",
+        result: "Objectif : attirer les visiteurs sans encombrer le stand ni ralentir la circulation.",
         imageSlotId: "b2b-case-salon",
       },
       {
         title: "Séminaire, conférence ou soirée interne",
         context: "Configuration type pour fédérer les équipes pendant un cocktail, une conférence ou une soirée interne.",
         solution: "Prévoir une zone claire, une animation facile à comprendre et une remise de contenus cadrée selon la formule.",
-        result: "Montrer l'ambiance possible tout en gardant une distinction nette avec les photos réelles validées.",
+        result: "Objectif : créer un moment collectif simple à lancer entre deux temps forts.",
         imageSlotId: "b2b-case-seminaire",
       },
     ],
@@ -298,8 +298,8 @@ const eventPages = {
         answer: "Le délai dépend de la date, du niveau de personnalisation et des contraintes du lieu. Le formulaire de devis permet de cadrer rapidement ces éléments.",
       },
       {
-        question: "Les logos clients peuvent-ils être affichés ?",
-        answer: "Ils ne doivent être affichés comme preuve commerciale que si la collaboration et le droit d'utilisation sont confirmés.",
+        question: "Peut-on intégrer notre logo sur les photos ou vidéos ?",
+        answer: "Oui, le logo, les couleurs et certains messages peuvent être intégrés aux rendus lorsque la formule le prévoit.",
       },
       {
         question: "Peut-on gérer un grand volume d'invités ?",
@@ -466,7 +466,7 @@ export const marketingPages = {
       {
         eyebrow: "Catalogue",
         title: "Une gamme complete, lisible et orientee choix",
-        text: "Toutes les prestations existantes restent accessibles et chaque carte renvoie vers sa page dediee.",
+        text: "Comparez en un coup d'oeil le rendu, la capacité, l'encombrement et les souvenirs proposés.",
         cards: machineCards,
       },
     ],
@@ -503,7 +503,7 @@ export const marketingPages = {
       {
         eyebrow: "Orienter",
         title: "Chaque evenement a ses contraintes",
-        text: "Le contenu evite la duplication: chaque page traite timing, volume, logistique et options adaptees.",
+        text: "Choisissez d'abord votre type d'événement, puis comparez les machines adaptées au public et au lieu.",
         cards: eventTypes.map((event) => ({
           title: event.title,
           text: `${event.text} Machines conseillees: ${event.bestMachines.join(", ")}.`,
@@ -537,9 +537,9 @@ export const marketingPages = {
     highlights: ["Souvenirs", "Decor", "Audio"],
     sections: [
       {
-        eyebrow: "Hub options",
-        title: "Completer l'animation sans creer de page pauvre",
-        text: "Les options sont toutes decouvrables ici. Les pages dediees existantes sont conservees pour Phonebooth et panneau de bienvenue.",
+        eyebrow: "Toutes les options",
+        title: "Ajoutez uniquement les souvenirs et décors utiles",
+        text: "Livre d'or, tirages, cadeaux photo, fond ou panneau : chaque option complète un besoin précis.",
         cards: options.map((option) => ({ title: option.name, text: option.text })),
       },
     ],
@@ -620,58 +620,120 @@ export const marketingPages = {
     highlights: ["Paris", "Île-de-France", "Premium"],
     sections: [
       {
-        eyebrow: "Local",
-        title: "Une page locale utile, sans multiplier les villes artificielles",
-        text: "Paris et l'Île-de-France restent la priorité commerciale du site.",
+        eyebrow: "Paris et Île-de-France",
+        title: "Une installation adaptée au lieu et à son accès",
+        text: "Nous cadrons la livraison, le montage et les horaires avec les contraintes de votre salle ou de votre entreprise.",
         cards: [
-          { title: "Acces", text: "Les contraintes de livraison, stationnement et horaires doivent etre cadrees avant devis." },
+          { title: "Accès", text: "Stationnement, quai de livraison, étages et horaires sont vérifiés avant l'événement." },
           { title: "Événements", text: "Mariages, entreprises, salons, lancements et soirées privées." },
           { title: "Formats", text: "Photobooth, Miroirbooth, 360 Booth, Vogue Booth et packs." },
         ],
+      },
+    ],
+    faq: [
+      {
+        question: "Intervenez-vous dans toute l'Île-de-France ?",
+        answer: "La disponibilité et les conditions de déplacement sont confirmées selon la date, la commune et les horaires de votre événement.",
+      },
+      {
+        question: "Comment préparez-vous une livraison dans Paris ?",
+        answer: "Nous vérifions le stationnement, les horaires d'accès, les étages, l'ascenseur et le chemin entre le véhicule et la salle.",
+      },
+      {
+        question: "Quelle machine choisir pour un lieu avec peu d'espace ?",
+        answer: "L'iPad Booth est le format le plus compact. Le Photobooth peut aussi convenir si une zone stable et un recul suffisant sont disponibles.",
       },
     ],
   }),
   lyon: page({
     key: "lyon",
     eyebrow: "Lyon",
-    title: "Location photobooth premium a Lyon",
+    title: "Location photobooth premium à Lyon",
     description:
-      "Animation photo cle en main pour entreprises, mariages et soirees a Lyon, sous reserve de validation commerciale de la zone.",
+      "Animation photo ou vidéo clé en main pour entreprises, mariages et soirées à Lyon, selon la date et les conditions d'accès.",
     image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
     path: "/lyon",
     highlights: ["Lyon", "Entreprise", "Mariage"],
     sections: [
       {
-        eyebrow: "Zone a valider",
-        title: "Une zone conservee car elle existe deja dans le site",
-        text: "La page reste accessible, mais les preuves locales specifiques doivent etre confirmees avant enrichissement SEO fort.",
+        eyebrow: "Préparer votre événement",
+        title: "Une proposition adaptée à votre date et à votre lieu",
+        text: "La disponibilité, le transport et les temps d'installation sont confirmés dans la proposition avant réservation.",
         cards: [
-          { title: "A verifier", text: "Disponibilite, delais et exemples locaux." },
-          { title: "A conserver", text: "URL existante et liens internes." },
-          { title: "A enrichir", text: "Logistique locale lorsque les informations seront validees." },
+          { title: "Disponibilité", text: "Indiquez votre date, vos horaires et le type d'événement pour vérifier la disponibilité." },
+          { title: "Accès", text: "Nous anticipons le stationnement, la livraison, les étages et la distance jusqu'à la salle." },
+          { title: "Configuration", text: "La machine est choisie selon l'espace, le nombre d'invités et le souvenir attendu." },
         ],
+      },
+      {
+        eyebrow: "Formats",
+        title: "Photo imprimée, vidéo 360 ou studio Vogue",
+        text: "Photobooth et Miroirbooth pour les tirages, 360 Booth pour les vidéos, Vogue Booth pour un rendu magazine.",
+        cards: [
+          { title: "Mariages", text: "Une animation fluide, des tirages personnalisés et des options livre d'or." },
+          { title: "Entreprises", text: "Un format personnalisable pour soirée, lancement, séminaire ou salon." },
+          { title: "Soirées privées", text: "Une expérience visible et simple à utiliser pour tous les invités." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "MySelfieBooth se déplace-t-il à Lyon ?",
+        answer: "Oui selon la date et la configuration. Les conditions de déplacement et d'installation sont précisées avant la réservation.",
+      },
+      {
+        question: "Quand faut-il réserver un photobooth à Lyon ?",
+        answer: "Le plus tôt possible pour les samedis et périodes chargées. Une demande avec la date et le lieu permet de vérifier rapidement la disponibilité.",
+      },
+      {
+        question: "Quelles informations fournir pour le devis ?",
+        answer: "Indiquez la date, le lieu, les horaires, le nombre d'invités, l'espace disponible et le type de souvenir recherché.",
       },
     ],
   }),
   rouen: page({
     key: "rouen",
     eyebrow: "Rouen",
-    title: "Location photobooth premium a Rouen",
+    title: "Location photobooth premium à Rouen",
     description:
-      "Service photobooth pour evenements a Rouen et en Normandie, avec informations locales a confirmer avant ciblage SEO fort.",
+      "Service photobooth photo et vidéo pour événements à Rouen et en Normandie, avec installation et personnalisation.",
     image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
     path: "/rouen",
     highlights: ["Rouen", "Normandie", "Cle en main"],
     sections: [
       {
-        eyebrow: "Zone a valider",
-        title: "Conserver la page sans inventer de preuve locale",
-        text: "La page reste indexable et utile, mais les informations specifiques doivent etre validees.",
+        eyebrow: "Préparer votre événement",
+        title: "Une installation cadrée avant le jour J",
+        text: "Nous confirmons la disponibilité, les conditions de déplacement et les contraintes techniques dans la proposition.",
         cards: [
-          { title: "A verifier", text: "Disponibilite, exemples et contraintes de livraison." },
-          { title: "A conserver", text: "URL existante et maillage interne." },
-          { title: "A enrichir", text: "Cas reels ou informations locales lorsque disponibles." },
+          { title: "Date et horaires", text: "La durée de prestation et les créneaux de montage sont définis avec le lieu." },
+          { title: "Livraison", text: "Les accès, le stationnement et le chemin jusqu'à la salle sont anticipés." },
+          { title: "Choix de la machine", text: "Photo imprimée, vidéo 360 ou décor Vogue selon le public et l'espace." },
         ],
+      },
+      {
+        eyebrow: "Événements",
+        title: "Des formats pour les réceptions privées et professionnelles",
+        text: "Chaque prestation peut être personnalisée avec un visuel, un fond ou des souvenirs adaptés.",
+        cards: [
+          { title: "Mariages", text: "Photobooth, Miroirbooth, livre d'or et cadeaux photo pour les invités." },
+          { title: "Entreprises", text: "Animations pour soirée interne, séminaire, salon ou lancement." },
+          { title: "Anniversaires", text: "Un point photo ou vidéo festif et rapide à prendre en main." },
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Intervenez-vous à Rouen et autour de Rouen ?",
+        answer: "La zone, la disponibilité et les conditions de déplacement sont confirmées à partir de l'adresse et des horaires de l'événement.",
+      },
+      {
+        question: "L'installation est-elle comprise ?",
+        answer: "La livraison, le montage, les tests et le démontage sont cadrés dans la proposition selon la machine et le lieu.",
+      },
+      {
+        question: "Photobooth ou 360 Booth pour une réception ?",
+        answer: "Choisissez le Photobooth pour des photos et des tirages, le 360 Booth pour des vidéos courtes, ou un pack si vous souhaitez les deux.",
       },
     ],
   }),
@@ -688,7 +750,7 @@ export const marketingPages = {
       {
         eyebrow: "Histoire",
         title: "Une approche technique au service de l'événementiel",
-        text: "Ce récit reste volontairement court et factuel, avec les éléments à valider centralisés dans la documentation.",
+        text: "MySelfieBooth est né d'un projet familial : concevoir nos propres machines puis les faire évoluer au contact des événements.",
         cards: [
           { title: "Origine", text: "Stéphane Faure, ingénieur en aéronautique, s'est lancé dans l'entrepreneuriat en 2021." },
           { title: "Différenciation", text: "La marque s'appuie sur des photobooths conçus pour proposer des expériences différentes." },
@@ -706,8 +768,8 @@ export const marketingPages = {
     },
     faq: [
       {
-        question: "Pourquoi certaines informations sont-elles formulées prudemment ?",
-        answer: "Les chiffres, preuves et droits d'affichage doivent être validés avant d'être utilisés comme arguments commerciaux publics.",
+        question: "Qui suit le projet avant l'événement ?",
+        answer: "L'équipe MySelfieBooth cadre le choix de la machine, les accès, la personnalisation et les horaires avant l'installation.",
       },
     ],
   }),

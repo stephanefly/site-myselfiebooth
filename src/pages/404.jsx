@@ -8,6 +8,8 @@ export default function Custom404() {
         title: "Page introuvable | MySelfieBooth",
         description:
           "La page demandee est introuvable. Retrouvez les prestations photobooth ou demandez un devis MySelfieBooth.",
+        robots: "noindex, follow",
+        ogUrl: null,
       }}
     >
       <section className="not-found-page">

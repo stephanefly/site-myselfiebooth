@@ -1,133 +1,123 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://myselfiebooth-paris.fr/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/photobooth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/miroirbooth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/videobooth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/voguebooth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/ipadbooth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/air360booth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/packvip/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/prestations/personnalise/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/evenements/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/evenements/corporates/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/evenements/mariages/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/evenements/anniversaires/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/evenements/soirees/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/options/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/options/phonebooth/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/options/panneau/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/paris/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/lyon/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/rouen/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/a-propos/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/blog/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-07-23</lastmod>
+  </url>
+  <url>
+    <loc>https://myselfiebooth-paris.fr/blog/choisir-photobooth-mariage/</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://myselfiebooth-paris.fr/blog/animation-photobooth-entreprise/</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://myselfiebooth-paris.fr/blog/espace-installation-photobooth/</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+  <url>
+    <loc>https://myselfiebooth-paris.fr/blog/personnaliser-photobooth/</loc>
+    <lastmod>2026-07-21</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/terms/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/privacy-policy/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
   <url>
     <loc>https://myselfiebooth-paris.fr/conditions/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-07-23</lastmod>
   </url>
 </urlset>

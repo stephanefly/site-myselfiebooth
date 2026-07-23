@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/clean-next-build.mjs",
+    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/clean-next-build.mjs",
     "build": "next build",
     "images:check": "node scripts/check-image-slots.mjs",
     "export": "next export",

@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import {
   absoluteUrl,
   organizationJsonLd,
@@ -10,7 +9,7 @@ import {
 export default function Meta({
   title = "MySelfieBooth - Location photobooth premium en Île-de-France",
   description = "Louez un photobooth premium pour vos événements professionnels et privés : entreprises, mariages, anniversaires et soirées en Île-de-France.",
-  keywords = "photobooth entreprise paris, location photobooth paris, photobooth mariage, animation événementielle, miroir photobooth, selfie box, photobooth corporate",
+  keywords,
   ogTitle,
   ogDescription,
   ogImage = siteConfig.defaultOgImage,
@@ -18,30 +17,43 @@ export default function Meta({
   ogType = "website",
   twitterCard = "summary_large_image",
   jsonLd = [],
+  robots = "index, follow",
+  includeOrganization = false,
+  includeWebsite = false,
 }) {
   const socialTitle = ogTitle || title;
   const socialDescription = ogDescription || description;
-  const canonicalUrl = ogUrl?.startsWith("http") ? ogUrl : absoluteUrl(ogUrl || "/");
+  const canonicalUrl = ogUrl === null
+    ? null
+    : ogUrl?.startsWith("http")
+      ? ogUrl
+      : absoluteUrl(ogUrl || "/");
   const socialImage = ogImage?.startsWith("http") ? ogImage : absoluteUrl(ogImage || siteConfig.defaultOgImage);
-  const structuredData = [organizationJsonLd, websiteJsonLd, ...jsonLd];
+  const structuredData = [
+    includeOrganization ? organizationJsonLd : null,
+    includeWebsite ? websiteJsonLd : null,
+    ...jsonLd,
+  ].filter(Boolean);
 
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
+        {keywords ? <meta name="keywords" content={keywords} /> : null}
         <meta name="author" content="MySelfieBooth" />
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content={robots} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="canonical" href={canonicalUrl} />
+        {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
 
         <meta property="og:title" content={socialTitle} />
         <meta property="og:description" content={socialDescription} />
         <meta property="og:image" content={socialImage} />
-        <meta property="og:url" content={canonicalUrl} />
+        {canonicalUrl ? <meta property="og:url" content={canonicalUrl} /> : null}
         <meta property="og:type" content={ogType} />
+        <meta property="og:site_name" content={siteConfig.name} />
+        <meta property="og:locale" content="fr_FR" />
 
         <meta name="twitter:card" content={twitterCard} />
         <meta name="twitter:title" content={socialTitle} />
@@ -61,24 +73,11 @@ export default function Meta({
             key={`${entry["@type"]}-${index}`}
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify(entry),
+              __html: JSON.stringify(entry).replace(/</g, "\\u003c"),
             }}
           />
         ))}
       </Head>
-
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-4297YBLGR6"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-4297YBLGR6');
-        `}
-      </Script>
     </>
   );
 }

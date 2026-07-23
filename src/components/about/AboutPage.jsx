@@ -36,7 +36,7 @@ const aboutPageJsonLd = {
   "@type": "AboutPage",
   name: "Qui sommes-nous - MySelfieBooth",
   url: `${siteConfig.baseUrl}/a-propos/`,
-  primaryImageOfPage: `${siteConfig.baseUrl}/images/equipe/equipe-myselfiebooth.webp`,
+  primaryImageOfPage: `${siteConfig.baseUrl}/images/equipe/portrait-stephane-faure.webp`,
   about: {
     "@type": "Organization",
     name: siteConfig.name,
@@ -56,8 +56,9 @@ export default function AboutPage() {
         title: "Qui sommes-nous | MySelfieBooth",
         description:
           "Découvrez l'histoire familiale de MySelfieBooth, Stéphane Faure, la conception de nos machines et l'équipe qui accompagne chaque événement.",
-        ogImage: "/images/equipe/equipe-myselfiebooth.webp",
+        ogImage: "/images/equipe/portrait-stephane-faure.webp",
         ogUrl: "/a-propos/",
+        includeOrganization: true,
         jsonLd: [aboutPageJsonLd],
       }}
     >
@@ -72,6 +73,11 @@ export default function AboutPage() {
                 propres expériences photo et vidéo, puis les rendre faciles à vivre pour
                 nos clients.
               </p>
+              <p>
+                Nous avons appris le métier en fabriquant, transportant et installant
+                nous-mêmes nos premières bornes. Cette expérience guide encore chaque
+                choix de matériel et chaque intervention.
+              </p>
               <div className="about-actions">
                 <a className="about-button is-primary" href="/prestations">
                   Découvrir nos prestations
@@ -84,10 +90,10 @@ export default function AboutPage() {
 
             <figure className="about-founder" data-reveal data-reveal-variant="scale">
               <img
-                src="/images/equipe/stephane-faure.webp"
+                src="/images/equipe/portrait-stephane-faure.webp"
                 alt="Stéphane Faure, fondateur de MySelfieBooth"
-                width="1200"
-                height="1800"
+                width="1600"
+                height="1066"
                 fetchPriority="high"
               />
               <figcaption>
@@ -102,6 +108,7 @@ export default function AboutPage() {
           <div className="about-container">
             <a href="#histoire">Notre histoire</a>
             <a href="#projets">Nos projets</a>
+            <a href="#terrain">Le terrain</a>
             <a href="#equipe">L'équipe</a>
           </div>
         </nav>
@@ -118,6 +125,11 @@ export default function AboutPage() {
               <p>
                 Cette culture du prototype est restée : tester, corriger et fiabiliser avant
                 de proposer une expérience à nos clients.
+              </p>
+              <p>
+                Nous avons ainsi appris chaque contrainte de l'intérieur : l'accès aux
+                composants, l'éclairage, le câblage, le transport et la remise en service
+                rapide lorsqu'un événement ne laisse aucune place à l'improvisation.
               </p>
             </div>
 
@@ -142,6 +154,16 @@ export default function AboutPage() {
                 />
                 <figcaption>Fabrication de l'une de nos bornes.</figcaption>
               </figure>
+              <figure>
+                <img
+                  src="/images/equipe/premier-photobooth-en-fabrication.webp"
+                  alt="Premier caisson Photobooth MySelfieBooth pendant sa fabrication"
+                  width="1200"
+                  height="1600"
+                  loading="lazy"
+                />
+                <figcaption>Le premier caisson prend forme dans l'atelier familial.</figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -164,6 +186,40 @@ export default function AboutPage() {
                   <p>{project.text}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="terrain" className="about-section about-field-section">
+          <div className="about-container about-field-grid">
+            <figure data-reveal>
+              <img
+                src="/images/equipe/stephane-sur-la-route.webp"
+                alt="Stéphane Faure sur la route pour une installation MySelfieBooth"
+                width="1600"
+                height="900"
+                loading="lazy"
+              />
+              <figcaption>Transport et installation font partie du métier.</figcaption>
+            </figure>
+
+            <div className="about-field-copy" data-reveal>
+              <p className="about-eyebrow">Du garage au terrain</p>
+              <h2>Une belle animation commence avant l'arrivée des invités.</h2>
+              <p>
+                Sur la route, dans les lieux de réception et en coulisses, nous gérons la
+                partie que nos clients ne devraient pas avoir à surveiller : protection du
+                matériel, horaires, accès, montage et essais.
+              </p>
+              <p>
+                Cette expérience nous permet de recommander une machine adaptée au lieu et
+                au nombre d'invités, puis d'arriver avec une organisation déjà cadrée.
+              </p>
+              <ul>
+                <li><strong>Transport maîtrisé</strong><span>Machines protégées et vérifiées avant le départ.</span></li>
+                <li><strong>Installation testée</strong><span>Éclairage, cadrage et parcours invités contrôlés sur place.</span></li>
+                <li><strong>Présence fiable</strong><span>Une équipe joignable avant et pendant l'événement.</span></li>
+              </ul>
             </div>
           </div>
         </section>

@@ -1,4 +1,4 @@
-import { siteConfig, trustSignals } from "../data/site";
+import { siteConfig } from "../data/site";
 
 const eventLinks = [
   { label: "Entreprises", href: "/evenements/corporates" },
@@ -17,8 +17,6 @@ const infoLinks = [
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const review = trustSignals.find((signal) => signal.value === "4.9/5");
-  const reviewCount = trustSignals.find((signal) => signal.value === "167");
   const linkGroups = [
     {
       title: "Découvrir",
@@ -35,7 +33,7 @@ export default function Footer() {
     },
     {
       title: "Infos",
-      links: infoLinks.slice(0, 4),
+      links: infoLinks,
     },
   ];
 
@@ -48,13 +46,19 @@ export default function Footer() {
             Photobooths premium pour entreprises, marques, mariages et événements
             privés en Île-de-France, à Lyon et à Rouen.
           </p>
-          <div className="footer-review">
-            <img src="/icons/google.png" alt="Google" />
+          <a
+            className="footer-review"
+            href={siteConfig.reviewsUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Consulter les avis MySelfieBooth sur Google Maps"
+          >
+            <img src="/icons/google.png" alt="" width="32" height="32" />
             <div>
-              <strong>{review?.value || "4.9/5"} affiché sur Google</strong>
-              <span>{reviewCount?.value || "167"} avis clients affichés</span>
+              <strong>Les avis MySelfieBooth</strong>
+              <span>Consulter les retours sur Google Maps</span>
             </div>
-          </div>
+          </a>
           <a className="footer-quote" href={siteConfig.quoteUrl}>
             {siteConfig.primaryCtaLabel}
           </a>
@@ -83,7 +87,12 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span>&copy; {year} {siteConfig.name}. Tous droits réservés.</span>
-        <span>Location photobooth premium en France.</span>
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new Event("myselfiebooth:open-cookie-settings"))}
+        >
+          Gérer les cookies
+        </button>
       </div>
 
       <style jsx>{`
@@ -198,6 +207,16 @@ export default function Footer() {
           border-top: 1px solid rgba(255, 255, 255, 0.12);
           color: #9f9787;
           font-size: 0.9rem;
+        }
+
+        .footer-bottom button {
+          padding: 0;
+          border: 0;
+          color: #d6cdbd;
+          background: transparent;
+          font: inherit;
+          text-decoration: underline;
+          cursor: pointer;
         }
 
         @media (max-width: 1100px) {

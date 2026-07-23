@@ -166,18 +166,89 @@ section[id] {
   }
 }
 
+.cookie-consent {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1800;
+  width: min(520px, calc(100% - 40px));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  color: #fff;
+  background: #111;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+  text-align: left;
+}
+
+.cookie-consent strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.cookie-consent p {
+  margin: 0;
+  color: #d7d0c4;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.cookie-consent a {
+  color: #e5c46b;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cookie-consent button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid #e5c46b;
+  border-radius: 6px;
+  color: #17130a;
+  background: #e5c46b;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.cookie-consent button:first-child {
+  color: #fff;
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .cookie-consent {
+    right: 10px;
+    bottom: 74px;
+    width: calc(100% - 20px);
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-consent-actions,
+  .cookie-consent button {
+    width: 100%;
+  }
+}
+
 
 /* --- Legacy Sections --- */
-section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]) {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]) {
   text-align: center;
 }
 
-section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]) h2 {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]) h2 {
   font-size: 2.5rem;
   color: #333;
 }
 
-section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]) p {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]) p {
   font-size: 1.1rem;
   color: #555;
 }

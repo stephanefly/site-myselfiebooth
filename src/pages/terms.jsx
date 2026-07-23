@@ -4,19 +4,20 @@ export default function Terms() {
   return (
     <LegalPage
       title="Mentions légales"
-      intro="Informations generales sur l'editeur du site MySelfieBooth et l'utilisation des contenus."
+      path="/terms/"
+      intro="Informations générales sur l'éditeur du site MySelfieBooth et l'utilisation de ses contenus."
       sections={[
         {
-          title: "Editeur",
-          text: "Ce site est edite par MySelfieBooth. Pour toute question, vous pouvez nous contacter a contact@myselfiebooth-paris.fr.",
+          title: "Éditeur et contact",
+          text: "Le site MySelfieBooth est édité sous la responsabilité de Stéphane Faure. Contact : contact@myselfiebooth-paris.fr ou 06 99 73 39 98.",
         },
         {
-          title: "Hebergement",
-          text: "Le site est heberge par un prestataire professionnel assurant la disponibilite et la securite technique.",
+          title: "Informations commerciales",
+          text: "Les coordonnées administratives complètes de l'entreprise figurent sur les devis et documents contractuels remis avant la réservation.",
         },
         {
-          title: "Propriete intellectuelle",
-          text: "Les textes, images, logos et elements graphiques du site sont proteges. Toute reproduction necessite une autorisation ecrite.",
+          title: "Propriété intellectuelle",
+          text: "Les textes, photographies, vidéos, logos et éléments graphiques du site sont protégés. Toute reproduction ou réutilisation nécessite une autorisation écrite.",
         },
       ]}
     />

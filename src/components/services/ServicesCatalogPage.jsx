@@ -1,6 +1,6 @@
 import Layout from "../Layout";
-import { machines, options, servicePacks } from "../../data/catalog";
-import { siteConfig } from "../../data/site";
+import { machines, options, selectorNeeds, servicePacks } from "../../data/catalog";
+import { absoluteUrl, breadcrumbJsonLd, siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
 
 const machineGuide = {
@@ -13,45 +13,6 @@ const machineGuide = {
   packvip: { type: "Photo + vidéo", capacity: "Fort passage", ideal: "Expérience complète" },
   personnalise: { type: "Sur mesure", capacity: "Selon votre événement", ideal: "Plusieurs espaces" },
 };
-
-const quickChoices = [
-  {
-    need: "Des photos imprimées",
-    answer: "Photobooth ou Miroirbooth",
-    href: "#machine-photobooth",
-    tone: "photo",
-    image: "/images/selector/photobooth-en-action-ai.webp",
-    realImage: "/videos/instagram/reel-1-DO30-rNiDdA.jpg",
-    imageAlt: "Photobooth utilisé pendant une réception",
-  },
-  {
-    need: "Des vidéos à partager",
-    answer: "360 Booth ou Air360 Booth",
-    href: "#machine-videobooth",
-    tone: "video",
-    image: "/images/selector/video-360-en-action-ai.webp",
-    realImage: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
-    imageAlt: "Invités filmés sur le 360 Booth",
-  },
-  {
-    need: "Un effet spectaculaire",
-    answer: "Vogue Booth ou Pack VIP",
-    href: "#machine-voguebooth",
-    tone: "premium",
-    image: "/images/selector/voguebooth-en-action-ai.webp",
-    realImage: "/videos/instagram/reel-2-C9Ftp2ctg4u.jpg",
-    imageAlt: "Vogue Booth en utilisation pendant un événement",
-  },
-  {
-    need: "Une solution compacte",
-    answer: "iPad Booth",
-    href: "#machine-ipadbooth",
-    tone: "compact",
-    image: "/images/selector/ipadbooth-compact-ai.webp",
-    realImage: "/videos/instagram/reel-4-Da-0z-to0VL.jpg",
-    imageAlt: "iPad Booth compact devant un mur floral",
-  },
-];
 
 const machineMotionImages = {
   photobooth: "/images/reel-gifs/photobooth-installation.gif",
@@ -79,15 +40,6 @@ const optionMotionImages = {
   "Photographe Vogue Booth": "/images/reel-gifs/animation-vogue-homme.gif",
   "Impression Vogue Booth": "/images/reel-gifs/animation-tirage.gif",
   "Décoration Vogue Booth": "/images/reel-gifs/animation-vogue-invites.gif",
-};
-
-const packMotionImages = {
-  souvenirs: "/images/reel-gifs/photobooth-installation.gif",
-  "immersion-360": "/images/reel-gifs/booth-360-sephora.gif",
-  signature: "/images/reel-gifs/miroirbooth-mariage.gif",
-  "duo-vip": "/images/reel-gifs/booth-360-mariage.gif",
-  "vogue-premium": "/images/reel-gifs/animation-vogue-femme.gif",
-  "mariage-prestige": "/images/reel-gifs/air360-en-action.gif",
 };
 
 const souvenirOptions = new Set([
@@ -181,22 +133,18 @@ function MachineCard({ machine }) {
 }
 
 function PackCard({ pack }) {
-  const motionImage = packMotionImages[pack.key];
+  const packImage = pack.fusionImage || pack.image;
 
   return (
     <article className={`catalog-pack-card ${pack.featured ? "is-featured" : ""}`}>
-      <div className="catalog-pack-media-pair">
-        <picture>
-          <source media="(prefers-reduced-motion: reduce)" srcSet={pack.image} />
-          <img
-            src={motionImage}
-            alt={`${pack.name} en utilisation`}
-            loading="lazy"
-            width="640"
-            height="420"
-          />
-        </picture>
-        <img src={pack.image} alt={pack.name} loading="lazy" width="640" height="420" />
+      <div className="catalog-pack-media-fusion">
+        <img
+          src={packImage}
+          alt={pack.fusionAlt || pack.name}
+          loading="lazy"
+          width="1200"
+          height="900"
+        />
       </div>
       <div className="catalog-pack-body">
         <span>{pack.tag}</span>
@@ -221,6 +169,24 @@ function PackCard({ pack }) {
 
 export default function ServicesCatalogPage() {
   const pageRef = useRevealMotion("catalog");
+  const catalogJsonLd = [
+    breadcrumbJsonLd([
+      { label: "Accueil", href: "/" },
+      { label: "Prestations", href: "/prestations/" },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Animations MySelfieBooth",
+      numberOfItems: machines.length,
+      itemListElement: machines.map((machine, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: machine.name,
+        url: absoluteUrl(`${machine.href}/`),
+      })),
+    },
+  ];
 
   return (
     <Layout
@@ -230,6 +196,7 @@ export default function ServicesCatalogPage() {
           "Comparez en une page les 8 animations MySelfieBooth, 6 packs événementiels et toutes les options disponibles.",
         ogImage: "/images/machines-ai/hero-machines-myselfiebooth.webp",
         ogUrl: "/prestations/",
+        jsonLd: catalogJsonLd,
       }}
     >
       <div className="catalog-page" ref={pageRef}>
@@ -283,11 +250,21 @@ export default function ServicesCatalogPage() {
               <h2>Que voulez-vous créer ?</h2>
             </header>
             <div className="catalog-choice-grid">
-              {quickChoices.map((choice) => (
+              {selectorNeeds.map((choice) => (
                 <a key={choice.need} href={choice.href} className={`catalog-choice ${choice.tone}`}>
                   <div className="catalog-choice-media">
-                    <img src={choice.image} alt={choice.imageAlt} loading="lazy" width="480" height="360" />
-                    <img src={choice.realImage} alt="" loading="lazy" width="360" height="480" />
+                    <picture>
+                      {choice.motionImage ? (
+                        <source media="(prefers-reduced-motion: no-preference)" srcSet={choice.motionImage} />
+                      ) : null}
+                      <img
+                        src={choice.image}
+                        alt={choice.imageAlt}
+                        loading="lazy"
+                        width="640"
+                        height="480"
+                      />
+                    </picture>
                   </div>
                   <div className="catalog-choice-copy">
                     <span>{choice.need}</span>

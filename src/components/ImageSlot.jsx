@@ -47,7 +47,7 @@ export default function ImageSlot({ slotId, className = "", loading = "lazy" }) 
 
   return (
     <figure className={`image-slot ${className}`} style={style}>
-      <img src={slot.src} alt={slot.alt} loading={loading} />
+      <img src={slot.src} alt={slot.alt} loading={loading} width="1200" height="900" />
 
       <style jsx>{`
         .image-slot {

@@ -24,7 +24,9 @@ export default function BlogArticle({ article }) {
               </div>
               <h1>{article.title}</h1>
               <p>{article.excerpt}</p>
-              <span className="blog-date">Publié le {article.publishedAt}</span>
+              <span className="blog-date">
+                Publié le {article.publishedAt} par <a href="/a-propos/">Stéphane Faure</a>
+              </span>
             </div>
             <figure>
               <img src={article.image} alt={article.imageAlt} width="920" height="680" />
@@ -81,7 +83,7 @@ export default function BlogArticle({ article }) {
             <div className="blog-related-grid">
               {relatedArticles.map((related) => (
                 <a href={`/blog/${related.slug}/`} key={related.slug}>
-                  <img src={related.image} alt="" loading="lazy" />
+                  <img src={related.image} alt="" loading="lazy" width="640" height="420" />
                   <span>{related.category}</span>
                   <strong>{related.title}</strong>
                 </a>

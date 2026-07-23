@@ -1,11 +1,12 @@
 import Layout from "../Layout";
 
-export default function LegalPage({ title, intro, sections }) {
+export default function LegalPage({ title, intro, path, sections }) {
   return (
     <Layout
       metaProps={{
         title: `${title} | MySelfieBooth`,
         description: intro,
+        ogUrl: path,
       }}
     >
       <section className="legal-page">

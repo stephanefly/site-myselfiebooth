@@ -14,7 +14,7 @@ export default function SocialMedia() {
               rel="noopener noreferrer"
               aria-label={social.name}
             >
-              <img src={social.icon} alt="" />
+              <img src={social.icon} alt="" width="20" height="20" />
               <span>{social.name}</span>
             </a>
           ))}

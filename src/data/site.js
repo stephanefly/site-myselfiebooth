@@ -6,6 +6,7 @@ export const siteConfig = {
   phoneHref: "tel:0699733998",
   phoneInternational: "+33 6 99 73 39 98",
   email: "contact@myselfiebooth-paris.fr",
+  reviewsUrl: "https://www.google.com/maps/search/?api=1&query=MySelfieBooth%20Paris",
   defaultOgImage: "/images/logo.jpg",
   primaryCtaLabel: "Obtenir mon devis en 2 minutes",
   secondaryCtaLabel: "Comparer les animations",
@@ -53,10 +54,10 @@ export const brandLogos = [
 ];
 
 export const trustSignals = [
-  { value: "+500", label: "événements accompagnés", needsValidation: true },
-  { value: "4.9/5", label: "note moyenne affichée", needsValidation: true },
-  { value: "167", label: "avis clients affichés", needsValidation: true },
-  { value: "3 zones", label: "Paris, Lyon, Rouen", needsValidation: true },
+  { value: "8", label: "animations photo et vidéo" },
+  { value: "6", label: "packs prêts à comparer" },
+  { value: "14", label: "options de personnalisation" },
+  { value: "3 zones", label: "Paris, Lyon et Rouen" },
 ];
 
 export function absoluteUrl(path = "/") {
@@ -116,7 +117,16 @@ export const organizationJsonLd = {
     "Location de photobooths premium pour événements professionnels et privés.",
   url: siteConfig.baseUrl,
   logo: absoluteUrl(siteConfig.defaultOgImage),
+  image: absoluteUrl("/images/hero-pub-2024.webp"),
+  telephone: siteConfig.phoneInternational,
+  email: siteConfig.email,
   sameAs: siteConfig.socialLinks.map((link) => link.href),
+  founder: {
+    "@type": "Person",
+    name: siteConfig.founder.name,
+    jobTitle: siteConfig.founder.title,
+    url: absoluteUrl("/a-propos/"),
+  },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: siteConfig.phoneInternational,

@@ -219,8 +219,9 @@ export function articleMeta(article) {
         datePublished: "2026-07-21",
         dateModified: "2026-07-21",
         author: {
-          "@type": "Organization",
-          name: siteConfig.name,
+          "@type": "Person",
+          name: siteConfig.founder.name,
+          url: absoluteUrl("/a-propos/"),
         },
         publisher: {
           "@type": "Organization",
