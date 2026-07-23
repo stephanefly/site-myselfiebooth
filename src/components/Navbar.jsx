@@ -7,7 +7,10 @@ const links = [
   { label: "Packs", href: "/prestations#packs" },
   { label: "Options", href: "/prestations#options" },
   { label: "Événements", href: "/evenements" },
+  { label: "Professionnels", href: "/evenements/corporates", professional: true },
   { label: "Réalisations", href: "/#realisations" },
+  { label: "Blog", href: "/blog" },
+  { label: "FAQ", href: "/#faq" },
   { label: "Qui sommes-nous", href: "/a-propos" },
 ];
 
@@ -24,7 +27,12 @@ export default function Navbar() {
 
         <div className={`nav-links ${isMenuOpen ? "is-open" : ""}`} id="menu-principal">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="nav-direct" onClick={closeMenu}>
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`nav-direct ${link.professional ? "nav-direct-pro" : ""}`}
+              onClick={closeMenu}
+            >
               {link.label}
             </Link>
           ))}
@@ -101,6 +109,10 @@ export default function Navbar() {
           color: #e5c46b;
         }
 
+        .nav-direct-pro {
+          color: #e5c46b;
+        }
+
         .nav-cta {
           min-height: 44px;
           display: inline-flex;
@@ -134,7 +146,7 @@ export default function Navbar() {
           background: #fff;
         }
 
-        @media (max-width: 1060px) {
+        @media (max-width: 1180px) {
           .nav-links {
             position: absolute;
             top: 72px;

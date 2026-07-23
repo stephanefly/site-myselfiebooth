@@ -30,27 +30,52 @@ export const audiences = eventTypes.map((event) => ({
 
 export const proofPoints = trustSignals;
 
+export const googleReviews = [
+  {
+    name: "Kevin Narayanane",
+    rating: 5,
+    date: "Visité en mai",
+    text: "Un grand merci à Stéphane et toute son équipe pour leur professionnalisme, leur réactivité et leur bonne humeur.",
+  },
+  {
+    name: "Anusha Aravinthan",
+    rating: 5,
+    date: "Visité en mai",
+    text: "Les invités ont adoré l’animation et se sont éclatés à prendre des photos.",
+  },
+  {
+    name: "Elisabeth Severe",
+    rating: 5,
+    date: "Visité en mai",
+    text: "Equipe disponible et à l écoute. Qualité des photos en tirage illimité parfaite. Une animation parfaite pour vos invités.",
+  },
+];
+
 export const featuredReels = [
   {
     title: "L'expérience MySelfieBooth",
+    description: "Nos machines installées et utilisées en conditions réelles.",
     video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
     poster: "/images/machines-ai/hero-machines-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/DO30-rNiDdA/",
   },
   {
-    title: "VogueBooth",
+    title: "Film Vogue Booth",
+    description: "Le couloir lumineux, les poses et le rendu magazine.",
     video: "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
     poster: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/C9Ftp2ctg4u/",
   },
   {
     title: "Au salon du mariage",
+    description: "Une démonstration de nos animations face aux futurs mariés.",
     video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
     poster: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/DQxM5TnCOKL/",
   },
   {
     title: "Mariage Congo x Cap-Vert",
+    description: "Une prestation festive captée au milieu des invités.",
     video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
     poster: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
     href: "https://www.instagram.com/reel/Da-0z-to0VL/",

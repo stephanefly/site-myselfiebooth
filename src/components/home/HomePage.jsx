@@ -5,6 +5,7 @@ import {
   faqs,
   featuredReels,
   galleryHighlights,
+  googleReviews,
   optionHighlights,
   proofPoints,
   selectorNeeds,
@@ -41,6 +42,7 @@ function HomeQuickNavigation() {
     ["#options", "Options"],
     ["#reels", "Vidéos"],
     ["#realisations", "Photos"],
+    ["#entreprises", "Entreprises"],
     ["#faq", "FAQ"],
   ];
 
@@ -63,7 +65,7 @@ function LogoStrip() {
   return (
     <div className="home-logo-strip" aria-label="References clients affichees">
       {brandLogos.map((logo) => (
-        <img key={logo.name} src={logo.src} alt={logo.name} width="140" height="42" />
+        <img key={logo.name} src={logo.src} alt={logo.name} width="180" height="64" />
       ))}
     </div>
   );
@@ -82,47 +84,65 @@ export default function HomePage() {
     <div className="home-page" ref={pageRef}>
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
-          <video
-            className="home-hero-video-side home-hero-video-vogue"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster="/images/machines-ai/voguebooth-studio-myselfiebooth.webp"
-          >
-            <source
-              media="(min-width: 721px)"
-              src="/videos/compress-voguebooth.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <video
-            className="home-hero-video-side home-hero-video-paris"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            poster="/images/machines-ai/360booth-entreprise-myselfiebooth.webp"
-          >
-            <source
-              media="(min-width: 721px)"
-              src="/videos/compress-TOUR-EIFFEL-FINAL.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <video
-            className="home-hero-video-primary"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
-          >
-            <source src="/videos/PUB_2024.mp4" type="video/mp4" />
-          </video>
+          <figure className="home-hero-film home-hero-film-vogue">
+            <video
+              className="home-hero-video-side home-hero-video-vogue"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/images/machines-ai/voguebooth-studio-myselfiebooth.webp"
+            >
+              <source
+                media="(min-width: 721px)"
+                src="/videos/compress-voguebooth.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <figcaption>
+              <strong>Film Vogue Booth</strong>
+              <span>Studio lumineux, poses guidées, rendu magazine</span>
+            </figcaption>
+          </figure>
+          <figure className="home-hero-film home-hero-film-paris">
+            <video
+              className="home-hero-video-side home-hero-video-paris"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/images/machines-ai/360booth-entreprise-myselfiebooth.webp"
+            >
+              <source
+                media="(min-width: 721px)"
+                src="/videos/compress-TOUR-EIFFEL-FINAL.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <figcaption>
+              <strong>Film Tour Eiffel</strong>
+              <span>Une animation événementielle au cœur de Paris</span>
+            </figcaption>
+          </figure>
+          <figure className="home-hero-film home-hero-film-primary">
+            <video
+              className="home-hero-video-primary"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
+            >
+              <source src="/videos/PUB_2024.mp4" type="video/mp4" />
+            </video>
+            <figcaption>
+              <strong>Film MySelfieBooth 2024</strong>
+              <span>Nos machines en action sur de vrais événements</span>
+            </figcaption>
+          </figure>
         </div>
         <div className="home-hero-overlay" />
 
@@ -173,6 +193,46 @@ export default function HomePage() {
       </section>
 
       <HomeQuickNavigation />
+
+      <section id="entreprises" className="home-pro-band" data-reveal>
+        <div className="home-container home-pro-band-inner">
+          <picture>
+            <img
+              src="/images/machines-ai/360booth-entreprise-myselfiebooth.webp"
+              alt="Animation MySelfieBooth personnalisée pour un événement professionnel"
+              width="720"
+              height="540"
+              loading="lazy"
+            />
+          </picture>
+          <div>
+            <p className="home-eyebrow">Entreprises et agences</p>
+            <h2>Une animation qui porte votre marque.</h2>
+            <p>
+              Salon, séminaire, lancement ou soirée interne : habillage à vos couleurs,
+              installation cadrée et contenus prêts à partager.
+            </p>
+            <div className="home-pro-tags" aria-label="Événements professionnels couverts">
+              <span>Salons</span>
+              <span>Séminaires</span>
+              <span>Lancements</span>
+              <span>Soirées</span>
+            </div>
+            <div className="home-actions">
+              <a className="home-button home-button-primary" href="/evenements/corporates">
+                Voir les solutions entreprises
+              </a>
+              <a
+                className="home-button home-button-secondary"
+                href={siteConfig.quoteUrl}
+                data-event="cta_quote_click"
+              >
+                {siteConfig.professionalCtaLabel}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container">
@@ -318,10 +378,11 @@ export default function HomePage() {
                   <source src={reel.video} type="video/mp4" />
                 </video>
                 <div>
-                  <h3>{reel.title}</h3>
-                  <a href={reel.href} target="_blank" rel="noreferrer">
-                    Voir sur Instagram
-                  </a>
+                  <div>
+                    <h3>{reel.title}</h3>
+                    <p>{reel.description}</p>
+                  </div>
+                  <a href={reel.href} target="_blank" rel="noreferrer">Instagram</a>
                 </div>
               </article>
             ))}
@@ -380,6 +441,34 @@ export default function HomePage() {
                   <span>{item.category}</span>
                   <h3>{item.title}</h3>
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="avis" className="home-section home-reviews" data-reveal>
+        <div className="home-container">
+          <div className="home-reviews-heading">
+            <SectionIntro
+              eyebrow="Avis Google"
+              title={`${siteConfig.reviews.rating} selon nos clients`}
+            />
+            <a href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer">
+              Voir les {siteConfig.reviews.count} avis Google
+            </a>
+          </div>
+          <div className="home-review-grid">
+            {googleReviews.map((review) => (
+              <article key={review.name}>
+                <div className="home-review-stars" aria-label={`${review.rating} étoiles sur 5`}>
+                  {"★".repeat(review.rating)}
+                </div>
+                <blockquote>“{review.text}”</blockquote>
+                <footer>
+                  <strong>{review.name}</strong>
+                  <span>{review.date} · Google</span>
+                </footer>
               </article>
             ))}
           </div>

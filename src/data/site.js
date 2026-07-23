@@ -6,10 +6,10 @@ export const siteConfig = {
   phoneHref: "tel:0699733998",
   phoneInternational: "+33 6 99 73 39 98",
   email: "contact@myselfiebooth-paris.fr",
-  reviewsUrl: "https://www.google.com/maps/search/?api=1&query=MySelfieBooth%20Paris",
+  reviewsUrl: "https://www.google.com/maps/search/?api=1&query=MySelfieBooth&query_place_id=ChIJP2dCemoVuCMRaY5EKxf6mI4",
   reviews: {
-    rating: "4,9/5",
-    count: 167,
+    rating: "4,8/5",
+    count: 77,
     source: "Google",
   },
   defaultOgImage: "/images/logo.jpg",
@@ -60,8 +60,8 @@ export const brandLogos = [
 
 export const trustSignals = [
   { value: "+500", label: "événements accompagnés" },
-  { value: "4,9/5", label: "note moyenne sur Google", href: siteConfig.reviewsUrl },
-  { value: "167", label: "avis clients Google", href: siteConfig.reviewsUrl },
+  { value: siteConfig.reviews.rating, label: "note moyenne sur Google", href: siteConfig.reviewsUrl },
+  { value: String(siteConfig.reviews.count), label: "avis clients Google", href: siteConfig.reviewsUrl },
   { value: "3 zones", label: "Paris, Lyon et Rouen" },
 ];
 
