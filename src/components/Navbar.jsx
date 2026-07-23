@@ -4,10 +4,10 @@ import { siteConfig } from "../data/site";
 
 const links = [
   { label: "Prestations", href: "/prestations" },
+  { label: "Entreprises", href: "/evenements/corporates", professional: true },
   { label: "Packs", href: "/prestations#packs" },
   { label: "Options", href: "/prestations#options" },
   { label: "Événements", href: "/evenements" },
-  { label: "Professionnels", href: "/evenements/corporates", professional: true },
   { label: "Réalisations", href: "/#realisations" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
@@ -37,6 +37,14 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
+
+        <Link
+          href="/evenements/corporates"
+          className="nav-business-mobile"
+          onClick={closeMenu}
+        >
+          Entreprises
+        </Link>
 
         <a className="nav-cta" href={siteConfig.quoteUrl} onClick={closeMenu} data-event="cta_quote_click">
           Devis en 2 minutes
@@ -128,6 +136,10 @@ export default function Navbar() {
           white-space: nowrap;
         }
 
+        .nav-business-mobile {
+          display: none;
+        }
+
         .nav-toggle {
           display: none;
           width: 44px;
@@ -173,8 +185,40 @@ export default function Navbar() {
             display: none;
           }
 
+          .nav-business-mobile {
+            min-height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            padding: 0 12px;
+            border: 1px solid rgba(229, 196, 107, 0.7);
+            border-radius: 8px;
+            color: #e5c46b;
+            font-size: 0.78rem;
+            font-weight: 900;
+            text-decoration: none;
+            white-space: nowrap;
+          }
+
           .nav-toggle {
             display: block;
+          }
+        }
+
+        @media (max-width: 460px) {
+          .nav-container {
+            width: calc(100% - 20px);
+            gap: 8px;
+          }
+
+          .nav-brand {
+            font-size: 1.05rem;
+          }
+
+          .nav-business-mobile {
+            padding: 0 9px;
+            font-size: 0.72rem;
           }
         }
       `}</style>

@@ -358,6 +358,7 @@ export const servicePacks = [
     price: "600 €",
     oldPrice: "700 € séparément",
     saving: "100 € économisés",
+    description: "Photos imprimées, messages audio et porte-clés : trois souvenirs à emporter.",
     features: ["Photobooth pendant 5 h", "Phonebooth audio", "100 porte-clés photo"],
   },
   {
@@ -375,6 +376,7 @@ export const servicePacks = [
     price: "700 €",
     oldPrice: "800 € séparément",
     saving: "100 € économisés",
+    description: "Vidéos 360, messages filmés et fond LED pour une expérience entièrement visuelle.",
     features: ["360 Booth pendant 5 h", "Livre d'or vidéo", "Fond LED 360 offert"],
   },
   {
@@ -392,6 +394,7 @@ export const servicePacks = [
     price: "800 €",
     oldPrice: "950 € séparément",
     saving: "150 € économisés",
+    description: "Miroir photo, messages vidéo et accueil premium réunis dans une formule élégante.",
     features: ["Miroirbooth pendant 5 h", "Livre d'or vidéo", "Panneau fontaine"],
   },
   {
@@ -409,6 +412,7 @@ export const servicePacks = [
     price: "850 €",
     oldPrice: "1 150 € séparément",
     saving: "300 € économisés",
+    description: "Photos au Miroirbooth et vidéos 360 pour répartir le passage des invités.",
     features: ["Miroirbooth + 360 Booth", "Phonebooth audio", "Mur floral offert"],
     featured: true,
   },
@@ -427,6 +431,7 @@ export const servicePacks = [
     price: "600 €",
     oldPrice: "700 € séparément",
     saving: "100 € économisés",
+    description: "Studio VOGUE avec photographe et impressions pour un rendu éditorial complet.",
     features: ["Vogue Booth", "Photographe dédié", "Impressions instantanées"],
   },
   {
@@ -444,6 +449,7 @@ export const servicePacks = [
     price: "1 200 €",
     oldPrice: "1 750 € séparément",
     saving: "550 € économisés",
+    description: "Photo, vidéo 360, Vogue Booth et décors réunis pour les grands événements.",
     features: ["Miroirbooth + 360 Booth", "Vogue Booth", "Fond LED et mur floral offerts"],
     featured: true,
   },

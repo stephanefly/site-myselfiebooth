@@ -108,6 +108,10 @@ function QuickNavigation({ page }) {
     links.push({ href: "#galerie", label: "Photos" });
   }
 
+  if ((page.caseStudies || []).length) {
+    links.push({ href: "#cas-entreprise", label: "Études de cas" });
+  }
+
   if ((page.faq || []).length) {
     links.push({ href: "#faq", label: "FAQ" });
   }
@@ -240,17 +244,31 @@ function CaseStudyGrid({ items = [] }) {
     <section id="cas-entreprise" className="marketing-section is-muted" data-reveal>
       <div className="marketing-container">
         <SectionHeader
-          eyebrow="Exemples"
-          title="Configurations entreprise"
+          eyebrow="Études de cas réelles"
+          title="Des dispositifs installés sur de vrais événements"
         />
         <div className="marketing-case-grid">
           {items.map((item) => (
             <article key={item.title} className="marketing-case-card">
-              <ImageSlot slotId={item.imageSlotId} />
-              <div>
+              <div className="marketing-case-media">
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.imageAlt || item.title}
+                    loading="lazy"
+                    width="720"
+                    height="540"
+                  />
+                ) : (
+                  <ImageSlot slotId={item.imageSlotId} />
+                )}
+              </div>
+              <div className="marketing-case-copy">
+                {item.client && <span>Cas réel · {item.client}</span>}
                 <h3>{item.title}</h3>
-                <p><strong>Solution :</strong> {item.solution}</p>
-                <p><strong>Objectif :</strong> {item.result}</p>
+                <p><strong>Contexte :</strong> {item.context}</p>
+                <p><strong>Dispositif :</strong> {item.solution}</p>
+                <p><strong>Rendu livré :</strong> {item.result}</p>
               </div>
             </article>
           ))}
@@ -931,14 +949,42 @@ export default function MarketingPage({ page }) {
         }
 
         .marketing-case-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         .marketing-case-card {
-          display: grid;
-          grid-template-columns: 0.72fr 1fr;
-          gap: 18px;
-          align-items: start;
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          padding: 0;
+          overflow: hidden;
+        }
+
+        .marketing-case-media {
+          aspect-ratio: 4 / 3;
+          overflow: hidden;
+          background: #111;
+        }
+
+        .marketing-case-media img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+        }
+
+        .marketing-case-copy {
+          padding: 18px;
+        }
+
+        .marketing-case-copy > span {
+          display: block;
+          margin-bottom: 9px;
+          color: #9a7324;
+          font-size: 0.72rem;
+          font-weight: 900;
+          letter-spacing: 0.06rem;
+          text-transform: uppercase;
         }
 
         .marketing-case-card strong {

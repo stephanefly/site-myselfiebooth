@@ -140,6 +140,7 @@ function PackCard({ pack }) {
       <div className="catalog-pack-body">
         <span>{pack.tag}</span>
         <h3>{pack.name}</h3>
+        <p className="catalog-pack-description">{pack.description}</p>
         <ul>
           {pack.features.map((feature) => (
             <li key={feature}>{feature}</li>

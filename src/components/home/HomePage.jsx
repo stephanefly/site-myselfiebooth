@@ -219,8 +219,8 @@ export default function HomePage() {
               <span>Soirées</span>
             </div>
             <div className="home-actions">
-              <a className="home-button home-button-primary" href="/evenements/corporates">
-                Voir les solutions entreprises
+              <a className="home-button home-button-primary" href="/evenements/corporates#cas-entreprise">
+                Voir les solutions et cas réels
               </a>
               <a
                 className="home-button home-button-secondary"
