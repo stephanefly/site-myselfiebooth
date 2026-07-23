@@ -221,9 +221,9 @@ export const machines = [
     name: "Vogue Booth",
     tag: "Studio lumineux",
     href: "/prestations/voguebooth",
-    image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
-    aiImage: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
-    alt: "Vogue Booth lumineux effet magazine",
+    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
+    aiImage: "/images/vogue-real/vogue-booth-mariage-card.webp",
+    alt: "Vogue Booth Wedding Edition personnalisé pour un mariage",
     short:
       "Un couloir lumineux premium pour créer une scène photo forte et mémorable.",
     title: "Location Vogue Booth pour effet magazine",
@@ -337,9 +337,9 @@ export const options = [
   { name: "Livre d'or physique", image: "/images/machines-ai/livre-or-physique-myselfiebooth.webp", text: "Album pour coller les tirages et écrire des messages." },
   { name: "Panneau de bienvenue", image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp", href: "/options/panneau", text: "Panneau personnalisé pour accueillir et guider les invités." },
   { name: "Fond LED 360", image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", text: "Fond lumineux pour améliorer le rendu des vidéos 360 Booth." },
-  { name: "Photographe Vogue Booth", image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", text: "Photographe dédié au cadrage et à la qualité des photos." },
+  { name: "Photographe Vogue Booth", image: "/images/vogue-real/vogue-booth-mariage-card.webp", text: "Photographe dédié au cadrage et à la qualité des photos." },
   { name: "Impression Vogue Booth", image: "/images/generated/instagram-print-strips.webp", text: "Tirages instantanés en complément du Vogue Booth." },
-  { name: "Décoration Vogue Booth", image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", text: "Mise en scène spécifique renforçant l'effet studio." },
+  { name: "Décoration Vogue Booth", image: "/images/vogue-real/vogue-booth-anniversaire-card.webp", text: "Décor VOGUE personnalisé avec noms, date et thème de l'événement." },
 ];
 
 export const servicePacks = [
@@ -420,8 +420,8 @@ export const servicePacks = [
     fusionImage: "/images/ai-fusions/pack-vogue-premium.webp",
     fusionAlt: "Vogue Booth, photographe et impressions réunis dans le Pack Vogue Premium",
     media: [
-      { src: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", alt: "Vogue Booth du Pack Vogue Premium" },
-      { src: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", alt: "Photographe du Pack Vogue Premium" },
+      { src: "/images/vogue-real/vogue-booth-mariage-card.webp", alt: "Vogue Booth Wedding Edition du Pack Vogue Premium" },
+      { src: "/images/vogue-real/vogue-booth-anniversaire-card.webp", alt: "Décor Vogue Booth personnalisé du Pack Vogue Premium" },
       { src: "/images/generated/instagram-print-strips.webp", alt: "Impressions du Pack Vogue Premium" },
     ],
     price: "600 €",
@@ -439,7 +439,7 @@ export const servicePacks = [
     media: [
       { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", alt: "Miroirbooth du Pack Mariage Prestige" },
       { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", alt: "360 Booth du Pack Mariage Prestige" },
-      { src: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", alt: "Vogue Booth du Pack Mariage Prestige" },
+      { src: "/images/vogue-real/vogue-booth-mariage-card.webp", alt: "Vogue Booth Wedding Edition du Pack Mariage Prestige" },
     ],
     price: "1 200 €",
     oldPrice: "1 750 € séparément",
@@ -556,7 +556,7 @@ export const galleryHighlights = [
   {
     title: "Vogue Booth en mariage",
     text: "Le couloir lumineux mis en scène pour obtenir un rendu éditorial.",
-    image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
+    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
     category: "Mariages",
   },
   {
@@ -586,7 +586,7 @@ export const galleryHighlights = [
   {
     title: "Vogue Booth lumineux",
     text: "Le couloir photo monté avec son éclairage et son décor de réception.",
-    image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
+    image: "/images/vogue-real/vogue-booth-anniversaire-card.webp",
     category: "Machines",
   },
   {

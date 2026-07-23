@@ -92,17 +92,17 @@ export default function HomePage() {
               muted
               playsInline
               preload="metadata"
-              poster="/images/machines-ai/voguebooth-studio-myselfiebooth.webp"
+              poster="/images/vogue-real/vogue-booth-mariage-lydia-vincent.webp"
             >
               <source
                 media="(min-width: 721px)"
-                src="/videos/compress-voguebooth.mp4"
+                src="/videos/vogue-real/vogue-booth-mariage.mp4"
                 type="video/mp4"
               />
             </video>
             <figcaption>
               <strong>Film Vogue Booth</strong>
-              <span>Studio lumineux, poses guidées, rendu magazine</span>
+              <span>VOGUE Wedding Edition personnalisé pour le mariage</span>
             </figcaption>
           </figure>
           <figure className="home-hero-film home-hero-film-paris">
@@ -350,10 +350,11 @@ export default function HomePage() {
           </figure>
           <div>
             <p className="home-eyebrow">Qui sommes-nous</p>
-            <h2>Une aventure familiale, une équipe de terrain.</h2>
+            <h2>Créée par un ingénieur, portée par une équipe de terrain.</h2>
             <p>
-              De la fabrication de nos premières bornes jusqu'au montage sur votre événement,
-              nous suivons chaque projet avec la même équipe.
+              Ingénieur en aéronautique, Stéphane a fabriqué les premières bornes avec son
+              père. Aujourd'hui, la même exigence technique guide toute l'équipe, de la
+              préparation au montage sur votre événement.
             </p>
             <a href="/a-propos">Découvrir notre histoire</a>
           </div>

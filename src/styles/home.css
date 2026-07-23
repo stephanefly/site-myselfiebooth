@@ -33,7 +33,7 @@
 
 .home-hero-media {
   display: grid;
-  grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.78fr) minmax(0, 1.5fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
   background: #050505;
 }
 
@@ -94,7 +94,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;
+  width: auto;
+  height: 100%;
+  aspect-ratio: 9 / 16;
+  background: transparent;
 }
 
 .home-hero-video-paris,
@@ -1440,6 +1443,11 @@
   .home-hero-film-primary figcaption {
     right: 12px;
     bottom: 12px;
+  }
+
+  .home-hero-film-primary {
+    width: 100%;
+    aspect-ratio: auto;
   }
 
   .home-hero-media .home-hero-video-primary {

@@ -53,9 +53,9 @@ export default function AboutPage() {
   return (
     <Layout
       metaProps={{
-        title: "Qui sommes-nous | MySelfieBooth",
+        title: "Stéphane Faure, ingénieur et fondateur | MySelfieBooth",
         description:
-          "Découvrez l'histoire familiale de MySelfieBooth, Stéphane Faure, la conception de nos machines et l'équipe qui accompagne chaque événement.",
+          "Découvrez comment Stéphane Faure, ingénieur en aéronautique, a créé MySelfieBooth en famille avant de former une équipe événementielle de terrain.",
         ogImage: "/images/equipe/portrait-stephane-faure.webp",
         ogUrl: "/a-propos/",
         includeOrganization: true,
@@ -67,16 +67,16 @@ export default function AboutPage() {
           <div className="about-container about-hero-grid">
             <div className="about-hero-copy" data-reveal>
               <p className="about-eyebrow">Qui sommes-nous</p>
-              <h1>Une aventure familiale devenue une équipe événementielle.</h1>
+              <h1>D'ingénieur aéronautique à entrepreneur événementiel.</h1>
               <p>
-                MySelfieBooth est née en 2021 autour d'une idée simple : construire nos
-                propres expériences photo et vidéo, puis les rendre faciles à vivre pour
-                nos clients.
+                Je suis Stéphane Faure, ingénieur en aéronautique et fondateur de
+                MySelfieBooth. En 2021, j'ai transformé avec mon père une idée en une
+                première borne photo conçue et assemblée par nos soins.
               </p>
               <p>
-                Nous avons appris le métier en fabriquant, transportant et installant
-                nous-mêmes nos premières bornes. Cette expérience guide encore chaque
-                choix de matériel et chaque intervention.
+                Cette aventure familiale est devenue une équipe événementielle. Nous
+                concevons, préparons, transportons et installons nos expériences avec une
+                même exigence : que tout soit fiable, simple et prêt pour vos invités.
               </p>
               <div className="about-actions">
                 <a className="about-button is-primary" href="/prestations">
@@ -98,7 +98,7 @@ export default function AboutPage() {
               />
               <figcaption>
                 <strong>{siteConfig.founder.name}</strong>
-                <span>Fondateur de MySelfieBooth</span>
+                <span>Ingénieur aéronautique · Fondateur de MySelfieBooth</span>
               </figcaption>
             </figure>
           </div>
@@ -117,14 +117,15 @@ export default function AboutPage() {
           <div className="about-container about-origin-grid">
             <div className="about-origin-copy" data-reveal>
               <p className="about-eyebrow">Le point de départ</p>
-              <h2>Des premiers plans à la première borne.</h2>
+              <h2>Des méthodes d'ingénieur à la première borne.</h2>
               <p>
                 Tout a commencé à la maison, entre plans, essais et pièces assemblées à la
                 main. Avec mon père, nous avons transformé une idée en machine fonctionnelle.
               </p>
               <p>
-                Cette culture du prototype est restée : tester, corriger et fiabiliser avant
-                de proposer une expérience à nos clients.
+                Ma formation d'ingénieur en aéronautique a donné le rythme : comprendre
+                chaque contrainte, prototyper, tester, corriger et fiabiliser avant de
+                proposer une expérience à nos clients.
               </p>
               <p>
                 Nous avons ainsi appris chaque contrainte de l'intérieur : l'accès aux

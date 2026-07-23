@@ -78,11 +78,11 @@ export const featuredReels = [
     href: "https://www.instagram.com/reel/DO30-rNiDdA/",
   },
   {
-    title: "Film Vogue Booth",
-    description: "Le couloir lumineux, les poses et le rendu magazine.",
-    video: "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
-    poster: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
-    href: "https://www.instagram.com/reel/C9Ftp2ctg4u/",
+    title: "Vogue Booth personnalisé",
+    description: "Un décor VOGUE avec le thème, la date et les textes de l'événement.",
+    video: "/videos/vogue-real/vogue-booth-anniversaire.mp4",
+    poster: "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+    href: "https://www.instagram.com/myselfiebooth_paris/",
   },
   {
     title: "Au salon du mariage",
@@ -123,7 +123,7 @@ export const caseStudies = [
     setup: "Vogue Booth · rendu éditorial",
     result:
       "Un espace lumineux qui guide naturellement les invités et produit une série de portraits cohérente.",
-    image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
+    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
   },
 ];
 

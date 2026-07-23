@@ -23,7 +23,7 @@ export const siteConfig = {
   servedAreas: ["Paris", "Île-de-France", "Normandie", "Lyon", "Rouen"],
   founder: {
     name: "Stéphane Faure",
-    title: "Fondateur de MySelfieBooth",
+    title: "Ingénieur aéronautique et fondateur de MySelfieBooth",
     summary:
       "Ingénieur en aéronautique devenu entrepreneur en 2021, Stéphane a conçu ses propres photobooths pour proposer des expériences photo et vidéo différenciantes.",
     needsValidation: true,

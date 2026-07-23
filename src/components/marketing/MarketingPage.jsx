@@ -10,7 +10,7 @@ const featureVisuals = {
   videobooth: { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", title: "360 Booth en événement" },
   air360booth: { src: "/images/machines-ai/air360-gala-myselfiebooth.webp", title: "Air360 Booth en gala" },
   ipadbooth: { src: "/images/machines-ai/ipadbooth-reception-myselfiebooth.webp", title: "iPad Booth en réception" },
-  voguebooth: { src: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp", title: "Vogue Booth en studio" },
+  voguebooth: { src: "/images/vogue-real/vogue-booth-mariage-card.webp", title: "Vogue Booth Wedding Edition personnalisé" },
   packvip: { src: "/images/ai-fusions/pack-duo-vip.webp", title: "Pack VIP en réception" },
   personnalise: { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "Expérience personnalisée" },
   mariages: { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", title: "Ambiance de mariage" },
