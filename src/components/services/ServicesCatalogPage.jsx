@@ -61,6 +61,14 @@ const realVideoResults = [
   },
 ];
 
+const bookingSteps = [
+  { title: "Choisissez l'animation", text: "Photo, vidéo, Vogue Booth ou pack." },
+  { title: "Ajoutez les options", text: "Décor, livre d'or et souvenirs utiles." },
+  { title: "Fixez la durée", text: "3 h, 5 h ou 7 h selon votre événement." },
+  { title: "Indiquez date et lieu", text: "Adresse, horaires et contraintes d'accès." },
+  { title: "Recevez la proposition", text: "Disponibilité, formule et tarif confirmés." },
+];
+
 function optionLabel(name) {
   if (souvenirOptions.has(name)) return "Souvenir";
   if (decorOptions.has(name)) return "Décor";
@@ -159,6 +167,53 @@ function PackCard({ pack }) {
   );
 }
 
+function ComparisonTable() {
+  return (
+    <section id="comparatif" className="catalog-section catalog-compare-section" data-reveal>
+      <div className="catalog-container">
+        <header className="catalog-section-heading catalog-heading-row">
+          <div>
+            <p className="catalog-eyebrow">Comparer</p>
+            <h2>Prix et prestations en un coup d'œil.</h2>
+          </div>
+          <p>Les éléments variables sont confirmés dans votre devis selon la durée, le lieu et les options.</p>
+        </header>
+
+        <p id="catalog-compare-help" className="catalog-compare-help">Faites défiler le tableau pour tout comparer.</p>
+        <div className="catalog-compare-scroll" tabIndex="0" aria-describedby="catalog-compare-help">
+          <table className="catalog-compare-table">
+            <thead>
+              <tr>
+                <th scope="col">Animation</th>
+                <th scope="col">Tarif</th>
+                <th scope="col">Rendu</th>
+                <th scope="col">Tirage</th>
+                <th scope="col">Capacité</th>
+                <th scope="col">Animateur</th>
+              </tr>
+            </thead>
+            <tbody>
+              {machines.map((machine) => (
+                <tr key={machine.key}>
+                  <th scope="row"><a href={`#machine-${machine.key}`}>{machine.name}</a></th>
+                  <td><strong>{machine.price || "Sur devis"}</strong></td>
+                  <td>{machineGuide[machine.key].type}</td>
+                  <td>{machine.print}</td>
+                  <td>{machine.participants}</td>
+                  <td>{machine.attendant}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="catalog-compare-note">
+          Le nombre de tirages, les horaires et les modalités de partage dépendent de la formule retenue.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export default function ServicesCatalogPage() {
   const pageRef = useRevealMotion("catalog");
   const catalogJsonLd = [
@@ -228,6 +283,7 @@ export default function ServicesCatalogPage() {
         <nav className="catalog-jump-nav" aria-label="Accès rapide aux prestations">
           <div className="catalog-container">
             <a href="#choisir">Choisir vite</a>
+            <a href="#comparatif">Comparer</a>
             <a href="#machines">Machines</a>
             <a href="#packs">Packs</a>
             <a href="#options">Options</a>
@@ -263,6 +319,8 @@ export default function ServicesCatalogPage() {
             </div>
           </div>
         </section>
+
+        <ComparisonTable />
 
         <section id="machines" className="catalog-section catalog-machines-section" data-reveal>
           <div className="catalog-container">
@@ -364,6 +422,33 @@ export default function ServicesCatalogPage() {
                   </div>
                 </a>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="reservation" className="catalog-section catalog-booking-section" data-reveal>
+          <div className="catalog-container">
+            <header className="catalog-section-heading catalog-heading-row">
+              <div>
+                <p className="catalog-eyebrow">Réserver simplement</p>
+                <h2>Votre demande en cinq étapes.</h2>
+              </div>
+              <p>Vous renseignez l'essentiel. Nous confirmons ensuite la disponibilité et la configuration adaptée.</p>
+            </header>
+            <ol className="catalog-booking-grid">
+              {bookingSteps.map((step, index) => (
+                <li key={step.title}>
+                  <span>{index + 1}</span>
+                  <strong>{step.title}</strong>
+                  <p>{step.text}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="catalog-booking-action">
+              <a className="catalog-button primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
+                Vérifier ma date et demander mon devis
+              </a>
+              <span>Disponibilité, livraison et tarif confirmés dans votre proposition.</span>
             </div>
           </div>
         </section>

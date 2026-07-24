@@ -4,18 +4,57 @@ import {
   machines,
   options,
   processSteps,
-  selectorNeeds,
+  selectorNeeds as catalogSelectorNeeds,
 } from "./catalog";
 import { brandLogos, siteConfig, trustSignals } from "./site";
 
-export { brandLogos, galleryHighlights, processSteps, selectorNeeds };
+export { brandLogos, galleryHighlights, processSteps };
+
+const homeMachineImages = {
+  photobooth: "/images/photobooth.webp",
+  miroirbooth: "/images/miroirbooth.webp",
+  videobooth: "/images/360booth.webp",
+  air360booth: "/images/airbooth.webp",
+  ipadbooth: "/images/ipadbooth.webp",
+  voguebooth: "/images/voguebooth.webp",
+  packvip: "/images/pack.webp",
+  personnalise: "/images/all_presta.webp",
+};
+
+const homeSelectorImages = {
+  "Photo imprimée": "/images/selector/photobooth-en-action-ai.webp",
+  "Vidéo 360": "/images/selector/video-360-en-action-ai.webp",
+  "Photo Vogue": "/images/selector/voguebooth-en-action-ai.webp",
+};
+
+const homeOptionImages = {
+  "Mur floral": "/images/machines-ai/mur-floral-reception-myselfiebooth.webp",
+  "Phonebooth audio": "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
+  "Porte-clés photo": "/images/generated/instagram-keychain-favors.webp",
+  "Magnets premium": "/images/machines-ai/magnets-photo-myselfiebooth.webp",
+  "Magnets simples": "/images/ai/detail-souvenirs-premium-ai.webp",
+  "Panneau fontaine": "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
+  "Livre d'or vidéo": "/images/machines-ai/livre-or-video-myselfiebooth.webp",
+  "Holo 3D": "/images/machines-ai/holo-3d-evenement-myselfiebooth.webp",
+  "Livre d'or physique": "/images/machines-ai/livre-or-physique-myselfiebooth.webp",
+  "Panneau de bienvenue": "/images/generated/premium-welcome-board-decor.webp",
+  "Fond LED 360": "/images/ai/ambiance-360booth-premium-ai.webp",
+  "Photographe Vogue Booth": "/images/ai/ambiance-vogue-booth-premium.webp",
+  "Impression Vogue Booth": "/images/generated/instagram-print-strips.webp",
+  "Décoration Vogue Booth": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+};
+
+export const selectorNeeds = catalogSelectorNeeds.map((item) => ({
+  ...item,
+  image: homeSelectorImages[item.need] || item.image,
+}));
 
 export const services = machines.map((machine) => ({
   key: machine.key,
   title: machine.name,
   tag: machine.tag,
   text: machine.short,
-  image: machine.image,
+  image: homeMachineImages[machine.key] || machine.image,
   href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));
@@ -74,28 +113,28 @@ export const featuredReels = [
     title: "L'expérience MySelfieBooth",
     description: "Nos machines installées et utilisées en conditions réelles.",
     video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
-    poster: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+    poster: "/images/generated/premium-team-installation.webp",
     href: "https://www.instagram.com/reel/DO30-rNiDdA/",
   },
   {
     title: "Vogue Booth personnalisé",
     description: "Un décor VOGUE avec le thème, la date et les textes de l'événement.",
     video: "/videos/vogue-real/vogue-booth-anniversaire.mp4",
-    poster: "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+    poster: "/images/vogue-real/vogue-booth-anniversaire-la-baronne.webp",
     href: "https://www.instagram.com/myselfiebooth_paris/",
   },
   {
     title: "Au salon du mariage",
     description: "Une démonstration de nos animations face aux futurs mariés.",
     video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
-    poster: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
+    poster: "/images/generated/premium-wedding-photobooth.webp",
     href: "https://www.instagram.com/reel/DQxM5TnCOKL/",
   },
   {
     title: "Mariage Congo x Cap-Vert",
     description: "Une prestation festive captée au milieu des invités.",
     video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
-    poster: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
+    poster: "/images/generated/instagram-party-guests.webp",
     href: "https://www.instagram.com/reel/Da-0z-to0VL/",
   },
 ];
@@ -107,7 +146,7 @@ export const caseStudies = [
     setup: "360 Booth · vidéo verticale",
     result:
       "Un format court et partageable, avec une installation pensée pour faire participer les visiteurs en continu.",
-    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
+    image: "/images/ai/ambiance-360-booth-premium.webp",
   },
   {
     category: "Salon",
@@ -115,7 +154,7 @@ export const caseStudies = [
     setup: "Borne photo · tirage immédiat",
     result:
       "Une démonstration en conditions réelles pour montrer la prise de vue, la personnalisation et le souvenir imprimé.",
-    image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
+    image: "/images/generated/instagram-backstage-setup.webp",
   },
   {
     category: "Mariage",
@@ -123,7 +162,7 @@ export const caseStudies = [
     setup: "Vogue Booth · rendu éditorial",
     result:
       "Un espace lumineux qui guide naturellement les invités et produit une série de portraits cohérente.",
-    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
+    image: "/images/generated/instagram-vogue-booth.webp",
   },
 ];
 
@@ -159,7 +198,10 @@ export const trustCards = [
   },
 ];
 
-export const optionHighlights = options;
+export const optionHighlights = options.map((option) => ({
+  ...option,
+  image: homeOptionImages[option.name] || option.image,
+}));
 
 export const comparisonRows = machines.map((machine) => ({
   name: machine.name,

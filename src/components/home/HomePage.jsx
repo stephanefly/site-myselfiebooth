@@ -113,7 +113,7 @@ export default function HomePage() {
               muted
               playsInline
               preload="metadata"
-              poster="/images/machines-ai/360booth-entreprise-myselfiebooth.webp"
+              poster="/images/generated/instagram-corporate-activation.webp"
             >
               <source
                 media="(min-width: 721px)"
@@ -134,7 +134,7 @@ export default function HomePage() {
               muted
               playsInline
               preload="auto"
-              poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
+              poster="/images/hero-pub-2024.webp"
             >
               <source src="/videos/PUB_2024.mp4" type="video/mp4" />
             </video>
@@ -194,11 +194,37 @@ export default function HomePage() {
 
       <HomeQuickNavigation />
 
+      <section className="home-booking-band" data-reveal>
+        <div className="home-container home-booking-band-inner">
+          <div className="home-booking-heading">
+            <p className="home-eyebrow">Devis clair</p>
+            <h2>Votre date, votre lieu, votre formule.</h2>
+          </div>
+          <ol className="home-booking-steps">
+            <li>
+              <strong>1. Date et lieu</strong>
+              <span>Indiquez où et quand.</span>
+            </li>
+            <li>
+              <strong>2. Machines et options</strong>
+              <span>Composez votre expérience.</span>
+            </li>
+            <li>
+              <strong>3. Proposition confirmée</strong>
+              <span>Recevez la formule et le tarif.</span>
+            </li>
+          </ol>
+          <a className="home-button home-button-primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
+            Vérifier ma date et demander mon devis
+          </a>
+        </div>
+      </section>
+
       <section id="entreprises" className="home-pro-band" data-reveal>
         <div className="home-container home-pro-band-inner">
           <picture>
             <img
-              src="/images/machines-ai/360booth-entreprise-myselfiebooth.webp"
+              src="/images/generated/premium-corporate-photobooth.webp"
               alt="Animation MySelfieBooth personnalisée pour un événement professionnel"
               width="720"
               height="540"

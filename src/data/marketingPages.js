@@ -178,7 +178,7 @@ const eventPages = {
     title: "Animations photo et vidéo pour entreprise et activation de marque",
     description:
       "Photobooth, 360 Booth, iPad Booth et formats premium pour soirées d'entreprise, séminaires, lancements, inaugurations et activations de marque.",
-    image: "/images/realisations/sephora-360booth.webp",
+    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
     imageAlt: "360 Booth MySelfieBooth installé pour une activation chez Sephora Champs-Élysées",
     highlights: ["Branding", "Logistique", "Contenus"],
     primaryCta: {
@@ -253,6 +253,17 @@ const eventPages = {
           { title: "Installation", text: "Livraison, montage, branchements et tests sont anticipés." },
           { title: "Animation", text: "L'équipe accompagne les invités selon la machine, le volume et la formule retenue." },
           { title: "Remise des contenus", text: "Les contenus numériques et la galerie sont transmis selon les modalités validées." },
+        ],
+      },
+      {
+        eyebrow: "Livrables",
+        title: "Ce que votre équipe récupère après l'événement",
+        text: "Les livrables sont définis au brief puis confirmés dans la proposition pour éviter toute zone floue.",
+        cards: [
+          { title: "Visuels personnalisés", text: "Logo, couleurs, templates, écrans ou habillages préparés selon la formule validée." },
+          { title: "Galerie et fichiers", text: "Photos ou vidéos remises via galerie ou téléchargement selon le dispositif retenu." },
+          { title: "Cadrage technique", text: "Accès, alimentation, implantation, montage et horaires confirmés avant l'événement." },
+          { title: "Données et consentement", text: "Toute collecte éventuelle d'email ou de téléphone est définie au brief et cadrée selon le dispositif choisi." },
         ],
       },
       {

@@ -172,6 +172,84 @@
   background: #edf3ef;
 }
 
+.catalog-compare-section {
+  scroll-margin-top: 122px;
+  background: #fff;
+}
+
+.catalog-compare-help {
+  display: none;
+  margin: 0 0 8px;
+  color: #6b675f;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.catalog-compare-scroll {
+  overflow-x: auto;
+  border: 1px solid #d9d8d2;
+  border-radius: 8px;
+  background: #fff;
+  scrollbar-color: #7c2530 #ecebe7;
+}
+
+.catalog-compare-scroll:focus-visible {
+  outline: 3px solid #d1a944;
+  outline-offset: 3px;
+}
+
+.catalog-compare-table {
+  width: 100%;
+  min-width: 940px;
+  border-collapse: collapse;
+}
+
+.catalog-compare-table th,
+.catalog-compare-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #e3e2dd;
+  color: #4f4b44;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-align: left;
+  vertical-align: top;
+}
+
+.catalog-compare-table thead th {
+  color: #fff;
+  background: #171717;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+}
+
+.catalog-compare-table tbody th {
+  min-width: 150px;
+  color: #171717;
+  background: #fff;
+}
+
+.catalog-compare-table tbody tr:last-child th,
+.catalog-compare-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.catalog-compare-table a {
+  color: #7c2530;
+  font-weight: 900;
+  text-underline-offset: 3px;
+}
+
+.catalog-compare-table td strong {
+  color: #171717;
+}
+
+.catalog-compare-note {
+  margin: 10px 0 0;
+  color: #6b675f;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
 .catalog-section-heading {
   max-width: 780px;
   margin-bottom: 22px;
@@ -561,8 +639,8 @@
 
 .catalog-pack-price strong {
   margin-top: 2px;
-  font-size: 1rem;
-  line-height: 1;
+  font-size: 0.86rem;
+  line-height: 1.15;
 }
 
 .catalog-pack-price em {
@@ -718,6 +796,72 @@
   text-underline-offset: 3px;
 }
 
+.catalog-booking-section {
+  scroll-margin-top: 122px;
+  background: #edf3ef;
+}
+
+.catalog-booking-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog-booking-grid li {
+  min-width: 0;
+  padding: 4px 18px 4px 16px;
+  border-left: 1px solid #bfcac3;
+}
+
+.catalog-booking-grid li:first-child {
+  border-left: 4px solid #2f6b57;
+}
+
+.catalog-booking-grid li > span {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  color: #fff;
+  background: #2f6b57;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.catalog-booking-grid strong {
+  display: block;
+  color: #171717;
+  font-size: 0.92rem;
+  line-height: 1.25;
+}
+
+.catalog-booking-grid p {
+  margin: 6px 0 0;
+  color: #5d5a54;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.catalog-booking-action {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.catalog-booking-action > span {
+  max-width: 420px;
+  color: #5d5a54;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
 .catalog-final-cta {
   padding: 42px 0;
   color: #fff;
@@ -767,6 +911,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .catalog-booking-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 0;
+  }
+
   .catalog-final-cta .catalog-container {
     align-items: flex-start;
     flex-direction: column;
@@ -805,6 +954,33 @@
 
   .catalog-jump-nav .catalog-jump-cta {
     margin-left: 0;
+  }
+
+  .catalog-compare-help {
+    display: block;
+  }
+
+  .catalog-compare-table th,
+  .catalog-compare-table td {
+    padding: 11px 12px;
+  }
+
+  .catalog-booking-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .catalog-booking-grid li {
+    padding: 2px 0 2px 14px;
+  }
+
+  .catalog-booking-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .catalog-booking-action .catalog-button {
+    width: 100%;
   }
 
   .catalog-section {
