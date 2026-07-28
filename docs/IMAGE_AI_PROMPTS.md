@@ -19,6 +19,12 @@ Les images IA servent uniquement de visuels d'ambiance. Elles ne doivent pas etr
 | `public/images/ai/b2b-case-salon-ai.png` | Illustration salon professionnel / activation de marque | Genere IA |
 | `public/images/ai/b2b-case-seminaire-ai.png` | Illustration seminaire / soiree interne entreprise | Genere IA |
 | `public/images/ai/founder-workshop-ai.png` | Illustration atelier / expertise fondatrice, sans portrait reel | Genere IA |
+| `public/images/blog-ai/mariage-photobooth-guide.webp` | Guides mariage, anniversaire et souvenirs photo | Genere IA, mention affichee |
+| `public/images/blog-ai/corporate-activation-guide.webp` | Guides entreprise, salon et animation 360 | Genere IA, mention affichee |
+| `public/images/blog-ai/installation-espace-guide.webp` | Guides installation, espace, duree et budget | Genere IA, mention affichee |
+| `public/images/blog-ai/personnalisation-souvenirs-guide.webp` | Guides personnalisation, livre d'or, decor et packs | Genere IA, mention affichee |
+| `public/images/blog-ai/vogue-booth-guide.webp` | Guide Vogue Booth et cadrage editorial | Genere IA, mention affichee |
+| `public/images/blog-ai/phonebooth-audio-guide.webp` | Guide Phonebooth et livre d'or audio | Genere IA, mention affichee |
 
 ## Prompts utilises
 
@@ -42,6 +48,10 @@ Premium seminar or internal corporate evening with an elegant photobooth corner,
 
 Elegant French studio workshop where a photobooth is being prepared before an event, founder-like person shown from behind or in silhouette, no identifiable face, focus on craftsmanship and preparation, black ivory and champagne gold details, no readable text, no logos, 4:5 vertical composition.
 
+### Serie editoriale pour les guides du blog
+
+Six visuels photorealistes ont ete generes pour couvrir les themes mariage, activation de marque, installation technique, personnalisation des souvenirs, Vogue Booth et Phonebooth audio. Les prompts utilisent une composition paysage 3:2, une lumiere claire, la palette noire, ivoire, blanche et doree de MySelfieBooth, sans texte lisible, logo, marque ni filigrane. Les scenes doivent rester credibles et editoriales sans etre presentees comme des prestations ou des clients reels.
+
 ## Mentions recommandees
 
 - "Visuel d'ambiance généré par IA."
@@ -50,4 +60,4 @@ Elegant French studio workshop where a photobooth is being prepared before an ev
 
 ## Remplacement
 
-Chaque visuel IA utilisé dans un nouvel emplacement doit être remplaçable via `src/data/imageSlots.json` lorsqu'une photo réelle validée est disponible. Les images IA ne doivent pas être utilisées comme preuves clients.
+Chaque visuel IA utilisé dans un nouvel emplacement doit être remplaçable lorsqu'une photo réelle validée est disponible. Les visuels éditoriaux du blog sont centralisés dans `src/data/blogArticleExpansions.js`; les autres emplacements manuels restent gérés via `src/data/imageSlots.json`. Les images IA ne doivent pas être utilisées comme preuves clients.

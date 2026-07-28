@@ -29,7 +29,11 @@ export default function BlogArticle({ article }) {
               </span>
             </div>
             <figure>
-              <img src={article.image} alt={article.imageAlt} width="920" height="680" />
+              <div className="blog-article-hero-image">
+                <img src={article.image} alt={article.imageAlt} width="920" height="680" />
+                {article.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
+              </div>
+              {article.imageNote ? <figcaption>{article.imageNote}</figcaption> : null}
             </figure>
           </div>
         </header>
@@ -55,14 +59,57 @@ export default function BlogArticle({ article }) {
                     {section.bullets.map((item) => <li key={item}>{item}</li>)}
                   </ul>
                 )}
+                {section.image ? (
+                  <figure className="blog-section-visual">
+                    <div>
+                      <img
+                        src={section.image}
+                        alt={section.imageAlt}
+                        loading="lazy"
+                        width="920"
+                        height="614"
+                      />
+                      <span className="blog-ai-badge">Visuel d'ambiance IA</span>
+                    </div>
+                    {section.caption ? <figcaption>{section.caption}</figcaption> : null}
+                  </figure>
+                ) : null}
               </section>
             ))}
+
+            {article.faqs?.length ? (
+              <section className="blog-article-faq" id="questions-frequentes">
+                <span>FAQ</span>
+                <h2>Questions fréquentes</h2>
+                <div>
+                  {article.faqs.map((item) => (
+                    <details key={item.question}>
+                      <summary>{item.question}</summary>
+                      <p>{item.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            ) : null}
           </div>
 
           <aside className="blog-article-aside">
-            <p>Besoin d'une recommandation ?</p>
-            <strong>Expliquez-nous votre événement.</strong>
-            <a href={siteConfig.quoteUrl}>Demander un devis</a>
+            <nav aria-label="Sommaire de l'article">
+              <p>Dans ce guide</p>
+              <ol>
+                {article.sections.map((section, index) => (
+                  <li key={section.title}>
+                    <a href={`#partie-${index + 1}`}>{section.title}</a>
+                  </li>
+                ))}
+                {article.faqs?.length ? <li><a href="#questions-frequentes">Questions fréquentes</a></li> : null}
+              </ol>
+            </nav>
+            <div className="blog-aside-cta">
+              <p>Besoin d'une recommandation ?</p>
+              <strong>Expliquez-nous votre événement.</strong>
+              <a href={siteConfig.quoteUrl}>Demander un devis</a>
+            </div>
           </aside>
         </div>
 
@@ -83,7 +130,10 @@ export default function BlogArticle({ article }) {
             <div className="blog-related-grid">
               {relatedArticles.map((related) => (
                 <a href={`/blog/${related.slug}/`} key={related.slug}>
-                  <img src={related.image} alt="" loading="lazy" width="640" height="420" />
+                  <div className="blog-related-image">
+                    <img src={related.image} alt="" loading="lazy" width="640" height="420" />
+                    {related.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
+                  </div>
                   <span>{related.category}</span>
                   <strong>{related.title}</strong>
                 </a>

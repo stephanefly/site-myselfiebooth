@@ -1,6 +1,7 @@
 import { absoluteUrl, siteConfig, withSlash } from "./site";
+import { articleDeepDives, articleExpansions } from "./blogArticleExpansions";
 
-export const blogArticles = [
+const baseBlogArticles = [
   {
     slug: "choisir-photobooth-mariage",
     category: "Mariage",
@@ -627,12 +628,64 @@ export const blogArticles = [
   },
 ];
 
+export const blogArticles = baseBlogArticles.map((article) => {
+  const expansion = articleExpansions[article.slug] || {};
+
+  return {
+    ...article,
+    ...expansion,
+    sections: [
+      ...article.sections,
+      ...(expansion.sections || []),
+      ...(articleDeepDives[article.slug] || []),
+    ],
+    faqs: expansion.faqs || [],
+  };
+});
+
 export function getBlogArticle(slug) {
   return blogArticles.find((article) => article.slug === slug);
 }
 
 export function articleMeta(article) {
   const path = `/blog/${article.slug}`;
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.metaDescription,
+    image: absoluteUrl(article.image),
+    datePublished: article.publishedIso || "2026-07-21",
+    dateModified: "2026-07-29",
+    author: {
+      "@type": "Person",
+      name: siteConfig.founder.name,
+      url: absoluteUrl("/a-propos/"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(siteConfig.defaultOgImage),
+      },
+    },
+    mainEntityOfPage: absoluteUrl(withSlash(path)),
+  };
+  const faqJsonLd = article.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: article.faqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
 
   return {
     title: `${article.title} | MySelfieBooth`,
@@ -643,30 +696,6 @@ export function articleMeta(article) {
     ogImage: article.image,
     ogUrl: absoluteUrl(withSlash(path)),
     ogType: "article",
-    jsonLd: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        headline: article.title,
-        description: article.metaDescription,
-        image: absoluteUrl(article.image),
-        datePublished: article.publishedIso || "2026-07-21",
-        dateModified: "2026-07-23",
-        author: {
-          "@type": "Person",
-          name: siteConfig.founder.name,
-          url: absoluteUrl("/a-propos/"),
-        },
-        publisher: {
-          "@type": "Organization",
-          name: siteConfig.name,
-          logo: {
-            "@type": "ImageObject",
-            url: absoluteUrl(siteConfig.defaultOgImage),
-          },
-        },
-        mainEntityOfPage: absoluteUrl(withSlash(path)),
-      },
-    ],
+    jsonLd: [articleJsonLd, faqJsonLd].filter(Boolean),
   };
 }

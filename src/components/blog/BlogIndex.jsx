@@ -8,9 +8,9 @@ export default function BlogIndex() {
       metaProps={{
         title: "Conseils photobooth pour vos événements | MySelfieBooth",
         description:
-          "Guides pratiques pour choisir, budgéter, installer et personnaliser votre animation photo ou vidéo.",
+          "Guides détaillés pour choisir, budgéter, installer et personnaliser une animation photobooth pour un mariage, une entreprise ou un événement privé.",
         ogTitle: "Le guide photobooth MySelfieBooth",
-        ogDescription: "Des réponses courtes pour préparer votre animation photo ou vidéo.",
+        ogDescription: "Des guides complets pour préparer votre animation photo ou vidéo sans oublier la logistique, le budget et la personnalisation.",
         ogImage: blogArticles[0].image,
         ogUrl: absoluteUrl("/blog/"),
       }}
@@ -19,8 +19,8 @@ export default function BlogIndex() {
         <header className="blog-index-hero">
           <div className="blog-container">
             <p className="blog-eyebrow">Le guide MySelfieBooth</p>
-            <h1>Préparez votre photobooth sans perdre de temps.</h1>
-            <p>Des réponses simples pour choisir, organiser et personnaliser votre animation.</p>
+            <h1>Tout savoir pour réussir votre animation photobooth.</h1>
+            <p>Des guides complets, concrets et structurés pour choisir, organiser, personnaliser et budgéter votre expérience.</p>
           </div>
         </header>
 
@@ -45,6 +45,7 @@ export default function BlogIndex() {
                       width="760"
                       height="520"
                     />
+                    {article.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
                   </a>
                   <div className="blog-card-body">
                     <div className="blog-card-meta">

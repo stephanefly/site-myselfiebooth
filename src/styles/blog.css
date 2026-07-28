@@ -32,7 +32,7 @@
   padding: 120px 0 68px;
   isolation: isolate;
   color: #fff;
-  background: #080808 url("/images/machines-ai/hero-machines-myselfiebooth.webp") center 44% / cover no-repeat;
+  background: #080808 url("/images/blog-ai/personnalisation-souvenirs-guide.webp") center 46% / cover no-repeat;
 }
 
 .blog-index-hero::before {
@@ -110,9 +110,26 @@
 }
 
 .blog-card-image {
+  position: relative;
   display: block;
   overflow: hidden;
   background: #1a1a1a;
+}
+
+.blog-ai-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 5px 8px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(10, 10, 10, 0.78);
+  font-size: 0.66rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
 }
 
 .blog-card-image img {
@@ -205,7 +222,7 @@
 
 .blog-index-cta a,
 .blog-article-cta a,
-.blog-article-aside a {
+.blog-aside-cta > a {
   min-height: 46px;
   display: inline-flex;
   align-items: center;
@@ -271,18 +288,32 @@
 }
 
 .blog-article-hero figure {
-  height: 370px;
   margin: 0;
   overflow: hidden;
   border-radius: 8px;
   background: #1b1b1b;
 }
 
-.blog-article-hero figure img {
+.blog-article-hero-image {
+  position: relative;
+  height: 370px;
+}
+
+.blog-article-hero figure img,
+.blog-section-visual img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.blog-article-hero figcaption,
+.blog-section-visual figcaption {
+  padding: 10px 13px;
+  color: #bdb7ad;
+  background: #171717;
+  font-size: 0.72rem;
+  line-height: 1.4;
 }
 
 .blog-takeaways {
@@ -370,6 +401,46 @@
   line-height: 1.5;
 }
 
+.blog-section-visual {
+  margin: 26px 0 0;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #171717;
+}
+
+.blog-section-visual > div {
+  position: relative;
+  height: 380px;
+}
+
+.blog-article-faq > div {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.blog-article-faq details {
+  padding: 0 18px;
+  border: 1px solid #deded8;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.blog-article-faq summary {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  color: #24231f;
+  cursor: pointer;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.blog-article-faq details p {
+  margin: 0;
+  padding: 0 0 18px;
+}
+
 .blog-article-aside {
   position: sticky;
   top: 110px;
@@ -378,19 +449,64 @@
   background: #fff;
 }
 
-.blog-article-aside p {
+.blog-article-aside nav > p,
+.blog-aside-cta > p {
   margin: 0 0 8px;
   color: #6b6861;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.blog-article-aside strong {
+.blog-article-aside nav ol {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: blog-toc;
+}
+
+.blog-article-aside nav li {
+  position: relative;
+  padding-left: 26px;
+  counter-increment: blog-toc;
+}
+
+.blog-article-aside nav li::before {
+  position: absolute;
+  left: 0;
+  color: #a77825;
+  content: counter(blog-toc, decimal-leading-zero);
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.blog-article-aside nav a {
+  color: #4f4d47;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.blog-article-aside nav a:hover {
+  color: #7c2530;
+}
+
+.blog-aside-cta {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid #deded8;
+}
+
+.blog-aside-cta strong {
   display: block;
   font-size: 1.2rem;
   line-height: 1.25;
 }
 
-.blog-article-aside a {
+.blog-aside-cta > a {
   width: 100%;
   margin-top: 18px;
 }
@@ -444,6 +560,13 @@
   text-decoration: none;
 }
 
+.blog-related-image {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 .blog-related-grid img {
   width: 100%;
   height: 160px;
@@ -489,6 +612,10 @@
 
   .blog-article-aside {
     position: static;
+  }
+
+  .blog-article-aside nav ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -542,7 +669,8 @@
     font-size: 2.25rem;
   }
 
-  .blog-article-hero figure {
+  .blog-article-hero-image,
+  .blog-section-visual > div {
     height: 260px;
   }
 
@@ -563,6 +691,10 @@
   .blog-article-cta h2,
   .blog-index-cta h2 {
     font-size: 1.9rem;
+  }
+
+  .blog-article-aside nav ol {
+    grid-template-columns: 1fr;
   }
 }
 
