@@ -8,13 +8,13 @@ export default function Home() {
     <Layout
       metaProps={{
         title:
-          "MySelfieBooth - Location photobooth premium en Île-de-France",
+          "Location photobooth Paris & Île-de-France | MySelfieBooth",
         description:
-          "Location de photobooth, miroirbooth, 360 booth, Vogue Booth et options premium pour entreprises, mariages et soirées en Île-de-France, à Lyon et à Rouen.",
-        ogTitle: "MySelfieBooth - Photobooth premium pour événements",
+          "Location de photobooth premium à Paris et en Île-de-France pour entreprises, mariages et événements privés. Installation, personnalisation et accompagnement inclus.",
+        ogTitle: "Location de photobooth premium à Paris | MySelfieBooth",
         ogDescription:
-          "Une animation photo élégante, clé en main et rassurante pour entreprises, marques, mariages et événements privés.",
-        ogImage: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+          "Plus de 700 événements réalisés : photobooth, 360 Booth, Vogue Booth et expériences personnalisées pour entreprises et particuliers.",
+        ogImage: "/images/hero-pub-2024.webp",
         ogUrl: absoluteUrl("/"),
         includeOrganization: true,
         includeWebsite: true,

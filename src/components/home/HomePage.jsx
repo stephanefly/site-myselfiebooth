@@ -3,14 +3,17 @@ import {
   brandLogos,
   caseStudies,
   faqs,
+  featuredPacks,
   featuredReels,
   galleryHighlights,
   googleReviews,
+  marketPaths,
   optionHighlights,
   proofPoints,
   selectorNeeds,
   services,
 } from "../../data/home";
+import { blogArticles } from "../../data/blogArticles";
 import { siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
 
@@ -38,11 +41,11 @@ function QuoteButton({ className = "home-button home-button-primary" }) {
 function HomeQuickNavigation() {
   const links = [
     ["/prestations#machines", "Animations"],
-    ["/prestations#packs", "Packs"],
+    ["#packs", "Packs"],
     ["#options", "Options"],
-    ["#reels", "Vidéos"],
     ["#realisations", "Photos"],
     ["#entreprises", "Entreprises"],
+    ["#glambooth", "Glambooth"],
     ["#faq", "FAQ"],
   ];
 
@@ -85,45 +88,27 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
           <figure className="home-hero-film home-hero-film-vogue">
-            <video
-              className="home-hero-video-side home-hero-video-vogue"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/images/vogue-real/vogue-booth-mariage-lydia-vincent.webp"
-            >
-              <source
-                media="(min-width: 721px)"
-                src="/videos/vogue-real/vogue-booth-mariage.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <img
+              src="/images/vogue-real/vogue-booth-mariage-lydia-vincent.webp"
+              alt=""
+              width="934"
+              height="700"
+            />
             <figcaption>
-              <strong>Film Vogue Booth</strong>
-              <span>VOGUE Wedding Edition personnalisé pour le mariage</span>
+              <strong>Vogue Booth réel</strong>
+              <span>Wedding Edition personnalisée pour Lydia et Vincent</span>
             </figcaption>
           </figure>
           <figure className="home-hero-film home-hero-film-paris">
-            <video
-              className="home-hero-video-side home-hero-video-paris"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/images/generated/instagram-corporate-activation.webp"
-            >
-              <source
-                media="(min-width: 721px)"
-                src="/videos/compress-TOUR-EIFFEL-FINAL.mp4"
-                type="video/mp4"
-              />
-            </video>
+            <img
+              src="/images/realisations/sephora-360booth.webp"
+              alt=""
+              width="720"
+              height="540"
+            />
             <figcaption>
-              <strong>Film Tour Eiffel</strong>
-              <span>Une animation événementielle au cœur de Paris</span>
+              <strong>Activation de marque</strong>
+              <span>Le 360 Booth MySelfieBooth pour Sephora</span>
             </figcaption>
           </figure>
           <figure className="home-hero-film home-hero-film-primary">
@@ -133,13 +118,13 @@ export default function HomePage() {
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               poster="/images/hero-pub-2024.webp"
             >
               <source src="/videos/PUB_2024.mp4" type="video/mp4" />
             </video>
             <figcaption>
-              <strong>Film MySelfieBooth 2024</strong>
+              <strong>MySelfieBooth en action</strong>
               <span>Nos machines en action sur de vrais événements</span>
             </figcaption>
           </figure>
@@ -148,28 +133,35 @@ export default function HomePage() {
 
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy" data-reveal>
-            <p className="home-eyebrow">Photobooth premium - {siteConfig.mainArea}</p>
-            <h1>L'animation photo ou vidéo qu'il faut à votre événement.</h1>
-            <p>8 machines, des packs clairs et une installation clé en main.</p>
+            <p className="home-eyebrow">Expériences photo et vidéo premium</p>
+            <h1>Location de photobooth premium à Paris et en Île-de-France</h1>
+            <p>
+              Des animations conçues, personnalisées et installées par notre équipe
+              pour faire vivre votre marque, votre mariage ou votre soirée.
+            </p>
+            <ul className="home-hero-facts" aria-label="Repères MySelfieBooth">
+              <li><strong>+700</strong> événements réalisés</li>
+              <li><strong>5 ans</strong> d'expertise</li>
+              <li><strong>{siteConfig.reviews.rating}</strong> sur Google</li>
+            </ul>
             <div className="home-actions">
               <QuoteButton />
               <a className="home-button home-button-secondary" href="/prestations">
                 {siteConfig.secondaryCtaLabel}
               </a>
-              <a className="home-button home-button-ghost" href={siteConfig.phoneHref} data-event="phone_click">
-                {siteConfig.phoneCtaLabel}
-              </a>
             </div>
-            <p className="home-microcopy">{siteConfig.microcopy}</p>
+            <p className="home-microcopy">
+              {siteConfig.microcopy} Besoin d'échanger ? <a href={siteConfig.phoneHref} data-event="phone_click">{siteConfig.phoneLabel}</a>
+            </p>
           </div>
         </div>
       </section>
 
       <section className="home-trust-band" aria-label="Preuves MySelfieBooth">
         <div className="home-container home-trust-band-inner">
-          <div className="home-trust-brands">
-            <p>Ils nous font confiance</p>
-            <LogoStrip />
+          <div className="home-trust-summary">
+            <strong>Une équipe technique, un accompagnement de terrain.</strong>
+            <span>Conception, livraison, installation et suivi réunis.</span>
           </div>
           <div className="home-proof-grid">
             {proofPoints.map((item) => {
@@ -193,72 +185,6 @@ export default function HomePage() {
       </section>
 
       <HomeQuickNavigation />
-
-      <section className="home-booking-band" data-reveal>
-        <div className="home-container home-booking-band-inner">
-          <div className="home-booking-heading">
-            <p className="home-eyebrow">Devis clair</p>
-            <h2>Votre date, votre lieu, votre formule.</h2>
-          </div>
-          <ol className="home-booking-steps">
-            <li>
-              <strong>1. Date et lieu</strong>
-              <span>Indiquez où et quand.</span>
-            </li>
-            <li>
-              <strong>2. Machines et options</strong>
-              <span>Composez votre expérience.</span>
-            </li>
-            <li>
-              <strong>3. Proposition confirmée</strong>
-              <span>Recevez la formule et le tarif.</span>
-            </li>
-          </ol>
-          <a className="home-button home-button-primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
-            Vérifier ma date et demander mon devis
-          </a>
-        </div>
-      </section>
-
-      <section id="entreprises" className="home-pro-band" data-reveal>
-        <div className="home-container home-pro-band-inner">
-          <picture>
-            <img
-              src="/images/generated/premium-corporate-photobooth.webp"
-              alt="Animation MySelfieBooth personnalisée pour un événement professionnel"
-              width="720"
-              height="540"
-              loading="lazy"
-            />
-          </picture>
-          <div>
-            <p className="home-eyebrow">Entreprises et agences</p>
-            <h2>Une animation qui porte votre marque.</h2>
-            <p>
-              Salon, séminaire, lancement ou soirée interne : habillage à vos couleurs,
-              installation cadrée et contenus prêts à partager.
-            </p>
-            <div className="home-pro-tags" aria-label="Événements professionnels couverts">
-              <span>Salons</span>
-              <span>Séminaires</span>
-              <span>Lancements</span>
-              <span>Soirées</span>
-            </div>
-            <div className="home-actions">
-              <a className="home-button home-button-primary" href="/evenements/corporates#cas-entreprise">
-                Voir les solutions et cas réels
-              </a>
-              <a
-                className="home-button home-button-secondary"
-                href={siteConfig.quoteUrl}
-                data-event="cta_quote_click"
-              >
-                {siteConfig.professionalCtaLabel}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container">
@@ -328,6 +254,95 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="packs" className="home-section home-section-muted" data-reveal>
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Nos packs"
+            title="Des expériences complètes, sans options inutiles"
+          />
+          <p className="home-section-lead">
+            Photo, vidéo, décor et souvenirs sont réunis dans des formules lisibles.
+            Les tarifs affichés reprennent strictement ceux déjà présents sur le site.
+          </p>
+          <div className="home-pack-grid">
+            {featuredPacks.map((pack) => (
+              <article key={pack.key} className={`home-pack-card ${pack.featured ? "is-featured" : ""}`}>
+                <a className="home-pack-media" href="/prestations#packs">
+                  <img
+                    src={pack.fusionImage || pack.image}
+                    alt={pack.fusionAlt}
+                    loading="lazy"
+                    width="720"
+                    height="540"
+                  />
+                  <span className="home-visual-note">Visuel d'ambiance</span>
+                </a>
+                <div className="home-pack-body">
+                  <span>{pack.tag}</span>
+                  <h3>{pack.name}</h3>
+                  <p>{pack.description}</p>
+                  <ul>
+                    {pack.features.map((feature) => <li key={feature}>{feature}</li>)}
+                  </ul>
+                  <div>
+                    <strong>{pack.price}</strong>
+                    <a href="/prestations#packs">Découvrir le pack</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-booking-band" data-reveal>
+        <div className="home-container home-booking-band-inner">
+          <div className="home-booking-heading">
+            <p className="home-eyebrow">Devis clair</p>
+            <h2>Votre date, votre lieu, votre formule.</h2>
+          </div>
+          <ol className="home-booking-steps">
+            <li>
+              <strong>1. Date et lieu</strong>
+              <span>Indiquez où et quand.</span>
+            </li>
+            <li>
+              <strong>2. Machines et options</strong>
+              <span>Composez votre expérience.</span>
+            </li>
+            <li>
+              <strong>3. Proposition confirmée</strong>
+              <span>Recevez la formule et le tarif.</span>
+            </li>
+          </ol>
+          <a className="home-button home-button-primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
+            Vérifier ma date et demander mon devis
+          </a>
+        </div>
+      </section>
+
+      <section id="entreprises" className="home-section home-section-light" data-reveal>
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Deux expertises événementielles"
+            title="Une expérience adaptée à votre public"
+          />
+          <div className="home-market-grid">
+            {marketPaths.map((path) => (
+              <article key={path.eyebrow} className="home-market-card">
+                <img src={path.image} alt={path.imageAlt} loading="lazy" width="720" height="540" />
+                <div>
+                  <span>{path.eyebrow}</span>
+                  <h3>{path.title}</h3>
+                  <p>{path.text}</p>
+                  <a href={path.href}>{path.cta}</a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="options" className="home-section home-section-muted" data-reveal>
         <div className="home-container">
           <SectionIntro
@@ -359,30 +374,6 @@ export default function HomePage() {
             <a href="/prestations#options" className="home-button home-button-secondary-dark">
               Voir toutes les options
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section home-section-muted" data-reveal>
-        <div className="home-container home-story-grid">
-          <figure className="home-story-media">
-            <img
-              src="/images/equipe/equipe-myselfiebooth.webp"
-              alt="Une partie de l'équipe MySelfieBooth"
-              width="1350"
-              height="1800"
-              loading="lazy"
-            />
-          </figure>
-          <div>
-            <p className="home-eyebrow">Qui sommes-nous</p>
-            <h2>Créée par un ingénieur, portée par une équipe de terrain.</h2>
-            <p>
-              Ingénieur en aéronautique, Stéphane a fabriqué les premières bornes avec son
-              père. Aujourd'hui, la même exigence technique guide toute l'équipe, de la
-              préparation au montage sur votre événement.
-            </p>
-            <a href="/a-propos">Découvrir notre histoire</a>
           </div>
         </div>
       </section>
@@ -474,6 +465,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-section home-client-section" data-reveal>
+        <div className="home-container home-client-layout">
+          <div>
+            <p className="home-eyebrow">Références</p>
+            <h2>Des marques exigeantes nous ont fait confiance.</h2>
+            <p>
+              Activations, salons, séminaires et soirées internes : chaque installation
+              est préparée pour s'intégrer au lieu et à l'identité de l'événement.
+            </p>
+            <a href="/evenements/corporates">Découvrir l'offre entreprises</a>
+          </div>
+          <LogoStrip />
+        </div>
+      </section>
+
       <section id="avis" className="home-section home-reviews" data-reveal>
         <div className="home-container">
           <div className="home-reviews-heading">
@@ -502,6 +508,86 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-section home-section-light" data-reveal>
+        <div className="home-container home-story-grid">
+          <figure className="home-story-media">
+            <img
+              src="/images/equipe/equipe-myselfiebooth.webp"
+              alt="Une partie de l'équipe MySelfieBooth réunie sur le terrain"
+              width="1350"
+              height="1800"
+              loading="lazy"
+            />
+          </figure>
+          <div>
+            <p className="home-eyebrow">L'équipe et l'expertise</p>
+            <h2>Créée par un ingénieur, portée par une équipe de terrain.</h2>
+            <p>
+              Ingénieur en aéronautique, Stéphane Faure a fabriqué les premières bornes
+              avec son père. Cinq ans plus tard, la même exigence technique guide toute
+              l'équipe, de la conception des machines à l'installation le jour J.
+            </p>
+            <ul className="home-story-points">
+              <li>Machines développées et améliorées en interne</li>
+              <li>Préparation, livraison, montage et tests coordonnés</li>
+              <li>Accompagnement réactif avant, pendant et après l'événement</li>
+            </ul>
+            <a href="/a-propos">Découvrir notre histoire et notre équipe</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="glambooth" className="home-section home-innovation" data-reveal>
+        <div className="home-container home-innovation-grid">
+          <div>
+            <p className="home-eyebrow">Innovation MySelfieBooth</p>
+            <span className="home-innovation-status">En développement</span>
+            <h2>Le Glambooth, notre prochaine expérience signature.</h2>
+            <p>
+              Développé en interne, le Glambooth prolonge notre démarche : associer
+              maîtrise technique, qualité d'image et expérience premium. Nous partageons
+              cette innovation avec transparence, sans promettre de fonctionnalités ni de
+              tarif avant leur validation.
+            </p>
+            <a className="home-button home-button-primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
+              Parler de votre prochain événement
+            </a>
+          </div>
+          <figure>
+            <img
+              src="/images/equipe/fabrication-photobooth-en-famille.webp"
+              alt="Stéphane Faure et son père pendant la fabrication d'une machine MySelfieBooth"
+              width="934"
+              height="700"
+              loading="lazy"
+            />
+            <figcaption>La conception et l'amélioration des machines font partie de l'ADN MySelfieBooth.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="home-section home-section-light" data-reveal>
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Conseils d'experts"
+            title="Préparez une animation qui fonctionne vraiment"
+          />
+          <div className="home-blog-grid">
+            {blogArticles.slice(0, 3).map((article) => (
+              <article key={article.slug} className="home-blog-card">
+                <span>{article.category} · {article.readTime}</span>
+                <h3>{article.title}</h3>
+                <p>{article.excerpt}</p>
+                <a href={`/blog/${article.slug}`}>Lire le guide</a>
+              </article>
+            ))}
+          </div>
+          <div className="home-centered-action">
+            <a href="/blog" className="home-button home-button-secondary-dark">Voir tous les conseils</a>
+          </div>
+        </div>
+      </section>
+
       <section id="faq" className="home-section home-section-muted" data-reveal>
         <div className="home-container home-faq-layout">
           <div>
@@ -517,6 +603,19 @@ export default function HomePage() {
                 <p>{item.answer}</p>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-final-cta" data-reveal>
+        <div className="home-container home-final-cta-inner">
+          <div>
+            <p className="home-eyebrow">Votre événement mérite mieux qu'une animation générique</p>
+            <h2>Créons l'expérience MySelfieBooth adaptée à votre date, votre lieu et vos invités.</h2>
+          </div>
+          <div>
+            <QuoteButton />
+            <a href={siteConfig.phoneHref} data-event="phone_click">Ou appelez le {siteConfig.phoneLabel}</a>
           </div>
         </div>
       </section>

@@ -4,7 +4,7 @@ Ces elements ne doivent pas etre surpromis tant qu'ils ne sont pas confirmes par
 
 ## Preuves et chiffres
 
-- `+500 evenements accompagnes`: a confirmer ou remplacer par le chiffre exact.
+- `+700 evenements realises`: chiffre fourni dans le brief MySelfieBooth actuel ; conserver sa formulation et le revalider avant toute hausse future.
 - `4.9/5 note moyenne affichee`: a verifier sur la fiche Google active.
 - `167 avis clients affiches`: a verifier sur la fiche Google active.
 - Logos clients: confirmer les droits d'utilisation et la realite de chaque collaboration.
@@ -30,7 +30,7 @@ Ces elements ne doivent pas etre surpromis tant qu'ils ne sont pas confirmes par
 ## Données issues de la présentation 2026
 
 - `+50 événements professionnels cumulés` : publier seulement si période et méthode de comptage sont validées.
-- `+500 événements particuliers cumulés` : déjà présent comme signal à valider, à dater si publié.
+- `+500 événements particuliers cumulés` : ancienne donnée de présentation, à conserver comme repère interne historique et à ne pas substituer au total public de `+700 événements réalisés` fourni dans le brief actuel.
 - `22 événements professionnels signés en 2025` : donnée interne, ne pas exposer publiquement.
 - `CA professionnel 2025` : donnée interne confidentielle, ne jamais exposer dans le site ou le bundle client.
 - `Taux de signature hors dossiers ouverts` : donnée de pilotage interne, ne pas publier.

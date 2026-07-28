@@ -1,14 +1,14 @@
 import {
   eventTypes,
-  galleryHighlights,
   machines,
   options,
   processSteps,
   selectorNeeds as catalogSelectorNeeds,
+  servicePacks,
 } from "./catalog";
 import { brandLogos, siteConfig, trustSignals } from "./site";
 
-export { brandLogos, galleryHighlights, processSteps };
+export { brandLogos, processSteps };
 
 const homeMachineImages = {
   photobooth: "/images/photobooth.webp",
@@ -22,26 +22,26 @@ const homeMachineImages = {
 };
 
 const homeSelectorImages = {
-  "Photo imprimée": "/images/selector/photobooth-en-action-ai.webp",
-  "Vidéo 360": "/images/selector/video-360-en-action-ai.webp",
-  "Photo Vogue": "/images/selector/voguebooth-en-action-ai.webp",
+  "Photo imprimée": "/images/photobooth.webp",
+  "Vidéo 360": "/images/360booth.webp",
+  "Photo Vogue": "/images/vogue-real/vogue-booth-mariage-card.webp",
 };
 
 const homeOptionImages = {
-  "Mur floral": "/images/machines-ai/mur-floral-reception-myselfiebooth.webp",
-  "Phonebooth audio": "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
-  "Porte-clés photo": "/images/generated/instagram-keychain-favors.webp",
-  "Magnets premium": "/images/machines-ai/magnets-photo-myselfiebooth.webp",
-  "Magnets simples": "/images/ai/detail-souvenirs-premium-ai.webp",
-  "Panneau fontaine": "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
-  "Livre d'or vidéo": "/images/machines-ai/livre-or-video-myselfiebooth.webp",
-  "Holo 3D": "/images/machines-ai/holo-3d-evenement-myselfiebooth.webp",
-  "Livre d'or physique": "/images/machines-ai/livre-or-physique-myselfiebooth.webp",
-  "Panneau de bienvenue": "/images/generated/premium-welcome-board-decor.webp",
-  "Fond LED 360": "/images/ai/ambiance-360booth-premium-ai.webp",
-  "Photographe Vogue Booth": "/images/ai/ambiance-vogue-booth-premium.webp",
-  "Impression Vogue Booth": "/images/generated/instagram-print-strips.webp",
-  "Décoration Vogue Booth": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+  "Mur floral": "/images/ALL-MURS.webp",
+  "Phonebooth audio": "/images/phonebooth.webp",
+  "Porte-clés photo": "/images/option-portecle.webp",
+  "Magnets premium": "/images/option-magnet-premium.webp",
+  "Magnets simples": "/images/option-magnet-simple.webp",
+  "Panneau fontaine": "/images/panneau-fontaine.webp",
+  "Livre d'or vidéo": "/images/livre-dor-video.webp",
+  "Holo 3D": "/images/3d Holo-site.webp",
+  "Livre d'or physique": "/images/Livre-d'or.webp",
+  "Panneau de bienvenue": "/images/Welcomeboard.webp",
+  "Fond LED 360": "/images/fond 360.webp",
+  "Photographe Vogue Booth": "/images/photographe-voguebooth.webp",
+  "Impression Vogue Booth": "/images/impression-voguebooth.webp",
+  "Décoration Vogue Booth": "/images/decoration-voguebooth.webp",
 };
 
 export const selectorNeeds = catalogSelectorNeeds.map((item) => ({
@@ -58,6 +58,8 @@ export const services = machines.map((machine) => ({
   href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));
+
+export const featuredPacks = servicePacks;
 
 export const audiences = eventTypes.map((event) => ({
   title: event.title,
@@ -113,7 +115,7 @@ export const featuredReels = [
     title: "L'expérience MySelfieBooth",
     description: "Nos machines installées et utilisées en conditions réelles.",
     video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
-    poster: "/images/generated/premium-team-installation.webp",
+    poster: "/videos/instagram/reel-1-DO30-rNiDdA.jpg",
     href: "https://www.instagram.com/reel/DO30-rNiDdA/",
   },
   {
@@ -127,14 +129,14 @@ export const featuredReels = [
     title: "Au salon du mariage",
     description: "Une démonstration de nos animations face aux futurs mariés.",
     video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
-    poster: "/images/generated/premium-wedding-photobooth.webp",
+    poster: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
     href: "https://www.instagram.com/reel/DQxM5TnCOKL/",
   },
   {
     title: "Mariage Congo x Cap-Vert",
     description: "Une prestation festive captée au milieu des invités.",
     video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
-    poster: "/images/generated/instagram-party-guests.webp",
+    poster: "/videos/instagram/reel-4-Da-0z-to0VL.jpg",
     href: "https://www.instagram.com/reel/Da-0z-to0VL/",
   },
 ];
@@ -142,27 +144,27 @@ export const featuredReels = [
 export const caseStudies = [
   {
     category: "Activation de marque",
-    title: "360 Booth pour une activation de marque",
-    setup: "360 Booth · vidéo verticale",
+    title: "360 Booth pour Sephora",
+    setup: "360 Booth · expérience de marque",
     result:
-      "Un format court et partageable, avec une installation pensée pour faire participer les visiteurs en continu.",
-    image: "/images/ai/ambiance-360-booth-premium.webp",
-  },
-  {
-    category: "Salon",
-    title: "Photobooth au salon du mariage",
-    setup: "Borne photo · tirage immédiat",
-    result:
-      "Une démonstration en conditions réelles pour montrer la prise de vue, la personnalisation et le souvenir imprimé.",
-    image: "/images/generated/instagram-backstage-setup.webp",
+      "Une animation réelle pensée pour créer des vidéos courtes, rythmées et immédiatement partageables.",
+    image: "/images/realisations/sephora-360booth.webp",
   },
   {
     category: "Mariage",
-    title: "Portraits dans le Vogue Booth",
-    setup: "Vogue Booth · rendu éditorial",
+    title: "Vogue Booth Wedding Edition",
+    setup: "Vogue Booth · décor personnalisé",
     result:
-      "Un espace lumineux qui guide naturellement les invités et produit une série de portraits cohérente.",
-    image: "/images/generated/instagram-vogue-booth.webp",
+      "Un couloir lumineux personnalisé pour le mariage de Lydia et Vincent et des portraits au rendu éditorial.",
+    image: "/images/vogue-real/vogue-booth-mariage-lydia-vincent.webp",
+  },
+  {
+    category: "Mariage",
+    title: "Souvenirs photo en réception",
+    setup: "Photobooth · tirages invités",
+    result:
+      "Une animation accessible à toutes les générations, avec des souvenirs imprimés pendant la soirée.",
+    image: "/images/mariages/mariage5.JPG",
   },
 ];
 
@@ -173,6 +175,8 @@ export const marketPaths = [
     text: "Des formats pensés pour votre marque et vos invités.",
     href: "/evenements/corporates",
     cta: "Voir le parcours entreprise",
+    image: "/images/realisations/sephora-360booth.webp",
+    imageAlt: "360 Booth MySelfieBooth lors d'une activation de marque Sephora",
   },
   {
     eyebrow: "Particuliers",
@@ -180,6 +184,51 @@ export const marketPaths = [
     text: "Des souvenirs photo et vidéo faciles à partager.",
     href: "/evenements/mariages",
     cta: "Voir le parcours particulier",
+    image: "/images/mariages/mariage2.JPG",
+    imageAlt: "Invités profitant d'une animation MySelfieBooth pendant un mariage",
+  },
+];
+
+export const galleryHighlights = [
+  {
+    title: "Activation 360 Booth pour Sephora",
+    image: "/images/realisations/sephora-360booth.webp",
+    category: "Entreprises",
+  },
+  {
+    title: "Vogue Booth au mariage de Lydia et Vincent",
+    image: "/images/vogue-real/vogue-booth-mariage-lydia-vincent.webp",
+    category: "Mariages",
+  },
+  {
+    title: "Vogue Booth personnalisé pour un anniversaire",
+    image: "/images/vogue-real/vogue-booth-anniversaire-la-baronne.webp",
+    category: "Mariages",
+  },
+  {
+    title: "Animation photo pendant une réception de mariage",
+    image: "/images/mariages/mariage1.JPG",
+    category: "Mariages",
+  },
+  {
+    title: "Souvenirs MySelfieBooth avec les invités",
+    image: "/images/mariages/mariage6.JPG",
+    category: "Mariages",
+  },
+  {
+    title: "Photobooth MySelfieBooth prêt pour l'événement",
+    image: "/images/photobooth.webp",
+    category: "Machines",
+  },
+  {
+    title: "Plateforme 360 Booth MySelfieBooth",
+    image: "/images/360booth.webp",
+    category: "Machines",
+  },
+  {
+    title: "Miroirbooth MySelfieBooth en configuration événementielle",
+    image: "/images/miroirbooth.webp",
+    category: "Machines",
   },
 ];
 

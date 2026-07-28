@@ -59,10 +59,10 @@ export const brandLogos = [
 ];
 
 export const trustSignals = [
-  { value: "+500", label: "événements accompagnés" },
+  { value: "+700", label: "événements réalisés" },
+  { value: "5 ans", label: "d'expertise événementielle" },
   { value: siteConfig.reviews.rating, label: "note moyenne sur Google", href: siteConfig.reviewsUrl },
   { value: String(siteConfig.reviews.count), label: "avis clients Google", href: siteConfig.reviewsUrl },
-  { value: "3 zones", label: "Paris, Lyon et Rouen" },
 ];
 
 export function absoluteUrl(path = "/") {
@@ -122,7 +122,7 @@ export const organizationJsonLd = {
     "Location de photobooths premium pour événements professionnels et privés.",
   url: siteConfig.baseUrl,
   logo: absoluteUrl(siteConfig.defaultOgImage),
-  image: absoluteUrl("/images/machines-ai/hero-machines-myselfiebooth.webp"),
+  image: absoluteUrl("/images/hero-pub-2024.webp"),
   telephone: siteConfig.phoneInternational,
   email: siteConfig.email,
   sameAs: siteConfig.socialLinks.map((link) => link.href),
