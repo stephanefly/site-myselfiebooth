@@ -33,7 +33,12 @@ export default function BlogArticle({ article }) {
                 <img src={article.image} alt={article.imageAlt} width="920" height="680" />
                 {article.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
               </div>
-              {article.imageNote ? <figcaption>{article.imageNote}</figcaption> : null}
+              {article.imageNote ? (
+                <figcaption>
+                  {article.imageCaption ? `${article.imageCaption} ` : ""}
+                  {article.imageNote}
+                </figcaption>
+              ) : null}
             </figure>
           </div>
         </header>

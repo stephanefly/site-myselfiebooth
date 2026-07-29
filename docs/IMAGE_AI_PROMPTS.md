@@ -25,6 +25,14 @@ Les images IA servent uniquement de visuels d'ambiance. Elles ne doivent pas etr
 | `public/images/blog-ai/personnalisation-souvenirs-guide.webp` | Guides personnalisation, livre d'or, decor et packs | Genere IA, mention affichee |
 | `public/images/blog-ai/vogue-booth-guide.webp` | Guide Vogue Booth et cadrage editorial | Genere IA, mention affichee |
 | `public/images/blog-ai/phonebooth-audio-guide.webp` | Guide Phonebooth et livre d'or audio | Genere IA, mention affichee |
+| `public/images/blog-ai/prix-location-photobooth.webp` | Guide budget et prix de location | Genere IA, mention affichee |
+| `public/images/blog-ai/anniversaire-photobooth.webp` | Guide animation d'anniversaire | Genere IA, mention affichee |
+| `public/images/blog-ai/360-air360-comparatif.webp` | Comparatif 360 Booth et Air360 | Genere IA, mention affichee |
+| `public/images/blog-ai/livre-or-photo.webp` | Guide livre d'or avec tirages photo | Genere IA, mention affichee |
+| `public/images/blog-ai/duree-location-photobooth.webp` | Guide duree de location | Genere IA, mention affichee |
+| `public/images/blog-ai/salon-seminaire-photobooth.webp` | Guide salon et seminaire | Genere IA, mention affichee |
+| `public/images/blog-ai/fonds-decors-photobooth.webp` | Guide fonds et decors photo | Genere IA, mention affichee |
+| `public/images/blog-ai/packs-photobooth.webp` | Guide choix d'un pack photobooth | Genere IA, mention affichee |
 
 ## Prompts utilises
 
@@ -50,7 +58,7 @@ Elegant French studio workshop where a photobooth is being prepared before an ev
 
 ### Serie editoriale pour les guides du blog
 
-Six visuels photorealistes ont ete generes pour couvrir les themes mariage, activation de marque, installation technique, personnalisation des souvenirs, Vogue Booth et Phonebooth audio. Les prompts utilisent une composition paysage 3:2, une lumiere claire, la palette noire, ivoire, blanche et doree de MySelfieBooth, sans texte lisible, logo, marque ni filigrane. Les scenes doivent rester credibles et editoriales sans etre presentees comme des prestations ou des clients reels.
+Quatorze visuels photorealistes couvrent les themes mariage, entreprise, installation, personnalisation, Vogue Booth, Phonebooth, budget, anniversaire, comparaison 360, livre d'or, duree, salon, decors et packs. Les prompts utilisent une composition paysage 3:2, une lumiere claire, la palette noire, ivoire, blanche et doree de MySelfieBooth, sans texte lisible, logo, marque ni filigrane. Les scenes doivent rester credibles et editoriales sans etre presentees comme des prestations ou des clients reels.
 
 ## Mentions recommandees
 

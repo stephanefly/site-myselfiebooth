@@ -1,5 +1,6 @@
 import { absoluteUrl, siteConfig, withSlash } from "./site";
-import { articleDeepDives, articleExpansions } from "./blogArticleExpansions";
+import { articleExpansions } from "./blogArticleExpansions";
+import { articleVisuals } from "./blogVisuals";
 
 const baseBlogArticles = [
   {
@@ -630,15 +631,36 @@ const baseBlogArticles = [
 
 export const blogArticles = baseBlogArticles.map((article) => {
   const expansion = articleExpansions[article.slug] || {};
+  const visuals = articleVisuals[article.slug] || {};
+  const sections = [
+    ...article.sections,
+    ...(expansion.sections || []).slice(0, 2),
+  ].map((section, index) => {
+    const sectionVisual = visuals.sections?.[index];
+    const cleanSection = { ...section };
+    delete cleanSection.image;
+    delete cleanSection.imageAlt;
+    delete cleanSection.caption;
+
+    return sectionVisual
+      ? {
+          ...cleanSection,
+          image: sectionVisual.src,
+          imageAlt: sectionVisual.alt,
+          caption: sectionVisual.caption,
+        }
+      : cleanSection;
+  });
 
   return {
     ...article,
     ...expansion,
-    sections: [
-      ...article.sections,
-      ...(expansion.sections || []),
-      ...(articleDeepDives[article.slug] || []),
-    ],
+    readTime: "5 min",
+    image: visuals.hero?.src || expansion.image || article.image,
+    imageAlt: visuals.hero?.alt || expansion.imageAlt || article.imageAlt,
+    imageNote: "Visuel d'ambiance généré par IA.",
+    imageCaption: visuals.hero?.caption,
+    sections,
     faqs: expansion.faqs || [],
   };
 });
