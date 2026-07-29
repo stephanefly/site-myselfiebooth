@@ -87,10 +87,10 @@ const featuredHomeServices = services.filter((service) =>
 const featuredHomePacks = featuredPacks.filter((pack) =>
   ["souvenirs", "duo-vip", "vogue-premium"].includes(pack.key)
 );
-const featuredHomeOptions = optionHighlights.slice(0, 8);
+const featuredHomeOptions = optionHighlights
+  .filter((option) => option.name !== "Magnets simples")
+  .slice(0, 8);
 const featuredHomeReviews = googleReviews.slice(0, 3);
-const heroPhotobooth = services.find((service) => service.key === "photobooth");
-
 export default function HomePage() {
   const [heroVideoEnabled, setHeroVideoEnabled] = useState(false);
   const pageRef = useRevealMotion("home");
@@ -116,22 +116,6 @@ export default function HomePage() {
     <div className="home-page" ref={pageRef}>
       <section className="home-hero">
         <div className="home-hero-media" aria-hidden="true">
-          <figure className="home-hero-film home-hero-film-vogue">
-            <img
-              src="/images/ai-faithful/vogue-wedding-ai.webp"
-              alt=""
-              width="934"
-              height="700"
-            />
-          </figure>
-          <figure className="home-hero-film home-hero-film-paris">
-            <img
-              src="/images/ai-faithful/sephora-360booth-ai.webp"
-              alt=""
-              width="720"
-              height="540"
-            />
-          </figure>
           <figure className="home-hero-film home-hero-film-primary">
             <video
               key={heroVideoEnabled ? "hero-video" : "hero-poster"}
@@ -141,7 +125,7 @@ export default function HomePage() {
               muted
               playsInline
               preload="none"
-              poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
+              poster="/images/hero-pub-2024.webp"
             >
               {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
             </video>
@@ -176,7 +160,7 @@ export default function HomePage() {
           <aside className="home-hero-offer" data-reveal aria-label="Offre Photobooth la plus demandée">
             <a className="home-hero-offer-media" href="/prestations/photobooth">
               <img
-                src={heroPhotobooth.image}
+                src="/images/selector/photobooth-en-action-ai.webp"
                 alt="Photobooth MySelfieBooth installé pendant une réception"
                 width="640"
                 height="480"
@@ -464,8 +448,8 @@ export default function HomePage() {
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro
-            eyebrow="Créations IA fidèles"
-            title="Nos vraies prestations, avec une finition plus éditoriale"
+            eyebrow="6 sources, 6 scènes différentes"
+            title="Des créations IA fidèles, sans image répétée"
           />
           <AiEventGallery />
         </div>
@@ -533,8 +517,8 @@ export default function HomePage() {
         <div className="home-container home-story-grid">
           <figure className="home-story-media">
             <img
-              src="/images/ai-faithful/equipe-myselfiebooth-ai.webp"
-              alt="Une partie de l'équipe MySelfieBooth réunie sur le terrain"
+              src="/images/ai-faithful/fabrication-famille-ai.webp"
+              alt="Fabrication d'un photobooth MySelfieBooth en famille dans l'atelier"
               width="1350"
               height="1800"
               loading="lazy"

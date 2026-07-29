@@ -1,16 +1,10 @@
-import { useState } from "react";
 import { aiEventGallery } from "../data/aiEventGallery";
 
-const INITIAL_ITEMS = 12;
-
 export default function AiEventGallery() {
-  const [expanded, setExpanded] = useState(false);
-  const visibleItems = expanded ? aiEventGallery : aiEventGallery.slice(0, INITIAL_ITEMS);
-
   return (
     <div className="ai-event-gallery">
       <div className="ai-event-gallery-grid">
-        {visibleItems.map((item) => (
+        {aiEventGallery.map((item) => (
           <figure className={`ai-event-card ${item.animated ? "is-animated" : ""}`} key={item.id}>
             <img
               src={item.image}
@@ -27,12 +21,6 @@ export default function AiEventGallery() {
             </figcaption>
           </figure>
         ))}
-      </div>
-
-      <div className="ai-event-gallery-actions">
-        <button type="button" onClick={() => setExpanded((value) => !value)}>
-          {expanded ? "Réduire la galerie" : `Voir les ${aiEventGallery.length} créations IA`}
-        </button>
       </div>
     </div>
   );

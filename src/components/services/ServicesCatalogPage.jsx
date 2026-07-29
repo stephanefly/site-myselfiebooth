@@ -39,6 +39,16 @@ const bookingSteps = [
   { title: "Recevez la proposition", text: "Disponibilité, formule et tarif confirmés." },
 ];
 
+const catalogMachines = machines.map((machine) => (
+  machine.key === "packvip"
+    ? {
+        ...machine,
+        image: "/images/generated/premium-booth-installation.webp",
+        alt: "Installation complète MySelfieBooth préparée pour une réception",
+      }
+    : machine
+));
+
 function optionLabel(name) {
   if (souvenirOptions.has(name)) return "Souvenir";
   if (decorOptions.has(name)) return "Décor";
@@ -163,7 +173,7 @@ function ComparisonTable() {
               </tr>
             </thead>
             <tbody>
-              {machines.map((machine) => (
+              {catalogMachines.map((machine) => (
                 <tr key={machine.key}>
                   <th scope="row"><a href={`#machine-${machine.key}`}>{machine.name}</a></th>
                   <td><strong>{machine.catalogPrice || machine.price || "Sur devis"}</strong></td>
@@ -305,7 +315,7 @@ export default function ServicesCatalogPage() {
               <p>Photo, vidéo, capacité et usage : l'essentiel est visible immédiatement.</p>
             </header>
             <div className="catalog-machine-grid">
-              {machines.map((machine) => (
+              {catalogMachines.map((machine) => (
                 <MachineCard key={machine.key} machine={machine} />
               ))}
             </div>

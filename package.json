@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-sitemap.mjs && node scripts/clean-next-build.mjs",
-    "build": "next build",
+    "prebuild": "node scripts/check-gallery-sources.mjs && node scripts/generate-sitemap.mjs && node scripts/clean-next-build.mjs",
+    "build": "next build && node scripts/check-page-media.mjs",
     "images:check": "node scripts/check-image-slots.mjs",
+    "gallery:check": "node scripts/check-gallery-sources.mjs",
+    "media:check": "node scripts/check-page-media.mjs",
     "export": "next export",
     "start": "next start"
   },

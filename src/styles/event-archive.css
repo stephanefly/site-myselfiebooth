@@ -98,25 +98,6 @@
   line-height: 1.25;
 }
 
-.event-archive-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 22px;
-}
-
-.event-archive-actions button {
-  min-height: 46px;
-  padding: 10px 20px;
-  border: 1px solid #151515;
-  border-radius: 7px;
-  color: #151515;
-  background: #e8c861;
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
 @media (max-width: 960px) {
   .event-archive-video-grid,
   .event-archive-photo-grid {

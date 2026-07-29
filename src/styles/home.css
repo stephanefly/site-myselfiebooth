@@ -32,8 +32,8 @@
 }
 
 .home-hero-media {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  display: flex;
+  justify-content: flex-end;
   background: #050505;
 }
 
@@ -1978,11 +1978,6 @@
 
   .home-hero-media {
     grid-template-columns: 1fr;
-  }
-
-  .home-hero-film-vogue,
-  .home-hero-film-paris {
-    display: none;
   }
 
   .home-hero-film-primary figcaption {

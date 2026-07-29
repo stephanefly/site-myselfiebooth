@@ -11,9 +11,9 @@ import { brandLogos, siteConfig, trustSignals } from "./site";
 export { brandLogos, processSteps };
 
 const homeSelectorImages = {
-  "Photo imprimée": "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
-  "Vidéo 360": "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
-  "Photo Vogue": "/images/ai-faithful/vogue-wedding-ai.webp",
+  "Photo imprimée": "/images/ai-fusions/choisir-photo-imprimee.webp",
+  "Vidéo 360": "/images/ai-fusions/choisir-video-360.webp",
+  "Photo Vogue": "/images/ai-fusions/choisir-photo-vogue.webp",
 };
 
 const homeOptionImages = {

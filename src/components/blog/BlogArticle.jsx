@@ -4,6 +4,18 @@ import { getServiceVisual } from "../../data/serviceVisuals";
 import { siteConfig } from "../../data/site";
 
 export default function BlogArticle({ article }) {
+  const usedMedia = new Set([article.image]);
+  const sectionVisuals = article.sections.map((section) => {
+    const serviceVisual = getServiceVisual(section.title);
+    const image = serviceVisual?.image || section.image;
+
+    if (!image || usedMedia.has(image)) {
+      return { image: null, serviceVisual: null };
+    }
+
+    usedMedia.add(image);
+    return { image, serviceVisual };
+  });
   const relatedArticles = blogArticles
     .filter((item) => item.slug !== article.slug)
     .map((item, index) => ({
@@ -14,6 +26,11 @@ export default function BlogArticle({ article }) {
         (item.ctaHref === article.ctaHref ? 1 : 0),
     }))
     .sort((a, b) => b.score - a.score || a.index - b.index)
+    .filter(({ item }) => {
+      if (usedMedia.has(item.image)) return false;
+      usedMedia.add(item.image);
+      return true;
+    })
     .slice(0, 3);
 
   return (
@@ -64,8 +81,7 @@ export default function BlogArticle({ article }) {
         <div className="blog-container blog-article-layout">
           <div className="blog-article-content">
             {article.sections.map((section, index) => {
-              const serviceVisual = getServiceVisual(section.title);
-              const sectionImage = serviceVisual?.image || section.image;
+              const { image: sectionImage, serviceVisual } = sectionVisuals[index];
 
               return (
                 <section key={section.title} id={`partie-${index + 1}`}>

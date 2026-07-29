@@ -147,8 +147,8 @@ export default function AboutPage() {
               </figure>
               <figure>
                 <img
-                  src="/images/ai-faithful/fabrication-famille-ai.webp"
-                  alt="Fabrication artisanale d'une borne MySelfieBooth"
+                  src="/images/equipe/premier-photobooth-en-fabrication.webp"
+                  alt="Premier photobooth MySelfieBooth en cours de fabrication"
                   width="1200"
                   height="1600"
                   loading="lazy"
@@ -195,7 +195,7 @@ export default function AboutPage() {
           <div className="about-container about-field-grid">
             <figure data-reveal>
               <img
-                src="/images/generated/premium-team-installation.webp"
+                src="/images/equipe/stephane-sur-la-route.webp"
                 alt="Stéphane Faure sur la route pour une installation MySelfieBooth"
                 width="1600"
                 height="900"

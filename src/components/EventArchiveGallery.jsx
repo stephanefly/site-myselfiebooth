@@ -1,16 +1,10 @@
-import { useState } from "react";
 import { eventArchivePhotos, eventArchiveVideos } from "../data/eventArchive";
 
 export default function EventArchiveGallery() {
-  const [expanded, setExpanded] = useState(false);
-  const visibleVideos = expanded ? eventArchiveVideos : eventArchiveVideos.slice(0, 4);
-  const visiblePhotos = expanded ? eventArchivePhotos : eventArchivePhotos.slice(0, 12);
-  const mediaCount = eventArchiveVideos.length + eventArchivePhotos.length;
-
   return (
     <div className="event-archive">
       <div className="event-archive-video-grid">
-        {visibleVideos.map((item) => (
+        {eventArchiveVideos.map((item) => (
           <article className="event-archive-video-card" key={item.slug}>
             <video
               controls
@@ -32,7 +26,7 @@ export default function EventArchiveGallery() {
       </div>
 
       <div className="event-archive-photo-grid">
-        {visiblePhotos.map((item) => (
+        {eventArchivePhotos.map((item) => (
           <figure className="event-archive-photo-card" key={item.slug}>
             <img
               src={item.image}
@@ -48,12 +42,6 @@ export default function EventArchiveGallery() {
             </figcaption>
           </figure>
         ))}
-      </div>
-
-      <div className="event-archive-actions">
-        <button type="button" onClick={() => setExpanded((value) => !value)}>
-          {expanded ? "Réduire la galerie" : `Voir les ${mediaCount} nouveaux médias`}
-        </button>
       </div>
     </div>
   );

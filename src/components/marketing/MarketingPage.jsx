@@ -87,7 +87,7 @@ function CardGrid({ cards = [] }) {
   return (
     <div className="marketing-card-grid">
       {cards.slice(0, 4).map((card, index) => {
-        const visual = getServiceVisual(card.title);
+        const visual = card._visual;
 
         return (
           <article
@@ -188,17 +188,19 @@ function ComparisonGrid({ items = [] }) {
         />
         <div className="marketing-comparison-grid">
           {items.map((item) => {
-            const visual = getServiceVisual(item.title);
+            const visual = item._visual;
 
             return (
               <article key={item.title} className="marketing-comparison-card">
-                <img
-                  src={visual?.image || item.image}
-                  alt={visual?.alt || item.title}
-                  loading="lazy"
-                  width="720"
-                  height="480"
-                />
+                {visual && (
+                  <img
+                    src={visual.image}
+                    alt={visual.alt || item.title}
+                    loading="lazy"
+                    width="720"
+                    height="480"
+                  />
+                )}
                 <div>
                   <h3>{item.title}</h3>
                   <dl>
@@ -235,7 +237,9 @@ function OptionGrid({ items = [] }) {
         <div className="marketing-option-grid">
           {items.map((item) => (
             <article key={item.name} className="marketing-option-card">
-              <img src={item.image} alt={item.name} loading="lazy" width="640" height="480" />
+              {item._image && (
+                <img src={item._image} alt={item.name} loading="lazy" width="640" height="480" />
+              )}
               <h3>{item.name}</h3>
               {item.href && <a href={item.href}>Details</a>}
             </article>
@@ -287,9 +291,9 @@ function CaseStudyGrid({ items = [] }) {
           {items.map((item) => (
             <article key={item.title} className="marketing-case-card">
               <div className="marketing-case-media">
-                {item.image ? (
+                {item._image ? (
                   <img
-                    src={item.image}
+                    src={item._image}
                     alt={item.imageAlt || item.title}
                     loading="lazy"
                     width="720"
@@ -367,6 +371,51 @@ function FounderStory({ story }) {
 export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
   const pageServiceVisual = serviceVisuals[page.key];
+  const heroImage = pageServiceVisual?.image || page.image;
+  const usedMedia = new Set(heroImage ? [heroImage] : []);
+  const reserveMedia = (mediaPath) => {
+    if (!mediaPath || usedMedia.has(mediaPath)) return false;
+    usedMedia.add(mediaPath);
+    return true;
+  };
+  const galleryCandidates = page.gallery || [];
+  const preparedSections = (page.sections || []).map((section, index) => {
+    let visual = getSectionVisual(page, section, index);
+    let visualPath = visual?.image || visual?.src;
+
+    if (!reserveMedia(visualPath)) {
+      visual = galleryCandidates.find((candidate) => {
+        const candidatePath = candidate.image || candidate.src;
+        return candidatePath && !usedMedia.has(candidatePath);
+      }) || null;
+      visualPath = visual?.image || visual?.src;
+      reserveMedia(visualPath);
+    }
+
+    const cards = (section.cards || []).map((card) => {
+      const candidate = getServiceVisual(card.title);
+      const cardVisual = candidate && reserveMedia(candidate.image) ? candidate : null;
+      return { ...card, _visual: cardVisual };
+    });
+
+    return { section, visual, cards };
+  });
+  const preparedComparison = (page.comparison || []).map((item) => {
+    const candidate = getServiceVisual(item.title);
+    const visual = candidate || (item.image ? { image: item.image, alt: item.title } : null);
+    return { ...item, _visual: visual && reserveMedia(visual.image) ? visual : null };
+  });
+  const preparedOptions = (page.optionGrid || []).map((item) => ({
+    ...item,
+    _image: reserveMedia(item.image) ? item.image : null,
+  }));
+  const preparedCaseStudies = (page.caseStudies || []).map((item) => ({
+    ...item,
+    _image: reserveMedia(item.image) ? item.image : null,
+  }));
+  const preparedGallery = galleryCandidates
+    .filter((item) => reserveMedia(item.image || item.src))
+    .slice(0, 8);
 
   return (
     <Layout metaProps={page.meta}>
@@ -410,7 +459,7 @@ export default function MarketingPage({ page }) {
             <div className="marketing-hero-media" data-reveal data-reveal-variant="scale">
               <div className="marketing-hero-media-pair">
                 <img
-                  src={pageServiceVisual?.image || page.image}
+                  src={heroImage}
                   alt={pageServiceVisual?.alt || page.imageAlt || page.title}
                   width="934"
                   height="700"
@@ -442,9 +491,7 @@ export default function MarketingPage({ page }) {
 
         <PathwayGrid items={page.pathways} />
 
-        {(page.sections || []).map((section, index) => {
-          const visual = getSectionVisual(page, section, index);
-
+        {preparedSections.map(({ section, visual, cards }, index) => {
           return (
             <section
               key={section.title}
@@ -472,33 +519,24 @@ export default function MarketingPage({ page }) {
                             height="540"
                           />
                         </picture>
-                        {visual.fallbackImage && (
-                          <img
-                            src={visual.fallbackImage}
-                            alt={page.imageAlt || page.title}
-                            loading="lazy"
-                            width="720"
-                            height="540"
-                          />
-                        )}
                       </div>
                       {visual.title && <figcaption>{visual.title}</figcaption>}
                     </figure>
                   )}
                 </div>
                 {section.text && <p className="marketing-section-lead" data-reveal>{section.text}</p>}
-                <CardGrid cards={section.cards} />
+                <CardGrid cards={cards} />
               </div>
             </section>
           );
         })}
 
-        <ComparisonGrid items={page.comparison} />
-        <OptionGrid items={page.optionGrid} />
-        <CaseStudyGrid items={page.caseStudies} />
+        <ComparisonGrid items={preparedComparison} />
+        <OptionGrid items={preparedOptions} />
+        <CaseStudyGrid items={preparedCaseStudies} />
         <TestimonialGrid items={page.testimonials} />
 
-        {(page.gallery || []).length > 0 && (
+        {preparedGallery.length > 0 && (
           <section id="galerie" className="marketing-section is-dark" data-reveal>
             <div className="marketing-container">
               <SectionHeader
@@ -506,7 +544,7 @@ export default function MarketingPage({ page }) {
                 title="En images"
               />
               <div className="marketing-gallery">
-                {page.gallery.slice(0, 8).map((image) => (
+                {preparedGallery.map((image) => (
                   <figure key={image.image || image.src}>
                     <img
                       src={image.image || image.src}
