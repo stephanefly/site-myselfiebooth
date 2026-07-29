@@ -13,12 +13,12 @@ export default function Home() {
       <Layout
         metaProps={{
           title:
-            "Location photobooth Paris & Île-de-France | MySelfieBooth",
+            "Location Photobooth en Île-de-France | MySelfieBooth",
           description:
-            "Location de photobooth premium à Paris et en Île-de-France pour entreprises, mariages et événements privés. Installation, personnalisation et accompagnement inclus.",
-          ogTitle: "Location de photobooth premium à Paris | MySelfieBooth",
+            "Location de Photobooth, MiroirBooth, 360 Booth et Vogue Booth en Île-de-France pour mariages et entreprises, avec livraison et installation.",
+          ogTitle: "Location de Photobooth en Île-de-France | MySelfieBooth",
           ogDescription:
-            "Plus de 700 événements réalisés : photobooth, 360 Booth, Vogue Booth et expériences personnalisées pour entreprises et particuliers.",
+            "Photobooth, MiroirBooth, 360 Booth et Vogue Booth pour mariages et entreprises en Île-de-France, avec livraison et installation.",
           ogImage: siteConfig.defaultOgImage,
           ogUrl: absoluteUrl("/"),
           includeOrganization: true,
@@ -28,10 +28,9 @@ export default function Home() {
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              name: "Location photobooth premium",
+              name: "Location de photobooth haut de gamme",
               provider: {
-                "@type": "Organization",
-                name: siteConfig.name,
+                "@id": `${siteConfig.baseUrl}/#organization`,
               },
               areaServed: siteConfig.servedAreas,
               serviceType: "Animation photo événementielle",

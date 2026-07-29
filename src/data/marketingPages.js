@@ -26,7 +26,7 @@ function serviceJsonLd(page, category = "Service evenementiel") {
       url: siteConfig.baseUrl,
       telephone: siteConfig.phoneInternational,
     },
-    areaServed: siteConfig.servedAreas,
+    areaServed: page.areaServed || siteConfig.servedAreas,
     image: page.image ? absoluteUrl(page.image) : undefined,
     url,
     ...(page.priceFrom
@@ -77,11 +77,12 @@ function page({
   metaDescription,
   priceFrom,
   testimonials,
+  areaServed,
 }) {
   const breadcrumbItems = [homeCrumb, ...breadcrumbs, { label: title, href: path }];
   const jsonLd = [
     breadcrumbJsonLd(breadcrumbItems),
-    serviceJsonLd({ title, description, path, image, priceFrom }, category),
+    serviceJsonLd({ title, description, path, image, priceFrom, areaServed }, category),
     faqJsonLd(faq),
   ].filter(Boolean);
 
@@ -501,12 +502,12 @@ const photoboothMachine = machines.find((machine) => machine.key === "photobooth
 const photoboothLandingPage = page({
   key: "photobooth",
   eyebrow: "Location photobooth",
-  title: "Location de photobooth à Paris et en Île-de-France",
+  title: "Location de Photobooth avec tirages dès 350 €",
   description:
-    "Louez un photobooth dès 350 euros pour votre mariage, anniversaire ou événement d'entreprise : installation cadrée, tirages personnalisés selon la formule et galerie après l'événement.",
-  metaTitle: "Location Photobooth Paris dès 350 € | MySelfieBooth",
+    "Louez un Photobooth dès 350 euros pour votre mariage, anniversaire ou événement d'entreprise : installation cadrée, tirages personnalisés selon la formule et galerie après l'événement.",
+  metaTitle: "Location Photobooth avec tirages dès 350 € | MySelfieBooth",
   metaDescription:
-    "Location de photobooth à Paris et en Île-de-France dès 350 € : installation, tirages personnalisés selon formule et galerie photo après l'événement.",
+    "Location de Photobooth dès 350 € : installation, tirages personnalisés selon la formule et galerie photo après votre événement en Île-de-France.",
   image: photoboothMachine.image,
   path: photoboothMachine.href,
   priceFrom: 350,
@@ -641,6 +642,7 @@ const photoboothLandingPage = page({
   ],
   relatedLinks: [
     { label: "Comparer le Photobooth et le Miroirbooth", href: "/prestations/miroirbooth" },
+    { label: "Louer un photobooth à Paris", href: "/paris/" },
     { label: "Choisir un photobooth pour un mariage", href: "/blog/choisir-photobooth-mariage" },
     { label: "Comprendre le prix d'une location de photobooth", href: "/blog/prix-location-photobooth" },
     { label: "Prévoir l'espace nécessaire au photobooth", href: "/blog/espace-installation-photobooth" },
@@ -817,11 +819,15 @@ export const marketingPages = {
   paris: page({
     key: "paris",
     eyebrow: "Paris",
-    title: "Location photobooth premium en Île-de-France",
+    title: "Location de photobooth à Paris",
     description:
-      "Photobooth, Miroirbooth, 360 Booth et options souvenirs pour événements professionnels et privés en Île-de-France.",
+      "Photobooth, Miroirbooth, 360 Booth et options souvenirs pour événements professionnels et privés à Paris et en petite couronne.",
+    metaTitle: "Location photobooth à Paris | MySelfieBooth",
+    metaDescription:
+      "Location de photobooth à Paris pour mariage, entreprise ou soirée : installation, personnalisation et tirages selon la formule choisie.",
     image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
     path: "/paris",
+    areaServed: ["Paris", "Île-de-France"],
     highlights: ["Paris", "Île-de-France", "Premium"],
     sections: [
       {
@@ -873,6 +879,7 @@ export const marketingPages = {
       "Animation photo ou vidéo clé en main pour entreprises, mariages et soirées à Lyon, selon la date et les conditions d'accès.",
     image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
     path: "/lyon",
+    areaServed: ["Lyon"],
     highlights: ["Lyon", "Entreprise", "Mariage"],
     sections: [
       {
@@ -919,6 +926,7 @@ export const marketingPages = {
       "Service photobooth photo et vidéo pour événements à Rouen et en Normandie, avec installation et personnalisation.",
     image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
     path: "/rouen",
+    areaServed: ["Rouen", "Normandie"],
     highlights: ["Rouen", "Normandie", "Cle en main"],
     sections: [
       {

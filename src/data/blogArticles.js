@@ -1,4 +1,4 @@
-import { absoluteUrl, siteConfig, withSlash } from "./site";
+import { absoluteUrl, breadcrumbJsonLd, siteConfig, withSlash } from "./site";
 import { articleExpansions } from "./blogArticleExpansions";
 import { articleVisuals } from "./blogVisuals";
 
@@ -712,12 +712,19 @@ export function articleMeta(article) {
   return {
     title: `${article.title} | MySelfieBooth`,
     description: article.metaDescription,
-    keywords: article.keywords,
     ogTitle: article.title,
     ogDescription: article.metaDescription,
     ogImage: article.image,
     ogUrl: absoluteUrl(withSlash(path)),
     ogType: "article",
-    jsonLd: [articleJsonLd, faqJsonLd].filter(Boolean),
+    jsonLd: [
+      breadcrumbJsonLd([
+        { label: "Accueil", href: "/" },
+        { label: "Blog", href: "/blog/" },
+        { label: article.title, href: path },
+      ]),
+      articleJsonLd,
+      faqJsonLd,
+    ].filter(Boolean),
   };
 }

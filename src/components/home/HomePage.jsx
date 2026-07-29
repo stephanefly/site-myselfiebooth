@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   brandLogos,
   caseStudies,
@@ -93,10 +93,28 @@ const heroPhotobooth = services.find((service) => service.key === "photobooth");
 
 export default function HomePage() {
   const [galleryFilter, setGalleryFilter] = useState("Tous");
+  const [heroVideoEnabled, setHeroVideoEnabled] = useState(false);
   const visibleGallery = galleryFilter === "Tous"
     ? galleryHighlights
     : galleryHighlights.filter((item) => item.category === galleryFilter);
   const pageRef = useRevealMotion("home");
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia("(min-width: 761px)");
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const updateVideoPreference = () => {
+      setHeroVideoEnabled(desktopQuery.matches && !connection?.saveData);
+    };
+
+    updateVideoPreference();
+    desktopQuery.addEventListener?.("change", updateVideoPreference);
+    connection?.addEventListener?.("change", updateVideoPreference);
+
+    return () => {
+      desktopQuery.removeEventListener?.("change", updateVideoPreference);
+      connection?.removeEventListener?.("change", updateVideoPreference);
+    };
+  }, []);
 
   return (
     <div className="home-page" ref={pageRef}>
@@ -128,15 +146,16 @@ export default function HomePage() {
           </figure>
           <figure className="home-hero-film home-hero-film-primary">
             <video
+              key={heroVideoEnabled ? "hero-video" : "hero-poster"}
               className="home-hero-video-primary"
-              autoPlay
+              autoPlay={heroVideoEnabled}
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="none"
               poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
             >
-              <source src="/videos/PUB_2024.mp4" type="video/mp4" />
+              {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
             </video>
             <figcaption>
               <strong>MySelfieBooth en action</strong>
@@ -149,7 +168,7 @@ export default function HomePage() {
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy" data-reveal>
             <p className="home-eyebrow">Photobooth · Miroir · 360 · Vogue</p>
-            <h1>Location de photobooth premium à Paris et en Île-de-France</h1>
+            <h1>Location de photobooth haut de gamme en Île-de-France</h1>
             <p>
               Des souvenirs imprimés ou filmés, une installation maîtrisée et une
               expérience qui attire naturellement vos invités.
@@ -191,7 +210,7 @@ export default function HomePage() {
                 <li>Galerie privée après l'événement</li>
               </ul>
               <a href="/prestations/photobooth">Voir la formule Photobooth</a>
-              <small>Paris, Île-de-France et déplacements selon projet</small>
+              <small>Île-de-France, Normandie et déplacements selon projet</small>
             </div>
           </aside>
         </div>
@@ -644,11 +663,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <nav className="home-mobile-cta" aria-label="Actions rapides">
-        <a href={siteConfig.phoneHref} data-event="phone_click">Appeler</a>
-        <a href={siteConfig.quoteUrl} data-event="cta_quote_click">Vérifier ma date</a>
-      </nav>
 
     </div>
   );

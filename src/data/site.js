@@ -20,7 +20,7 @@ export const siteConfig = {
   phoneCtaLabel: "Appeler MySelfieBooth",
   professionalCtaLabel: "Demander un devis entreprise",
   microcopy: "Formulaire rapide, proposition personnalisée.",
-  mainArea: "Paris et Île-de-France",
+  mainArea: "Île-de-France",
   servedAreas: ["Paris", "Île-de-France", "Normandie", "Lyon", "Rouen"],
   founder: {
     name: "Stéphane Faure",

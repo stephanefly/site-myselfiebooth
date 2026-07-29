@@ -9,7 +9,6 @@ import {
 export default function Meta({
   title = "MySelfieBooth - Location photobooth premium en Île-de-France",
   description = "Louez un photobooth premium pour vos événements professionnels et privés : entreprises, mariages, anniversaires et soirées en Île-de-France.",
-  keywords,
   ogTitle,
   ogDescription,
   ogImage = siteConfig.defaultOgImage,
@@ -40,7 +39,6 @@ export default function Meta({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        {keywords ? <meta name="keywords" content={keywords} /> : null}
         <meta name="author" content="MySelfieBooth" />
         <meta name="robots" content={robots} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

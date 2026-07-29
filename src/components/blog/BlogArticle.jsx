@@ -6,6 +6,14 @@ import { siteConfig } from "../../data/site";
 export default function BlogArticle({ article }) {
   const relatedArticles = blogArticles
     .filter((item) => item.slug !== article.slug)
+    .map((item, index) => ({
+      item,
+      index,
+      score:
+        (item.category === article.category ? 2 : 0) +
+        (item.ctaHref === article.ctaHref ? 1 : 0),
+    }))
+    .sort((a, b) => b.score - a.score || a.index - b.index)
     .slice(0, 3);
 
   return (
@@ -118,9 +126,7 @@ export default function BlogArticle({ article }) {
             </nav>
             <div className="blog-aside-service">
               <p>Service associé</p>
-              <a href="/prestations/photobooth/">
-                Location de photobooth à Paris et en Île-de-France
-              </a>
+              <a href={article.ctaHref}>{article.ctaLabel}</a>
             </div>
             <div className="blog-aside-cta">
               <p>Besoin d'une recommandation ?</p>
@@ -145,7 +151,7 @@ export default function BlogArticle({ article }) {
             <p className="blog-eyebrow">À lire ensuite</p>
             <h2 id="related-title">Continuez en quelques minutes</h2>
             <div className="blog-related-grid">
-              {relatedArticles.map((related) => (
+              {relatedArticles.map(({ item: related }) => (
                 <a href={`/blog/${related.slug}/`} key={related.slug}>
                   <div className="blog-related-image">
                     <img src={related.image} alt="" loading="lazy" width="640" height="420" />

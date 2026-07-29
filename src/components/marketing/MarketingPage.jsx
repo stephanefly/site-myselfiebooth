@@ -468,6 +468,8 @@ export default function MarketingPage({ page }) {
                             src={visual.image || visual.src}
                             alt={visual.title || visual.alt}
                             loading="lazy"
+                            width="720"
+                            height="540"
                           />
                         </picture>
                         {visual.fallbackImage && (
@@ -475,6 +477,8 @@ export default function MarketingPage({ page }) {
                             src={visual.fallbackImage}
                             alt={page.imageAlt || page.title}
                             loading="lazy"
+                            width="720"
+                            height="540"
                           />
                         )}
                       </div>

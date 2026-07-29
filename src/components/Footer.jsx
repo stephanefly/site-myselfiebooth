@@ -83,9 +83,9 @@ export default function Footer() {
           <h3>Contact</h3>
           <a href={siteConfig.phoneHref}>{siteConfig.phoneLabel}</a>
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-          {siteConfig.servedAreas.map((area) => (
-            <span key={area}>{area}</span>
-          ))}
+          <a href="/paris/">Paris et Île-de-France</a>
+          <a href="/lyon/">Lyon</a>
+          <a href="/rouen/">Rouen et Normandie</a>
         </div>
       </div>
 
