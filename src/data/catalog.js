@@ -328,20 +328,20 @@ export const machines = [
 ];
 
 export const options = [
-  { name: "Mur floral", image: "/images/ALL-MURS.webp", text: "Décor photo premium pour un rendu plus élégant." },
-  { name: "Phonebooth audio", image: "/images/phonebooth.webp", href: "/options/phonebooth", text: "Téléphone livre d'or rétro qui enregistre les messages vocaux." },
-  { name: "Porte-clés photo", image: "/images/option-portecle.webp", text: "Tirage personnalisé placé dans un porte-clés souvenir." },
-  { name: "Magnets premium", image: "/images/option-magnet-premium.webp", text: "Support magnétique rigide 60 x 90 mm avec photo protégée." },
-  { name: "Magnets simples", image: "/images/option-magnet-simple.webp", text: "Tirage photo avec magnet au dos, simple et économique." },
-  { name: "Panneau fontaine", image: "/images/panneau-fontaine.webp", text: "Élément d'accueil premium pour l'entrée de salle." },
-  { name: "Livre d'or vidéo", image: "/images/livre-dor-video.webp", text: "Enregistrement de messages vidéo des invités." },
-  { name: "Holo 3D", image: "/images/3d Holo-site.webp", text: "Animation visuelle moderne adaptée à la configuration de l'événement." },
-  { name: "Livre d'or physique", image: "/images/livre-dor.webp", text: "Album pour coller les tirages et écrire des messages." },
-  { name: "Panneau de bienvenue", image: "/images/Welcomeboard.webp", href: "/options/panneau", text: "Panneau personnalisé pour accueillir et guider les invités." },
-  { name: "Fond LED 360", image: "/images/fond 360.webp", text: "Fond lumineux pour améliorer le rendu des vidéos 360 Booth." },
-  { name: "Photographe Vogue Booth", image: "/images/photographe-voguebooth.webp", text: "Photographe dédié au cadrage et à la qualité des photos." },
-  { name: "Impression Vogue Booth", image: "/images/impression-voguebooth.webp", text: "Tirages instantanés en complément du Vogue Booth." },
-  { name: "Décoration Vogue Booth", image: "/images/decoration-voguebooth.webp", text: "Décor VOGUE personnalisé avec noms, date et thème de l'événement." },
+  { name: "Mur floral", image: "/images/machines-ai/mur-floral-reception-myselfiebooth.webp", text: "Décor photo premium pour un rendu plus élégant." },
+  { name: "Phonebooth audio", image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp", href: "/options/phonebooth", text: "Téléphone livre d'or rétro qui enregistre les messages vocaux." },
+  { name: "Porte-clés photo", image: "/images/generated/instagram-keychain-favors.webp", text: "Tirage personnalisé placé dans un porte-clés souvenir." },
+  { name: "Magnets premium", image: "/images/machines-ai/magnets-photo-myselfiebooth.webp", text: "Support magnétique rigide 60 x 90 mm avec photo protégée." },
+  { name: "Magnets simples", image: "/images/machines-ai/magnets-photo-myselfiebooth.webp", text: "Tirage photo avec magnet au dos, simple et économique." },
+  { name: "Panneau fontaine", image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp", text: "Élément d'accueil premium pour l'entrée de salle." },
+  { name: "Livre d'or vidéo", image: "/images/machines-ai/livre-or-video-myselfiebooth.webp", text: "Enregistrement de messages vidéo des invités." },
+  { name: "Holo 3D", image: "/images/machines-ai/holo-3d-evenement-myselfiebooth.webp", text: "Animation visuelle moderne adaptée à la configuration de l'événement." },
+  { name: "Livre d'or physique", image: "/images/machines-ai/livre-or-physique-myselfiebooth.webp", text: "Album pour coller les tirages et écrire des messages." },
+  { name: "Panneau de bienvenue", image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp", href: "/options/panneau", text: "Panneau personnalisé pour accueillir et guider les invités." },
+  { name: "Fond LED 360", image: "/images/ai/ambiance-360-booth-premium.webp", text: "Fond lumineux pour améliorer le rendu des vidéos 360 Booth." },
+  { name: "Photographe Vogue Booth", image: "/images/ai-faithful/vogue-wedding-ai.webp", text: "Photographe dédié au cadrage et à la qualité des photos." },
+  { name: "Impression Vogue Booth", image: "/images/generated/instagram-print-strips.webp", text: "Tirages instantanés en complément du Vogue Booth." },
+  { name: "Décoration Vogue Booth", image: "/images/ai-faithful/vogue-anniversaire-ai.webp", text: "Décor VOGUE personnalisé avec noms, date et thème de l'événement." },
 ];
 
 export const servicePacks = [
@@ -426,8 +426,8 @@ export const servicePacks = [
     fusionImage: "/images/ai-fusions/pack-vogue-premium.webp",
     fusionAlt: "Vogue Booth, photographe et impressions réunis dans le Pack Vogue Premium",
     media: [
-      { src: "/images/vogue-real/vogue-booth-mariage-card.webp", alt: "Vogue Booth Wedding Edition du Pack Vogue Premium" },
-      { src: "/images/vogue-real/vogue-booth-anniversaire-card.webp", alt: "Décor Vogue Booth personnalisé du Pack Vogue Premium" },
+      { src: "/images/ai-faithful/vogue-wedding-ai.webp", alt: "Vogue Booth Wedding Edition du Pack Vogue Premium" },
+      { src: "/images/ai-faithful/vogue-anniversaire-ai.webp", alt: "Décor Vogue Booth personnalisé du Pack Vogue Premium" },
       { src: "/images/generated/instagram-print-strips.webp", alt: "Impressions du Pack Vogue Premium" },
     ],
     price: "À partir de 600 euros",
@@ -446,7 +446,7 @@ export const servicePacks = [
     media: [
       { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", alt: "Miroirbooth du Pack Mariage Prestige" },
       { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", alt: "360 Booth du Pack Mariage Prestige" },
-      { src: "/images/vogue-real/vogue-booth-mariage-card.webp", alt: "Vogue Booth Wedding Edition du Pack Mariage Prestige" },
+      { src: "/images/ai-faithful/vogue-wedding-ai.webp", alt: "Vogue Booth Wedding Edition du Pack Mariage Prestige" },
     ],
     price: "À partir de 1 200 euros",
     oldPrice: "1 750 € séparément",

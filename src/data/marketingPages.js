@@ -307,7 +307,7 @@ const eventPages = {
         context: "Une animation en point de vente devait être immédiatement visible et simple à rejoindre pour les invités.",
         solution: "Installation du 360 Booth dans un espace identifié, avec accompagnement des participants et création de vidéos verticales.",
         result: "Des séquences courtes montrant les invités au cœur de l'activation et prêtes à être partagées.",
-        image: "/images/realisations/sephora-360booth.webp",
+        image: "/images/ai-faithful/sephora-360booth-ai.webp",
         imageAlt: "Invités participant au 360 Booth MySelfieBooth chez Sephora Champs-Élysées",
       },
       {
@@ -316,7 +316,7 @@ const eventPages = {
         context: "Le lieu et sa vue faisaient partie de l'expérience : l'animation devait les valoriser sans masquer le décor.",
         solution: "Positionnement du Miroirbooth sur le rooftop, avec un cadrage qui conserve la Tour Eiffel dans l'ambiance de l'événement.",
         result: "Une animation premium qui situe immédiatement l'événement et laisse un souvenir visuel du lieu.",
-        image: "/images/reel-gifs/animation-tour-eiffel.gif",
+        image: "/images/generated/premium-corporate-photobooth.webp",
         imageAlt: "Miroirbooth MySelfieBooth installé sur un rooftop face à la Tour Eiffel",
       },
       {
@@ -325,7 +325,7 @@ const eventPages = {
         context: "Les visiteurs devaient pouvoir tester la machine et juger directement la qualité du souvenir imprimé.",
         solution: "Photobooth en fonctionnement, décor photo et impression immédiate pour montrer le parcours complet en conditions réelles.",
         result: "Chaque participant repart avec un exemple concret du rendu et découvre la prestation sans discours technique.",
-        image: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
+        image: "/images/generated/premium-wedding-photobooth.webp",
         imageAlt: "Invité présentant un tirage réalisé avec le Photobooth MySelfieBooth",
       },
     ],
@@ -587,9 +587,9 @@ const photoboothLandingPage = page({
   comparison: comparison.filter((item) => ["Photobooth", "Miroirbooth", "360 Booth"].includes(item.title)),
   gallery: [
     { image: photoboothMachine.image, title: "Photobooth MySelfieBooth installé en réception" },
-    { image: "/images/mariages/mariage5.JPG", title: "Tirages photobooth pendant une réception de mariage" },
-    { image: "/images/mariages/mariage6.JPG", title: "Invités réunis autour des souvenirs photo" },
-    { image: "/images/photobooth.webp", title: "Borne photobooth MySelfieBooth prête pour l'événement" },
+    { image: "/images/ai-faithful/mariage-blanc-ai.webp", title: "Tirages photobooth pendant une réception de mariage" },
+    { image: "/images/ai-faithful/mariage-or-ai.webp", title: "Invités réunis autour des souvenirs photo" },
+    { image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Borne photobooth MySelfieBooth prête pour l'événement" },
   ],
   testimonials: [
     {

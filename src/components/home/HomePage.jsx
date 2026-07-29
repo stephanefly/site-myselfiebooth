@@ -104,7 +104,7 @@ export default function HomePage() {
         <div className="home-hero-media" aria-hidden="true">
           <figure className="home-hero-film home-hero-film-vogue">
             <img
-              src="/images/vogue-real/vogue-booth-mariage-lydia-vincent.webp"
+              src="/images/ai-faithful/vogue-wedding-ai.webp"
               alt=""
               width="934"
               height="700"
@@ -116,7 +116,7 @@ export default function HomePage() {
           </figure>
           <figure className="home-hero-film home-hero-film-paris">
             <img
-              src="/images/realisations/sephora-360booth.webp"
+              src="/images/ai-faithful/sephora-360booth-ai.webp"
               alt=""
               width="720"
               height="540"
@@ -134,7 +134,7 @@ export default function HomePage() {
               muted
               playsInline
               preload="metadata"
-              poster="/images/hero-pub-2024.webp"
+              poster="/images/machines-ai/hero-machines-myselfiebooth.webp"
             >
               <source src="/videos/PUB_2024.mp4" type="video/mp4" />
             </video>
@@ -566,7 +566,7 @@ export default function HomePage() {
         <div className="home-container home-story-grid">
           <figure className="home-story-media">
             <img
-              src="/images/equipe/equipe-myselfiebooth.webp"
+              src="/images/ai-faithful/equipe-myselfiebooth-ai.webp"
               alt="Une partie de l'équipe MySelfieBooth réunie sur le terrain"
               width="1350"
               height="1800"

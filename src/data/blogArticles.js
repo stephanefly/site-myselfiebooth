@@ -333,7 +333,7 @@ const baseBlogArticles = [
     title: "Vogue Booth : comment obtenir un effet magazine ?",
     excerpt:
       "Éclairage, pose, décor et photographe : les quatre éléments qui donnent au Vogue Booth son rendu éditorial.",
-    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
+    image: "/images/ai-faithful/vogue-wedding-ai.webp",
     imageAlt: "Vogue Booth Wedding Edition personnalisé pour Lydia et Vincent",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",

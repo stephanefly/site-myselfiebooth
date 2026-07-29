@@ -37,7 +37,7 @@ export const serviceVisuals = Object.freeze({
   voguebooth: {
     key: "voguebooth",
     name: "Vogue Booth",
-    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
+    image: "/images/ai-faithful/vogue-wedding-ai.webp",
     alt: "Vogue Booth Wedding Edition personnalisé par MySelfieBooth",
     href: "/prestations/voguebooth",
   },
