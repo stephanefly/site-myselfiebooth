@@ -6,9 +6,14 @@ import { breadcrumbJsonLd, siteConfig } from "../../data/site";
 import {
   portfolioAiImages,
   portfolioDetailImages,
+  portfolioMotionGifs,
   portfolioVideos,
 } from "../../data/portfolioMedia";
+import { eventArchiveVideos } from "../../data/eventArchive";
 import useRevealMotion from "../../hooks/useRevealMotion";
+
+const motionMediaCount =
+  portfolioVideos.length + eventArchiveVideos.length + portfolioMotionGifs.length;
 
 const portfolioJsonLd = {
   "@context": "https://schema.org",
@@ -110,8 +115,12 @@ export default function PortfolioPage() {
         <section id="videos" className="portfolio-section is-dark" data-reveal>
           <div className="portfolio-container">
             <header className="portfolio-heading">
-              <p className="portfolio-eyebrow">13 séquences distinctes</p>
+              <p className="portfolio-eyebrow">{motionMediaCount} séquences distinctes</p>
               <h2>Les prestations en mouvement.</h2>
+              <p className="portfolio-heading-copy">
+                Photobooth, Miroirbooth, impressions et fabrication des souvenirs :
+                les gestes et les machines sont montrés en conditions réelles.
+              </p>
             </header>
             <div className="portfolio-video-grid">
               {portfolioVideos.map((item) => (
@@ -127,6 +136,23 @@ export default function PortfolioPage() {
                   >
                     <source src={item.video} type="video/mp4" />
                   </video>
+                  <div>
+                    <small>{item.category}</small>
+                    <strong>{item.title}</strong>
+                  </div>
+                </article>
+              ))}
+              {portfolioMotionGifs.map((item) => (
+                <article className="portfolio-video-card" key={item.sourceId}>
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width="300"
+                    height="466"
+                  />
+                  <span className="portfolio-motion-label">GIF réel</span>
                   <div>
                     <small>{item.category}</small>
                     <strong>{item.title}</strong>
