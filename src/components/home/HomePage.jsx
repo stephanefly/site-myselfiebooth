@@ -40,12 +40,10 @@ function QuoteButton({ className = "home-button home-button-primary" }) {
 
 function HomeQuickNavigation() {
   const links = [
-    ["/prestations#machines", "Animations"],
+    ["#prestations", "Animations & tarifs"],
     ["#packs", "Packs"],
-    ["#options", "Options"],
     ["#realisations", "Photos"],
-    ["#entreprises", "Entreprises"],
-    ["#glambooth", "Glambooth"],
+    ["#avis", "Avis"],
     ["#faq", "FAQ"],
   ];
 
@@ -83,6 +81,15 @@ function LogoStrip() {
 }
 
 const galleryFilters = ["Tous", "Mariages", "Entreprises", "Machines"];
+const featuredHomeServices = services.filter((service) =>
+  ["photobooth", "miroirbooth", "videobooth", "voguebooth"].includes(service.key)
+);
+const featuredHomePacks = featuredPacks.filter((pack) =>
+  ["souvenirs", "duo-vip", "vogue-premium"].includes(pack.key)
+);
+const featuredHomeOptions = optionHighlights.slice(0, 8);
+const featuredHomeReviews = googleReviews.slice(0, 3);
+const heroPhotobooth = services.find((service) => service.key === "photobooth");
 
 export default function HomePage() {
   const [galleryFilter, setGalleryFilter] = useState("Tous");
@@ -141,11 +148,11 @@ export default function HomePage() {
 
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy" data-reveal>
-            <p className="home-eyebrow">Expériences photo et vidéo premium</p>
+            <p className="home-eyebrow">Photobooth · Miroir · 360 · Vogue</p>
             <h1>Location de photobooth premium à Paris et en Île-de-France</h1>
             <p>
-              Des animations conçues, personnalisées et installées par notre équipe
-              pour faire vivre votre marque, votre mariage ou votre soirée.
+              Des souvenirs imprimés ou filmés, une installation maîtrisée et une
+              expérience qui attire naturellement vos invités.
             </p>
             <ul className="home-hero-facts" aria-label="Repères MySelfieBooth">
               <li><strong>+700</strong> événements réalisés</li>
@@ -154,14 +161,39 @@ export default function HomePage() {
             </ul>
             <div className="home-actions">
               <QuoteButton />
-              <a className="home-button home-button-secondary" href="/prestations">
-                {siteConfig.secondaryCtaLabel}
+              <a className="home-button home-button-secondary" href="/prestations/photobooth">
+                Découvrir le Photobooth
               </a>
             </div>
             <p className="home-microcopy">
               {siteConfig.microcopy} Besoin d'échanger ? <a href={siteConfig.phoneHref} data-event="phone_click">{siteConfig.phoneLabel}</a>
             </p>
           </div>
+
+          <aside className="home-hero-offer" data-reveal aria-label="Offre Photobooth la plus demandée">
+            <a className="home-hero-offer-media" href="/prestations/photobooth">
+              <img
+                src={heroPhotobooth.image}
+                alt="Photobooth MySelfieBooth installé pendant une réception"
+                width="640"
+                height="480"
+              />
+              <span>Le plus demandé</span>
+            </a>
+            <div className="home-hero-offer-body">
+              <div>
+                <p>Photobooth</p>
+                <strong>Dès 350 €</strong>
+              </div>
+              <ul>
+                <li>Tirages personnalisés selon la formule</li>
+                <li>Installation préparée avant le jour J</li>
+                <li>Galerie privée après l'événement</li>
+              </ul>
+              <a href="/prestations/photobooth">Voir la formule Photobooth</a>
+              <small>Paris, Île-de-France et déplacements selon projet</small>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -197,8 +229,8 @@ export default function HomePage() {
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro
-            eyebrow="Choisir vite"
-            title="Que voulez-vous créer ?"
+            eyebrow="Choisir par résultat"
+            title="Quel souvenir voulez-vous offrir à vos invités ?"
           />
           <div className="home-selector-grid">
             {selectorNeeds.map((item) => (
@@ -225,11 +257,11 @@ export default function HomePage() {
       <section id="prestations" className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro
-            eyebrow="Nos animations"
-            title="Choisissez votre animation"
+            eyebrow="Nos incontournables"
+            title="Les 4 expériences les plus demandées"
           />
           <div className="home-service-grid">
-            {services.map((service) => (
+            {featuredHomeServices.map((service) => (
               <article key={service.title} className="home-service-card">
                 <a href={service.href} className="home-service-image" data-event="machine_view">
                   <div className="home-service-media-pair">
@@ -269,15 +301,15 @@ export default function HomePage() {
       <section id="packs" className="home-section home-section-muted" data-reveal>
         <div className="home-container">
           <SectionIntro
-            eyebrow="Nos packs"
-            title="Des expériences complètes, sans options inutiles"
+            eyebrow="Formules prêtes à réserver"
+            title="Trois packs pour décider plus facilement"
           />
           <p className="home-section-lead">
-            Photo, vidéo, décor et souvenirs sont réunis dans des formules lisibles.
-            Les tarifs affichés reprennent strictement ceux déjà présents sur le site.
+            Photo, vidéo, décor et souvenirs sont réunis dans des formules lisibles,
+            avec un prix de départ clairement affiché.
           </p>
           <div className="home-pack-grid">
-            {featuredPacks.map((pack) => (
+            {featuredHomePacks.map((pack) => (
               <article key={pack.key} className={`home-pack-card ${pack.featured ? "is-featured" : ""}`}>
                 <a className="home-pack-media" href="/prestations#packs">
                   <img
@@ -362,7 +394,7 @@ export default function HomePage() {
             title="Personnalisez votre animation"
           />
           <div className="home-option-grid">
-            {optionHighlights.map((option) => (
+            {featuredHomeOptions.map((option) => (
               <article key={option.name} className="home-option-card">
                 <a href="/prestations#options">
                   <div className="home-option-media-pair">
@@ -514,7 +546,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="home-review-grid">
-            {googleReviews.map((review) => (
+            {featuredHomeReviews.map((review) => (
               <article key={review.name}>
                 <div className="home-review-stars" aria-label={`${review.rating} étoiles sur 5`}>
                   {"★".repeat(review.rating)}
@@ -556,35 +588,6 @@ export default function HomePage() {
             </ul>
             <a href="/a-propos">Découvrir notre histoire et notre équipe</a>
           </div>
-        </div>
-      </section>
-
-      <section id="glambooth" className="home-section home-innovation" data-reveal>
-        <div className="home-container home-innovation-grid">
-          <div>
-            <p className="home-eyebrow">Innovation MySelfieBooth</p>
-            <span className="home-innovation-status">En développement</span>
-            <h2>Le Glambooth, notre prochaine expérience signature.</h2>
-            <p>
-              Développé en interne, le Glambooth prolonge notre démarche : associer
-              maîtrise technique, qualité d'image et expérience premium. Nous partageons
-              cette innovation avec transparence, sans promettre de fonctionnalités ni de
-              tarif avant leur validation.
-            </p>
-            <a className="home-button home-button-primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
-              Parler de votre prochain événement
-            </a>
-          </div>
-          <figure>
-            <img
-              src="/images/equipe/fabrication-photobooth-en-famille.webp"
-              alt="Stéphane Faure et son père pendant la fabrication d'une machine MySelfieBooth"
-              width="934"
-              height="700"
-              loading="lazy"
-            />
-            <figcaption>La conception et l'amélioration des machines font partie de l'ADN MySelfieBooth.</figcaption>
-          </figure>
         </div>
       </section>
 
@@ -641,6 +644,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <nav className="home-mobile-cta" aria-label="Actions rapides">
+        <a href={siteConfig.phoneHref} data-event="phone_click">Appeler</a>
+        <a href={siteConfig.quoteUrl} data-event="cta_quote_click">Vérifier ma date</a>
+      </nav>
 
     </div>
   );
