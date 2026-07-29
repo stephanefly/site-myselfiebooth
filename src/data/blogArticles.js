@@ -53,7 +53,7 @@ const baseBlogArticles = [
   {
     slug: "animation-photobooth-entreprise",
     category: "Entreprise",
-    title: "Photobooth d'entreprise : réussir une animation de marque",
+    title: "Photobooth d'entreprise : réussir son animation",
     excerpt:
       "Une animation efficace sert un objectif clair : attirer, faire participer, créer du contenu ou remercier les équipes.",
     image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
@@ -99,7 +99,7 @@ const baseBlogArticles = [
   {
     slug: "espace-installation-photobooth",
     category: "Organisation",
-    title: "Quel espace prévoir pour installer un photobooth ?",
+    title: "Quel espace prévoir pour un photobooth ?",
     excerpt:
       "La surface ne suffit pas : il faut aussi penser au recul photo, à la circulation, à l'électricité et à l'accès de livraison.",
     image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
@@ -146,7 +146,7 @@ const baseBlogArticles = [
   {
     slug: "personnaliser-photobooth",
     category: "Personnalisation",
-    title: "Personnaliser un photobooth : tirages, décor et souvenirs",
+    title: "Personnaliser un photobooth : le guide",
     excerpt:
       "Une bonne personnalisation relie le décor, les contenus et les souvenirs sans surcharger l'expérience.",
     image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
@@ -414,7 +414,7 @@ const baseBlogArticles = [
   {
     slug: "livre-or-photo-photobooth",
     category: "Souvenirs",
-    title: "Comment réussir un livre d'or avec les photos du photobooth ?",
+    title: "Réussir un livre d'or avec son photobooth",
     excerpt:
       "Organisation de la table, double tirage et matériel d'écriture : préparez un livre d'or que les invités auront envie de remplir.",
     image: "/images/machines-ai/livre-or-physique-myselfiebooth.webp",

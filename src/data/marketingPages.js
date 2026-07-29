@@ -207,7 +207,7 @@ const comparison = machines.map((machine) => ({
 
 const eventPages = {
   corporates: {
-    title: "Animations photo et vidéo pour entreprise et activation de marque",
+    title: "Photobooth et animations pour entreprise",
     description:
       "Photobooth, 360 Booth, iPad Booth et formats premium pour soirées d'entreprise, séminaires, lancements, inaugurations et activations de marque.",
     image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
@@ -312,35 +312,6 @@ const eventPages = {
         ],
       },
     ],
-    caseStudies: [
-      {
-        client: "Sephora Champs-Élysées",
-        title: "Activation de marque avec le 360 Booth",
-        context: "Une animation en point de vente devait être immédiatement visible et simple à rejoindre pour les invités.",
-        solution: "Installation du 360 Booth dans un espace identifié, avec accompagnement des participants et création de vidéos verticales.",
-        result: "Des séquences courtes montrant les invités au cœur de l'activation et prêtes à être partagées.",
-        image: "/images/ai-faithful/sephora-360booth-ai.webp",
-        imageAlt: "Invités participant au 360 Booth MySelfieBooth chez Sephora Champs-Élysées",
-      },
-      {
-        client: "Événement corporate",
-        title: "Miroirbooth face à la Tour Eiffel",
-        context: "Le lieu et sa vue faisaient partie de l'expérience : l'animation devait les valoriser sans masquer le décor.",
-        solution: "Positionnement du Miroirbooth sur le rooftop, avec un cadrage qui conserve la Tour Eiffel dans l'ambiance de l'événement.",
-        result: "Une animation premium qui situe immédiatement l'événement et laisse un souvenir visuel du lieu.",
-        image: "/images/generated/premium-corporate-photobooth.webp",
-        imageAlt: "Miroirbooth MySelfieBooth installé sur un rooftop face à la Tour Eiffel",
-      },
-      {
-        client: "Salon professionnel",
-        title: "Démonstration Photobooth avec tirage",
-        context: "Les visiteurs devaient pouvoir tester la machine et juger directement la qualité du souvenir imprimé.",
-        solution: "Photobooth en fonctionnement, décor photo et impression immédiate pour montrer le parcours complet en conditions réelles.",
-        result: "Chaque participant repart avec un exemple concret du rendu et découvre la prestation sans discours technique.",
-        image: "/images/generated/premium-wedding-photobooth.webp",
-        imageAlt: "Invité présentant un tirage réalisé avec le Photobooth MySelfieBooth",
-      },
-    ],
     faq: [
       {
         question: "Peut-on personnaliser l'animation aux couleurs de la marque ?",
@@ -365,7 +336,7 @@ const eventPages = {
     ],
   },
   mariages: {
-    title: "Photobooth mariage pour des souvenirs élégants et des invités engagés",
+    title: "Photobooth mariage : des souvenirs élégants",
     description:
       "Une animation photo rassurante pour mariage, avec tirages selon formule, livre d'or, options souvenirs et galerie web.",
     image: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
@@ -404,7 +375,7 @@ const eventPages = {
     ],
   },
   anniversaires: {
-    title: "Photobooth anniversaire pour une soiree vivante et memorable",
+    title: "Photobooth anniversaire : animation mémorable",
     description:
       "Une animation photo ou video festive, simple a utiliser et personnalisable pour anniversaire adulte, famille ou grande soiree.",
     image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
@@ -712,7 +683,7 @@ export const marketingPages = {
   "evenements-index": page({
     key: "evenements-index",
     eyebrow: "Vos evenements",
-    title: "Choisir une animation photo adaptee a chaque public",
+    title: "Choisir son animation photo événementielle",
     description:
       "Mariage, entreprise, anniversaire ou soiree VIP: retrouvez les recommandations MySelfieBooth selon votre contexte.",
     image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
@@ -748,7 +719,7 @@ export const marketingPages = {
   "options-index": page({
     key: "options-index",
     eyebrow: "Options",
-    title: "Toutes les options pour personnaliser votre photobooth",
+    title: "Options et accessoires pour votre photobooth",
     description:
       "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
     image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
@@ -773,7 +744,7 @@ export const marketingPages = {
   phonebooth: page({
     key: "phonebooth",
     eyebrow: "Livre d'or audio",
-    title: "Phonebooth audio pour messages vocaux de mariage et soiree",
+    title: "Phonebooth : le livre d'or audio",
     description:
       "Un telephone retro pour enregistrer les messages vocaux des invites et conserver une trace plus emotionnelle de l'evenement.",
     image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
@@ -802,7 +773,7 @@ export const marketingPages = {
   panneau: page({
     key: "panneau",
     eyebrow: "Signaletique",
-    title: "Panneau de bienvenue personnalise pour decor photo",
+    title: "Panneau de bienvenue personnalisé",
     description:
       "Un panneau d'accueil pour guider les invites, structurer l'entree de salle et renforcer l'univers visuel de l'evenement.",
     image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",

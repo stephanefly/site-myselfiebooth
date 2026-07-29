@@ -14,6 +14,8 @@ import {
 import { blogArticles } from "../../data/blogArticles";
 import { siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
+import AiEventGallery from "../AiEventGallery";
+import EventArchiveGallery from "../EventArchiveGallery";
 import InstagramMediaWall from "../InstagramMediaWall";
 
 function SectionIntro({ eyebrow, title }) {
@@ -456,6 +458,26 @@ export default function HomePage() {
             </div>
           </div>
           <InstagramMediaWall />
+        </div>
+      </section>
+
+      <section className="home-section home-section-light" data-reveal>
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Créations IA fidèles"
+            title="Nos vraies prestations, avec une finition plus éditoriale"
+          />
+          <AiEventGallery />
+        </div>
+      </section>
+
+      <section className="home-section home-section-light" data-reveal>
+        <div className="home-container">
+          <SectionIntro
+            eyebrow="Nouveaux médias du terrain"
+            title="Encore plus de prestations réelles"
+          />
+          <EventArchiveGallery />
         </div>
       </section>
 

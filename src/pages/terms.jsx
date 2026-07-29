@@ -5,7 +5,7 @@ export default function Terms() {
     <LegalPage
       title="Mentions légales"
       path="/terms/"
-      intro="Informations générales sur l'éditeur du site MySelfieBooth et l'utilisation de ses contenus."
+      intro="Informations générales sur l'éditeur du site MySelfieBooth, ses coordonnées, l'utilisation de ses contenus et leur protection."
       sections={[
         {
           title: "Éditeur et contact",

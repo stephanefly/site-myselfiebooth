@@ -118,7 +118,7 @@ export const machines = [
       "Une animation vidéo dynamique pour produire des contenus courts, immersifs et partageables.",
     title: "Location 360 Booth pour vidéo événementielle",
     description:
-      "Le 360 Booth capte des videos 4K avec habillage personnalise, animateur, installation et galerie web.",
+      "Le 360 Booth crée des vidéos 4K personnalisées avec animateur, installation et galerie web pour vos mariages, soirées et événements d'entreprise.",
     bestFor: "Soirée d'entreprise, lancement produit, anniversaire, activation de marque.",
     print: "Non, video avant tout",
     participants: "Jusqu'a 5 personnes selon configuration",
@@ -168,7 +168,7 @@ export const machines = [
       "La version spectaculaire du 360 Booth, pensée pour accueillir davantage de participants.",
     title: "Air360 Booth grand format pour vidéo 4K",
     description:
-      "Une animation video 4K plus capacitaire, pensee pour les grands groupes et les evenements a fort passage.",
+      "L'Air360 Booth accueille de grands groupes et crée des vidéos 4K personnalisées, avec installation et animateur pour les événements à fort passage.",
     bestFor: "Grand mariage, gala, soirée entreprise et événement à fort volume.",
     print: "Non, video avant tout",
     participants: "Jusqu'a 10 personnes selon configuration",
@@ -211,7 +211,7 @@ export const machines = [
       "Une solution digitale légère pour les lieux réduits, l'accueil ou les événements professionnels.",
     title: "iPad Booth compact pour evenement professionnel",
     description:
-      "Un format discret pour photos numeriques, visuel personnalise et galerie web, avec installation rapide.",
+      "L'iPad Booth produit des photos numériques personnalisées dans un format compact, avec installation rapide et galerie web pour petits espaces et salons.",
     bestFor: "Salon, stand, petit espace, accueil, evenement professionnel.",
     print: "Non, digital d'abord",
     participants: "Solo, duo, petits groupes",
@@ -250,7 +250,7 @@ export const machines = [
       "Un couloir lumineux premium pour créer une scène photo forte et mémorable.",
     title: "Location Vogue Booth pour effet magazine",
     description:
-      "Un decor lumineux haut de gamme, personnalisable, avec options photographe, impressions et decoration.",
+      "Le Vogue Booth crée un décor lumineux haut de gamme avec visuels personnalisés, photographe, impressions et décoration disponibles selon la formule.",
     bestFor: "Soirée VIP, gala, lancement de marque, mariage haut de gamme.",
     print: "En option",
     participants: "Petits groupes",
