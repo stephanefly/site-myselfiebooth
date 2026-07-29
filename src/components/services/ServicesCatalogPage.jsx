@@ -2,6 +2,7 @@ import Layout from "../Layout";
 import { machines, options, selectorNeeds, servicePacks } from "../../data/catalog";
 import { absoluteUrl, breadcrumbJsonLd, siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
+import InstagramMediaWall from "../InstagramMediaWall";
 
 const machineGuide = {
   photobooth: { type: "Photo + tirage", capacity: "Petits et grands groupes", ideal: "Le choix polyvalent" },
@@ -29,37 +30,6 @@ const decorOptions = new Set([
   "Panneau de bienvenue",
   "Fond LED 360",
 ]);
-
-const realVideoResults = [
-  {
-    title: "Coulisses MySelfieBooth",
-    category: "Équipe & installation",
-    image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
-    video: "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
-    alt: "Installation réelle MySelfieBooth filmée pendant un événement",
-  },
-  {
-    title: "Portrait Vogue Booth",
-    category: "Vogue Booth",
-    image: "/images/ai-faithful/vogue-anniversaire-ai.webp",
-    video: "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
-    alt: "Portrait réel réalisé dans le Vogue Booth MySelfieBooth",
-  },
-  {
-    title: "Tirage Photobooth",
-    category: "Photobooth",
-    image: "/images/generated/premium-wedding-photobooth.webp",
-    video: "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
-    alt: "Tirage photo réel produit par un Photobooth MySelfieBooth",
-  },
-  {
-    title: "Réception grand format",
-    category: "Événement",
-    image: "/images/ai-faithful/mariage-or-ai.webp",
-    video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
-    alt: "Ambiance réelle d'une grande réception équipée par MySelfieBooth",
-  },
-];
 
 const bookingSteps = [
   { title: "Choisissez l'animation", text: "Photo, vidéo, Vogue Booth ou pack." },
@@ -98,7 +68,7 @@ function MachineCard({ machine }) {
             <p>{guide.type}</p>
             <h3>{machine.name}</h3>
           </div>
-          <strong>{machine.price || "Sur devis"}</strong>
+          <strong>{machine.catalogPrice || machine.price || "Sur devis"}</strong>
         </div>
 
         <p className="catalog-machine-summary">{machine.short}</p>
@@ -117,14 +87,14 @@ function MachineCard({ machine }) {
         <details className="catalog-machine-details">
           <summary>Ce qui est inclus</summary>
           <ul>
-            {machine.includes.slice(0, 4).map((item) => (
+            {machine.includes.slice(0, 5).map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </details>
 
-        <a className="catalog-card-cta" href={siteConfig.quoteUrl} data-event="cta_quote_click">
-          Voir
+        <a className="catalog-card-cta" href={machine.bookingUrl || siteConfig.quoteUrl} data-event="cta_quote_click">
+          Choisir {machine.name}
         </a>
       </div>
     </article>
@@ -161,7 +131,7 @@ function PackCard({ pack }) {
           </div>
           <em>{pack.saving}</em>
         </div>
-        <a href={siteConfig.quoteUrl} data-event="cta_quote_click">Voir</a>
+        <a href={pack.bookingUrl || siteConfig.quoteUrl} data-event="cta_quote_click">Demander ce pack</a>
       </div>
     </article>
   );
@@ -196,7 +166,7 @@ function ComparisonTable() {
               {machines.map((machine) => (
                 <tr key={machine.key}>
                   <th scope="row"><a href={`#machine-${machine.key}`}>{machine.name}</a></th>
-                  <td><strong>{machine.price || "Sur devis"}</strong></td>
+                  <td><strong>{machine.catalogPrice || machine.price || "Sur devis"}</strong></td>
                   <td>{machineGuide[machine.key].type}</td>
                   <td>{machine.print}</td>
                   <td>{machine.participants}</td>
@@ -207,7 +177,8 @@ function ComparisonTable() {
           </table>
         </div>
         <p className="catalog-compare-note">
-          Le nombre de tirages, les horaires et les modalités de partage dépendent de la formule retenue.
+          Tarifs synchronisés avec notre catalogue de réservation. Le nombre de tirages, les horaires et les modalités de partage dépendent de la formule retenue.{" "}
+          <a href={siteConfig.ratesUrl}>Consulter tous les tarifs détaillés</a>.
         </p>
       </div>
     </section>
@@ -238,9 +209,9 @@ export default function ServicesCatalogPage() {
   return (
     <Layout
       metaProps={{
-        title: "Toutes nos prestations photobooth | MySelfieBooth",
+        title: "Prestations et tarifs Photobooth | MySelfieBooth",
         description:
-          "Comparez en une page les 8 animations MySelfieBooth, 6 packs événementiels et toutes les options disponibles.",
+          "Comparez 8 animations Photobooth, 6 packs, leurs tarifs et les éléments inclus avant de demander votre devis MySelfieBooth.",
         ogImage: "/images/machines-ai/hero-machines-myselfiebooth.webp",
         ogUrl: "/prestations/",
         jsonLd: catalogJsonLd,
@@ -257,6 +228,7 @@ export default function ServicesCatalogPage() {
               </p>
               <div className="catalog-actions">
                 <a className="catalog-button primary" href="#choisir">Choisir selon mon besoin</a>
+                <a className="catalog-button secondary" href={siteConfig.ratesUrl}>Voir les tarifs détaillés</a>
                 <a className="catalog-button secondary" href={siteConfig.quoteUrl}>Obtenir mon devis</a>
               </div>
             </div>
@@ -288,6 +260,7 @@ export default function ServicesCatalogPage() {
             <a href="#packs">Packs</a>
             <a href="#options">Options</a>
             <a href="#rendus-reels">Rendus réels</a>
+            <a href={siteConfig.ratesUrl}>Tarifs détaillés</a>
             <a className="catalog-jump-cta" href={siteConfig.quoteUrl}>Devis</a>
           </div>
         </nav>
@@ -380,7 +353,6 @@ export default function ServicesCatalogPage() {
                     <div className="catalog-option-body">
                       <span>{optionLabel(option.name)}</span>
                       <h3>{option.name}</h3>
-                      <p>{option.text}</p>
                     </div>
                   </article>
               ))}
@@ -392,37 +364,12 @@ export default function ServicesCatalogPage() {
           <div className="catalog-container">
             <header className="catalog-section-heading catalog-heading-row">
               <div>
-                <p className="catalog-eyebrow">Captures de nos vidéos</p>
-                <h2>Le rendu final, en vrai.</h2>
+                <p className="catalog-eyebrow">Vu sur Instagram</p>
+                <h2>Les prestations en mouvement.</h2>
               </div>
-              <p>Quatre moments filmés lors de vraies prestations, sans image générée par IA.</p>
+              <p>De vrais événements, du montage aux souvenirs.</p>
             </header>
-            <div className="catalog-real-grid">
-              {realVideoResults.map((result) => (
-                <a
-                  key={result.title}
-                  className="catalog-real-card"
-                  href={result.video}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Voir la vidéo : ${result.title}`}
-                >
-                  <img
-                    src={result.image}
-                    alt={result.alt}
-                    loading="lazy"
-                    width="720"
-                    height="900"
-                  />
-                  <span className="catalog-real-badge">Extrait réel</span>
-                  <div className="catalog-real-caption">
-                    <small>{result.category}</small>
-                    <strong>{result.title}</strong>
-                    <span>Voir la vidéo</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+            <InstagramMediaWall compact />
           </div>
         </section>
 

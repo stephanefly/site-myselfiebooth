@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import {
   brandLogos,
-  caseStudies,
   faqs,
   featuredPacks,
   featuredReels,
-  galleryHighlights,
   googleReviews,
   marketPaths,
   optionHighlights,
@@ -16,6 +14,7 @@ import {
 import { blogArticles } from "../../data/blogArticles";
 import { siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
+import InstagramMediaWall from "../InstagramMediaWall";
 
 function SectionIntro({ eyebrow, title }) {
   return (
@@ -80,7 +79,6 @@ function LogoStrip() {
   );
 }
 
-const galleryFilters = ["Tous", "Mariages", "Entreprises", "Machines"];
 const featuredHomeServices = services.filter((service) =>
   ["photobooth", "miroirbooth", "videobooth", "voguebooth"].includes(service.key)
 );
@@ -92,11 +90,7 @@ const featuredHomeReviews = googleReviews.slice(0, 3);
 const heroPhotobooth = services.find((service) => service.key === "photobooth");
 
 export default function HomePage() {
-  const [galleryFilter, setGalleryFilter] = useState("Tous");
   const [heroVideoEnabled, setHeroVideoEnabled] = useState(false);
-  const visibleGallery = galleryFilter === "Tous"
-    ? galleryHighlights
-    : galleryHighlights.filter((item) => item.category === galleryFilter);
   const pageRef = useRevealMotion("home");
 
   useEffect(() => {
@@ -127,10 +121,6 @@ export default function HomePage() {
               width="934"
               height="700"
             />
-            <figcaption>
-              <strong>Vogue Booth réel</strong>
-              <span>Wedding Edition personnalisée pour Lydia et Vincent</span>
-            </figcaption>
           </figure>
           <figure className="home-hero-film home-hero-film-paris">
             <img
@@ -139,10 +129,6 @@ export default function HomePage() {
               width="720"
               height="540"
             />
-            <figcaption>
-              <strong>Activation de marque</strong>
-              <span>Le 360 Booth MySelfieBooth pour Sephora</span>
-            </figcaption>
           </figure>
           <figure className="home-hero-film home-hero-film-primary">
             <video
@@ -157,10 +143,6 @@ export default function HomePage() {
             >
               {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
             </video>
-            <figcaption>
-              <strong>MySelfieBooth en action</strong>
-              <span>Nos machines en action sur de vrais événements</span>
-            </figcaption>
           </figure>
         </div>
         <div className="home-hero-overlay" />
@@ -427,7 +409,6 @@ export default function HomePage() {
                   </div>
                   <div className="home-option-body">
                     <h3>{option.name}</h3>
-                    <p>{option.text}</p>
                   </div>
                 </a>
               </article>
@@ -441,9 +422,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="reels" className="home-section home-section-dark" data-reveal>
+      <section id="realisations" className="home-section home-section-dark" data-reveal>
         <div className="home-container">
-          <SectionIntro eyebrow="En vidéo" title="Nos Reels" />
+          <SectionIntro
+            eyebrow="Vu sur Instagram"
+            title="Nos prestations réelles, en images"
+          />
           <div className="home-reels-grid">
             {featuredReels.map((reel) => (
               <article key={reel.video} className="home-reel-card">
@@ -459,77 +443,19 @@ export default function HomePage() {
                   <source src={reel.video} type="video/mp4" />
                 </video>
                 <div>
-                  <div>
-                    <h3>{reel.title}</h3>
-                    <p>{reel.description}</p>
-                  </div>
+                  <h3>{reel.title}</h3>
                   <a href={reel.href} target="_blank" rel="noreferrer">Instagram</a>
                 </div>
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="realisations" className="home-section home-section-light" data-reveal>
-        <div className="home-container">
-          <SectionIntro
-            eyebrow="Cas réels"
-            title="Des installations qui montrent le résultat, pas seulement la machine"
-          />
-          <div className="home-case-grid">
-            {caseStudies.map((study) => (
-              <article key={study.title} className="home-case-card">
-                <picture className="home-case-media">
-                  <img src={study.image} alt={study.title} loading="lazy" width="720" height="540" />
-                </picture>
-                <div className="home-case-body">
-                  <span>{study.category}</span>
-                  <h3>{study.title}</h3>
-                  <strong>{study.setup}</strong>
-                  <p>{study.result}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="home-centered-action home-case-action">
-            <a href="/evenements/corporates" className="home-button home-button-secondary-dark">
-              Voir nos solutions pour les entreprises
-            </a>
-          </div>
-
           <div className="home-gallery-heading">
             <div>
-              <p className="home-eyebrow">Mises en scène</p>
-              <h3>Mariages, entreprises et machines</h3>
-            </div>
-            <div className="home-gallery-filters" role="group" aria-label="Filtrer les réalisations">
-              {galleryFilters.map((filter) => (
-                <button
-                  key={filter}
-                  type="button"
-                  className={galleryFilter === filter ? "is-active" : ""}
-                  aria-pressed={galleryFilter === filter}
-                  onClick={() => setGalleryFilter(filter)}
-                >
-                  {filter}
-                </button>
-              ))}
+              <p className="home-eyebrow">26 moments en mouvement</p>
+              <h3>Photobooth, 360, Vogue et coulisses</h3>
             </div>
           </div>
-          <div className="home-gallery-grid">
-            {visibleGallery.map((item) => (
-              <article key={item.title} className="home-gallery-card" data-event="gallery_open">
-                <picture>
-                  <img src={item.image} alt={item.title} loading="lazy" width="720" height="540" />
-                </picture>
-                <div>
-                  <span>{item.category}</span>
-                  <h3>{item.title}</h3>
-                </div>
-              </article>
-            ))}
-          </div>
+          <InstagramMediaWall />
         </div>
       </section>
 
@@ -619,10 +545,21 @@ export default function HomePage() {
           <div className="home-blog-grid">
             {blogArticles.slice(0, 3).map((article) => (
               <article key={article.slug} className="home-blog-card">
-                <span>{article.category} · {article.readTime}</span>
-                <h3>{article.title}</h3>
-                <p>{article.excerpt}</p>
-                <a href={`/blog/${article.slug}`}>Lire le guide</a>
+                <a className="home-blog-media" href={`/blog/${article.slug}/`}>
+                  <img
+                    src={article.image}
+                    alt={article.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    width="760"
+                    height="520"
+                  />
+                </a>
+                <div className="home-blog-body">
+                  <span>{article.category} · {article.readTime}</span>
+                  <h3>{article.title}</h3>
+                  <a href={`/blog/${article.slug}/`}>Lire le guide</a>
+                </div>
               </article>
             ))}
           </div>

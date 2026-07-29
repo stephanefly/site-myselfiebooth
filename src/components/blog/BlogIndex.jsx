@@ -53,7 +53,6 @@ export default function BlogIndex() {
                       <span>{article.readTime}</span>
                     </div>
                     <h2><a href={`/blog/${article.slug}/`}>{article.title}</a></h2>
-                    <p>{article.excerpt}</p>
                     <a className="blog-text-link" href={`/blog/${article.slug}/`}>Lire l'article</a>
                   </div>
                 </article>

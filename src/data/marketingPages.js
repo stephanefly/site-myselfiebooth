@@ -138,11 +138,21 @@ function machinePage(machine) {
     description: machine.description,
     image: machine.image,
     path: machine.href,
-    highlights: [machine.print, machine.attendant, machine.sharing],
+    priceFrom: machine.priceFrom,
+    highlights: [machine.catalogPrice || machine.price || "Sur devis", machine.print, machine.sharing],
     breadcrumbs: [
       { label: "Nos animations", href: "/prestations" },
     ],
     category: "Location photobooth",
+    primaryCta: {
+      label: "Choisir " + machine.name,
+      href: machine.bookingUrl || siteConfig.quoteUrl,
+      event: "cta_quote_click",
+    },
+    secondaryCta: {
+      label: "Voir tous les tarifs",
+      href: siteConfig.ratesUrl,
+    },
     sections: [
       {
         eyebrow: "Experience invite",
@@ -157,7 +167,7 @@ function machinePage(machine) {
       {
         eyebrow: "Inclus",
         title: "Ce qui est prévu dans la formule",
-        cards: cardsFrom("Inclus", machine.includes.slice(0, 4)),
+        cards: cardsFrom("Inclus", machine.includes.slice(0, 5)),
       },
       {
         eyebrow: "Logistique",
@@ -168,6 +178,7 @@ function machinePage(machine) {
     ],
     faq,
     relatedLinks: [
+      { label: "Consulter tous les tarifs détaillés", href: siteConfig.ratesUrl },
       { label: "Comparer les animations", href: "/prestations#machines" },
       { label: "Voir les options", href: "/prestations#options" },
       { label: "Événements entreprise", href: "/evenements/corporates" },
@@ -511,12 +522,12 @@ const photoboothLandingPage = page({
   image: photoboothMachine.image,
   path: photoboothMachine.href,
   priceFrom: 350,
-  highlights: ["Dès 350 €", "Tirages photo", "Galerie privée"],
+  highlights: ["3 h : 350 €", "5 h : 400 €", "Impressions selon formule"],
   breadcrumbs: [{ label: "Nos animations", href: "/prestations" }],
   category: "Location de photobooth événementiel",
   primaryCta: {
     label: "Vérifier ma date et obtenir un devis",
-    href: siteConfig.quoteUrl,
+    href: photoboothMachine.bookingUrl,
     event: "cta_quote_click",
   },
   secondaryCta: {
@@ -539,13 +550,13 @@ const photoboothLandingPage = page({
     {
       anchor: "tarif",
       eyebrow: "Tarif à partir de 350 €",
-      title: "Ce que comprend votre location de photobooth",
-      text: "Le tarif de départ est de 350 euros. Le prix final dépend de la date, du lieu, de la durée, des impressions, de l'accompagnement et des options. Chaque élément est détaillé avant la réservation.",
+      title: "Photobooth 3 h à 350 € ou 5 h à 400 €",
+      text: "Ces tarifs reprennent le catalogue de réservation MySelfieBooth. Les impressions illimitées selon la formule, la livraison, l'installation, l'animateur, le modèle photo personnalisé et la galerie web après l'événement sont prévus dans l'offre affichée.",
       cards: [
-        { title: "Livraison et installation", text: "Les conditions de transport, de montage, de tests et de reprise sont précisées selon le lieu et la formule." },
-        { title: "Personnalisation graphique", text: "Le cadre photo peut reprendre vos prénoms, votre date, vos couleurs ou l'identité visuelle de votre entreprise." },
-        { title: "Photos numériques", text: "Les fichiers conservés et leur mode de remise sont précisés dans la proposition personnalisée." },
-        { title: "Impressions sur place", text: "Le nombre de tirages, leur format et le rythme d'impression dépendent de la formule choisie." },
+        { title: "Impressions", text: "Impressions illimitées selon la formule sélectionnée dans le catalogue de réservation." },
+        { title: "Installation", text: "Livraison, installation et animateur sur place sont inclus dans l'offre affichée." },
+        { title: "Personnalisation", text: "Le modèle photo est personnalisé pour reprendre l'univers de votre événement." },
+        { title: "Galerie web", text: "Les photos sont réunies dans une galerie web disponible après l'événement." },
       ],
     },
     {
@@ -609,7 +620,7 @@ const photoboothLandingPage = page({
   faq: [
     {
       question: "Quel est le prix d'une location de photobooth ?",
-      answer: "La location du Photobooth MySelfieBooth commence à 350 euros. Le tarif final dépend de la date, du lieu, de la durée, des impressions, de l'accompagnement et des options demandées.",
+      answer: "Le Photobooth est affiché à 350 euros pour 3 heures et à 400 euros pour 5 heures dans le catalogue de réservation. Le devis confirme la disponibilité, la zone d'intervention et les éventuelles options.",
     },
     {
       question: "Que comprend la location du photobooth ?",
@@ -641,6 +652,7 @@ const photoboothLandingPage = page({
     },
   ],
   relatedLinks: [
+    { label: "Consulter tous les tarifs MySelfieBooth", href: siteConfig.ratesUrl },
     { label: "Comparer le Photobooth et le Miroirbooth", href: "/prestations/miroirbooth" },
     { label: "Louer un photobooth à Paris", href: "/paris/" },
     { label: "Choisir un photobooth pour un mariage", href: "/blog/choisir-photobooth-mariage" },

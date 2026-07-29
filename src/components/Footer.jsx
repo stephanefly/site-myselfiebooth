@@ -23,6 +23,7 @@ export default function Footer() {
       links: [
         { label: "Location Photobooth", href: "/prestations/photobooth" },
         { label: "Toutes les prestations", href: "/prestations" },
+        { label: "Tarifs détaillés", href: siteConfig.ratesUrl },
         { label: "Nos packs", href: "/prestations#packs" },
         { label: "Toutes les options", href: "/prestations#options" },
         { label: "Réalisations", href: "/#realisations" },
