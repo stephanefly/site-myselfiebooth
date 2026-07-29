@@ -454,7 +454,7 @@ export default function HomePage() {
             <p className="home-eyebrow">Références</p>
             <h2>Des marques exigeantes nous ont fait confiance.</h2>
             <p>
-              Activations, salons, séminaires et soirées internes : chaque installation
+              Salons, séminaires, lancements et soirées internes : chaque installation
               est préparée pour s'intégrer au lieu et à l'identité de l'événement.
             </p>
             <a href="/evenements/corporates">Découvrir l'offre entreprises</a>

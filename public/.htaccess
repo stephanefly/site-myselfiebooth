@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Un seul domaine indexable : redirection permanente de www vers le domaine canonique.
+RewriteCond %{HTTP_HOST} ^www\.myselfiebooth-paris\.fr$ [NC]
+RewriteRule ^ https://myselfiebooth-paris.fr%{REQUEST_URI} [R=301,L,NE]

@@ -133,12 +133,12 @@ export const featuredReels = [
 
 export const caseStudies = [
   {
-    category: "Activation de marque",
-    title: "360 Booth pour Sephora",
-    setup: "360 Booth · expérience de marque",
+    category: "Événement professionnel",
+    title: "360 Booth en soirée d'entreprise",
+    setup: "360 Booth · expérience sur mesure",
     result:
       "Une animation réelle pensée pour créer des vidéos courtes, rythmées et immédiatement partageables.",
-    image: "/images/ai-faithful/sephora-360booth-ai.webp",
+    image: "/images/generated/premium-corporate-photobooth.webp",
   },
   {
     category: "Mariage",
@@ -161,12 +161,12 @@ export const caseStudies = [
 export const marketPaths = [
   {
     eyebrow: "Entreprises",
-    title: "Salons, séminaires et activations",
+    title: "Salons, séminaires et soirées d'entreprise",
     text: "Des formats pensés pour votre marque et vos invités.",
     href: "/evenements/corporates",
     cta: "Voir le parcours entreprise",
-    image: "/images/ai-faithful/sephora-360booth-ai.webp",
-    imageAlt: "360 Booth MySelfieBooth lors d'une activation de marque Sephora",
+    image: "/images/generated/premium-corporate-photobooth.webp",
+    imageAlt: "Photobooth MySelfieBooth lors d'un événement professionnel",
   },
   {
     eyebrow: "Particuliers",
@@ -181,8 +181,8 @@ export const marketPaths = [
 
 export const galleryHighlights = [
   {
-    title: "Activation 360 Booth pour Sephora",
-    image: "/images/ai-faithful/sephora-360booth-ai.webp",
+    title: "Animation photo lors d'une soirée d'entreprise",
+    image: "/images/generated/premium-corporate-photobooth.webp",
     category: "Entreprises",
   },
   {
