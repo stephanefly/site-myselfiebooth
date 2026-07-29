@@ -248,7 +248,7 @@ export default function HomePage() {
                   <p>{service.text}</p>
                   <div className="home-service-footer">
                     <strong>{service.price}</strong>
-                    <a href={service.href}>Voir</a>
+                    <a href={service.href}>{service.linkLabel}</a>
                   </div>
                 </div>
               </article>

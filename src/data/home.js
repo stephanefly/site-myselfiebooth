@@ -44,7 +44,8 @@ export const services = machines.map((machine) => ({
   tag: machine.tag,
   text: machine.short,
   image: machine.image,
-  href: `/prestations#machine-${machine.key}`,
+  href: machine.href,
+  linkLabel: `Découvrir ${machine.name}`,
   price: machine.price || "Sur devis",
 }));
 

@@ -21,6 +21,7 @@ export default function Footer() {
     {
       title: "Découvrir",
       links: [
+        { label: "Location Photobooth", href: "/prestations/photobooth" },
         { label: "Toutes les prestations", href: "/prestations" },
         { label: "Nos packs", href: "/prestations#packs" },
         { label: "Toutes les options", href: "/prestations#options" },

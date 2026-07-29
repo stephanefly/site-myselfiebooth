@@ -11,6 +11,8 @@ import {
 const homeCrumb = { label: "Accueil", href: "/" };
 
 function serviceJsonLd(page, category = "Service evenementiel") {
+  const url = absoluteUrl(withSlash(page.path));
+
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -19,12 +21,25 @@ function serviceJsonLd(page, category = "Service evenementiel") {
     serviceType: category,
     provider: {
       "@type": "Organization",
+      "@id": `${siteConfig.baseUrl}/#organization`,
       name: siteConfig.name,
       url: siteConfig.baseUrl,
       telephone: siteConfig.phoneInternational,
     },
     areaServed: siteConfig.servedAreas,
-    url: absoluteUrl(withSlash(page.path)),
+    image: page.image ? absoluteUrl(page.image) : undefined,
+    url,
+    ...(page.priceFrom
+      ? {
+          offers: {
+            "@type": "Offer",
+            price: String(page.priceFrom),
+            priceCurrency: "EUR",
+            url,
+            description: `Tarif à partir de ${page.priceFrom} euros, ajusté selon la date, le lieu et la formule.`,
+          },
+        }
+      : {}),
   };
 }
 
@@ -58,11 +73,15 @@ function page({
   secondaryCta,
   phoneCta,
   category,
+  metaTitle,
+  metaDescription,
+  priceFrom,
+  testimonials,
 }) {
   const breadcrumbItems = [homeCrumb, ...breadcrumbs, { label: title, href: path }];
   const jsonLd = [
     breadcrumbJsonLd(breadcrumbItems),
-    serviceJsonLd({ title, description, path }, category),
+    serviceJsonLd({ title, description, path, image, priceFrom }, category),
     faqJsonLd(faq),
   ].filter(Boolean);
 
@@ -86,14 +105,15 @@ function page({
     pathways,
     caseStudies,
     story,
+    testimonials,
     primaryCta: primaryCta || { label: siteConfig.primaryCtaLabel, href: siteConfig.quoteUrl },
     secondaryCta: secondaryCta || { label: siteConfig.secondaryCtaLabel, href: "/prestations#machines" },
     phoneCta: phoneCta || { label: siteConfig.phoneCtaLabel, href: siteConfig.phoneHref },
     meta: {
-      title: `${title} | MySelfieBooth`,
-      description,
+      title: metaTitle || `${title} | MySelfieBooth`,
+      description: metaDescription || description,
       ogTitle: title,
-      ogDescription: description,
+      ogDescription: metaDescription || description,
       ogImage: image,
       ogUrl: absoluteUrl(withSlash(path)),
       jsonLd,
@@ -476,6 +496,166 @@ function eventPage(key, path) {
   });
 }
 
+const photoboothMachine = machines.find((machine) => machine.key === "photobooth");
+
+const photoboothLandingPage = page({
+  key: "photobooth",
+  eyebrow: "Location photobooth",
+  title: "Location de photobooth à Paris et en Île-de-France",
+  description:
+    "Louez un photobooth dès 350 euros pour votre mariage, anniversaire ou événement d'entreprise : installation cadrée, tirages personnalisés selon la formule et galerie après l'événement.",
+  metaTitle: "Location Photobooth Paris dès 350 € | MySelfieBooth",
+  metaDescription:
+    "Location de photobooth à Paris et en Île-de-France dès 350 € : installation, tirages personnalisés selon formule et galerie photo après l'événement.",
+  image: photoboothMachine.image,
+  path: photoboothMachine.href,
+  priceFrom: 350,
+  highlights: ["Dès 350 €", "Tirages photo", "Galerie privée"],
+  breadcrumbs: [{ label: "Nos animations", href: "/prestations" }],
+  category: "Location de photobooth événementiel",
+  primaryCta: {
+    label: "Vérifier ma date et obtenir un devis",
+    href: siteConfig.quoteUrl,
+    event: "cta_quote_click",
+  },
+  secondaryCta: {
+    label: "Voir le tarif et les inclusions",
+    href: "#tarif",
+  },
+  sections: [
+    {
+      anchor: "fonctionnement",
+      eyebrow: "Fonctionnement",
+      title: "Une borne photo avec tirages et galerie après l'événement",
+      text: "Le photobooth est une borne photo autonome : les invités se placent devant l'objectif, déclenchent la prise de vue sur l'écran puis récupèrent leur souvenir selon la formule choisie. Notre équipe prépare la configuration, la personnalisation et l'installation avant l'arrivée du public.",
+      cards: [
+        { title: "Prise en main simple", text: "L'écran guide les invités pour lancer la prise de vue, recommencer si nécessaire et valider la photo." },
+        { title: "Tirages personnalisés", text: "Le format, le cadre graphique et le volume d'impressions sont définis dans la proposition selon votre événement." },
+        { title: "Galerie photo privée", text: "Les photos numériques peuvent être réunies dans une galerie remise après l'événement selon la prestation retenue." },
+        { title: "Réglages avant ouverture", text: "Le cadrage, la lumière, l'imprimante et le parcours invité sont testés avant le début de l'animation." },
+      ],
+    },
+    {
+      anchor: "tarif",
+      eyebrow: "Tarif à partir de 350 €",
+      title: "Ce que comprend votre location de photobooth",
+      text: "Le tarif de départ est de 350 euros. Le prix final dépend de la date, du lieu, de la durée, des impressions, de l'accompagnement et des options. Chaque élément est détaillé avant la réservation.",
+      cards: [
+        { title: "Livraison et installation", text: "Les conditions de transport, de montage, de tests et de reprise sont précisées selon le lieu et la formule." },
+        { title: "Personnalisation graphique", text: "Le cadre photo peut reprendre vos prénoms, votre date, vos couleurs ou l'identité visuelle de votre entreprise." },
+        { title: "Photos numériques", text: "Les fichiers conservés et leur mode de remise sont précisés dans la proposition personnalisée." },
+        { title: "Impressions sur place", text: "Le nombre de tirages, leur format et le rythme d'impression dépendent de la formule choisie." },
+      ],
+    },
+    {
+      anchor: "evenements",
+      eyebrow: "Mariage, anniversaire et entreprise",
+      title: "Un photobooth adapté au public et au rythme de votre événement",
+      text: "Le même photobooth ne s'organise pas de la même manière pour un mariage, un anniversaire, un salon professionnel ou une soirée d'entreprise. Nous ajustons l'emplacement, la durée, la personnalisation et l'accompagnement au déroulé réel.",
+      cards: [
+        { title: "Pour un mariage", text: "Des tirages personnalisés pour les invités, avec des options comme le livre d'or, les magnets ou le mur floral." },
+        { title: "Pour un anniversaire", text: "Une animation accessible à plusieurs générations et simple à intégrer entre les temps forts de la soirée." },
+        { title: "Pour une entreprise", text: "Un écran, un cadre photo et un parcours pouvant reprendre les codes de la marque ou de l'opération." },
+        { title: "Pour un salon ou séminaire", text: "Une configuration pensée pour rester visible, rapide à comprendre et compatible avec la circulation du lieu." },
+      ],
+    },
+    {
+      anchor: "reservation",
+      eyebrow: "Réserver votre date",
+      title: "Comment se déroule une location de photobooth",
+      text: "La réservation commence par votre date, votre lieu et le résultat souhaité. Ces informations permettent de confirmer la disponibilité et de proposer une formule adaptée sans ajouter d'options inutiles.",
+      cards: [
+        { title: "1. Votre demande", text: "Vous indiquez la date, l'adresse, les horaires, le nombre d'invités et le type d'événement." },
+        { title: "2. La proposition", text: "Vous recevez une configuration détaillant le tarif, les impressions, la personnalisation et la logistique." },
+        { title: "3. La préparation", text: "Les visuels et les contraintes d'accès sont validés avant le jour J." },
+        { title: "4. L'installation", text: "La borne est livrée, montée et testée selon les conditions prévues dans la proposition." },
+      ],
+    },
+    {
+      anchor: "espace",
+      eyebrow: "Installation",
+      title: "Quel espace prévoir pour un photobooth",
+      text: "Il faut raisonner en zone d'usage : la borne, le recul pour les groupes, la file d'attente et la circulation. L'emplacement exact est validé selon la salle et le format retenu.",
+      cards: [
+        { title: "Sol stable", text: "La borne doit être installée sur une surface plane, protégée et hors des zones de passage risquées." },
+        { title: "Prise électrique", text: "Une alimentation accessible est généralement nécessaire à proximité de l'installation." },
+        { title: "Accès de livraison", text: "Stationnement, ascenseur, escaliers, distance jusqu'à la salle et créneau de montage sont anticipés." },
+        { title: "Installation extérieure", text: "Un abri, une alimentation protégée, un sol stable et une solution de repli sont nécessaires selon la météo." },
+      ],
+    },
+  ],
+  comparison: comparison.filter((item) => ["Photobooth", "Miroirbooth", "360 Booth"].includes(item.title)),
+  gallery: [
+    { image: photoboothMachine.image, title: "Photobooth MySelfieBooth installé en réception" },
+    { image: "/images/mariages/mariage5.JPG", title: "Tirages photobooth pendant une réception de mariage" },
+    { image: "/images/mariages/mariage6.JPG", title: "Invités réunis autour des souvenirs photo" },
+    { image: "/images/photobooth.webp", title: "Borne photobooth MySelfieBooth prête pour l'événement" },
+  ],
+  testimonials: [
+    {
+      name: "Anusha Aravinthan",
+      text: "Les invités ont adoré l'animation et se sont éclatés à prendre des photos.",
+    },
+    {
+      name: "Elisabeth Severe",
+      text: "Équipe disponible et à l'écoute. Qualité des photos en tirage illimité parfaite. Une animation parfaite pour vos invités.",
+    },
+    {
+      name: "Lawrence ADZORMI",
+      text: "Les invités étaient très contents de repartir avec de beaux souvenirs et nous aussi d'ailleurs.",
+    },
+  ],
+  faq: [
+    {
+      question: "Quel est le prix d'une location de photobooth ?",
+      answer: "La location du Photobooth MySelfieBooth commence à 350 euros. Le tarif final dépend de la date, du lieu, de la durée, des impressions, de l'accompagnement et des options demandées.",
+    },
+    {
+      question: "Que comprend la location du photobooth ?",
+      answer: "La proposition précise la borne, la préparation, la personnalisation, les impressions, les photos numériques, la livraison, l'installation, l'accompagnement et la reprise selon la formule choisie.",
+    },
+    {
+      question: "Le photobooth imprime-t-il les photos sur place ?",
+      answer: "Oui lorsque les impressions sont prévues dans la formule. Le nombre de tirages, leur format et le rythme d'impression sont confirmés avant la réservation.",
+    },
+    {
+      question: "Récupère-t-on toutes les photos après l'événement ?",
+      answer: "Les photos numériques peuvent être remises dans une galerie privée après l'événement. Le contenu livré et le délai sont précisés dans votre proposition.",
+    },
+    {
+      question: "Peut-on personnaliser les tirages du photobooth ?",
+      answer: "Oui. Le cadre photo peut intégrer des prénoms, une date, des couleurs, un message ou un logo selon le projet et le format choisi.",
+    },
+    {
+      question: "Combien de place faut-il prévoir ?",
+      answer: "Il faut prévoir la borne, le recul pour les groupes et une circulation fluide. La configuration exacte dépend du décor, du nombre d'invités et de l'emplacement retenu.",
+    },
+    {
+      question: "Intervenez-vous à Paris et dans toute l'Île-de-France ?",
+      answer: "Nous étudions les demandes à Paris et dans les départements franciliens. La disponibilité et les conditions de déplacement sont confirmées selon la date, la commune, les horaires et les accès du lieu.",
+    },
+    {
+      question: "Quand faut-il réserver son photobooth ?",
+      answer: "Dès que la date et le lieu sont confirmés, surtout pour les samedis et la saison des mariages. Une demande avec la date permet de vérifier rapidement la disponibilité.",
+    },
+  ],
+  relatedLinks: [
+    { label: "Comparer le Photobooth et le Miroirbooth", href: "/prestations/miroirbooth" },
+    { label: "Choisir un photobooth pour un mariage", href: "/blog/choisir-photobooth-mariage" },
+    { label: "Comprendre le prix d'une location de photobooth", href: "/blog/prix-location-photobooth" },
+    { label: "Prévoir l'espace nécessaire au photobooth", href: "/blog/espace-installation-photobooth" },
+  ],
+  story: {
+    imageSlotId: "founder-portrait",
+    eyebrow: "Expertise MySelfieBooth",
+    title: "Des bornes développées avec une exigence technique de terrain",
+    text: "Ingénieur en aéronautique, Stéphane Faure a fabriqué les premières bornes avec son père. Cette maîtrise technique guide aujourd'hui la préparation, les tests et l'installation de chaque photobooth.",
+    href: "/a-propos",
+    linkLabel: "Découvrir l'histoire de MySelfieBooth",
+  },
+  finalTitle: "Vérifiez votre date et recevez votre proposition photobooth.",
+});
+
 export const marketingPages = {
   "prestations-index": page({
     key: "prestations-index",
@@ -507,7 +687,7 @@ export const marketingPages = {
       },
     ],
   }),
-  photobooth: machinePage(machines.find((machine) => machine.key === "photobooth")),
+  photobooth: photoboothLandingPage,
   miroirbooth: machinePage(machines.find((machine) => machine.key === "miroirbooth")),
   videobooth: machinePage(machines.find((machine) => machine.key === "videobooth")),
   voguebooth: machinePage(machines.find((machine) => machine.key === "voguebooth")),

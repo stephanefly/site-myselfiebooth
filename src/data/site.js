@@ -118,6 +118,7 @@ export function faqJsonLd(faq = []) {
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${siteConfig.baseUrl}/#organization`,
   name: siteConfig.name,
   description:
     "Location de photobooths premium pour événements professionnels et privés.",
@@ -145,6 +146,10 @@ export const organizationJsonLd = {
 export const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${siteConfig.baseUrl}/#website`,
   name: siteConfig.name,
   url: siteConfig.baseUrl,
+  publisher: {
+    "@id": `${siteConfig.baseUrl}/#organization`,
+  },
 };

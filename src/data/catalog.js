@@ -461,7 +461,7 @@ export const selectorNeeds = [
   {
     need: "Photo imprimée",
     answer: "Un tirage à garder",
-    href: "/prestations#machine-photobooth",
+    href: "/prestations/photobooth",
     image: serviceVisuals.photobooth.image,
     imageAlt: serviceVisuals.photobooth.alt,
     tone: "photo",
@@ -469,7 +469,7 @@ export const selectorNeeds = [
   {
     need: "Vidéo 360",
     answer: "Un clip dynamique à partager",
-    href: "/prestations#machine-videobooth",
+    href: "/prestations/videobooth",
     image: serviceVisuals.videobooth.image,
     imageAlt: serviceVisuals.videobooth.alt,
     tone: "video",
@@ -477,7 +477,7 @@ export const selectorNeeds = [
   {
     need: "Photo Vogue",
     answer: "Un portrait effet magazine",
-    href: "/prestations#machine-voguebooth",
+    href: "/prestations/voguebooth",
     image: serviceVisuals.voguebooth.image,
     imageAlt: serviceVisuals.voguebooth.alt,
     tone: "premium",

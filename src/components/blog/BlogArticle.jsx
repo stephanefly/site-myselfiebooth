@@ -116,6 +116,12 @@ export default function BlogArticle({ article }) {
                 {article.faqs?.length ? <li><a href="#questions-frequentes">Questions fréquentes</a></li> : null}
               </ol>
             </nav>
+            <div className="blog-aside-service">
+              <p>Service associé</p>
+              <a href="/prestations/photobooth/">
+                Location de photobooth à Paris et en Île-de-France
+              </a>
+            </div>
             <div className="blog-aside-cta">
               <p>Besoin d'une recommandation ?</p>
               <strong>Expliquez-nous votre événement.</strong>

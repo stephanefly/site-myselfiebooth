@@ -3,7 +3,7 @@ import { useState } from "react";
 import { siteConfig } from "../data/site";
 
 const links = [
-  { label: "Prestations", href: "/prestations" },
+  { label: "Photobooth", href: "/prestations/photobooth" },
   { label: "Entreprises", href: "/evenements/corporates", professional: true },
   { label: "Packs", href: "/prestations#packs" },
   { label: "Options", href: "/prestations#options" },

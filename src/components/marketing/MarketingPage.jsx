@@ -2,8 +2,9 @@ import Layout from "../Layout";
 import ImageSlot from "../ImageSlot";
 import useRevealMotion from "../../hooks/useRevealMotion";
 import { getServiceVisual, serviceVisuals } from "../../data/serviceVisuals";
+import { siteConfig } from "../../data/site";
 
-const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
+const bookingUrl = siteConfig.quoteUrl;
 
 const featureVisuals = {
   photobooth: { src: serviceVisuals.photobooth.image, title: "Photobooth en réception" },
@@ -47,7 +48,7 @@ function getSectionVisual(page, section, index) {
 
   const serviceVisual = getServiceVisual(section.title);
 
-  if (serviceVisual) {
+  if (serviceVisual && serviceVisual.key !== page.key) {
     return {
       image: serviceVisual.image,
       title: serviceVisual.name,
@@ -131,6 +132,10 @@ function QuickNavigation({ page }) {
 
   if ((page.caseStudies || []).length) {
     links.push({ href: "#cas-entreprise", label: "Études de cas" });
+  }
+
+  if ((page.testimonials || []).length) {
+    links.push({ href: "#avis-clients", label: "Avis" });
   }
 
   if ((page.faq || []).length) {
@@ -309,6 +314,36 @@ function CaseStudyGrid({ items = [] }) {
   );
 }
 
+function TestimonialGrid({ items = [] }) {
+  if (!items.length) {
+    return null;
+  }
+
+  return (
+    <section id="avis-clients" className="marketing-section is-dark" data-reveal>
+      <div className="marketing-container">
+        <SectionHeader
+          eyebrow="Avis Google"
+          title={`${siteConfig.reviews.rating} selon nos clients`}
+        />
+        <div className="marketing-testimonial-grid">
+          {items.map((item) => (
+            <article key={item.name} className="marketing-testimonial-card">
+              <span aria-label="5 étoiles sur 5">★★★★★</span>
+              <blockquote>“{item.text}”</blockquote>
+              <strong>{item.name}</strong>
+              <small>Avis publié sur Google</small>
+            </article>
+          ))}
+        </div>
+        <a className="marketing-reviews-link" href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer">
+          Consulter les {siteConfig.reviews.count} avis Google
+        </a>
+      </div>
+    </section>
+  );
+}
+
 function FounderStory({ story }) {
   if (!story) {
     return null;
@@ -447,6 +482,7 @@ export default function MarketingPage({ page }) {
                     </figure>
                   )}
                 </div>
+                {section.text && <p className="marketing-section-lead" data-reveal>{section.text}</p>}
                 <CardGrid cards={section.cards} />
               </div>
             </section>
@@ -456,6 +492,7 @@ export default function MarketingPage({ page }) {
         <ComparisonGrid items={page.comparison} />
         <OptionGrid items={page.optionGrid} />
         <CaseStudyGrid items={page.caseStudies} />
+        <TestimonialGrid items={page.testimonials} />
 
         {(page.gallery || []).length > 0 && (
           <section id="galerie" className="marketing-section is-dark" data-reveal>
@@ -842,6 +879,18 @@ export default function MarketingPage({ page }) {
           margin-bottom: 0;
         }
 
+        .marketing-section-lead {
+          max-width: 940px;
+          margin: -2px 0 24px;
+          color: #514e47;
+          font-size: 1rem;
+          line-height: 1.7;
+        }
+
+        .is-dark .marketing-section-lead {
+          color: #d8d1c4;
+        }
+
         .marketing-section-visual {
           position: relative;
           height: 230px;
@@ -987,6 +1036,53 @@ export default function MarketingPage({ page }) {
         .marketing-related-grid {
           display: grid;
           gap: 18px;
+        }
+
+        .marketing-testimonial-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px;
+        }
+
+        .marketing-testimonial-card {
+          min-height: 230px;
+          display: flex;
+          flex-direction: column;
+          padding: 22px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
+          border-radius: 8px;
+          background: #171717;
+        }
+
+        .marketing-testimonial-card > span {
+          color: #e5c46b;
+          letter-spacing: 0.08rem;
+        }
+
+        .marketing-testimonial-card blockquote {
+          flex: 1;
+          margin: 18px 0 24px;
+          color: #f4efe5;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+
+        .marketing-testimonial-card strong,
+        .marketing-testimonial-card small {
+          display: block;
+        }
+
+        .marketing-testimonial-card small {
+          margin-top: 5px;
+          color: #aaa398;
+        }
+
+        .marketing-reviews-link {
+          display: inline-flex;
+          margin-top: 22px;
+          color: #e5c46b;
+          font-weight: 900;
+          text-decoration: none;
         }
 
         .marketing-pathway-grid {
@@ -1259,6 +1355,7 @@ export default function MarketingPage({ page }) {
           .marketing-option-grid,
           .marketing-pathway-grid,
           .marketing-case-grid,
+          .marketing-testimonial-grid,
           .marketing-related-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
@@ -1346,6 +1443,7 @@ export default function MarketingPage({ page }) {
           .marketing-option-grid,
           .marketing-pathway-grid,
           .marketing-case-grid,
+          .marketing-testimonial-grid,
           .marketing-related-grid {
             grid-template-columns: 1fr;
           }

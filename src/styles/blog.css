@@ -500,6 +500,28 @@
   border-top: 1px solid #deded8;
 }
 
+.blog-aside-service {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid #deded8;
+}
+
+.blog-aside-service p {
+  margin: 0 0 8px;
+  color: #6b6861;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.blog-aside-service a {
+  color: #7c2530;
+  font-size: 0.84rem;
+  font-weight: 900;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
 .blog-aside-cta strong {
   display: block;
   font-size: 1.2rem;
