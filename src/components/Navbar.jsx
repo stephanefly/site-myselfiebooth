@@ -8,7 +8,7 @@ const links = [
   { label: "Packs", href: "/prestations#packs" },
   { label: "Options", href: "/prestations#options" },
   { label: "Événements", href: "/evenements" },
-  { label: "Réalisations", href: "/#realisations" },
+  { label: "Réalisations", href: "/realisations" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
   { label: "Qui sommes-nous", href: "/a-propos" },

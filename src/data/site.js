@@ -58,6 +58,12 @@ export const brandLogos = [
   { name: "Renault", src: "/logos/renault.webp" },
   { name: "SNCF", src: "/logos/sncf.webp" },
   { name: "Veolia", src: "/logos/veolia.webp" },
+  { name: "AXA", src: "/logos/axa.webp" },
+  { name: "Bouygues", src: "/logos/bouygues.webp" },
+  { name: "E.Leclerc", src: "/logos/leclerc.webp" },
+  { name: "Leroy Merlin", src: "/logos/leroymerlin.webp" },
+  { name: "Orange", src: "/logos/orange.webp" },
+  { name: "Fitness Park", src: "/logos/fitnesspark.webp" },
 ];
 
 export const trustSignals = [

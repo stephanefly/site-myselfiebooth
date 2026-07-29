@@ -36,7 +36,7 @@ const aboutPageJsonLd = {
   "@type": "AboutPage",
   name: "Qui sommes-nous - MySelfieBooth",
   url: `${siteConfig.baseUrl}/a-propos/`,
-  primaryImageOfPage: `${siteConfig.baseUrl}/images/ai-faithful/portrait-stephane-faure-ai.webp`,
+  primaryImageOfPage: `${siteConfig.baseUrl}/images/equipe/portrait-stephane-faure.webp`,
   about: {
     "@type": "Organization",
     name: siteConfig.name,
@@ -56,7 +56,7 @@ export default function AboutPage() {
         title: "Stéphane Faure, ingénieur et fondateur | MySelfieBooth",
         description:
           "Découvrez comment Stéphane Faure, ingénieur en aéronautique, a créé MySelfieBooth en famille avant de former une équipe événementielle de terrain.",
-        ogImage: "/images/ai-faithful/portrait-stephane-faure-ai.webp",
+        ogImage: "/images/equipe/portrait-stephane-faure.webp",
         ogUrl: "/a-propos/",
         includeOrganization: true,
         jsonLd: [aboutPageJsonLd],
@@ -90,7 +90,7 @@ export default function AboutPage() {
 
             <figure className="about-founder" data-reveal data-reveal-variant="scale">
               <img
-                src="/images/ai-faithful/portrait-stephane-faure-ai.webp"
+                src="/images/equipe/portrait-stephane-faure.webp"
                 alt="Stéphane Faure, fondateur de MySelfieBooth"
                 width="1600"
                 height="1066"
@@ -137,7 +137,7 @@ export default function AboutPage() {
             <div className="about-origin-media" data-reveal>
               <figure>
                 <img
-                  src="/images/ai-faithful/fabrication-famille-ai.webp"
+                  src="/images/equipe/conception-en-famille.webp"
                   alt="Conception informatique des premières machines MySelfieBooth en famille"
                   width="1600"
                   height="1200"
@@ -157,8 +157,8 @@ export default function AboutPage() {
               </figure>
               <figure>
                 <img
-                  src="/images/machines-ai/atelier-machines-myselfiebooth.webp"
-                  alt="Premier caisson Photobooth MySelfieBooth pendant sa fabrication"
+                  src="/images/equipe/fabrication-photobooth-en-famille.webp"
+                  alt="Assemblage d'un caisson Photobooth MySelfieBooth dans l'atelier familial"
                   width="1200"
                   height="1600"
                   loading="lazy"
@@ -235,7 +235,7 @@ export default function AboutPage() {
             <div className="about-team-grid">
               <figure className="about-team-main" data-reveal>
                 <img
-                  src="/images/ai-faithful/equipe-myselfiebooth-ai.webp"
+                  src="/images/equipe/equipe-myselfiebooth.webp"
                   alt="Une partie de l'équipe MySelfieBooth réunie dans un VogueBooth"
                   width="1350"
                   height="1800"
@@ -249,7 +249,7 @@ export default function AboutPage() {
 
               <article className="about-right-hand" data-reveal data-reveal-variant="scale">
                 <img
-                  src="/images/generated/premium-team-installation.webp"
+                  src="/images/equipe/bras-droit-terrain.webp"
                   alt="Le bras droit opérationnel de MySelfieBooth lors d'un événement"
                   width="1066"
                   height="1600"

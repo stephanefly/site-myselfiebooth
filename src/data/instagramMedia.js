@@ -20,7 +20,7 @@ export const instagramMedia = [
   { file: "animation-voguebooth.gif", title: "Dans les coulisses du Vogue Booth", category: "Vogue Booth" },
   { file: "booth-360-mariage.gif", title: "360 Booth de mariage", category: "Mariage" },
   { file: "booth-360-peniche.gif", title: "360 Booth sur une péniche", category: "Événement" },
-  { file: "booth-360-sephora.gif", title: "Activation 360 Booth Sephora", category: "Entreprise" },
+  { file: "booth-360-sephora.gif", title: "360 Booth en événement professionnel", category: "Entreprise" },
   { file: "livre-dor-video-en-action.gif", title: "Le livre d'or vidéo en action", category: "Livre d'or" },
   { file: "miroirbooth-mariage.gif", title: "Miroirbooth de mariage", category: "Miroirbooth" },
   { file: "panneau-fontaine-coulisses.gif", title: "Les coulisses du panneau fontaine", category: "Décor" },
@@ -29,6 +29,7 @@ export const instagramMedia = [
   { file: "tirages-mariage.gif", title: "Les tirages du mariage", category: "Tirages" },
 ].map((item) => ({
   ...item,
+  sourceId: `instagram-${item.file}`,
   src: `/images/reel-gifs/${item.file}`,
   href: instagramProfile,
   alt: `${item.title}, prestation réelle MySelfieBooth`,

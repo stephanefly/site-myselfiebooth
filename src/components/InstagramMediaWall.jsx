@@ -1,10 +1,8 @@
-import { useState } from "react";
+import Link from "next/link";
 import { instagramMedia, instagramUrl } from "../data/instagramMedia";
 
-export default function InstagramMediaWall({ compact = false }) {
-  const initialCount = compact ? 8 : 12;
-  const [expanded, setExpanded] = useState(false);
-  const visibleMedia = expanded ? instagramMedia : instagramMedia.slice(0, initialCount);
+export default function InstagramMediaWall({ compact = false, showAll = false }) {
+  const visibleMedia = showAll ? instagramMedia : instagramMedia.slice(0, compact ? 8 : 12);
 
   return (
     <div className={`instagram-wall ${compact ? "is-compact" : ""}`}>
@@ -38,15 +36,11 @@ export default function InstagramMediaWall({ compact = false }) {
       </div>
 
       <div className="instagram-wall-actions">
-        {!expanded ? (
-          <button type="button" onClick={() => setExpanded(true)}>
+        {!showAll ? (
+          <Link href="/realisations/">
             Voir les {instagramMedia.length} moments réels
-          </button>
-        ) : (
-          <button type="button" onClick={() => setExpanded(false)}>
-            Réduire la galerie
-          </button>
-        )}
+          </Link>
+        ) : null}
         <a href={instagramUrl} target="_blank" rel="noreferrer">
           Suivre @myselfiebooth_paris
         </a>

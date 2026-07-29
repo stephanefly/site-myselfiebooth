@@ -14,8 +14,6 @@ import {
 import { blogArticles } from "../../data/blogArticles";
 import { siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
-import AiEventGallery from "../AiEventGallery";
-import EventArchiveGallery from "../EventArchiveGallery";
 import InstagramMediaWall from "../InstagramMediaWall";
 
 function SectionIntro({ eyebrow, title }) {
@@ -441,27 +439,12 @@ export default function HomePage() {
               <h3>Photobooth, 360, Vogue et coulisses</h3>
             </div>
           </div>
-          <InstagramMediaWall />
-        </div>
-      </section>
-
-      <section className="home-section home-section-light" data-reveal>
-        <div className="home-container">
-          <SectionIntro
-            eyebrow="6 sources, 6 scènes différentes"
-            title="Des créations IA fidèles, sans image répétée"
-          />
-          <AiEventGallery />
-        </div>
-      </section>
-
-      <section className="home-section home-section-light" data-reveal>
-        <div className="home-container">
-          <SectionIntro
-            eyebrow="Nouveaux médias du terrain"
-            title="Encore plus de prestations réelles"
-          />
-          <EventArchiveGallery />
+          <InstagramMediaWall compact />
+          <div className="home-centered-action">
+            <a href="/realisations/" className="home-button home-button-secondary-dark">
+              Voir toutes les réalisations
+            </a>
+          </div>
         </div>
       </section>
 

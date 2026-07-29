@@ -26,7 +26,7 @@ export default function Footer() {
         { label: "Tarifs détaillés", href: siteConfig.ratesUrl },
         { label: "Nos packs", href: "/prestations#packs" },
         { label: "Toutes les options", href: "/prestations#options" },
-        { label: "Réalisations", href: "/#realisations" },
+        { label: "Réalisations", href: "/realisations" },
       ],
     },
     {
