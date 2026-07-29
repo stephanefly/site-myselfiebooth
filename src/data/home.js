@@ -10,17 +10,6 @@ import { brandLogos, siteConfig, trustSignals } from "./site";
 
 export { brandLogos, processSteps };
 
-const homeMachineImages = {
-  photobooth: "/images/photobooth.webp",
-  miroirbooth: "/images/miroirbooth.webp",
-  videobooth: "/images/360booth.webp",
-  air360booth: "/images/airbooth.webp",
-  ipadbooth: "/images/ipadbooth.webp",
-  voguebooth: "/images/voguebooth.webp",
-  packvip: "/images/pack.webp",
-  personnalise: "/images/all_presta.webp",
-};
-
 const homeSelectorImages = {
   "Photo imprimée": "/images/photobooth.webp",
   "Vidéo 360": "/images/360booth.webp",
@@ -54,7 +43,7 @@ export const services = machines.map((machine) => ({
   title: machine.name,
   tag: machine.tag,
   text: machine.short,
-  image: homeMachineImages[machine.key] || machine.image,
+  image: machine.image,
   href: `/prestations#machine-${machine.key}`,
   price: machine.price || "Sur devis",
 }));

@@ -68,7 +68,15 @@ function LogoStrip() {
   return (
     <div className="home-logo-strip" aria-label="References clients affichees">
       {brandLogos.map((logo) => (
-        <img key={logo.name} src={logo.src} alt={logo.name} width="180" height="64" />
+        <img
+          key={logo.name}
+          src={logo.src}
+          alt={logo.name}
+          loading="lazy"
+          decoding="async"
+          width="180"
+          height="64"
+        />
       ))}
     </div>
   );
@@ -246,6 +254,10 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+          <p className="home-service-note">
+            Chaque proposition détaille la durée, la livraison, l'installation,
+            la personnalisation et les fichiers remis. Vous savez ce qui est prévu avant de réserver.
+          </p>
           <div className="home-centered-action">
             <a href="/prestations" className="home-button home-button-secondary-dark">
               Voir toutes les animations
@@ -411,8 +423,8 @@ export default function HomePage() {
       <section id="realisations" className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro
-            eyebrow="Inspirations"
-            title="Nos machines dans leur univers"
+            eyebrow="Cas réels"
+            title="Des installations qui montrent le résultat, pas seulement la machine"
           />
           <div className="home-case-grid">
             {caseStudies.map((study) => (
@@ -428,6 +440,11 @@ export default function HomePage() {
                 </div>
               </article>
             ))}
+          </div>
+          <div className="home-centered-action home-case-action">
+            <a href="/evenements/corporates" className="home-button home-button-secondary-dark">
+              Voir nos solutions pour les entreprises
+            </a>
           </div>
 
           <div className="home-gallery-heading">
@@ -487,9 +504,14 @@ export default function HomePage() {
               eyebrow="Avis Google"
               title={`${siteConfig.reviews.rating} selon nos clients`}
             />
-            <a href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer">
-              Voir les {siteConfig.reviews.count} avis Google
-            </a>
+            <div className="home-review-actions">
+              <a href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer">
+                Voir les {siteConfig.reviews.count} avis Google
+              </a>
+              <a href={siteConfig.reviewCtaUrl} target="_blank" rel="noreferrer">
+                Laisser un avis
+              </a>
+            </div>
           </div>
           <div className="home-review-grid">
             {googleReviews.map((review) => (

@@ -7,12 +7,13 @@ export const siteConfig = {
   phoneInternational: "+33 6 99 73 39 98",
   email: "contact@myselfiebooth-paris.fr",
   reviewsUrl: "https://www.google.com/maps/search/?api=1&query=MySelfieBooth&query_place_id=ChIJP2dCemoVuCMRaY5EKxf6mI4",
+  reviewCtaUrl: "https://search.google.com/local/writereview?placeid=ChIJP2dCemoVuCMRaY5EKxf6mI4",
   reviews: {
     rating: "4,8/5",
     count: 77,
     source: "Google",
   },
-  defaultOgImage: "/images/logo.jpg",
+  defaultOgImage: "/images/og-myselfiebooth.jpg",
   primaryCtaLabel: "Obtenir mon devis en 2 minutes",
   secondaryCtaLabel: "Comparer les animations",
   galleryCtaLabel: "Voir nos réalisations",
@@ -121,7 +122,7 @@ export const organizationJsonLd = {
   description:
     "Location de photobooths premium pour événements professionnels et privés.",
   url: siteConfig.baseUrl,
-  logo: absoluteUrl(siteConfig.defaultOgImage),
+  logo: absoluteUrl("/images/logo.jpg"),
   image: absoluteUrl("/images/hero-pub-2024.webp"),
   telephone: siteConfig.phoneInternational,
   email: siteConfig.email,

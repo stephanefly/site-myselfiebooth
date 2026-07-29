@@ -1,5 +1,6 @@
 import Layout from "../Layout";
 import { articleMeta, blogArticles } from "../../data/blogArticles";
+import { getServiceVisual } from "../../data/serviceVisuals";
 import { siteConfig } from "../../data/site";
 
 export default function BlogArticle({ article }) {
@@ -54,33 +55,38 @@ export default function BlogArticle({ article }) {
 
         <div className="blog-container blog-article-layout">
           <div className="blog-article-content">
-            {article.sections.map((section, index) => (
-              <section key={section.title} id={`partie-${index + 1}`}>
-                <span>0{index + 1}</span>
-                <h2>{section.title}</h2>
-                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                {section.bullets && (
-                  <ul>
-                    {section.bullets.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
-                )}
-                {section.image ? (
-                  <figure className="blog-section-visual">
-                    <div>
-                      <img
-                        src={section.image}
-                        alt={section.imageAlt}
-                        loading="lazy"
-                        width="920"
-                        height="614"
-                      />
-                      <span className="blog-ai-badge">Visuel d'ambiance IA</span>
-                    </div>
-                    {section.caption ? <figcaption>{section.caption}</figcaption> : null}
-                  </figure>
-                ) : null}
-              </section>
-            ))}
+            {article.sections.map((section, index) => {
+              const serviceVisual = getServiceVisual(section.title);
+              const sectionImage = serviceVisual?.image || section.image;
+
+              return (
+                <section key={section.title} id={`partie-${index + 1}`}>
+                  <span>0{index + 1}</span>
+                  <h2>{section.title}</h2>
+                  {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  {section.bullets && (
+                    <ul>
+                      {section.bullets.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
+                  )}
+                  {sectionImage ? (
+                    <figure className="blog-section-visual">
+                      <div>
+                        <img
+                          src={sectionImage}
+                          alt={serviceVisual?.alt || section.imageAlt}
+                          loading="lazy"
+                          width="920"
+                          height="614"
+                        />
+                        {!serviceVisual && <span className="blog-ai-badge">Visuel d'ambiance IA</span>}
+                      </div>
+                      {section.caption ? <figcaption>{section.caption}</figcaption> : null}
+                    </figure>
+                  ) : null}
+                </section>
+              );
+            })}
 
             {article.faqs?.length ? (
               <section className="blog-article-faq" id="questions-frequentes">

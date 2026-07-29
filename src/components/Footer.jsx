@@ -53,11 +53,14 @@ export default function Footer() {
             rel="noreferrer"
             aria-label="Consulter les avis MySelfieBooth sur Google Maps"
           >
-            <img src="/icons/google.png" alt="" width="32" height="32" />
+            <img src="/icons/google.png" alt="" loading="lazy" decoding="async" width="32" height="32" />
             <div>
               <strong>Les avis MySelfieBooth</strong>
               <span>Consulter les retours sur Google Maps</span>
             </div>
+          </a>
+          <a className="footer-review-cta" href={siteConfig.reviewCtaUrl} target="_blank" rel="noreferrer">
+            Déjà client ? Laisser un avis Google
           </a>
           <a className="footer-quote" href={siteConfig.quoteUrl}>
             {siteConfig.primaryCtaLabel}
@@ -150,6 +153,15 @@ export default function Footer() {
         .footer-review span {
           color: #5f5a50;
           font-size: 0.88rem;
+        }
+
+        .footer-brand .footer-review-cta {
+          display: inline-flex;
+          margin-top: 10px;
+          color: #e5c46b;
+          font-size: 0.82rem;
+          font-weight: 800;
+          text-decoration: none;
         }
 
         .footer-quote {

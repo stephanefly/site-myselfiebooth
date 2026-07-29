@@ -832,7 +832,15 @@
   margin-bottom: 0;
 }
 
-.home-reviews-heading > a {
+.home-review-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.home-review-actions a {
   flex: 0 0 auto;
   min-height: 42px;
   display: inline-flex;
@@ -841,6 +849,13 @@
   font-size: 0.86rem;
   font-weight: 900;
   text-decoration: none;
+}
+
+.home-review-actions a:last-child {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(229, 196, 107, 0.5);
+  border-radius: 999px;
 }
 
 .home-review-grid {
@@ -1425,6 +1440,20 @@
   display: flex;
   justify-content: center;
   margin-top: 28px;
+}
+
+.home-service-note {
+  max-width: 860px;
+  margin: 24px auto 0;
+  color: #625d54;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.home-case-action {
+  margin-top: -16px;
+  margin-bottom: 42px;
 }
 
 .home-faq-layout {

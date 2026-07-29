@@ -654,11 +654,26 @@ export const marketingPages = {
           { title: "Formats", text: "Photobooth, Miroirbooth, 360 Booth, Vogue Booth et packs." },
         ],
       },
+      {
+        eyebrow: "Zone d'intervention",
+        title: "Paris et les départements franciliens",
+        text: "La logistique est préparée selon la commune, les horaires et les accès du lieu. Les conditions exactes sont confirmées avec votre date dans la proposition.",
+        cards: [
+          { title: "Paris et petite couronne", text: "Paris (75), Hauts-de-Seine (92), Seine-Saint-Denis (93) et Val-de-Marne (94) : nous anticipons stationnement, créneaux de livraison, ascenseurs et accès techniques." },
+          { title: "Ouest francilien", text: "Yvelines (78) et Val-d'Oise (95) : la durée de transport et l'horaire de montage sont intégrés à la préparation de l'événement." },
+          { title: "Essonne", text: "Dans l'Essonne (91), nous adaptons la configuration à la salle, au nombre d'invités et au temps disponible pour l'installation." },
+          { title: "Seine-et-Marne", text: "En Seine-et-Marne (77), le devis précise le déplacement et l'organisation retenue selon la commune et les horaires." },
+        ],
+      },
     ],
     faq: [
       {
         question: "Intervenez-vous dans toute l'Île-de-France ?",
         answer: "La disponibilité et les conditions de déplacement sont confirmées selon la date, la commune et les horaires de votre événement.",
+      },
+      {
+        question: "Quels départements franciliens couvrez-vous ?",
+        answer: "Nous étudions les demandes à Paris (75) et dans les départements 77, 78, 91, 92, 93, 94 et 95. La disponibilité et les conditions de déplacement dépendent de la date, de la commune et des accès du lieu.",
       },
       {
         question: "Comment préparez-vous une livraison dans Paris ?",

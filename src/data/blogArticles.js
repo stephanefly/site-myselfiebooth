@@ -634,7 +634,7 @@ export const blogArticles = baseBlogArticles.map((article) => {
   const visuals = articleVisuals[article.slug] || {};
   const sections = [
     ...article.sections,
-    ...(expansion.sections || []).slice(0, 2),
+    ...(expansion.sections || []).slice(0, 1),
   ].map((section, index) => {
     const sectionVisual = visuals.sections?.[index];
     const cleanSection = { ...section };
@@ -655,7 +655,7 @@ export const blogArticles = baseBlogArticles.map((article) => {
   return {
     ...article,
     ...expansion,
-    readTime: "5 min",
+    readTime: "4 min",
     image: visuals.hero?.src || expansion.image || article.image,
     imageAlt: visuals.hero?.alt || expansion.imageAlt || article.imageAlt,
     imageNote: "Visuel d'ambiance généré par IA.",
@@ -689,7 +689,7 @@ export function articleMeta(article) {
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl(siteConfig.defaultOgImage),
+        url: absoluteUrl("/images/logo.jpg"),
       },
     },
     mainEntityOfPage: absoluteUrl(withSlash(path)),

@@ -1,18 +1,19 @@
 import Layout from "../Layout";
 import ImageSlot from "../ImageSlot";
 import useRevealMotion from "../../hooks/useRevealMotion";
+import { getServiceVisual, serviceVisuals } from "../../data/serviceVisuals";
 
 const bookingUrl = "https://reservation.myselfiebooth-paris.fr/";
 
 const featureVisuals = {
-  photobooth: { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Photobooth en réception" },
-  miroirbooth: { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", title: "Miroirbooth en réception" },
-  videobooth: { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", title: "360 Booth en événement" },
-  air360booth: { src: "/images/machines-ai/air360-gala-myselfiebooth.webp", title: "Air360 Booth en gala" },
-  ipadbooth: { src: "/images/machines-ai/ipadbooth-reception-myselfiebooth.webp", title: "iPad Booth en réception" },
-  voguebooth: { src: "/images/vogue-real/vogue-booth-mariage-card.webp", title: "Vogue Booth Wedding Edition personnalisé" },
-  packvip: { src: "/images/ai-fusions/pack-duo-vip.webp", title: "Pack VIP en réception" },
-  personnalise: { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "Expérience personnalisée" },
+  photobooth: { src: serviceVisuals.photobooth.image, title: "Photobooth en réception" },
+  miroirbooth: { src: serviceVisuals.miroirbooth.image, title: "Miroirbooth en réception" },
+  videobooth: { src: serviceVisuals.videobooth.image, title: "360 Booth en événement" },
+  air360booth: { src: serviceVisuals.air360booth.image, title: "Air360 Booth en gala" },
+  ipadbooth: { src: serviceVisuals.ipadbooth.image, title: "iPad Booth en réception" },
+  voguebooth: { src: serviceVisuals.voguebooth.image, title: "Vogue Booth Wedding Edition personnalisé" },
+  packvip: { src: serviceVisuals.packvip.image, title: "Pack VIP en réception" },
+  personnalise: { src: serviceVisuals.personnalise.image, title: "Expérience personnalisée" },
   mariages: { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", title: "Ambiance de mariage" },
   anniversaires: { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Animation d'anniversaire" },
   soirees: { src: "/images/machines-ai/air360-gala-myselfiebooth.webp", title: "Ambiance de soirée" },
@@ -37,15 +38,24 @@ function SectionHeader({ eyebrow, title }) {
 function getSectionVisual(page, section, index) {
   const visuals = page.gallery || [];
 
-  if (!visuals.length) {
-    return null;
-  }
-
   if (index === 0 && featureVisuals[page.key]) {
     return {
       image: featureVisuals[page.key].src,
       title: featureVisuals[page.key].title,
     };
+  }
+
+  const serviceVisual = getServiceVisual(section.title);
+
+  if (serviceVisual) {
+    return {
+      image: serviceVisual.image,
+      title: serviceVisual.name,
+    };
+  }
+
+  if (!visuals.length) {
+    return null;
   }
 
   const context = `${page.key} ${section.eyebrow || ""} ${section.title || ""}`.toLowerCase();
@@ -75,17 +85,28 @@ function getSectionVisual(page, section, index) {
 function CardGrid({ cards = [] }) {
   return (
     <div className="marketing-card-grid">
-      {cards.slice(0, 4).map((card, index) => (
-        <article
-          key={`${card.title}-${index}`}
-          className="marketing-card"
-          data-reveal
-          style={{ "--reveal-delay": `${Math.min(index, 5) * 45}ms` }}
-        >
-          <h3>{card.title}</h3>
-          <p>{card.text}</p>
-        </article>
-      ))}
+      {cards.slice(0, 4).map((card, index) => {
+        const visual = getServiceVisual(card.title);
+
+        return (
+          <article
+            key={`${card.title}-${index}`}
+            className={`marketing-card ${visual ? "has-service-visual" : ""}`}
+            data-reveal
+            style={{ "--reveal-delay": `${Math.min(index, 5) * 45}ms` }}
+          >
+            {visual && (
+              <a className="marketing-card-service-visual" href={visual.href}>
+                <img src={visual.image} alt={visual.alt} loading="lazy" width="720" height="480" />
+              </a>
+            )}
+            <div className={visual ? "marketing-card-body" : undefined}>
+              <h3>{card.title}</h3>
+              <p>{card.text}</p>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 }
@@ -161,23 +182,33 @@ function ComparisonGrid({ items = [] }) {
           title="Comparez les formats"
         />
         <div className="marketing-comparison-grid">
-          {items.map((item) => (
-            <article key={item.title} className="marketing-comparison-card">
-              <img src={item.image} alt={item.title} loading="lazy" width="720" height="480" />
-              <div>
-                <h3>{item.title}</h3>
-                <dl>
-                  {item.rows.map(([label, value]) => (
-                    <div key={label}>
-                      <dt>{label}</dt>
-                      <dd>{value}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <a href={item.href}>Voir cette animation</a>
-              </div>
-            </article>
-          ))}
+          {items.map((item) => {
+            const visual = getServiceVisual(item.title);
+
+            return (
+              <article key={item.title} className="marketing-comparison-card">
+                <img
+                  src={visual?.image || item.image}
+                  alt={visual?.alt || item.title}
+                  loading="lazy"
+                  width="720"
+                  height="480"
+                />
+                <div>
+                  <h3>{item.title}</h3>
+                  <dl>
+                    {item.rows.map(([label, value]) => (
+                      <div key={label}>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <a href={item.href}>Voir cette animation</a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -300,6 +331,7 @@ function FounderStory({ story }) {
 
 export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
+  const pageServiceVisual = serviceVisuals[page.key];
 
   return (
     <Layout metaProps={page.meta}>
@@ -342,7 +374,12 @@ export default function MarketingPage({ page }) {
             </div>
             <div className="marketing-hero-media" data-reveal data-reveal-variant="scale">
               <div className="marketing-hero-media-pair">
-                <img src={page.image} alt={page.imageAlt || page.title} width="934" height="700" />
+                <img
+                  src={pageServiceVisual?.image || page.image}
+                  alt={pageServiceVisual?.alt || page.imageAlt || page.title}
+                  width="934"
+                  height="700"
+                />
               </div>
               <div className="marketing-hero-proof">
                 {(page.highlights || []).map((item) => (
@@ -912,6 +949,35 @@ export default function MarketingPage({ page }) {
           color: #5d5a52;
           font-size: 0.94rem;
           line-height: 1.52;
+        }
+
+        .marketing-card.has-service-visual {
+          padding: 0;
+          overflow: hidden;
+        }
+
+        .marketing-card-service-visual {
+          display: block;
+          height: 168px;
+          overflow: hidden;
+          background: #151515;
+        }
+
+        .marketing-card-service-visual img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+          transition: transform 220ms ease;
+        }
+
+        .marketing-card-service-visual:hover img,
+        .marketing-card-service-visual:focus-visible img {
+          transform: scale(1.025);
+        }
+
+        .marketing-card-body {
+          padding: 18px;
         }
 
         .marketing-comparison-grid,
