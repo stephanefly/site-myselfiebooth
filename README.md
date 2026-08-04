@@ -23,12 +23,28 @@ npm run build
 
 `npm run build` génère déjà l'export statique grâce à `output: "export"`. Il ne faut pas lancer l'ancien `next export` après le build.
 
+## Google Tag Manager et Analytics
+
+Le suivi respecte le choix enregistré dans la bannière cookies.
+
+```env
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+NEXT_PUBLIC_GA_ID=G-4297YBLGR6
+```
+
+- Avec un identifiant `NEXT_PUBLIC_GTM_ID` valide, le site charge Google Tag Manager après acceptation.
+- Sans identifiant GTM, le site conserve automatiquement le suivi GA4 direct existant.
+- Les clics vers le devis, la brochure, le téléphone, l'e-mail et WhatsApp sont envoyés dans le `dataLayer`.
+- Les balises publicitaires restent refusées par défaut dans Google Consent Mode.
+
 ## Structure utile
 
 - `src/pages/index.jsx` : page d'accueil.
 - `src/pages/evenements/corporates.jsx` : parcours Entreprises principal.
 - `src/components/Layout.jsx` : layout global.
-- `src/components/Meta.jsx` : title, description, canonical, Open Graph, JSON-LD et Google Analytics.
+- `src/components/Meta.jsx` : title, description, canonical, Open Graph et JSON-LD.
+- `src/components/AnalyticsConsent.jsx` : consentement, Google Tag Manager et secours GA4 direct.
+- `src/components/AnalyticsEvents.jsx` : événements de conversion du site vitrine.
 - `src/components/home/HomePage.jsx` : accueil.
 - `src/components/marketing/MarketingPage.jsx` : gabarit commun des pages marketing.
 - `src/data/site.js` : coordonnées, domaine canonique, CTA, zones, fondateur et preuves.
