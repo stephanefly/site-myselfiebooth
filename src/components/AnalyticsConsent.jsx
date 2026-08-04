@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const STORAGE_KEY = "myselfiebooth-analytics-consent";
 const OPEN_EVENT = "myselfiebooth:open-cookie-settings";
 const CONSENT_EVENT = "myselfiebooth:analytics-consent-changed";
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-PDS7XZMK";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-4297YBLGR6";
 const GTM_ENABLED = /^GTM-[A-Z0-9]+$/i.test(GTM_ID);
 
