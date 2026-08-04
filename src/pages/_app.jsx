@@ -1,6 +1,7 @@
 import "../styles/styles.css";
 import "../styles/page-rendering.css";
 import "../styles/blog.css";
+import "../styles/image-framing.css";
 import { useRouter } from "next/router";
 import useVisualLoadMotion from "../hooks/useVisualLoadMotion";
 
