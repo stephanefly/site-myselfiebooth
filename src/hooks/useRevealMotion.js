@@ -11,30 +11,57 @@ export default function useRevealMotion(dependency) {
     }
 
     const elements = [...root.querySelectorAll("[data-reveal]")];
-    root.classList.add("motion-ready");
-
-    if (!("IntersectionObserver" in window)) {
+    const revealAll = () => {
       elements.forEach((element) => element.classList.add("is-revealed"));
+    };
+
+    const prefersReducedMotion =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      revealAll();
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
+    let observer;
+    let safetyTimer;
 
-          entry.target.classList.add("is-revealed");
-          observer.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px -8%", threshold: 0.08 }
-    );
+    try {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
 
-    elements.forEach((element) => observer.observe(element));
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -8%", threshold: 0.08 }
+      );
 
-    return () => observer.disconnect();
+      elements.forEach((element) => observer.observe(element));
+      root.classList.add("motion-ready");
+
+      safetyTimer = window.setTimeout(revealAll, 1200);
+    } catch (error) {
+      root.classList.remove("motion-ready");
+      revealAll();
+    }
+
+    return () => {
+      if (safetyTimer) {
+        window.clearTimeout(safetyTimer);
+      }
+
+      if (observer) {
+        observer.disconnect();
+      }
+
+      root.classList.remove("motion-ready");
+    };
   }, [dependency]);
 
   return rootRef;
