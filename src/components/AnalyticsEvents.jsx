@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-PDS7XZMK";
 const GTM_ENABLED = /^GTM-[A-Z0-9]+$/i.test(GTM_ID);
 
 export default function AnalyticsEvents() {
