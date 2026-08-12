@@ -1,3 +1,5 @@
+const GOOGLE_PLACE_ID = "ChIJP2dCemoVuCMRaY5EKxf6mI4";
+
 export const siteConfig = {
   name: "MySelfieBooth",
   baseUrl: "https://myselfiebooth-paris.fr",
@@ -7,14 +9,18 @@ export const siteConfig = {
   phoneHref: "tel:0699733998",
   phoneInternational: "+33 6 99 73 39 98",
   email: "contact@myselfiebooth-paris.fr",
-  reviewsUrl: "https://www.google.com/maps/search/?api=1&query=MySelfieBooth&query_place_id=ChIJP2dCemoVuCMRaY5EKxf6mI4",
-  reviewCtaUrl: "https://search.google.com/local/writereview?placeid=ChIJP2dCemoVuCMRaY5EKxf6mI4",
+  googlePlaceId: GOOGLE_PLACE_ID,
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=MySelfieBooth&query_place_id=${GOOGLE_PLACE_ID}`,
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=MySelfieBooth&destination_place_id=${GOOGLE_PLACE_ID}`,
+  reviewsUrl: `https://www.google.com/maps/search/?api=1&query=MySelfieBooth&query_place_id=${GOOGLE_PLACE_ID}`,
+  reviewCtaUrl: `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`,
   reviews: {
     rating: "4,8/5",
     count: 77,
     source: "Google",
   },
   defaultOgImage: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+  defaultOgImageAlt: "Animations Photobooth, Miroirbooth, 360 Booth et Vogue Booth MySelfieBooth",
   primaryCtaLabel: "Obtenir mon devis en 2 minutes",
   secondaryCtaLabel: "Comparer les animations",
   galleryCtaLabel: "Voir nos réalisations",
@@ -134,6 +140,7 @@ export const organizationJsonLd = {
   image: absoluteUrl("/images/machines-ai/hero-machines-myselfiebooth.webp"),
   telephone: siteConfig.phoneInternational,
   email: siteConfig.email,
+  hasMap: siteConfig.mapsUrl,
   sameAs: siteConfig.socialLinks.map((link) => link.href),
   founder: {
     "@type": "Person",
