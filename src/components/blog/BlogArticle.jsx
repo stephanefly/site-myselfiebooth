@@ -57,14 +57,8 @@ export default function BlogArticle({ article }) {
             <figure>
               <div className="blog-article-hero-image">
                 <img src={article.image} alt={article.imageAlt} width="920" height="680" />
-                {article.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
               </div>
-              {article.imageNote ? (
-                <figcaption>
-                  {article.imageCaption ? `${article.imageCaption} ` : ""}
-                  {article.imageNote}
-                </figcaption>
-              ) : null}
+              {article.imageCaption ? <figcaption>{article.imageCaption}</figcaption> : null}
             </figure>
           </div>
         </header>
@@ -103,9 +97,10 @@ export default function BlogArticle({ article }) {
                           width="920"
                           height="614"
                         />
-                        {!serviceVisual && <span className="blog-ai-badge">Visuel d'ambiance IA</span>}
                       </div>
-                      {section.caption ? <figcaption>{section.caption}</figcaption> : null}
+                      {section.caption && !section.caption.includes("généré par IA")
+                        ? <figcaption>{section.caption}</figcaption>
+                        : null}
                     </figure>
                   ) : null}
                 </section>
@@ -144,6 +139,14 @@ export default function BlogArticle({ article }) {
               <p>Service associé</p>
               <a href={article.ctaHref}>{article.ctaLabel}</a>
             </div>
+            {article.relatedLinks?.length ? (
+              <nav className="blog-aside-service" aria-label="Pour aller plus loin">
+                <p>Pour aller plus loin</p>
+                {article.relatedLinks.map((link) => (
+                  <a href={link.href} key={link.href}>{link.label}</a>
+                ))}
+              </nav>
+            ) : null}
             <div className="blog-aside-cta">
               <p>Besoin d'une recommandation ?</p>
               <strong>Expliquez-nous votre événement.</strong>
@@ -171,7 +174,6 @@ export default function BlogArticle({ article }) {
                 <a href={`/blog/${related.slug}/`} key={related.slug}>
                   <div className="blog-related-image">
                     <img src={related.image} alt="" loading="lazy" width="640" height="420" />
-                    {related.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
                   </div>
                   <span>{related.category}</span>
                   <strong>{related.title}</strong>
