@@ -9,7 +9,7 @@ const baseBlogArticles = [
     title: "Quel photobooth choisir pour un mariage ?",
     excerpt:
       "Photobooth, Miroirbooth ou 360 Booth : choisissez selon le souvenir voulu, le lieu et le rythme de votre réception.",
-    image: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
+    image: "/images/miroirbooth.webp",
     imageAlt: "Photobooth installé pendant une réception de mariage",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
@@ -56,7 +56,7 @@ const baseBlogArticles = [
     title: "Photobooth d'entreprise : réussir son animation",
     excerpt:
       "Une animation efficace sert un objectif clair : attirer, faire participer, créer du contenu ou remercier les équipes.",
-    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     imageAlt: "Activation photobooth personnalisée pour une entreprise",
     readTime: "5 min",
     publishedAt: "21 juillet 2026",
@@ -102,7 +102,7 @@ const baseBlogArticles = [
     title: "Quel espace prévoir pour un photobooth ?",
     excerpt:
       "La surface ne suffit pas : il faut aussi penser au recul photo, à la circulation, à l'électricité et à l'accès de livraison.",
-    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     imageAlt: "Installation et réglage d'un photobooth avant un événement",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
@@ -149,7 +149,7 @@ const baseBlogArticles = [
     title: "Personnaliser un photobooth : le guide",
     excerpt:
       "Une bonne personnalisation relie le décor, les contenus et les souvenirs sans surcharger l'expérience.",
-    image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     imageAlt: "Tirages et souvenirs personnalisés autour d'un photobooth",
     readTime: "4 min",
     publishedAt: "21 juillet 2026",
@@ -195,7 +195,7 @@ const baseBlogArticles = [
     title: "Combien coûte la location d'un photobooth ?",
     excerpt:
       "Machine, durée, impressions et déplacement : voici les éléments qui déterminent réellement le prix d'une animation.",
-    image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/hero-photobooth-reception.webp",
     imageAlt: "Plusieurs machines photobooth MySelfieBooth présentées dans une réception",
     readTime: "5 min",
     publishedAt: "23 juillet 2026",
@@ -243,7 +243,7 @@ const baseBlogArticles = [
     title: "Quel photobooth choisir pour un anniversaire ?",
     excerpt:
       "Photos imprimées, vidéos 360 ou portraits Vogue : choisissez une animation adaptée à l'âge, au lieu et au nombre d'invités.",
-    image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
     imageAlt: "Photobooth MySelfieBooth utilisé pendant une fête",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -291,7 +291,7 @@ const baseBlogArticles = [
     title: "360 Booth ou Air360 Booth : quelles différences ?",
     excerpt:
       "Les deux machines créent des vidéos dynamiques, mais leur capacité, leur espace et leur effet visuel ne sont pas les mêmes.",
-    image: "/images/machines-ai/air360-gala-myselfiebooth.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     imageAlt: "Air360 Booth MySelfieBooth installé pendant un gala",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -333,7 +333,7 @@ const baseBlogArticles = [
     title: "Vogue Booth : comment obtenir un effet magazine ?",
     excerpt:
       "Éclairage, pose, décor et photographe : les quatre éléments qui donnent au Vogue Booth son rendu éditorial.",
-    image: "/images/ai-faithful/vogue-wedding-ai.webp",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
     imageAlt: "Vogue Booth Wedding Edition personnalisé pour Lydia et Vincent",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -375,7 +375,7 @@ const baseBlogArticles = [
     title: "Phonebooth : créer un livre d'or audio réussi",
     excerpt:
       "Le Phonebooth conserve les voix, les rires et les messages spontanés que les photos ne peuvent pas enregistrer.",
-    image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
+    image: "/images/ai-from-real/phonebooth-invitee-reelle.webp",
     imageAlt: "Phonebooth audio MySelfieBooth installé sur une table de réception",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -417,7 +417,7 @@ const baseBlogArticles = [
     title: "Réussir un livre d'or avec son photobooth",
     excerpt:
       "Organisation de la table, double tirage et matériel d'écriture : préparez un livre d'or que les invités auront envie de remplir.",
-    image: "/images/machines-ai/livre-or-physique-myselfiebooth.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     imageAlt: "Livre d'or physique avec tirages photobooth et messages manuscrits",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -465,7 +465,7 @@ const baseBlogArticles = [
     title: "Combien de temps louer un photobooth ?",
     excerpt:
       "Trois, cinq heures ou toute la soirée : la bonne durée dépend du nombre d'invités et du programme de l'événement.",
-    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     imageAlt: "Préparation technique des machines MySelfieBooth avant un événement",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -507,7 +507,7 @@ const baseBlogArticles = [
     title: "Quel photobooth pour un salon ou un séminaire ?",
     excerpt:
       "Attirer sur un stand, animer une pause ou créer du contenu : chaque objectif professionnel appelle un format différent.",
-    image: "/images/machines-ai/ipadbooth-reception-myselfiebooth.webp",
+    image: "/images/ipadbooth.webp",
     imageAlt: "iPad Booth MySelfieBooth installé dans un espace professionnel",
     readTime: "5 min",
     publishedAt: "23 juillet 2026",
@@ -549,7 +549,7 @@ const baseBlogArticles = [
     title: "Quel fond choisir pour un photobooth ?",
     excerpt:
       "Mur floral, fond lumineux ou décor de marque : choisissez un arrière-plan qui valorise les personnes sans voler la photo.",
-    image: "/images/machines-ai/mur-floral-reception-myselfiebooth.webp",
+    image: "/images/decoration-voguebooth.webp",
     imageAlt: "Mur floral MySelfieBooth mis en scène dans une réception",
     readTime: "4 min",
     publishedAt: "23 juillet 2026",
@@ -591,7 +591,7 @@ const baseBlogArticles = [
     title: "Quel pack photobooth choisir pour son événement ?",
     excerpt:
       "Photo, vidéo, messages et souvenirs : les packs combinent plusieurs expériences pour simplifier l'organisation.",
-    image: "/images/ai-fusions/pack-duo-vip.webp",
+    image: "/images/pack.webp",
     imageAlt: "Pack Duo VIP avec Miroirbooth, 360 Booth et décor floral",
     readTime: "5 min",
     publishedAt: "23 juillet 2026",

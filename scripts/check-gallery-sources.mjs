@@ -3,7 +3,6 @@ import path from "node:path";
 
 
 const sourceFiles = [
-  path.join(process.cwd(), "src", "data", "aiEventGallery.js"),
   path.join(process.cwd(), "src", "data", "eventArchive.js"),
   path.join(process.cwd(), "src", "data", "instagramMedia.js"),
   path.join(process.cwd(), "src", "data", "portfolioMedia.js"),

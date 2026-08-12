@@ -1,0 +1,49 @@
+.media-provenance-host {
+  position: relative !important;
+}
+
+.media-provenance-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 12;
+  display: inline-flex;
+  align-items: center;
+  min-height: 25px;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(15, 15, 15, 0.82);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-size: 0.62rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+}
+
+.media-provenance-badge[data-kind="ai_from_real"] {
+  color: #171717;
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(232, 200, 97, 0.94);
+}
+
+.media-provenance-badge[data-kind="full_ai"] {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.62);
+  background: rgba(155, 30, 30, 0.94);
+}
+
+@media (max-width: 640px) {
+  .media-provenance-badge {
+    top: 7px;
+    left: 7px;
+    min-height: 22px;
+    padding: 4px 7px;
+    font-size: 0.55rem;
+  }
+}
+

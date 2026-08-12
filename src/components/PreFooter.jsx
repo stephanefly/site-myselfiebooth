@@ -3,6 +3,7 @@ import { siteConfig } from "../data/site";
 export default function PreFooter() {
   return (
     <section className="prefooter">
+      <span className="prefooter-media-label" aria-hidden="true">Image IA issue du réel</span>
       <div className="prefooter-container">
         <div>
           <p className="prefooter-eyebrow">Prêt à cadrer votre événement ?</p>
@@ -27,7 +28,7 @@ export default function PreFooter() {
           color: #fff;
           background:
             linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.7)),
-            url("/images/machines-ai/hero-machines-myselfiebooth.webp") center / cover;
+            url("/images/ai-from-real/hero-photobooth-reception.webp") center / cover;
           text-align: left;
         }
 
@@ -38,6 +39,23 @@ export default function PreFooter() {
           grid-template-columns: 1fr auto;
           gap: 32px;
           align-items: center;
+        }
+
+        .prefooter-media-label {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 2;
+          padding: 5px 9px;
+          border: 1px solid rgba(255, 255, 255, 0.72);
+          border-radius: 999px;
+          color: #171717;
+          background: rgba(232, 200, 97, 0.94);
+          font-size: 0.62rem;
+          font-weight: 900;
+          letter-spacing: 0.05em;
+          line-height: 1;
+          text-transform: uppercase;
         }
 
         .prefooter-eyebrow {

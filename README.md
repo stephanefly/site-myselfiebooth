@@ -50,7 +50,7 @@ NEXT_PUBLIC_GA_ID=G-4297YBLGR6
 - `src/data/site.js` : coordonnées, domaine canonique, CTA, zones, fondateur et preuves.
 - `src/data/catalog.js` : machines, options, événements et galerie.
 - `src/data/marketingPages.js` : contenus des pages prestations, événements, options, locales, blog et À propos.
-- `src/data/imageSlots.json` : registre central des emplacements image remplaçables.
+- `src/data/mediaProvenanceManifest.json` : registre unique des images IA issues du réel et de leurs sources.
 - `docs/` : audit, mapping SEO, plan de mesure, contenus à valider et guide de remplacement des images.
 
 ## Règles de maintenance
@@ -59,5 +59,4 @@ NEXT_PUBLIC_GA_ID=G-4297YBLGR6
 - Ne pas convertir en TypeScript.
 - Ne pas casser les slugs existants.
 - Ne pas publier de chiffres, logos, avis ou cas clients non validés.
-- Les visuels IA doivent rester identifiés comme visuels d'ambiance.
-- Les emplacements image vides doivent passer par `ImageSlot` et rester sans balise `<img>` tant qu'aucun fichier réel n'est fourni.
+- Les visuels IA doivent être issus d'une réalisation réelle, enregistrés dans le manifeste et identifiés par le badge automatique.

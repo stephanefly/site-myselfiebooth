@@ -64,7 +64,7 @@ for (const file of htmlFiles) {
   const robots = textMatch(html, /<meta\s+[^>]*name=["']robots["'][^>]*content=["']([^"']*)["'][^>]*>/i)
     || textMatch(html, /<meta\s+[^>]*content=["']([^"']*)["'][^>]*name=["']robots["'][^>]*>/i);
   const noindex = /\bnoindex\b/i.test(robots);
-  const title = textMatch(html, /<title>([\s\S]*?)<\/title>/i);
+  const title = textMatch(html, /<title\b[^>]*>([\s\S]*?)<\/title>/i);
   const description = textMatch(html, /<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']*)["'][^>]*>/i)
     || textMatch(html, /<meta\s+[^>]*content=["']([^"']*)["'][^>]*name=["']description["'][^>]*>/i);
   const canonical = textMatch(html, /<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["'][^>]*>/i)

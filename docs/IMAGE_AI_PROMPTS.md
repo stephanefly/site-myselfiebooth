@@ -1,71 +1,37 @@
-# Images IA
+# Images IA issues du réel
 
-## Regle d'utilisation
+## Règle absolue
 
-Les images IA servent uniquement de visuels d'ambiance. Elles ne doivent pas etre presentees comme des installations reelles, des clients reels ou des photos issues d'evenements MySelfieBooth. Le site affiche une mention lorsque ces visuels sont utilises dans les zones sensibles.
+Le site ne référence plus aucune image entièrement générée par IA.
 
-## Assets ajoutes
+Une image assistée par IA doit obligatoirement partir d'une ou plusieurs photos ou vidéos réelles MySelfieBooth. Elle conserve un lien de provenance vers ces sources et porte le tag visible `Image IA issue du réel`.
 
-| Fichier | Usage | Statut |
+## Dérivés principaux
+
+| Dérivé | Sources réelles | Usage |
 | --- | --- | --- |
-| `public/images/ai/hero-photobooth-evenement-premium.webp` | Hero home et hub prestations | Genere IA |
-| `public/images/ai/fond-cta-noir-dore-ivoire.webp` | Fond CTA possible | Genere IA |
-| `public/images/ai/ambiance-photobooth-mariage-premium.webp` | Ambiance mariage | Derive d'un asset IA existant |
-| `public/images/ai/ambiance-photobooth-corporate-premium.webp` | Ambiance entreprise | Derive d'un asset IA existant |
-| `public/images/ai/ambiance-photobooth-soiree-premium.webp` | Ambiance soiree | Derive d'un asset IA existant |
-| `public/images/ai/ambiance-vogue-booth-premium.webp` | Ambiance Vogue Booth | Derive d'un asset IA existant |
-| `public/images/ai/ambiance-360-booth-premium.webp` | Ambiance 360 Booth | Derive d'un asset IA existant |
-| `public/images/ai/options-souvenirs-premium.webp` | Options souvenirs | Derive d'un asset IA existant |
-| `public/images/ai/b2b-case-salon-ai.png` | Illustration salon professionnel / activation de marque | Genere IA |
-| `public/images/ai/b2b-case-seminaire-ai.png` | Illustration seminaire / soiree interne entreprise | Genere IA |
-| `public/images/ai/founder-workshop-ai.png` | Illustration atelier / expertise fondatrice, sans portrait reel | Genere IA |
-| `public/images/blog-ai/mariage-photobooth-guide.webp` | Guides mariage, anniversaire et souvenirs photo | Genere IA, mention affichee |
-| `public/images/blog-ai/corporate-activation-guide.webp` | Guides entreprise, salon et animation 360 | Genere IA, mention affichee |
-| `public/images/blog-ai/installation-espace-guide.webp` | Guides installation, espace, duree et budget | Genere IA, mention affichee |
-| `public/images/blog-ai/personnalisation-souvenirs-guide.webp` | Guides personnalisation, livre d'or, decor et packs | Genere IA, mention affichee |
-| `public/images/blog-ai/vogue-booth-guide.webp` | Guide Vogue Booth et cadrage editorial | Genere IA, mention affichee |
-| `public/images/blog-ai/phonebooth-audio-guide.webp` | Guide Phonebooth et livre d'or audio | Genere IA, mention affichee |
-| `public/images/blog-ai/prix-location-photobooth.webp` | Guide budget et prix de location | Genere IA, mention affichee |
-| `public/images/blog-ai/anniversaire-photobooth.webp` | Guide animation d'anniversaire | Genere IA, mention affichee |
-| `public/images/blog-ai/360-air360-comparatif.webp` | Comparatif 360 Booth et Air360 | Genere IA, mention affichee |
-| `public/images/blog-ai/livre-or-photo.webp` | Guide livre d'or avec tirages photo | Genere IA, mention affichee |
-| `public/images/blog-ai/duree-location-photobooth.webp` | Guide duree de location | Genere IA, mention affichee |
-| `public/images/blog-ai/salon-seminaire-photobooth.webp` | Guide salon et seminaire | Genere IA, mention affichee |
-| `public/images/blog-ai/fonds-decors-photobooth.webp` | Guide fonds et decors photo | Genere IA, mention affichee |
-| `public/images/blog-ai/packs-photobooth.webp` | Guide choix d'un pack photobooth | Genere IA, mention affichee |
+| `hero-photobooth-reception.webp` | `event-archive/anogini-photobooth-01.webp`, `realisations-machines/duo-photobooth-miroir.webp` | Hero et vues Photobooth |
+| `activation-360-entreprise.webp` | `realisations/sephora-360booth.webp`, `reel-gifs/booth-360-sephora.gif` | 360 Booth et entreprise |
+| `vogue-maries-lydia-vincent.webp` | `vogue-real/vogue-booth-mariage-card.webp` | Mariage et Vogue Booth |
+| `tirages-invites-mariage-gala.webp` | `event-archive/brice-tirages.webp`, `realisations-machines/tirages-gala.webp` | Tirages et souvenirs |
+| `phonebooth-invitee-reelle.webp` | `reel-gifs/animation-phonebooth.gif`, `phonebooth.webp` | Phonebooth audio |
+| `fabrication-famille-photobooth.webp` | `equipe/fabrication-photobooth-en-famille.webp`, `equipe/premier-photobooth-en-fabrication.webp` | Histoire et fabrication familiale |
 
-## Prompts utilises
+Les pages réutilisent directement ces six fichiers canoniques. Aucune copie technique n'est créée. Le registre unique `src/data/mediaProvenanceManifest.json` relie chaque dérivé à ses sources réelles.
 
-### Hero photobooth evenement premium
+## Contraintes communes des prompts
 
-Premium French event venue with an elegant photobooth installation area, chic wedding and corporate atmosphere, black ivory and champagne gold palette, subtle professional lighting, refined floral decor, tasteful guests blurred in the distance, no readable text, no logos, no watermark, cinematic editorial photography, realistic but not depicting a real client event, wide 16:9 composition with negative space on the left for website hero copy.
+- préserver la géométrie exacte des machines réelles ;
+- préserver les identités, tenues et proportions des personnes sources ;
+- ne pas inventer de client, de marié, d'invité, de marque ou de prestation ;
+- ne pas ajouter de texte, logo ou filigrane fictif ;
+- limiter les changements au cadrage, à la lumière, à la cohérence du fond et au nettoyage des artefacts de vidéo ;
+- conserver un rendu documentaire crédible plutôt qu'une photographie de stock.
 
-### Fond CTA noir dore ivoire
+## Contrôle
 
-Abstract premium event-light background for a luxury photobooth website, black ivory and champagne gold palette, soft bokeh-like light reflections from real event lighting, elegant fabric and metallic highlights, no people, no text, no logos, no watermark, cinematic realistic photo texture, wide 16:9 composition with calm negative space.
+```bash
+npm run provenance:check
+```
 
-### Cas entreprise salon / activation
-
-Premium corporate event photobooth activation at a French trade show or brand booth, elegant indoor venue, refined exhibition stand, black ivory and champagne gold palette, sleek photobooth setup, tasteful floral and metallic decor, guests softly out of focus, no readable text, no logos, no watermark, realistic editorial event photography, 4:3 composition.
-
-### Cas entreprise seminaire / soiree interne
-
-Premium seminar or internal corporate evening with an elegant photobooth corner, upscale French hotel reception or conference lounge, warm ambient lighting, clean photobooth station near cocktail area, guests in smart attire blurred in background, no readable text, no logos, no fake client proof, 4:3 composition.
-
-### Atelier fondateur sans portrait reel
-
-Elegant French studio workshop where a photobooth is being prepared before an event, founder-like person shown from behind or in silhouette, no identifiable face, focus on craftsmanship and preparation, black ivory and champagne gold details, no readable text, no logos, 4:5 vertical composition.
-
-### Serie editoriale pour les guides du blog
-
-Quatorze visuels photorealistes couvrent les themes mariage, entreprise, installation, personnalisation, Vogue Booth, Phonebooth, budget, anniversaire, comparaison 360, livre d'or, duree, salon, decors et packs. Les prompts utilisent une composition paysage 3:2, une lumiere claire, la palette noire, ivoire, blanche et doree de MySelfieBooth, sans texte lisible, logo, marque ni filigrane. Les scenes doivent rester credibles et editoriales sans etre presentees comme des prestations ou des clients reels.
-
-## Mentions recommandees
-
-- "Visuel d'ambiance généré par IA."
-- "Les photos reelles du materiel restent conservees dans le site."
-- "Visuel d'ambiance généré par IA, sans portrait réel."
-
-## Remplacement
-
-Chaque visuel IA utilisé dans un nouvel emplacement doit être remplaçable lorsqu'une photo réelle validée est disponible. Les visuels éditoriaux du blog sont centralisés dans `src/data/blogArticleExpansions.js`; les autres emplacements manuels restent gérés via `src/data/imageSlots.json`. Les images IA ne doivent pas être utilisées comme preuves clients.
+Le build échoue dès qu'une page référence un ancien dossier d'images entièrement synthétiques.
