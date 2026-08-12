@@ -1,6 +1,8 @@
 import { absoluteUrl, breadcrumbJsonLd, siteConfig, withSlash } from "./site";
 import { articleExpansions } from "./blogArticleExpansions";
 import { articleVisuals } from "./blogVisuals";
+import { weddingGuides } from "./blogWeddingGuides";
+import { serviceGuides } from "./blogServiceGuides";
 
 const baseBlogArticles = [
   {
@@ -629,8 +631,9 @@ const baseBlogArticles = [
   },
 ];
 
-export const blogArticles = baseBlogArticles.map((article) => {
+const legacyBlogArticles = baseBlogArticles.map((article) => {
   const expansion = articleExpansions[article.slug] || {};
+  const { imageNote: _legacyImageNote, ...cleanExpansion } = expansion;
   const visuals = articleVisuals[article.slug] || {};
   const sections = [
     ...article.sections,
@@ -654,16 +657,22 @@ export const blogArticles = baseBlogArticles.map((article) => {
 
   return {
     ...article,
-    ...expansion,
-    readTime: "4 min",
+    ...cleanExpansion,
+    topic: article.category === "Mariage" ? "Mariage" : "Services",
+    readTime: expansion.readTime || article.readTime,
     image: visuals.hero?.src || expansion.image || article.image,
     imageAlt: visuals.hero?.alt || expansion.imageAlt || article.imageAlt,
-    imageNote: "Visuel d'ambiance généré par IA.",
     imageCaption: visuals.hero?.caption,
     sections,
     faqs: expansion.faqs || [],
   };
 });
+
+export const blogArticles = [
+  ...weddingGuides,
+  ...serviceGuides,
+  ...legacyBlogArticles,
+];
 
 export function getBlogArticle(slug) {
   return blogArticles.find((article) => article.slug === slug);
@@ -678,7 +687,7 @@ export function articleMeta(article) {
     description: article.metaDescription,
     image: absoluteUrl(article.image),
     datePublished: article.publishedIso || "2026-07-21",
-    dateModified: "2026-07-29",
+    dateModified: article.publishedIso || "2026-07-29",
     author: {
       "@type": "Person",
       name: siteConfig.founder.name,

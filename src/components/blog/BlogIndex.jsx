@@ -6,11 +6,11 @@ export default function BlogIndex() {
   return (
     <Layout
       metaProps={{
-        title: "Conseils photobooth pour vos événements | MySelfieBooth",
+        title: "Conseils mariage et animations photo | MySelfieBooth",
         description:
-          "Guides détaillés pour choisir, budgéter, installer et personnaliser une animation photobooth pour un mariage, une entreprise ou un événement privé.",
-        ogTitle: "Le guide photobooth MySelfieBooth",
-        ogDescription: "Des guides complets pour préparer votre animation photo ou vidéo sans oublier la logistique, le budget et la personnalisation.",
+          "Guides pratiques pour organiser un mariage, maîtriser son budget, accueillir ses invités et choisir des animations photo adaptées.",
+        ogTitle: "Le guide mariage MySelfieBooth",
+        ogDescription: "Des conseils concrets pour organiser votre mariage et créer des souvenirs qui ressemblent à vos invités.",
         ogImage: blogArticles[0].image,
         ogUrl: absoluteUrl("/blog/"),
       }}
@@ -18,9 +18,9 @@ export default function BlogIndex() {
       <div className="blog-page">
         <header className="blog-index-hero">
           <div className="blog-container">
-            <p className="blog-eyebrow">Le guide MySelfieBooth</p>
-            <h1>Tout savoir pour réussir votre animation photobooth.</h1>
-            <p>Des guides complets, concrets et structurés pour choisir, organiser, personnaliser et budgéter votre expérience.</p>
+            <p className="blog-eyebrow">Le guide mariage MySelfieBooth</p>
+            <h1>Des conseils utiles pour préparer un mariage qui vous ressemble.</h1>
+            <p>Budget, invités, lieu, repas, cérémonie, souvenirs et animations&nbsp;: des réponses concrètes pour avancer sans vous disperser.</p>
           </div>
         </header>
 
@@ -45,11 +45,10 @@ export default function BlogIndex() {
                       width="760"
                       height="520"
                     />
-                    {article.imageNote ? <span className="blog-ai-badge">Visuel d'ambiance IA</span> : null}
                   </a>
                   <div className="blog-card-body">
                     <div className="blog-card-meta">
-                      <span>{article.category}</span>
+                      <span>{article.topic || article.category}</span>
                       <span>{article.readTime}</span>
                     </div>
                     <h2><a href={`/blog/${article.slug}/`}>{article.title}</a></h2>
