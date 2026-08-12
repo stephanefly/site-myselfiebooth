@@ -63,9 +63,9 @@ Aucune route existante n'a ete supprimee. La refonte enrichit et structure les c
 
 ## Fichiers et medias
 
-- Les anciens medias dans `public/images/`, `public/logos/` et `public/icons/` sont conserves.
-- Les nouvelles images IA sont ajoutees dans `public/images/ai/`.
-- Les emplacements image remplaçables sont centralisés dans `src/data/imageSlots.json`.
-- Les slots manuels vides ne remplacent aucune photo existante et ne créent aucune balise `<img>` cassée.
-- Les images IA sont documentees dans `docs/IMAGE_AI_PROMPTS.md`.
+- Les medias reels dans `public/images/`, `public/logos/` et `public/icons/` sont conserves.
+- Les anciens visuels entierement synthetiques ont ete retires.
+- Les derives IA traces sont ajoutes dans `public/images/ai-from-real/`.
+- Les six dérivés IA canoniques sont centralisés dans `public/images/ai-from-real/`.
+- Les sources réelles de chaque dérivé IA sont documentées dans le registre unique `src/data/mediaProvenanceManifest.json`.
 - Les composants `Footer.jsx` et `next.config.js` ont ete reecrits pour nettoyer l'encodage et la structure, sans retirer de route ni fonctionnalite.

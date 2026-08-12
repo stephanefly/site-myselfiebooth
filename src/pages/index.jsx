@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="preload" as="image" href="/images/machines-ai/hero-machines-myselfiebooth.webp" />
+        <link rel="preload" as="image" href="/images/ai-from-real/hero-photobooth-reception.webp" />
       </Head>
       <Layout
         metaProps={{

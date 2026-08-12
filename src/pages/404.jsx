@@ -13,6 +13,7 @@ export default function Custom404() {
       }}
     >
       <section className="not-found-page">
+        <span className="not-found-media-label" aria-hidden="true">Image IA issue du réel</span>
         <div className="not-found-container">
           <p>404</p>
           <h1>Cette page n'existe plus, mais votre evenement peut encore etre bien cadre.</h1>
@@ -25,6 +26,7 @@ export default function Custom404() {
 
       <style jsx>{`
         .not-found-page {
+          position: relative;
           min-height: 74vh;
           display: flex;
           align-items: center;
@@ -32,13 +34,30 @@ export default function Custom404() {
           color: #fff;
           background:
             linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.72)),
-            url("/images/machines-ai/hero-machines-myselfiebooth.webp") center / cover;
+            url("/images/ai-from-real/hero-photobooth-reception.webp") center / cover;
           text-align: left;
         }
 
         .not-found-container {
           width: min(860px, calc(100% - 32px));
           margin: 0 auto;
+        }
+
+        .not-found-media-label {
+          position: absolute;
+          top: 82px;
+          left: 10px;
+          z-index: 2;
+          padding: 5px 9px;
+          border: 1px solid rgba(255, 255, 255, 0.72);
+          border-radius: 999px;
+          color: #171717;
+          background: rgba(232, 200, 97, 0.94);
+          font-size: 0.62rem;
+          font-weight: 900;
+          letter-spacing: 0.05em;
+          line-height: 1;
+          text-transform: uppercase;
         }
 
         p {

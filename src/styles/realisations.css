@@ -277,12 +277,30 @@
 }
 
 .portfolio-final-cta {
+  position: relative;
   padding: 82px 0;
   color: #fff;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.7)),
-    url("/images/ai/fond-cta-noir-dore-ivoire.webp") center / cover;
+    url("/images/ai-from-real/hero-photobooth-reception.webp") center / cover;
   text-align: center;
+}
+
+.portfolio-final-media-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  color: #171717;
+  background: rgba(232, 200, 97, 0.94);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .portfolio-final-cta h2 {

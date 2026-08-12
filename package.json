@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/check-gallery-sources.mjs && node scripts/generate-sitemap.mjs && node scripts/clean-next-build.mjs",
+    "prebuild": "node scripts/check-media-provenance.mjs && node scripts/check-gallery-sources.mjs && node scripts/generate-sitemap.mjs && node scripts/clean-next-build.mjs",
     "build": "next build && node scripts/check-built-seo.mjs && node scripts/check-page-media.mjs && node scripts/check-unused-media.mjs",
     "seo:check": "node scripts/check-built-seo.mjs",
-    "images:check": "node scripts/check-image-slots.mjs",
+    "images:check": "node scripts/check-media-provenance.mjs",
+    "provenance:check": "node scripts/check-media-provenance.mjs",
     "gallery:check": "node scripts/check-gallery-sources.mjs",
     "media:check": "node scripts/check-page-media.mjs && node scripts/check-unused-media.mjs",
     "export": "next export",

@@ -1,0 +1,49 @@
+[
+  {
+    "path": "/images/ai-from-real/activation-360-entreprise.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/realisations/sephora-360booth.webp",
+      "/images/reel-gifs/booth-360-sephora.gif"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/hero-photobooth-reception.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/event-archive/anogini-photobooth-01.webp",
+      "/images/realisations-machines/duo-photobooth-miroir.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/vogue-real/vogue-booth-mariage-card.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/fabrication-famille-photobooth.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/equipe/fabrication-photobooth-en-famille.webp",
+      "/images/equipe/premier-photobooth-en-fabrication.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/phonebooth-invitee-reelle.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/reel-gifs/animation-phonebooth.gif",
+      "/images/phonebooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/tirages-invites-mariage-gala.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/event-archive/brice-tirages.webp",
+      "/images/realisations-machines/tirages-gala.webp"
+    ]
+  }
+]

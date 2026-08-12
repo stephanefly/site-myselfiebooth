@@ -1,10 +1,9 @@
 import Layout from "../Layout";
-import AiEventGallery from "../AiEventGallery";
 import EventArchiveGallery from "../EventArchiveGallery";
 import InstagramMediaWall from "../InstagramMediaWall";
 import { breadcrumbJsonLd, siteConfig } from "../../data/site";
 import {
-  portfolioAiImages,
+  portfolioCuratedImages,
   portfolioDetailImages,
   portfolioMotionGifs,
   portfolioVideos,
@@ -32,8 +31,8 @@ const caseStudies = [
     eyebrow: "Salon",
     title: "Photobooth présenté en conditions réelles",
     text: "Une installation pensée pour faire tester la borne, montrer le parcours invité et donner un aperçu concret du rendu imprimé pendant un salon.",
-    image: "/videos/instagram/reel-3-DQxM5TnCOKL.jpg",
-    imageAlt: "Photobooth MySelfieBooth présenté pendant un salon du mariage",
+    image: "/images/event-archive/video-posters/maries-photobooth.webp",
+    imageAlt: "Mariés photographiés devant le décor floral MySelfieBooth",
     href: "/prestations/photobooth/",
     linkLabel: "Voir le Photobooth",
   },
@@ -41,8 +40,8 @@ const caseStudies = [
     eyebrow: "Mariage",
     title: "Vogue Booth Wedding Edition",
     text: "Un couloir lumineux personnalisé pour créer une série de portraits cohérente et une animation visuelle forte pendant la réception.",
-    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
-    imageAlt: "Vogue Booth Wedding Edition installé pour un mariage",
+    image: "/images/event-archive/video-posters/360-red-carpet.webp",
+    imageAlt: "Invitées utilisant la plateforme 360 Booth pendant une réception",
     href: "/prestations/voguebooth/",
     linkLabel: "Voir le Vogue Booth",
   },
@@ -50,8 +49,8 @@ const caseStudies = [
     eyebrow: "Réception",
     title: "Photobooth et Miroirbooth sur le même événement",
     text: "Deux formats complémentaires préparés et installés pour répartir les usages entre borne photo classique et expérience miroir.",
-    image: "/images/realisations-machines/duo-photobooth-miroir.webp",
-    imageAlt: "Photobooth et Miroirbooth MySelfieBooth installés ensemble",
+    image: "/images/realisations-machines/installation-photobooth-timelapse.webp",
+    imageAlt: "Équipe MySelfieBooth installant une machine avant la réception",
     href: "/prestations/miroirbooth/",
     linkLabel: "Voir le Miroirbooth",
   },
@@ -90,7 +89,7 @@ export default function PortfolioPage() {
         title: "Réalisations Photobooth et 360 Booth | MySelfieBooth",
         description:
           "Découvrez nos réalisations Photobooth, 360 Booth, Miroirbooth et Vogue Booth en photos et vidéos réelles, avec des créations IA fidèles à nos installations.",
-        ogImage: "/images/ai/b2b-case-salon-ai.webp",
+        ogImage: "/images/ai-from-real/activation-360-entreprise.webp",
         ogImageAlt: "Photobooth MySelfieBooth installé dans un salon professionnel",
         ogUrl: "/realisations/",
         includeOrganization: true,
@@ -123,7 +122,7 @@ export default function PortfolioPage() {
             </div>
             <figure data-reveal data-reveal-variant="scale">
               <img
-                src="/images/ai/b2b-case-salon-ai.webp"
+                src="/images/ai-from-real/activation-360-entreprise.webp"
                 alt="Photobooth MySelfieBooth installé dans un salon professionnel"
                 width="900"
                 height="1125"
@@ -139,7 +138,7 @@ export default function PortfolioPage() {
             <a href="#videos">Vidéos</a>
             <a href="#moments">Moments réels</a>
             <a href="#reportages">Reportages</a>
-            <a href="#creations-ia">Créations IA</a>
+            <a href="#creations-ia">IA issue du réel</a>
             <a href="#details">Détails</a>
           </div>
         </nav>
@@ -255,11 +254,10 @@ export default function PortfolioPage() {
         <section id="creations-ia" className="portfolio-section is-dark" data-reveal>
           <div className="portfolio-container">
             <header className="portfolio-heading">
-              <p className="portfolio-eyebrow">Créations IA fidèles</p>
-              <h2>Des mises en scène inspirées de nos vraies prestations.</h2>
+              <p className="portfolio-eyebrow">Images IA issues du réel</p>
+              <h2>Des dérivés créés uniquement depuis nos vraies prestations.</h2>
             </header>
-            <AiEventGallery />
-            <MediaGrid items={portfolioAiImages} className="is-ai" />
+            <MediaGrid items={portfolioCuratedImages} className="is-ai" />
           </div>
         </section>
 
@@ -274,6 +272,7 @@ export default function PortfolioPage() {
         </section>
 
         <section className="portfolio-final-cta" data-reveal>
+          <span className="portfolio-final-media-label" aria-hidden="true">Image IA issue du réel</span>
           <div className="portfolio-container">
             <p className="portfolio-eyebrow">Votre événement</p>
             <h2>Choisissez les images qui correspondent à votre ambiance.</h2>

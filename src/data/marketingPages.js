@@ -210,7 +210,7 @@ const eventPages = {
     title: "Photobooth et animations pour entreprise",
     description:
       "Photobooth, 360 Booth, iPad Booth et formats premium pour soirées d'entreprise, séminaires, lancements, inaugurations et activations de marque.",
-    image: "/images/ai/ambiance-photobooth-corporate-premium.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     imageAlt: "360 Booth MySelfieBooth installé pour une activation chez Sephora Champs-Élysées",
     highlights: ["Branding", "Logistique", "Contenus"],
     primaryCta: {
@@ -339,7 +339,7 @@ const eventPages = {
     title: "Photobooth mariage : des souvenirs élégants",
     description:
       "Une animation photo rassurante pour mariage, avec tirages selon formule, livre d'or, options souvenirs et galerie web.",
-    image: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp",
+    image: "/images/miroirbooth.webp",
     highlights: ["Souvenirs", "Livre d'or", "Invites"],
     sections: [
       {
@@ -378,7 +378,7 @@ const eventPages = {
     title: "Photobooth anniversaire : animation mémorable",
     description:
       "Une animation photo ou video festive, simple a utiliser et personnalisable pour anniversaire adulte, famille ou grande soiree.",
-    image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
     highlights: ["Festif", "Accessoires", "Partage"],
     sections: [
       {
@@ -403,7 +403,7 @@ const eventPages = {
     title: "Photobooth pour soiree privee et evenement VIP",
     description:
       "Une animation photo et video qui habille la soiree, engage les invites et reste coherente avec une ambiance premium.",
-    image: "/images/machines-ai/air360-gala-myselfiebooth.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     highlights: ["VIP", "Ambiance", "Partage"],
     sections: [
       {
@@ -570,9 +570,9 @@ const photoboothLandingPage = page({
   comparison: comparison.filter((item) => ["Photobooth", "Miroirbooth", "360 Booth"].includes(item.title)),
   gallery: [
     { image: photoboothMachine.image, title: "Photobooth MySelfieBooth installé en réception" },
-    { image: "/images/ai-faithful/mariage-blanc-ai.webp", title: "Tirages photobooth pendant une réception de mariage" },
-    { image: "/images/ai-faithful/mariage-or-ai.webp", title: "Invités réunis autour des souvenirs photo" },
-    { image: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Borne photobooth MySelfieBooth prête pour l'événement" },
+    { image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Tirages photobooth pendant une réception de mariage" },
+    { image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Invités réunis autour des souvenirs photo" },
+    { image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Borne photobooth MySelfieBooth prête pour l'événement" },
   ],
   testimonials: [
     {
@@ -631,7 +631,8 @@ const photoboothLandingPage = page({
     { label: "Prévoir l'espace nécessaire au photobooth", href: "/blog/espace-installation-photobooth" },
   ],
   story: {
-    imageSlotId: "founder-portrait",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
+    imageAlt: "Fabrication familiale d'un photobooth MySelfieBooth, visuel IA issu de photos réelles de l'atelier",
     eyebrow: "Expertise MySelfieBooth",
     title: "Des bornes développées avec une exigence technique de terrain",
     text: "Ingénieur en aéronautique, Stéphane Faure a fabriqué les premières bornes avec son père. Cette maîtrise technique guide aujourd'hui la préparation, les tests et l'installation de chaque photobooth.",
@@ -648,7 +649,7 @@ export const marketingPages = {
     title: "Comparer les photobooths, bornes video et packs MySelfieBooth",
     description:
       "Photobooth, Miroirbooth, 360 Booth, Air360, iPad Booth, Vogue Booth, Pack VIP et formule complete: comparez les animations avant votre devis.",
-    image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/hero-photobooth-reception.webp",
     path: "/prestations",
     highlights: ["8 formats", "Comparateur", "Options"],
     breadcrumbs: [],
@@ -686,7 +687,7 @@ export const marketingPages = {
     title: "Choisir son animation photo événementielle",
     description:
       "Mariage, entreprise, anniversaire ou soiree VIP: retrouvez les recommandations MySelfieBooth selon votre contexte.",
-    image: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/hero-photobooth-reception.webp",
     path: "/evenements",
     highlights: ["Mariage", "Entreprise", "Prive"],
     sections: [
@@ -722,7 +723,7 @@ export const marketingPages = {
     title: "Options et accessoires pour votre photobooth",
     description:
       "Mur floral, Phonebooth audio, porte-cles photo, magnets, livre d'or, fond LED 360, Holo 3D et options Vogue Booth.",
-    image: "/images/machines-ai/options-souvenirs-myselfiebooth.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     path: "/options",
     highlights: ["Souvenirs", "Decor", "Audio"],
     sections: [
@@ -747,7 +748,7 @@ export const marketingPages = {
     title: "Phonebooth : le livre d'or audio",
     description:
       "Un telephone retro pour enregistrer les messages vocaux des invites et conserver une trace plus emotionnelle de l'evenement.",
-    image: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp",
+    image: "/images/ai-from-real/phonebooth-invitee-reelle.webp",
     path: "/options/phonebooth",
     highlights: ["Audio", "Retro", "Souvenirs"],
     breadcrumbs: [{ label: "Options", href: "/options" }],
@@ -776,7 +777,7 @@ export const marketingPages = {
     title: "Panneau de bienvenue personnalisé",
     description:
       "Un panneau d'accueil pour guider les invites, structurer l'entree de salle et renforcer l'univers visuel de l'evenement.",
-    image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
+    image: "/images/Welcomeboard.webp",
     path: "/options/panneau",
     highlights: ["Accueil", "Decor", "Personnalisation"],
     breadcrumbs: [{ label: "Options", href: "/options" }],
@@ -808,7 +809,7 @@ export const marketingPages = {
     metaTitle: "Location photobooth à Paris | MySelfieBooth",
     metaDescription:
       "Location de photobooth à Paris pour mariage, entreprise ou soirée : installation, personnalisation et tirages selon la formule choisie.",
-    image: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     path: "/paris",
     areaServed: ["Paris", "Île-de-France"],
     highlights: ["Paris", "Île-de-France", "Premium"],
@@ -860,7 +861,7 @@ export const marketingPages = {
     title: "Location photobooth premium à Lyon",
     description:
       "Animation photo ou vidéo clé en main pour entreprises, mariages et soirées à Lyon, selon la date et les conditions d'accès.",
-    image: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp",
+    image: "/images/Welcomeboard.webp",
     path: "/lyon",
     areaServed: ["Lyon"],
     highlights: ["Lyon", "Entreprise", "Mariage"],
@@ -907,7 +908,7 @@ export const marketingPages = {
     title: "Location photobooth premium à Rouen",
     description:
       "Service photobooth photo et vidéo pour événements à Rouen et en Normandie, avec installation et personnalisation.",
-    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     path: "/rouen",
     areaServed: ["Rouen", "Normandie"],
     highlights: ["Rouen", "Normandie", "Cle en main"],
@@ -954,7 +955,7 @@ export const marketingPages = {
     title: "L'expertise derrière les machines MySelfieBooth",
     description:
       "Découvrez l'histoire de MySelfieBooth, une marque d'animations photo et vidéo premium fondée par Stéphane Faure.",
-    image: "/images/machines-ai/atelier-machines-myselfiebooth.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     path: "/a-propos",
     highlights: ["Fondateur", "Machines conçues", "Expériences premium"],
     sections: [
@@ -975,7 +976,8 @@ export const marketingPages = {
       text: siteConfig.founder.summary,
       href: "/evenements/corporates",
       linkLabel: "Voir le parcours entreprise",
-      imageSlotId: "founder-portrait",
+      image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
+      imageAlt: "Fabrication familiale d'un photobooth MySelfieBooth, visuel IA issu de photos réelles de l'atelier",
     },
     faq: [
       {

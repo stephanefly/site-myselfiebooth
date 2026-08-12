@@ -1,28 +1,32 @@
-# Remplacer les images
+# Remplacer une image
 
-## Remplacer un slot manuel
+## Par une image vraie
 
-1. Ajouter le fichier dans `public/images/` ou un sous-dossier clair.
-2. Ouvrir `src/data/imageSlots.json`.
-3. Trouver le slot par son `id`.
-4. Renseigner `src` avec un chemin commençant par `/`, par exemple `/images/realisations/client-salon.webp`.
-5. Renseigner `alt` avec une description honnête de ce qui est visible.
-6. Passer `kind` à `real` si c'est une photo réelle validée.
-7. Vider `note` ou garder une note factuelle si nécessaire.
-8. Lancer `npm run images:check`, puis `npm run build`.
+1. Ajouter la photo ou la capture réelle dans `public/images/`.
+2. Remplacer la référence dans la source de données concernée.
+3. Utiliser un texte alternatif factuel.
+4. Lancer les contrôles. Une image absente du manifeste est automatiquement considérée comme réelle.
 
-## Remplacer un visuel IA
+## Par un dérivé IA du réel
 
-1. Ajouter la photo réelle dans `public/images/`.
-2. Modifier le slot correspondant dans `src/data/imageSlots.json`.
-3. Passer `kind` de `ai` à `real`.
-4. Remplacer l'alt illustratif par un alt descriptif réel.
-5. Retirer la note `Visuel d'ambiance généré par IA.`
+1. Choisir une ou plusieurs sources réelles MySelfieBooth clairement identifiées.
+2. Générer uniquement une amélioration ou une mise en scène dérivée de ces sources.
+3. Conserver les personnes, machines et produits réels sans en inventer.
+4. Placer le fichier sous `public/images/ai-from-real/`.
+5. Ajouter le chemin, le tag `ai_from_real` et toutes les sources dans le manifeste de provenance.
+6. Lancer les contrôles.
 
-## À ne pas faire
+## Interdit
 
-- Ne pas mettre un chemin vers un fichier absent.
-- Ne pas laisser un `alt` vide sur une image informative.
-- Ne pas présenter un visuel IA comme une prestation réelle.
-- Ne pas renommer ou supprimer les anciens médias sans vérifier leur usage.
-- Ne pas créer une deuxième source de vérité dans un composant.
+- utiliser une image entièrement synthétique ;
+- présenter un dérivé IA comme une photo réelle ;
+- inventer un client, un marié, un invité ou une machine ;
+- omettre la source réelle d'un dérivé ;
+- laisser un ancien chemin vers `ai`, `blog-ai`, `generated`, `machines-ai`, `ai-faithful`, `ai-fusions`, `selector` ou `ia`.
+
+## Contrôles
+
+```bash
+npm run images:check
+npm run build
+```

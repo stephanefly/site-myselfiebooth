@@ -32,7 +32,25 @@
   padding: 120px 0 68px;
   isolation: isolate;
   color: #fff;
-  background: #080808 url("/images/blog-ai/personnalisation-souvenirs-guide.webp") center 46% / cover no-repeat;
+  background: #080808 url("/images/ai-from-real/tirages-invites-mariage-gala.webp") center 46% / cover no-repeat;
+}
+
+.blog-index-hero::after {
+  position: absolute;
+  top: 82px;
+  left: 10px;
+  z-index: 2;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 999px;
+  color: #171717;
+  background: rgba(232, 200, 97, 0.94);
+  content: "Image IA issue du réel";
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .blog-index-hero::before {

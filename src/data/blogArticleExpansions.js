@@ -3,7 +3,7 @@ const aiNote = "Visuel d'ambiance généré par IA.";
 export const articleExpansions = {
   "choisir-photobooth-mariage": {
     readTime: "10 min",
-    image: "/images/blog-ai/mariage-photobooth-guide.webp",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
     imageAlt:
       "Visuel d'ambiance d'invités utilisant un photobooth dans une réception de mariage lumineuse",
     imageNote: aiNote,
@@ -27,7 +27,7 @@ export const articleExpansions = {
           "Une personnalisation réussie ne consiste pas à ajouter tous les éléments graphiques disponibles. Les prénoms, la date, deux couleurs et un motif déjà présent sur la papeterie suffisent souvent à créer une continuité élégante. Le cadre photo doit rester lisible une fois imprimé : les informations importantes ne doivent pas empiéter sur les visages ni devenir trop petites.",
           "Demandez un aperçu avant l'événement et regardez-le à sa taille réelle, pas uniquement sur un grand écran. Vérifiez le contraste, l'orthographe, le format de la date et la place disponible pour les groupes. Pour un Vogue Booth ou un décor plus immersif, contrôlez également la cohérence entre l'habillage de la structure, la lumière, les tenues probables et le rendu attendu sur les photos.",
         ],
-        image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+        image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
         imageAlt:
           "Visuel d'ambiance de tirages photo, livre d'or et souvenirs personnalisables",
         caption: aiNote,
@@ -67,7 +67,7 @@ export const articleExpansions = {
 
   "animation-photobooth-entreprise": {
     readTime: "11 min",
-    image: "/images/blog-ai/corporate-activation-guide.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     imageAlt:
       "Visuel d'ambiance d'une activation de marque avec un 360 Booth dans un événement professionnel lumineux",
     imageNote: aiNote,
@@ -91,7 +91,7 @@ export const articleExpansions = {
           "Le logo ne doit pas être le seul élément personnalisé. L'écran d'accueil, le cadre photo, l'habillage vidéo, le décor et le message donné aux participants doivent raconter la même chose. Deux couleurs, une typographie lisible et un appel à l'action clair sont souvent plus efficaces qu'une accumulation de visuels issus de plusieurs campagnes.",
           "Préparez les fichiers de marque suffisamment tôt et nommez un interlocuteur capable de valider rapidement. Demandez des aperçus aux formats réellement utilisés : écran, tirage et vidéo verticale ne se lisent pas de la même manière. Si une collecte de données ou un partage public est envisagé, séparez ce sujet du parcours créatif et faites valider les mentions et consentements appropriés par votre organisation.",
         ],
-        image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+        image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
         imageAlt:
           "Visuel d'ambiance de supports imprimés et d'éléments de personnalisation événementielle",
         caption: aiNote,
@@ -131,7 +131,7 @@ export const articleExpansions = {
 
   "espace-installation-photobooth": {
     readTime: "9 min",
-    image: "/images/blog-ai/installation-espace-guide.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     imageAlt:
       "Visuel d'ambiance d'un technicien installant un photobooth avec un passage dégagé et des câbles sécurisés",
     imageNote: aiNote,
@@ -155,7 +155,7 @@ export const articleExpansions = {
           "L'installation commence souvent bien avant l'arrivée des invités. Communiquez l'adresse de livraison, les restrictions de stationnement, la hauteur disponible, les escaliers, l'ascenseur et les horaires imposés par le lieu. Une longue distance entre le véhicule et la salle peut modifier le temps nécessaire au montage.",
           "La prise électrique doit être accessible et adaptée. Les câbles ne doivent pas traverser librement un passage : leur trajet doit être réduit, protégé et validé avec le lieu. En extérieur, l'alimentation, l'humidité, le vent, la température et la stabilité du sol deviennent des critères de décision et peuvent nécessiter une solution de repli.",
         ],
-        image: "/images/blog-ai/mariage-photobooth-guide.webp",
+        image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
         imageAlt:
           "Visuel d'ambiance d'un photobooth installé dans une salle de réception lumineuse",
         caption: aiNote,
@@ -195,7 +195,7 @@ export const articleExpansions = {
 
   "personnaliser-photobooth": {
     readTime: "10 min",
-    image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     imageAlt:
       "Visuel d'ambiance de tirages, magnets, porte-clés et livre d'or personnalisables",
     imageNote: aiNote,
@@ -219,7 +219,7 @@ export const articleExpansions = {
           "L'expérience commence avant la prise de vue. L'écran d'accueil, la consigne, le compte à rebours, le cadre final et le support remis aux invités doivent sembler appartenir au même univers. Une cohérence simple renforce la perception premium, même lorsque le dispositif comporte peu d'éléments.",
           "Pour les souvenirs physiques, vérifiez les matériaux et la manipulation. Un porte-clés doit accueillir le bon format de photo ; un magnet doit rester lisible à petite taille ; un livre d'or doit offrir assez d'espace pour coller le tirage et écrire un message. Le design doit donc être testé dans son usage réel, pas uniquement présenté sous forme de maquette.",
         ],
-        image: "/images/blog-ai/mariage-photobooth-guide.webp",
+        image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
         imageAlt:
           "Visuel d'ambiance d'un photobooth intégré à une réception premium",
         caption: aiNote,
@@ -259,7 +259,7 @@ export const articleExpansions = {
 
   "prix-location-photobooth": {
     readTime: "11 min",
-    image: "/images/blog-ai/installation-espace-guide.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     imageAlt:
       "Visuel d'ambiance d'une installation de photobooth premium préparée par un technicien",
     imageNote: aiNote,
@@ -283,7 +283,7 @@ export const articleExpansions = {
           "Un tarif très bas peut correspondre à une formule autonome, à une personnalisation limitée ou à une logistique différente. Cela ne signifie pas qu'elle est mauvaise, mais qu'elle répond à un autre besoin. La bonne comparaison porte sur le même résultat attendu, le même niveau d'accompagnement et les mêmes contraintes de lieu.",
           "Regardez les photos réelles des machines, la clarté des échanges, le plan d'installation et le processus de secours. Pour un événement professionnel ou un mariage complexe, la capacité à préparer et à résoudre un imprévu a une valeur concrète. Un devis doit rendre cette responsabilité lisible sans multiplier les termes vagues.",
         ],
-        image: "/images/blog-ai/corporate-activation-guide.webp",
+        image: "/images/ai-from-real/activation-360-entreprise.webp",
         imageAlt:
           "Visuel d'ambiance d'une animation 360 Booth accompagnée par un technicien",
         caption: aiNote,
@@ -323,7 +323,7 @@ export const articleExpansions = {
 
   "photobooth-anniversaire": {
     readTime: "9 min",
-    image: "/images/blog-ai/mariage-photobooth-guide.webp",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
     imageAlt:
       "Visuel d'ambiance d'invités profitant d'un photobooth dans une réception élégante",
     imageNote: aiNote,
@@ -347,7 +347,7 @@ export const articleExpansions = {
           "Évitez les références trop confidentielles si le public est varié. Une palette inspirée du décor, le prénom, l'âge ou la date et un message court créent un souvenir durable. Les accessoires doivent compléter l'univers sans rendre les photos identiques ni masquer les visages.",
           "Pour un anniversaire thématique, utilisez un ou deux signes forts : couleur, matière ou motif. Testez le cadre avec une photo de groupe afin de vérifier que la personnalisation reste lisible. Si des enfants participent, placez les éléments fragiles hors de leur portée et adaptez la hauteur ou l'accompagnement de la machine.",
         ],
-        image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+        image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
         imageAlt:
           "Visuel d'ambiance de souvenirs photo personnalisables pour un événement privé",
         caption: aiNote,
@@ -387,7 +387,7 @@ export const articleExpansions = {
 
   "360-booth-ou-air360": {
     readTime: "10 min",
-    image: "/images/blog-ai/corporate-activation-guide.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     imageAlt:
       "Visuel d'ambiance d'un 360 Booth premium utilisé pendant un événement professionnel",
     imageNote: aiNote,
@@ -411,7 +411,7 @@ export const articleExpansions = {
           "La surface doit inclure la plateforme, le mouvement de la caméra, l'animateur, l'attente et une zone de sécurité. La hauteur disponible peut aussi devenir déterminante pour les installations de grande dimension. Une mesure approximative prise au centre d'une salle ne suffit pas si des luminaires, poutres ou éléments de décor réduisent le volume utile.",
           "Vérifiez l'accès de livraison, le sol, l'alimentation et la protection contre les intempéries. Les participants doivent pouvoir monter et descendre facilement. L'équipe doit conserver une vue dégagée sur le dispositif afin d'interrompre une séquence ou de réorganiser le flux si nécessaire.",
         ],
-        image: "/images/blog-ai/installation-espace-guide.webp",
+        image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
         imageAlt:
           "Visuel d'ambiance d'un technicien préparant une zone d'animation événementielle",
         caption: aiNote,
@@ -451,7 +451,7 @@ export const articleExpansions = {
 
   "vogue-booth-effet-magazine": {
     readTime: "9 min",
-    image: "/images/blog-ai/vogue-booth-guide.webp",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
     imageAlt:
       "Visuel d'ambiance d'une invitée photographiée dans un couloir lumineux de style éditorial",
     imageNote: aiNote,
@@ -511,7 +511,7 @@ export const articleExpansions = {
 
   "phonebooth-livre-or-audio": {
     readTime: "9 min",
-    image: "/images/blog-ai/phonebooth-audio-guide.webp",
+    image: "/images/ai-from-real/phonebooth-invitee-reelle.webp",
     imageAlt:
       "Visuel d'ambiance d'une invitée laissant un message sur un téléphone livre d'or audio",
     imageNote: aiNote,
@@ -535,7 +535,7 @@ export const articleExpansions = {
           "Le Phonebooth doit être trouvé facilement sans être placé devant une enceinte. Un coin légèrement en retrait, séparé par du mobilier ou un décor, améliore l'intelligibilité des voix. Vérifiez néanmoins que l'espace reste accessible et qu'il ne ressemble pas à une zone privée interdite aux invités.",
           "Testez l'enregistrement lorsque la salle diffuse déjà de la musique, pas uniquement pendant le montage silencieux. Écoutez le niveau de fond, la voix et la manipulation du combiné. Si l'ambiance sonore évolue fortement, prévoyez un déplacement limité ou des horaires où les messages seront encouragés.",
         ],
-        image: "/images/blog-ai/mariage-photobooth-guide.webp",
+        image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
         imageAlt:
           "Visuel d'ambiance d'un espace de réception lumineux où installer les animations invités",
         caption: aiNote,
@@ -575,7 +575,7 @@ export const articleExpansions = {
 
   "livre-or-photo-photobooth": {
     readTime: "9 min",
-    image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     imageAlt:
       "Visuel d'ambiance d'un livre d'or ouvert accompagné de tirages photobooth",
     imageNote: aiNote,
@@ -599,7 +599,7 @@ export const articleExpansions = {
           "Utilisez un album dont le papier supporte l'adhésif et l'encre des stylos. Les pages doivent offrir assez d'espace autour du tirage pour plusieurs signatures. Testez les coins photo, pastilles ou rubans adhésifs avant l'événement afin d'éviter les traces, les photos qui se décollent ou un temps de manipulation trop long.",
           "Prévoyez plusieurs stylos identiques et gardez une petite réserve. Les stylos métalliques peuvent être élégants sur papier foncé, mais ils doivent sécher rapidement. Évitez les matériaux salissants près des tirages et protégez le livre des boissons avec une table dédiée suffisamment stable.",
         ],
-        image: "/images/blog-ai/mariage-photobooth-guide.webp",
+        image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
         imageAlt:
           "Visuel d'ambiance d'un photobooth utilisé par des invités dans une réception",
         caption: aiNote,
@@ -639,7 +639,7 @@ export const articleExpansions = {
 
   "duree-location-photobooth": {
     readTime: "9 min",
-    image: "/images/blog-ai/installation-espace-guide.webp",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
     imageAlt:
       "Visuel d'ambiance d'un technicien préparant un photobooth avant l'ouverture d'un événement",
     imageNote: aiNote,
@@ -663,7 +663,7 @@ export const articleExpansions = {
           "Une durée plus courte peut être très efficace si elle couvre le bon moment. Sur un mariage, le cocktail et le début de soirée sont souvent complémentaires. Sur un salon, l'ouverture doit suivre les heures de fréquentation du stand. Pour un séminaire, les pauses et la fin de session concentrent naturellement les participants.",
           "Communiquez ces horaires. Une mention dans le programme, une annonce et une zone bien éclairée évitent que les invités découvrent l'animation au moment de sa fermeture. Si plusieurs machines sont présentes, décalez légèrement leurs temps forts ou placez-les dans des zones distinctes afin de répartir le flux.",
         ],
-        image: "/images/blog-ai/corporate-activation-guide.webp",
+        image: "/images/ai-from-real/activation-360-entreprise.webp",
         imageAlt:
           "Visuel d'ambiance d'une animation 360 Booth pendant un temps fort professionnel",
         caption: aiNote,
@@ -703,7 +703,7 @@ export const articleExpansions = {
 
   "photobooth-salon-seminaire": {
     readTime: "10 min",
-    image: "/images/blog-ai/corporate-activation-guide.webp",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
     imageAlt:
       "Visuel d'ambiance d'une animation 360 Booth dans un événement professionnel à Paris",
     imageNote: aiNote,
@@ -727,7 +727,7 @@ export const articleExpansions = {
           "Le public est déjà réuni autour d'un objectif commun. Le photobooth peut marquer une étape, illustrer un thème ou simplement offrir un moment de respiration. Placez-le près des pauses ou de la soirée, pas dans une salle où son utilisation perturberait une prise de parole.",
           "Les photos de groupe et les vidéos courtes deviennent plus intéressantes lorsque les équipes savent pourquoi elles participent. Proposez un geste, une question ou un accessoire en lien avec le séminaire sans transformer l'animation en exercice obligatoire. La participation volontaire produit des contenus plus naturels.",
         ],
-        image: "/images/blog-ai/installation-espace-guide.webp",
+        image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
         imageAlt:
           "Visuel d'ambiance d'une animation photobooth préparée avant un événement professionnel",
         caption: aiNote,
@@ -767,7 +767,7 @@ export const articleExpansions = {
 
   "fond-decor-photobooth": {
     readTime: "9 min",
-    image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     imageAlt:
       "Visuel d'ambiance de matières, couleurs et supports préparés pour personnaliser un décor photobooth",
     imageNote: aiNote,
@@ -791,7 +791,7 @@ export const articleExpansions = {
           "La largeur doit couvrir le cadre même lorsque plusieurs personnes se décalent. La hauteur doit rester suffisante pour les invités les plus grands et pour un cadrage plus large. Demandez le format de prise de vue et la distance recommandée afin d'éviter que les bords du décor ou les éléments techniques apparaissent sur les photos.",
           "Marquez la position des pieds lors du test. Quelques dizaines de centimètres peuvent modifier fortement la perspective et la quantité de fond visible. Si le décor comprend des fleurs, du relief ou des panneaux, vérifiez qu'aucun élément ne projette une ombre dure ou ne réduit la zone de pose.",
         ],
-        image: "/images/blog-ai/vogue-booth-guide.webp",
+        image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
         imageAlt:
           "Visuel d'ambiance montrant le cadrage d'un décor lumineux pour une séance photo événementielle",
         caption: aiNote,
@@ -831,7 +831,7 @@ export const articleExpansions = {
 
   "choisir-pack-photobooth": {
     readTime: "11 min",
-    image: "/images/blog-ai/personnalisation-souvenirs-guide.webp",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
     imageAlt:
       "Visuel d'ambiance de tirages, livre d'or et souvenirs pouvant composer un pack photobooth",
     imageNote: aiNote,
@@ -855,7 +855,7 @@ export const articleExpansions = {
           "Deux machines peuvent répartir le flux, mais elles demandent deux zones visibles, assez d'alimentation et un parcours compréhensible. Si elles sont trop proches, les files se croisent ; trop éloignées, l'une peut rester sous-utilisée. Positionnez chaque expérience selon son rythme et son niveau sonore.",
           "Demandez combien de personnes accompagnent l'installation, quels éléments fonctionnent simultanément et comment se déroule le montage. Le pack doit simplifier la coordination, pas multiplier les interlocuteurs. Les horaires, la personnalisation et la remise des fichiers doivent apparaître dans une proposition unique et lisible.",
         ],
-        image: "/images/blog-ai/installation-espace-guide.webp",
+        image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
         imageAlt:
           "Visuel d'ambiance d'une installation photobooth préparée avant un événement",
         caption: aiNote,

@@ -38,5 +38,5 @@ Le site avait deja une bonne base visuelle, des routes commerciales utiles et de
 | Critique | Manifest absent | Ajout de `public/site.webmanifest`. |
 | Important | Page Entreprises trop courte | Enrichissement de `/evenements/corporates/` sans créer de route concurrente. |
 | Important | Données internes B2B | Documentées comme confidentielles et non exposées dans le site. |
-| Important | Gestion manuelle des images | Ajout de `imageSlots.json`, `ImageSlot`, docs et contrôle npm. |
+| Important | Gestion de la provenance des images | Ajout d'un manifeste unique, de badges automatiques et d'un contrôle npm. |
 | Amélioration | README générique App Router | Remplacé par une documentation Pages Router. |

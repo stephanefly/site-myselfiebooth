@@ -137,100 +137,46 @@ export const portfolioMotionGifs = [
   },
 ];
 
-export const portfolioAiImages = [
+export const portfolioCuratedImages = [
   {
-    sourceId: "ai-b2b-seminaire",
-    image: "/images/ai/b2b-case-seminaire-ai.webp",
-    title: "Borne photo pour un séminaire",
-    category: "Entreprise",
-  },
-  {
-    sourceId: "ai-founder-workshop",
-    image: "/images/ai/founder-workshop-ai.webp",
-    title: "Préparation d'une borne en atelier",
-    category: "Coulisses",
-  },
-  {
-    sourceId: "ai-360-guests",
-    image: "/images/ai/ambiance-360booth-premium-ai.webp",
-    title: "Invités sur une plateforme 360",
+    sourceId: "ai-360-activation",
+    image: "/images/ai-from-real/activation-360-entreprise.webp",
+    title: "Activation 360 lors d'un événement professionnel",
     category: "360 Booth",
   },
   {
-    sourceId: "ai-photobooth-evening",
-    image: "/images/ai/ambiance-photobooth-soiree-premium.webp",
-    title: "Portraits de soirée au Photobooth",
+    sourceId: "ai-fabrication-famille",
+    image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
+    title: "Fabrication familiale d'un Photobooth",
+    category: "Coulisses",
+  },
+  {
+    sourceId: "ai-photobooth-reception",
+    image: "/images/ai-from-real/hero-photobooth-reception.webp",
+    title: "Photobooth prêt pour une réception",
     category: "Photobooth",
   },
   {
-    sourceId: "ai-vogue-evening",
-    image: "/images/ai/ambiance-vogue-booth-premium.webp",
-    title: "Invités devant le Vogue Booth",
+    sourceId: "ai-vogue-mariage",
+    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
+    title: "Vogue Booth Wedding Edition",
     category: "Vogue Booth",
   },
   {
-    sourceId: "ai-photobooth-hero",
-    image: "/images/ai/hero-photobooth-evenement-premium.webp",
-    title: "Photobooth prêt pour la réception",
-    category: "Photobooth",
-  },
-  {
-    sourceId: "ai-phonebooth-wedding",
-    image: "/images/ai/phonebooth-audio-mariage-ai.webp",
+    sourceId: "ai-phonebooth-invitee",
+    image: "/images/ai-from-real/phonebooth-invitee-reelle.webp",
     title: "Message audio au Phonebooth",
     category: "Phonebooth",
   },
   {
-    sourceId: "ai-backstage-setup",
-    image: "/images/generated/instagram-backstage-setup.webp",
-    title: "Installation et derniers réglages",
-    category: "Coulisses",
-  },
-  {
-    sourceId: "ai-corporate-photobooth",
-    image: "/images/generated/premium-corporate-photobooth.webp",
-    title: "Photobooth en réception professionnelle",
-    category: "Entreprise",
-  },
-  {
-    sourceId: "ai-phonebooth-detail",
-    image: "/images/generated/premium-phonebooth-detail.webp",
-    title: "Téléphone vintage et décor floral",
-    category: "Phonebooth",
-  },
-  {
-    sourceId: "ai-welcome-board",
-    image: "/images/generated/premium-welcome-board-decor.webp",
-    title: "Panneau de bienvenue personnalisé",
-    category: "Décor",
-  },
-  {
-    sourceId: "ai-vogue-studio",
-    image: "/images/machines-ai/voguebooth-studio-myselfiebooth.webp",
-    title: "Prise de vue dans le Vogue Booth",
-    category: "Vogue Booth",
-  },
-  {
-    sourceId: "ai-selector-ipad",
-    image: "/images/selector/ipadbooth-compact-ai.webp",
-    title: "iPad Booth compact",
-    category: "iPad Booth",
-  },
-  {
-    sourceId: "ai-selector-video-360",
-    image: "/images/selector/video-360-en-action-ai.webp",
-    title: "Vidéo 360 en pleine réception",
-    category: "360 Booth",
-  },
-  {
-    sourceId: "ai-selector-vogue",
-    image: "/images/selector/voguebooth-en-action-ai.webp",
-    title: "Portrait dans le couloir Vogue",
-    category: "Vogue Booth",
+    sourceId: "ai-tirages-gala",
+    image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
+    title: "Tirages remis aux invités",
+    category: "Souvenirs",
   },
 ].map((item) => ({
   ...item,
-  alt: `${item.title}, création IA fidèle à une prestation réelle MySelfieBooth`,
+  alt: `${item.title}, visuel MySelfieBooth dont la provenance est indiquée sur la carte`,
 }));
 
 export const portfolioDetailImages = [

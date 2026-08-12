@@ -1,5 +1,4 @@
 import Layout from "../Layout";
-import ImageSlot from "../ImageSlot";
 import useRevealMotion from "../../hooks/useRevealMotion";
 import { getServiceVisual, serviceVisuals } from "../../data/serviceVisuals";
 import { siteConfig } from "../../data/site";
@@ -15,16 +14,16 @@ const featureVisuals = {
   voguebooth: { src: serviceVisuals.voguebooth.image, title: "Vogue Booth Wedding Edition personnalisé" },
   packvip: { src: serviceVisuals.packvip.image, title: "Pack VIP en réception" },
   personnalise: { src: serviceVisuals.personnalise.image, title: "Expérience personnalisée" },
-  mariages: { src: "/images/machines-ai/miroirbooth-mariage-myselfiebooth.webp", title: "Ambiance de mariage" },
-  anniversaires: { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Animation d'anniversaire" },
-  soirees: { src: "/images/machines-ai/air360-gala-myselfiebooth.webp", title: "Ambiance de soirée" },
-  corporates: { src: "/images/machines-ai/360booth-entreprise-myselfiebooth.webp", title: "Installation événementielle" },
-  "prestations-index": { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "Les machines MySelfieBooth" },
-  "evenements-index": { src: "/images/machines-ai/photobooth-mariage-myselfiebooth.webp", title: "Une animation qui rassemble" },
-  "options-index": { src: "/images/machines-ai/options-souvenirs-myselfiebooth.webp", title: "Souvenirs personnalisés" },
-  phonebooth: { src: "/images/machines-ai/phonebooth-reception-myselfiebooth.webp", title: "Messages audio des invités" },
-  panneau: { src: "/images/machines-ai/panneaux-bienvenue-myselfiebooth.webp", title: "Panneau de bienvenue" },
-  paris: { src: "/images/machines-ai/hero-machines-myselfiebooth.webp", title: "MySelfieBooth en événement" },
+  mariages: { src: "/images/miroirbooth.webp", title: "Ambiance de mariage" },
+  anniversaires: { src: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Animation d'anniversaire" },
+  soirees: { src: "/images/ai-from-real/activation-360-entreprise.webp", title: "Ambiance de soirée" },
+  corporates: { src: "/images/ai-from-real/activation-360-entreprise.webp", title: "Installation événementielle" },
+  "prestations-index": { src: "/images/ai-from-real/hero-photobooth-reception.webp", title: "Les machines MySelfieBooth" },
+  "evenements-index": { src: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Une animation qui rassemble" },
+  "options-index": { src: "/images/ai-from-real/tirages-invites-mariage-gala.webp", title: "Souvenirs personnalisés" },
+  phonebooth: { src: "/images/ai-from-real/phonebooth-invitee-reelle.webp", title: "Messages audio des invités" },
+  panneau: { src: "/images/Welcomeboard.webp", title: "Panneau de bienvenue" },
+  paris: { src: "/images/ai-from-real/hero-photobooth-reception.webp", title: "MySelfieBooth en événement" },
 };
 
 function SectionHeader({ eyebrow, title }) {
@@ -299,9 +298,7 @@ function CaseStudyGrid({ items = [] }) {
                     width="720"
                     height="540"
                   />
-                ) : (
-                  <ImageSlot slotId={item.imageSlotId} />
-                )}
+                ) : null}
               </div>
               <div className="marketing-case-copy">
                 {item.client && <span>Cas réel · {item.client}</span>}
@@ -356,7 +353,9 @@ function FounderStory({ story }) {
   return (
     <section id="histoire" className="marketing-section" data-reveal>
       <div className="marketing-container marketing-story-grid">
-        <ImageSlot slotId={story.imageSlotId} />
+        {story.image ? (
+          <img src={story.image} alt={story.imageAlt || story.title} loading="lazy" width="720" height="900" />
+        ) : null}
         <div>
           <p className="marketing-eyebrow">{story.eyebrow}</p>
           <h2>{story.title}</h2>
@@ -603,6 +602,7 @@ export default function MarketingPage({ page }) {
         <FounderStory story={page.story} />
 
         <section className="marketing-final-cta" data-reveal>
+          <span className="marketing-final-media-label" aria-hidden="true">Image IA issue du réel</span>
           <div className="marketing-container">
             <p>{page.finalEyebrow || "Votre événement"}</p>
             <h2>{page.finalTitle || "Recevez votre proposition personnalisée."}</h2>
@@ -673,6 +673,23 @@ export default function MarketingPage({ page }) {
           font-size: 3rem;
           line-height: 1.03;
           letter-spacing: 0;
+        }
+
+        .marketing-final-media-label {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 2;
+          padding: 5px 9px;
+          border: 1px solid rgba(255, 255, 255, 0.72);
+          border-radius: 999px;
+          color: #171717;
+          background: rgba(232, 200, 97, 0.94);
+          font-size: 0.62rem;
+          font-weight: 900;
+          letter-spacing: 0.05em;
+          line-height: 1;
+          text-transform: uppercase;
         }
 
         .marketing-hero-copy > p:not(.marketing-eyebrow) {
@@ -1363,7 +1380,7 @@ export default function MarketingPage({ page }) {
           color: #fff;
           background:
             linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.72)),
-            url("/images/machines-ai/hero-machines-myselfiebooth.webp") center / cover;
+            url("/images/ai-from-real/hero-photobooth-reception.webp") center / cover;
         }
 
         .marketing-final-cta h2 {

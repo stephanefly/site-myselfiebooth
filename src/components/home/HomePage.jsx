@@ -158,7 +158,7 @@ export default function HomePage() {
           <aside className="home-hero-offer" data-reveal aria-label="Offre Photobooth la plus demandée">
             <a className="home-hero-offer-media" href="/prestations/photobooth">
               <img
-                src="/images/selector/photobooth-en-action-ai.webp"
+                src="/images/ai-from-real/hero-photobooth-reception.webp"
                 alt="Photobooth MySelfieBooth installé pendant une réception"
                 width="640"
                 height="480"
@@ -500,7 +500,7 @@ export default function HomePage() {
         <div className="home-container home-story-grid">
           <figure className="home-story-media">
             <img
-              src="/images/ai-faithful/fabrication-famille-ai.webp"
+              src="/images/ai-from-real/fabrication-famille-photobooth.webp"
               alt="Fabrication d'un photobooth MySelfieBooth en famille dans l'atelier"
               width="1350"
               height="1800"

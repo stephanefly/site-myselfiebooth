@@ -43,7 +43,7 @@ const catalogMachines = machines.map((machine) => (
   machine.key === "packvip"
     ? {
         ...machine,
-        image: "/images/generated/premium-booth-installation.webp",
+        image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
         alt: "Installation complète MySelfieBooth préparée pour une réception",
       }
     : machine
@@ -222,7 +222,7 @@ export default function ServicesCatalogPage() {
         title: "Prestations et tarifs Photobooth | MySelfieBooth",
         description:
           "Comparez 8 animations Photobooth, 6 packs, leurs tarifs et les éléments inclus avant de demander votre devis MySelfieBooth.",
-        ogImage: "/images/machines-ai/hero-machines-myselfiebooth.webp",
+        ogImage: "/images/ai-from-real/hero-photobooth-reception.webp",
         ogUrl: "/prestations/",
         jsonLd: catalogJsonLd,
       }}
@@ -244,7 +244,7 @@ export default function ServicesCatalogPage() {
             </div>
             <figure className="catalog-hero-media" data-reveal data-reveal-variant="scale">
               <img
-                src="/images/machines-ai/hero-machines-myselfiebooth.webp"
+                src="/images/ai-from-real/hero-photobooth-reception.webp"
                 alt="Photobooth, Miroirbooth et 360 Booth MySelfieBooth"
                 width="1600"
                 height="900"
