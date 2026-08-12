@@ -6,6 +6,7 @@ import Meta from "./Meta";
 import MobileQuoteBar from "./MobileQuoteBar";
 import AnalyticsEvents from "./AnalyticsEvents";
 import AnalyticsConsent from "./AnalyticsConsent";
+import Breadcrumbs from "./Breadcrumbs";
 
 const Layout = ({ children, metaProps }) => {
   return (
@@ -15,6 +16,7 @@ const Layout = ({ children, metaProps }) => {
       <AnalyticsEvents />
       <a className="skip-link" href="#contenu">Aller au contenu</a>
       <Navbar />
+      <Breadcrumbs />
       <main id="contenu">{children}</main>
       <SocialMedia />
       <PreFooter />

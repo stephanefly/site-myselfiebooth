@@ -12,6 +12,7 @@ export default function Meta({
   ogTitle,
   ogDescription,
   ogImage = siteConfig.defaultOgImage,
+  ogImageAlt = siteConfig.defaultOgImageAlt,
   ogUrl = siteConfig.baseUrl,
   ogType = "website",
   twitterCard = "summary_large_image",
@@ -28,6 +29,7 @@ export default function Meta({
       ? ogUrl
       : absoluteUrl(ogUrl || "/");
   const socialImage = ogImage?.startsWith("http") ? ogImage : absoluteUrl(ogImage || siteConfig.defaultOgImage);
+  const socialImageAlt = ogImageAlt || socialTitle;
   const structuredData = [
     includeOrganization ? organizationJsonLd : null,
     includeWebsite ? websiteJsonLd : null,
@@ -42,12 +44,15 @@ export default function Meta({
         <meta name="author" content="MySelfieBooth" />
         <meta name="robots" content={robots} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="format-detection" content="telephone=no" />
 
         {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : null}
 
         <meta property="og:title" content={socialTitle} />
         <meta property="og:description" content={socialDescription} />
         <meta property="og:image" content={socialImage} />
+        <meta property="og:image:secure_url" content={socialImage} />
+        <meta property="og:image:alt" content={socialImageAlt} />
         {canonicalUrl ? <meta property="og:url" content={canonicalUrl} /> : null}
         <meta property="og:type" content={ogType} />
         <meta property="og:site_name" content={siteConfig.name} />
@@ -57,6 +62,7 @@ export default function Meta({
         <meta name="twitter:title" content={socialTitle} />
         <meta name="twitter:description" content={socialDescription} />
         <meta name="twitter:image" content={socialImage} />
+        <meta name="twitter:image:alt" content={socialImageAlt} />
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico" />
