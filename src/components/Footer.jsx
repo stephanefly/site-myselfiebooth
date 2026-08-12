@@ -87,6 +87,22 @@ export default function Footer() {
           <a href="/paris/">Paris et Île-de-France</a>
           <a href="/lyon/">Lyon</a>
           <a href="/rouen/">Rouen et Normandie</a>
+          <a
+            href={siteConfig.mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            data-event="maps_view_click"
+          >
+            Voir sur Google Maps
+          </a>
+          <a
+            href={siteConfig.directionsUrl}
+            target="_blank"
+            rel="noreferrer"
+            data-event="maps_directions_click"
+          >
+            Préparer un itinéraire
+          </a>
         </div>
       </div>
 
