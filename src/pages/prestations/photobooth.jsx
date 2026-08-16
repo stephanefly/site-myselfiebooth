@@ -85,22 +85,36 @@ const photoboothPage = {
     ogDescription:
       "Photobooth pour mariage et entreprise, avec installation, personnalisation, tirages selon formule et galerie photo.",
     jsonLd: basePage.meta.jsonLd.map((entry) => {
-      if (entry["@type"] !== "Service") {
-        return entry;
+      if (entry["@type"] === "Service") {
+        return {
+          ...entry,
+          name: "Location Photobooth en Île-de-France",
+          description:
+            "Location de Photobooth pour mariage, anniversaire et entreprise en Île-de-France, avec installation et personnalisation.",
+          offers: {
+            ...(entry.offers || {}),
+            price: "450",
+            priceCurrency: "EUR",
+            description: "Tarif à partir de 450 euros, ajusté selon la date, le lieu et la formule.",
+          },
+        };
       }
 
-      return {
-        ...entry,
-        name: "Location Photobooth en Île-de-France",
-        description:
-          "Location de Photobooth pour mariage, anniversaire et entreprise en Île-de-France, avec installation et personnalisation.",
-        offers: {
-          ...(entry.offers || {}),
-          price: "450",
-          priceCurrency: "EUR",
-          description: "Tarif à partir de 450 euros, ajusté selon la date, le lieu et la formule.",
-        },
-      };
+      if (entry["@type"] === "FAQPage") {
+        return {
+          ...entry,
+          mainEntity: faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        };
+      }
+
+      return entry;
     }),
   },
 };
