@@ -101,24 +101,116 @@ function optimizeSalonSeminaireArticle(article) {
   };
 }
 
+function optimizeWeddingArticle(article) {
+  return {
+    ...article,
+    title: "Quel photobooth choisir pour un mariage ? Comparatif 2026",
+    excerpt:
+      "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les formats selon les tirages, le décor, l'espace et l'ambiance de votre mariage.",
+    metaDescription:
+      "Quel photobooth choisir pour un mariage ? Comparez Photobooth, Miroirbooth, 360 Booth et Vogue Booth selon le souvenir, le lieu et vos invités.",
+    relatedLinks: [
+      { label: "Voir les animations mariage", href: "/evenements/mariages/" },
+      { label: "Location Photobooth", href: "/prestations/photobooth/" },
+      ...(article.relatedLinks || []),
+    ],
+  };
+}
+
+function optimizePersonalizationArticle(article) {
+  return {
+    ...article,
+    title: "Photobooth personnalisé : tirages, décor & idées de personnalisation",
+    excerpt:
+      "Cadre photo, écran, décor, mur floral et souvenirs : personnalisez votre photobooth sans surcharger le rendu de votre événement.",
+    metaDescription:
+      "Photobooth personnalisé : idées pour personnaliser tirages, cadre photo, écran, décor, mur floral et souvenirs pour mariage ou entreprise.",
+    sections: [
+      {
+        title: "Que peut-on personnaliser sur un photobooth ?",
+        paragraphs: [
+          "Le cadre des tirages, les couleurs, les textes, certains écrans, le décor et les souvenirs peuvent être adaptés au thème du mariage ou à l'identité visuelle d'une entreprise.",
+        ],
+        bullets: [
+          "Cadre photo avec noms, date ou logo.",
+          "Couleurs et éléments graphiques de l'événement.",
+          "Mur floral, panneau ou fond selon la configuration.",
+          "Porte-clés, magnets et livre d'or pour prolonger le souvenir.",
+        ],
+      },
+      ...article.sections,
+    ],
+    relatedLinks: [
+      { label: "Voir toutes les options", href: "/options/" },
+      { label: "Location Photobooth", href: "/prestations/photobooth/" },
+      ...(article.relatedLinks || []),
+    ],
+  };
+}
+
+function optimizeAnniversaryArticle(article) {
+  return {
+    ...article,
+    title: "Photobooth anniversaire : lequel choisir pour votre soirée ?",
+    excerpt:
+      "Photo imprimée, vidéo 360 ou Vogue Booth : choisissez l'animation anniversaire adaptée à vos invités, votre espace et votre ambiance.",
+    metaDescription:
+      "Photobooth anniversaire : comparez Photobooth, 360 Booth et Vogue Booth selon vos invités, l'espace et le souvenir recherché.",
+    relatedLinks: [
+      { label: "Voir les animations anniversaire", href: "/evenements/anniversaires/" },
+      { label: "Location Photobooth", href: "/prestations/photobooth/" },
+      ...(article.relatedLinks || []),
+    ],
+  };
+}
+
+function optimizeVogueArticle(article) {
+  return {
+    ...article,
+    title: "Vogue Booth : le photocall effet magazine pour vos événements",
+    excerpt:
+      "Découvrez le Vogue Booth, un photocall lumineux personnalisable inspiré des couvertures de magazine pour mariage, gala et événement de marque.",
+    metaDescription:
+      "Vogue Booth : découvrez le photocall lumineux effet magazine, personnalisable pour mariage, gala, soirée VIP et événement de marque.",
+    relatedLinks: [
+      { label: "Voir le Vogue Booth", href: "/prestations/voguebooth/" },
+      ...(article.relatedLinks || []),
+    ],
+  };
+}
+
+function optimizeLivreOrArticle(article) {
+  return {
+    ...article,
+    title: "Livre d'or photobooth : photos, messages et idées pour mariage",
+    metaDescription:
+      "Livre d'or photobooth : combinez tirages photo et messages des invités pour créer un souvenir de mariage à conserver après la réception.",
+    relatedLinks: [
+      { label: "Voir le livre d'or audio Phonebooth", href: "/options/phonebooth/" },
+      { label: "Voir les options Photobooth", href: "/options/" },
+      ...(article.relatedLinks || []),
+    ],
+  };
+}
+
 function applySearchConsoleOverrides(article) {
   if (!article) {
     return article;
   }
 
-  if (article.slug === "prix-location-photobooth") {
-    return optimizePriceArticle(article);
-  }
+  const optimizers = {
+    "prix-location-photobooth": optimizePriceArticle,
+    "animation-photobooth-entreprise": optimizeEnterpriseArticle,
+    "photobooth-salon-seminaire": optimizeSalonSeminaireArticle,
+    "choisir-photobooth-mariage": optimizeWeddingArticle,
+    "personnaliser-photobooth": optimizePersonalizationArticle,
+    "photobooth-anniversaire": optimizeAnniversaryArticle,
+    "vogue-booth-effet-magazine": optimizeVogueArticle,
+    "livre-or-photo-photobooth": optimizeLivreOrArticle,
+  };
 
-  if (article.slug === "animation-photobooth-entreprise") {
-    return optimizeEnterpriseArticle(article);
-  }
-
-  if (article.slug === "photobooth-salon-seminaire") {
-    return optimizeSalonSeminaireArticle(article);
-  }
-
-  return article;
+  const optimize = optimizers[article.slug];
+  return optimize ? optimize(article) : article;
 }
 
 export default function BlogArticlePage({ article }) {
