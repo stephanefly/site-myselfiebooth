@@ -5,21 +5,22 @@ export default function HomeSearchIntentSection() {
         <div className="home-section-intro">
           <p className="home-eyebrow">Île-de-France</p>
           <h2 id="home-seo-zone-title">
-            Location de photobooth à Paris, Melun et en Seine-et-Marne (77)
+            Location de photobooth et borne photo à Paris, Melun et en Île-de-France
           </h2>
         </div>
 
         <p className="home-section-lead">
-          MySelfieBooth intervient pour les mariages, anniversaires, séminaires,
-          salons et soirées d&apos;entreprise en Île-de-France. Les demandes autour
-          de Melun et en Seine-et-Marne sont étudiées selon la date, le lieu,
-          les accès et la formule choisie.
+          MySelfieBooth propose la location de photobooths et bornes à selfie
+          pour les mariages, anniversaires, séminaires, salons et soirées
+          d&apos;entreprise. Les demandes à Paris, autour de Melun, en
+          Seine-et-Marne (77), en Essonne et dans le reste de l&apos;Île-de-France
+          sont étudiées selon la date, le lieu, les accès et la formule choisie.
         </p>
 
         <p className="home-service-note">
-          Pour comparer rapidement les solutions, consultez la location de
-          Photobooth et ses tarifs, les animations pour entreprise, les offres
-          mariage ou notre guide consacré au prix d&apos;une location de photobooth.
+          Photobooth classique, miroir photo, borne selfie ou animation vidéo :
+          comparez les formats, les tarifs et les options avant de choisir la
+          solution adaptée à votre événement.
         </p>
 
         <div className="home-actions">
