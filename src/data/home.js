@@ -33,6 +33,13 @@ const homeOptionImages = {
   "Décoration Vogue Booth": "/images/decoration-voguebooth.webp",
 };
 
+const publicServicePrices = {
+  photobooth: "À partir de 450 euros",
+  miroirbooth: "À partir de 550 euros",
+  videobooth: "À partir de 500 euros",
+  voguebooth: "À partir de 500 euros",
+};
+
 export const selectorNeeds = catalogSelectorNeeds.map((item) => ({
   ...item,
   image: homeSelectorImages[item.need] || item.image,
@@ -46,7 +53,7 @@ export const services = machines.map((machine) => ({
   image: machine.image,
   href: machine.href,
   linkLabel: `Découvrir ${machine.name}`,
-  price: machine.price || "Sur devis",
+  price: publicServicePrices[machine.key] || machine.price || "Sur devis",
 }));
 
 export const featuredPacks = servicePacks;
@@ -162,7 +169,7 @@ export const marketPaths = [
   {
     eyebrow: "Entreprises",
     title: "Salons, séminaires et soirées d'entreprise",
-    text: "Des formats pensés pour votre marque et vos invités.",
+    text: "Branding, contenus partageables, logistique cadrée et reporting selon le dispositif.",
     href: "/evenements/corporates",
     cta: "Voir le parcours entreprise",
     image: "/images/ai-from-real/activation-360-entreprise.webp",
@@ -228,8 +235,8 @@ export const trustCards = [
     text: "Machines soignées, visuels propres, photos et vidéos exploitables après l'événement.",
   },
   {
-    title: "Logistique rassurante",
-    text: "Préparation, livraison, montage, tests et accompagnement sont cadrés avant le jour J.",
+    title: "Fiabilité le jour J",
+    text: "Préparation, livraison, montage et tests sont cadrés avant l'ouverture de l'animation, avec un interlocuteur identifié pour la prestation.",
   },
   {
     title: "Personnalisation utile",
@@ -264,7 +271,7 @@ export const faqs = [
   {
     question: "Est-ce adapté à un événement d'entreprise ?",
     answer:
-      "Oui. Le cadre photo, l'écran, les vidéos et certains décors peuvent reprendre votre logo, vos couleurs et le message de votre opération.",
+      "Oui. Le cadre photo, l'écran, les vidéos et certains décors peuvent reprendre votre logo, vos couleurs et le message de votre opération. Selon le dispositif, un bilan des contenus produits peut aussi être prévu après l'événement.",
   },
   {
     question: "Que faut-il prévoir sur place ?",
