@@ -55,6 +55,32 @@ const corporateOffersSection = {
   ],
 };
 
+const corporateReportSection = {
+  anchor: "rapport-corporate-automatique",
+  eyebrow: "Reporting post-événement",
+  title: "Rapport corporate automatique après votre événement",
+  text:
+    "Pour les formules corporate concernées, un rapport synthétique peut être généré après l'événement afin de mesurer l'utilisation de l'animation et de faciliter votre bilan interne. Les indicateurs dépendent des fonctions réellement activées et des données disponibles sur la prestation.",
+  cards: [
+    {
+      title: "Activité de l'animation",
+      text: "Nombre de sessions, photos ou vidéos produites et volume global d'utilisation lorsque ces données sont disponibles.",
+    },
+    {
+      title: "Partage des contenus",
+      text: "Téléchargements, QR codes, emails ou autres actions de partage peuvent être intégrés au bilan lorsque le dispositif permet de les mesurer.",
+    },
+    {
+      title: "Temps forts",
+      text: "Identification des périodes de forte utilisation et des principaux volumes de contenus afin de mieux comprendre le rythme de l'animation.",
+    },
+    {
+      title: "Livrable exploitable",
+      text: "Un bilan clair à transmettre à votre équipe, votre agence ou votre client avec les indicateurs disponibles et les contenus remis après l'événement.",
+    },
+  ],
+};
+
 const reliabilitySection = {
   anchor: "fiabilite",
   eyebrow: "Fiabilité & exploitation",
@@ -86,10 +112,11 @@ const corporatePage = {
   title: "Photobooth entreprise & Brand Experience en Île-de-France",
   description:
     "Photobooth, 360 Booth et Vogue Portrait Studio pour entreprise, salon, séminaire et activation de marque, avec branding, logistique cadrée et reporting selon le dispositif.",
-  highlights: ["Offres dès 900 € HT", "Branding", "Contenus & reporting"],
+  highlights: ["Offres dès 900 € HT", "Branding", "Rapport corporate automatique"],
   sections: [
     searchIntentSection,
     corporateOffersSection,
+    corporateReportSection,
     reliabilitySection,
     ...basePage.sections,
   ],
@@ -104,10 +131,10 @@ const corporatePage = {
     ...basePage.meta,
     title: "Photobooth Entreprise & Brand Experience | MySelfieBooth",
     description:
-      "Animations photo et vidéo pour entreprise en Île-de-France dès 900 € HT : branding, Photobooth, 360 Booth, Vogue Portrait Studio et reporting selon dispositif.",
+      "Animations photo et vidéo pour entreprise en Île-de-France dès 900 € HT : branding, Photobooth, 360 Booth, Vogue Portrait Studio et rapport corporate selon dispositif.",
     ogTitle: "Photobooth entreprise & Brand Experience",
     ogDescription:
-      "Des animations photo et vidéo pensées pour l'engagement, le contenu de marque et une exploitation fiable le jour J.",
+      "Des animations photo et vidéo pensées pour l'engagement, le contenu de marque, la fiabilité et le reporting post-événement.",
     jsonLd: basePage.meta.jsonLd.map((entry) => {
       if (entry["@type"] !== "Service") {
         return entry;
@@ -117,7 +144,7 @@ const corporatePage = {
         ...entry,
         name: "Photobooth et Brand Experience pour entreprise",
         description:
-          "Animations photo et vidéo pour entreprise, salon, séminaire et activation de marque avec branding, contenus et reporting selon le dispositif.",
+          "Animations photo et vidéo pour entreprise, salon, séminaire et activation de marque avec branding, contenus et rapport corporate selon le dispositif.",
         offers: {
           "@type": "Offer",
           price: "900",
