@@ -76,6 +76,18 @@ for (const file of htmlFiles) {
   if (!title) errors.push(`${route}: balise <title> absente.`);
   if (!description) errors.push(`${route}: meta description absente.`);
 
+  if (title && title.length > 70) {
+    warnings.push(`${route}: title long (${title.length} caractères).`);
+  } else if (title && title.length < 25) {
+    warnings.push(`${route}: title court (${title.length} caractères).`);
+  }
+
+  if (description && description.length > 175) {
+    warnings.push(`${route}: meta description longue (${description.length} caractères).`);
+  } else if (description && description.length < 70) {
+    warnings.push(`${route}: meta description courte (${description.length} caractères).`);
+  }
+
   if (!noindex) {
     if (!canonical) {
       errors.push(`${route}: URL canonique absente.`);
@@ -87,12 +99,30 @@ for (const file of htmlFiles) {
 
     if (!ogImage) errors.push(`${route}: image Open Graph absente.`);
     if (h1Count !== 1) warnings.push(`${route}: ${h1Count} balise(s) H1 détectée(s), 1 recommandée.`);
+    if (!/max-image-preview:large/i.test(robots)) {
+      warnings.push(`${route}: directive max-image-preview:large absente.`);
+    }
   }
 
   const imgTags = html.match(/<img\b[^>]*>/gi) || [];
   imgTags.forEach((tag, index) => {
     if (!hasAttribute(tag, "alt")) {
       errors.push(`${route}: image #${index + 1} sans attribut alt.`);
+    }
+  });
+
+  const jsonLdBlocks = [...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  jsonLdBlocks.forEach((match, index) => {
+    const raw = match[1].trim();
+    if (!raw) {
+      errors.push(`${route}: JSON-LD #${index + 1} vide.`);
+      return;
+    }
+
+    try {
+      JSON.parse(raw);
+    } catch (error) {
+      errors.push(`${route}: JSON-LD #${index + 1} invalide (${error.message}).`);
     }
   });
 
@@ -146,4 +176,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log("SEO check OK: titres, descriptions, canoniques, partage social et attributs alt présents.");
+console.log("SEO check OK: titres, descriptions, canoniques, partage social, JSON-LD et attributs alt présents.");

@@ -3,6 +3,40 @@ import { articleMeta, blogArticles } from "../../data/blogArticles";
 import { getServiceVisual } from "../../data/serviceVisuals";
 import { siteConfig } from "../../data/site";
 
+function buildArticleMeta(article) {
+  const baseMeta = articleMeta(article);
+  const keywords = (article.keywords || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .slice(0, 10);
+
+  return {
+    ...baseMeta,
+    title: article.seoTitle ? `${article.seoTitle} | MySelfieBooth` : baseMeta.title,
+    jsonLd: (baseMeta.jsonLd || []).map((entry) => {
+      if (entry?.["@type"] !== "Article") {
+        return entry;
+      }
+
+      return {
+        ...entry,
+        dateModified: article.modifiedIso || entry.dateModified,
+        inLanguage: "fr-FR",
+        isAccessibleForFree: true,
+        keywords: article.keywords || undefined,
+        about: keywords.length
+          ? keywords.map((name) => ({ "@type": "Thing", name }))
+          : undefined,
+        author: {
+          ...entry.author,
+          jobTitle: siteConfig.founder.title,
+        },
+      };
+    }),
+  };
+}
+
 export default function BlogArticle({ article }) {
   const usedMedia = new Set([article.image]);
   const sectionVisuals = article.sections.map((section) => {
@@ -32,9 +66,10 @@ export default function BlogArticle({ article }) {
       return true;
     })
     .slice(0, 3);
+  const metaProps = buildArticleMeta(article);
 
   return (
-    <Layout metaProps={articleMeta(article)}>
+    <Layout metaProps={metaProps}>
       <article className="blog-page blog-article">
         <header className="blog-article-hero">
           <div className="blog-container blog-article-hero-grid">
@@ -52,11 +87,20 @@ export default function BlogArticle({ article }) {
               <p>{article.excerpt}</p>
               <span className="blog-date">
                 Publié le {article.publishedAt} par <a href="/a-propos/">Stéphane Faure</a>
+                {article.modifiedAt ? <> · Mis à jour le {article.modifiedAt}</> : null}
               </span>
             </div>
             <figure>
               <div className="blog-article-hero-image">
-                <img src={article.image} alt={article.imageAlt} width="920" height="680" />
+                <img
+                  src={article.image}
+                  alt={article.imageAlt}
+                  width="920"
+                  height="680"
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                />
               </div>
               {article.imageCaption ? <figcaption>{article.imageCaption}</figcaption> : null}
             </figure>
@@ -94,6 +138,7 @@ export default function BlogArticle({ article }) {
                           src={sectionImage}
                           alt={serviceVisual?.alt || section.imageAlt}
                           loading="lazy"
+                          decoding="async"
                           width="920"
                           height="614"
                         />
@@ -173,7 +218,14 @@ export default function BlogArticle({ article }) {
               {relatedArticles.map(({ item: related }) => (
                 <a href={`/blog/${related.slug}/`} key={related.slug}>
                   <div className="blog-related-image">
-                    <img src={related.image} alt="" loading="lazy" width="640" height="420" />
+                    <img
+                      src={related.image}
+                      alt={related.imageAlt || related.title}
+                      loading="lazy"
+                      decoding="async"
+                      width="640"
+                      height="420"
+                    />
                   </div>
                   <span>{related.category}</span>
                   <strong>{related.title}</strong>

@@ -9,17 +9,17 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="preload" as="image" href="/images/ai-from-real/hero-photobooth-reception.webp" />
+        <link rel="preload" as="image" href="/images/hero-pub-2024.webp" />
       </Head>
       <Layout
         metaProps={{
           title:
-            "Location Photobooth Île-de-France | Mariage & Entreprise",
+            "Location Photobooth & Photo Booth | Paris & Île-de-France",
           description:
-            "Location de Photobooth en Île-de-France pour mariage, entreprise, séminaire et soirée : installation, personnalisation, tirages selon formule et galerie photo.",
-          ogTitle: "Location Photobooth en Île-de-France | MySelfieBooth",
+            "Location Photobooth, Photo Booth, borne selfie et cabine photo événementielle à Paris et en Île-de-France pour mariage, entreprise et soirée.",
+          ogTitle: "Location Photobooth & Photo Booth en Île-de-France | MySelfieBooth",
           ogDescription:
-            "Photobooth, MiroirBooth, 360 Booth et Vogue Booth pour mariages et entreprises en Île-de-France, avec livraison et installation.",
+            "Photobooth, MiroirBooth, 360 Booth et Vogue Booth pour mariages et entreprises à Paris et en Île-de-France, avec livraison et installation.",
           ogImage: siteConfig.defaultOgImage,
           ogUrl: absoluteUrl("/"),
           includeOrganization: true,
@@ -29,12 +29,16 @@ export default function Home() {
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              name: "Location de photobooth haut de gamme",
+              name: "Location de Photobooth et Photo Booth en Île-de-France",
               provider: {
                 "@id": `${siteConfig.baseUrl}/#organization`,
               },
               areaServed: siteConfig.servedAreas,
-              serviceType: "Animation photo événementielle",
+              audience: {
+                "@type": "Audience",
+                audienceType: "Mariages, entreprises, salons, séminaires, anniversaires et soirées privées",
+              },
+              serviceType: "Location de photobooth, borne photo et animation photo-vidéo événementielle",
               url: siteConfig.baseUrl,
             },
           ],

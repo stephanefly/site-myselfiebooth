@@ -47,6 +47,10 @@ export default function Meta({
       : absoluteUrl(ogUrl || "/");
   const socialImage = ogImage?.startsWith("http") ? ogImage : absoluteUrl(ogImage || siteConfig.defaultOgImage);
   const socialImageAlt = ogImageAlt || socialTitle;
+  const previewDirectives = "max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+  const effectiveRobots = /\bnoindex\b/i.test(robots)
+    ? robots
+    : `${robots}, ${previewDirectives}`;
   const structuredData = [
     includeOrganization ? organizationJsonLd : null,
     includeWebsite ? websiteJsonLd : null,
@@ -61,7 +65,9 @@ export default function Meta({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="author" content="MySelfieBooth" />
-        <meta name="robots" content={robots} />
+        <meta name="robots" content={effectiveRobots} />
+        <meta name="googlebot" content={effectiveRobots} />
+        <meta name="bingbot" content={effectiveRobots} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="format-detection" content="telephone=no" />
 

@@ -1,10 +1,22 @@
 import BlogArticle from "../../components/blog/BlogArticle";
 import { blogArticles, getBlogArticle } from "../../data/blogArticles";
 
-function optimizePriceArticle(article) {
+const SEO_UPDATED_AT = "11 octobre 2026";
+const SEO_UPDATED_ISO = "2026-10-11";
+
+function withSeoUpdate(article, changes) {
   return {
     ...article,
+    ...changes,
+    modifiedAt: SEO_UPDATED_AT,
+    modifiedIso: SEO_UPDATED_ISO,
+  };
+}
+
+function optimizePriceArticle(article) {
+  return withSeoUpdate(article, {
     title: "Prix location photobooth : tarifs 2026",
+    seoTitle: "Prix Photobooth 2026 : tarifs & comparatif",
     excerpt:
       "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les tarifs de départ et les éléments qui font varier le prix final.",
     metaDescription:
@@ -53,18 +65,47 @@ function optimizePriceArticle(article) {
       { label: "Demander un devis", href: "https://reservation.myselfiebooth-paris.fr/" },
       ...(article.relatedLinks || []),
     ],
-  };
+  });
 }
 
 function optimizeEnterpriseArticle(article) {
-  return {
-    ...article,
-    title: "Photobooth entreprise : guide & idées",
+  return withSeoUpdate(article, {
+    title: "Photobooth entreprise : animation, logo & branding",
+    seoTitle: "Photobooth entreprise : animation & branding",
     excerpt:
-      "Choisissez une animation photobooth adaptée à votre objectif : salon professionnel, séminaire, soirée d'entreprise ou lancement de produit.",
+      "Salon, séminaire, soirée d'entreprise ou lancement : choisissez le bon photobooth, personnalisez le branding et fluidifiez le passage des invités.",
     metaDescription:
-      "Photobooth entreprise : conseils pour salon, séminaire et soirée corporate. Comparez les formats, le branding, le flux invités et les contenus.",
+      "Photobooth entreprise : formats, logo, branding, salon, séminaire et soirée corporate. Conseils pour choisir l'animation et organiser le flux invités.",
+    takeaways: [
+      "Choisissez le format selon l'objectif : trafic, souvenir, contenu ou image de marque.",
+      "Logo, couleurs, messages et cadres peuvent être adaptés au branding selon le dispositif.",
+      "Sur un salon ou un séminaire, le flux et le temps de passage sont aussi importants que le rendu.",
+    ],
     sections: [
+      {
+        title: "Photobooth entreprise : quel objectif avant de choisir la machine ?",
+        paragraphs: [
+          "Un photobooth d'entreprise peut servir à attirer sur un stand, animer un séminaire, remercier des collaborateurs, créer du contenu ou renforcer une activation de marque. Le choix du dispositif doit donc partir du résultat attendu plutôt que du nom de la machine.",
+        ],
+        bullets: [
+          "Salon professionnel : attirer puis faire passer rapidement les visiteurs.",
+          "Séminaire : créer un moment collectif facile à comprendre.",
+          "Soirée d'entreprise : produire un souvenir photo ou vidéo personnalisé.",
+          "Lancement de produit : aligner l'expérience avec le message et l'univers de marque.",
+        ],
+      },
+      {
+        title: "Logo, branding et personnalisation : que peut-on adapter ?",
+        paragraphs: [
+          "Selon le dispositif retenu, le cadre photo, certains écrans, les couleurs, les messages et l'habillage des contenus peuvent reprendre l'identité de l'entreprise. L'objectif est de rendre la marque identifiable sans réduire la place laissée aux participants.",
+        ],
+        bullets: [
+          "Logo et couleurs de marque.",
+          "Cadre ou overlay photo et vidéo.",
+          "Message d'accueil ou nom de l'opération.",
+          "Décor et expérience adaptés au brief lorsque la formule le permet.",
+        ],
+      },
       {
         title: "Quel photobooth choisir pour un événement d'entreprise ?",
         paragraphs: [
@@ -90,21 +131,27 @@ function optimizeEnterpriseArticle(article) {
         answer:
           "Oui. Le cadre photo, certains écrans, les couleurs, les messages et l'habillage des contenus peuvent être adaptés à l'identité de la marque selon le dispositif choisi.",
       },
+      {
+        question: "Quel photobooth choisir pour un salon professionnel ou un séminaire ?",
+        answer:
+          "Sur un salon, privilégiez un parcours rapide et visible. En séminaire ou en soirée interne, un Photobooth, un 360 Booth ou un Vogue Booth peut être choisi selon l'espace, le nombre de participants et le type de contenu recherché.",
+      },
       ...(article.faqs || []),
     ],
     relatedLinks: [
       { label: "Location Photobooth entreprise", href: "/evenements/corporates/" },
       { label: "Event-Tech & activations de marque", href: "/event-tech/" },
+      { label: "Photobooth pour salon et séminaire", href: "/blog/photobooth-salon-seminaire/" },
       { label: "Comparer les animations", href: "/prestations/" },
       ...(article.relatedLinks || []),
     ],
-  };
+  });
 }
 
 function optimizeSalonSeminaireArticle(article) {
-  return {
-    ...article,
+  return withSeoUpdate(article, {
     title: "Photobooth salon & séminaire : quel format ?",
+    seoTitle: "Photobooth salon & séminaire : quel format ?",
     metaDescription:
       "Quel photobooth choisir pour un salon professionnel ou un séminaire ? Comparez Photobooth, iPad Booth, 360 Booth et Vogue Booth selon le flux et l'espace.",
     relatedLinks: [
@@ -112,32 +159,133 @@ function optimizeSalonSeminaireArticle(article) {
       { label: "Location Photobooth", href: "/prestations/photobooth/" },
       ...(article.relatedLinks || []),
     ],
-  };
+  });
 }
 
 function optimizeWeddingArticle(article) {
-  return {
-    ...article,
+  return withSeoUpdate(article, {
     title: "Quel photobooth choisir pour un mariage ?",
+    seoTitle: "Photobooth mariage : comparatif & meilleur choix",
     excerpt:
-      "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les formats selon les tirages, le décor, l'espace et l'ambiance de votre mariage.",
+      "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les formats selon les tirages, le décor, l'espace, le nombre d'invités et l'ambiance du mariage.",
     metaDescription:
-      "Quel photobooth choisir pour un mariage ? Comparez Photobooth, Miroirbooth, 360 Booth et Vogue Booth selon le souvenir, le lieu et vos invités.",
+      "Quel est le meilleur photobooth pour un mariage ? Comparez Photobooth, Miroirbooth, 360 Booth et Vogue Booth selon le lieu, les invités et le souvenir voulu.",
+    takeaways: [
+      "Le Photobooth classique reste le plus polyvalent pour les tirages et les groupes.",
+      "Le Miroirbooth privilégie la scénographie, le 360 Booth la vidéo et le Vogue Booth l'effet éditorial.",
+      "Le meilleur choix dépend du lieu, du nombre d'invités, du souvenir et du niveau d'accompagnement souhaité.",
+    ],
     sections: [
       {
         title: "Quel est le meilleur photobooth pour un mariage ?",
         paragraphs: [
-          "Le meilleur format dépend surtout du souvenir recherché. Le Photobooth reste le plus polyvalent pour les tirages, le Miroirbooth apporte une présence décorative, le 360 Booth privilégie la vidéo et le Vogue Booth crée un décor très visuel.",
+          "Il n'existe pas un meilleur photobooth universel. Le Photobooth est souvent le plus simple pour les tirages et les groupes, le Miroirbooth apporte une présence décorative, le 360 Booth privilégie la vidéo et le Vogue Booth crée un décor très visuel.",
+        ],
+      },
+      {
+        title: "Comment choisir son photobooth en 5 critères ?",
+        paragraphs: [
+          "Pour comparer les offres, partez de l'usage réel pendant la réception. Cinq critères permettent généralement d'écarter rapidement les formats mal adaptés.",
+        ],
+        bullets: [
+          "Le souvenir souhaité : tirage photo, vidéo ou portrait éditorial.",
+          "L'espace et le recul disponibles dans le lieu.",
+          "Le nombre d'invités et les pics de passage prévus.",
+          "Le style recherché : discret, décoratif ou spectaculaire.",
+          "Le niveau d'accompagnement : autonome ou avec animateur selon le projet.",
         ],
       },
       ...article.sections,
     ],
+    faqs: [
+      {
+        question: "Quel est le meilleur photobooth pour un mariage ?",
+        answer:
+          "Le Photobooth classique est le plus polyvalent pour les tirages et les groupes. Le Miroirbooth est plus scénographique, le 360 Booth privilégie la vidéo et le Vogue Booth le rendu éditorial. Le meilleur choix dépend donc du lieu et du souvenir recherché.",
+      },
+      {
+        question: "Comment choisir son photobooth pour un mariage ?",
+        answer:
+          "Comparez le type de souvenir, l'espace disponible, le nombre d'invités, le style du mariage et le niveau d'accompagnement prévu. Ces critères permettent de choisir un format réellement adapté à la réception.",
+      },
+      {
+        question: "Faut-il choisir un photobooth avec animateur ou en formule autonome ?",
+        answer:
+          "Une formule autonome peut suffire pour un parcours simple. Un animateur devient utile lorsque le flux est important, que le dispositif est plus complexe ou que vous souhaitez accompagner davantage les invités.",
+      },
+      ...(article.faqs || []),
+    ],
     relatedLinks: [
       { label: "Voir les animations mariage", href: "/evenements/mariages/" },
       { label: "Location Photobooth", href: "/prestations/photobooth/" },
+      { label: "Prix d'une location Photobooth", href: "/blog/prix-location-photobooth/" },
       ...(article.relatedLinks || []),
     ],
-  };
+  });
+}
+
+function optimizeSpaceArticle(article) {
+  return withSeoUpdate(article, {
+    seoTitle: "Espace Photobooth : dimensions & alimentation",
+    excerpt:
+      "Recul, prise électrique, circulation, accès et surface : voici les points à valider pour installer un Photobooth, un Miroirbooth ou un 360 Booth sans gêner l'événement.",
+    metaDescription:
+      "Quel espace et quelle alimentation prévoir pour un photobooth ? Recul, prise électrique, circulation, accès et conseils selon Photobooth, Miroirbooth et 360 Booth.",
+    sections: [
+      {
+        title: "De quel espace et de quelle alimentation électrique a besoin un photobooth ?",
+        paragraphs: [
+          "Prévoyez à la fois l'emprise de la machine, le recul des participants et une zone de circulation. Une prise électrique accessible et un sol stable simplifient l'installation. La surface exacte varie selon le dispositif : une borne compacte demande moins de dégagement qu'un Miroirbooth ou un 360 Booth.",
+        ],
+        bullets: [
+          "Une prise électrique accessible à proximité.",
+          "Un sol plat, stable et protégé.",
+          "Du recul pour cadrer les groupes sans bloquer le passage.",
+          "Un accès de livraison compatible avec la taille du matériel.",
+        ],
+      },
+      ...article.sections,
+    ],
+    faqs: [
+      {
+        question: "De quel espace a besoin un photobooth ?",
+        answer:
+          "Il faut prévoir l'emprise de la borne, le recul nécessaire aux participants et une zone de circulation. La surface exacte dépend du modèle et du nombre de personnes photographiées à chaque passage.",
+      },
+      {
+        question: "Quelle alimentation électrique faut-il pour un photobooth ?",
+        answer:
+          "Une prise électrique accessible à proximité est généralement nécessaire. Les besoins précis dépendent de la machine et des équipements associés ; ils sont validés avant l'installation.",
+      },
+      ...(article.faqs || []),
+    ],
+    relatedLinks: [
+      { label: "Location Photobooth", href: "/prestations/photobooth/" },
+      { label: "Comparer les animations", href: "/prestations/" },
+      ...(article.relatedLinks || []),
+    ],
+  });
+}
+
+function optimizeDurationArticle(article) {
+  return withSeoUpdate(article, {
+    seoTitle: "Durée location Photobooth : 3h, 5h ou soirée ?",
+    metaDescription:
+      "Combien de temps louer un photobooth ? Comparez 3 h, 5 h ou une soirée complète selon le nombre d'invités, le programme et le débit de l'animation.",
+    faqs: [
+      {
+        question: "Combien de temps faut-il louer un photobooth ?",
+        answer:
+          "La bonne durée dépend du nombre d'invités et du programme. Une animation doit couvrir les périodes où les participants sont réellement disponibles, en tenant compte du repas, des discours et des pics de passage.",
+      },
+      ...(article.faqs || []),
+    ],
+    relatedLinks: [
+      { label: "Location Photobooth", href: "/prestations/photobooth/" },
+      { label: "Prix location Photobooth", href: "/blog/prix-location-photobooth/" },
+      ...(article.relatedLinks || []),
+    ],
+  });
 }
 
 function optimizePersonalizationArticle(article) {
@@ -226,6 +374,8 @@ function applySearchConsoleOverrides(article) {
     "animation-photobooth-entreprise": optimizeEnterpriseArticle,
     "photobooth-salon-seminaire": optimizeSalonSeminaireArticle,
     "choisir-photobooth-mariage": optimizeWeddingArticle,
+    "espace-installation-photobooth": optimizeSpaceArticle,
+    "duree-location-photobooth": optimizeDurationArticle,
     "personnaliser-photobooth": optimizePersonalizationArticle,
     "photobooth-anniversaire": optimizeAnniversaryArticle,
     "vogue-booth-effet-magazine": optimizeVogueArticle,

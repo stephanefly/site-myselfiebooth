@@ -155,6 +155,23 @@ export const organizationJsonLd = {
   email: siteConfig.email,
   hasMap: siteConfig.mapsUrl,
   sameAs: siteConfig.socialLinks.map((link) => link.href),
+  brand: {
+    "@type": "Brand",
+    name: siteConfig.name,
+  },
+  knowsAbout: [
+    "Location de photobooth",
+    "Photo Booth événementiel",
+    "Miroirbooth",
+    "360 Booth",
+    "Vogue Booth",
+    "Air360 Booth",
+    "iPad Booth",
+    "Livre d'or audio",
+    "Animation photo pour mariage",
+    "Animation photo pour entreprise",
+    "Activation de marque événementielle",
+  ],
   founder: {
     "@type": "Person",
     name: siteConfig.founder.name,
@@ -166,6 +183,7 @@ export const organizationJsonLd = {
     telephone: siteConfig.phoneInternational,
     contactType: "customer service",
     email: siteConfig.email,
+    availableLanguage: ["fr-FR"],
   },
   areaServed: siteConfig.servedAreas,
 };
@@ -176,6 +194,7 @@ export const websiteJsonLd = {
   "@id": `${siteConfig.baseUrl}/#website`,
   name: siteConfig.name,
   url: siteConfig.baseUrl,
+  inLanguage: "fr-FR",
   publisher: {
     "@id": `${siteConfig.baseUrl}/#organization`,
   },
