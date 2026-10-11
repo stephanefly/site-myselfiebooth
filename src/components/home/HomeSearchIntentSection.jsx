@@ -12,23 +12,36 @@ export default function HomeSearchIntentSection() {
         <p className="home-section-lead">
           MySelfieBooth propose la location de photobooths et bornes à selfie
           pour les mariages, anniversaires, séminaires, salons et soirées
-          d&apos;entreprise. Les demandes à Paris, autour de Melun, en
-          Seine-et-Marne (77), en Essonne et dans le reste de l&apos;Île-de-France
+          d&apos;entreprise. Les demandes à Paris, en Seine-et-Marne (77), en
+          Essonne (91), dans les Hauts-de-Seine (92), en Seine-Saint-Denis (93),
+          dans le Val-de-Marne (94), les Yvelines (78) et le Val-d&apos;Oise (95)
           sont étudiées selon la date, le lieu, les accès et la formule choisie.
         </p>
 
         <p className="home-service-note">
-          Photobooth classique, miroir photo, borne selfie ou animation vidéo :
-          comparez les formats, les tarifs et les options avant de choisir la
-          solution adaptée à votre événement.
+          Photobooth classique, miroir photo, borne selfie, 360 Booth, Vogue Booth
+          ou activation Event-Tech : comparez les formats, les tarifs et les options
+          avant de choisir la solution adaptée à votre événement.
         </p>
 
         <div className="home-actions">
           <a className="home-button home-button-primary" href="/prestations/photobooth/">
             Location Photobooth & tarifs
           </a>
+          <a className="home-button home-button-secondary-dark" href="/zones-intervention/">
+            Toutes les zones d&apos;intervention
+          </a>
+          <a className="home-button home-button-secondary-dark" href="/location-photobooth/seine-et-marne/">
+            Photobooth Seine-et-Marne 77
+          </a>
+          <a className="home-button home-button-secondary-dark" href="/location-photobooth/essonne/">
+            Photobooth Essonne 91
+          </a>
           <a className="home-button home-button-secondary-dark" href="/evenements/corporates/">
             Photobooth entreprise
+          </a>
+          <a className="home-button home-button-secondary-dark" href="/event-tech/">
+            Event-Tech & activations
           </a>
           <a className="home-button home-button-secondary-dark" href="/evenements/mariages/">
             Photobooth mariage

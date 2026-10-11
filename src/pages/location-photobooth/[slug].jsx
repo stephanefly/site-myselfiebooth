@@ -47,6 +47,26 @@ function buildFaq(location) {
   ];
 }
 
+function buildLocalLinks(location) {
+  const nearby = new Set(location.nearby || []);
+
+  return localSeoPages
+    .filter((entry) => entry.slug !== location.slug && entry.department === location.department)
+    .sort((a, b) => {
+      const score = (entry) => {
+        if (nearby.has(entry.name)) return 0;
+        if (entry.type === "department") return 1;
+        return 2;
+      };
+      return score(a) - score(b) || a.name.localeCompare(b.name, "fr");
+    })
+    .slice(0, 4)
+    .map((entry) => ({
+      label: `Photobooth ${entry.name} (${entry.code})`,
+      href: `/location-photobooth/${entry.slug}/`,
+    }));
+}
+
 function buildPage(location) {
   const place = locationPhrase(location);
   const path = `/location-photobooth/${location.slug}/`;
@@ -160,6 +180,7 @@ function buildPage(location) {
     ],
     faq,
     relatedLinks: [
+      ...buildLocalLinks(location),
       { label: "Toutes les zones d'intervention", href: "/zones-intervention/" },
       { label: "Location Photobooth", href: "/prestations/photobooth/" },
       { label: "Photobooth pour entreprise", href: "/evenements/corporates/" },
