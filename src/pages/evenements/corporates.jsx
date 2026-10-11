@@ -6,7 +6,7 @@ const basePage = marketingPages.corporates;
 const searchIntentSection = {
   anchor: "photobooth-entreprise",
   eyebrow: "Entreprise, salon & séminaire",
-  title: "Animation photobooth pour entreprise, salon professionnel et séminaire",
+  title: "Location photobooth entreprise pour salon, séminaire et soirée corporate",
   text:
     "Pour une soirée d'entreprise, un séminaire, un salon ou un lancement de produit, le Photobooth doit être rapide à comprendre, visible et cohérent avec votre marque. Nous adaptons la machine, la personnalisation, le flux invités et la logistique au format de votre événement.",
   cards: [
@@ -135,9 +135,9 @@ const reliabilitySection = {
 
 const corporatePage = {
   ...basePage,
-  title: "Photobooth entreprise, Brand Experience & Event-Tech en Île-de-France",
+  title: "Photobooth entreprise & activations de marque",
   description:
-    "Photobooth, 360 Booth, Vogue Portrait Studio et activations Event-Tech pour entreprise, salon et séminaire, avec branding, logistique cadrée et reporting selon le dispositif.",
+    "Location photobooth entreprise pour salon, séminaire, soirée corporate et lancement de produit en Île-de-France, avec branding, 360 Booth, Vogue Booth et reporting selon le dispositif.",
   highlights: ["Offres dès 900 € HT", "Brand Experience", "Event-Tech & reporting"],
   sections: [
     searchIntentSection,
@@ -157,10 +157,10 @@ const corporatePage = {
   ],
   meta: {
     ...basePage.meta,
-    title: "Photobooth Entreprise, Brand Experience & Event-Tech | MySelfieBooth",
+    title: "Location Photobooth Entreprise | MySelfieBooth",
     description:
-      "Animations photo, vidéo et Event-Tech pour entreprise en Île-de-France dès 900 € HT : branding, 360 Booth, Vogue, innovations sur étude et reporting selon dispositif.",
-    ogTitle: "Photobooth entreprise, Brand Experience & Event-Tech",
+      "Location photobooth entreprise pour salon, séminaire, soirée corporate et activation de marque : branding, 360 Booth, Vogue Booth et reporting.",
+    ogTitle: "Photobooth entreprise & activations de marque",
     ogDescription:
       "Des animations photo et vidéo pensées pour l'engagement, le contenu de marque, l'innovation et le reporting post-événement.",
     jsonLd: basePage.meta.jsonLd.map((entry) => {
@@ -170,9 +170,9 @@ const corporatePage = {
 
       return {
         ...entry,
-        name: "Photobooth, Brand Experience et Event-Tech pour entreprise",
+        name: "Location Photobooth entreprise et activation de marque",
         description:
-          "Animations photo, vidéo et Event-Tech pour entreprise, salon, séminaire et activation de marque avec branding, contenus et reporting selon le dispositif.",
+          "Photobooth, 360 Booth, Vogue Booth et Event-Tech pour entreprise, salon, séminaire et activation de marque avec branding et reporting selon le dispositif.",
         offers: {
           "@type": "Offer",
           price: "900",

@@ -4,7 +4,7 @@ import { blogArticles, getBlogArticle } from "../../data/blogArticles";
 function optimizePriceArticle(article) {
   return {
     ...article,
-    title: "Prix location photobooth : tarifs et budget à prévoir",
+    title: "Prix location photobooth : tarifs 2026",
     excerpt:
       "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les tarifs de départ et les éléments qui font varier le prix final.",
     metaDescription:
@@ -59,11 +59,11 @@ function optimizePriceArticle(article) {
 function optimizeEnterpriseArticle(article) {
   return {
     ...article,
-    title: "Photobooth entreprise : salon, séminaire et soirée corporate",
+    title: "Photobooth entreprise : guide & idées",
     excerpt:
       "Choisissez une animation photobooth adaptée à votre objectif : salon professionnel, séminaire, soirée d'entreprise ou lancement de produit.",
     metaDescription:
-      "Photobooth entreprise : conseils pour salon professionnel, séminaire, soirée corporate et lancement produit. Flux, branding, installation et contenus.",
+      "Photobooth entreprise : conseils pour salon, séminaire et soirée corporate. Comparez les formats, le branding, le flux invités et les contenus.",
     sections: [
       {
         title: "Quel photobooth choisir pour un événement d'entreprise ?",
@@ -79,8 +79,22 @@ function optimizeEnterpriseArticle(article) {
       },
       ...article.sections,
     ],
+    faqs: [
+      {
+        question: "Quel photobooth choisir pour une entreprise ?",
+        answer:
+          "Le Photobooth est adapté aux souvenirs imprimés et au branding, le 360 Booth au contenu vidéo et le Vogue Booth aux activations qui recherchent un rendu plus éditorial.",
+      },
+      {
+        question: "Peut-on personnaliser un photobooth avec le logo d'une entreprise ?",
+        answer:
+          "Oui. Le cadre photo, certains écrans, les couleurs, les messages et l'habillage des contenus peuvent être adaptés à l'identité de la marque selon le dispositif choisi.",
+      },
+      ...(article.faqs || []),
+    ],
     relatedLinks: [
-      { label: "Voir les offres Photobooth entreprise", href: "/evenements/corporates/" },
+      { label: "Location Photobooth entreprise", href: "/evenements/corporates/" },
+      { label: "Event-Tech & activations de marque", href: "/event-tech/" },
       { label: "Comparer les animations", href: "/prestations/" },
       ...(article.relatedLinks || []),
     ],
@@ -90,11 +104,11 @@ function optimizeEnterpriseArticle(article) {
 function optimizeSalonSeminaireArticle(article) {
   return {
     ...article,
-    title: "Photobooth salon professionnel & séminaire : quel format choisir ?",
+    title: "Photobooth salon & séminaire : quel format ?",
     metaDescription:
       "Quel photobooth choisir pour un salon professionnel ou un séminaire ? Comparez Photobooth, iPad Booth, 360 Booth et Vogue Booth selon le flux et l'espace.",
     relatedLinks: [
-      { label: "Photobooth pour entreprise", href: "/evenements/corporates/" },
+      { label: "Location Photobooth entreprise", href: "/evenements/corporates/" },
       { label: "Location Photobooth", href: "/prestations/photobooth/" },
       ...(article.relatedLinks || []),
     ],
@@ -104,11 +118,20 @@ function optimizeSalonSeminaireArticle(article) {
 function optimizeWeddingArticle(article) {
   return {
     ...article,
-    title: "Quel photobooth choisir pour un mariage ? Comparatif 2026",
+    title: "Quel photobooth choisir pour un mariage ?",
     excerpt:
       "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les formats selon les tirages, le décor, l'espace et l'ambiance de votre mariage.",
     metaDescription:
       "Quel photobooth choisir pour un mariage ? Comparez Photobooth, Miroirbooth, 360 Booth et Vogue Booth selon le souvenir, le lieu et vos invités.",
+    sections: [
+      {
+        title: "Quel est le meilleur photobooth pour un mariage ?",
+        paragraphs: [
+          "Le meilleur format dépend surtout du souvenir recherché. Le Photobooth reste le plus polyvalent pour les tirages, le Miroirbooth apporte une présence décorative, le 360 Booth privilégie la vidéo et le Vogue Booth crée un décor très visuel.",
+        ],
+      },
+      ...article.sections,
+    ],
     relatedLinks: [
       { label: "Voir les animations mariage", href: "/evenements/mariages/" },
       { label: "Location Photobooth", href: "/prestations/photobooth/" },
@@ -120,7 +143,7 @@ function optimizeWeddingArticle(article) {
 function optimizePersonalizationArticle(article) {
   return {
     ...article,
-    title: "Photobooth personnalisé : tirages, décor & idées de personnalisation",
+    title: "Photobooth personnalisé : idées & options",
     excerpt:
       "Cadre photo, écran, décor, mur floral et souvenirs : personnalisez votre photobooth sans surcharger le rendu de votre événement.",
     metaDescription:
@@ -151,7 +174,7 @@ function optimizePersonalizationArticle(article) {
 function optimizeAnniversaryArticle(article) {
   return {
     ...article,
-    title: "Photobooth anniversaire : lequel choisir pour votre soirée ?",
+    title: "Photobooth anniversaire : lequel choisir ?",
     excerpt:
       "Photo imprimée, vidéo 360 ou Vogue Booth : choisissez l'animation anniversaire adaptée à vos invités, votre espace et votre ambiance.",
     metaDescription:
@@ -167,7 +190,7 @@ function optimizeAnniversaryArticle(article) {
 function optimizeVogueArticle(article) {
   return {
     ...article,
-    title: "Vogue Booth : le photocall effet magazine pour vos événements",
+    title: "Vogue Booth : effet magazine & photocall",
     excerpt:
       "Découvrez le Vogue Booth, un photocall lumineux personnalisable inspiré des couvertures de magazine pour mariage, gala et événement de marque.",
     metaDescription:
@@ -182,7 +205,7 @@ function optimizeVogueArticle(article) {
 function optimizeLivreOrArticle(article) {
   return {
     ...article,
-    title: "Livre d'or photobooth : photos, messages et idées pour mariage",
+    title: "Livre d'or photobooth : idées mariage",
     metaDescription:
       "Livre d'or photobooth : combinez tirages photo et messages des invités pour créer un souvenir de mariage à conserver après la réception.",
     relatedLinks: [

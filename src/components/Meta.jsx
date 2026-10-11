@@ -6,6 +6,23 @@ import {
   websiteJsonLd,
 } from "../data/site";
 
+function enrichStructuredData(entry) {
+  if (!entry || entry["@type"] !== "Service" || !entry.provider || typeof entry.provider !== "object") {
+    return entry;
+  }
+
+  return {
+    ...entry,
+    provider: {
+      "@type": entry.provider["@type"] || "Organization",
+      ...entry.provider,
+      name: entry.provider.name || siteConfig.name,
+      url: entry.provider.url || siteConfig.baseUrl,
+      logo: entry.provider.logo || absoluteUrl("/images/logo.jpg"),
+    },
+  };
+}
+
 export default function Meta({
   title = "MySelfieBooth - Location photobooth premium en Île-de-France",
   description = "Louez un photobooth premium pour vos événements professionnels et privés : entreprises, mariages, anniversaires et soirées en Île-de-France.",
@@ -34,7 +51,9 @@ export default function Meta({
     includeOrganization ? organizationJsonLd : null,
     includeWebsite ? websiteJsonLd : null,
     ...jsonLd,
-  ].filter(Boolean);
+  ]
+    .filter(Boolean)
+    .map(enrichStructuredData);
 
   return (
     <>
