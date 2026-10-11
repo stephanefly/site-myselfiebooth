@@ -30,6 +30,13 @@ const routeLabels = {
   merci: "Merci",
 };
 
+const breadcrumbAliases = {
+  "location-photobooth": {
+    label: "Zones d'intervention",
+    href: "/zones-intervention/",
+  },
+};
+
 function humanize(segment) {
   if (routeLabels[segment]) {
     return routeLabels[segment];
@@ -51,10 +58,18 @@ export default function Breadcrumbs() {
   const segments = cleanPath.split("/").filter(Boolean);
   const items = [
     { label: "Accueil", href: "/" },
-    ...segments.map((segment, index) => ({
-      label: humanize(segment),
-      href: `/${segments.slice(0, index + 1).join("/")}/`,
-    })),
+    ...segments.map((segment, index) => {
+      const alias = index === 0 ? breadcrumbAliases[segment] : null;
+
+      if (alias) {
+        return alias;
+      }
+
+      return {
+        label: humanize(segment),
+        href: `/${segments.slice(0, index + 1).join("/")}/`,
+      };
+    }),
   ];
 
   return (
