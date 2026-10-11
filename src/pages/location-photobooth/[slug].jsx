@@ -44,6 +44,22 @@ function buildFaq(location) {
       question: `Comment sont calculés les frais de déplacement ${place} ?`,
       answer: "Ils dépendent du lieu exact, de la date, des horaires, du matériel mobilisé et des contraintes d'accès. Ils sont indiqués dans la proposition avant validation afin d'éviter les surprises.",
     },
+    {
+      question: `Quel budget prévoir pour un photobooth ${place} ?`,
+      answer: "Le Photobooth démarre à 450 €. Le montant final dépend de la machine, de la durée, du lieu, des impressions, du niveau de personnalisation et des options ajoutées. Le devis détaille ces éléments avant réservation.",
+    },
+    {
+      question: `De combien d'espace a besoin un photobooth ${place} ?`,
+      answer: "La surface dépend du dispositif choisi. Une borne compacte demande moins de place qu'un Miroirbooth, un 360 Booth ou un Vogue Booth. Nous validons l'implantation, le recul et la circulation des invités avant la prestation.",
+    },
+    {
+      question: `Peut-on personnaliser le photobooth ${place} avec un logo ou un thème ?`,
+      answer: "Oui. Le cadre photo, certains écrans, les visuels, les messages et plusieurs éléments du décor peuvent être adaptés à un mariage, une entreprise ou une activation de marque selon la formule retenue.",
+    },
+    {
+      question: `Quand faut-il réserver un photobooth ${place} ?`,
+      answer: "Dès que la date et le lieu sont confirmés, il est utile de vérifier la disponibilité. Les périodes de mariage, les vendredis et samedis ainsi que les grands événements d'entreprise peuvent se remplir plus tôt.",
+    },
   ];
 }
 
@@ -154,6 +170,102 @@ function buildPage(location) {
         ],
       },
       {
+        anchor: "tarifs-devis",
+        eyebrow: "Tarifs & devis",
+        title: `Combien coûte une location de photobooth ${place} ?`,
+        text: `Le prix ne dépend pas seulement de la commune. Pour une prestation ${place}, nous regardons la machine choisie, la durée, les impressions, le niveau de personnalisation, les horaires, les accès et le déplacement. L'objectif est de proposer une formule adaptée au besoin réel plutôt qu'un forfait surdimensionné.`,
+        cards: [
+          {
+            title: "Machine choisie",
+            text: "Photobooth, Miroirbooth, 360 Booth, Vogue Booth et Air360 n'impliquent pas la même installation ni les mêmes usages.",
+          },
+          {
+            title: "Durée & horaires",
+            text: "Une animation courte en journée et une prestation tardive avec montage spécifique ne mobilisent pas la même organisation.",
+          },
+          {
+            title: "Impressions & souvenirs",
+            text: "Tirages, magnets, porte-clés, livre d'or et autres options influencent le contenu final de la formule.",
+          },
+          {
+            title: "Accès & déplacement",
+            text: "Stationnement, distance de portage, étages, ascenseur, quai de livraison et horaires du lieu sont intégrés à la préparation.",
+          },
+        ],
+      },
+      {
+        anchor: "preparer-installation",
+        eyebrow: "Préparer le lieu",
+        title: `Les points à vérifier avant l'installation ${place}`,
+        text: `Une bonne prestation commence avant le jour J. ${location.logistics} Nous validons également la prise électrique, la stabilité du sol, le recul disponible et la circulation autour de l'animation afin de choisir un emplacement visible sans bloquer les invités.`,
+        cards: [
+          {
+            title: "Prise électrique",
+            text: "Une alimentation accessible évite les rallonges inutiles et simplifie l'installation technique.",
+          },
+          {
+            title: "Surface & recul",
+            text: "Le Photobooth reste compact ; le Miroirbooth, le 360 Booth et le Vogue Booth demandent davantage de dégagement.",
+          },
+          {
+            title: "Circulation",
+            text: "L'animation doit être visible mais ne pas gêner une entrée, une sortie, le service ou la piste de danse.",
+          },
+          {
+            title: "Accès technique",
+            text: "Nous prenons en compte escaliers, ascenseurs, barrières, badges, parkings et créneaux de livraison imposés par le lieu.",
+          },
+        ],
+      },
+      {
+        anchor: "parcours-invites",
+        eyebrow: "Expérience invités",
+        title: `Créer un parcours fluide pour les invités ${place}`,
+        text: `Le bon photobooth doit rester simple à comprendre. Pour ${location.focus}, nous adaptons le dispositif au nombre de personnes, au temps disponible et au rythme de l'événement afin de limiter l'attente et de conserver une expérience agréable.`,
+        cards: [
+          {
+            title: "Avant le pic",
+            text: "Ouvrir l'animation au bon moment permet de répartir les passages avant que tous les invités arrivent en même temps.",
+          },
+          {
+            title: "Consignes simples",
+            text: "Un parcours court, des écrans lisibles et des choix limités rendent l'expérience plus rapide pour tous les âges.",
+          },
+          {
+            title: "Formats adaptés",
+            text: "Photo imprimée, vidéo 360 ou portrait Vogue ne génèrent pas le même temps de passage : le choix dépend du flux attendu.",
+          },
+          {
+            title: "Animateur si nécessaire",
+            text: "Pour certains événements, un accompagnement humain permet d'accélérer les passages et de maintenir la qualité du rendu.",
+          },
+        ],
+      },
+      {
+        anchor: "personnalisation-locale",
+        eyebrow: "Personnalisation",
+        title: `Personnaliser votre photobooth ${place}`,
+        text: `La personnalisation peut aller d'un simple cadre photo à une expérience de marque plus complète. Pour un mariage, une entreprise ou un événement privé ${place}, nous pouvons adapter les visuels, les messages et plusieurs éléments de l'expérience selon la formule et les fichiers fournis.`,
+        cards: [
+          {
+            title: "Cadre photo",
+            text: "Noms, date, logo, couleurs et éléments graphiques peuvent être intégrés au rendu lorsque la formule le prévoit.",
+          },
+          {
+            title: "Univers visuel",
+            text: "Écran d'accueil, décor, fond et éléments de marque peuvent être coordonnés pour conserver une identité cohérente.",
+          },
+          {
+            title: "Souvenirs physiques",
+            text: "Magnets, porte-clés, livre d'or ou panneau permettent de prolonger l'expérience au-delà de la photo numérique.",
+          },
+          {
+            title: "Contenu social",
+            text: "Les formats vidéo ou verticaux peuvent être privilégiés lorsque l'objectif principal est la création de contenu réutilisable.",
+          },
+        ],
+      },
+      {
         anchor: "zone-proche",
         eyebrow: "Secteur desservi",
         title: `Interventions autour de ${location.name}`,
@@ -177,6 +289,30 @@ function buildPage(location) {
           },
         ],
       },
+      {
+        anchor: "reservation-checklist",
+        eyebrow: "Avant de réserver",
+        title: `Les informations utiles pour un devis rapide ${place}`,
+        text: `Pour chiffrer précisément une prestation à ${location.name}, les informations les plus utiles sont la date, l'adresse, les horaires, le nombre approximatif d'invités, le type d'événement et le souvenir recherché. Avec ces éléments, nous pouvons orienter plus rapidement vers la bonne machine et les options réellement utiles.`,
+        cards: [
+          {
+            title: "Date & horaires",
+            text: "Indiquez l'heure d'ouverture au public, la durée souhaitée et les éventuelles contraintes de montage ou démontage.",
+          },
+          {
+            title: "Lieu exact",
+            text: "L'adresse permet d'évaluer le déplacement, le stationnement et les contraintes d'accès avant validation.",
+          },
+          {
+            title: "Nombre d'invités",
+            text: "Cette donnée aide à estimer le flux, le besoin d'accompagnement et la quantité de souvenirs à prévoir.",
+          },
+          {
+            title: "Objectif principal",
+            text: "Souvenir imprimé, animation visuelle, contenu social, branding ou collecte de contacts : l'objectif oriente directement le choix du dispositif.",
+          },
+        ],
+      },
     ],
     faq,
     relatedLinks: [
@@ -187,6 +323,8 @@ function buildPage(location) {
       { label: "Photobooth pour mariage", href: "/evenements/mariages/" },
       { label: "Event-Tech & activations de marque", href: "/event-tech/" },
       { label: "Prix Photobooth en Île-de-France", href: "/prix-photobooth-ile-de-france-2026/" },
+      { label: "Guide prix location Photobooth", href: "/blog/prix-location-photobooth/" },
+      { label: "Guide espace et installation", href: "/blog/espace-installation-photobooth/" },
     ],
     finalEyebrow: location.name,
     finalTitle: `Recevez une proposition adaptée à votre événement ${place}.`,
