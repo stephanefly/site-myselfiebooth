@@ -5,6 +5,9 @@ const root = process.cwd();
 const staticRoutes = JSON.parse(
   await readFile(resolve(root, "src/data/sitemap-routes.json"), "utf8"),
 );
+const localSeoPages = JSON.parse(
+  await readFile(resolve(root, "src/data/local-seo-pages.json"), "utf8"),
+);
 const blogSources = [
   "src/data/blogArticles.js",
   "src/data/blogWeddingPlanningGuides.js",
@@ -22,13 +25,22 @@ for (const source of blogSources) {
 }
 
 const staticPaths = new Set(staticRoutes.map((route) => route.path));
+const blogRoutes = Array.from(blogSlugs)
+  .map((slug) => ({ path: `/blog/${slug}/`, lastmod: "2026-08-12" }))
+  .filter((route) => !staticPaths.has(route.path));
+const localRoutes = localSeoPages
+  .map((location) => ({
+    path: `/location-photobooth/${location.slug}/`,
+    lastmod: "2026-10-11",
+  }))
+  .filter((route) => !staticPaths.has(route.path));
+
 const routes = [
   ...staticRoutes.map((route) => route.path === "/blog/"
     ? { ...route, lastmod: "2026-08-12" }
     : route),
-  ...Array.from(blogSlugs)
-    .map((slug) => ({ path: `/blog/${slug}/`, lastmod: "2026-08-12" }))
-    .filter((route) => !staticPaths.has(route.path)),
+  ...blogRoutes,
+  ...localRoutes,
 ];
 const baseUrl = "https://myselfiebooth-paris.fr";
 const escapeXml = (value) => value

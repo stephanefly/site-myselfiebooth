@@ -23,9 +23,10 @@ export default function Footer() {
       links: [
         { label: "Location Photobooth", href: "/prestations/photobooth" },
         { label: "Toutes les prestations", href: "/prestations" },
+        { label: "Event-Tech & activations", href: "/event-tech" },
+        { label: "Zones d'intervention", href: "/zones-intervention" },
         { label: "Tarifs détaillés", href: siteConfig.ratesUrl },
         { label: "Nos packs", href: "/prestations#packs" },
-        { label: "Toutes les options", href: "/prestations#options" },
         { label: "Réalisations", href: "/realisations" },
       ],
     },
@@ -45,8 +46,8 @@ export default function Footer() {
         <div className="footer-brand">
           <a href="/">{siteConfig.name}</a>
           <p>
-            Photobooths premium pour entreprises, marques, mariages et événements
-            privés en Île-de-France, à Lyon et à Rouen.
+            Photobooths premium, 360 Booth, Vogue Booth et activations Event-Tech
+            pour entreprises, marques, mariages et événements privés en Île-de-France.
           </p>
           <a
             className="footer-review"
@@ -81,10 +82,13 @@ export default function Footer() {
         ))}
 
         <div className="footer-group footer-contact">
-          <h3>Contact</h3>
+          <h3>Zones & contact</h3>
           <a href={siteConfig.phoneHref}>{siteConfig.phoneLabel}</a>
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-          <a href="/paris/">Paris et Île-de-France</a>
+          <a href="/paris/">Paris</a>
+          <a href="/location-photobooth/seine-et-marne/">Seine-et-Marne (77)</a>
+          <a href="/location-photobooth/essonne/">Essonne (91)</a>
+          <a href="/zones-intervention/">Toutes les zones</a>
           <a href="/lyon/">Lyon</a>
           <a href="/rouen/">Rouen et Normandie</a>
           <a
@@ -94,14 +98,6 @@ export default function Footer() {
             data-event="maps_view_click"
           >
             Voir sur Google Maps
-          </a>
-          <a
-            href={siteConfig.directionsUrl}
-            target="_blank"
-            rel="noreferrer"
-            data-event="maps_directions_click"
-          >
-            Préparer un itinéraire
           </a>
         </div>
       </div>

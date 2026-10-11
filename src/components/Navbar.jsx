@@ -5,9 +5,11 @@ import { siteConfig } from "../data/site";
 const links = [
   { label: "Prestations", href: "/prestations" },
   { label: "Entreprises", href: "/evenements/corporates", professional: true },
+  { label: "Event-Tech", href: "/event-tech", professional: true },
   { label: "Packs", href: "/prestations#packs" },
   { label: "Options", href: "/prestations#options" },
   { label: "Événements", href: "/evenements" },
+  { label: "Zones", href: "/zones-intervention" },
   { label: "Réalisations", href: "/realisations" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
@@ -76,18 +78,18 @@ export default function Navbar() {
         }
 
         .nav-container {
-          width: min(1220px, calc(100% - 32px));
+          width: min(1320px, calc(100% - 32px));
           min-height: 72px;
           margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          gap: 18px;
+          gap: 14px;
         }
 
         .nav-brand {
           color: #fff;
-          font-size: 1.28rem;
+          font-size: 1.24rem;
           font-weight: 900;
           letter-spacing: 0;
           text-decoration: none;
@@ -98,7 +100,7 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 18px;
+          gap: 13px;
           flex: 1;
         }
 
@@ -107,7 +109,7 @@ export default function Navbar() {
           display: inline-flex;
           align-items: center;
           color: #efe9dd;
-          font-size: 0.88rem;
+          font-size: 0.8rem;
           font-weight: 800;
           text-decoration: none;
           white-space: nowrap;
@@ -126,11 +128,11 @@ export default function Navbar() {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 0 17px;
+          padding: 0 16px;
           border-radius: 8px;
           color: #17130a;
           background: #e5c46b;
-          font-size: 0.88rem;
+          font-size: 0.84rem;
           font-weight: 900;
           text-decoration: none;
           white-space: nowrap;
@@ -158,7 +160,7 @@ export default function Navbar() {
           background: #fff;
         }
 
-        @media (max-width: 1180px) {
+        @media (max-width: 1320px) {
           .nav-links {
             position: absolute;
             top: 72px;

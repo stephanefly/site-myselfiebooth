@@ -33,6 +33,10 @@ const parisPage = {
     ...(basePage.sections || []),
   ],
   relatedLinks: [
+    { label: "Toutes nos zones d'intervention", href: "/zones-intervention/" },
+    { label: "Photobooth en Seine-et-Marne (77)", href: "/location-photobooth/seine-et-marne/" },
+    { label: "Photobooth en Essonne (91)", href: "/location-photobooth/essonne/" },
+    { label: "Photobooth dans les Hauts-de-Seine (92)", href: "/location-photobooth/hauts-de-seine/" },
     { label: "Voir la location Photobooth", href: "/prestations/photobooth/" },
     { label: "Comprendre le prix d'une location Photobooth", href: "/blog/prix-location-photobooth/" },
     { label: "Photobooth pour entreprise", href: "/evenements/corporates/" },
