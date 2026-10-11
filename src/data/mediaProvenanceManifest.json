@@ -45,5 +45,33 @@
       "/images/event-archive/brice-tirages.webp",
       "/images/realisations-machines/tirages-gala.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/miroirbooth-paris-premium.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/miroirbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/livre-or-video-corporate.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/livre-dor-video.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/panneau-bienvenue-mariage.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/panneau-fontaine.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/voguebooth-premium.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/vogue-real/vogue-booth-mariage-card.webp"
+    ]
   }
 ]
