@@ -55,6 +55,32 @@ const corporateOffersSection = {
   ],
 };
 
+const innovationSection = {
+  anchor: "event-tech",
+  eyebrow: "Event-Tech & Innovation",
+  title: "Des expériences interactives à intégrer aux activations de marque",
+  text:
+    "Nous développons une approche plus logicielle de l'animation événementielle : automatisation, personnalisation avancée et expériences interactives. Les nouveautés sont proposées sur étude lorsqu'elles apportent une vraie valeur au parcours invité.",
+  cards: [
+    {
+      title: "AI Sticker & portrait augmenté",
+      text: "Concept pilote de transformation ou stylisation d'un portrait dans un univers de marque, avec rendus validés avant l'événement.",
+    },
+    {
+      title: "Live Wall interactif",
+      text: "Affichage dynamique des contenus créés pendant l'événement sur écran ou mur dédié, sous réserve de validation technique du lieu.",
+    },
+    {
+      title: "Lead Capture",
+      text: "Collecte de coordonnées ou qualification de contacts possible sur projet, avec parcours, consentement et destination des données définis en amont.",
+    },
+    {
+      title: "Automatisation post-événement",
+      text: "Remise des médias, synthèse d'activité et reporting peuvent être automatisés lorsque le dispositif permet de mesurer les données utiles.",
+    },
+  ],
+};
+
 const corporateReportSection = {
   anchor: "rapport-corporate-automatique",
   eyebrow: "Reporting post-événement",
@@ -109,18 +135,20 @@ const reliabilitySection = {
 
 const corporatePage = {
   ...basePage,
-  title: "Photobooth entreprise & Brand Experience en Île-de-France",
+  title: "Photobooth entreprise, Brand Experience & Event-Tech en Île-de-France",
   description:
-    "Photobooth, 360 Booth et Vogue Portrait Studio pour entreprise, salon, séminaire et activation de marque, avec branding, logistique cadrée et reporting selon le dispositif.",
-  highlights: ["Offres dès 900 € HT", "Branding", "Rapport corporate automatique"],
+    "Photobooth, 360 Booth, Vogue Portrait Studio et activations Event-Tech pour entreprise, salon et séminaire, avec branding, logistique cadrée et reporting selon le dispositif.",
+  highlights: ["Offres dès 900 € HT", "Brand Experience", "Event-Tech & reporting"],
   sections: [
     searchIntentSection,
     corporateOffersSection,
+    innovationSection,
     corporateReportSection,
     reliabilitySection,
     ...basePage.sections,
   ],
   relatedLinks: [
+    { label: "Event-Tech & activations de marque", href: "/event-tech/" },
     { label: "Prix Photobooth en Île-de-France en 2026", href: "/prix-photobooth-ile-de-france-2026/" },
     { label: "Guide photobooth entreprise", href: "/blog/animation-photobooth-entreprise/" },
     { label: "Quel photobooth pour un salon ou séminaire ?", href: "/blog/photobooth-salon-seminaire/" },
@@ -129,12 +157,12 @@ const corporatePage = {
   ],
   meta: {
     ...basePage.meta,
-    title: "Photobooth Entreprise & Brand Experience | MySelfieBooth",
+    title: "Photobooth Entreprise, Brand Experience & Event-Tech | MySelfieBooth",
     description:
-      "Animations photo et vidéo pour entreprise en Île-de-France dès 900 € HT : branding, Photobooth, 360 Booth, Vogue Portrait Studio et rapport corporate selon dispositif.",
-    ogTitle: "Photobooth entreprise & Brand Experience",
+      "Animations photo, vidéo et Event-Tech pour entreprise en Île-de-France dès 900 € HT : branding, 360 Booth, Vogue, innovations sur étude et reporting selon dispositif.",
+    ogTitle: "Photobooth entreprise, Brand Experience & Event-Tech",
     ogDescription:
-      "Des animations photo et vidéo pensées pour l'engagement, le contenu de marque, la fiabilité et le reporting post-événement.",
+      "Des animations photo et vidéo pensées pour l'engagement, le contenu de marque, l'innovation et le reporting post-événement.",
     jsonLd: basePage.meta.jsonLd.map((entry) => {
       if (entry["@type"] !== "Service") {
         return entry;
@@ -142,9 +170,9 @@ const corporatePage = {
 
       return {
         ...entry,
-        name: "Photobooth et Brand Experience pour entreprise",
+        name: "Photobooth, Brand Experience et Event-Tech pour entreprise",
         description:
-          "Animations photo et vidéo pour entreprise, salon, séminaire et activation de marque avec branding, contenus et rapport corporate selon le dispositif.",
+          "Animations photo, vidéo et Event-Tech pour entreprise, salon, séminaire et activation de marque avec branding, contenus et reporting selon le dispositif.",
         offers: {
           "@type": "Offer",
           price: "900",
