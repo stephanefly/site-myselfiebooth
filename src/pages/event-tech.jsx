@@ -38,6 +38,31 @@ const eventTechPage = {
       ],
     },
     {
+      anchor: "parcours-activation",
+      eyebrow: "Parcours visiteur",
+      title: "Concevoir l'activation comme un parcours, pas comme une simple borne",
+      text:
+        "Une activation efficace enchaîne plusieurs étapes sans friction : attirer, expliquer, faire participer, créer le contenu, permettre sa récupération et éventuellement mesurer l'interaction. Chaque étape doit rester compréhensible en quelques secondes dans le contexte réel de l'événement.",
+      cards: [
+        {
+          title: "1. Attirer",
+          text: "Le dispositif, son éclairage, son écran ou son décor doivent être suffisamment visibles pour être compris à distance.",
+        },
+        {
+          title: "2. Participer",
+          text: "Le nombre d'étapes doit rester limité. Plus le flux est important, plus l'expérience doit être directe et guidée.",
+        },
+        {
+          title: "3. Récupérer",
+          text: "Tirage, QR code, galerie ou remise des médias sont choisis selon le format et l'objectif du projet.",
+        },
+        {
+          title: "4. Mesurer",
+          text: "Lorsque le dispositif le permet, les sessions, volumes produits et actions disponibles peuvent alimenter le bilan post-événement.",
+        },
+      ],
+    },
+    {
       anchor: "innovation",
       eyebrow: "Innovation Lab",
       title: "Les expériences que nous étudions pour les marques et les agences",
@@ -63,6 +88,81 @@ const eventTechPage = {
       ],
     },
     {
+      anchor: "photobooth-ia",
+      eyebrow: "Photobooth IA",
+      title: "Comment peut fonctionner une expérience de photobooth assistée par IA ?",
+      text:
+        "Une expérience IA peut partir d'un portrait capturé sur place puis appliquer un univers visuel défini en amont. Le principal enjeu n'est pas seulement la génération : il faut maîtriser le temps de traitement, la cohérence du style, les cas d'échec, le rendu final et l'information donnée au participant.",
+      cards: [
+        {
+          title: "Style préparé",
+          text: "L'univers visuel est défini et testé avant l'événement afin d'éviter des résultats trop aléatoires en production.",
+        },
+        {
+          title: "Temps de génération",
+          text: "Le parcours doit intégrer le délai de traitement sans créer de file d'attente disproportionnée.",
+        },
+        {
+          title: "Validation des rendus",
+          text: "Des tests permettent d'identifier les limites du dispositif et les cas où un rendu doit être régénéré ou écarté.",
+        },
+        {
+          title: "Transparence",
+          text: "Le participant doit comprendre lorsqu'un contenu est transformé ou généré avec une technologie d'IA.",
+        },
+      ],
+    },
+    {
+      anchor: "live-wall",
+      eyebrow: "Affichage temps réel",
+      title: "Live Wall : transformer les contenus produits en décor vivant",
+      text:
+        "Un Live Wall peut afficher progressivement les photos ou vidéos créées pendant l'événement. Ce type de dispositif augmente la visibilité de l'activation et crée un effet collectif, mais il nécessite de cadrer la connexion, l'écran, le format des médias et une éventuelle modération.",
+      cards: [
+        {
+          title: "Écran ou mur dédié",
+          text: "La résolution, l'orientation et la distance de lecture doivent être compatibles avec les contenus produits.",
+        },
+        {
+          title: "Connexion",
+          text: "Le fonctionnement en direct dépend du réseau disponible ou de l'architecture technique prévue pour transférer les médias.",
+        },
+        {
+          title: "Modération",
+          text: "Selon le contexte, les contenus peuvent nécessiter une validation avant d'être visibles publiquement sur le Live Wall.",
+        },
+        {
+          title: "Habillage de marque",
+          text: "Cadre, fond, logos et messages peuvent transformer l'affichage en prolongement visuel de la campagne.",
+        },
+      ],
+    },
+    {
+      anchor: "lead-capture-event-tech",
+      eyebrow: "Lead Generation",
+      title: "Lead Capture : relier l'animation à un objectif marketing",
+      text:
+        "Sur un salon ou une activation commerciale, la collecte de contacts peut être intégrée au parcours sous réserve d'un cadre clair. La priorité reste de demander uniquement les informations utiles et d'éviter qu'un formulaire trop long dégrade l'expérience.",
+      cards: [
+        {
+          title: "Qualification légère",
+          text: "Email, société ou choix simple peuvent suffire selon l'objectif ; chaque champ supplémentaire augmente la friction.",
+        },
+        {
+          title: "Consentement",
+          text: "La finalité de la collecte doit être claire pour le participant avant validation du formulaire.",
+        },
+        {
+          title: "Export défini",
+          text: "Le format et la destination des données doivent être convenus avant l'événement pour faciliter le traitement ensuite.",
+        },
+        {
+          title: "Mesure séparée",
+          text: "Il est utile de distinguer le nombre de participations, les leads réellement consentis et les téléchargements de contenus.",
+        },
+      ],
+    },
+    {
       anchor: "processus",
       eyebrow: "Avant le jour J",
       title: "Une innovation n'est utile que si elle reste simple pour l'invité",
@@ -84,6 +184,31 @@ const eventTechPage = {
         {
           title: "Livrables prévus",
           text: "Médias, galerie, exports et indicateurs disponibles sont précisés avant la prestation pour faciliter le bilan post-événement.",
+        },
+      ],
+    },
+    {
+      anchor: "mesure-event-tech",
+      eyebrow: "KPI & reporting",
+      title: "Quels indicateurs suivre après une activation Event-Tech ?",
+      text:
+        "Le reporting doit rester lié à l'objectif initial. Mesurer uniquement le nombre de photos n'a pas beaucoup de sens si l'objectif était la collecte de contacts, le partage social ou le trafic sur un stand.",
+      cards: [
+        {
+          title: "Participation",
+          text: "Sessions, photos, vidéos ou créations produites indiquent le volume d'utilisation du dispositif lorsque ces données sont disponibles.",
+        },
+        {
+          title: "Engagement",
+          text: "Téléchargements, partages, interactions ou temps forts peuvent compléter le volume brut lorsque le parcours permet de les mesurer.",
+        },
+        {
+          title: "Lead Capture",
+          text: "Nombre de contacts consentis, taux de complétion du parcours et données exportées doivent être distingués des simples participations.",
+        },
+        {
+          title: "Qualité opérationnelle",
+          text: "Temps d'attente, incidents, pics d'utilisation et retours terrain aident à améliorer le dispositif pour une prochaine opération.",
         },
       ],
     },
@@ -134,12 +259,34 @@ const eventTechPage = {
       answer:
         "Oui. Le dispositif peut être intégré à une activation plus large avec un brief de marque, des contraintes de lieu et des livrables définis en amont.",
     },
+    {
+      question: "Qu'est-ce qu'un photobooth IA ?",
+      answer:
+        "Un photobooth IA est une expérience où un portrait peut être transformé ou stylisé dans un univers visuel défini. Chez MySelfieBooth, ces dispositifs sont étudiés sur projet avec tests et validation avant l'événement.",
+    },
+    {
+      question: "Qu'est-ce qu'un Live Wall événementiel ?",
+      answer:
+        "Un Live Wall affiche progressivement des photos ou vidéos produites pendant l'événement sur un écran ou un mur dédié. Son fonctionnement dépend de la connexion, du matériel d'affichage et du besoin éventuel de modération.",
+    },
+    {
+      question: "Quels KPI peut-on mesurer avec une activation photobooth ?",
+      answer:
+        "Selon le dispositif, il est possible de suivre des volumes comme les sessions ou contenus produits, certaines actions de partage, les leads consentis et les périodes de forte utilisation.",
+    },
+    {
+      question: "Peut-on créer une activation entièrement sur mesure ?",
+      answer:
+        "Oui sur étude. Le niveau de personnalisation dépend du délai, du budget, des contraintes techniques, du lieu et des intégrations demandées.",
+    },
   ],
   relatedLinks: [
     { label: "Offres pour entreprises et agences", href: "/evenements/corporates/" },
     { label: "Voir toutes les animations", href: "/prestations/" },
     { label: "Vogue Booth", href: "/prestations/voguebooth/" },
     { label: "360 Booth", href: "/prestations/videobooth/" },
+    { label: "Photobooth classique", href: "/prestations/photobooth/" },
+    { label: "Guide photobooth entreprise", href: "/blog/animation-photobooth-entreprise/" },
   ],
   primaryCta: {
     label: "Parler de mon activation",
