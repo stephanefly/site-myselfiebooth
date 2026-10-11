@@ -55,6 +55,32 @@ const corporateOffersSection = {
   ],
 };
 
+const useCasesSection = {
+  anchor: "cas-usage-entreprise",
+  eyebrow: "Cas d'usage",
+  title: "Quel photobooth choisir selon l'objectif de l'événement d'entreprise ?",
+  text:
+    "Une animation corporate performante commence par l'objectif. Attirer sur un stand, créer un souvenir collaborateurs, produire du contenu social ou installer une expérience premium ne nécessite pas le même parcours ni la même machine.",
+  cards: [
+    {
+      title: "Salon professionnel",
+      text: "Privilégiez un parcours rapide, visible depuis l'allée, avec une personnalisation lisible et un emplacement qui ne bloque pas le stand.",
+    },
+    {
+      title: "Séminaire & team building",
+      text: "Le Photobooth ou le Miroirbooth fonctionnent bien comme animation collective pendant une pause, un cocktail ou la soirée de clôture.",
+    },
+    {
+      title: "Lancement de produit",
+      text: "Le Vogue Booth, le 360 Booth ou une activation sur mesure peuvent produire un contenu plus visuel et cohérent avec un univers de campagne.",
+    },
+    {
+      title: "Soirée clients ou collaborateurs",
+      text: "Tirages personnalisés, galerie et branding permettent d'associer le souvenir de la soirée à l'identité de l'entreprise.",
+    },
+  ],
+};
+
 const innovationSection = {
   anchor: "event-tech",
   eyebrow: "Event-Tech & Innovation",
@@ -77,6 +103,58 @@ const innovationSection = {
     {
       title: "Automatisation post-événement",
       text: "Remise des médias, synthèse d'activité et reporting peuvent être automatisés lorsque le dispositif permet de mesurer les données utiles.",
+    },
+  ],
+};
+
+const briefSection = {
+  anchor: "brief-corporate",
+  eyebrow: "Brief efficace",
+  title: "Les informations à préparer pour obtenir un devis corporate précis",
+  text:
+    "Plus le brief est clair, plus la proposition peut être pertinente. Les informations essentielles sont la date, le lieu, les horaires, le nombre attendu de participants, l'objectif de l'animation, les contraintes de marque et les livrables souhaités.",
+  cards: [
+    {
+      title: "Objectif business",
+      text: "Engagement, trafic stand, contenu social, souvenir collaborateurs, image premium ou collecte de contacts : l'objectif oriente le dispositif.",
+    },
+    {
+      title: "Flux attendu",
+      text: "Le nombre de participants et la durée disponible permettent d'estimer le temps de passage et le niveau d'accompagnement nécessaire.",
+    },
+    {
+      title: "Charte graphique",
+      text: "Logo, couleurs, typographies, messages et contraintes de validation doivent être transmis assez tôt pour préparer le rendu.",
+    },
+    {
+      title: "Contraintes du lieu",
+      text: "Accès, badges, sécurité, quai, ascenseur, parking, alimentation, Wi-Fi et horaires techniques sont intégrés à la préparation.",
+    },
+  ],
+};
+
+const dataSection = {
+  anchor: "donnees-lead-capture",
+  eyebrow: "Données & lead capture",
+  title: "Collecte de contacts : cadrer le consentement avant l'événement",
+  text:
+    "Lorsqu'une activation inclut une collecte de coordonnées, le parcours doit rester clair pour le participant. Les champs demandés, la finalité, le consentement, le stockage et la destination des données doivent être définis avec le client avant la mise en production.",
+  cards: [
+    {
+      title: "Champs utiles uniquement",
+      text: "Limiter la collecte aux informations nécessaires réduit la friction et accélère le passage sur le dispositif.",
+    },
+    {
+      title: "Consentement explicite",
+      text: "Le participant doit comprendre ce qu'il accepte et pour quelle utilisation les données sont demandées.",
+    },
+    {
+      title: "Destination des données",
+      text: "Export, transmission ou intégration éventuelle doivent être définis en amont afin d'éviter les traitements improvisés après l'événement.",
+    },
+    {
+      title: "Parcours alternatif",
+      text: "Selon le projet, il peut être pertinent de séparer la création du contenu de l'inscription marketing pour conserver une expérience fluide.",
     },
   ],
 };
@@ -107,6 +185,32 @@ const corporateReportSection = {
   ],
 };
 
+const procurementSection = {
+  anchor: "organisation-achat",
+  eyebrow: "Organisation & achat",
+  title: "Une prestation compatible avec les contraintes d'une entreprise ou d'une agence",
+  text:
+    "Les projets corporate impliquent souvent plusieurs interlocuteurs : communication, événementiel, achats, agence, lieu, sécurité ou production. Nous cadrons les informations opérationnelles et les livrables pour faciliter la validation avant le jour J.",
+  cards: [
+    {
+      title: "Devis détaillé",
+      text: "Machine, durée, personnalisation, options, déplacement et conditions spécifiques sont distingués pour faciliter la validation interne.",
+    },
+    {
+      title: "Référent projet",
+      text: "Un interlocuteur identifié limite les pertes d'information entre le client, l'agence, le lieu et l'équipe terrain.",
+    },
+    {
+      title: "Planning de validation",
+      text: "Les éléments graphiques et techniques sont idéalement validés avant la semaine de l'événement afin de garder une marge de test.",
+    },
+    {
+      title: "Livrables définis",
+      text: "Galerie, médias, exports, reporting ou autres éléments remis après l'événement sont précisés avant confirmation.",
+    },
+  ],
+};
+
 const reliabilitySection = {
   anchor: "fiabilite",
   eyebrow: "Fiabilité & exploitation",
@@ -133,6 +237,35 @@ const reliabilitySection = {
   ],
 };
 
+const faq = [
+  {
+    question: "Quel photobooth choisir pour un événement d'entreprise ?",
+    answer:
+      "Le Photobooth convient aux tirages et à un usage simple, le Miroirbooth à une mise en scène premium, le 360 Booth à la vidéo sociale et le Vogue Booth à un photocall très visuel. Le choix dépend surtout de l'objectif et du flux attendu.",
+  },
+  {
+    question: "Peut-on personnaliser le photobooth avec notre charte graphique ?",
+    answer:
+      "Oui. Logo, couleurs, cadre photo, messages et plusieurs éléments de l'expérience peuvent être adaptés selon la formule et les fichiers fournis.",
+  },
+  {
+    question: "Peut-on collecter des leads avec un photobooth ?",
+    answer:
+      "Une mécanique de lead capture peut être étudiée. Les champs, le consentement, le stockage et la destination des données doivent être définis avant l'événement.",
+  },
+  {
+    question: "Fournissez-vous un reporting après l'événement ?",
+    answer:
+      "Selon le dispositif, des indicateurs comme le nombre de sessions, de contenus produits ou certaines actions de partage peuvent être consolidés dans un bilan post-événement.",
+  },
+  {
+    question: "Intervenez-vous sur les salons professionnels en Île-de-France ?",
+    answer:
+      "Oui. Nous étudions les prestations sur salons, séminaires, lancements et soirées corporate à Paris et en Île-de-France selon le lieu, les accès et le calendrier.",
+  },
+  ...(basePage.faq || []),
+];
+
 const corporatePage = {
   ...basePage,
   title: "Photobooth entreprise & activations de marque",
@@ -142,17 +275,23 @@ const corporatePage = {
   sections: [
     searchIntentSection,
     corporateOffersSection,
+    useCasesSection,
     innovationSection,
+    briefSection,
+    dataSection,
     corporateReportSection,
+    procurementSection,
     reliabilitySection,
     ...basePage.sections,
   ],
+  faq,
   relatedLinks: [
     { label: "Event-Tech & activations de marque", href: "/event-tech/" },
     { label: "Prix Photobooth en Île-de-France en 2026", href: "/prix-photobooth-ile-de-france-2026/" },
     { label: "Guide photobooth entreprise", href: "/blog/animation-photobooth-entreprise/" },
     { label: "Quel photobooth pour un salon ou séminaire ?", href: "/blog/photobooth-salon-seminaire/" },
     { label: "Comparer les animations", href: "/prestations/" },
+    { label: "Zones d'intervention", href: "/zones-intervention/" },
     ...(basePage.relatedLinks || []),
   ],
   meta: {
