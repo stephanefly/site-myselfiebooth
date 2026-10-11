@@ -37,6 +37,24 @@ const mariagePage = {
   title: "Photobooth mariage : location, idées & animations",
   description:
     "Location de Photobooth pour mariage : tirages personnalisés, Miroirbooth, 360 Booth, Vogue Booth et options souvenirs selon votre réception.",
+  gallery: [
+    {
+      image: "/images/ai-from-real/miroirbooth-paris-premium.webp",
+      title: "Miroirbooth MySelfieBooth en réception premium à Paris",
+    },
+    {
+      image: "/images/ai-from-real/voguebooth-premium.webp",
+      title: "Vogue Booth MySelfieBooth en décor mariage premium",
+    },
+    {
+      image: "/images/ai-from-real/panneau-bienvenue-mariage.webp",
+      title: "Panneau de bienvenue fleuri pour mariage",
+    },
+    {
+      image: "/images/ai-from-real/livre-or-video-corporate.webp",
+      title: "Livre d'or vidéo MySelfieBooth dans un lieu de réception",
+    },
+  ],
   sections: [
     {
       anchor: "choisir-photobooth-mariage",
