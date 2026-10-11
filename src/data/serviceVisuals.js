@@ -9,8 +9,8 @@ export const serviceVisuals = Object.freeze({
   miroirbooth: {
     key: "miroirbooth",
     name: "Miroirbooth",
-    image: "/images/miroirbooth.webp",
-    alt: "Miroirbooth MySelfieBooth installé pendant une réception élégante",
+    image: "/images/ai-from-real/miroirbooth-paris-premium.webp",
+    alt: "Miroirbooth MySelfieBooth dans une réception premium à Paris",
     href: "/prestations/miroirbooth",
   },
   videobooth: {
@@ -37,8 +37,8 @@ export const serviceVisuals = Object.freeze({
   voguebooth: {
     key: "voguebooth",
     name: "Vogue Booth",
-    image: "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
-    alt: "Vogue Booth Wedding Edition personnalisé par MySelfieBooth",
+    image: "/images/ai-from-real/voguebooth-premium.webp",
+    alt: "Vogue Booth MySelfieBooth dans un décor événementiel premium",
     href: "/prestations/voguebooth",
   },
   packvip: {
