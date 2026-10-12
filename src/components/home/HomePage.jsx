@@ -185,8 +185,8 @@ export default function HomePage() {
       <section className="home-trust-band" aria-label="Preuves MySelfieBooth">
         <div className="home-container home-trust-band-inner">
           <div className="home-trust-summary">
-            <strong>Une équipe technique, un accompagnement de terrain.</strong>
-            <span>Conception, livraison, installation et suivi réunis.</span>
+            <strong>Une équipe dédiée aux animations photo et vidéo événementielles.</strong>
+            <span>Photobooth, Miroirbooth, 360 Booth et VogueBooth : choisissez le format adapté à votre événement.</span>
           </div>
           <div className="home-proof-grid">
             {proofPoints.map((item) => {
