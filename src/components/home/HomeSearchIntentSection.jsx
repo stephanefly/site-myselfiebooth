@@ -49,7 +49,7 @@ export default function HomeSearchIntentSection() {
           <a className="home-button home-button-secondary-dark" href="/prestations/voguebooth/">
             Découvrir le VogueBooth
           </a>
-          <a className="home-button home-button-secondary-dark" href="/prestations/360booth/">
+          <a className="home-button home-button-secondary-dark" href="/prestations/videobooth/">
             Découvrir le 360 Booth
           </a>
           <a className="home-button home-button-secondary-dark" href="/prestations/miroirbooth/">
