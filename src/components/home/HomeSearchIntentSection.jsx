@@ -3,7 +3,7 @@ export default function HomeSearchIntentSection() {
     <section className="home-section home-section-light" aria-labelledby="home-seo-zone-title">
       <div className="home-container">
         <div className="home-section-intro">
-          <p className="home-eyebrow">Paris & Île-de-France</p>
+          <p className="home-eyebrow">Île-de-France · Normandie · région lyonnaise</p>
           <h2 id="home-seo-zone-title">
             Location de photobooth, photo booth et borne photo pour vos événements
           </h2>
@@ -15,7 +15,7 @@ export default function HomeSearchIntentSection() {
           d&apos;entreprise. Les demandes à Paris, en Seine-et-Marne (77), en
           Essonne (91), dans les Hauts-de-Seine (92), en Seine-Saint-Denis (93),
           dans le Val-de-Marne (94), les Yvelines (78) et le Val-d&apos;Oise (95)
-          sont étudiées selon la date, le lieu, les accès et la formule choisie.
+          ainsi que les projets en Normandie et dans la région lyonnaise sont étudiés selon la date, le lieu, les accès et la formule choisie.
         </p>
 
         <h3>Photobooth, photo booth, cabine photo ou borne selfie : quelle différence ?</h3>
@@ -45,6 +45,12 @@ export default function HomeSearchIntentSection() {
         <div className="home-actions">
           <a className="home-button home-button-primary" href="/prestations/photobooth/">
             Location Photobooth & tarifs
+          </a>
+          <a className="home-button home-button-secondary-dark" href="/prestations/voguebooth/">
+            Découvrir le VogueBooth
+          </a>
+          <a className="home-button home-button-secondary-dark" href="/prestations/360booth/">
+            Découvrir le 360 Booth
           </a>
           <a className="home-button home-button-secondary-dark" href="/prestations/miroirbooth/">
             Location Miroir Photobooth
