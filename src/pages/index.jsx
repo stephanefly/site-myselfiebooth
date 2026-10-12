@@ -14,9 +14,9 @@ export default function Home() {
       <Layout
         metaProps={{
           title:
-            "Location Photobooth & Photo Booth | Paris & Île-de-France",
+            "Location Photobooth, Miroirbooth, 360 & Vogue | Paris",
           description:
-            "Location Photobooth, Photo Booth, borne selfie et cabine photo événementielle à Paris et en Île-de-France pour mariage, entreprise et soirée.",
+            "Location Photobooth, Miroirbooth, 360 Booth et VogueBooth pour mariages et entreprises en Île-de-France, Normandie et région lyonnaise. Demandez votre devis.",
           ogTitle: "Location Photobooth & Photo Booth en Île-de-France | MySelfieBooth",
           ogDescription:
             "Photobooth, MiroirBooth, 360 Booth et Vogue Booth pour mariages et entreprises à Paris et en Île-de-France, avec livraison et installation.",
