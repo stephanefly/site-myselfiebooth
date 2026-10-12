@@ -41,6 +41,7 @@ export const siteConfig = {
     "Normandie",
     "Lyon",
     "Rouen",
+    "Région lyonnaise",
   ],
   founder: {
     name: "Stéphane Faure",
@@ -70,19 +71,7 @@ export const siteConfig = {
 
 export const brandLogos = [
   { name: "Sephora", src: "/logos/sephora.webp" },
-  { name: "Prada", src: "/logos/prada.webp" },
   { name: "Safran", src: "/logos/safran.webp" },
-  { name: "Decathlon", src: "/logos/decathlon.webp" },
-  { name: "Air France", src: "/logos/airfrance.webp" },
-  { name: "Renault", src: "/logos/renault.webp" },
-  { name: "SNCF", src: "/logos/sncf.webp" },
-  { name: "Veolia", src: "/logos/veolia.webp" },
-  { name: "AXA", src: "/logos/axa.webp" },
-  { name: "Bouygues", src: "/logos/bouygues.webp" },
-  { name: "E.Leclerc", src: "/logos/leclerc.webp" },
-  { name: "Leroy Merlin", src: "/logos/leroymerlin.webp" },
-  { name: "Orange", src: "/logos/orange.webp" },
-  { name: "Fitness Park", src: "/logos/fitnesspark.webp" },
 ];
 
 export const trustSignals = [
