@@ -21,6 +21,8 @@ Le build génère le site statique dans `out/` et exécute les contrôles SEO/m�
 
 Les push sur `master` déclenchent GitHub Actions, puis le contenu de `out/` est envoyé vers IONOS en SFTP.
 
+Les références clients affichées sur le site sont volontairement limitées aux références publiquement validées. Les anciens logos non utilisés sont supprimés afin que le contrôle des médias inutilisés reste bloquant avant mise en production.
+
 ## SEO
 
 Le projet inclut notamment :
