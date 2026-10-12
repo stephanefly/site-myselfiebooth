@@ -57,6 +57,7 @@ const htmlFiles = await walkHtml(outDir);
 const pages = [];
 const errors = [];
 const warnings = [];
+const pageLinkCounts = new Map();
 
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
@@ -131,6 +132,10 @@ for (const file of htmlFiles) {
     .filter(Boolean);
 
   pages.push({ route, noindex, title, description, hrefs });
+  for (const href of hrefs) {
+    const target = normalizeInternalHref(href);
+    if (target) pageLinkCounts.set(target, (pageLinkCounts.get(target) || 0) + 1);
+  }
 }
 
 const indexablePages = pages.filter((page) => !page.noindex);
@@ -154,6 +159,11 @@ for (const page of indexablePages) {
 }
 
 const availableRoutes = new Set(pages.map((page) => page.route));
+for (const page of indexablePages) {
+  if (page.route !== "/" && !pageLinkCounts.has(page.route)) {
+    warnings.push(`${page.route}: page indexable sans lien interne HTML détecté (potentiellement orpheline).`);
+  }
+}
 for (const page of pages) {
   for (const href of page.hrefs) {
     const target = normalizeInternalHref(href);
