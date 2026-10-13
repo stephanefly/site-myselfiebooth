@@ -9,10 +9,27 @@ RewriteRule ^ https://myselfiebooth-paris.fr%{REQUEST_URI} [R=301,L,NE]
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/manifest+json image/svg+xml
 </IfModule>
 
-# Cache navigateur adapté à un export statique Next.js.
+# Les pages HTML doivent toujours être revalidées afin d'éviter qu'un ancien HTML
+# continue de pointer vers des médias remplacés lors d'un nouveau déploiement.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  <FilesMatch "\.(?:css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(?:webp|jpe?g|png|gif|svg|mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Cache navigateur adapté aux ressources statiques de l'export Next.js.
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/html "access plus 10 minutes"
+  ExpiresByType text/html "access plus 0 seconds"
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType application/json "access plus 1 hour"
@@ -24,13 +41,4 @@ RewriteRule ^ https://myselfiebooth-paris.fr%{REQUEST_URI} [R=301,L,NE]
   ExpiresByType image/svg+xml "access plus 30 days"
   ExpiresByType video/mp4 "access plus 30 days"
   ExpiresByType font/woff2 "access plus 1 year"
-</IfModule>
-
-<IfModule mod_headers.c>
-  <FilesMatch "\.(?:css|js|woff2)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
-  </FilesMatch>
-  <FilesMatch "\.(?:webp|jpe?g|png|gif|svg|mp4)$">
-    Header set Cache-Control "public, max-age=2592000"
-  </FilesMatch>
 </IfModule>
