@@ -19,19 +19,9 @@ function listHtmlFiles(directory) {
 }
 
 function extractMediaPaths(html) {
-  const imgPaths = Array.from(
-    html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g),
-    (match) => ({ type: "image", src: match[1] })
-  );
-  const posterPaths = Array.from(
-    html.matchAll(/<video\b[^>]*\bposter="([^"]+)"/g),
-    (match) => ({ type: "poster", src: match[1] })
-  );
-  const sourcePaths = Array.from(
-    html.matchAll(/<source\b[^>]*\bsrc="([^"]+)"/g),
-    (match) => ({ type: "source", src: match[1] })
-  );
-
+  const imgPaths = Array.from(html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g), (match) => ({ type: "image", src: match[1] }));
+  const posterPaths = Array.from(html.matchAll(/<video\b[^>]*\bposter="([^"]+)"/g), (match) => ({ type: "poster", src: match[1] }));
+  const sourcePaths = Array.from(html.matchAll(/<source\b[^>]*\bsrc="([^"]+)"/g), (match) => ({ type: "source", src: match[1] }));
   return [...imgPaths, ...posterPaths, ...sourcePaths];
 }
 
@@ -45,11 +35,9 @@ function decodeHtmlEntities(value) {
 
 function normalizeLocalPath(value) {
   if (!value || !value.startsWith("/") || value.startsWith("//")) return null;
-
   const decodedValue = decodeHtmlEntities(value);
   const pathname = decodedValue.split(/[?#]/, 1)[0];
   if (!pathname || pathname === "/") return null;
-
   try {
     return decodeURIComponent(pathname);
   } catch {
@@ -59,15 +47,20 @@ function normalizeLocalPath(value) {
 
 function localMediaExists(mediaPath) {
   const relativePath = mediaPath.replace(/^\/+/, "");
-  const exportedPath = path.join(outDirectory, relativePath);
-  const publicPath = path.join(publicDirectory, relativePath);
+  return fs.existsSync(path.join(outDirectory, relativePath)) || fs.existsSync(path.join(publicDirectory, relativePath));
+}
 
-  return fs.existsSync(exportedPath) || fs.existsSync(publicPath);
+function isContentImage(mediaPath) {
+  if (!/\.(?:avif|gif|jpe?g|png|webp)$/i.test(mediaPath)) return false;
+  // Assets purement techniques de l'interface peuvent être répétés. Les photos/visuels de contenu ne le peuvent pas.
+  if (mediaPath.startsWith("/icons/")) return false;
+  if (mediaPath === "/favicon.ico") return false;
+  return true;
 }
 
 let mediaCount = 0;
 const missingMedia = [];
-const duplicatedMedia = [];
+const samePageDuplicates = [];
 const globalImageUsage = new Map();
 const htmlFiles = listHtmlFiles(outDirectory);
 
@@ -86,7 +79,7 @@ for (const htmlFile of htmlFiles) {
     const mediaPath = item.src;
     counts.set(mediaPath, (counts.get(mediaPath) || 0) + 1);
 
-    if (item.type === "image") {
+    if ((item.type === "image" || item.type === "poster") && isContentImage(mediaPath)) {
       if (!globalImageUsage.has(mediaPath)) globalImageUsage.set(mediaPath, []);
       globalImageUsage.get(mediaPath).push(page);
     }
@@ -97,47 +90,40 @@ for (const htmlFile of htmlFiles) {
   }
 
   for (const [mediaPath, count] of counts.entries()) {
-    if (count > 1) {
-      duplicatedMedia.push({ page, mediaPath, count });
+    if (count > 1 && isContentImage(mediaPath)) {
+      samePageDuplicates.push({ page, mediaPath, count });
     }
   }
 }
 
 const globalDuplicatedImages = [...globalImageUsage.entries()]
-  .map(([mediaPath, pages]) => ({ mediaPath, pages, count: pages.length }))
+  .map(([mediaPath, pages]) => ({ mediaPath, pages: [...new Set(pages)], count: pages.length }))
   .filter((item) => item.count > 1)
   .sort((a, b) => b.count - a.count || a.mediaPath.localeCompare(b.mediaPath));
 
 console.log(`${htmlFiles.length} pages et ${mediaCount} médias référencés dans l'export.`);
-console.log(`${globalImageUsage.size} fichiers image distincts rendus dans le HTML.`);
-
-if (duplicatedMedia.length) {
-  console.warn(`${duplicatedMedia.length} média(s) répété(s) au moins deux fois sur une même page :`);
-  for (const item of duplicatedMedia.slice(0, 30)) {
-    console.warn(`- ${item.page}: ${item.mediaPath} x${item.count}`);
-  }
-  if (duplicatedMedia.length > 30) {
-    console.warn(`- ... ${duplicatedMedia.length - 30} répétition(s) supplémentaire(s)`);
-  }
-}
-
-if (globalDuplicatedImages.length) {
-  console.warn(`${globalDuplicatedImages.length} image(s) sont réutilisées sur le site complet :`);
-  for (const item of globalDuplicatedImages.slice(0, 120)) {
-    const uniquePages = [...new Set(item.pages)];
-    console.warn(`- ${item.mediaPath} x${item.count} sur ${uniquePages.length} page(s): ${uniquePages.slice(0, 8).join(", ")}${uniquePages.length > 8 ? ", ..." : ""}`);
-  }
-  if (globalDuplicatedImages.length > 120) {
-    console.warn(`- ... ${globalDuplicatedImages.length - 120} image(s) réutilisée(s) supplémentaire(s)`);
-  }
-}
+console.log(`${globalImageUsage.size} images de contenu distinctes rendues.`);
 
 if (missingMedia.length) {
   console.error(`${missingMedia.length} référence(s) média pointent vers un fichier absent :`);
-  for (const item of missingMedia) {
-    console.error(`- ${item.page}: ${item.mediaPath}`);
+  for (const item of missingMedia) console.error(`- ${item.page}: ${item.mediaPath}`);
+}
+
+if (samePageDuplicates.length) {
+  console.error(`${samePageDuplicates.length} image(s) de contenu sont répétées sur une même page :`);
+  for (const item of samePageDuplicates) console.error(`- ${item.page}: ${item.mediaPath} x${item.count}`);
+}
+
+if (globalDuplicatedImages.length) {
+  console.error(`${globalDuplicatedImages.length} image(s) de contenu sont réutilisées sur le site complet :`);
+  for (const item of globalDuplicatedImages.slice(0, 150)) {
+    console.error(`- ${item.mediaPath} x${item.count} : ${item.pages.slice(0, 10).join(", ")}${item.pages.length > 10 ? ", ..." : ""}`);
   }
+}
+
+if (missingMedia.length || samePageDuplicates.length || globalDuplicatedImages.length) {
+  console.error("ÉCHEC média : une image de contenu doit apparaître une seule fois sur l'ensemble du site.");
   process.exit(1);
 }
 
-console.log("Contrôle médias OK : aucune image, vidéo ou source locale manquante.");
+console.log("Contrôle médias OK : fichiers présents et aucune image de contenu réutilisée.");
