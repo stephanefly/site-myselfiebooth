@@ -1,6 +1,5 @@
 import Layout from "../Layout";
 import { articleMeta, blogArticles } from "../../data/blogArticles";
-import { getServiceVisual } from "../../data/serviceVisuals";
 import { siteConfig } from "../../data/site";
 
 function buildArticleMeta(article) {
@@ -38,18 +37,6 @@ function buildArticleMeta(article) {
 }
 
 export default function BlogArticle({ article }) {
-  const usedMedia = new Set([article.image]);
-  const sectionVisuals = article.sections.map((section) => {
-    const serviceVisual = getServiceVisual(section.title);
-    const image = serviceVisual?.image || section.image;
-
-    if (!image || usedMedia.has(image)) {
-      return { image: null, serviceVisual: null };
-    }
-
-    usedMedia.add(image);
-    return { image, serviceVisual };
-  });
   const relatedArticles = blogArticles
     .filter((item) => item.slug !== article.slug)
     .map((item, index) => ({
@@ -60,11 +47,6 @@ export default function BlogArticle({ article }) {
         (item.ctaHref === article.ctaHref ? 1 : 0),
     }))
     .sort((a, b) => b.score - a.score || a.index - b.index)
-    .filter(({ item }) => {
-      if (usedMedia.has(item.image)) return false;
-      usedMedia.add(item.image);
-      return true;
-    })
     .slice(0, 3);
   const metaProps = buildArticleMeta(article);
 
@@ -72,38 +54,22 @@ export default function BlogArticle({ article }) {
     <Layout metaProps={metaProps}>
       <article className="blog-page blog-article">
         <header className="blog-article-hero">
-          <div className="blog-container blog-article-hero-grid">
-            <div>
-              <nav className="blog-breadcrumbs" aria-label="Fil d'Ariane">
-                <a href="/">Accueil</a>
-                <span aria-hidden="true">/</span>
-                <a href="/blog/">Blog</a>
-              </nav>
-              <div className="blog-card-meta">
-                <span>{article.category}</span>
-                <span>{article.readTime}</span>
-              </div>
-              <h1>{article.title}</h1>
-              <p>{article.excerpt}</p>
-              <span className="blog-date">
-                Publié le {article.publishedAt} par <a href="/a-propos/">Stéphane Faure</a>
-                {article.modifiedAt ? <> · Mis à jour le {article.modifiedAt}</> : null}
-              </span>
+          <div className="blog-container">
+            <nav className="blog-breadcrumbs" aria-label="Fil d'Ariane">
+              <a href="/">Accueil</a>
+              <span aria-hidden="true">/</span>
+              <a href="/blog/">Blog</a>
+            </nav>
+            <div className="blog-card-meta">
+              <span>{article.category}</span>
+              <span>{article.readTime}</span>
             </div>
-            <figure>
-              <div className="blog-article-hero-image">
-                <img
-                  src={article.image}
-                  alt={article.imageAlt}
-                  width="920"
-                  height="680"
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                />
-              </div>
-              {article.imageCaption ? <figcaption>{article.imageCaption}</figcaption> : null}
-            </figure>
+            <h1>{article.title}</h1>
+            <p>{article.excerpt}</p>
+            <span className="blog-date">
+              Publié le {article.publishedAt} par <a href="/a-propos/">Stéphane Faure</a>
+              {article.modifiedAt ? <> · Mis à jour le {article.modifiedAt}</> : null}
+            </span>
           </div>
         </header>
 
@@ -118,39 +84,18 @@ export default function BlogArticle({ article }) {
 
         <div className="blog-container blog-article-layout">
           <div className="blog-article-content">
-            {article.sections.map((section, index) => {
-              const { image: sectionImage, serviceVisual } = sectionVisuals[index];
-
-              return (
-                <section key={section.title} id={`partie-${index + 1}`}>
-                  <span>0{index + 1}</span>
-                  <h2>{section.title}</h2>
-                  {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                  {section.bullets && (
-                    <ul>
-                      {section.bullets.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                  )}
-                  {sectionImage ? (
-                    <figure className="blog-section-visual">
-                      <div>
-                        <img
-                          src={sectionImage}
-                          alt={serviceVisual?.alt || section.imageAlt}
-                          loading="lazy"
-                          decoding="async"
-                          width="920"
-                          height="614"
-                        />
-                      </div>
-                      {section.caption && !section.caption.includes("généré par IA")
-                        ? <figcaption>{section.caption}</figcaption>
-                        : null}
-                    </figure>
-                  ) : null}
-                </section>
-              );
-            })}
+            {article.sections.map((section, index) => (
+              <section key={section.title} id={`partie-${index + 1}`}>
+                <span>0{index + 1}</span>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                {section.bullets && (
+                  <ul>
+                    {section.bullets.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                )}
+              </section>
+            ))}
 
             {article.faqs?.length ? (
               <section className="blog-article-faq" id="questions-frequentes">
@@ -214,19 +159,9 @@ export default function BlogArticle({ article }) {
           <div className="blog-container">
             <p className="blog-eyebrow">À lire ensuite</p>
             <h2 id="related-title">Continuez en quelques minutes</h2>
-            <div className="blog-related-grid">
+            <div className="blog-related-grid is-text-only">
               {relatedArticles.map(({ item: related }) => (
                 <a href={`/blog/${related.slug}/`} key={related.slug}>
-                  <div className="blog-related-image">
-                    <img
-                      src={related.image}
-                      alt={related.imageAlt || related.title}
-                      loading="lazy"
-                      decoding="async"
-                      width="640"
-                      height="420"
-                    />
-                  </div>
                   <span>{related.category}</span>
                   <strong>{related.title}</strong>
                 </a>
