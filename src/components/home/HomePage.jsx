@@ -31,6 +31,19 @@ const featuredPacksHome = featuredPacks.filter((pack) =>
   ["souvenirs", "duo-vip", "vogue-premium"].includes(pack.key)
 );
 
+const serviceAiImages = {
+  photobooth: "/images/ai-cards/photobooth-ai.webp",
+  miroirbooth: "/images/ai-cards/miroirbooth-ai.webp",
+  videobooth: "/images/ai-cards/360booth-ai.webp",
+  voguebooth: "/images/ai-cards/voguebooth-ai.webp",
+};
+
+const packAiImages = {
+  souvenirs: "/images/ai-cards/pack-souvenirs-ai.webp",
+  "duo-vip": "/images/ai-cards/pack-duo-vip-ai.webp",
+  "vogue-premium": "/images/ai-cards/pack-vogue-premium-ai.webp",
+};
+
 const featuredReviews = googleReviews.slice(0, 3);
 
 export default function HomePage() {
@@ -128,7 +141,15 @@ export default function HomePage() {
           <SectionIntro eyebrow="Nos incontournables" title="Quatre expériences, quatre usages différents" />
           <div className="home-service-grid">
             {featuredServices.map((service) => (
-              <article key={service.key} className="home-service-card">
+              <article key={service.key} className="home-service-card" style={{ height: "auto", overflow: "hidden" }}>
+                <img
+                  src={serviceAiImages[service.key]}
+                  alt={`Illustration IA premium ${service.title} MySelfieBooth`}
+                  loading="lazy"
+                  width="640"
+                  height="480"
+                  style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
+                />
                 <div className="home-service-body">
                   <span className="home-eyebrow">{service.tag}</span>
                   <h3>{service.title}</h3>
@@ -138,23 +159,31 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <div className="home-centered-action"><a href="/prestations/" className="home-button home-button-secondary-dark">Comparer les animations et voir les vrais visuels</a></div>
+          <div className="home-centered-action"><a href="/prestations/" className="home-button home-button-secondary-dark">Comparer toutes les animations</a></div>
         </div>
       </section>
 
       <section id="packs" className="home-section home-section-muted" data-reveal>
         <div className="home-container">
           <SectionIntro eyebrow="Formules prêtes à réserver" title="Trois packs pour décider plus facilement" />
-          <p className="home-section-lead">Les visuels complets des packs sont affichés une seule fois sur la page Prestations.</p>
+          <p className="home-section-lead">Chaque formule retrouve un visuel premium distinct pour comprendre immédiatement l'ambiance proposée.</p>
           <div className="home-pack-grid">
             {featuredPacksHome.map((pack) => (
-              <article key={pack.key} className={`home-pack-card ${pack.featured ? "is-featured" : ""}`}>
+              <article key={pack.key} className={`home-pack-card ${pack.featured ? "is-featured" : ""}`} style={{ height: "auto", overflow: "hidden" }}>
+                <img
+                  src={packAiImages[pack.key]}
+                  alt={`Illustration IA premium ${pack.name} MySelfieBooth`}
+                  loading="lazy"
+                  width="640"
+                  height="480"
+                  style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
+                />
                 <div className="home-pack-body">
                   <span>{pack.tag}</span>
                   <h3>{pack.name}</h3>
                   <p>{pack.description}</p>
                   <ul>{pack.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-                  <div><strong>{pack.price}</strong><a href="/prestations/#packs">Voir le pack et son visuel</a></div>
+                  <div><strong>{pack.price}</strong><a href="/prestations/#packs">Découvrir le pack</a></div>
                 </div>
               </article>
             ))}
