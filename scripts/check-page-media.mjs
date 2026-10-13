@@ -21,15 +21,15 @@ function listHtmlFiles(directory) {
 function extractMediaPaths(html) {
   const imgPaths = Array.from(
     html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g),
-    (match) => match[1]
+    (match) => ({ type: "image", src: match[1] })
   );
   const posterPaths = Array.from(
     html.matchAll(/<video\b[^>]*\bposter="([^"]+)"/g),
-    (match) => match[1]
+    (match) => ({ type: "poster", src: match[1] })
   );
   const sourcePaths = Array.from(
     html.matchAll(/<source\b[^>]*\bsrc="([^"]+)"/g),
-    (match) => match[1]
+    (match) => ({ type: "source", src: match[1] })
   );
 
   return [...imgPaths, ...posterPaths, ...sourcePaths];
@@ -68,39 +68,48 @@ function localMediaExists(mediaPath) {
 let mediaCount = 0;
 const missingMedia = [];
 const duplicatedMedia = [];
+const globalImageUsage = new Map();
 const htmlFiles = listHtmlFiles(outDirectory);
 
 for (const htmlFile of htmlFiles) {
+  const page = path.relative(outDirectory, htmlFile);
   const html = fs.readFileSync(htmlFile, "utf8");
-  const mediaPaths = extractMediaPaths(html);
-  const localPaths = mediaPaths.map(normalizeLocalPath).filter(Boolean);
+  const mediaItems = extractMediaPaths(html);
+  const localItems = mediaItems
+    .map((item) => ({ ...item, src: normalizeLocalPath(item.src) }))
+    .filter((item) => Boolean(item.src));
   const counts = new Map();
 
-  mediaCount += mediaPaths.length;
+  mediaCount += mediaItems.length;
 
-  for (const mediaPath of localPaths) {
+  for (const item of localItems) {
+    const mediaPath = item.src;
     counts.set(mediaPath, (counts.get(mediaPath) || 0) + 1);
 
+    if (item.type === "image") {
+      if (!globalImageUsage.has(mediaPath)) globalImageUsage.set(mediaPath, []);
+      globalImageUsage.get(mediaPath).push(page);
+    }
+
     if (!localMediaExists(mediaPath)) {
-      missingMedia.push({
-        page: path.relative(outDirectory, htmlFile),
-        mediaPath,
-      });
+      missingMedia.push({ page, mediaPath });
     }
   }
 
   for (const [mediaPath, count] of counts.entries()) {
     if (count > 1) {
-      duplicatedMedia.push({
-        page: path.relative(outDirectory, htmlFile),
-        mediaPath,
-        count,
-      });
+      duplicatedMedia.push({ page, mediaPath, count });
     }
   }
 }
 
+const globalDuplicatedImages = [...globalImageUsage.entries()]
+  .map(([mediaPath, pages]) => ({ mediaPath, pages, count: pages.length }))
+  .filter((item) => item.count > 1)
+  .sort((a, b) => b.count - a.count || a.mediaPath.localeCompare(b.mediaPath));
+
 console.log(`${htmlFiles.length} pages et ${mediaCount} médias référencés dans l'export.`);
+console.log(`${globalImageUsage.size} fichiers image distincts rendus dans le HTML.`);
 
 if (duplicatedMedia.length) {
   console.warn(`${duplicatedMedia.length} média(s) répété(s) au moins deux fois sur une même page :`);
@@ -109,6 +118,17 @@ if (duplicatedMedia.length) {
   }
   if (duplicatedMedia.length > 30) {
     console.warn(`- ... ${duplicatedMedia.length - 30} répétition(s) supplémentaire(s)`);
+  }
+}
+
+if (globalDuplicatedImages.length) {
+  console.warn(`${globalDuplicatedImages.length} image(s) sont réutilisées sur le site complet :`);
+  for (const item of globalDuplicatedImages.slice(0, 120)) {
+    const uniquePages = [...new Set(item.pages)];
+    console.warn(`- ${item.mediaPath} x${item.count} sur ${uniquePages.length} page(s): ${uniquePages.slice(0, 8).join(", ")}${uniquePages.length > 8 ? ", ..." : ""}`);
+  }
+  if (globalDuplicatedImages.length > 120) {
+    console.warn(`- ... ${globalDuplicatedImages.length - 120} image(s) réutilisée(s) supplémentaire(s)`);
   }
 }
 
