@@ -82,6 +82,56 @@
   font-size: 0.86rem;
 }
 
+/* Pack visuals shared with reservation.myselfiebooth-paris.fr/tarifs/ */
+.home-pack-media,
+.catalog-pack-media-fusion {
+  background-color: #171717;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home-pack-media img,
+.catalog-pack-media-fusion img {
+  opacity: 0;
+}
+
+.home-pack-grid .home-pack-card:nth-child(1) .home-pack-media {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-souvenirs.svg");
+}
+
+.home-pack-grid .home-pack-card:nth-child(2) .home-pack-media {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-duo-vip.svg");
+}
+
+.home-pack-grid .home-pack-card:nth-child(3) .home-pack-media {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-vogue-premium.svg");
+}
+
+.catalog-pack-grid .catalog-pack-card:nth-child(1) .catalog-pack-media-fusion {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-souvenirs.svg");
+}
+
+.catalog-pack-grid .catalog-pack-card:nth-child(2) .catalog-pack-media-fusion {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-immersion-360.svg");
+}
+
+.catalog-pack-grid .catalog-pack-card:nth-child(3) .catalog-pack-media-fusion {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-signature.svg");
+}
+
+.catalog-pack-grid .catalog-pack-card:nth-child(4) .catalog-pack-media-fusion {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-duo-vip.svg");
+}
+
+.catalog-pack-grid .catalog-pack-card:nth-child(5) .catalog-pack-media-fusion {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-vogue-premium.svg");
+}
+
+.catalog-pack-grid .catalog-pack-card:nth-child(6) .catalog-pack-media-fusion {
+  background-image: url("https://reservation.myselfiebooth-paris.fr/static/img/packs/pack-mariage-prestige.svg");
+}
+
 @media (max-width: 1050px) {
   .catalog-machines-section .catalog-machine-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
