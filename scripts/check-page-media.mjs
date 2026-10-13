@@ -35,10 +35,18 @@ function extractMediaPaths(html) {
   return [...imgPaths, ...posterPaths, ...sourcePaths];
 }
 
+function decodeHtmlEntities(value) {
+  return value
+    .replace(/&#x27;/gi, "'")
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/gi, '"')
+    .replace(/&amp;/gi, "&");
+}
+
 function normalizeLocalPath(value) {
   if (!value || !value.startsWith("/") || value.startsWith("//")) return null;
 
-  const pathname = value.split(/[?#]/, 1)[0];
+  const pathname = decodeHtmlEntities(value.split(/[?#]/, 1)[0]);
   if (!pathname || pathname === "/") return null;
 
   try {
