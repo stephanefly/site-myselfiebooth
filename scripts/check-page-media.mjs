@@ -46,7 +46,8 @@ function decodeHtmlEntities(value) {
 function normalizeLocalPath(value) {
   if (!value || !value.startsWith("/") || value.startsWith("//")) return null;
 
-  const pathname = decodeHtmlEntities(value.split(/[?#]/, 1)[0]);
+  const decodedValue = decodeHtmlEntities(value);
+  const pathname = decodedValue.split(/[?#]/, 1)[0];
   if (!pathname || pathname === "/") return null;
 
   try {
