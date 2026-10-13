@@ -1,5 +1,5 @@
-import PortfolioPage from "../components/portfolio/PortfolioPage";
+import RealMediaPage from "../components/portfolio/RealMediaPage";
 
 export default function Realisations() {
-  return <PortfolioPage />;
+  return <RealMediaPage />;
 }
