@@ -1,4 +1,4 @@
-import { eventTypes, selectorNeeds, servicePacks } from "./catalog";
+import { eventTypes, options, selectorNeeds, servicePacks } from "./catalog";
 
 const packImages = {
   souvenirs: "/images/event-archive/brice-tirages.webp",
@@ -22,6 +22,23 @@ const eventImages = {
   soirees: "/images/event-archive/video-posters/maries-photobooth.webp",
 };
 
+const optionImages = {
+  "Mur floral": "/images/event-archive/anogini-photobooth-01.webp",
+  "Phonebooth audio": "/images/phonebooth.webp",
+  "Porte-clés photo": "/images/realisations-machines/fabrication-porte-cles-photo.webp",
+  "Magnets premium": "/images/option-magnet-premium.webp",
+  "Magnets simples": "/images/option-magnet-simple.webp",
+  "Panneau fontaine": "/images/panneau-fontaine.webp",
+  "Livre d'or vidéo": "/images/livre-dor-video.webp",
+  "Holo 3D": "/images/3d Holo-site.webp",
+  "Livre d'or physique": "/images/Livre-d'or.webp",
+  "Panneau de bienvenue": "/images/Welcomeboard.webp",
+  "Fond LED 360": "/images/fond 360.webp",
+  "Photographe Vogue Booth": "/images/photographe-voguebooth.webp",
+  "Impression Vogue Booth": "/images/impression-voguebooth.webp",
+  "Décoration Vogue Booth": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+};
+
 for (const pack of servicePacks) {
   const image = packImages[pack.key];
   if (!image) continue;
@@ -41,4 +58,10 @@ for (const event of eventTypes) {
   const image = eventImages[event.key];
   if (!image) continue;
   event.image = image;
+}
+
+for (const option of options) {
+  const image = optionImages[option.name];
+  if (!image) continue;
+  option.image = image;
 }
