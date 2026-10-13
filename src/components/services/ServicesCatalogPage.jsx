@@ -39,15 +39,35 @@ const bookingSteps = [
   { title: "Recevez la proposition", text: "Disponibilité, formule et tarif confirmés." },
 ];
 
-const catalogMachines = machines.map((machine) => (
-  machine.key === "packvip"
-    ? {
-        ...machine,
-        image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
-        alt: "Installation complète MySelfieBooth préparée pour une réception",
-      }
-    : machine
-));
+const catalogMachines = machines;
+
+const packVisuals = {
+  souvenirs: "/images/event-archive/brice-tirages.webp",
+  "immersion-360": "/images/event-archive/video-posters/360-red-carpet.webp",
+  signature: "/images/event-archive/video-posters/miroirbooth-installation.webp",
+  "duo-vip": "/images/realisations-machines/photobooth-miroir-espace-eden.webp",
+  "vogue-premium": "/images/event-archive/video-posters/voguebooth-soiree.webp",
+  "mariage-prestige": "/images/event-archive/caftan-portrait-01.webp",
+};
+
+const catalogPacks = servicePacks.map((pack) => ({
+  ...pack,
+  image: packVisuals[pack.key] || pack.image,
+  fusionImage: packVisuals[pack.key] || pack.fusionImage || pack.image,
+  fusionAlt: `${pack.name} MySelfieBooth illustré par une prestation réelle`,
+}));
+
+const selectorVisuals = {
+  "Photo imprimée": "/images/realisations-machines/tirages-gala.webp",
+  "Vidéo 360": "/images/event-archive/video-posters/invites-en-fete.webp",
+  "Photo Vogue": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+};
+
+const catalogSelectorNeeds = selectorNeeds.map((choice) => ({
+  ...choice,
+  image: selectorVisuals[choice.need] || choice.image,
+  imageAlt: `${choice.need} MySelfieBooth sur une prestation réelle`,
+}));
 
 function optionLabel(name) {
   if (souvenirOptions.has(name)) return "Souvenir";
@@ -112,13 +132,11 @@ function MachineCard({ machine }) {
 }
 
 function PackCard({ pack }) {
-  const packImage = pack.fusionImage || pack.image;
-
   return (
     <article className={`catalog-pack-card ${pack.featured ? "is-featured" : ""}`}>
       <div className="catalog-pack-media-fusion">
         <img
-          src={packImage}
+          src={pack.fusionImage || pack.image}
           alt={pack.fusionAlt || pack.name}
           loading="lazy"
           width="1200"
@@ -222,7 +240,7 @@ export default function ServicesCatalogPage() {
         title: "Prestations et tarifs Photobooth | MySelfieBooth",
         description:
           "Comparez 8 animations Photobooth, 6 packs, leurs tarifs et les éléments inclus avant de demander votre devis MySelfieBooth.",
-        ogImage: "/images/ai-from-real/hero-photobooth-reception.webp",
+        ogImage: "/images/realisations-machines/photobooth-miroir-espace-eden.webp",
         ogUrl: "/prestations/",
         jsonLd: catalogJsonLd,
       }}
@@ -244,8 +262,8 @@ export default function ServicesCatalogPage() {
             </div>
             <figure className="catalog-hero-media" data-reveal data-reveal-variant="scale">
               <img
-                src="/images/ai-from-real/hero-photobooth-reception.webp"
-                alt="Photobooth, Miroirbooth et 360 Booth MySelfieBooth"
+                src="/images/realisations-machines/photobooth-miroir-espace-eden.webp"
+                alt="Photobooth et Miroirbooth MySelfieBooth lors d'une prestation réelle"
                 width="1600"
                 height="900"
               />
@@ -282,7 +300,7 @@ export default function ServicesCatalogPage() {
               <h2>Que voulez-vous créer ?</h2>
             </header>
             <div className="catalog-choice-grid">
-              {selectorNeeds.map((choice) => (
+              {catalogSelectorNeeds.map((choice) => (
                 <a key={choice.need} href={choice.href} className={`catalog-choice ${choice.tone}`}>
                   <div className="catalog-choice-media">
                     <img
@@ -332,7 +350,7 @@ export default function ServicesCatalogPage() {
               <p>Des combinaisons cohérentes avec un tarif plus avantageux que les prestations séparées.</p>
             </header>
             <div className="catalog-pack-grid">
-              {servicePacks.map((pack) => (
+              {catalogPacks.map((pack) => (
                 <PackCard key={pack.key} pack={pack} />
               ))}
             </div>
@@ -350,21 +368,21 @@ export default function ServicesCatalogPage() {
             </header>
             <div className="catalog-option-grid">
               {options.map((option) => (
-                  <article key={option.name} className="catalog-option-card">
-                    <div className="catalog-option-media-pair">
-                      <img
-                        src={option.image}
-                        alt={option.name}
-                        loading="lazy"
-                        width="420"
-                        height="315"
-                      />
-                    </div>
-                    <div className="catalog-option-body">
-                      <span>{optionLabel(option.name)}</span>
-                      <h3>{option.name}</h3>
-                    </div>
-                  </article>
+                <article key={option.name} className="catalog-option-card">
+                  <div className="catalog-option-media-pair">
+                    <img
+                      src={option.image}
+                      alt={option.name}
+                      loading="lazy"
+                      width="420"
+                      height="315"
+                    />
+                  </div>
+                  <div className="catalog-option-body">
+                    <span>{optionLabel(option.name)}</span>
+                    <h3>{option.name}</h3>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
