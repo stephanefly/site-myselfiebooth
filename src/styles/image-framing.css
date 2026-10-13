@@ -1,4 +1,8 @@
 /* Affiche entièrement les visuels horizontaux placés à côté des titres de section. */
+.marketing-hero-media img {
+  object-fit: contain;
+}
+
 .marketing-section-visual {
   height: auto;
   display: grid;

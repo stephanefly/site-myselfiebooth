@@ -63,6 +63,7 @@ function isContentImage(mediaPath) {
 
 let mediaCount = 0;
 const missingImageSources = [];
+const missingPageVisuals = [];
 const missingMedia = [];
 const samePageDuplicates = [];
 const globalImageUsage = new Map();
@@ -72,6 +73,10 @@ for (const htmlFile of htmlFiles) {
   const page = path.relative(outDirectory, htmlFile);
   const html = fs.readFileSync(htmlFile, "utf8");
   const mediaItems = extractMediaPaths(html);
+  // A valid source check alone misses pages whose image markup was deleted.
+  if (html.includes('class="marketing-page"') && !/<img\b/i.test(html)) {
+    missingPageVisuals.push(page);
+  }
   const counts = new Map();
 
   mediaCount += mediaItems.length;
@@ -134,7 +139,11 @@ if (globalDuplicatedImages.length) {
   }
 }
 
-if (missingImageSources.length || missingMedia.length || samePageDuplicates.length || globalDuplicatedImages.length) {
+if (missingPageVisuals.length) {
+  console.error(`Pages commerciales sans image : ${missingPageVisuals.join(", ")}`);
+}
+
+if (missingPageVisuals.length || missingImageSources.length || missingMedia.length || samePageDuplicates.length || globalDuplicatedImages.length) {
   console.error("ÉCHEC média : chaque image doit avoir une source valide, exister et n'apparaître qu'une seule fois sur l'ensemble du site.");
   process.exit(1);
 }

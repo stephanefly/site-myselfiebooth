@@ -1,0 +1,406 @@
+{
+  "/prestations/photobooth/": {
+    "src": "/images/ai-from-real/hero-photobooth-reception.webp",
+    "alt": "Illustration de hero photobooth reception MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/prestations/miroirbooth/": {
+    "src": "/images/ai-from-real/miroirbooth-paris-premium.webp",
+    "alt": "Illustration de miroirbooth paris premium MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/prestations/voguebooth/": {
+    "src": "/images/ai-from-real/voguebooth-premium.webp",
+    "alt": "Illustration de voguebooth premium MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/evenements/corporates/": {
+    "src": "/images/ai-from-real/activation-360-entreprise.webp",
+    "alt": "Illustration de activation 360 entreprise MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/evenements/mariages/": {
+    "src": "/images/ai-from-real/vogue-maries-lydia-vincent.webp",
+    "alt": "Illustration de vogue maries lydia vincent MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/options/phonebooth/": {
+    "src": "/images/ai-from-real/phonebooth-invitee-reelle.webp",
+    "alt": "Illustration de phonebooth invitee reelle MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/options/panneau/": {
+    "src": "/images/ai-from-real/panneau-bienvenue-mariage.webp",
+    "alt": "Illustration de panneau bienvenue mariage MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/options/": {
+    "src": "/images/ai-from-real/livre-or-video-corporate.webp",
+    "alt": "Illustration de livre or video corporate MySelfieBooth",
+    "kind": "ai_from_real"
+  },
+  "/prestations/videobooth/": {
+    "src": "/images/page-visuals/prestations-videobooth.jpg",
+    "alt": "Invités sur une plateforme vidéo 360 lors d’une prestation MySelfieBooth",
+    "source": "/videos/event-archive/360-red-carpet.mp4",
+    "time": 2.4,
+    "kind": "real"
+  },
+  "/prestations/air360booth/": {
+    "src": "/images/page-visuals/prestations-air360booth.jpg",
+    "alt": "Air360 Booth en action lors d’une prestation MySelfieBooth",
+    "source": "/images/reel-gifs/air360-en-action.gif",
+    "time": 2.8,
+    "kind": "real"
+  },
+  "/prestations/ipadbooth/": {
+    "src": "/images/page-visuals/prestations-ipadbooth.jpg",
+    "alt": "Souvenirs photo personnalisés MySelfieBooth",
+    "source": "/videos/realisations-machines/personnalisation-tirages.mp4",
+    "time": 8.2,
+    "kind": "real"
+  },
+  "/prestations/packvip/": {
+    "src": "/images/page-visuals/prestations-packvip.jpg",
+    "alt": "Duo Photobooth et Miroirbooth en réception",
+    "source": "/videos/realisations-machines/duo-photobooth-miroir.mp4",
+    "time": 3.2,
+    "kind": "real"
+  },
+  "/prestations/personnalise/": {
+    "src": "/images/page-visuals/prestations-personnalise.jpg",
+    "alt": "Installation de plusieurs animations MySelfieBooth",
+    "source": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+    "time": 8.1,
+    "kind": "real"
+  },
+  "/evenements/anniversaires/": {
+    "src": "/images/page-visuals/evenements-anniversaires.jpg",
+    "alt": "Animation MySelfieBooth lors d’un événement réel",
+    "source": "/videos/vogue-real/vogue-booth-anniversaire.mp4",
+    "time": 4.3,
+    "kind": "real"
+  },
+  "/evenements/soirees/": {
+    "src": "/images/page-visuals/evenements-soirees.jpg",
+    "alt": "Animation MySelfieBooth lors d’un événement réel",
+    "source": "/videos/event-archive/voguebooth-soiree.mp4",
+    "time": 7.3,
+    "kind": "real"
+  },
+  "/evenements/": {
+    "src": "/images/page-visuals/evenements.jpg",
+    "alt": "Les mariés devant le Photobooth MySelfieBooth",
+    "source": "/videos/event-archive/maries-photobooth.mp4",
+    "time": 3.1,
+    "kind": "real"
+  },
+  "/event-tech/": {
+    "src": "/images/page-visuals/event-tech.jpg",
+    "alt": "Animation MySelfieBooth lors d’un événement réel",
+    "source": "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
+    "time": 8.2,
+    "kind": "real"
+  },
+  "/paris/": {
+    "src": "/images/page-visuals/paris.jpg",
+    "alt": "Invités utilisant le Miroirbooth MySelfieBooth",
+    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
+    "time": 8.3,
+    "kind": "real"
+  },
+  "/lyon/": {
+    "src": "/images/page-visuals/lyon.jpg",
+    "alt": "Photobooth MySelfieBooth installé pour une réception",
+    "source": "/videos/realisations-machines/photobooth-noel.mp4",
+    "time": 7.4,
+    "kind": "real"
+  },
+  "/rouen/": {
+    "src": "/images/page-visuals/rouen.jpg",
+    "alt": "Installation d’un Photobooth MySelfieBooth",
+    "source": "/videos/realisations-machines/installation-photobooth-timelapse.mp4",
+    "time": 9.4,
+    "kind": "real"
+  },
+  "/prix-photobooth-ile-de-france-2026/": {
+    "src": "/images/page-visuals/prix-photobooth-ile-de-france-2026.jpg",
+    "alt": "Tirages photo personnalisés MySelfieBooth",
+    "source": "/videos/realisations-machines/tirages-gala.mp4",
+    "time": 8.4,
+    "kind": "real"
+  },
+  "/location-photobooth/boulogne-billancourt/": {
+    "src": "/images/page-visuals/location-photobooth-boulogne-billancourt.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-noel.mp4",
+    "time": 3.612,
+    "kind": "real"
+  },
+  "/location-photobooth/bussy-saint-georges/": {
+    "src": "/images/page-visuals/location-photobooth-bussy-saint-georges.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
+    "time": 3.96,
+    "kind": "real"
+  },
+  "/location-photobooth/cergy/": {
+    "src": "/images/page-visuals/location-photobooth-cergy.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/vogue-real/vogue-booth-mariage.mp4",
+    "time": 1.956,
+    "kind": "real"
+  },
+  "/location-photobooth/cesson/": {
+    "src": "/images/page-visuals/location-photobooth-cesson.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+    "time": 3.08,
+    "kind": "real"
+  },
+  "/location-photobooth/combs-la-ville/": {
+    "src": "/images/page-visuals/location-photobooth-combs-la-ville.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/event-archive/voguebooth-soiree.mp4",
+    "time": 3.454,
+    "kind": "real"
+  },
+  "/location-photobooth/corbeil-essonnes/": {
+    "src": "/images/page-visuals/location-photobooth-corbeil-essonnes.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/duo-photobooth-miroir.mp4",
+    "time": 3.034,
+    "kind": "real"
+  },
+  "/location-photobooth/creteil/": {
+    "src": "/images/page-visuals/location-photobooth-creteil.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
+    "time": 7.141,
+    "kind": "real"
+  },
+  "/location-photobooth/essonne/": {
+    "src": "/images/page-visuals/location-photobooth-essonne.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+    "time": 14.012,
+    "kind": "real"
+  },
+  "/location-photobooth/evry-courcouronnes/": {
+    "src": "/images/page-visuals/location-photobooth-evry-courcouronnes.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+    "time": 15.774,
+    "kind": "real"
+  },
+  "/location-photobooth/fontainebleau/": {
+    "src": "/images/page-visuals/location-photobooth-fontainebleau.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-noel.mp4",
+    "time": 6.074,
+    "kind": "real"
+  },
+  "/location-photobooth/hauts-de-seine/": {
+    "src": "/images/page-visuals/location-photobooth-hauts-de-seine.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
+    "time": 6.66,
+    "kind": "real"
+  },
+  "/location-photobooth/issy-les-moulineaux/": {
+    "src": "/images/page-visuals/location-photobooth-issy-les-moulineaux.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/vogue-real/vogue-booth-mariage.mp4",
+    "time": 3.29,
+    "kind": "real"
+  },
+  "/location-photobooth/la-defense/": {
+    "src": "/images/page-visuals/location-photobooth-la-defense.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+    "time": 5.18,
+    "kind": "real"
+  },
+  "/location-photobooth/le-bourget/": {
+    "src": "/images/page-visuals/location-photobooth-le-bourget.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/event-archive/voguebooth-soiree.mp4",
+    "time": 5.809,
+    "kind": "real"
+  },
+  "/location-photobooth/les-ulis/": {
+    "src": "/images/page-visuals/location-photobooth-les-ulis.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/duo-photobooth-miroir.mp4",
+    "time": 5.103,
+    "kind": "real"
+  },
+  "/location-photobooth/lieusaint/": {
+    "src": "/images/page-visuals/location-photobooth-lieusaint.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
+    "time": 12.01,
+    "kind": "real"
+  },
+  "/location-photobooth/marne-la-vallee/": {
+    "src": "/images/page-visuals/location-photobooth-marne-la-vallee.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+    "time": 23.565,
+    "kind": "real"
+  },
+  "/location-photobooth/massy/": {
+    "src": "/images/page-visuals/location-photobooth-massy.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+    "time": 26.529,
+    "kind": "real"
+  },
+  "/location-photobooth/meaux/": {
+    "src": "/images/page-visuals/location-photobooth-meaux.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-noel.mp4",
+    "time": 8.537,
+    "kind": "real"
+  },
+  "/location-photobooth/melun/": {
+    "src": "/images/page-visuals/location-photobooth-melun.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
+    "time": 9.36,
+    "kind": "real"
+  },
+  "/location-photobooth/montreuil/": {
+    "src": "/images/page-visuals/location-photobooth-montreuil.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/vogue-real/vogue-booth-mariage.mp4",
+    "time": 4.624,
+    "kind": "real"
+  },
+  "/location-photobooth/nanterre/": {
+    "src": "/images/page-visuals/location-photobooth-nanterre.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+    "time": 7.28,
+    "kind": "real"
+  },
+  "/location-photobooth/orly/": {
+    "src": "/images/page-visuals/location-photobooth-orly.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/event-archive/voguebooth-soiree.mp4",
+    "time": 8.164,
+    "kind": "real"
+  },
+  "/location-photobooth/palaiseau-saclay/": {
+    "src": "/images/page-visuals/location-photobooth-palaiseau-saclay.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/duo-photobooth-miroir.mp4",
+    "time": 7.172,
+    "kind": "real"
+  },
+  "/location-photobooth/pontault-combault/": {
+    "src": "/images/page-visuals/location-photobooth-pontault-combault.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
+    "time": 16.878,
+    "kind": "real"
+  },
+  "/location-photobooth/roissy-en-france/": {
+    "src": "/images/page-visuals/location-photobooth-roissy-en-france.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+    "time": 33.119,
+    "kind": "real"
+  },
+  "/location-photobooth/rungis/": {
+    "src": "/images/page-visuals/location-photobooth-rungis.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+    "time": 37.284,
+    "kind": "real"
+  },
+  "/location-photobooth/saint-denis/": {
+    "src": "/images/page-visuals/location-photobooth-saint-denis.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-noel.mp4",
+    "time": 10.999,
+    "kind": "real"
+  },
+  "/location-photobooth/saint-germain-en-laye/": {
+    "src": "/images/page-visuals/location-photobooth-saint-germain-en-laye.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
+    "time": 12.06,
+    "kind": "real"
+  },
+  "/location-photobooth/savigny-le-temple/": {
+    "src": "/images/page-visuals/location-photobooth-savigny-le-temple.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/vogue-real/vogue-booth-mariage.mp4",
+    "time": 5.958,
+    "kind": "real"
+  },
+  "/location-photobooth/seine-et-marne/": {
+    "src": "/images/page-visuals/location-photobooth-seine-et-marne.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+    "time": 9.38,
+    "kind": "real"
+  },
+  "/location-photobooth/seine-saint-denis/": {
+    "src": "/images/page-visuals/location-photobooth-seine-saint-denis.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/event-archive/voguebooth-soiree.mp4",
+    "time": 10.519,
+    "kind": "real"
+  },
+  "/location-photobooth/senart/": {
+    "src": "/images/page-visuals/location-photobooth-senart.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/duo-photobooth-miroir.mp4",
+    "time": 9.24,
+    "kind": "real"
+  },
+  "/location-photobooth/val-de-marne/": {
+    "src": "/images/page-visuals/location-photobooth-val-de-marne.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-1-DO30-rNiDdA.mp4",
+    "time": 21.747,
+    "kind": "real"
+  },
+  "/location-photobooth/val-doise/": {
+    "src": "/images/page-visuals/location-photobooth-val-doise.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+    "time": 42.672,
+    "kind": "real"
+  },
+  "/location-photobooth/versailles/": {
+    "src": "/images/page-visuals/location-photobooth-versailles.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+    "time": 48.039,
+    "kind": "real"
+  },
+  "/location-photobooth/villepinte/": {
+    "src": "/images/page-visuals/location-photobooth-villepinte.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/photobooth-noel.mp4",
+    "time": 13.462,
+    "kind": "real"
+  },
+  "/location-photobooth/vincennes/": {
+    "src": "/images/page-visuals/location-photobooth-vincennes.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
+    "time": 14.76,
+    "kind": "real"
+  },
+  "/location-photobooth/yvelines/": {
+    "src": "/images/page-visuals/location-photobooth-yvelines.jpg",
+    "alt": "Photo extraite d’une prestation réelle MySelfieBooth : machines, invités et coulisses",
+    "source": "/videos/vogue-real/vogue-booth-mariage.mp4",
+    "time": 7.291,
+    "kind": "real"
+  }
+}

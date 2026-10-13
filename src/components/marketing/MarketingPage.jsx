@@ -1,4 +1,6 @@
 import Layout from "../Layout";
+import { useRouter } from "next/router";
+import pageVisuals from "../../data/pageVisuals.json";
 import useRevealMotion from "../../hooks/useRevealMotion";
 import { siteConfig } from "../../data/site";
 
@@ -220,6 +222,9 @@ function FounderStory({ story }) {
 
 export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
+  const router = useRouter();
+  const pagePath = `${router.asPath.split(/[?#]/)[0].replace(/\/$/, "")}/`;
+  const heroVisual = pageVisuals[pagePath];
 
   return (
     <Layout metaProps={page.meta}>
@@ -260,11 +265,14 @@ export default function MarketingPage({ page }) {
                 )}
               </div>
             </div>
+            {heroVisual && <figure className="marketing-hero-media" data-reveal>
+              <img src={heroVisual.src} alt={heroVisual.alt} width="900" height="900" fetchPriority="high" />
             {(page.highlights || []).length > 0 && (
               <aside className="marketing-hero-proof" data-reveal>
                 {(page.highlights || []).map((item) => <span key={item}>{item}</span>)}
               </aside>
             )}
+            </figure>}
           </div>
         </section>
 

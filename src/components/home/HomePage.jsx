@@ -98,6 +98,7 @@ export default function HomePage() {
             </div>
           </div>
           <aside className="home-hero-offer" data-reveal>
+            <div className="home-hero-offer-media"><img src="/images/ai-from-real/tirages-invites-mariage-gala.webp" alt="Illustration de souvenirs photo personnalisés MySelfieBooth" width="640" height="480" /></div>
             <div className="home-hero-offer-body">
               <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
               <ul>
@@ -116,7 +117,7 @@ export default function HomePage() {
         <div className="home-container home-trust-band-inner">
           <div className="home-trust-summary">
             <strong>Une équipe dédiée aux animations photo et vidéo événementielles.</strong>
-            <span>Chaque photo réelle est désormais réservée à un seul emplacement sur le site.</span>
+            <span>Photobooth, Miroirbooth, 360 Booth et Vogue Booth pour vos événements.</span>
           </div>
           <div className="home-proof-grid">
             {proofPoints.map((item) => item.href ? (
@@ -148,7 +149,7 @@ export default function HomePage() {
                   loading="lazy"
                   width="640"
                   height="480"
-                  style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
+                  style={{ width: "100%", height: "auto", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
                 />
                 <div className="home-service-body">
                   <span className="home-eyebrow">{service.tag}</span>
@@ -166,7 +167,7 @@ export default function HomePage() {
       <section id="packs" className="home-section home-section-muted" data-reveal>
         <div className="home-container">
           <SectionIntro eyebrow="Formules prêtes à réserver" title="Trois packs pour décider plus facilement" />
-          <p className="home-section-lead">Chaque formule retrouve un visuel premium distinct pour comprendre immédiatement l'ambiance proposée.</p>
+          <p className="home-section-lead">Photo, vidéo et souvenirs : choisissez la formule qui correspond à votre réception.</p>
           <div className="home-pack-grid">
             {featuredPacksHome.map((pack) => (
               <article key={pack.key} className={`home-pack-card ${pack.featured ? "is-featured" : ""}`} style={{ height: "auto", overflow: "hidden" }}>
@@ -176,7 +177,7 @@ export default function HomePage() {
                   loading="lazy"
                   width="640"
                   height="480"
-                  style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
+                  style={{ width: "100%", height: "auto", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
                 />
                 <div className="home-pack-body">
                   <span>{pack.tag}</span>
@@ -207,8 +208,8 @@ export default function HomePage() {
         <div className="home-container">
           <SectionIntro eyebrow="Pour qui ?" title="Mariages, entreprises et événements privés" />
           <div className="home-market-grid">
-            <article className="home-market-card"><div><span>Entreprises</span><h3>Salons, séminaires et soirées</h3><p>Branding, expérience invités et formats partageables.</p><a href="/evenements/corporates/">Voir les solutions entreprise</a></div></article>
-            <article className="home-market-card"><div><span>Particuliers</span><h3>Mariages, anniversaires et réceptions</h3><p>Photos, vidéos, tirages et souvenirs adaptés au rythme de votre soirée.</p><a href="/evenements/mariages/">Voir les solutions mariage</a></div></article>
+            <article className="home-market-card"><img src="/images/page-visuals/home-entreprises.jpg" alt="Animation photo MySelfieBooth lors d’un événement" width="640" height="900" loading="lazy" /><div><span>Entreprises</span><h3>Salons, séminaires et soirées</h3><p>Branding, expérience invités et formats partageables.</p><a href="/evenements/corporates/">Voir les solutions entreprise</a></div></article>
+            <article className="home-market-card"><img src="/images/page-visuals/home-mariages.jpg" alt="Les mariés profitent du Photobooth" width="640" height="900" loading="lazy" /><div><span>Particuliers</span><h3>Mariages, anniversaires et réceptions</h3><p>Photos, vidéos, tirages et souvenirs adaptés au rythme de votre soirée.</p><a href="/evenements/mariages/">Voir les solutions mariage</a></div></article>
           </div>
         </div>
       </section>
@@ -216,15 +217,15 @@ export default function HomePage() {
       <section className="home-section home-section-muted" data-reveal>
         <div className="home-container">
           <SectionIntro eyebrow="Options" title="Décor, souvenirs et personnalisation" />
-          <p className="home-section-lead">Chaque option possède son visuel dédié sur la page Prestations : mur floral, Phonebooth, porte-clés, magnets, livre d'or, panneaux, fond LED et options Vogue.</p>
+          <p className="home-section-lead">Complétez votre animation avec nos options : mur floral, Phonebooth, porte-clés, magnets, livre d'or, panneaux, fond LED et options Vogue.</p>
           <div className="home-centered-action"><a href="/prestations/#options" className="home-button home-button-secondary-dark">Voir toutes les options et leurs visuels</a></div>
         </div>
       </section>
 
       <section className="home-section home-section-dark" data-reveal>
         <div className="home-container">
-          <SectionIntro eyebrow="100 % terrain" title="La banque de vraies prestations a sa propre galerie" />
-          <p className="home-section-lead">Photos Instagram, invités, machines, tirages et coulisses sont regroupés dans Réalisations au lieu d'être copiés sur plusieurs pages.</p>
+          <SectionIntro eyebrow="100 % terrain" title="Découvrez nos animations en situation" />
+          <p className="home-section-lead">Découvrez les machines, les invités et les souvenirs de nos événements dans la galerie de réalisations.</p>
           <div className="home-centered-action"><a href="/realisations/" className="home-button home-button-primary">Voir les réalisations réelles</a></div>
         </div>
       </section>
@@ -250,6 +251,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="home-section home-section-light" data-reveal>
+        <div className="home-container home-story-grid">
+          <figure className="home-story-media"><img src="/images/ai-from-real/fabrication-famille-photobooth.webp" alt="Illustration de la fabrication familiale des bornes MySelfieBooth" width="900" height="900" loading="lazy" /></figure>
+          <div><SectionIntro eyebrow="L’équipe et l’expertise" title="Créée par un ingénieur, portée par une équipe de terrain" /><p>Stéphane Faure a fabriqué les premières bornes avec son père. La même exigence technique guide aujourd’hui la préparation et l’installation de vos animations.</p><a href="/a-propos/" className="home-button home-button-secondary-dark">Découvrir notre histoire</a></div>
+        </div>
+      </section>
+
       <section id="faq" className="home-section home-section-light" data-reveal>
         <div className="home-container">
           <SectionIntro eyebrow="FAQ" title="Les questions avant de réserver" />
@@ -260,7 +268,7 @@ export default function HomePage() {
       </section>
 
       <section className="home-final-cta" data-reveal>
-        <div className="home-container"><p className="home-eyebrow">Votre événement</p><h2>Une formule claire, des visuels cohérents, une seule utilisation par photo.</h2><QuoteButton /></div>
+        <div className="home-container"><p className="home-eyebrow">Votre événement</p><h2>Créons les souvenirs de votre prochain événement.</h2><QuoteButton /></div>
       </section>
     </div>
   );
