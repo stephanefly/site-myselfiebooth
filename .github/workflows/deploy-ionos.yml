@@ -54,6 +54,7 @@ jobs:
           set net:max-retries 2
           set net:timeout 20
           mirror -R --verbose --parallel=4 out/_next/ "$SFTP_PATH/_next/"
+          mirror -R --verbose --parallel=4 out/logos/ "$SFTP_PATH/logos/"
           mirror -R --verbose --parallel=4 --exclude-glob _next/ out/ "$SFTP_PATH"
           bye
           EOF
