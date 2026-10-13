@@ -1,30 +1,8 @@
 import Layout from "../Layout";
 import useRevealMotion from "../../hooks/useRevealMotion";
-import { getServiceVisual, serviceVisuals } from "../../data/serviceVisuals";
 import { siteConfig } from "../../data/site";
 
 const bookingUrl = siteConfig.quoteUrl;
-
-const featureVisuals = {
-  photobooth: { src: serviceVisuals.photobooth.image, title: "Photobooth en réception" },
-  miroirbooth: { src: serviceVisuals.miroirbooth.image, title: "Miroirbooth en réception" },
-  videobooth: { src: serviceVisuals.videobooth.image, title: "360 Booth en événement" },
-  air360booth: { src: serviceVisuals.air360booth.image, title: "Air360 Booth en gala" },
-  ipadbooth: { src: serviceVisuals.ipadbooth.image, title: "iPad Booth en réception" },
-  voguebooth: { src: serviceVisuals.voguebooth.image, title: "Vogue Booth Wedding Edition personnalisé" },
-  packvip: { src: serviceVisuals.packvip.image, title: "Pack VIP en réception" },
-  personnalise: { src: serviceVisuals.personnalise.image, title: "Expérience personnalisée" },
-  mariages: { src: "/images/miroirbooth.webp", title: "Ambiance de mariage" },
-  anniversaires: { src: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Animation d'anniversaire" },
-  soirees: { src: "/images/ai-from-real/activation-360-entreprise.webp", title: "Ambiance de soirée" },
-  corporates: { src: "/images/ai-from-real/activation-360-entreprise.webp", title: "Installation événementielle" },
-  "prestations-index": { src: "/images/ai-from-real/hero-photobooth-reception.webp", title: "Les machines MySelfieBooth" },
-  "evenements-index": { src: "/images/ai-from-real/vogue-maries-lydia-vincent.webp", title: "Une animation qui rassemble" },
-  "options-index": { src: "/images/ai-from-real/tirages-invites-mariage-gala.webp", title: "Souvenirs personnalisés" },
-  phonebooth: { src: "/images/ai-from-real/phonebooth-invitee-reelle.webp", title: "Messages audio des invités" },
-  panneau: { src: "/images/Welcomeboard.webp", title: "Panneau de bienvenue" },
-  paris: { src: "/images/ai-from-real/hero-photobooth-reception.webp", title: "MySelfieBooth en événement" },
-};
 
 function SectionHeader({ eyebrow, title }) {
   return (
@@ -35,78 +13,24 @@ function SectionHeader({ eyebrow, title }) {
   );
 }
 
-function getSectionVisual(page, section, index) {
-  const visuals = page.gallery || [];
-
-  if (index === 0 && featureVisuals[page.key]) {
-    return {
-      image: featureVisuals[page.key].src,
-      title: featureVisuals[page.key].title,
-    };
-  }
-
-  const serviceVisual = getServiceVisual(section.title);
-
-  if (serviceVisual && serviceVisual.key !== page.key) {
-    return {
-      image: serviceVisual.image,
-      title: serviceVisual.name,
-    };
-  }
-
-  if (!visuals.length) {
-    return null;
-  }
-
-  const context = `${page.key} ${section.eyebrow || ""} ${section.title || ""}`.toLowerCase();
-  const findByFile = (filename) => visuals.find((visual) =>
-    (visual.image || visual.src || "").includes(filename)
-  );
-
-  if (/phonebooth|audio|livre d'or/.test(context)) {
-    return findByFile("phonebooth-reception") || visuals[index % visuals.length];
-  }
-
-  if (/360|vidéo|video|vogue|soirée|soiree|anniversaire/.test(context)) {
-    return findByFile("360booth-entreprise") || visuals[index % visuals.length];
-  }
-
-  if (/logistique|processus|installation|inclus|prévoir|prevoir|jour j/.test(context)) {
-    return findByFile("atelier-machines") || visuals[index % visuals.length];
-  }
-
-  if (/option|souvenir|personnalis|tirage|galerie/.test(context)) {
-    return findByFile("options-souvenirs") || visuals[index % visuals.length];
-  }
-
-  return visuals[index % visuals.length];
-}
-
 function CardGrid({ cards = [] }) {
+  if (!cards.length) return null;
+
   return (
     <div className="marketing-card-grid">
-      {cards.slice(0, 4).map((card, index) => {
-        const visual = card._visual;
-
-        return (
-          <article
-            key={`${card.title}-${index}`}
-            className={`marketing-card ${visual ? "has-service-visual" : ""}`}
-            data-reveal
-            style={{ "--reveal-delay": `${Math.min(index, 5) * 45}ms` }}
-          >
-            {visual && (
-              <a className="marketing-card-service-visual" href={visual.href}>
-                <img src={visual.image} alt={visual.alt} loading="lazy" width="720" height="480" />
-              </a>
-            )}
-            <div className={visual ? "marketing-card-body" : undefined}>
-              <h3>{card.title}</h3>
-              <p>{card.text}</p>
-            </div>
-          </article>
-        );
-      })}
+      {cards.slice(0, 4).map((card, index) => (
+        <article
+          key={`${card.title}-${index}`}
+          className="marketing-card"
+          data-reveal
+          style={{ "--reveal-delay": `${Math.min(index, 5) * 45}ms` }}
+        >
+          <div className="marketing-card-body">
+            <h3>{card.title}</h3>
+            <p>{card.text}</p>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }
@@ -121,25 +45,10 @@ function QuickNavigation({ page }) {
     label: section.eyebrow || section.title,
   }));
 
-  if ((page.comparison || []).length) {
-    links.push({ href: "#comparatif", label: "Comparer" });
-  }
-
-  if ((page.gallery || []).length) {
-    links.push({ href: "#galerie", label: "Photos" });
-  }
-
-  if ((page.caseStudies || []).length) {
-    links.push({ href: "#cas-entreprise", label: "Études de cas" });
-  }
-
-  if ((page.testimonials || []).length) {
-    links.push({ href: "#avis-clients", label: "Avis" });
-  }
-
-  if ((page.faq || []).length) {
-    links.push({ href: "#faq", label: "FAQ" });
-  }
+  if ((page.comparison || []).length) links.push({ href: "#comparatif", label: "Comparer" });
+  if ((page.caseStudies || []).length) links.push({ href: "#cas-entreprise", label: "Cas réels" });
+  if ((page.testimonials || []).length) links.push({ href: "#avis-clients", label: "Avis" });
+  if ((page.faq || []).length) links.push({ href: "#faq", label: "FAQ" });
 
   return (
     <nav className="marketing-quick-nav" aria-label="Accès rapide">
@@ -157,9 +66,7 @@ function QuickNavigation({ page }) {
 }
 
 function Breadcrumbs({ items = [] }) {
-  if (!items.length) {
-    return null;
-  }
+  if (!items.length) return null;
 
   return (
     <nav className="marketing-breadcrumbs" aria-label="Fil d'Ariane">
@@ -173,94 +80,13 @@ function Breadcrumbs({ items = [] }) {
   );
 }
 
-function ComparisonGrid({ items = [] }) {
-  if (!items.length) {
-    return null;
-  }
-
-  return (
-    <section id="comparatif" className="marketing-section is-muted" data-reveal>
-      <div className="marketing-container">
-        <SectionHeader
-          eyebrow="Comparer"
-          title="Comparez les formats"
-        />
-        <div className="marketing-comparison-grid">
-          {items.map((item) => {
-            const visual = item._visual;
-
-            return (
-              <article key={item.title} className="marketing-comparison-card">
-                {visual && (
-                  <img
-                    src={visual.image}
-                    alt={visual.alt || item.title}
-                    loading="lazy"
-                    width="720"
-                    height="480"
-                  />
-                )}
-                <div>
-                  <h3>{item.title}</h3>
-                  <dl>
-                    {item.rows.map(([label, value]) => (
-                      <div key={label}>
-                        <dt>{label}</dt>
-                        <dd>{value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <a href={item.href}>Voir cette animation</a>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function OptionGrid({ items = [] }) {
-  if (!items?.length) {
-    return null;
-  }
-
-  return (
-    <section id="options-detail" className="marketing-section" data-reveal>
-      <div className="marketing-container">
-        <SectionHeader
-          eyebrow="Options"
-          title="Choisissez vos options"
-        />
-        <div className="marketing-option-grid">
-          {items.map((item) => (
-            <article key={item.name} className="marketing-option-card">
-              {item._image && (
-                <img src={item._image} alt={item.name} loading="lazy" width="640" height="480" />
-              )}
-              <h3>{item.name}</h3>
-              {item.href && <a href={item.href}>Details</a>}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function PathwayGrid({ items = [] }) {
-  if (!items.length) {
-    return null;
-  }
+  if (!items.length) return null;
 
   return (
     <section id="parcours" className="marketing-section is-muted" data-reveal>
       <div className="marketing-container">
-        <SectionHeader
-          eyebrow="Parcours"
-          title="Choisissez votre objectif"
-        />
+        <SectionHeader eyebrow="Parcours" title="Choisissez votre objectif" />
         <div className="marketing-pathway-grid">
           {items.map((item) => (
             <a key={item.href} href={item.href} className="marketing-pathway-card">
@@ -274,38 +100,73 @@ function PathwayGrid({ items = [] }) {
   );
 }
 
+function ComparisonGrid({ items = [] }) {
+  if (!items.length) return null;
+
+  return (
+    <section id="comparatif" className="marketing-section is-muted" data-reveal>
+      <div className="marketing-container">
+        <SectionHeader eyebrow="Comparer" title="Comparez les formats" />
+        <div className="marketing-comparison-grid">
+          {items.map((item) => (
+            <article key={item.title} className="marketing-comparison-card">
+              <div>
+                <h3>{item.title}</h3>
+                <dl>
+                  {(item.rows || []).map(([label, value]) => (
+                    <div key={label}>
+                      <dt>{label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                {item.href && <a href={item.href}>Voir cette animation</a>}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function OptionGrid({ items = [] }) {
+  if (!items.length) return null;
+
+  return (
+    <section id="options-detail" className="marketing-section" data-reveal>
+      <div className="marketing-container">
+        <SectionHeader eyebrow="Options" title="Choisissez vos options" />
+        <div className="marketing-option-grid">
+          {items.map((item) => (
+            <article key={item.name} className="marketing-option-card">
+              <h3>{item.name}</h3>
+              {item.text && <p>{item.text}</p>}
+              {item.href && <a href={item.href}>Détails</a>}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CaseStudyGrid({ items = [] }) {
-  if (!items.length) {
-    return null;
-  }
+  if (!items.length) return null;
 
   return (
     <section id="cas-entreprise" className="marketing-section is-muted" data-reveal>
       <div className="marketing-container">
-        <SectionHeader
-          eyebrow="Études de cas réelles"
-          title="Des dispositifs installés sur de vrais événements"
-        />
+        <SectionHeader eyebrow="Études de cas réelles" title="Des dispositifs installés sur de vrais événements" />
         <div className="marketing-case-grid">
           {items.map((item) => (
             <article key={item.title} className="marketing-case-card">
-              <div className="marketing-case-media">
-                {item._image ? (
-                  <img
-                    src={item._image}
-                    alt={item.imageAlt || item.title}
-                    loading="lazy"
-                    width="720"
-                    height="540"
-                  />
-                ) : null}
-              </div>
               <div className="marketing-case-copy">
                 {item.client && <span>Cas réel · {item.client}</span>}
                 <h3>{item.title}</h3>
-                <p><strong>Contexte :</strong> {item.context}</p>
-                <p><strong>Dispositif :</strong> {item.solution}</p>
-                <p><strong>Rendu livré :</strong> {item.result}</p>
+                {item.context && <p><strong>Contexte :</strong> {item.context}</p>}
+                {item.solution && <p><strong>Dispositif :</strong> {item.solution}</p>}
+                {item.result && <p><strong>Rendu livré :</strong> {item.result}</p>}
               </div>
             </article>
           ))}
@@ -316,17 +177,12 @@ function CaseStudyGrid({ items = [] }) {
 }
 
 function TestimonialGrid({ items = [] }) {
-  if (!items.length) {
-    return null;
-  }
+  if (!items.length) return null;
 
   return (
     <section id="avis-clients" className="marketing-section is-dark" data-reveal>
       <div className="marketing-container">
-        <SectionHeader
-          eyebrow="Avis Google"
-          title={`${siteConfig.reviews.rating} selon nos clients`}
-        />
+        <SectionHeader eyebrow="Avis Google" title={`${siteConfig.reviews.rating} selon nos clients`} />
         <div className="marketing-testimonial-grid">
           {items.map((item) => (
             <article key={item.name} className="marketing-testimonial-card">
@@ -346,21 +202,16 @@ function TestimonialGrid({ items = [] }) {
 }
 
 function FounderStory({ story }) {
-  if (!story) {
-    return null;
-  }
+  if (!story) return null;
 
   return (
     <section id="histoire" className="marketing-section" data-reveal>
       <div className="marketing-container marketing-story-grid">
-        {story.image ? (
-          <img src={story.image} alt={story.imageAlt || story.title} loading="lazy" width="720" height="900" />
-        ) : null}
         <div>
           <p className="marketing-eyebrow">{story.eyebrow}</p>
           <h2>{story.title}</h2>
           <p>{story.text}</p>
-          <a href={story.href}>{story.linkLabel}</a>
+          {story.href && <a href={story.href}>{story.linkLabel}</a>}
         </div>
       </div>
     </section>
@@ -369,52 +220,6 @@ function FounderStory({ story }) {
 
 export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
-  const pageServiceVisual = serviceVisuals[page.key];
-  const heroImage = pageServiceVisual?.image || page.image;
-  const usedMedia = new Set(heroImage ? [heroImage] : []);
-  const reserveMedia = (mediaPath) => {
-    if (!mediaPath || usedMedia.has(mediaPath)) return false;
-    usedMedia.add(mediaPath);
-    return true;
-  };
-  const galleryCandidates = page.gallery || [];
-  const preparedSections = (page.sections || []).map((section, index) => {
-    let visual = getSectionVisual(page, section, index);
-    let visualPath = visual?.image || visual?.src;
-
-    if (!reserveMedia(visualPath)) {
-      visual = galleryCandidates.find((candidate) => {
-        const candidatePath = candidate.image || candidate.src;
-        return candidatePath && !usedMedia.has(candidatePath);
-      }) || null;
-      visualPath = visual?.image || visual?.src;
-      reserveMedia(visualPath);
-    }
-
-    const cards = (section.cards || []).map((card) => {
-      const candidate = getServiceVisual(card.title);
-      const cardVisual = candidate && reserveMedia(candidate.image) ? candidate : null;
-      return { ...card, _visual: cardVisual };
-    });
-
-    return { section, visual, cards };
-  });
-  const preparedComparison = (page.comparison || []).map((item) => {
-    const candidate = getServiceVisual(item.title);
-    const visual = candidate || (item.image ? { image: item.image, alt: item.title } : null);
-    return { ...item, _visual: visual && reserveMedia(visual.image) ? visual : null };
-  });
-  const preparedOptions = (page.optionGrid || []).map((item) => ({
-    ...item,
-    _image: reserveMedia(item.image) ? item.image : null,
-  }));
-  const preparedCaseStudies = (page.caseStudies || []).map((item) => ({
-    ...item,
-    _image: reserveMedia(item.image) ? item.image : null,
-  }));
-  const preparedGallery = galleryCandidates
-    .filter((item) => reserveMedia(item.image || item.src))
-    .slice(0, 8);
 
   return (
     <Layout metaProps={page.meta}>
@@ -455,21 +260,11 @@ export default function MarketingPage({ page }) {
                 )}
               </div>
             </div>
-            <div className="marketing-hero-media" data-reveal data-reveal-variant="scale">
-              <div className="marketing-hero-media-pair">
-                <img
-                  src={heroImage}
-                  alt={pageServiceVisual?.alt || page.imageAlt || page.title}
-                  width="934"
-                  height="700"
-                />
-              </div>
-              <div className="marketing-hero-proof">
-                {(page.highlights || []).map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
+            {(page.highlights || []).length > 0 && (
+              <aside className="marketing-hero-proof" data-reveal>
+                {(page.highlights || []).map((item) => <span key={item}>{item}</span>)}
+              </aside>
+            )}
           </div>
         </section>
 
@@ -487,90 +282,33 @@ export default function MarketingPage({ page }) {
         )}
 
         <QuickNavigation page={page} />
+        <PathwayGrid items={page.pathways || []} />
 
-        <PathwayGrid items={page.pathways} />
-
-        {preparedSections.map(({ section, visual, cards }, index) => {
-          return (
-            <section
-              key={section.title}
-              id={getSectionId(section, index)}
-              className={`marketing-section ${index % 2 === 1 ? "is-muted" : ""}`}
-            >
-              <div className="marketing-container">
-                <div className={`marketing-section-heading-row ${visual ? "has-visual" : ""}`} data-reveal>
-                  <SectionHeader
-                    eyebrow={section.eyebrow}
-                    title={section.title}
-                  />
-                  {visual && (
-                    <figure className="marketing-section-visual">
-                      <div className={`marketing-section-media-pair ${visual.fallbackImage ? "is-pair" : ""}`}>
-                        <picture>
-                          {visual.fallbackImage && (
-                            <source media="(prefers-reduced-motion: reduce)" srcSet={visual.fallbackImage} />
-                          )}
-                          <img
-                            src={visual.image || visual.src}
-                            alt={visual.title || visual.alt}
-                            loading="lazy"
-                            width="720"
-                            height="540"
-                          />
-                        </picture>
-                      </div>
-                      {visual.title && <figcaption>{visual.title}</figcaption>}
-                    </figure>
-                  )}
-                </div>
-                {section.text && <p className="marketing-section-lead" data-reveal>{section.text}</p>}
-                <CardGrid cards={cards} />
-              </div>
-            </section>
-          );
-        })}
-
-        <ComparisonGrid items={preparedComparison} />
-        <OptionGrid items={preparedOptions} />
-        <CaseStudyGrid items={preparedCaseStudies} />
-        <TestimonialGrid items={page.testimonials} />
-
-        {preparedGallery.length > 0 && (
-          <section id="galerie" className="marketing-section is-dark" data-reveal>
+        {(page.sections || []).map((section, index) => (
+          <section
+            key={section.title}
+            id={getSectionId(section, index)}
+            className={`marketing-section ${index % 2 === 1 ? "is-muted" : ""}`}
+          >
             <div className="marketing-container">
-              <SectionHeader
-                eyebrow="Photos"
-                title="En images"
-              />
-              <div className="marketing-gallery">
-                {preparedGallery.map((image) => (
-                  <figure key={image.image || image.src}>
-                    <img
-                      src={image.image || image.src}
-                      alt={image.title || image.alt}
-                      loading="lazy"
-                      width="720"
-                      height="540"
-                    />
-                    {image.title && (
-                      <figcaption>
-                        <strong>{image.title}</strong>
-                      </figcaption>
-                    )}
-                  </figure>
-                ))}
+              <div className="marketing-section-heading-row" data-reveal>
+                <SectionHeader eyebrow={section.eyebrow} title={section.title} />
               </div>
+              {section.text && <p className="marketing-section-lead" data-reveal>{section.text}</p>}
+              <CardGrid cards={section.cards || []} />
             </div>
           </section>
-        )}
+        ))}
+
+        <ComparisonGrid items={page.comparison || []} />
+        <OptionGrid items={page.optionGrid || []} />
+        <CaseStudyGrid items={page.caseStudies || []} />
+        <TestimonialGrid items={page.testimonials || []} />
 
         {(page.faq || []).length > 0 && (
           <section id="faq" className="marketing-section" data-reveal>
             <div className="marketing-container marketing-faq-layout">
-              <SectionHeader
-                eyebrow="FAQ"
-                title="Questions fréquentes"
-              />
+              <SectionHeader eyebrow="FAQ" title="Questions fréquentes" />
               <div className="marketing-faq-list">
                 {page.faq.map((item) => (
                   <details key={item.question}>
@@ -586,10 +324,7 @@ export default function MarketingPage({ page }) {
         {(page.relatedLinks || []).length > 0 && (
           <section id="liens-utiles" className="marketing-section is-muted" data-reveal>
             <div className="marketing-container">
-              <SectionHeader
-                eyebrow="À découvrir"
-                title="Continuez votre visite"
-              />
+              <SectionHeader eyebrow="À découvrir" title="Continuez votre visite" />
               <div className="marketing-related-grid">
                 {page.relatedLinks.map((link) => (
                   <a key={link.href} href={link.href}>{link.label}</a>
@@ -602,7 +337,6 @@ export default function MarketingPage({ page }) {
         <FounderStory story={page.story} />
 
         <section className="marketing-final-cta" data-reveal>
-          <span className="marketing-final-media-label" aria-hidden="true">Image IA issue du réel</span>
           <div className="marketing-container">
             <p>{page.finalEyebrow || "Votre événement"}</p>
             <h2>{page.finalTitle || "Recevez votre proposition personnalisée."}</h2>
@@ -612,924 +346,6 @@ export default function MarketingPage({ page }) {
           </div>
         </section>
       </article>
-
-      <style jsx global>{`
-        .marketing-page {
-          background: #f7f3ea;
-          color: #161616;
-          text-align: left;
-        }
-
-        .marketing-container {
-          width: min(1180px, calc(100% - 32px));
-          margin: 0 auto;
-        }
-
-        .marketing-hero {
-          padding: 96px 0 36px;
-          color: #fff;
-          background: #070707;
-        }
-
-        .marketing-breadcrumbs {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-          margin-bottom: 22px;
-          color: #d8d1c4;
-          font-size: 0.9rem;
-          font-weight: 800;
-        }
-
-        .marketing-breadcrumbs a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .marketing-hero-grid {
-          display: grid;
-          grid-template-columns: 1.05fr 0.95fr;
-          gap: 36px;
-          align-items: center;
-        }
-
-        .marketing-eyebrow,
-        .marketing-section-header p,
-        .marketing-final-cta p {
-          margin: 0 0 14px;
-          color: #b8913f;
-          font-size: 0.78rem;
-          font-weight: 900;
-          letter-spacing: 0.16rem;
-          line-height: 1.4;
-          text-transform: uppercase;
-        }
-
-        .marketing-hero h1,
-        .marketing-section-header h2,
-        .marketing-final-cta h2 {
-          margin: 0;
-          color: inherit;
-          font-size: 3rem;
-          line-height: 1.03;
-          letter-spacing: 0;
-        }
-
-        .marketing-final-media-label {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          z-index: 2;
-          padding: 5px 9px;
-          border: 1px solid rgba(255, 255, 255, 0.72);
-          border-radius: 999px;
-          color: #171717;
-          background: rgba(232, 200, 97, 0.94);
-          font-size: 0.62rem;
-          font-weight: 900;
-          letter-spacing: 0.05em;
-          line-height: 1;
-          text-transform: uppercase;
-        }
-
-        .marketing-hero-copy > p:not(.marketing-eyebrow) {
-          max-width: 640px;
-          margin: 20px 0 0;
-          color: #e8e0d3;
-          font-size: 1.02rem;
-          line-height: 1.55;
-        }
-
-        .marketing-actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 24px;
-        }
-
-        .marketing-button,
-        .marketing-final-cta a {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 46px;
-          padding: 0 20px;
-          border-radius: 999px;
-          font-weight: 900;
-          text-decoration: none;
-        }
-
-        .marketing-button.primary,
-        .marketing-final-cta a {
-          color: #17130a;
-          background: #e5c46b;
-        }
-
-        .marketing-button.secondary {
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.34);
-        }
-
-        .marketing-button.ghost {
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          background: rgba(255, 255, 255, 0.08);
-        }
-
-        .marketing-microcopy {
-          margin: 14px 0 0;
-          color: #d8d1c4;
-          font-size: 0.92rem;
-        }
-
-        .marketing-hero-media {
-          position: relative;
-          width: min(100%, 500px);
-          justify-self: end;
-          border-radius: 8px;
-          overflow: hidden;
-          box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
-          background: #181818;
-        }
-
-        .marketing-hero-media img {
-          width: 100%;
-          height: clamp(280px, 34vw, 370px);
-          display: block;
-          object-fit: cover;
-        }
-
-        .marketing-hero-media-pair {
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-
-        .marketing-hero-media.has-motion .marketing-hero-media-pair {
-          grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-        }
-
-        .marketing-hero-media picture {
-          min-width: 0;
-          border-right: 2px solid #fff;
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-          .marketing-page.motion-ready .marketing-hero-media-pair > img {
-            animation: marketingHeroDrift 16s ease-in-out infinite alternate;
-          }
-        }
-
-        @keyframes marketingHeroDrift {
-          from { transform: scale(1.01); }
-          to { transform: scale(1.05); }
-        }
-
-        .marketing-hero-proof {
-          position: absolute;
-          left: 18px;
-          right: 18px;
-          bottom: 18px;
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-
-        .marketing-hero-proof span {
-          padding: 8px 10px;
-          border-radius: 999px;
-          color: #fff;
-          background: rgba(0, 0, 0, 0.62);
-          backdrop-filter: blur(10px);
-          font-size: 0.88rem;
-          font-weight: 800;
-        }
-
-        .marketing-proof-band {
-          padding: 14px 0;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-          background: #f5f1e8;
-        }
-
-        .marketing-proof-grid {
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 14px;
-        }
-
-        .marketing-proof-grid div {
-          padding: 14px;
-          border-radius: 8px;
-          background: #fff;
-        }
-
-        .marketing-proof-grid strong {
-          display: block;
-          color: #111;
-          font-size: 1.45rem;
-          line-height: 1;
-        }
-
-        .marketing-proof-grid span {
-          display: block;
-          margin-top: 8px;
-          color: #5d5a52;
-          font-weight: 700;
-          font-size: 0.88rem;
-        }
-
-        .marketing-quick-nav {
-          position: sticky;
-          top: 72px;
-          z-index: 40;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-          background: rgba(255, 255, 255, 0.96);
-          backdrop-filter: blur(14px);
-        }
-
-        .marketing-quick-nav-inner {
-          min-height: 52px;
-          display: grid;
-          grid-template-columns: auto minmax(0, 1fr) auto;
-          gap: 22px;
-          align-items: center;
-        }
-
-        .marketing-quick-nav-inner > strong {
-          color: #171717;
-          font-size: 0.82rem;
-        }
-
-        .marketing-quick-nav-inner > div {
-          display: flex;
-          gap: 22px;
-          overflow-x: auto;
-          scrollbar-width: none;
-        }
-
-        .marketing-quick-nav-inner > div::-webkit-scrollbar {
-          display: none;
-        }
-
-        .marketing-quick-nav-inner > div a {
-          position: relative;
-          flex: 0 0 auto;
-          color: #4f4a42;
-          font-size: 0.86rem;
-          font-weight: 800;
-          text-decoration: none;
-        }
-
-        .marketing-quick-nav-inner > div a::after {
-          position: absolute;
-          right: 0;
-          bottom: -7px;
-          left: 0;
-          height: 2px;
-          content: "";
-          background: #b8913f;
-          transform: scaleX(0);
-          transition: transform 180ms ease;
-        }
-
-        .marketing-quick-nav-inner > div a:hover::after,
-        .marketing-quick-nav-inner > div a:focus-visible::after {
-          transform: scaleX(1);
-        }
-
-        .marketing-quick-cta {
-          color: #17130a;
-          font-size: 0.84rem;
-          font-weight: 900;
-          text-decoration: none;
-        }
-
-        .marketing-section {
-          padding: 44px 0;
-        }
-
-        .marketing-section.is-muted {
-          background: #f6f3ec;
-        }
-
-        .marketing-section.is-dark {
-          color: #fff;
-          background: #0b0b0b;
-        }
-
-        .marketing-section-header {
-          max-width: 760px;
-          margin-bottom: 20px;
-        }
-
-        .marketing-section-heading-row {
-          display: block;
-          gap: 32px;
-          align-items: end;
-          margin-bottom: 20px;
-        }
-
-        .marketing-section-heading-row.has-visual {
-          display: grid;
-          grid-template-columns: minmax(220px, 1fr) minmax(0, 3fr);
-          align-items: stretch;
-        }
-
-        .marketing-section-heading-row .marketing-section-header {
-          margin-bottom: 0;
-        }
-
-        .marketing-section-lead {
-          max-width: 940px;
-          margin: -2px 0 24px;
-          color: #514e47;
-          font-size: 1rem;
-          line-height: 1.7;
-        }
-
-        .is-dark .marketing-section-lead {
-          color: #d8d1c4;
-        }
-
-        .marketing-section-visual {
-          position: relative;
-          height: 230px;
-          margin: 0;
-          overflow: hidden;
-          border-radius: 8px;
-          background: #111;
-        }
-
-        .marketing-section-visual img {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: cover;
-        }
-
-        .marketing-section-media-pair {
-          width: 100%;
-          height: 100%;
-          display: grid;
-          grid-template-columns: 1fr;
-        }
-
-        .marketing-section-media-pair.is-pair {
-          grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-        }
-
-        .marketing-section-media-pair picture {
-          min-width: 0;
-          border-right: 2px solid #fff;
-        }
-
-        .marketing-section-visual picture {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-
-        .marketing-section-visual figcaption {
-          position: absolute;
-          inset: auto 0 0;
-          padding: 22px 12px 10px;
-          color: #fff;
-          background: linear-gradient(0deg, rgba(0, 0, 0, 0.78), transparent);
-          font-size: 0.82rem;
-          font-weight: 800;
-        }
-
-        .marketing-section-header h2,
-        .marketing-final-cta h2 {
-          font-size: 2.35rem;
-          line-height: 1.1;
-        }
-
-        .marketing-section-header span {
-          display: block;
-          margin-top: 12px;
-          color: #5d5a52;
-          font-size: 0.98rem;
-          line-height: 1.55;
-        }
-
-        .is-dark .marketing-section-header span {
-          color: #d8d1c4;
-        }
-
-        .marketing-card-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 18px;
-        }
-
-        .marketing-card,
-        .marketing-faq-list article,
-        .marketing-faq-list details,
-        .marketing-comparison-card,
-        .marketing-option-card,
-        .marketing-pathway-card,
-        .marketing-case-card {
-          padding: 18px;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 8px;
-          background: #fff;
-          box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
-        }
-
-        .marketing-card h3,
-        .marketing-faq-list h3,
-        .marketing-option-card h3,
-        .marketing-comparison-card h3,
-        .marketing-pathway-card h3,
-        .marketing-case-card h3 {
-          margin: 0;
-          color: #151515;
-          font-size: 1.08rem;
-        }
-
-        .marketing-card p,
-        .marketing-faq-list p,
-        .marketing-option-card p,
-        .marketing-comparison-card p,
-        .marketing-pathway-card p,
-        .marketing-case-card p {
-          margin: 12px 0 0;
-          color: #5d5a52;
-          font-size: 0.94rem;
-          line-height: 1.52;
-        }
-
-        .marketing-card.has-service-visual {
-          padding: 0;
-          overflow: hidden;
-        }
-
-        .marketing-card-service-visual {
-          display: block;
-          height: 168px;
-          overflow: hidden;
-          background: #151515;
-        }
-
-        .marketing-card-service-visual img {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: cover;
-          transition: transform 220ms ease;
-        }
-
-        .marketing-card-service-visual:hover img,
-        .marketing-card-service-visual:focus-visible img {
-          transform: scale(1.025);
-        }
-
-        .marketing-card-body {
-          padding: 18px;
-        }
-
-        .marketing-comparison-grid,
-        .marketing-option-grid,
-        .marketing-pathway-grid,
-        .marketing-case-grid,
-        .marketing-related-grid {
-          display: grid;
-          gap: 18px;
-        }
-
-        .marketing-testimonial-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 18px;
-        }
-
-        .marketing-testimonial-card {
-          min-height: 230px;
-          display: flex;
-          flex-direction: column;
-          padding: 22px;
-          border: 1px solid rgba(255, 255, 255, 0.16);
-          border-radius: 8px;
-          background: #171717;
-        }
-
-        .marketing-testimonial-card > span {
-          color: #e5c46b;
-          letter-spacing: 0.08rem;
-        }
-
-        .marketing-testimonial-card blockquote {
-          flex: 1;
-          margin: 18px 0 24px;
-          color: #f4efe5;
-          font-size: 1rem;
-          line-height: 1.6;
-        }
-
-        .marketing-testimonial-card strong,
-        .marketing-testimonial-card small {
-          display: block;
-        }
-
-        .marketing-testimonial-card small {
-          margin-top: 5px;
-          color: #aaa398;
-        }
-
-        .marketing-reviews-link {
-          display: inline-flex;
-          margin-top: 22px;
-          color: #e5c46b;
-          font-weight: 900;
-          text-decoration: none;
-        }
-
-        .marketing-pathway-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .marketing-pathway-card {
-          color: #151515;
-          text-decoration: none;
-          transition: transform 180ms ease, border-color 180ms ease;
-        }
-
-        .marketing-pathway-card:hover {
-          border-color: #b8913f;
-          transform: translateY(-3px);
-        }
-
-        .marketing-pathway-card span {
-          display: block;
-          margin-bottom: 18px;
-          color: #b8913f;
-          font-size: 0.78rem;
-          font-weight: 900;
-          letter-spacing: 0.14rem;
-          text-transform: uppercase;
-        }
-
-        .marketing-case-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .marketing-case-card {
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-          padding: 0;
-          overflow: hidden;
-        }
-
-        .marketing-case-media {
-          aspect-ratio: 4 / 3;
-          overflow: hidden;
-          background: #111;
-        }
-
-        .marketing-case-media img {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: cover;
-        }
-
-        .marketing-case-copy {
-          padding: 18px;
-        }
-
-        .marketing-case-copy > span {
-          display: block;
-          margin-bottom: 9px;
-          color: #9a7324;
-          font-size: 0.72rem;
-          font-weight: 900;
-          letter-spacing: 0.06rem;
-          text-transform: uppercase;
-        }
-
-        .marketing-case-card strong {
-          color: #151515;
-        }
-
-        .marketing-story-grid {
-          display: grid;
-          grid-template-columns: minmax(260px, 0.45fr) 1fr;
-          gap: 44px;
-          align-items: center;
-        }
-
-        .marketing-story-grid h2 {
-          max-width: 760px;
-          margin: 0;
-          color: #151515;
-          font-size: 2.35rem;
-          line-height: 1.1;
-        }
-
-        .marketing-story-grid p:not(.marketing-eyebrow) {
-          max-width: 720px;
-          margin: 20px 0 0;
-          color: #5d5a52;
-          font-size: 0.98rem;
-          line-height: 1.55;
-        }
-
-        .marketing-story-grid a {
-          display: inline-flex;
-          margin-top: 24px;
-          color: #8a6520;
-          font-weight: 900;
-          text-decoration: none;
-        }
-
-        .marketing-comparison-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .marketing-comparison-card {
-          display: grid;
-          grid-template-columns: 160px 1fr;
-          gap: 18px;
-        }
-
-        .marketing-comparison-card img,
-        .marketing-option-card img {
-          width: 100%;
-          border-radius: 6px;
-          object-fit: cover;
-        }
-
-        .marketing-comparison-card img {
-          height: 160px;
-          min-height: 0;
-        }
-
-        .marketing-comparison-card dl {
-          display: grid;
-          gap: 8px;
-          margin: 0;
-        }
-
-        .marketing-comparison-card dl div {
-          display: grid;
-          grid-template-columns: 104px 1fr;
-          gap: 10px;
-        }
-
-        .marketing-comparison-card dt {
-          color: #b8913f;
-          font-weight: 900;
-        }
-
-        .marketing-comparison-card dd {
-          margin: 0;
-          color: #5d5a52;
-        }
-
-        .marketing-comparison-card a,
-        .marketing-option-card a,
-        .marketing-related-grid a {
-          color: #8a6520;
-          font-weight: 900;
-          text-decoration: none;
-        }
-
-        .marketing-option-grid {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        .marketing-option-card img {
-          height: 150px;
-          margin-bottom: 18px;
-        }
-
-        .marketing-gallery {
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          gap: 16px;
-        }
-
-        .marketing-gallery figure {
-          position: relative;
-          height: 190px;
-          min-height: 0;
-          margin: 0;
-          overflow: hidden;
-          border-radius: 8px;
-          background: #111;
-        }
-
-        .marketing-gallery img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .marketing-gallery figcaption {
-          position: absolute;
-          inset: auto 0 0;
-          display: grid;
-          gap: 4px;
-          padding: 18px;
-          color: #fff;
-          background: linear-gradient(0deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0));
-        }
-
-        .marketing-faq-layout {
-          display: grid;
-          grid-template-columns: 0.8fr 1.2fr;
-          gap: 48px;
-          align-items: start;
-        }
-
-        .marketing-faq-list {
-          display: grid;
-          gap: 14px;
-        }
-
-        .marketing-faq-list summary {
-          min-height: 44px;
-          display: flex;
-          align-items: center;
-          color: #151515;
-          cursor: pointer;
-          font-size: 1.1rem;
-          font-weight: 900;
-        }
-
-        .marketing-related-grid {
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-        }
-
-        .marketing-related-grid a {
-          min-height: 58px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 18px;
-          border: 1px solid rgba(0, 0, 0, 0.08);
-          border-radius: 999px;
-          background: #fff;
-        }
-
-        .marketing-final-cta {
-          position: relative;
-          padding: 42px 0;
-          overflow: hidden;
-          color: #fff;
-          background:
-            linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.72)),
-            url("/images/ai-from-real/hero-photobooth-reception.webp") center / cover;
-        }
-
-        .marketing-final-cta h2 {
-          max-width: 780px;
-        }
-
-        .marketing-final-cta a {
-          margin-top: 28px;
-        }
-
-        @media (max-width: 980px) {
-          .marketing-hero h1 {
-            font-size: 3.05rem;
-          }
-
-          .marketing-section-header h2,
-          .marketing-final-cta h2,
-          .marketing-story-grid h2 {
-            font-size: 2.15rem;
-          }
-
-          .marketing-hero-grid,
-          .marketing-faq-layout {
-            grid-template-columns: 1fr;
-          }
-
-          .marketing-proof-grid,
-          .marketing-card-grid,
-          .marketing-gallery,
-          .marketing-comparison-grid,
-          .marketing-option-grid,
-          .marketing-pathway-grid,
-          .marketing-case-grid,
-          .marketing-testimonial-grid,
-          .marketing-related-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
-
-          .marketing-story-grid,
-          .marketing-case-card {
-            grid-template-columns: 1fr;
-          }
-
-          .marketing-hero-media {
-            width: min(100%, 620px);
-            justify-self: start;
-          }
-
-          .marketing-section-heading-row.has-visual {
-            grid-template-columns: minmax(200px, 1fr) minmax(0, 3fr);
-          }
-        }
-
-        @media (max-width: 680px) {
-          .marketing-hero {
-            padding: 96px 0 44px;
-          }
-
-          .marketing-hero h1 {
-            font-size: 2.25rem;
-          }
-
-          .marketing-section-header h2,
-          .marketing-story-grid h2 {
-            font-size: 1.85rem;
-          }
-
-          .marketing-final-cta h2 {
-            font-size: 1.95rem;
-          }
-
-          .marketing-quick-nav-inner {
-            grid-template-columns: minmax(0, 1fr);
-            gap: 0;
-          }
-
-          .marketing-quick-nav-inner > strong,
-          .marketing-quick-cta {
-            display: none;
-          }
-
-          .marketing-quick-nav-inner > div {
-            gap: 18px;
-          }
-
-          .marketing-quick-nav-inner > div a {
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-          }
-
-          .marketing-actions,
-          .marketing-button {
-            width: 100%;
-          }
-
-          .marketing-hero-media img {
-            height: 270px;
-          }
-
-          .marketing-section-heading-row {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-
-          .marketing-section-heading-row.has-visual {
-            grid-template-columns: 1fr;
-          }
-
-          .marketing-section-visual {
-            width: 100%;
-            height: 260px;
-          }
-
-          .marketing-proof-grid,
-          .marketing-card-grid,
-          .marketing-gallery,
-          .marketing-comparison-grid,
-          .marketing-option-grid,
-          .marketing-pathway-grid,
-          .marketing-case-grid,
-          .marketing-testimonial-grid,
-          .marketing-related-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .marketing-gallery {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
-
-          .marketing-gallery figure {
-            height: 160px;
-          }
-
-          .marketing-gallery figcaption {
-            padding: 14px 10px 10px;
-            font-size: 0.78rem;
-          }
-
-          .marketing-comparison-card {
-            grid-template-columns: 1fr;
-          }
-
-          .marketing-comparison-card dl div {
-            grid-template-columns: 1fr;
-            gap: 2px;
-          }
-        }
-      `}</style>
     </Layout>
   );
 }
