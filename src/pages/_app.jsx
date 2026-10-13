@@ -4,6 +4,7 @@ import "../styles/blog.css";
 import "../styles/image-framing.css";
 import "../styles/media-provenance.css";
 import "../styles/catalog-premium.css";
+import "../data/mediaOverrides";
 import { useRouter } from "next/router";
 import useVisualLoadMotion from "../hooks/useVisualLoadMotion";
 import MediaProvenanceAnnotator from "../components/MediaProvenanceAnnotator";
