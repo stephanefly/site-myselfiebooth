@@ -9,24 +9,27 @@ const localSeoPages = JSON.parse(
   await readFile(resolve(root, "src/data/local-seo-pages.json"), "utf8"),
 );
 const blogSources = [
-  "src/data/blogArticles.js",
-  "src/data/blogWeddingPlanningGuides.js",
-  "src/data/blogWeddingReceptionGuides.js",
-  "src/data/blogWeddingGuestGuides.js",
-  "src/data/blogServiceGuides.js",
+  { path: "src/data/blogArticles.js", lastmod: "2026-08-12" },
+  { path: "src/data/blogWeddingPlanningGuides.js", lastmod: "2026-08-12" },
+  { path: "src/data/blogWeddingReceptionGuides.js", lastmod: "2026-08-12" },
+  { path: "src/data/blogWeddingGuestGuides.js", lastmod: "2026-08-12" },
+  { path: "src/data/blogServiceGuides.js", lastmod: "2026-08-12" },
+  { path: "src/data/blogSeoGrowthGuides.js", lastmod: "2026-10-13" },
 ];
-const blogSlugs = new Set();
+const blogSlugs = new Map();
 
 for (const source of blogSources) {
-  const content = await readFile(resolve(root, source), "utf8");
+  const content = await readFile(resolve(root, source.path), "utf8");
   for (const match of content.matchAll(/slug:\s*["']([^"']+)["']/g)) {
-    blogSlugs.add(match[1]);
+    if (!blogSlugs.has(match[1]) || source.lastmod > blogSlugs.get(match[1])) {
+      blogSlugs.set(match[1], source.lastmod);
+    }
   }
 }
 
 const staticPaths = new Set(staticRoutes.map((route) => route.path));
-const blogRoutes = Array.from(blogSlugs)
-  .map((slug) => ({ path: `/blog/${slug}/`, lastmod: "2026-08-12" }))
+const blogRoutes = Array.from(blogSlugs.entries())
+  .map(([slug, lastmod]) => ({ path: `/blog/${slug}/`, lastmod }))
   .filter((route) => !staticPaths.has(route.path));
 const localRoutes = localSeoPages
   .map((location) => ({
@@ -37,7 +40,7 @@ const localRoutes = localSeoPages
 
 const routes = [
   ...staticRoutes.map((route) => route.path === "/blog/"
-    ? { ...route, lastmod: "2026-08-12" }
+    ? { ...route, lastmod: "2026-10-13" }
     : route),
   ...blogRoutes,
   ...localRoutes,
