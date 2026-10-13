@@ -245,7 +245,7 @@ export default function HomePage() {
           <div id="references" className="home-logo-strip" aria-label="Nos références clients">
             {brandLogos.map((logo) => (
               <figure key={logo.name} className="home-reference-card">
-                <img className={["TotalEnergies", "Hermès", "AXA", "Crédit Agricole", "Sephora"].includes(logo.name) ? undefined : "home-reference-wordmark"} src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" width="256" height="256" />
+                <img className={["TotalEnergies", "Hermès", "AXA", "Crédit Agricole", "Sephora"].includes(logo.name) ? undefined : "home-reference-wordmark"} src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" width="256" height="256" data-no-load-motion />
                 <figcaption>{logo.name}</figcaption>
               </figure>
             ))}
