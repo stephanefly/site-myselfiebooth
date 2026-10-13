@@ -2,7 +2,6 @@ import Layout from "../Layout";
 import { machines, options, selectorNeeds, servicePacks } from "../../data/catalog";
 import { absoluteUrl, breadcrumbJsonLd, siteConfig } from "../../data/site";
 import useRevealMotion from "../../hooks/useRevealMotion";
-import InstagramMediaWall from "../InstagramMediaWall";
 
 const machineGuide = {
   photobooth: { type: "Photo + tirage", capacity: "Petits et grands groupes", ideal: "Le choix polyvalent" },
@@ -14,6 +13,33 @@ const machineGuide = {
   packvip: { type: "Photo + vidéo", capacity: "Fort passage", ideal: "Expérience complète" },
   personnalise: { type: "Sur mesure", capacity: "Selon votre événement", ideal: "Plusieurs espaces" },
 };
+
+const packVisuals = {
+  souvenirs: "/images/event-archive/brice-tirages.webp",
+  "immersion-360": "/images/event-archive/video-posters/360-red-carpet.webp",
+  signature: "/images/event-archive/video-posters/miroirbooth-installation.webp",
+  "duo-vip": "/images/realisations-machines/photobooth-miroir-espace-eden.webp",
+  "vogue-premium": "/images/event-archive/video-posters/voguebooth-soiree.webp",
+  "mariage-prestige": "/images/event-archive/caftan-portrait-01.webp",
+};
+
+const selectorVisuals = {
+  "Photo imprimée": "/images/realisations-machines/tirages-gala.webp",
+  "Vidéo 360": "/images/event-archive/video-posters/invites-en-fete.webp",
+  "Photo Vogue": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+};
+
+const catalogPacks = servicePacks.map((pack) => ({
+  ...pack,
+  fusionImage: packVisuals[pack.key],
+  fusionAlt: `${pack.name} illustré par une prestation réelle MySelfieBooth`,
+}));
+
+const catalogSelectorNeeds = selectorNeeds.map((choice) => ({
+  ...choice,
+  image: selectorVisuals[choice.need],
+  imageAlt: `${choice.need} MySelfieBooth sur une prestation réelle`,
+}));
 
 const souvenirOptions = new Set([
   "Phonebooth audio",
@@ -29,45 +55,8 @@ const decorOptions = new Set([
   "Panneau fontaine",
   "Panneau de bienvenue",
   "Fond LED 360",
+  "Décoration Vogue Booth",
 ]);
-
-const bookingSteps = [
-  { title: "Choisissez l'animation", text: "Photo, vidéo, Vogue Booth ou pack." },
-  { title: "Ajoutez les options", text: "Décor, livre d'or et souvenirs utiles." },
-  { title: "Fixez la durée", text: "3 h, 5 h ou 7 h selon votre événement." },
-  { title: "Indiquez date et lieu", text: "Adresse, horaires et contraintes d'accès." },
-  { title: "Recevez la proposition", text: "Disponibilité, formule et tarif confirmés." },
-];
-
-const catalogMachines = machines;
-
-const packVisuals = {
-  souvenirs: "/images/event-archive/brice-tirages.webp",
-  "immersion-360": "/images/event-archive/video-posters/360-red-carpet.webp",
-  signature: "/images/event-archive/video-posters/miroirbooth-installation.webp",
-  "duo-vip": "/images/realisations-machines/photobooth-miroir-espace-eden.webp",
-  "vogue-premium": "/images/event-archive/video-posters/voguebooth-soiree.webp",
-  "mariage-prestige": "/images/event-archive/caftan-portrait-01.webp",
-};
-
-const catalogPacks = servicePacks.map((pack) => ({
-  ...pack,
-  image: packVisuals[pack.key] || pack.image,
-  fusionImage: packVisuals[pack.key] || pack.fusionImage || pack.image,
-  fusionAlt: `${pack.name} MySelfieBooth illustré par une prestation réelle`,
-}));
-
-const selectorVisuals = {
-  "Photo imprimée": "/images/realisations-machines/tirages-gala.webp",
-  "Vidéo 360": "/images/event-archive/video-posters/invites-en-fete.webp",
-  "Photo Vogue": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
-};
-
-const catalogSelectorNeeds = selectorNeeds.map((choice) => ({
-  ...choice,
-  image: selectorVisuals[choice.need] || choice.image,
-  imageAlt: `${choice.need} MySelfieBooth sur une prestation réelle`,
-}));
 
 function optionLabel(name) {
   if (souvenirOptions.has(name)) return "Souvenir";
@@ -77,55 +66,23 @@ function optionLabel(name) {
 
 function MachineCard({ machine }) {
   const guide = machineGuide[machine.key];
-
   return (
     <article id={`machine-${machine.key}`} className="catalog-machine-card">
       <div className="catalog-machine-media">
-        <div className="catalog-machine-media-pair">
-          <img
-            src={machine.image}
-            alt={machine.alt}
-            loading="lazy"
-            width="720"
-            height="480"
-          />
-        </div>
+        <img src={machine.image} alt={machine.alt} loading="lazy" width="720" height="480" />
         <span>{machine.tag}</span>
       </div>
       <div className="catalog-machine-body">
         <div className="catalog-machine-heading">
-          <div>
-            <p>{guide.type}</p>
-            <h3>{machine.name}</h3>
-          </div>
+          <div><p>{guide.type}</p><h3>{machine.name}</h3></div>
           <strong>{machine.catalogPrice || machine.price || "Sur devis"}</strong>
         </div>
-
         <p className="catalog-machine-summary">{machine.short}</p>
-
         <dl className="catalog-facts">
-          <div>
-            <dt>Capacité</dt>
-            <dd>{guide.capacity}</dd>
-          </div>
-          <div>
-            <dt>Idéal pour</dt>
-            <dd>{guide.ideal}</dd>
-          </div>
+          <div><dt>Capacité</dt><dd>{guide.capacity}</dd></div>
+          <div><dt>Idéal pour</dt><dd>{guide.ideal}</dd></div>
         </dl>
-
-        <details className="catalog-machine-details">
-          <summary>Ce qui est inclus</summary>
-          <ul>
-            {machine.includes.slice(0, 5).map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </details>
-
-        <a className="catalog-card-cta" href={machine.bookingUrl || siteConfig.quoteUrl} data-event="cta_quote_click">
-          Choisir {machine.name}
-        </a>
+        <a className="catalog-card-cta" href={machine.bookingUrl || siteConfig.quoteUrl}>Choisir {machine.name}</a>
       </div>
     </article>
   );
@@ -135,31 +92,18 @@ function PackCard({ pack }) {
   return (
     <article className={`catalog-pack-card ${pack.featured ? "is-featured" : ""}`}>
       <div className="catalog-pack-media-fusion">
-        <img
-          src={pack.fusionImage || pack.image}
-          alt={pack.fusionAlt || pack.name}
-          loading="lazy"
-          width="1200"
-          height="900"
-        />
+        <img src={pack.fusionImage} alt={pack.fusionAlt} loading="lazy" width="1200" height="900" />
       </div>
       <div className="catalog-pack-body">
         <span>{pack.tag}</span>
         <h3>{pack.name}</h3>
         <p className="catalog-pack-description">{pack.description}</p>
-        <ul>
-          {pack.features.map((feature) => (
-            <li key={feature}>{feature}</li>
-          ))}
-        </ul>
+        <ul>{pack.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
         <div className="catalog-pack-price">
-          <div>
-            <small>{pack.oldPrice}</small>
-            <strong>{pack.price}</strong>
-          </div>
+          <div><small>{pack.oldPrice}</small><strong>{pack.price}</strong></div>
           <em>{pack.saving}</em>
         </div>
-        <a href={pack.bookingUrl || siteConfig.quoteUrl} data-event="cta_quote_click">Demander ce pack</a>
+        <a href={pack.bookingUrl || siteConfig.quoteUrl}>Demander ce pack</a>
       </div>
     </article>
   );
@@ -170,28 +114,14 @@ function ComparisonTable() {
     <section id="comparatif" className="catalog-section catalog-compare-section" data-reveal>
       <div className="catalog-container">
         <header className="catalog-section-heading catalog-heading-row">
-          <div>
-            <p className="catalog-eyebrow">Comparer</p>
-            <h2>Prix et prestations en un coup d'œil.</h2>
-          </div>
+          <div><p className="catalog-eyebrow">Comparer</p><h2>Prix et prestations en un coup d'œil.</h2></div>
           <p>Les éléments variables sont confirmés dans votre devis selon la durée, le lieu et les options.</p>
         </header>
-
-        <p id="catalog-compare-help" className="catalog-compare-help">Faites défiler le tableau pour tout comparer.</p>
-        <div className="catalog-compare-scroll" tabIndex="0" aria-describedby="catalog-compare-help">
+        <div className="catalog-compare-scroll" tabIndex="0">
           <table className="catalog-compare-table">
-            <thead>
-              <tr>
-                <th scope="col">Animation</th>
-                <th scope="col">Tarif</th>
-                <th scope="col">Rendu</th>
-                <th scope="col">Tirage</th>
-                <th scope="col">Capacité</th>
-                <th scope="col">Animateur</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Animation</th><th>Tarif</th><th>Rendu</th><th>Tirage</th><th>Capacité</th><th>Animateur</th></tr></thead>
             <tbody>
-              {catalogMachines.map((machine) => (
+              {machines.map((machine) => (
                 <tr key={machine.key}>
                   <th scope="row"><a href={`#machine-${machine.key}`}>{machine.name}</a></th>
                   <td><strong>{machine.catalogPrice || machine.price || "Sur devis"}</strong></td>
@@ -204,10 +134,6 @@ function ComparisonTable() {
             </tbody>
           </table>
         </div>
-        <p className="catalog-compare-note">
-          Tarifs synchronisés avec notre catalogue de réservation. Le nombre de tirages, les horaires et les modalités de partage dépendent de la formule retenue.{" "}
-          <a href={siteConfig.ratesUrl}>Consulter tous les tarifs détaillés</a>.
-        </p>
       </div>
     </section>
   );
@@ -216,10 +142,7 @@ function ComparisonTable() {
 export default function ServicesCatalogPage() {
   const pageRef = useRevealMotion("catalog");
   const catalogJsonLd = [
-    breadcrumbJsonLd([
-      { label: "Accueil", href: "/" },
-      { label: "Prestations", href: "/prestations/" },
-    ]),
+    breadcrumbJsonLd([{ label: "Accueil", href: "/" }, { label: "Prestations", href: "/prestations/" }]),
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -235,86 +158,52 @@ export default function ServicesCatalogPage() {
   ];
 
   return (
-    <Layout
-      metaProps={{
-        title: "Prestations et tarifs Photobooth | MySelfieBooth",
-        description:
-          "Comparez 8 animations Photobooth, 6 packs, leurs tarifs et les éléments inclus avant de demander votre devis MySelfieBooth.",
-        ogImage: "/images/realisations-machines/photobooth-miroir-espace-eden.webp",
-        ogUrl: "/prestations/",
-        jsonLd: catalogJsonLd,
-      }}
-    >
+    <Layout metaProps={{
+      title: "Prestations et tarifs Photobooth | MySelfieBooth",
+      description: "Comparez les animations, packs, options et tarifs MySelfieBooth avant de demander votre devis.",
+      ogImage: "/images/event-archive/goldbooth-gala.webp",
+      ogUrl: "/prestations/",
+      jsonLd: catalogJsonLd,
+    }}>
       <div className="catalog-page" ref={pageRef}>
         <section className="catalog-hero">
           <div className="catalog-container catalog-hero-grid">
             <div data-reveal>
               <p className="catalog-eyebrow">Toutes nos prestations</p>
-              <h1>Trouvez votre animation en moins d'une minute.</h1>
-              <p className="catalog-hero-copy">
-                8 animations, 6 packs et 14 options réunis sur une seule page.
-              </p>
+              <h1>Choisissez l'expérience qui correspond vraiment à votre événement.</h1>
+              <p className="catalog-hero-copy">Chaque carte montre un visuel réel différent et directement lié à la prestation présentée.</p>
               <div className="catalog-actions">
                 <a className="catalog-button primary" href="#choisir">Choisir selon mon besoin</a>
                 <a className="catalog-button secondary" href={siteConfig.ratesUrl}>Voir les tarifs détaillés</a>
                 <a className="catalog-button secondary" href={siteConfig.quoteUrl}>Obtenir mon devis</a>
               </div>
             </div>
-            <figure className="catalog-hero-media" data-reveal data-reveal-variant="scale">
-              <img
-                src="/images/realisations-machines/photobooth-miroir-espace-eden.webp"
-                alt="Photobooth et Miroirbooth MySelfieBooth lors d'une prestation réelle"
-                width="1600"
-                height="900"
-              />
+            <figure className="catalog-hero-media" data-reveal>
+              <img src="/images/event-archive/goldbooth-gala.webp" alt="Installation premium MySelfieBooth lors d'un gala réel" width="1600" height="900" />
             </figure>
           </div>
         </section>
 
         <div className="catalog-benefit-band">
           <div className="catalog-container catalog-benefits">
-            <span>Livraison & installation</span>
-            <span>Personnalisation</span>
-            <span>Animateur selon formule</span>
-            <span>Galerie après l'événement</span>
+            <span>Livraison & installation</span><span>Personnalisation</span><span>Animateur selon formule</span><span>Galerie après l'événement</span>
           </div>
         </div>
 
         <nav className="catalog-jump-nav" aria-label="Accès rapide aux prestations">
           <div className="catalog-container">
-            <a href="#choisir">Choisir vite</a>
-            <a href="#comparatif">Comparer</a>
-            <a href="#machines">Machines</a>
-            <a href="#packs">Packs</a>
-            <a href="#options">Options</a>
-            <a href="#rendus-reels">Rendus réels</a>
-            <a href={siteConfig.ratesUrl}>Tarifs détaillés</a>
-            <a className="catalog-jump-cta" href={siteConfig.quoteUrl}>Devis</a>
+            <a href="#choisir">Choisir vite</a><a href="#comparatif">Comparer</a><a href="#machines">Machines</a><a href="#packs">Packs</a><a href="#options">Options</a><a href="/realisations/">Réalisations</a><a className="catalog-jump-cta" href={siteConfig.quoteUrl}>Devis</a>
           </div>
         </nav>
 
         <section id="choisir" className="catalog-section catalog-choice-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading">
-              <p className="catalog-eyebrow">Choisir vite</p>
-              <h2>Que voulez-vous créer ?</h2>
-            </header>
+            <header className="catalog-section-heading"><p className="catalog-eyebrow">Choisir vite</p><h2>Quel résultat voulez-vous obtenir ?</h2></header>
             <div className="catalog-choice-grid">
               {catalogSelectorNeeds.map((choice) => (
                 <a key={choice.need} href={choice.href} className={`catalog-choice ${choice.tone}`}>
-                  <div className="catalog-choice-media">
-                    <img
-                      src={choice.image}
-                      alt={choice.imageAlt}
-                      loading="lazy"
-                      width="640"
-                      height="480"
-                    />
-                  </div>
-                  <div className="catalog-choice-copy">
-                    <span>{choice.need}</span>
-                    <strong>{choice.answer}</strong>
-                  </div>
+                  <div className="catalog-choice-media"><img src={choice.image} alt={choice.imageAlt} loading="lazy" width="640" height="480" /></div>
+                  <div className="catalog-choice-copy"><span>{choice.need}</span><strong>{choice.answer}</strong></div>
                 </a>
               ))}
             </div>
@@ -325,120 +214,41 @@ export default function ServicesCatalogPage() {
 
         <section id="machines" className="catalog-section catalog-machines-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row">
-              <div>
-                <p className="catalog-eyebrow">8 animations</p>
-                <h2>Nos machines, clairement expliquées.</h2>
-              </div>
-              <p>Photo, vidéo, capacité et usage : l'essentiel est visible immédiatement.</p>
-            </header>
-            <div className="catalog-machine-grid">
-              {catalogMachines.map((machine) => (
-                <MachineCard key={machine.key} machine={machine} />
-              ))}
-            </div>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">8 animations</p><h2>Nos machines, avec leur vrai usage.</h2></div><p>Une image différente par équipement, choisie pour montrer le produit ou son résultat réel.</p></header>
+            <div className="catalog-machine-grid">{machines.map((machine) => <MachineCard key={machine.key} machine={machine} />)}</div>
           </div>
         </section>
 
         <section id="packs" className="catalog-section catalog-packs-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row">
-              <div>
-                <p className="catalog-eyebrow">6 formules prêtes</p>
-                <h2>Les packs qui simplifient le choix.</h2>
-              </div>
-              <p>Des combinaisons cohérentes avec un tarif plus avantageux que les prestations séparées.</p>
-            </header>
-            <div className="catalog-pack-grid">
-              {catalogPacks.map((pack) => (
-                <PackCard key={pack.key} pack={pack} />
-              ))}
-            </div>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">6 formules</p><h2>Les packs, chacun avec son propre visuel.</h2></div><p>Aucune image répétée entre les packs.</p></header>
+            <div className="catalog-pack-grid">{catalogPacks.map((pack) => <PackCard key={pack.key} pack={pack} />)}</div>
           </div>
         </section>
 
         <section id="options" className="catalog-section catalog-options-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row">
-              <div>
-                <p className="catalog-eyebrow">14 options</p>
-                <h2>Décor, messages et souvenirs.</h2>
-              </div>
-              <p>Ajoutez uniquement ce qui apporte quelque chose à votre événement.</p>
-            </header>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">14 options</p><h2>Le résultat final plutôt que les coulisses.</h2></div><p>Le Mur floral montre désormais une vraie réception fleurie. Les autres options sont illustrées par leur usage réel.</p></header>
             <div className="catalog-option-grid">
               {options.map((option) => (
                 <article key={option.name} className="catalog-option-card">
-                  <div className="catalog-option-media-pair">
-                    <img
-                      src={option.image}
-                      alt={option.name}
-                      loading="lazy"
-                      width="420"
-                      height="315"
-                    />
-                  </div>
-                  <div className="catalog-option-body">
-                    <span>{optionLabel(option.name)}</span>
-                    <h3>{option.name}</h3>
-                  </div>
+                  <div className="catalog-option-media-pair"><img src={option.image} alt={option.name} loading="lazy" width="420" height="315" /></div>
+                  <div className="catalog-option-body"><span>{optionLabel(option.name)}</span><h3>{option.name}</h3><p>{option.text}</p></div>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="rendus-reels" className="catalog-section catalog-real-results" data-reveal>
+        <section className="catalog-section catalog-real-results" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row">
-              <div>
-                <p className="catalog-eyebrow">Vu sur Instagram</p>
-                <h2>Les prestations en mouvement.</h2>
-              </div>
-              <p>De vrais événements, du montage aux souvenirs.</p>
-            </header>
-            <InstagramMediaWall compact />
-          </div>
-        </section>
-
-        <section id="reservation" className="catalog-section catalog-booking-section" data-reveal>
-          <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row">
-              <div>
-                <p className="catalog-eyebrow">Réserver simplement</p>
-                <h2>Votre demande en cinq étapes.</h2>
-              </div>
-              <p>Vous renseignez l'essentiel. Nous confirmons ensuite la disponibilité et la configuration adaptée.</p>
-            </header>
-            <ol className="catalog-booking-grid">
-              {bookingSteps.map((step, index) => (
-                <li key={step.title}>
-                  <span>{index + 1}</span>
-                  <strong>{step.title}</strong>
-                  <p>{step.text}</p>
-                </li>
-              ))}
-            </ol>
-            <div className="catalog-booking-action">
-              <a className="catalog-button primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
-                Vérifier ma date et demander mon devis
-              </a>
-              <span>Disponibilité, livraison et tarif confirmés dans votre proposition.</span>
-            </div>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">Banque réelle</p><h2>Toutes les autres photos sont dans Réalisations.</h2></div><p>La banque Instagram n'est plus dupliquée sur plusieurs pages.</p></header>
+            <div className="catalog-booking-action"><a className="catalog-button secondary" href="/realisations/">Voir les réalisations réelles</a></div>
           </div>
         </section>
 
         <section className="catalog-final-cta" data-reveal>
-          <div className="catalog-container">
-            <div>
-              <p className="catalog-eyebrow">Besoin d'aide ?</p>
-              <h2>Donnez-nous la date, le lieu et le nombre d'invités.</h2>
-            </div>
-            <div className="catalog-actions">
-              <a className="catalog-button primary" href={siteConfig.quoteUrl}>Recevoir une proposition</a>
-              <a className="catalog-button secondary" href={siteConfig.phoneHref}>{siteConfig.phoneLabel}</a>
-            </div>
-          </div>
+          <div className="catalog-container"><div><p className="catalog-eyebrow">Votre événement</p><h2>Donnez-nous la date, le lieu et le nombre d'invités.</h2></div><div className="catalog-actions"><a className="catalog-button primary" href={siteConfig.quoteUrl}>Recevoir une proposition</a><a className="catalog-button secondary" href={siteConfig.phoneHref}>{siteConfig.phoneLabel}</a></div></div>
         </section>
       </div>
     </Layout>
