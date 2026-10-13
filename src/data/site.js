@@ -70,9 +70,22 @@ export const siteConfig = {
 };
 
 export const brandLogos = [
-  { name: "TotalEnergies" },
-  { name: "Sephora", src: "/logos/sephora.webp" },
+  { name: "L’Oréal", src: "/logos/loreal.png" },
+  { name: "LVMH", src: "/logos/lvmh.png" },
+  { name: "TotalEnergies", src: "/logos/totalenergies.png" },
+  { name: "Schneider Electric", src: "/logos/schneider-electric.png" },
+  { name: "Airbus", src: "/logos/airbus.png" },
+  { name: "Hermès", src: "/logos/hermes.png" },
   { name: "Safran", src: "/logos/safran.webp" },
+  { name: "Air Liquide", src: "/logos/air-liquide.png" },
+  { name: "BNP Paribas", src: "/logos/bnp-paribas.png" },
+  { name: "AXA", src: "/logos/axa.png" },
+  { name: "Sanofi", src: "/logos/sanofi.png" },
+  { name: "EssilorLuxottica", src: "/logos/essilorluxottica.png" },
+  { name: "Vinci", src: "/logos/vinci.png" },
+  { name: "ENGIE", src: "/logos/engie.png" },
+  { name: "Crédit Agricole", src: "/logos/credit-agricole.png" },
+  { name: "Sephora", src: "/logos/sephora.webp" },
 ];
 
 export const trustSignals = [

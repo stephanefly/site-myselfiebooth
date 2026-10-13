@@ -241,11 +241,14 @@ export default function HomePage() {
 
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container">
-          <SectionIntro eyebrow="Références" title="Des prestations pour particuliers et entreprises" />
-          <div className="home-logo-strip">
-            {brandLogos.map((logo) => logo.src ? (
-              <img key={logo.name} src={logo.src} alt={logo.name} loading="lazy" width="180" height="64" />
-            ) : <div key={logo.name} className="home-brand-name">{logo.name}</div>)}
+          <SectionIntro eyebrow="Références clients" title="Ils nous font confiance" />
+          <div id="references" className="home-logo-strip" aria-label="Nos références clients">
+            {brandLogos.map((logo) => (
+              <figure key={logo.name} className="home-reference-card">
+                <img className={["TotalEnergies", "Hermès", "AXA", "Crédit Agricole", "Sephora"].includes(logo.name) ? undefined : "home-reference-wordmark"} src={logo.src} alt={`Logo ${logo.name}`} loading="lazy" decoding="async" width="256" height="256" />
+                <figcaption>{logo.name}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
