@@ -36,7 +36,7 @@ const optionImages = {
   "Fond LED 360": "/images/fond 360.webp",
   "Photographe Vogue Booth": "/images/photographe-voguebooth.webp",
   "Impression Vogue Booth": "/images/impression-voguebooth.webp",
-  "Décoration Vogue Booth": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
+  "Décoration Vogue Booth": "/images/decoration-voguebooth.webp",
 };
 
 for (const pack of servicePacks) {
