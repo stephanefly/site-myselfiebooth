@@ -42,13 +42,15 @@ const unusedMedia = listFiles(publicDirectory)
 
 if (unusedMedia.length) {
   const totalBytes = unusedMedia.reduce((sum, item) => sum + fs.statSync(item.file).size, 0);
-  console.error(
-    `${unusedMedia.length} médias publics inutilisés (${(totalBytes / 1024 / 1024).toFixed(2)} Mo).`,
+  console.warn(
+    `${unusedMedia.length} médias restent dans la banque sans être affichés (${(totalBytes / 1024 / 1024).toFixed(2)} Mo).`,
   );
-  for (const item of unusedMedia) {
-    console.error(item.publicPath);
+  for (const item of unusedMedia.slice(0, 40)) {
+    console.warn(item.publicPath);
   }
-  process.exit(1);
+  if (unusedMedia.length > 40) {
+    console.warn(`... ${unusedMedia.length - 40} média(s) supplémentaire(s) conservé(s) dans la banque.`);
+  }
 }
 
-console.log("Tous les médias publics sont utilisés par l'export.");
+console.log("Banque média conservée : les fichiers non affichés sont autorisés.");
