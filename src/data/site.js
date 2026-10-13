@@ -70,6 +70,7 @@ export const siteConfig = {
 };
 
 export const brandLogos = [
+  { name: "TotalEnergies" },
   { name: "Sephora", src: "/logos/sephora.webp" },
   { name: "Safran", src: "/logos/safran.webp" },
 ];

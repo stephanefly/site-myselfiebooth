@@ -8,6 +8,7 @@ import {
   services,
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
+import { homeInstagramMedia } from "../../data/instagramMedia";
 import useRevealMotion from "../../hooks/useRevealMotion";
 
 function SectionIntro({ eyebrow, title }) {
@@ -226,7 +227,15 @@ export default function HomePage() {
         <div className="home-container">
           <SectionIntro eyebrow="100 % terrain" title="Découvrez nos animations en situation" />
           <p className="home-section-lead">Découvrez les machines, les invités et les souvenirs de nos événements dans la galerie de réalisations.</p>
-          <div className="home-centered-action"><a href="/realisations/" className="home-button home-button-primary">Voir les réalisations réelles</a></div>
+          <div className="home-real-media-grid">
+            {homeInstagramMedia.map((item) => (
+              <figure key={item.sourceId}>
+                <img src={item.src} alt={item.alt} loading="lazy" decoding="async" width="540" height="675" />
+                <figcaption><small>{item.category}</small><strong>{item.title}</strong></figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className="home-centered-action home-media-actions"><a href="/realisations/" className="home-button home-button-primary">Voir toutes les photos</a><a href="/realisations-videos/" className="home-button home-button-secondary">Voir les vidéos</a></div>
         </div>
       </section>
 
@@ -234,7 +243,9 @@ export default function HomePage() {
         <div className="home-container">
           <SectionIntro eyebrow="Références" title="Des prestations pour particuliers et entreprises" />
           <div className="home-logo-strip">
-            {brandLogos.map((logo) => <img key={logo.name} src={logo.src} alt={logo.name} loading="lazy" width="180" height="64" />)}
+            {brandLogos.map((logo) => logo.src ? (
+              <img key={logo.name} src={logo.src} alt={logo.name} loading="lazy" width="180" height="64" />
+            ) : <div key={logo.name} className="home-brand-name">{logo.name}</div>)}
           </div>
         </div>
       </section>
@@ -244,7 +255,7 @@ export default function HomePage() {
           <SectionIntro eyebrow="Avis clients" title="Ce que les clients retiennent" />
           <div className="home-review-grid">
             {featuredReviews.map((review) => (
-              <article key={review.name} className="home-review-card"><span>★★★★★</span><p>“{review.text}”</p><strong>{review.name}</strong><small>{review.date}</small></article>
+              <article key={review.name} className="home-review-card"><span className="home-review-stars" aria-label="5 étoiles sur 5">★★★★★</span><blockquote>“{review.text}”</blockquote><footer><strong>{review.name}</strong><span>{review.date}</span></footer></article>
             ))}
           </div>
           <div className="home-centered-action"><a href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer" className="home-button home-button-secondary-dark">Voir les avis Google</a></div>

@@ -1,10 +1,11 @@
 import Layout from "../components/Layout";
 import { siteConfig } from "../data/site";
-import { instagramMedia, instagramUrl } from "../data/instagramMedia";
+import { instagramMedia, instagramUrl, homeInstagramMedia } from "../data/instagramMedia";
 import { eventArchivePhotos, eventArchiveVideos } from "../data/eventArchive";
 import { portfolioDetailImages, portfolioMotionGifs, portfolioVideos } from "../data/portfolioMedia";
 
 const reservedElsewhere = new Set([
+  ...homeInstagramMedia.map((item) => item.src),
   "/images/event-archive/goldbooth-gala.webp",
   "/images/realisations-machines/tirages-gala.webp",
   "/images/event-archive/video-posters/invites-en-fete.webp",
@@ -81,7 +82,7 @@ export default function Realisations() {
   return (
     <Layout metaProps={{
       title: "Réalisations réelles Photobooth, 360 & Vogue | MySelfieBooth",
-      description: "Galerie de prestations réelles MySelfieBooth. Chaque photo de contenu est réservée à un seul emplacement sur le site.",
+      description: "Découvrez nos prestations réelles : installations Photobooth, Miroirbooth, Vogue Booth, animations 360, invités et souvenirs d'événements.",
       ogImage: hero?.image,
       ogUrl: "/realisations/",
     }}>
@@ -90,9 +91,9 @@ export default function Realisations() {
           <div className="unique-real-container unique-real-hero-grid">
             <div>
               <p className="unique-real-eyebrow">100 % terrain</p>
-              <h1>Nos vraies prestations, sans recycler les mêmes images.</h1>
-              <p>Les médias déjà utilisés pour présenter une machine, un pack, une option ou notre histoire sont exclus de cette galerie. Ici, chaque visuel apparaît une seule fois.</p>
-              <div className="unique-real-actions"><a href="#galerie">Voir la galerie</a><a href={siteConfig.quoteUrl}>Demander un devis</a></div>
+              <h1>Nos prestations réelles en images.</h1>
+              <p>Des machines installées, des invités en action et des souvenirs à emporter : découvrez l'ambiance de nos événements privés et professionnels.</p>
+              <div className="unique-real-actions"><a href="#galerie">Voir la galerie</a><a href="/realisations-videos/">Voir les vidéos</a><a href={siteConfig.quoteUrl}>Demander un devis</a></div>
             </div>
             {hero ? <figure><img src={hero.image} alt={hero.alt || hero.title} width="900" height="1125" fetchPriority="high" /><figcaption>{hero.title}</figcaption></figure> : null}
           </div>
@@ -102,8 +103,8 @@ export default function Realisations() {
           <div className="unique-real-container">
             <div className="unique-real-heading">
               <p className="unique-real-eyebrow">Banque réelle</p>
-              <h2>{gallery.length} autres médias uniques</h2>
-              <p>Prestations, séquences Instagram et coulisses restantes. Aucun fichier de cette grille n'est répété ailleurs dans cette page.</p>
+              <h2>{gallery.length} moments de nos événements</h2>
+              <p>Photobooth, Miroirbooth, Vogue Booth, 360 et souvenirs : les animations vécues par nos invités.</p>
             </div>
             <div className="unique-real-grid">
               {gallery.map((item, index) => (

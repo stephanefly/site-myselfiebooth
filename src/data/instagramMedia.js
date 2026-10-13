@@ -36,3 +36,13 @@ export const instagramMedia = [
 }));
 
 export const instagramUrl = instagramProfile;
+
+// These moments appear on the home page; the gallery reserves their files.
+export const homeInstagramMedia = instagramMedia.filter((item) => [
+  "animation-360-tour-eiffel.gif",
+  "animation-miroirbooth.gif",
+  "animation-vogue-invites.gif",
+  "photobooth-installation.gif",
+  "animation-impression.gif",
+  "animation-phonebooth.gif",
+].includes(item.file));

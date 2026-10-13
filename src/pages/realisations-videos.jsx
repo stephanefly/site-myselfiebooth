@@ -1,6 +1,11 @@
 import Layout from "../components/Layout";
 import { eventArchiveVideos } from "../data/eventArchive";
+import { portfolioVideos } from "../data/portfolioMedia";
 import { siteConfig } from "../data/site";
+
+const videos = [...eventArchiveVideos, ...portfolioVideos].filter((item, index, items) =>
+  items.findIndex((other) => other.video === item.video) === index
+);
 
 export default function RealisationsVideos() {
   return (
@@ -17,16 +22,16 @@ export default function RealisationsVideos() {
           <div className="real-videos-container">
             <p>Vidéos du terrain</p>
             <h1>Nos prestations réelles en mouvement.</h1>
-            <span>Cette page utilise uniquement les fichiers vidéo. Les images fixes associées sont réservées à leur emplacement unique sur le site.</span>
+            <span>{videos.length} vidéos pour découvrir nos installations, les invités en action et la fabrication des souvenirs : Photobooth, Miroirbooth, 360, Vogue Booth et coulisses.</span>
             <div className="real-videos-actions"><a href="/realisations/">Voir les photos réelles</a><a className="secondary" href={siteConfig.quoteUrl}>Demander un devis</a></div>
           </div>
         </header>
         <section className="real-videos-section">
           <div className="real-videos-container">
             <div className="real-videos-grid">
-              {eventArchiveVideos.map((item) => (
+              {videos.map((item) => (
                 <article key={item.sourceId} className="real-video-card">
-                  <video controls controlsList="nodownload" muted playsInline preload="metadata" aria-label={item.title}>
+                  <video controls controlsList="nodownload" muted playsInline preload="none" aria-label={item.title}>
                     <source src={item.video} type="video/mp4" />
                   </video>
                   <div><small>{item.category}</small><h2>{item.title}</h2></div>
