@@ -2,8 +2,8 @@ export const serviceVisuals = Object.freeze({
   photobooth: {
     key: "photobooth",
     name: "Photobooth",
-    image: "/images/event-archive/anogini-photobooth-01.webp",
-    alt: "Photobooth MySelfieBooth installé lors d'une réception réelle",
+    image: "/images/realisations-machines/photobooth-noel.webp",
+    alt: "Photobooth MySelfieBooth installé lors d'une prestation réelle",
     href: "/prestations/photobooth",
   },
   miroirbooth: {
