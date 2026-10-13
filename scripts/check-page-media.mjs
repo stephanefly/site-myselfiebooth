@@ -19,9 +19,13 @@ function listHtmlFiles(directory) {
 }
 
 function extractMediaPaths(html) {
-  const imgPaths = Array.from(html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g), (match) => ({ type: "image", src: match[1] }));
-  const posterPaths = Array.from(html.matchAll(/<video\b[^>]*\bposter="([^"]+)"/g), (match) => ({ type: "poster", src: match[1] }));
-  const sourcePaths = Array.from(html.matchAll(/<source\b[^>]*\bsrc="([^"]+)"/g), (match) => ({ type: "source", src: match[1] }));
+  const imgPaths = Array.from(html.matchAll(/<img\b[^>]*>/gi), (match) => {
+    const tag = match[0];
+    const srcMatch = tag.match(/\bsrc="([^"]*)"/i);
+    return { type: "image", src: srcMatch ? srcMatch[1] : "", tag };
+  });
+  const posterPaths = Array.from(html.matchAll(/<video\b[^>]*\bposter="([^"]*)"/gi), (match) => ({ type: "poster", src: match[1] }));
+  const sourcePaths = Array.from(html.matchAll(/<source\b[^>]*\bsrc="([^"]*)"/gi), (match) => ({ type: "source", src: match[1] }));
   return [...imgPaths, ...posterPaths, ...sourcePaths];
 }
 
@@ -52,13 +56,13 @@ function localMediaExists(mediaPath) {
 
 function isContentImage(mediaPath) {
   if (!/\.(?:avif|gif|jpe?g|png|webp)$/i.test(mediaPath)) return false;
-  // Assets purement techniques de l'interface peuvent être répétés. Les photos/visuels de contenu ne le peuvent pas.
   if (mediaPath.startsWith("/icons/")) return false;
   if (mediaPath === "/favicon.ico") return false;
   return true;
 }
 
 let mediaCount = 0;
+const missingImageSources = [];
 const missingMedia = [];
 const samePageDuplicates = [];
 const globalImageUsage = new Map();
@@ -68,15 +72,19 @@ for (const htmlFile of htmlFiles) {
   const page = path.relative(outDirectory, htmlFile);
   const html = fs.readFileSync(htmlFile, "utf8");
   const mediaItems = extractMediaPaths(html);
-  const localItems = mediaItems
-    .map((item) => ({ ...item, src: normalizeLocalPath(item.src) }))
-    .filter((item) => Boolean(item.src));
   const counts = new Map();
 
   mediaCount += mediaItems.length;
 
-  for (const item of localItems) {
-    const mediaPath = item.src;
+  for (const item of mediaItems) {
+    if (item.type === "image" && (!item.src || !item.src.trim())) {
+      missingImageSources.push({ page, tag: item.tag || "<img>" });
+      continue;
+    }
+
+    const mediaPath = normalizeLocalPath(item.src);
+    if (!mediaPath) continue;
+
     counts.set(mediaPath, (counts.get(mediaPath) || 0) + 1);
 
     if ((item.type === "image" || item.type === "poster") && isContentImage(mediaPath)) {
@@ -104,6 +112,11 @@ const globalDuplicatedImages = [...globalImageUsage.entries()]
 console.log(`${htmlFiles.length} pages et ${mediaCount} médias référencés dans l'export.`);
 console.log(`${globalImageUsage.size} images de contenu distinctes rendues.`);
 
+if (missingImageSources.length) {
+  console.error(`${missingImageSources.length} balise(s) image sont rendues sans source :`);
+  for (const item of missingImageSources.slice(0, 150)) console.error(`- ${item.page}: ${item.tag}`);
+}
+
 if (missingMedia.length) {
   console.error(`${missingMedia.length} référence(s) média pointent vers un fichier absent :`);
   for (const item of missingMedia) console.error(`- ${item.page}: ${item.mediaPath}`);
@@ -121,9 +134,9 @@ if (globalDuplicatedImages.length) {
   }
 }
 
-if (missingMedia.length || samePageDuplicates.length || globalDuplicatedImages.length) {
-  console.error("ÉCHEC média : une image de contenu doit apparaître une seule fois sur l'ensemble du site.");
+if (missingImageSources.length || missingMedia.length || samePageDuplicates.length || globalDuplicatedImages.length) {
+  console.error("ÉCHEC média : chaque image doit avoir une source valide, exister et n'apparaître qu'une seule fois sur l'ensemble du site.");
   process.exit(1);
 }
 
-console.log("Contrôle médias OK : fichiers présents et aucune image de contenu réutilisée.");
+console.log("Contrôle médias OK : sources présentes, fichiers disponibles et aucune image de contenu réutilisée.");
