@@ -32,16 +32,16 @@ const featuredPacksHome = featuredPacks.filter((pack) =>
 );
 
 const serviceAiImages = {
-  photobooth: "/images/ai-cards/photobooth-ai.webp",
-  miroirbooth: "/images/ai-cards/miroirbooth-ai.webp",
-  videobooth: "/images/ai-cards/360booth-ai.webp",
-  voguebooth: "/images/ai-cards/voguebooth-ai.webp",
+  photobooth: "/images/ai-cards/photobooth-ai.webp?v=20261013-full",
+  miroirbooth: "/images/ai-cards/miroirbooth-ai.webp?v=20261013-full",
+  videobooth: "/images/ai-cards/360booth-ai.webp?v=20261013-full",
+  voguebooth: "/images/ai-cards/voguebooth-ai.webp?v=20261013-full",
 };
 
 const packAiImages = {
-  souvenirs: "/images/ai-cards/pack-souvenirs-ai.webp",
-  "duo-vip": "/images/ai-cards/pack-duo-vip-ai.webp",
-  "vogue-premium": "/images/ai-cards/pack-vogue-premium-ai.webp",
+  souvenirs: "/images/ai-cards/pack-souvenirs-ai.webp?v=20261013-full",
+  "duo-vip": "/images/ai-cards/pack-duo-vip-ai.webp?v=20261013-full",
+  "vogue-premium": "/images/ai-cards/pack-vogue-premium-ai.webp?v=20261013-full",
 };
 
 const featuredReviews = googleReviews.slice(0, 3);

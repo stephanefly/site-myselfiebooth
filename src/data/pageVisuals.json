@@ -5,12 +5,12 @@
     "kind": "ai_from_real"
   },
   "/prestations/miroirbooth/": {
-    "src": "/images/ai-from-real/miroirbooth-paris-premium.webp",
+    "src": "/images/ai-from-real/miroirbooth-paris-premium.webp?v=20261013-full",
     "alt": "Illustration de miroirbooth paris premium MySelfieBooth",
     "kind": "ai_from_real"
   },
   "/prestations/voguebooth/": {
-    "src": "/images/ai-from-real/voguebooth-premium.webp",
+    "src": "/images/ai-from-real/voguebooth-premium.webp?v=20261013-full",
     "alt": "Illustration de voguebooth premium MySelfieBooth",
     "kind": "ai_from_real"
   },
@@ -30,12 +30,12 @@
     "kind": "ai_from_real"
   },
   "/options/panneau/": {
-    "src": "/images/ai-from-real/panneau-bienvenue-mariage.webp",
+    "src": "/images/ai-from-real/panneau-bienvenue-mariage.webp?v=20261013-full",
     "alt": "Illustration de panneau bienvenue mariage MySelfieBooth",
     "kind": "ai_from_real"
   },
   "/options/": {
-    "src": "/images/ai-from-real/livre-or-video-corporate.webp",
+    "src": "/images/ai-from-real/livre-or-video-corporate.webp?v=20261013-full",
     "alt": "Illustration de livre or video corporate MySelfieBooth",
     "kind": "ai_from_real"
   },
