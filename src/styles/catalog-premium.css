@@ -1,0 +1,110 @@
+.catalog-machines-section .catalog-machine-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.catalog-machines-section .catalog-machine-card {
+  height: auto;
+  min-height: 540px;
+  grid-template-rows: 280px 1fr;
+  border-radius: 16px;
+  border-color: #e7e1d5;
+  box-shadow: 0 18px 42px rgba(28, 22, 12, 0.08);
+}
+
+.catalog-machines-section .catalog-machine-media {
+  background: #ece8df;
+}
+
+.catalog-machines-section .catalog-machine-media-pair img {
+  object-fit: cover;
+}
+
+.catalog-machines-section .catalog-machine-media > span {
+  top: 16px;
+  left: 16px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+}
+
+.catalog-machines-section .catalog-machine-body {
+  padding: 18px;
+  overflow: visible;
+}
+
+.catalog-machines-section .catalog-machine-heading {
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.catalog-machines-section .catalog-machine-heading h3 {
+  font-size: 1.25rem;
+  line-height: 1.15;
+}
+
+.catalog-machines-section .catalog-machine-heading > strong {
+  max-width: 132px;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-align: right;
+}
+
+.catalog-machines-section .catalog-machine-summary {
+  margin: 10px 0 14px;
+  color: #625d54;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.catalog-machines-section .catalog-facts {
+  display: grid;
+  margin-bottom: 16px;
+}
+
+.catalog-machines-section .catalog-facts div {
+  border-left-width: 2px;
+  border-radius: 6px;
+}
+
+.catalog-machines-section .catalog-machine-details {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.catalog-machines-section .catalog-machine-details:not([open]) ul {
+  display: none;
+}
+
+.catalog-machines-section .catalog-card-cta {
+  min-height: 44px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+}
+
+@media (max-width: 1050px) {
+  .catalog-machines-section .catalog-machine-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .catalog-machines-section .catalog-machine-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .catalog-machines-section .catalog-machine-card {
+    min-height: 0;
+    grid-template-rows: 240px 1fr;
+  }
+
+  .catalog-machines-section .catalog-machine-heading {
+    flex-direction: column;
+  }
+
+  .catalog-machines-section .catalog-machine-heading > strong {
+    max-width: none;
+    text-align: left;
+  }
+}
