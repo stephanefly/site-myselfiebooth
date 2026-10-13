@@ -1,25 +1,25 @@
 import { eventTypes, selectorNeeds, servicePacks } from "./catalog";
 
 const packImages = {
-  souvenirs: "/images/event-archive/anogini-photobooth-01.webp",
-  "immersion-360": "/images/realisations/sephora-360booth.webp",
-  signature: "/images/realisations-machines/miroirbooth-invites.webp",
+  souvenirs: "/images/event-archive/brice-tirages.webp",
+  "immersion-360": "/images/event-archive/video-posters/360-red-carpet.webp",
+  signature: "/images/event-archive/video-posters/miroirbooth-installation.webp",
   "duo-vip": "/images/realisations-machines/duo-photobooth-miroir.webp",
   "vogue-premium": "/images/event-archive/video-posters/voguebooth-soiree.webp",
-  "mariage-prestige": "/images/vogue-real/vogue-booth-mariage-card.webp",
+  "mariage-prestige": "/images/event-archive/caftan-portrait-01.webp",
 };
 
 const selectorImages = {
-  "Photo imprimée": "/images/event-archive/brice-tirages.webp",
-  "Vidéo 360": "/images/event-archive/video-posters/360-red-carpet.webp",
+  "Photo imprimée": "/images/realisations-machines/personnalisation-tirages.webp",
+  "Vidéo 360": "/images/event-archive/video-posters/invites-en-fete.webp",
   "Photo Vogue": "/images/vogue-real/vogue-booth-anniversaire-card.webp",
 };
 
 const eventImages = {
-  mariages: "/images/event-archive/caftan-portrait-01.webp",
-  corporates: "/images/realisations/sephora-360booth.webp",
-  anniversaires: "/images/vogue-real/vogue-booth-anniversaire-card.webp",
-  soirees: "/images/event-archive/goldbooth-gala.webp",
+  mariages: "/images/event-archive/livre-or-mariage.webp",
+  corporates: "/images/realisations-machines/photobooth-noel.webp",
+  anniversaires: "/images/event-archive/goldbooth-gala.webp",
+  soirees: "/images/event-archive/video-posters/maries-photobooth.webp",
 };
 
 for (const pack of servicePacks) {
