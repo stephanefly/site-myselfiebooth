@@ -4,6 +4,12 @@ import { siteConfig } from "../../data/site";
 
 function buildArticleMeta(article) {
   const baseMeta = articleMeta(article);
+  const shortTitles = {
+    "animations-mariage-sans-gener-invites": "Animations de mariage : des idées pour tous les invités",
+    "photobooth-bapteme-communion": "Photobooth pour baptême ou communion : quel format choisir ?",
+    "photobooth-soiree-cse": "Photobooth pour une soirée CSE : organisation et souvenirs",
+  };
+  const searchTitle = shortTitles[article.slug] || article.seoTitle || article.title;
   const keywords = (article.keywords || "")
     .split(",")
     .map((item) => item.trim())
@@ -12,7 +18,7 @@ function buildArticleMeta(article) {
 
   return {
     ...baseMeta,
-    title: article.seoTitle ? `${article.seoTitle} | MySelfieBooth` : baseMeta.title,
+    title: searchTitle.length <= 50 ? `${searchTitle} | MySelfieBooth` : searchTitle,
     jsonLd: (baseMeta.jsonLd || []).map((entry) => {
       if (entry?.["@type"] !== "Article") {
         return entry;
@@ -55,11 +61,6 @@ export default function BlogArticle({ article }) {
       <article className="blog-page blog-article">
         <header className="blog-article-hero">
           <div className="blog-container">
-            <nav className="blog-breadcrumbs" aria-label="Fil d'Ariane">
-              <a href="/">Accueil</a>
-              <span aria-hidden="true">/</span>
-              <a href="/blog/">Blog</a>
-            </nav>
             <div className="blog-card-meta">
               <span>{article.category}</span>
               <span>{article.readTime}</span>

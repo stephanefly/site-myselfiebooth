@@ -8,7 +8,7 @@ const miroirPage = {
   title: "Location Miroir Photobooth (Miroirbooth)",
   description:
     "Louez un miroir photo interactif pour mariage, gala ou entreprise : Miroirbooth personnalisé, installation, tirages et galerie selon la formule.",
-  highlights: ["À partir de 550 €", "Miroir photo interactif", "Mariage & entreprise"],
+  highlights: ["À partir de 450 €", "Miroir photo interactif", "Mariage & entreprise"],
   sections: [
     {
       anchor: "miroir-photobooth",
@@ -52,7 +52,7 @@ const miroirPage = {
         },
         {
           title: "Budget",
-          text: "Le Miroirbooth démarre à 550 €, contre 450 € pour le Photobooth classique. Le devis final dépend ensuite du lieu, de la durée et des options.",
+          text: "Le Miroirbooth démarre à 450 €, contre 400 € pour 5 h de Photobooth classique. Le devis final dépend ensuite du lieu, de la durée et des options.",
         },
       ],
     },
@@ -152,7 +152,7 @@ const miroirPage = {
     {
       question: "Quel est le prix d'un Miroirbooth ?",
       answer:
-        "La location du Miroirbooth démarre à 550 €. Le prix final dépend de la date, du lieu, de la durée, des tirages, de la personnalisation et des options retenues.",
+        "La location du Miroirbooth démarre à 450 €. Le prix final dépend de la date, du lieu, de la durée, des tirages, de la personnalisation et des options retenues.",
     },
     {
       question: "Le Miroirbooth peut-il être personnalisé avec un logo ?",
@@ -182,9 +182,9 @@ const miroirPage = {
   ],
   meta: {
     ...basePage.meta,
-    title: "Location Miroir Photobooth (Miroirbooth) dès 550 €",
+    title: "Location Miroir Photobooth (Miroirbooth) dès 450 €",
     description:
-      "Location miroir photobooth dès 550 € : Miroirbooth interactif pour mariage et entreprise, personnalisation, installation et tirages selon formule.",
+      "Location miroir photobooth dès 450 € : Miroirbooth interactif pour mariage et entreprise, personnalisation, installation et tirages selon formule.",
     ogTitle: "Location Miroir Photobooth | MySelfieBooth",
     ogDescription:
       "Un miroir photo interactif et personnalisable pour mariage, gala et événement d'entreprise.",
@@ -200,9 +200,9 @@ const miroirPage = {
           "Location de miroir photo interactif pour mariage, gala et événement d'entreprise avec personnalisation et tirages selon formule.",
         offers: {
           ...(entry.offers || {}),
-          price: "550",
+          price: "450",
           priceCurrency: "EUR",
-          description: "Tarif à partir de 550 euros selon la date, le lieu et la formule.",
+          description: "Tarif à partir de 450 euros selon la date, le lieu et la formule.",
         },
       };
     }),

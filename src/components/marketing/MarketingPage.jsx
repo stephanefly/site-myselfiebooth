@@ -1,3 +1,8 @@
+import VisualGallery, { VisualImage, serviceGalleries } from "../VisualGallery";
+import ServiceAreaLinks from "../ServiceAreaLinks";
+import { pageSeo } from "../../data/pageSeo";
+import premiumVisuals from "../../data/premiumVisuals.json";
+import { absoluteUrl, faqJsonLd } from "../../data/site";
 import Layout from "../Layout";
 import { useRouter } from "next/router";
 import pageVisuals from "../../data/pageVisuals.json";
@@ -63,21 +68,6 @@ function QuickNavigation({ page }) {
         </div>
         <a className="marketing-quick-cta" href={bookingUrl}>Devis</a>
       </div>
-    </nav>
-  );
-}
-
-function Breadcrumbs({ items = [] }) {
-  if (!items.length) return null;
-
-  return (
-    <nav className="marketing-breadcrumbs" aria-label="Fil d'Ariane">
-      {items.map((item, index) => (
-        <span key={`${item.href}-${item.label}`}>
-          {index > 0 && <span aria-hidden="true">/</span>}
-          <a href={item.href}>{item.label}</a>
-        </span>
-      ))}
     </nav>
   );
 }
@@ -224,17 +214,27 @@ export default function MarketingPage({ page }) {
   const pageRef = useRevealMotion(page.key);
   const router = useRouter();
   const pagePath = `${router.asPath.split(/[?#]/)[0].replace(/\/$/, "")}/`;
-  const heroVisual = pageVisuals[pagePath];
+  const seo = pageSeo[pagePath];
+  const heroVisual = seo?.visual ? premiumVisuals[seo.visual] : pageVisuals[pagePath];
+  const meta = {
+    ...page.meta,
+    ...(seo ? { title: seo.title, description: seo.description, ogTitle: seo.title, ogDescription: seo.description } : {}),
+    ...(heroVisual ? { ogImage: heroVisual.src, ogImageAlt: heroVisual.alt } : {}),
+    jsonLd: [...(page.meta.jsonLd || []).filter(entry => entry["@type"] !== "FAQPage").map(entry => entry["@type"] === "Service" ? {
+      ...entry,
+      ...(heroVisual ? { image: absoluteUrl(heroVisual.src) } : {}),
+      ...(seo ? { name: seo.heading || page.title, description: seo.description } : {}),
+    } : entry), faqJsonLd(page.faq || [])].filter(Boolean),
+  };
 
   return (
-    <Layout metaProps={page.meta}>
+    <Layout metaProps={meta}>
       <article className="marketing-page" ref={pageRef}>
         <section className="marketing-hero">
           <div className="marketing-container marketing-hero-grid">
             <div className="marketing-hero-copy" data-reveal>
-              <Breadcrumbs items={page.breadcrumbs} />
               <p className="marketing-eyebrow">{page.eyebrow}</p>
-              <h1>{page.title}</h1>
+              <h1>{seo?.heading || page.title}</h1>
               <p>{page.description}</p>
               <div className="marketing-actions">
                 <a
@@ -266,7 +266,8 @@ export default function MarketingPage({ page }) {
               </div>
             </div>
             {heroVisual && <figure className="marketing-hero-media" data-reveal>
-              <img src={heroVisual.src} alt={heroVisual.alt} width="900" height="900" fetchPriority="high" />
+              {seo?.visual ? <VisualImage name={seo.visual} priority sizes="(max-width: 760px) 92vw, 560px" /> : <img src={heroVisual.src} alt={heroVisual.alt} width="900" height="900" fetchPriority="high" />}
+              {seo?.visual && <figcaption>Mise en scène IA réalisée à partir de nos machines.</figcaption>}
             {(page.highlights || []).length > 0 && (
               <aside className="marketing-hero-proof" data-reveal>
                 {(page.highlights || []).map((item) => <span key={item}>{item}</span>)}
@@ -290,6 +291,7 @@ export default function MarketingPage({ page }) {
         )}
 
         <QuickNavigation page={page} />
+        <VisualGallery items={serviceGalleries[seo?.visual]} />
         <PathwayGrid items={page.pathways || []} />
 
         {(page.sections || []).map((section, index) => (
@@ -343,13 +345,14 @@ export default function MarketingPage({ page }) {
         )}
 
         <FounderStory story={page.story} />
+        {seo?.visual && <ServiceAreaLinks />}
 
         <section className="marketing-final-cta" data-reveal>
           <div className="marketing-container">
             <p>{page.finalEyebrow || "Votre événement"}</p>
             <h2>{page.finalTitle || "Recevez votre proposition personnalisée."}</h2>
             <a href={bookingUrl} data-event="cta_quote_click" data-event-label="CTA final">
-              Obtenir mon devis en 2 minutes
+              Demander mon devis
             </a>
           </div>
         </section>

@@ -54,6 +54,16 @@ export default function Meta({
   const structuredData = [
     includeOrganization ? organizationJsonLd : null,
     includeWebsite ? websiteJsonLd : null,
+    canonicalUrl && !/\bnoindex\b/i.test(robots) ? {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: title,
+      description,
+      inLanguage: "fr-FR",
+      primaryImageOfPage: { "@type": "ImageObject", contentUrl: socialImage, caption: socialImageAlt },
+    } : null,
     ...jsonLd,
   ]
     .filter(Boolean)

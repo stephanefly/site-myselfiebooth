@@ -83,6 +83,7 @@ function MachineCard({ machine }) {
           <div><dt>Idéal pour</dt><dd>{guide.ideal}</dd></div>
         </dl>
         <a className="catalog-card-cta" href={machine.bookingUrl || siteConfig.quoteUrl}>Choisir {machine.name}</a>
+        <a className="catalog-detail-link" href={`${machine.href.replace(/\/$/, "")}/`}>Photos et détails du {machine.name}</a>
       </div>
     </article>
   );
@@ -214,21 +215,21 @@ export default function ServicesCatalogPage() {
 
         <section id="machines" className="catalog-section catalog-machines-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">8 animations</p><h2>Nos machines, avec leur vrai usage.</h2></div><p>Une image différente par équipement, choisie pour montrer le produit ou son résultat réel.</p></header>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">8 animations</p><h2>Trouvez la machine pour votre événement.</h2></div><p>Photos imprimées, vidéo immersive ou portrait magazine : comparez le rendu et les formules.</p></header>
             <div className="catalog-machine-grid">{machines.map((machine) => <MachineCard key={machine.key} machine={machine} />)}</div>
           </div>
         </section>
 
         <section id="packs" className="catalog-section catalog-packs-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">6 formules</p><h2>Les packs, chacun avec son propre visuel.</h2></div><p>Aucune image répétée entre les packs.</p></header>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">6 formules</p><h2>Associez les expériences et les souvenirs.</h2></div><p>Des packs pour réunir plusieurs animations autour de votre réception.</p></header>
             <div className="catalog-pack-grid">{catalogPacks.map((pack) => <PackCard key={pack.key} pack={pack} />)}</div>
           </div>
         </section>
 
         <section id="options" className="catalog-section catalog-options-section" data-reveal>
           <div className="catalog-container">
-            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">14 options</p><h2>Le résultat final plutôt que les coulisses.</h2></div><p>Le Mur floral montre désormais une vraie réception fleurie. Les autres options sont illustrées par leur usage réel.</p></header>
+            <header className="catalog-section-heading catalog-heading-row"><div><p className="catalog-eyebrow">14 options</p><h2>Personnalisez le décor et les souvenirs.</h2></div><p>Mur floral, livre d’or, magnets et porte-clés : complétez l’expérience de vos invités.</p></header>
             <div className="catalog-option-grid">
               {options.map((option) => (
                 <article key={option.name} className="catalog-option-card">

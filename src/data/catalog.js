@@ -21,9 +21,9 @@ export const machines = [
     attendant: "Inclus",
     personalization: "Modele de tirage personnalise, ecran et partage selon besoin",
     sharing: "Photos numeriques et galerie web apres l'evenement",
-    price: "À partir de 350 euros",
-    priceFrom: 350,
-    catalogPrice: "3 h : 350 € · 5 h : 400 €",
+    price: "400 € pour 5 h",
+    priceFrom: 400,
+    catalogPrice: "5 h : 400 €",
     bookingUrl: "https://reservation.myselfiebooth-paris.fr/?prestations=Photobooth",
     includes: [
       "Impressions illimitées selon la formule",

@@ -43,9 +43,9 @@ const homeOptionImages = {
 };
 
 const publicServicePrices = {
-  photobooth: "À partir de 450 euros",
-  miroirbooth: "À partir de 550 euros",
-  videobooth: "À partir de 500 euros",
+  photobooth: "400 € pour 5 h",
+  miroirbooth: "À partir de 450 euros",
+  videobooth: "À partir de 400 euros",
   voguebooth: "À partir de 500 euros",
 };
 

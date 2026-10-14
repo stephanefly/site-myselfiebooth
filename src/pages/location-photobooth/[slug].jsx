@@ -46,7 +46,7 @@ function buildFaq(location) {
     },
     {
       question: `Quel budget prévoir pour un photobooth ${place} ?`,
-      answer: "Le Photobooth démarre à 450 €. Le montant final dépend de la machine, de la durée, du lieu, des impressions, du niveau de personnalisation et des options ajoutées. Le devis détaille ces éléments avant réservation.",
+      answer: "La formule Photobooth est à 400 € pour 5 heures. Le montant final dépend de la machine, de la durée, du lieu, des impressions, du niveau de personnalisation et des options ajoutées. Le devis détaille ces éléments avant réservation.",
     },
     {
       question: `De combien d'espace a besoin un photobooth ${place} ?`,
@@ -93,7 +93,7 @@ function buildPage(location) {
     { label: location.name, href: path },
   ];
   const areaType = location.type === "department" ? "AdministrativeArea" : "City";
-  const title = `Location Photobooth ${place} | Mariage & Entreprise`;
+  const title = `Location Photobooth ${place} (${location.code})`;
   const description = `Location de Photobooth ${place} pour ${location.focus}. Installation, personnalisation, options photo et vidéo, logistique cadrée et devis selon le lieu.`;
 
   return {
@@ -103,7 +103,7 @@ function buildPage(location) {
     description,
     image: "/images/ai-from-real/hero-photobooth-reception.webp",
     imageAlt: `Photobooth MySelfieBooth pour événement ${place}`,
-    highlights: ["Photobooth", "360 & Vogue Booth", "Devis personnalisé"],
+    highlights: ["Photobooth : 400 € / 5 h", "360 & Vogue Booth", "Déplacement sur devis"],
     proof: trustSignals,
     breadcrumbs,
     gallery: [
@@ -173,7 +173,7 @@ function buildPage(location) {
         anchor: "tarifs-devis",
         eyebrow: "Tarifs & devis",
         title: `Combien coûte une location de photobooth ${place} ?`,
-        text: `Le prix ne dépend pas seulement de la commune. Pour une prestation ${place}, nous regardons la machine choisie, la durée, les impressions, le niveau de personnalisation, les horaires, les accès et le déplacement. L'objectif est de proposer une formule adaptée au besoin réel plutôt qu'un forfait surdimensionné.`,
+        text: `La formule Photobooth est à 400 € pour 5 heures. Le prix final ne dépend pas seulement de la commune. Pour une prestation ${place}, nous regardons la machine choisie, la durée, les impressions, le niveau de personnalisation, les horaires, les accès et le déplacement. L'objectif est de proposer une formule adaptée au besoin réel plutôt qu'un forfait surdimensionné.`,
         cards: [
           {
             title: "Machine choisie",
@@ -343,7 +343,7 @@ function buildPage(location) {
     },
     meta: {
       title,
-      description,
+      description: `Photobooth ${place} : 400 € / 5 h. Tirages personnalisés pour mariage et entreprise. Déplacement et options sur devis.`,
       ogTitle: `Location Photobooth ${place} | MySelfieBooth`,
       ogDescription: description,
       ogImage: "/images/ai-from-real/hero-photobooth-reception.webp",

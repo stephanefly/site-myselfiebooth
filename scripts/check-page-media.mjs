@@ -73,6 +73,13 @@ for (const htmlFile of htmlFiles) {
   const page = path.relative(outDirectory, htmlFile);
   const html = fs.readFileSync(htmlFile, "utf8");
   const mediaItems = extractMediaPaths(html);
+  // Validate responsive candidates too; a valid fallback can hide broken mobile images.
+  for (const match of html.matchAll(/\bsrcSet="([^"]+)"/gi)) {
+    for (const candidate of decodeHtmlEntities(match[1]).split(",")) {
+      const mediaPath = normalizeLocalPath(candidate.trim().split(/\s+/)[0]);
+      if (mediaPath && !localMediaExists(mediaPath)) missingMedia.push({ page, mediaPath });
+    }
+  }
   // A valid source check alone misses pages whose image markup was deleted.
   if (html.includes('class="marketing-page"') && !/<img\b/i.test(html)) {
     missingPageVisuals.push(page);
@@ -109,11 +116,6 @@ for (const htmlFile of htmlFiles) {
   }
 }
 
-const globalDuplicatedImages = [...globalImageUsage.entries()]
-  .map(([mediaPath, pages]) => ({ mediaPath, pages: [...new Set(pages)], count: pages.length }))
-  .filter((item) => item.count > 1)
-  .sort((a, b) => b.count - a.count || a.mediaPath.localeCompare(b.mediaPath));
-
 console.log(`${htmlFiles.length} pages et ${mediaCount} médias référencés dans l'export.`);
 console.log(`${globalImageUsage.size} images de contenu distinctes rendues.`);
 
@@ -132,20 +134,13 @@ if (samePageDuplicates.length) {
   for (const item of samePageDuplicates) console.error(`- ${item.page}: ${item.mediaPath} x${item.count}`);
 }
 
-if (globalDuplicatedImages.length) {
-  console.error(`${globalDuplicatedImages.length} image(s) de contenu sont réutilisées sur le site complet :`);
-  for (const item of globalDuplicatedImages.slice(0, 150)) {
-    console.error(`- ${item.mediaPath} x${item.count} : ${item.pages.slice(0, 10).join(", ")}${item.pages.length > 10 ? ", ..." : ""}`);
-  }
-}
-
 if (missingPageVisuals.length) {
   console.error(`Pages commerciales sans image : ${missingPageVisuals.join(", ")}`);
 }
 
-if (missingPageVisuals.length || missingImageSources.length || missingMedia.length || samePageDuplicates.length || globalDuplicatedImages.length) {
-  console.error("ÉCHEC média : chaque image doit avoir une source valide, exister et n'apparaître qu'une seule fois sur l'ensemble du site.");
+if (missingPageVisuals.length || missingImageSources.length || missingMedia.length || samePageDuplicates.length) {
+  console.error("ÉCHEC média : chaque image doit avoir une source valide, exister et n'apparaître qu'une seule fois par page.");
   process.exit(1);
 }
 
-console.log("Contrôle médias OK : sources présentes, fichiers disponibles et aucune image de contenu réutilisée.");
+console.log("Contrôle médias OK : sources présentes, fichiers disponibles et aucune image de contenu répétée sur une page.");

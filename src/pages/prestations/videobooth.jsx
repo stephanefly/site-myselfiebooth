@@ -12,7 +12,7 @@ const faq = [
   {
     question: "Combien coûte la location d'un 360 Booth ?",
     answer:
-      "La location démarre à 500 €. Le prix final dépend du lieu, de la durée, du niveau de personnalisation, de l'accompagnement et des options retenues.",
+      "La location démarre à 400 €. Le prix final dépend du lieu, de la durée, du niveau de personnalisation, de l'accompagnement et des options retenues.",
   },
   {
     question: "Combien de personnes peuvent monter sur le 360 Booth ?",
@@ -29,10 +29,10 @@ const faq = [
 
 const videoPage = {
   ...basePage,
-  title: "Location 360 Booth vidéo 4K dès 500 €",
+  title: "Location 360 Booth vidéo 4K dès 400 €",
   description:
-    "Louez un 360 Booth dès 500 € pour mariage, anniversaire et entreprise : vidéos 4K, personnalisation, installation et animateur selon la formule.",
-  highlights: ["À partir de 500 €", "Vidéo 4K", "Mariage & entreprise"],
+    "Louez un 360 Booth dès 400 € pour mariage, anniversaire et entreprise : vidéos 4K, personnalisation, installation et animateur selon la formule.",
+  highlights: ["À partir de 400 €", "Vidéo 4K", "Mariage & entreprise"],
   sections: [
     {
       anchor: "spinner-360",
@@ -193,9 +193,9 @@ const videoPage = {
   ],
   meta: {
     ...basePage.meta,
-    title: "Location 360 Booth dès 500 € | Vidéo 4K",
+    title: "Location 360 Booth dès 400 € | Vidéo 4K",
     description:
-      "Location 360 Booth dès 500 € : vidéos 4K personnalisées pour mariage, anniversaire et entreprise, avec installation et animateur selon formule.",
+      "Location 360 Booth dès 400 € : vidéos 4K personnalisées pour mariage, anniversaire et entreprise, avec installation et animateur selon formule.",
     ogTitle: "Location 360 Booth vidéo 4K | MySelfieBooth",
     ogDescription:
       "Une animation vidéo 360 personnalisable pour mariage, soirée et événement d'entreprise.",
@@ -206,9 +206,9 @@ const videoPage = {
           name: "Location 360 Booth vidéo 4K",
           offers: {
             ...(entry.offers || {}),
-            price: "500",
+            price: "400",
             priceCurrency: "EUR",
-            description: "Tarif à partir de 500 euros selon la date, le lieu et la formule.",
+            description: "Tarif à partir de 400 euros selon la date, le lieu et la formule.",
           },
         };
       }

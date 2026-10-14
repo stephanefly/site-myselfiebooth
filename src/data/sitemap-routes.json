@@ -1,47 +1,182 @@
 [
-  { "path": "/", "lastmod": "2026-10-11" },
-  { "path": "/realisations/", "lastmod": "2026-10-13" },
-  { "path": "/realisations-videos/", "lastmod": "2026-10-13" },
-  { "path": "/prestations/", "lastmod": "2026-07-23" },
-  { "path": "/prestations/photobooth/", "lastmod": "2026-07-29" },
-  { "path": "/prestations/miroirbooth/", "lastmod": "2026-07-23" },
-  { "path": "/prestations/videobooth/", "lastmod": "2026-07-23" },
-  { "path": "/prestations/voguebooth/", "lastmod": "2026-08-17" },
-  { "path": "/prestations/ipadbooth/", "lastmod": "2026-07-23" },
-  { "path": "/prestations/air360booth/", "lastmod": "2026-07-23" },
-  { "path": "/prestations/packvip/", "lastmod": "2026-07-23" },
-  { "path": "/prestations/personnalise/", "lastmod": "2026-07-23" },
-  { "path": "/evenements/", "lastmod": "2026-07-23" },
-  { "path": "/evenements/corporates/", "lastmod": "2026-10-11" },
-  { "path": "/evenements/mariages/", "lastmod": "2026-07-23" },
-  { "path": "/evenements/anniversaires/", "lastmod": "2026-07-23" },
-  { "path": "/evenements/soirees/", "lastmod": "2026-07-23" },
-  { "path": "/event-tech/", "lastmod": "2026-10-11" },
-  { "path": "/zones-intervention/", "lastmod": "2026-10-11" },
-  { "path": "/options/", "lastmod": "2026-07-23" },
-  { "path": "/options/phonebooth/", "lastmod": "2026-07-23" },
-  { "path": "/options/panneau/", "lastmod": "2026-07-23" },
-  { "path": "/prix-photobooth-ile-de-france-2026/", "lastmod": "2026-08-17" },
-  { "path": "/paris/", "lastmod": "2026-10-11" },
-  { "path": "/lyon/", "lastmod": "2026-07-29" },
-  { "path": "/rouen/", "lastmod": "2026-07-29" },
-  { "path": "/a-propos/", "lastmod": "2026-07-23" },
-  { "path": "/blog/", "lastmod": "2026-07-29" },
-  { "path": "/blog/choisir-photobooth-mariage/", "lastmod": "2026-10-11" },
-  { "path": "/blog/animation-photobooth-entreprise/", "lastmod": "2026-10-11" },
-  { "path": "/blog/espace-installation-photobooth/", "lastmod": "2026-10-11" },
-  { "path": "/blog/personnaliser-photobooth/", "lastmod": "2026-07-29" },
-  { "path": "/blog/prix-location-photobooth/", "lastmod": "2026-10-11" },
-  { "path": "/blog/photobooth-anniversaire/", "lastmod": "2026-07-29" },
-  { "path": "/blog/360-booth-ou-air360/", "lastmod": "2026-07-29" },
-  { "path": "/blog/vogue-booth-effet-magazine/", "lastmod": "2026-07-29" },
-  { "path": "/blog/phonebooth-livre-or-audio/", "lastmod": "2026-07-29" },
-  { "path": "/blog/livre-or-photo-photobooth/", "lastmod": "2026-07-29" },
-  { "path": "/blog/duree-location-photobooth/", "lastmod": "2026-10-11" },
-  { "path": "/blog/photobooth-salon-seminaire/", "lastmod": "2026-10-11" },
-  { "path": "/blog/fond-decor-photobooth/", "lastmod": "2026-07-29" },
-  { "path": "/blog/choisir-pack-photobooth/", "lastmod": "2026-07-29" },
-  { "path": "/terms/", "lastmod": "2026-07-23" },
-  { "path": "/privacy-policy/", "lastmod": "2026-07-23" },
-  { "path": "/conditions/", "lastmod": "2026-07-23" }
+  {
+    "path": "/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/realisations/",
+    "lastmod": "2026-10-13"
+  },
+  {
+    "path": "/realisations-videos/",
+    "lastmod": "2026-10-13"
+  },
+  {
+    "path": "/prestations/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/photobooth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/miroirbooth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/videobooth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/voguebooth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/ipadbooth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/air360booth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/packvip/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prestations/personnalise/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/evenements/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/evenements/corporates/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/evenements/mariages/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/evenements/anniversaires/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/evenements/soirees/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/event-tech/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/zones-intervention/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/options/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/options/phonebooth/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/options/panneau/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/prix-photobooth-ile-de-france-2026/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/paris/",
+    "lastmod": "2026-10-14"
+  },
+  {
+    "path": "/lyon/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/rouen/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/a-propos/",
+    "lastmod": "2026-07-23"
+  },
+  {
+    "path": "/blog/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/choisir-photobooth-mariage/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/blog/animation-photobooth-entreprise/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/blog/espace-installation-photobooth/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/blog/personnaliser-photobooth/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/prix-location-photobooth/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/blog/photobooth-anniversaire/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/360-booth-ou-air360/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/vogue-booth-effet-magazine/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/phonebooth-livre-or-audio/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/livre-or-photo-photobooth/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/duree-location-photobooth/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/blog/photobooth-salon-seminaire/",
+    "lastmod": "2026-10-11"
+  },
+  {
+    "path": "/blog/fond-decor-photobooth/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/blog/choisir-pack-photobooth/",
+    "lastmod": "2026-07-29"
+  },
+  {
+    "path": "/terms/",
+    "lastmod": "2026-07-23"
+  },
+  {
+    "path": "/privacy-policy/",
+    "lastmod": "2026-07-23"
+  },
+  {
+    "path": "/conditions/",
+    "lastmod": "2026-07-23"
+  }
 ]

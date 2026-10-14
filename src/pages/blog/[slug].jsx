@@ -1,8 +1,8 @@
 import BlogArticle from "../../components/blog/BlogArticle";
 import { blogArticles, getBlogArticle } from "../../data/blogArticles";
 
-const SEO_UPDATED_AT = "11 octobre 2026";
-const SEO_UPDATED_ISO = "2026-10-11";
+const SEO_UPDATED_AT = "14 octobre 2026";
+const SEO_UPDATED_ISO = "2026-10-14";
 
 function withSeoUpdate(article, changes) {
   return {
@@ -20,11 +20,11 @@ function optimizePriceArticle(article) {
     excerpt:
       "Photobooth, Miroirbooth, 360 Booth ou Vogue Booth : comparez les tarifs de départ et les éléments qui font varier le prix final.",
     metaDescription:
-      "Prix d'une location de photobooth : Photobooth dès 450 €, 360 Booth dès 500 €, Miroirbooth dès 550 € et Vogue Booth dès 500 €. Comparez les tarifs.",
+      "Prix d'une location de photobooth : Photobooth 400 € / 5 h, 360 Booth dès 400 €, Miroirbooth dès 450 € et Vogue Booth dès 500 €. Comparez les tarifs.",
     takeaways: [
-      "Photobooth : à partir de 450 €.",
-      "360 Booth et Vogue Booth : à partir de 500 €.",
-      "Miroirbooth : à partir de 550 €.",
+      "Photobooth : 400 € pour 5 h.",
+      "360 Booth : dès 400 €. Vogue Booth : dès 500 €.",
+      "Miroirbooth : à partir de 450 €.",
     ],
     sections: [
       {
@@ -33,10 +33,10 @@ function optimizePriceArticle(article) {
           "Le prix dépend d'abord de la machine choisie. Les tarifs de départ permettent de comparer les formats avant de préciser la durée, le lieu et les options dans le devis.",
         ],
         bullets: [
-          "Photobooth : à partir de 450 €.",
-          "360 Booth : à partir de 500 €.",
+          "Photobooth : 400 € pour 5 h.",
+          "360 Booth : à partir de 400 €.",
           "Vogue Booth : à partir de 500 €.",
-          "Miroirbooth : à partir de 550 €.",
+          "Miroirbooth : à partir de 450 €.",
         ],
       },
       ...article.sections,
@@ -45,17 +45,17 @@ function optimizePriceArticle(article) {
       {
         question: "Quel est le prix d'une location de photobooth ?",
         answer:
-          "Chez MySelfieBooth, le Photobooth démarre à 450 €. Le tarif final dépend de la durée, du lieu, des impressions et des options choisies.",
+          "Chez MySelfieBooth, le Photobooth est proposé à 400 € pour 5 h. Le tarif final dépend de la durée, du lieu, des impressions et des options choisies.",
       },
       {
         question: "Combien coûte un Miroirbooth ?",
         answer:
-          "Le Miroirbooth démarre à 550 €. Le devis précise ensuite la durée, le déplacement, les impressions et les options éventuelles.",
+          "Le Miroirbooth démarre à 450 €. Le devis précise ensuite la durée, le déplacement, les impressions et les options éventuelles.",
       },
       {
         question: "Quel est le prix d'un 360 Booth ?",
         answer:
-          "Le 360 Booth démarre à 500 €. Le tarif varie ensuite selon la durée, le lieu, le décor et les options vidéo.",
+          "Le 360 Booth démarre à 400 €. Le tarif varie ensuite selon la durée, le lieu, le décor et les options vidéo.",
       },
       ...(article.faqs || []),
     ],

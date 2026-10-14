@@ -9,6 +9,7 @@ import {
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
 import { homeInstagramMedia } from "../../data/instagramMedia";
+import VisualGallery, { VisualImage } from "../VisualGallery";
 import useRevealMotion from "../../hooks/useRevealMotion";
 
 function SectionIntro({ eyebrow, title }) {
@@ -21,7 +22,7 @@ function SectionIntro({ eyebrow, title }) {
 }
 
 function QuoteButton({ className = "home-button home-button-primary" }) {
-  return <a className={className} href={siteConfig.quoteUrl}>{siteConfig.primaryCtaLabel}</a>;
+  return <a className={className} href={siteConfig.quoteUrl} data-event="cta_quote_click" data-event-label="Accueil devis">{siteConfig.primaryCtaLabel}</a>;
 }
 
 const featuredServices = services.filter((service) =>
@@ -31,13 +32,6 @@ const featuredServices = services.filter((service) =>
 const featuredPacksHome = featuredPacks.filter((pack) =>
   ["souvenirs", "duo-vip", "vogue-premium"].includes(pack.key)
 );
-
-const serviceAiImages = {
-  photobooth: "/images/ai-cards/photobooth-ai.webp?v=20261013-full",
-  miroirbooth: "/images/ai-cards/miroirbooth-ai.webp?v=20261013-full",
-  videobooth: "/images/ai-cards/360booth-ai.webp?v=20261013-full",
-  voguebooth: "/images/ai-cards/voguebooth-ai.webp?v=20261013-full",
-};
 
 const packAiImages = {
   souvenirs: "/images/ai-cards/pack-souvenirs-ai.webp?v=20261013-full",
@@ -54,12 +48,15 @@ export default function HomePage() {
   useEffect(() => {
     const desktopQuery = window.matchMedia("(min-width: 761px)");
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    const update = () => setHeroVideoEnabled(desktopQuery.matches && !connection?.saveData);
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setHeroVideoEnabled(false);
     update();
     desktopQuery.addEventListener?.("change", update);
+    motionQuery.addEventListener?.("change", update);
     connection?.addEventListener?.("change", update);
     return () => {
       desktopQuery.removeEventListener?.("change", update);
+      motionQuery.removeEventListener?.("change", update);
       connection?.removeEventListener?.("change", update);
     };
   }, []);
@@ -70,6 +67,7 @@ export default function HomePage() {
         <div className="home-hero-media" aria-hidden="true">
           <figure className="home-hero-film home-hero-film-primary">
             <video
+              key={heroVideoEnabled ? "playing" : "poster"}
               className="home-hero-video-primary"
               autoPlay={heroVideoEnabled}
               loop
@@ -86,8 +84,8 @@ export default function HomePage() {
         <div className="home-container home-hero-grid">
           <div className="home-hero-copy" data-reveal>
             <p className="home-eyebrow">Photobooth · Miroir · 360 · Vogue</p>
-            <h1>Location de photobooth haut de gamme en Île-de-France</h1>
-            <p>Des animations photo et vidéo pensées pour produire de beaux souvenirs, avec une installation maîtrisée et une vraie présence le jour J.</p>
+            <h1>Location de photobooth à Paris et en Île-de-France</h1>
+            <p>Vos invités posent, sourient et repartent avec leurs photos. Photobooth à 400 € pour 5 h, miroir photo, vidéo 360 et Vogue Booth pour mariages, anniversaires et entreprises.</p>
             <ul className="home-hero-facts">
               <li><strong>+700</strong> événements réalisés</li>
               <li><strong>5 ans</strong> d'expertise</li>
@@ -102,16 +100,18 @@ export default function HomePage() {
             <div className="home-hero-offer-media"><img src="/images/ai-from-real/tirages-souvenirs-accueil-v2.webp?v=49915b0" alt="Mise en scène IA de tirages et bandelettes photo personnalisés MySelfieBooth" width="960" height="640" /></div>
             <div className="home-hero-offer-body">
               <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
+              <p className="home-offer-price">400 € · 5 heures</p>
               <ul>
                 <li>Tirages personnalisés selon la formule</li>
                 <li>Livraison et installation cadrées</li>
                 <li>Galerie après l'événement</li>
               </ul>
               <a href="/prestations/photobooth/">Découvrir le Photobooth</a>
-              <small>Île-de-France, Normandie et déplacements selon projet</small>
+              <small>Île-de-France · déplacement et options confirmés sur devis</small>
             </div>
           </aside>
         </div>
+        <button type="button" className="home-video-control" aria-pressed={heroVideoEnabled} onClick={() => setHeroVideoEnabled(value => !value)}>{heroVideoEnabled ? "Arrêter la vidéo" : "Voir l’ambiance en vidéo"}</button>
       </section>
 
       <section className="home-trust-band" aria-label="Repères MySelfieBooth">
@@ -133,7 +133,7 @@ export default function HomePage() {
       <nav className="home-quick-nav" aria-label="Accès rapide">
         <div className="home-container home-quick-nav-inner">
           <strong>Accès rapide</strong>
-          <div><a href="#prestations">Prestations</a><a href="#packs">Packs</a><a href="#avis">Avis</a><a href="#faq">FAQ</a><a href="/realisations/">Réalisations</a></div>
+          <div><a href="#prestations">Prestations</a><a href="#tirages">Tirages</a><a href="#packs">Packs</a><a href="#avis">Avis</a><a href="#faq">FAQ</a><a href="/realisations/">Réalisations</a></div>
           <QuoteButton className="home-quick-cta" />
         </div>
       </nav>
@@ -144,14 +144,7 @@ export default function HomePage() {
           <div className="home-service-grid">
             {featuredServices.map((service) => (
               <article key={service.key} className="home-service-card" style={{ height: "auto", overflow: "hidden" }}>
-                <img
-                  src={serviceAiImages[service.key]}
-                  alt={`Illustration IA premium ${service.title} MySelfieBooth`}
-                  loading="lazy"
-                  width="640"
-                  height="480"
-                  style={{ width: "100%", height: "auto", aspectRatio: "4 / 3", objectFit: "cover", display: "block" }}
-                />
+                <VisualImage name={service.key} sizes="(max-width: 680px) 92vw, (max-width: 1050px) 45vw, 280px" />
                 <div className="home-service-body">
                   <span className="home-eyebrow">{service.tag}</span>
                   <h3>{service.title}</h3>
@@ -164,6 +157,12 @@ export default function HomePage() {
           <div className="home-centered-action"><a href="/prestations/" className="home-button home-button-secondary-dark">Comparer toutes les animations</a></div>
         </div>
       </section>
+
+      <VisualGallery id="tirages" title="De belles photos. De vrais souvenirs à emporter." items={[
+        { name: "tirages", title: "Des cadres à votre image", text: "Prénoms, date, couleurs ou logo : le souvenir reprend votre univers." },
+        { name: "bandes", title: "Plusieurs poses sur une bandelette", text: "Un format à glisser dans un livre d’or ou à garder près de soi." },
+        { name: "papier", title: "Le plaisir du papier", text: "Des photos imprimées pour prolonger la fête. Format et quantité précisés dans votre devis." },
+      ]} />
 
       <section id="packs" className="home-section home-section-muted" data-reveal>
         <div className="home-container">
@@ -216,10 +215,13 @@ export default function HomePage() {
       </section>
 
       <section className="home-section home-section-muted" data-reveal>
-        <div className="home-container">
+        <div className="home-container home-option-feature">
+          <VisualImage name="phonebooth" sizes="(max-width: 760px) 92vw, 560px" />
+          <div>
           <SectionIntro eyebrow="Options" title="Décor, souvenirs et personnalisation" />
           <p className="home-section-lead">Complétez votre animation avec nos options : mur floral, Phonebooth, porte-clés, magnets, livre d'or, panneaux, fond LED et options Vogue.</p>
           <div className="home-centered-action"><a href="/prestations/#options" className="home-button home-button-secondary-dark">Voir toutes les options et leurs visuels</a></div>
+          </div>
         </div>
       </section>
 
@@ -267,7 +269,7 @@ export default function HomePage() {
 
       <section className="home-section home-section-light" data-reveal>
         <div className="home-container home-story-grid">
-          <figure className="home-story-media"><img src="/images/ai-from-real/fabrication-famille-photobooth.webp" alt="Illustration de la fabrication familiale des bornes MySelfieBooth" width="900" height="900" loading="lazy" /></figure>
+          <figure className="home-story-media"><img src="/images/equipe/fabrication-photobooth-en-famille.webp" alt="Fabrication d’une borne Photobooth MySelfieBooth en atelier" width="900" height="900" loading="lazy" /></figure>
           <div><SectionIntro eyebrow="L’équipe et l’expertise" title="Créée par un ingénieur, portée par une équipe de terrain" /><p>Stéphane Faure a fabriqué les premières bornes avec son père. La même exigence technique guide aujourd’hui la préparation et l’installation de vos animations.</p><a href="/a-propos/" className="home-button home-button-secondary-dark">Découvrir notre histoire</a></div>
         </div>
       </section>
@@ -276,7 +278,7 @@ export default function HomePage() {
         <div className="home-container">
           <SectionIntro eyebrow="FAQ" title="Les questions avant de réserver" />
           <div className="home-faq-list">
-            {faqs.slice(0, 8).map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
+            {faqs.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}
           </div>
         </div>
       </section>

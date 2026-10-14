@@ -39,9 +39,9 @@ export default function ZonesIntervention() {
   return (
     <Layout
       metaProps={{
-        title: "Location Photobooth Île-de-France : zones d'intervention | MySelfieBooth",
+        title: "Location Photobooth Île-de-France | Zones d’intervention",
         description:
-          "Découvrez les principales zones d'intervention MySelfieBooth pour vos mariages, entreprises, salons et soirées : Paris, 77, 91, 92, 93, 94, 78, 95, Lyon et Rouen.",
+          "Photobooth, miroir photo, 360 et Vogue Booth à Paris et dans les 8 départements d’Île-de-France. Autres régions françaises sur étude du projet.",
         ogTitle: "Zones d'intervention Photobooth | MySelfieBooth",
         ogDescription:
           "Location de Photobooth, Miroirbooth, 360 Booth et Vogue Booth dans les principales villes d'Île-de-France et sur étude ailleurs en France.",
@@ -72,7 +72,7 @@ export default function ZonesIntervention() {
               <p className="zones-eyebrow">Île-de-France</p>
               <h2>Les départements prioritaires</h2>
               <p>
-                Nous ne créons pas de fausses agences locales : ces pages décrivent les secteurs réellement desservis et les contraintes à prévoir pour une prestation événementielle.
+                Retrouvez les informations utiles pour votre département : accès du lieu, préparation et conditions de déplacement.
               </p>
             </div>
             <div className="zones-grid zones-grid-departments">

@@ -13,7 +13,7 @@ const faq = [
   {
     question: "Quel est le prix d'un Photobooth en Île-de-France en 2026 ?",
     answer:
-      "Chez MySelfieBooth, le Photobooth démarre à 450 €. Le prix final dépend notamment de la date, du lieu, de la durée, des impressions et des options retenues.",
+      "Chez MySelfieBooth, le Photobooth est à 400 € pour 5 heures. Le prix final dépend notamment de la date, du lieu, de la durée, des impressions et des options retenues.",
   },
   {
     question: "Pourquoi certaines locations de Photobooth sont-elles moins chères ?",
@@ -23,12 +23,12 @@ const faq = [
   {
     question: "Combien coûte un Miroirbooth ?",
     answer:
-      "Le Miroirbooth MySelfieBooth démarre à 550 €. Il est davantage orienté réception premium et mise en scène qu'une borne photo classique.",
+      "Le Miroirbooth MySelfieBooth démarre à 450 € pour 3 heures ; la formule 5 heures est à 500 €. Il est davantage orienté réception premium et mise en scène qu'une borne photo classique.",
   },
   {
     question: "Combien coûte un 360 Booth ?",
     answer:
-      "Le 360 Booth MySelfieBooth démarre à 500 € pour les événements particuliers. Les demandes corporate font l'objet d'une proposition distincte selon le branding, la durée, les contenus et la logistique.",
+      "Le 360 Booth MySelfieBooth démarre à 400 € pour 3 heures ; la formule 5 heures est à 450 €. Les demandes corporate font l'objet d'une proposition distincte selon le branding, la durée, les contenus et la logistique.",
   },
   {
     question: "Les entreprises ont-elles les mêmes tarifs que les particuliers ?",
@@ -50,7 +50,7 @@ const pricePage = {
     "Comparez les tarifs MySelfieBooth pour Photobooth, Miroirbooth, 360 Booth et Vogue Booth en Île-de-France, avec les services à vérifier avant de choisir une offre.",
   image: "/images/ai-from-real/tirages-invites-mariage-gala.webp",
   imageAlt: "Tirages Photobooth MySelfieBooth pendant un événement",
-  highlights: ["Photobooth dès 450 €", "Miroirbooth dès 550 €", "360 Booth dès 500 €"],
+  highlights: ["Photobooth 400 € / 5 h", "Miroirbooth dès 450 €", "360 Booth dès 400 €"],
   proof: trustSignals,
   breadcrumbs,
   sections: [
@@ -62,15 +62,15 @@ const pricePage = {
         "Ces montants sont des prix de départ. Le devis confirme la durée, la zone d'intervention, les impressions, l'installation, la personnalisation et les options selon votre événement.",
       cards: [
         {
-          title: "Photobooth — dès 450 €",
+          title: "Photobooth — 400 € / 5 h",
           text: "La borne photo polyvalente pour mariage, anniversaire et événement professionnel, avec tirages selon formule et galerie.",
         },
         {
-          title: "Miroirbooth — dès 550 €",
+          title: "Miroirbooth — dès 450 €",
           text: "Une expérience photo plus scénographique pour mariage élégant, gala, réception premium et entreprise.",
         },
         {
-          title: "360 Booth — dès 500 €",
+          title: "360 Booth — dès 400 €",
           text: "Une animation vidéo dynamique pour créer des contenus courts et personnalisés autour des invités.",
         },
         {
@@ -163,9 +163,9 @@ const pricePage = {
     href: siteConfig.phoneHref,
   },
   meta: {
-    title: "Prix Photobooth Île-de-France 2026 | Tarifs dès 450 €",
+    title: "Prix Photobooth Île-de-France 2026 | 400 € pour 5 h",
     description:
-      "Prix Photobooth en Île-de-France en 2026 : Photobooth dès 450 €, Miroirbooth 550 €, 360 Booth 500 € et conseils pour comparer les offres.",
+      "Prix Photobooth en Île-de-France en 2026 : Photobooth 400 € / 5 h, Miroirbooth 450 €, 360 Booth 400 € et conseils pour comparer les offres.",
     ogTitle: "Prix Photobooth en Île-de-France en 2026",
     ogDescription:
       "Les tarifs MySelfieBooth et les critères à comparer avant de réserver une animation photo ou vidéo.",
@@ -185,9 +185,9 @@ const pricePage = {
         areaServed: "Île-de-France",
         url: absoluteUrl(path),
         offers: [
-          { "@type": "Offer", name: "Photobooth", price: "450", priceCurrency: "EUR" },
-          { "@type": "Offer", name: "Miroirbooth", price: "550", priceCurrency: "EUR" },
-          { "@type": "Offer", name: "360 Booth", price: "500", priceCurrency: "EUR" },
+          { "@type": "Offer", name: "Photobooth — 5 h", price: "400", priceCurrency: "EUR" },
+          { "@type": "Offer", name: "Miroirbooth", price: "450", priceCurrency: "EUR" },
+          { "@type": "Offer", name: "360 Booth", price: "400", priceCurrency: "EUR" },
           { "@type": "Offer", name: "Vogue Booth", price: "500", priceCurrency: "EUR" },
         ],
       },

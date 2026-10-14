@@ -16,5 +16,5 @@ img[src*="/images/ai-cards/"],
 img[src*="/images/ai-from-real/"],
 img[src*="/images/ai-cards/"].is-visual-loaded,
 img[src*="/images/ai-from-real/"].is-visual-loaded {
-  filter: saturate(1.35) contrast(1.04) brightness(1.06);
+  filter: none;
 }

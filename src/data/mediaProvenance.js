@@ -39,7 +39,7 @@ export function isContentMedia(value) {
 export function getMediaKind(value) {
   const source = pathname(value);
 
-  if (AI_FROM_REAL_PATHS.has(source)) {
+  if (AI_FROM_REAL_PATHS.has(source) || source.startsWith("/images/ai-cards/")) {
     return MEDIA_KINDS.AI_FROM_REAL;
   }
 

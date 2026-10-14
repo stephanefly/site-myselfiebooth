@@ -484,16 +484,16 @@ const photoboothMachine = machines.find((machine) => machine.key === "photobooth
 const photoboothLandingPage = page({
   key: "photobooth",
   eyebrow: "Location photobooth",
-  title: "Location de Photobooth avec tirages dès 350 €",
+  title: "Location de Photobooth avec tirages à 400 € pour 5 h",
   description:
-    "Louez un Photobooth dès 350 euros pour votre mariage, anniversaire ou événement d'entreprise : installation cadrée, tirages personnalisés selon la formule et galerie après l'événement.",
-  metaTitle: "Location Photobooth avec tirages dès 350 € | MySelfieBooth",
+    "Louez un Photobooth à 400 euros pour 5 heures pour votre mariage, anniversaire ou événement d'entreprise : installation cadrée, tirages personnalisés selon la formule et galerie après l'événement.",
+  metaTitle: "Location Photobooth avec tirages à 400 € pour 5 h | MySelfieBooth",
   metaDescription:
-    "Location de Photobooth dès 350 € : installation, tirages personnalisés selon la formule et galerie photo après votre événement en Île-de-France.",
+    "Location de Photobooth à 400 € pour 5 h : installation, tirages personnalisés selon la formule et galerie photo après votre événement en Île-de-France.",
   image: photoboothMachine.image,
   path: photoboothMachine.href,
-  priceFrom: 350,
-  highlights: ["3 h : 350 €", "5 h : 400 €", "Impressions selon formule"],
+  priceFrom: 400,
+  highlights: ["400 € pour 5 h", "Tirages personnalisés", "Installation & galerie"],
   breadcrumbs: [{ label: "Nos animations", href: "/prestations" }],
   category: "Location de photobooth événementiel",
   primaryCta: {
@@ -520,9 +520,9 @@ const photoboothLandingPage = page({
     },
     {
       anchor: "tarif",
-      eyebrow: "Tarif à partir de 350 €",
-      title: "Photobooth 3 h à 350 € ou 5 h à 400 €",
-      text: "Ces tarifs reprennent le catalogue de réservation MySelfieBooth. Les impressions illimitées selon la formule, la livraison, l'installation, l'animateur, le modèle photo personnalisé et la galerie web après l'événement sont prévus dans l'offre affichée.",
+      eyebrow: "Formule 5 heures",
+      title: "Votre Photobooth pendant 5 heures : 400 €",
+      text: "La formule Photobooth est proposée à 400 € pour 5 heures. La proposition précise les tirages, la personnalisation, l’installation, l’animateur et la galerie web. Le déplacement et les options sont confirmés selon votre lieu et votre projet.",
       cards: [
         { title: "Impressions", text: "Impressions illimitées selon la formule sélectionnée dans le catalogue de réservation." },
         { title: "Installation", text: "Livraison, installation et animateur sur place sont inclus dans l'offre affichée." },
@@ -591,7 +591,7 @@ const photoboothLandingPage = page({
   faq: [
     {
       question: "Quel est le prix d'une location de photobooth ?",
-      answer: "Le Photobooth est affiché à 350 euros pour 3 heures et à 400 euros pour 5 heures dans le catalogue de réservation. Le devis confirme la disponibilité, la zone d'intervention et les éventuelles options.",
+      answer: "La formule Photobooth est proposée à 400 euros pour 5 heures. Le devis confirme la disponibilité, la zone d'intervention et les éventuelles options.",
     },
     {
       question: "Que comprend la location du photobooth ?",

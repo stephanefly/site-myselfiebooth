@@ -12,7 +12,7 @@ const faq = [
   {
     question: "Combien coûte un photobooth pour un mariage ?",
     answer:
-      "Le Photobooth démarre à 450 €. Le tarif final dépend de la machine, de la durée, du lieu, des impressions, de la personnalisation et des options souvenirs choisies.",
+      "Le Photobooth est proposé à 400 € pour 5 h. Le tarif final dépend de la machine, de la durée, du lieu, des impressions, de la personnalisation et des options souvenirs choisies.",
   },
   {
     question: "Quand installer le photobooth pendant un mariage ?",
@@ -214,7 +214,7 @@ const mariagePage = {
         "Comparer uniquement le prix affiché peut être trompeur si les prestations ne comprennent pas la même chose. Vérifiez la machine, la durée, les impressions, la personnalisation, l'installation, le déplacement, la galerie et les options souvenirs avant de comparer deux devis.",
       cards: [
         {
-          title: "Photobooth dès 450 €",
+          title: "Photobooth 400 € / 5 h",
           text: "Le format classique constitue le point d'entrée pour une animation photo avec installation et personnalisation selon la formule.",
         },
         {

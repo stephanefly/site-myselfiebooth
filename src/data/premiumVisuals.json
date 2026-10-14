@@ -1,0 +1,258 @@
+{
+  "360": {
+    "src": "/images/collection-2026/plateforme-video-360-900.webp?v=20261014",
+    "width": 900,
+    "height": 891,
+    "alt": "Plateforme vidéo 360 MySelfieBooth avec bras caméra et éclairages",
+    "sources": [
+      {
+        "src": "/images/collection-2026/plateforme-video-360-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/plateforme-video-360-900.webp?v=20261014",
+        "width": 900
+      }
+    ]
+  },
+  "borne": {
+    "src": "/images/collection-2026/photobooth-noir-or-900.webp?v=20261014",
+    "width": 900,
+    "height": 1200,
+    "alt": "Borne Photobooth noire et dorée MySelfieBooth avec écran tactile et éclairage",
+    "sources": [
+      {
+        "src": "/images/collection-2026/photobooth-noir-or-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/photobooth-noir-or-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/collection-2026/photobooth-noir-or-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "miroir": {
+    "src": "/images/collection-2026/miroir-photo-dore-900.webp?v=20261014",
+    "width": 900,
+    "height": 1200,
+    "alt": "Miroir photo MySelfieBooth à cadre doré et éclairage violet",
+    "sources": [
+      {
+        "src": "/images/collection-2026/miroir-photo-dore-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/miroir-photo-dore-900.webp?v=20261014",
+        "width": 900
+      }
+    ]
+  },
+  "vogue": {
+    "src": "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp?v=20261014",
+    "width": 900,
+    "height": 1200,
+    "alt": "Vogue Booth à structure noire, façade transparente et rideaux blancs",
+    "sources": [
+      {
+        "src": "/images/collection-2026/vogue-booth-rideaux-blancs-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp?v=20261014",
+        "width": 900
+      }
+    ]
+  },
+  "vogueInvite": {
+    "src": "/images/collection-2026/portrait-vogue-booth-900.webp?v=20261014",
+    "width": 900,
+    "height": 900,
+    "alt": "Invitée posant dans le Vogue Booth MySelfieBooth",
+    "sources": [
+      {
+        "src": "/images/collection-2026/portrait-vogue-booth-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/portrait-vogue-booth-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/collection-2026/portrait-vogue-booth-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "phone": {
+    "src": "/images/collection-2026/livre-or-audio-telephone-900.webp?v=20261014",
+    "width": 900,
+    "height": 675,
+    "alt": "Téléphone à cadran et panneau Leave a message pour le livre d’or audio",
+    "sources": [
+      {
+        "src": "/images/collection-2026/livre-or-audio-telephone-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/livre-or-audio-telephone-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/collection-2026/livre-or-audio-telephone-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "tirages": {
+    "src": "/images/collection-2026/exemples-tirages-personnalises-900.webp?v=20261014",
+    "width": 900,
+    "height": 960,
+    "alt": "Exemples de tirages photo personnalisés et de bandelettes de mariage",
+    "sources": [
+      {
+        "src": "/images/collection-2026/exemples-tirages-personnalises-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/exemples-tirages-personnalises-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/collection-2026/exemples-tirages-personnalises-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "bandes": {
+    "src": "/images/collection-2026/bandelettes-photo-mariage-900.webp?v=20261014",
+    "width": 900,
+    "height": 1350,
+    "alt": "Deux bandelettes photo de mariage avec trois poses et cadre personnalisé",
+    "sources": [
+      {
+        "src": "/images/collection-2026/bandelettes-photo-mariage-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/collection-2026/bandelettes-photo-mariage-900.webp?v=20261014",
+        "width": 900
+      }
+    ]
+  },
+  "papier": {
+    "src": "/images/collection-2026/souvenirs-photo-imprimes-480.webp?v=20261014",
+    "width": 480,
+    "height": 852,
+    "alt": "Photos imprimées, souvenirs à conserver après la réception",
+    "sources": [
+      {
+        "src": "/images/collection-2026/souvenirs-photo-imprimes-480.webp?v=20261014",
+        "width": 480
+      }
+    ]
+  },
+  "photobooth": {
+    "src": "/images/ai-from-real/photobooth-reception-900.webp?v=20261014",
+    "width": 900,
+    "height": 507,
+    "alt": "Photobooth noir et or avec des tirages sur une table, mise en scène IA",
+    "sources": [
+      {
+        "src": "/images/ai-from-real/photobooth-reception-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/ai-from-real/photobooth-reception-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/ai-from-real/photobooth-reception-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "miroirbooth": {
+    "src": "/images/ai-from-real/miroirbooth-reception-900.webp?v=20261014",
+    "width": 900,
+    "height": 600,
+    "alt": "Miroirbooth doré dans un décor de réception, mise en scène IA",
+    "sources": [
+      {
+        "src": "/images/ai-from-real/miroirbooth-reception-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/ai-from-real/miroirbooth-reception-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/ai-from-real/miroirbooth-reception-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "videobooth": {
+    "src": "/images/ai-from-real/360-booth-reception-900.webp?v=20261014",
+    "width": 900,
+    "height": 600,
+    "alt": "Plateforme 360 avec bras caméra dans une réception, mise en scène IA",
+    "sources": [
+      {
+        "src": "/images/ai-from-real/360-booth-reception-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/ai-from-real/360-booth-reception-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/ai-from-real/360-booth-reception-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "voguebooth": {
+    "src": "/images/ai-from-real/vogue-booth-reception-900.webp?v=20261014",
+    "width": 900,
+    "height": 600,
+    "alt": "Vogue Booth noir à rideaux blancs dans une réception, mise en scène IA",
+    "sources": [
+      {
+        "src": "/images/ai-from-real/vogue-booth-reception-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/ai-from-real/vogue-booth-reception-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/ai-from-real/vogue-booth-reception-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  },
+  "phonebooth": {
+    "src": "/images/ai-from-real/phonebooth-livre-or-audio-900.webp?v=20261014",
+    "width": 900,
+    "height": 600,
+    "alt": "Téléphone à cadran pour les messages audio, mise en scène IA",
+    "sources": [
+      {
+        "src": "/images/ai-from-real/phonebooth-livre-or-audio-480.webp?v=20261014",
+        "width": 480
+      },
+      {
+        "src": "/images/ai-from-real/phonebooth-livre-or-audio-900.webp?v=20261014",
+        "width": 900
+      },
+      {
+        "src": "/images/ai-from-real/phonebooth-livre-or-audio-1440.webp?v=20261014",
+        "width": 1440
+      }
+    ]
+  }
+}
