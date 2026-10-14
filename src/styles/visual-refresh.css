@@ -20,7 +20,7 @@
 .home-option-feature img { width: 100%; height: auto; border-radius: 22px; }
 .home-offer-price { margin: 4px 0 12px; font-size: 1.45rem; font-weight: 800; color: #6d5016; }
 .catalog-detail-link { display: block; margin-top: 14px; text-align: center; color: #74541d; font-weight: 650; }
-.home-page .home-service-card > img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; object-position: center; display: block; background: #171410; }
+.home-page .home-service-card > img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; display: block; background: #171410; }
 .home-page .home-service-card:first-child > img { object-fit: cover; object-position: 80% center; }
 .marketing-page .marketing-hero-media { aspect-ratio: auto; height: auto; align-self: center; background: #151310; }
 .marketing-page .marketing-hero-media > img { width: 100%; height: auto; max-height: 590px; object-fit: contain; }
