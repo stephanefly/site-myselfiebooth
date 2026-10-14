@@ -1,6 +1,5 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
-import { marketingPages } from "../../data/marketingPages";
+import EventsLandingPage from "../../components/marketing/EventsLandingPage";
 
 export default function Evenements() {
-  return <MarketingPage page={marketingPages["evenements-index"]} />;
+  return <EventsLandingPage />;
 }

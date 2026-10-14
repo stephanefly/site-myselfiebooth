@@ -684,10 +684,10 @@ export const marketingPages = {
   "evenements-index": page({
     key: "evenements-index",
     eyebrow: "Vos evenements",
-    title: "Choisir son animation photo événementielle",
+    title: "Photobooth et animations pour vos événements en Île-de-France",
     description:
-      "Mariage, entreprise, anniversaire ou soiree VIP: retrouvez les recommandations MySelfieBooth selon votre contexte.",
-    image: "/images/ai-from-real/hero-photobooth-reception.webp",
+      "Location de Photobooth, Miroirbooth, 360 Booth et Vogue Booth pour mariage, entreprise et soirée en Île-de-France. Autres régions sur étude du projet.",
+    image: "/images/event-archive/brice-equipe-01.webp",
     path: "/evenements",
     highlights: ["Mariage", "Entreprise", "Prive"],
     sections: [
