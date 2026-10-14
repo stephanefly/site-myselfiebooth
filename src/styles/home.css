@@ -541,6 +541,13 @@
   background: #efe8d9;
 }
 
+.home-packs-section {
+  background:
+    radial-gradient(ellipse at 5% 5%, rgba(244, 177, 105, 0.24), transparent 36%),
+    radial-gradient(ellipse at 96% 20%, rgba(143, 107, 199, 0.16), transparent 34%),
+    linear-gradient(125deg, #f3e8d6 0%, #f8edf0 52%, #eaf3ee 100%);
+}
+
 .home-section-intro {
   max-width: 700px;
   margin-bottom: 22px;
@@ -1520,17 +1527,41 @@
 }
 
 .home-pack-card {
+  --pack-accent: #16847b;
+  --pack-wash: #eaf7f4;
+  --pack-line: #a8d9d2;
   min-width: 0;
+  position: relative;
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--pack-line);
+  border-top: 6px solid var(--pack-accent);
   border-radius: 10px;
-  background: #fff;
+  background: var(--pack-wash);
   box-shadow: var(--shadow-soft);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.home-pack-card:nth-child(2) {
+  --pack-accent: #c34635;
+  --pack-wash: #fff0ec;
+  --pack-line: #e9b5aa;
+}
+
+.home-pack-card:nth-child(3) {
+  --pack-accent: #7650a6;
+  --pack-wash: #f4effa;
+  --pack-line: #c8b6de;
+}
+
+.home-pack-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--pack-accent) 20%, transparent);
 }
 
 .home-pack-card.is-featured {
-  border-color: var(--color-gold);
-  box-shadow: 0 20px 50px rgba(116, 82, 19, 0.16);
+  border-color: var(--pack-line);
+  border-top-color: var(--pack-accent);
+  box-shadow: 0 20px 50px color-mix(in srgb, var(--pack-accent) 18%, transparent);
 }
 
 .home-pack-media {
@@ -1566,9 +1597,21 @@
 
 .home-pack-body {
   padding: 20px;
+  background: linear-gradient(180deg, var(--pack-wash), #fff 48%);
 }
 
-.home-pack-body > span,
+.home-pack-body > span {
+  display: inline-flex;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--pack-accent);
+  background: color-mix(in srgb, var(--pack-accent) 12%, white);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
 .home-blog-card > span,
 .home-market-card div > span {
   color: #8a6520;
@@ -1607,7 +1650,8 @@
 
 .home-pack-body li::before {
   margin-right: 8px;
-  color: var(--color-gold);
+  color: var(--pack-accent);
+  font-weight: 900;
   content: "•";
 }
 
@@ -1618,7 +1662,7 @@
   gap: 12px;
   margin-top: 20px;
   padding-top: 15px;
-  border-top: 1px solid #eee7db;
+  border-top: 1px solid color-mix(in srgb, var(--pack-accent) 24%, white);
 }
 
 .home-pack-body > div strong {
@@ -1626,13 +1670,39 @@
   font-size: 0.92rem;
 }
 
-.home-pack-body > div a,
+.home-pack-body > div a {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--pack-accent);
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: filter 160ms ease, transform 160ms ease;
+}
+
+.home-pack-body > div a:hover {
+  color: #fff;
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
 .home-market-card a,
 .home-blog-card a,
 .home-client-layout > div > a {
   color: #8a6520;
   font-weight: 900;
   text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-pack-card,
+  .home-pack-body > div a,
+  .home-pack-card:hover .home-pack-media img {
+    transition: none;
+  }
 }
 
 .home-market-grid {

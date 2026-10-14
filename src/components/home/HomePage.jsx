@@ -164,7 +164,7 @@ export default function HomePage() {
         { name: "papier", title: "Le plaisir du papier", text: "Des photos imprimées pour prolonger la fête. Format et quantité précisés dans votre devis." },
       ]} />
 
-      <section id="packs" className="home-section home-section-muted" data-reveal>
+      <section id="packs" className="home-section home-section-muted home-packs-section" data-reveal>
         <div className="home-container">
           <SectionIntro eyebrow="Formules prêtes à réserver" title="Trois packs pour décider plus facilement" />
           <p className="home-section-lead">Photo, vidéo et souvenirs : choisissez la formule qui correspond à votre réception.</p>
