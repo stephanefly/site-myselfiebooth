@@ -99,7 +99,7 @@ export default function HomePage() {
             </div>
           </div>
           <aside className="home-hero-offer" data-reveal>
-            <div className="home-hero-offer-media"><img src="/images/ai-from-real/tirages-invites-mariage-gala.webp" alt="Illustration de souvenirs photo personnalisés MySelfieBooth" width="640" height="480" /></div>
+            <div className="home-hero-offer-media"><img src="/images/ai-from-real/tirages-souvenirs-accueil-v2.webp" alt="Mise en scène IA de tirages et bandelettes photo personnalisés MySelfieBooth" width="960" height="640" /></div>
             <div className="home-hero-offer-body">
               <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
               <ul>

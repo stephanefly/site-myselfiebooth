@@ -73,5 +73,13 @@
     "sources": [
       "/images/vogue-real/vogue-booth-mariage-card.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/tirages-souvenirs-accueil-v2.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/event-archive/composition-tirages-reference.webp",
+      "/images/event-archive/bandelettes-mariage-reference.webp"
+    ]
   }
 ]
