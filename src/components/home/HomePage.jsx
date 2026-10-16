@@ -91,7 +91,7 @@ export default function HomePage() {
             </div>
           </div>
           <aside className="home-hero-offer" data-reveal>
-            <div className="home-hero-offer-media"><img src="/images/collection-2026/photobooth-noir-or-900.webp?v=20261014" alt="Notre photobooth noir et or installé dans une salle de réception" width="900" height="1200" fetchPriority="high" /></div>
+            <div className="home-hero-offer-media"><img src="/images/ai-from-real/photobooth-accueil-panoramique.webp" alt="Mise en scène IA de notre photobooth noir et or dans une réception élégante" width="1200" height="800" fetchPriority="high" /></div>
             <div className="home-hero-offer-body">
               <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
               <p className="home-offer-price">400 € · 5 heures</p>

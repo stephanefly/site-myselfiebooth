@@ -192,5 +192,12 @@
     "sources": [
       "/images/collection-2026/livre-or-audio-telephone-900.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/photobooth-accueil-panoramique.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ]
   }
 ]
