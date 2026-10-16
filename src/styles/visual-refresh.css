@@ -34,4 +34,3 @@
   .service-area-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .service-area-links a { padding: 13px 10px; font-size: .88rem; }
 }
-@media (prefers-reduced-motion: reduce) { .home-video-control { display: none; } }

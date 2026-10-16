@@ -21,6 +21,13 @@ for (const route of routes) {
     assert.ok(html.includes('400 € pour 5 h'));
     assert.ok(!html.includes('350 €') && !html.includes('450 €'));
   }
-  if (route === '') assert.ok(!/<source[^>]+PUB_2024/.test(html), 'Do not load the hero video before interaction');
+  if (route === '') {
+    const heroVideo = html.match(/<video\b[^>]*>[\s\S]*?<\/video>/)?.[0];
+    assert.ok(heroVideo, 'The home hero must include a video');
+    for (const attribute of ['autoplay', 'loop', 'muted', 'playsinline']) {
+      assert.match(heroVideo, new RegExp(`\\b${attribute}(?:[\\s=>])`, 'i'), `Hero video must have ${attribute}`);
+    }
+    assert.match(heroVideo, /<source[^>]+src="\/videos\/PUB_2024\.mp4"/, 'Load the hero video for automatic playback');
+  }
 }
 console.log(`Experience check OK: ${routes.length} key pages, unique IDs, one breadcrumb, visible FAQ/schema parity and Photobooth 400 € / 5 h.`);

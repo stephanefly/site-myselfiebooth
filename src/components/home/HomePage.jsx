@@ -42,22 +42,16 @@ const packAiImages = {
 const featuredReviews = googleReviews.slice(0, 3);
 
 export default function HomePage() {
-  const [heroVideoEnabled, setHeroVideoEnabled] = useState(false);
+  const [heroVideoEnabled, setHeroVideoEnabled] = useState(true);
   const pageRef = useRevealMotion("home");
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia("(min-width: 761px)");
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setHeroVideoEnabled(false);
+    const update = () => setHeroVideoEnabled(!motionQuery.matches);
     update();
-    desktopQuery.addEventListener?.("change", update);
     motionQuery.addEventListener?.("change", update);
-    connection?.addEventListener?.("change", update);
     return () => {
-      desktopQuery.removeEventListener?.("change", update);
       motionQuery.removeEventListener?.("change", update);
-      connection?.removeEventListener?.("change", update);
     };
   }, []);
 
@@ -97,7 +91,7 @@ export default function HomePage() {
             </div>
           </div>
           <aside className="home-hero-offer" data-reveal>
-            <div className="home-hero-offer-media"><img src="/images/ai-from-real/tirages-souvenirs-accueil-v2.webp?v=49915b0" alt="Mise en scène IA de tirages et bandelettes photo personnalisés MySelfieBooth" width="960" height="640" /></div>
+            <div className="home-hero-offer-media"><img src="/images/collection-2026/photobooth-noir-or-900.webp?v=20261014" alt="Notre photobooth noir et or installé dans une salle de réception" width="900" height="1200" fetchPriority="high" /></div>
             <div className="home-hero-offer-body">
               <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
               <p className="home-offer-price">400 € · 5 heures</p>
