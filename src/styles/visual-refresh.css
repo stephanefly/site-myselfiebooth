@@ -11,6 +11,8 @@
 .visual-grid figcaption { padding: 22px; }
 .visual-grid h3 { margin: 0 0 8px; font-size: 1.2rem; }
 .visual-grid p { margin: 0; line-height: 1.65; color: #5e574c; }
+#tirages .visual-grid img { height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.visual-note { margin: 20px 0 0; color: #655e52; font-size: .8rem; line-height: 1.6; }
 .service-area-section { padding: 60px 0; background: #fff; }
 .service-area-section p { max-width: 920px; line-height: 1.75; color: #5e574c; }
 .service-area-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 26px 0; }
@@ -28,6 +30,7 @@
 .marketing-page .marketing-hero-proof { position: static; margin: 0; padding: 14px; }
 .home-video-control { position: absolute; z-index: 3; right: 20px; bottom: 16px; border: 1px solid #ffffff80; color: #fff; background: #171717d9; border-radius: 30px; padding: 10px 16px; cursor: pointer; font-size: .8rem; }
 @media (max-width: 760px) {
+  .home-market-card img { object-position: center 20%; }
   .visual-section, .service-area-section { padding: 42px 0; }
   .visual-grid-2, .visual-grid-3, .home-option-feature { grid-template-columns: 1fr; }
   .visual-grid img { height: auto; max-height: 440px; object-fit: contain; }

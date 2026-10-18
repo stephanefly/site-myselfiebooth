@@ -199,5 +199,75 @@
     "sources": [
       "/images/collection-2026/photobooth-noir-or-900.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-cadres-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/exemples-tirages-personnalises-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-cadres-960.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/exemples-tirages-personnalises-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-bandes-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/bandelettes-photo-mariage-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-bandes-960.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/bandelettes-photo-mariage-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-papier-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/souvenirs-photo-imprimes-480.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-papier-960.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/souvenirs-photo-imprimes-480.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-entreprise-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-entreprise-960.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-mariage-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/miroir-photo-dore-900.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/prospect-mariage-960.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/miroir-photo-dore-900.webp"
+    ]
   }
 ]

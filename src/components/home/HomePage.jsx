@@ -152,10 +152,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <VisualGallery id="tirages" title="De belles photos. De vrais souvenirs à emporter." items={[
-        { name: "tirages", title: "Des cadres à votre image", text: "Prénoms, date, couleurs ou logo : le souvenir reprend votre univers." },
-        { name: "bandes", title: "Plusieurs poses sur une bandelette", text: "Un format à glisser dans un livre d’or ou à garder près de soi." },
-        { name: "papier", title: "Le plaisir du papier", text: "Des photos imprimées pour prolonger la fête. Format et quantité précisés dans votre devis." },
+      <VisualGallery id="tirages" eyebrow="Vos souvenirs, votre style" title="De belles photos. De vrais souvenirs à emporter." note="Mises en scène IA inspirées de nos tirages. Cadres, formats et personnalisation définis avec vous." items={[
+        { name: "homeCadres", title: "Des cadres à votre image", text: "Prénoms, date, couleurs ou logo : le souvenir reprend votre univers." },
+        { name: "homeBandes", title: "Plusieurs poses sur une bandelette", text: "Un format à glisser dans un livre d’or ou à garder près de soi." },
+        { name: "homePapier", title: "Le plaisir du papier", text: "Des photos imprimées pour prolonger la fête. Format et quantité précisés dans votre devis." },
       ]} />
 
       <section id="packs" className="home-section home-section-muted home-packs-section" data-reveal>
@@ -202,9 +202,10 @@ export default function HomePage() {
         <div className="home-container">
           <SectionIntro eyebrow="Pour qui ?" title="Mariages, entreprises et événements privés" />
           <div className="home-market-grid">
-            <article className="home-market-card"><img src="/images/page-visuals/home-entreprises.jpg" alt="Animation photo MySelfieBooth lors d’un événement" width="640" height="900" loading="lazy" /><div><span>Entreprises</span><h3>Salons, séminaires et soirées</h3><p>Branding, expérience invités et formats partageables.</p><a href="/evenements/corporates/">Voir les solutions entreprise</a></div></article>
-            <article className="home-market-card"><img src="/images/page-visuals/home-mariages.jpg" alt="Les mariés profitent du Photobooth" width="640" height="900" loading="lazy" /><div><span>Particuliers</span><h3>Mariages, anniversaires et réceptions</h3><p>Photos, vidéos, tirages et souvenirs adaptés au rythme de votre soirée.</p><a href="/evenements/mariages/">Voir les solutions mariage</a></div></article>
+            <article className="home-market-card"><VisualImage name="homeEntreprise" sizes="(max-width: 760px) 92vw, 280px" /><div><span>Entreprises</span><h3>Salons, séminaires et soirées</h3><p>Branding, expérience invités et formats partageables.</p><a href="/evenements/corporates/">Voir les solutions entreprise</a></div></article>
+            <article className="home-market-card"><VisualImage name="homeMariage" sizes="(max-width: 760px) 92vw, 280px" /><div><span>Particuliers</span><h3>Mariages, anniversaires et réceptions</h3><p>Photos, vidéos, tirages et souvenirs adaptés au rythme de votre soirée.</p><a href="/evenements/mariages/">Voir les solutions mariage</a></div></article>
           </div>
+          <p className="visual-note">Mises en situation IA de nos animations, à titre d’illustration.</p>
         </div>
       </section>
 
