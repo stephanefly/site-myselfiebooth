@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   brandLogos,
   faqs,
@@ -7,9 +8,9 @@ import {
   services,
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
-import useRevealMotion from "../../hooks/useRevealMotion";
 import { homeInstagramMedia } from "../../data/instagramMedia";
 import VisualGallery, { VisualImage } from "../VisualGallery";
+import useRevealMotion from "../../hooks/useRevealMotion";
 
 function SectionIntro({ eyebrow, title }) {
   return (
@@ -41,43 +42,86 @@ const packAiImages = {
 const featuredReviews = googleReviews.slice(0, 3);
 
 export default function HomePage() {
+  const [heroVideoEnabled, setHeroVideoEnabled] = useState(true);
   const pageRef = useRevealMotion("home");
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setHeroVideoEnabled(!motionQuery.matches);
+    update();
+    motionQuery.addEventListener?.("change", update);
+    return () => {
+      motionQuery.removeEventListener?.("change", update);
+    };
+  }, []);
 
   return (
     <div className="home-page" ref={pageRef}>
-      <section className="home-hero home-hero-refresh" aria-labelledby="home-hero-title">
-        <div className="home-container home-hero-refresh-inner">
-          <div className="home-hero-refresh-copy" data-reveal>
-            <p className="home-eyebrow">Paris · Île-de-France</p>
-            <h1 id="home-hero-title">Une animation photo pour chaque événement.</h1>
-            <p className="home-hero-refresh-lead">Photos, vidéos et souvenirs à partager. Découvrez nos quatre machines et choisissez l’ambiance qui vous ressemble.</p>
-            <div className="home-actions">
-              <a className="home-button home-button-primary" href="#prestations">Choisir mon animation</a>
-              <a className="home-button home-button-secondary-dark" href="/realisations-videos/">Voir les vidéos</a>
-            </div>
-          </div>
-          <div className="home-hero-product-wrap">
-            <div className="home-hero-product-collage" aria-label="Photobooth, miroir photo, vidéo 360 et Vogue Booth">
-              <a className="home-hero-product" href="/prestations/photobooth/" aria-label="Découvrir le Photobooth">
-                <img src="/images/ai-from-real/photobooth-reception-900.webp" alt="Photobooth noir et or installé dans une réception" width="900" height="600" fetchPriority="high" />
-                <span className="home-hero-product-label"><strong>Photobooth</strong><small>Les souvenirs imprimés</small></span>
-              </a>
-              <a className="home-hero-product" href="/prestations/miroirbooth/" aria-label="Découvrir le Miroir photo">
-                <img src="/images/ai-from-real/miroirbooth-reception-900.webp" alt="Miroir photo doré dans un décor de réception" width="900" height="600" />
-                <span className="home-hero-product-label"><strong>Miroir photo</strong><small>L’animation interactive</small></span>
-              </a>
-              <a className="home-hero-product" href="/prestations/videobooth/" aria-label="Découvrir la vidéo 360">
-                <img src="/images/ai-from-real/360-booth-reception-900.webp" alt="Plateforme vidéo 360 préparée pour un événement" width="900" height="600" />
-                <span className="home-hero-product-label"><strong>Vidéo 360°</strong><small>Le clip de la soirée</small></span>
-              </a>
-              <a className="home-hero-product" href="/prestations/voguebooth/" aria-label="Découvrir le Vogue Booth">
-                <img src="/images/ai-from-real/vogue-booth-reception-900.webp" alt="Vogue Booth installé dans une réception élégante" width="900" height="600" />
-                <span className="home-hero-product-label"><strong>Vogue Booth</strong><small>Le portrait glamour</small></span>
-              </a>
-            </div>
-            <p className="home-hero-visual-note">Visuels d’illustration</p>
+      <section className="home-showcase" aria-labelledby="home-showcase-title">
+        <div className="home-showcase-art">
+          <div className="home-showcase-picture">
+            <img
+              src="/images/ai-from-real/accueil-machines-panorama.webp"
+              alt="Illustration IA de nos machines : panneau fontaine sur le côté, photobooth noir et or sur trépied, miroir photo, vidéo 360 et grand Vogue Booth, avec Phonebooth et micro sur une table basse"
+              width="1915"
+              height="821"
+              fetchPriority="high"
+            />
           </div>
         </div>
+        <div className="home-showcase-content">
+          <div className="home-showcase-copy">
+            <p className="home-showcase-eyebrow">Photobooth · Miroir · 360° · Vogue</p>
+            <h1 id="home-showcase-title">Une animation photo pour chaque événement.</h1>
+            <p className="home-showcase-lead">Vos invités posent, sourient et repartent avec leurs souvenirs. Nos machines et nos options donnent vie à votre événement, à Paris et en Île-de-France.</p>
+            <div className="home-showcase-actions">
+              <QuoteButton className="home-showcase-primary" />
+              <a href="/prestations/">Voir toutes les animations</a>
+            </div>
+            <div className="home-showcase-proof">
+              <span><strong>+700</strong> événements</span>
+              <span><strong>{siteConfig.reviews.rating}</strong> sur Google</span>
+              <span>Installation incluse</span>
+            </div>
+          </div>
+          <aside className="home-showcase-offer" aria-labelledby="home-showcase-offer-title">
+            <div className="home-showcase-thumb">
+              <img src="/images/collection-2026/photobooth-noir-or-900.webp" alt="Notre photobooth noir et or" width="900" height="1200" />
+            </div>
+            <div>
+              <p className="home-showcase-badge">★ Le plus demandé</p>
+              <h2 id="home-showcase-offer-title">Photobooth</h2>
+              <p className="home-showcase-price">400 € · 5 heures</p>
+            </div>
+            <a href="/prestations/photobooth/" data-event="cta_service_click" data-event-label="Accueil Photobooth">Découvrir le Photobooth →</a>
+          </aside>
+          <aside className="home-showcase-film" aria-label="Vidéo de nos événements">
+            <video
+              id="home-showcase-video"
+              key={heroVideoEnabled ? "playing" : "poster"}
+              autoPlay={heroVideoEnabled}
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/images/hero-pub-2024.webp"
+              aria-label="Les animations MySelfieBooth en situation"
+            >
+              {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
+            </video>
+            <span className="home-showcase-film-label">● L’ambiance en vidéo</span>
+            <div className="home-showcase-film-bottom">
+              <strong>Vos événements,<br />en mouvement.</strong>
+              <button
+                type="button"
+                aria-controls="home-showcase-video"
+                aria-pressed={heroVideoEnabled}
+                onClick={() => setHeroVideoEnabled(value => !value)}
+              >{heroVideoEnabled ? "Arrêter la vidéo" : "Voir la vidéo"}</button>
+            </div>
+          </aside>
+        </div>
+        <span className="home-showcase-note">Illustration IA de nos animations</span>
       </section>
 
       <section className="home-trust-band" aria-label="Repères MySelfieBooth">

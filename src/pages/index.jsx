@@ -9,10 +9,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="preload" as="image" href="/images/ai-from-real/photobooth-reception-900.webp" />
+        <link rel="preload" as="image" href="/images/ai-from-real/accueil-machines-panorama.webp" />
       </Head>
       <Layout
-        navbarVariant="home"
         metaProps={{
           title:
             "Location Photobooth Paris & Île-de-France | MySelfieBooth",
