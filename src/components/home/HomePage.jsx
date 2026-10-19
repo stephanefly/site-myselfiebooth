@@ -61,8 +61,8 @@ export default function HomePage() {
         <div className="home-showcase-art">
           <div className="home-showcase-picture">
             <img
-              src="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-bienvenue-blanc"
-              alt="Illustration IA de nos machines : panneau fontaine sur le côté, photobooth noir et or sur trépied, miroir photo, vidéo 360 et grand Vogue Booth, avec Phonebooth et micro sur une table basse"
+              src="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-vogue-gauche"
+              alt="Illustration IA de nos machines : grand Vogue Booth à gauche, photobooth noir et or sur trépied, miroir photo, vidéo 360 et panneau fontaine de bienvenue à droite, avec Phonebooth et micro sur une table basse"
               width="1915"
               height="821"
               fetchPriority="high"
