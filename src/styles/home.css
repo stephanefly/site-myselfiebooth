@@ -2733,6 +2733,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  width: 100%;
   margin-top: 72px;
   aspect-ratio: 1915 / 821;
   min-height: 640px;
