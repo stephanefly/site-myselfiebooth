@@ -69,7 +69,7 @@ export default function ServicesCatalogPage() {
         <section className="catalog-collection prst-hero" aria-labelledby="prestations-title">
           <div className="prst-hero-copy">
             <p className="prst-kicker">Nos prestations · Paris & Île-de-France</p>
-            <h1 id="prestations-title">Des souvenirs<br />à vivre.<br /><em>Et à garder.</em></h1>
+            <h1 id="prestations-title">Des souvenirs <br />à vivre.<br /><em>Et à garder.</em></h1>
             <p className="prst-hero-intro">Photo, vidéo 360 ou couverture de magazine : trouvez l’animation qui fera sourire vos invités.</p>
             <div className="prst-actions"><a className="prst-button" href="#machines">Découvrir les machines <Arrow /></a><a className="prst-text-link" href={siteConfig.quoteUrl}>Demander mon devis <Arrow /></a></div>
             <p className="prst-hero-note">Mariages · Anniversaires · Événements d’entreprise</p>
@@ -98,7 +98,7 @@ export default function ServicesCatalogPage() {
         <section id="options" className="catalog-collection prst-section prst-options" aria-labelledby="prst-options-title"><div className="prst-wrap">
           <header className="prst-section-heading"><div><p className="prst-kicker">03 / Les options</p><h2 id="prst-options-title">Les détails qui font<br /><em>votre événement.</em></h2></div><p>Un message à réécouter, un décor qui accueille vos invités, une photo à garder près de soi. Ajoutez votre touche personnelle.</p></header>
           <div className="prst-option-grid"><article className="prst-option-group"><div className="prst-option-photo"><img src={`${visualRoot}souvenirs.webp`} alt="Téléphone livre d’or noir, album kraft, porte-clés photo et magnets réunis sur une table, mise en scène inspirée de nos options" width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion /></div><div className="prst-option-body"><p className="prst-kicker">Les souvenirs</p><h3>Bien après la dernière danse.</h3><OptionList names={souvenirNames} /></div></article><article className="prst-option-group"><div className="prst-option-photo"><img src={`${visualRoot}decors.webp`} alt="Panneau fontaine blanc, miroir de bienvenue fleuri et fond LED 360, mise en scène inspirée de nos décors" width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion /></div><div className="prst-option-body"><p className="prst-kicker">Les décors</p><h3>Une entrée en matière qui compte.</h3><OptionList names={decorNames} /></div></article></div>
-          <div className="prst-studio-options"><div><p className="prst-kicker">Pour aller plus loin</p><h3>Studio Vogue<br />& effets visuels.</h3><a className="prst-text-link" href={siteConfig.quoteUrl}>Ajouter mes options <Arrow /></a></div><OptionList names={studioNames} /></div>
+          <div className="prst-studio-options"><div><p className="prst-kicker">Pour aller plus loin</p><h3>Studio Vogue <br />& effets visuels.</h3><a className="prst-text-link" href={siteConfig.quoteUrl}>Ajouter mes options <Arrow /></a></div><OptionList names={studioNames} /></div>
         </div></section>
 
         <section id="comparatif" className="catalog-collection prst-section prst-compare" aria-labelledby="prst-compare-title"><div className="prst-wrap">
