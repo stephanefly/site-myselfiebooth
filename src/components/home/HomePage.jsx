@@ -34,9 +34,9 @@ const featuredPacksHome = featuredPacks.filter((pack) =>
 );
 
 const packAiImages = {
-  souvenirs: "/images/ai-cards/pack-souvenirs-ai.webp?v=20261013-full",
-  "duo-vip": "/images/ai-cards/pack-duo-vip-ai.webp?v=20261013-full",
-  "vogue-premium": "/images/ai-cards/pack-vogue-premium-ai.webp?v=20261013-full",
+  souvenirs: "/images/ai-from-real/accueil-pack-souvenirs.webp",
+  "duo-vip": "/images/ai-from-real/accueil-pack-duo.webp",
+  "vogue-premium": "/images/ai-from-real/accueil-pack-vogue.webp",
 };
 
 const featuredReviews = googleReviews.slice(0, 3);
@@ -160,7 +160,7 @@ export default function HomePage() {
       <VisualGallery id="tirages" eyebrow="Vos souvenirs, votre style" title="De belles photos. De vrais souvenirs à emporter." note="Mises en scène IA inspirées de nos tirages. Cadres, formats et personnalisation définis avec vous." items={[
         { name: "homeCadres", title: "Des cadres à votre image", text: "Prénoms, date, couleurs ou logo : le souvenir reprend votre univers." },
         { name: "homeBandes", title: "Plusieurs poses sur une bandelette", text: "Un format à glisser dans un livre d’or ou à garder près de soi." },
-        { name: "homePapier", title: "Le plaisir du papier", text: "Des photos imprimées pour prolonger la fête. Format et quantité précisés dans votre devis." },
+        { name: "homePapier", title: "Votre équipe, votre identité", text: "Logo, couleurs et message : des tirages personnalisés pour vos soirées d’entreprise." },
       ]} />
 
       <section id="packs" className="home-section home-section-muted home-packs-section" data-reveal>
@@ -188,6 +188,7 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+          <p className="visual-note">Mises en situation IA inspirées de nos vraies machines et de nos options.</p>
         </div>
       </section>
 
@@ -216,10 +217,11 @@ export default function HomePage() {
 
       <section className="home-section home-section-muted" data-reveal>
         <div className="home-container home-option-feature">
-          <VisualImage name="phonebooth" sizes="(max-width: 760px) 92vw, 560px" />
+          <img src="/images/ai-from-real/accueil-options-collection.webp" alt="Illustration IA de nos options : mur de fleurs, backdrop, livre d’or vidéo blanc avec micro, magnets et porte-clés photo" width="1200" height="800" loading="lazy" decoding="async" />
           <div>
           <SectionIntro eyebrow="Options" title="Décor, souvenirs et personnalisation" />
-          <p className="home-section-lead">Complétez votre animation avec nos options : mur floral, Phonebooth, porte-clés, magnets, livre d'or, panneaux, fond LED et options Vogue.</p>
+          <p className="home-section-lead">Mur de fleurs, backdrop, livre d’or vidéo avec micro, magnets et porte-clés : créez un décor à votre image et des souvenirs à emporter.</p>
+          <p className="visual-note">Mise en scène IA inspirée de nos équipements et souvenirs réels.</p>
           <div className="home-centered-action"><a href="/prestations/#options" className="home-button home-button-secondary-dark">Voir toutes les options et leurs visuels</a></div>
           </div>
         </div>

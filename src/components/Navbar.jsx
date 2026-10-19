@@ -5,7 +5,6 @@ import { siteConfig } from "../data/site";
 const links = [
   { label: "Prestations", href: "/prestations" },
   { label: "Entreprises", href: "/evenements/corporates", professional: true },
-  { label: "Event-Tech", href: "/event-tech", professional: true },
   { label: "Packs", href: "/prestations#packs" },
   { label: "Options", href: "/prestations#options" },
   { label: "Événements", href: "/evenements" },

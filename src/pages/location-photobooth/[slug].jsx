@@ -321,7 +321,7 @@ function buildPage(location) {
       { label: "Location Photobooth", href: "/prestations/photobooth/" },
       { label: "Photobooth pour entreprise", href: "/evenements/corporates/" },
       { label: "Photobooth pour mariage", href: "/evenements/mariages/" },
-      { label: "Event-Tech & activations de marque", href: "/event-tech/" },
+      { label: "Animations pour entreprises", href: "/evenements/corporates/" },
       { label: "Prix Photobooth en Île-de-France", href: "/prix-photobooth-ile-de-france-2026/" },
       { label: "Guide prix location Photobooth", href: "/blog/prix-location-photobooth/" },
       { label: "Guide espace et installation", href: "/blog/espace-installation-photobooth/" },

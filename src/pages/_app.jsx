@@ -5,6 +5,8 @@ import "../styles/image-framing.css";
 import "../styles/media-provenance.css";
 import "../styles/catalog-premium.css";
 import "../styles/visual-refresh.css";
+import "../styles/prestations-redesign.css";
+import "../styles/realisations-wedding.css";
 import "../data/mediaOverrides";
 import { useRouter } from "next/router";
 import useVisualLoadMotion from "../hooks/useVisualLoadMotion";

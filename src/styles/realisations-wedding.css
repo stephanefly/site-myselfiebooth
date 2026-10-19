@@ -1,0 +1,214 @@
+.wedding-real-page { --wed-ink:#263b32; --wed-muted:#6c7166; --wed-paper:#f8f5ed; --wed-line:#dcded1; --wed-gold:#8b6d39; margin-top:30px; color:var(--wed-ink); background:var(--wed-paper); font:15px/1.7 Arial,Helvetica,sans-serif; text-align:left; }
+.wedding-real-page section { text-align:left; }
+.wedding-real-page :is(h1,h2,h3,p,figure,ul,blockquote) { margin:0; }
+.wedding-real-page :is(h1,h2,h3) { color:inherit; text-transform:none; }
+.wedding-real-page :is(h1,h2) { font-family:Georgia,'Times New Roman',serif; font-weight:400; letter-spacing:-.045em; line-height:1.1; }
+.wedding-real-page h1 { font-size:clamp(48px,5.1vw,76px); }
+.wedding-real-page h2 { font-size:clamp(37px,4vw,56px); }
+.wedding-real-page h3 { font-family:Georgia,serif; font-size:25px; font-weight:400; line-height:1.25; letter-spacing:-.025em; }
+.wedding-real-page em { color:var(--wed-gold); font-weight:400; }
+.wedding-real-page p { color:var(--wed-muted); font-size:14px; line-height:1.75; }
+.wedding-real-page a { color:inherit; text-decoration:none; }
+.wedding-real-page a:focus-visible { outline:3px solid #947443; outline-offset:5px; }
+.wedding-real-page img { display:block; width:100%; height:auto; border-radius:0; }
+.wedding-real-page video { display:block; width:100%; height:100%; object-fit:contain; background:#171916; }
+.wedding-real-page :is(section[id],figure[id]) { scroll-margin-top:135px; }
+.wed-wrap { width:min(1240px,calc(100% - 96px)); margin-inline:auto; }
+.wed-section { padding:88px 0; }
+.wedding-real-page .wed-eyebrow { font-size:10px; line-height:1.6; letter-spacing:.15em; text-transform:uppercase; font-weight:700; color:var(--wed-gold); }
+.wed-actions { display:flex; flex-wrap:wrap; gap:18px 24px; align-items:center; }
+.wedding-real-page .wed-button { display:inline-flex; align-items:center; justify-content:space-between; gap:26px; min-height:50px; padding:14px 20px; border:1px solid var(--wed-ink); border-radius:4px; background:var(--wed-ink); color:#fffdf6; font-size:12px; font-weight:600; line-height:1.5; }
+.wedding-real-page .wed-button:hover { background:#405746; border-color:#405746; }
+.wed-button span { font-size:20px; font-weight:400; }
+.wedding-real-page .wed-link { min-height:44px; display:inline-flex; align-items:center; justify-content:space-between; gap:16px; border-bottom:1px solid currentColor; font-size:12px; font-weight:600; line-height:1.4; }
+.wedding-real-page .wed-link:hover { color:var(--wed-gold); }
+.wed-hero { padding:52px 0 46px; background:radial-gradient(ellipse at 70% 60%,#e7e8d980,transparent 60%),#f8f5ed; }
+.wed-hero-grid { display:grid; grid-template-columns:.95fr 1.05fr; gap:55px; align-items:center; }
+.wed-hero h1 { margin-top:24px; }
+.wed-hero-copy > p:not(.wed-eyebrow) { max-width:400px; margin-top:26px; font-size:15px; }
+.wed-hero .wed-actions { margin-top:28px; }
+.wed-authentic { display:flex; align-items:center; gap:8px; margin-top:24px; color:var(--wed-muted); font-size:10px; }
+.wed-authentic > span { color:#637951; font-size:8px; }
+.wed-hero-visual { position:relative; min-width:0; padding:0 48px 32px 0; }
+.wed-hero-film { width:min(360px,74%); margin-left:auto !important; position:relative; border:7px solid #fffdf6; box-shadow:0 22px 45px #263b3220; border-radius:140px 140px 4px 4px; overflow:hidden; }
+.wed-hero-film video { aspect-ratio:9/16; }
+.wed-hero-film figcaption { padding:15px 15px 8px; background:#fffdf6; }
+.wed-hero-film figcaption > span { display:block; font-size:9px; color:var(--wed-gold); text-transform:uppercase; letter-spacing:.1em; }
+.wed-hero-film figcaption strong { display:block; font:23px/1.4 Georgia,serif; }
+.wed-hero-film figcaption a { display:inline-flex; align-items:center; gap:14px; min-height:35px; font-size:9px; color:var(--wed-muted); text-decoration:underline; text-underline-offset:3px; }
+.wed-hero-print { position:absolute; left:0; bottom:25px; width:48%; padding:7px; background:#fffdf6; transform:rotate(-7deg); box-shadow:0 12px 25px #263b3229; z-index:2; }
+.wed-hero-print img { aspect-ratio:1.5; object-fit:contain; }
+.wed-hero-print figcaption { padding:9px 3px 4px; color:var(--wed-muted); font-size:9px; text-align:center; }
+.wed-hero-seal { position:absolute; right:0; top:52%; width:105px; aspect-ratio:1; border-radius:50%; background:#e5ddbc; display:flex; flex-direction:column; justify-content:center; align-items:center; transform:rotate(9deg); border:4px double #b4a36c; z-index:3; }
+.wed-hero-seal strong { font:27px/1.3 Georgia,serif; }
+.wed-hero-seal span { font-size:9px; }
+.wed-proof { display:grid; grid-template-columns:1fr 1fr 1.3fr; padding:28px 0 32px; border-top:1px solid var(--wed-line); }
+.wed-proof > * { display:flex; flex-direction:column; align-items:center; padding:0 20px; border-right:1px solid var(--wed-line); text-align:center; }
+.wed-proof > :last-child { border:0; }
+.wed-proof strong { font:25px/1.3 Georgia,serif; }
+.wed-proof span { font-size:10px; color:var(--wed-muted); margin-top:7px; }
+.wed-nav { position:sticky; top:71px; z-index:30; display:flex; gap:50px; justify-content:center; padding:14px 24px; background:#f8f5edf5; border-block:1px solid var(--wed-line); backdrop-filter:blur(14px); }
+.wed-nav a { display:flex; align-items:center; min-height:28px; font-size:11px; font-weight:600; white-space:nowrap; }
+.wed-nav a:hover { color:var(--wed-gold); }
+.wed-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:55px; margin-bottom:40px; }
+.wed-heading h2 { margin-top:16px; }
+.wed-heading > p { max-width:360px; flex:0 1 360px; padding-bottom:4px; }
+.wed-film-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; }
+.wed-film-card { min-width:0; }
+.wed-film-media { position:relative; overflow:hidden; border-radius:5px; background:#171916; }
+.wed-film-media video { aspect-ratio:9/16; }
+.wed-film-media > span { position:absolute; top:12px; left:12px; pointer-events:none; color:#fffdf6; background:#263b32d9; padding:5px 9px; border-radius:2px; font-size:8px; letter-spacing:.04em; }
+.wed-film-body { padding-top:20px; }
+.wedding-real-page .wed-film-body .wed-eyebrow { font-size:8px; letter-spacing:.08em; }
+.wed-film-body h3 { margin-top:9px; }
+.wed-film-body > p:not(.wed-eyebrow) { font-size:12px; margin-top:12px; }
+.wed-film-body .wed-link { margin-top:13px; font-size:9px; gap:8px; border-bottom-color:#c4c6b8; }
+.wedding-real-page .wed-small-note { font-size:10px; max-width:700px; margin-top:28px; }
+.wed-souvenirs { background:#edeade; }
+.wed-photo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; }
+.wed-photo-grid figure { min-width:0; }
+.wed-photo-open { position:relative; display:block; overflow:hidden; border-radius:4px; background:#dcd6c6; }
+.wed-photo-open img { aspect-ratio:3/4; object-fit:cover; }
+.wed-photo-open > span { position:absolute; right:12px; bottom:12px; padding:5px 9px; background:#fffaf0e8; border-radius:2px; font-size:9px; }
+.wed-photo-grid figcaption { padding:22px 0 0; }
+.wed-photo-grid h3 { font-size:25px; }
+.wed-photo-grid figcaption p { margin-top:12px; font-size:12px; }
+.wed-behind { background:#263b32; color:#fffaf0; }
+.wed-behind-grid { display:grid; grid-template-columns:.8fr 1.2fr; align-items:center; gap:75px; }
+.wed-behind-film { width:min(340px,100%); margin:auto; border:1px solid #788274; border-radius:5px; overflow:hidden; }
+.wed-behind-film video { aspect-ratio:9/16; }
+.wed-behind h2 { margin-top:20px; font-size:48px; }
+.wedding-real-page .wed-behind .wed-eyebrow,.wed-behind em { color:#dcc58c; }
+.wed-behind p { color:#d0d5c9; }
+.wed-behind-grid > div > p:not(.wed-eyebrow) { margin-top:24px; max-width:450px; }
+.wed-behind ul { display:grid; gap:17px; list-style:none; padding:24px 0; }
+.wed-behind li { padding-top:17px; border-top:1px solid #687567; }
+.wed-behind li strong { display:block; font-size:13px; font-weight:500; }
+.wed-behind li span { display:block; color:#cbd1c4; font-size:11px; margin-top:5px; }
+.wed-behind .wed-link { color:#fffaf0; }
+.wed-machine-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; }
+.wed-machine-grid figure > div { background:#e8e4db; border-radius:5px; overflow:hidden; }
+.wed-machine-grid img { aspect-ratio:3/4; object-fit:contain; }
+.wed-machine-grid figcaption { padding-top:20px; }
+.wed-machine-grid h3 { font-size:25px; }
+.wed-machine-grid .wed-link { font-size:11px; margin-top:12px; }
+.wed-more { display:flex; align-items:center; justify-content:space-between; gap:30px; margin-top:35px; padding:28px; background:#eaeade; border-radius:4px; }
+.wed-more p { max-width:620px; font-size:13px; }
+.wed-more .wed-button { white-space:nowrap; }
+.wed-reviews { background:#edeade; }
+.wed-review-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px; }
+.wed-review-grid figure { padding:26px; border:1px solid #d4d2c2; border-radius:4px; background:#f8f5ed; display:flex; flex-direction:column; }
+.wed-stars { color:#9a772a; letter-spacing:.15em; font-size:13px; }
+.wed-review-grid blockquote { font:21px/1.5 Georgia,serif; padding:22px 0 28px; }
+.wed-review-grid figcaption { margin-top:auto; }
+.wed-review-grid figcaption strong { display:block; font-size:11px; }
+.wed-review-grid figcaption span { display:block; font-size:10px; color:var(--wed-muted); margin-top:4px; }
+.wed-instagram { padding:65px 0; }
+.wed-instagram .wed-wrap { display:flex; align-items:center; justify-content:space-between; gap:40px; }
+.wed-instagram h2 { margin-top:16px; font-size:44px; }
+.wed-instagram p:not(.wed-eyebrow) { margin-top:20px; max-width:550px; }
+.wed-instagram .wed-button { flex-shrink:0; }
+.wed-final { background:#263b32; color:#fffaf0; padding:75px 0; text-align:center !important; }
+.wedding-real-page .wed-final .wed-eyebrow,.wed-final em { color:#dcc58c; }
+.wed-final h2 { margin-top:20px; }
+.wed-final p:not(.wed-eyebrow) { margin:24px auto 28px; max-width:450px; color:#d0d5c9; }
+.wed-final .wed-actions { justify-content:center; }
+.wedding-real-page .wed-final .wed-button { background:#dcc58c; border-color:#dcc58c; color:#263b32; }
+.wed-final .wed-link { color:#fffaf0; }
+@media(max-width:1100px) {
+  .wed-wrap { width:calc(100% - 64px); }
+  .wed-hero-grid { gap:30px; }
+  .wed-hero-visual { padding-right:24px; }
+  .wed-hero-film { width:79%; }
+  .wed-hero-seal { width:86px; right:-10px; }
+  .wed-film-grid { gap:18px; }
+  .wed-film-body h3 { font-size:23px; }
+  .wed-behind-grid { gap:45px; }
+  .wed-behind h2 { font-size:41px; }
+}
+@media(max-width:850px) {
+  .wed-hero-grid { grid-template-columns:1fr 1fr; gap:20px; }
+  .wedding-real-page h1 { font-size:51px; }
+  .wed-hero-visual { padding-right:0; }
+  .wed-hero-film { width:86%; }
+  .wed-hero-print { width:55%; bottom:12px; left:-10px; }
+  .wed-hero-seal { right:-8px; top:30%; width:78px; }
+  .wed-hero-seal strong { font-size:23px; }
+  .wed-hero-seal span { font-size:8px; }
+  .wed-hero-copy > p:not(.wed-eyebrow) { font-size:13px; }
+  .wed-proof strong { font-size:21px; }
+  .wed-nav { gap:28px; }
+  .wed-film-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:34px 24px; }
+  .wed-film-media { max-width:340px; margin-inline:auto; }
+  .wed-film-body { max-width:340px; margin-inline:auto; }
+  .wed-photo-grid,.wed-machine-grid { gap:20px; }
+  .wed-photo-grid h3,.wed-machine-grid h3 { font-size:22px; }
+  .wed-behind-grid { grid-template-columns:.8fr 1.2fr; gap:30px; }
+  .wed-behind h2 { font-size:36px; }
+  .wed-review-grid { gap:16px; }
+  .wed-review-grid figure { padding:22px; }
+  .wed-review-grid blockquote { font-size:18px; }
+}
+@media(max-width:600px) {
+  .wedding-real-page { margin-top:36px; }
+  .wed-wrap { width:calc(100% - 40px); }
+  .wed-section { padding:48px 0; }
+  .wed-hero { padding:34px 0 25px; }
+  .wed-hero-grid { grid-template-columns:1fr; gap:30px; }
+  .wedding-real-page h1 { font-size:clamp(44px,12vw,62px); }
+  .wedding-real-page h2 { font-size:clamp(34px,9vw,44px); }
+  .wedding-real-page .wed-eyebrow { font-size:9px; letter-spacing:.12em; }
+  .wed-hero h1 { margin-top:18px; }
+  .wed-hero-copy > p:not(.wed-eyebrow) { margin-top:22px; font-size:14px; }
+  .wed-hero .wed-actions { gap:12px; }
+  .wed-hero .wed-button { width:100%; }
+  .wed-hero .wed-link { margin-right:auto; }
+  .wed-authentic { font-size:9px; margin-top:20px; }
+  .wed-hero-visual { padding:0 20px 23px 0; }
+  .wed-hero-film { width:79%; border-width:5px; }
+  .wed-hero-film figcaption { padding:12px; }
+  .wed-hero-film figcaption strong { font-size:23px; }
+  .wed-hero-print { width:47%; bottom:12px; left:0; }
+  .wed-hero-print figcaption { font-size:7px; padding:6px 0 2px; }
+  .wed-hero-seal { right:0; width:82px; top:39%; }
+  .wed-proof { grid-template-columns:1fr 1fr; gap:24px 0; padding:25px 0; }
+  .wed-proof > :nth-child(2) { border-right:0; }
+  .wed-proof > :last-child { grid-column:1/-1; border-top:1px solid var(--wed-line); padding-top:22px; }
+  .wed-proof strong { font-size:25px; }
+  .wed-proof > :last-child strong { font-size:21px; }
+  .wed-proof span { font-size:9px; }
+  .wed-nav { justify-content:flex-start; overflow-x:auto; gap:25px; padding:12px 20px; scrollbar-width:thin; }
+  .wed-nav a { font-size:10px; }
+  .wed-heading { display:block; margin-bottom:28px; }
+  .wed-heading > p { margin-top:20px; max-width:100%; font-size:13px; }
+  .wed-heading > a { margin-top:18px; }
+  .wed-film-grid { grid-template-columns:1fr; gap:36px; }
+  .wed-film-media,.wed-film-body { max-width:420px; }
+  .wed-film-body { padding-top:18px; }
+  .wed-film-body h3 { font-size:30px; }
+  .wed-film-body > p:not(.wed-eyebrow) { font-size:13px; }
+  .wed-film-body .wed-link { font-size:10px; }
+  .wed-photo-grid,.wed-machine-grid { grid-template-columns:1fr; gap:32px; }
+  .wed-photo-open img { aspect-ratio:4/5; object-fit:contain; }
+  .wed-photo-grid h3,.wed-machine-grid h3 { font-size:28px; }
+  .wed-photo-grid figcaption p { font-size:13px; }
+  .wed-behind-grid { grid-template-columns:1fr; gap:30px; }
+  .wed-behind-film { width:min(320px,100%); }
+  .wed-behind h2 { font-size:36px; }
+  .wed-behind li span { font-size:12px; }
+  .wed-machine-grid img { aspect-ratio:4/5; }
+  .wed-more { display:block; margin-top:30px; padding:23px; }
+  .wed-more .wed-button { width:100%; margin-top:22px; white-space:normal; }
+  .wed-review-grid { grid-template-columns:1fr; gap:18px; }
+  .wed-review-grid figure { padding:26px; }
+  .wed-review-grid blockquote { font-size:23px; }
+  .wed-instagram { padding:48px 0; }
+  .wed-instagram .wed-wrap { display:block; }
+  .wed-instagram .wed-button { width:100%; margin-top:26px; }
+  .wed-instagram h2 { font-size:36px; }
+  .wed-final { padding:55px 0; }
+  .wed-final p:not(.wed-eyebrow) { font-size:13px; }
+  .wed-final .wed-actions { flex-direction:column; gap:15px; }
+  .wed-final .wed-button { width:100%; }
+}
+@media(max-width:359px) { .wed-wrap { width:calc(100% - 32px); } .wed-hero-seal { width:70px; } .wed-hero-seal strong { font-size:22px; } .wed-hero-print { width:46%; } .wed-hero-print figcaption { font-size:6px; } }

@@ -140,7 +140,7 @@ function optimizeEnterpriseArticle(article) {
     ],
     relatedLinks: [
       { label: "Location Photobooth entreprise", href: "/evenements/corporates/" },
-      { label: "Event-Tech & activations de marque", href: "/event-tech/" },
+      { label: "Animations pour entreprises", href: "/evenements/corporates/" },
       { label: "Photobooth pour salon et séminaire", href: "/blog/photobooth-salon-seminaire/" },
       { label: "Comparer les animations", href: "/prestations/" },
       ...(article.relatedLinks || []),
