@@ -8,14 +8,14 @@ import AnalyticsEvents from "./AnalyticsEvents";
 import AnalyticsConsent from "./AnalyticsConsent";
 import Breadcrumbs from "./Breadcrumbs";
 
-const Layout = ({ children, metaProps }) => {
+const Layout = ({ children, metaProps, navbarVariant }) => {
   return (
     <>
       <Meta {...metaProps} />
       <AnalyticsConsent />
       <AnalyticsEvents />
       <a className="skip-link" href="#contenu">Aller au contenu</a>
-      <Navbar />
+      <Navbar variant={navbarVariant} />
       <Breadcrumbs />
       <main id="contenu">{children}</main>
       <SocialMedia />
