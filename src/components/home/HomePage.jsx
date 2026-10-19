@@ -61,8 +61,8 @@ export default function HomePage() {
         <div className="home-showcase-art">
           <div className="home-showcase-picture">
             <img
-              src="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-vogue-gauche"
-              alt="Illustration IA de nos machines : grand Vogue Booth à gauche, photobooth noir et or sur trépied, miroir photo, vidéo 360 et panneau fontaine de bienvenue à droite, avec Phonebooth et micro sur une table basse"
+              src="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-livre-video"
+              alt="Illustration IA de nos machines : grand Vogue Booth à gauche, photobooth noir et or sur trépied, miroir photo, vidéo 360, borne blanche de livre d’or vidéo avec micro et panneau fontaine de bienvenue à droite, avec Phonebooth et micro sur une table basse"
               width="1915"
               height="821"
               fetchPriority="high"
@@ -84,17 +84,6 @@ export default function HomePage() {
               <span>Installation incluse</span>
             </div>
           </div>
-          <aside className="home-showcase-offer" aria-labelledby="home-showcase-offer-title">
-            <div className="home-showcase-thumb">
-              <img src="/images/collection-2026/photobooth-noir-or-900.webp" alt="Notre photobooth noir et or" width="900" height="1200" />
-            </div>
-            <div>
-              <p className="home-showcase-badge">★ Le plus demandé</p>
-              <h2 id="home-showcase-offer-title">Photobooth</h2>
-              <p className="home-showcase-price">400 € · 5 heures</p>
-            </div>
-            <a href="/prestations/photobooth/" data-event="cta_service_click" data-event-label="Accueil Photobooth">Découvrir le Photobooth →</a>
-          </aside>
           <aside className="home-showcase-film" aria-label="Vidéo de nos événements">
             <video
               id="home-showcase-video"
