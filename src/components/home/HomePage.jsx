@@ -57,55 +57,71 @@ export default function HomePage() {
 
   return (
     <div className="home-page" ref={pageRef}>
-      <section className="home-hero">
-        <div className="home-hero-media" aria-hidden="true">
-          <figure className="home-hero-film home-hero-film-primary">
+      <section className="home-showcase" aria-labelledby="home-showcase-title">
+        <div className="home-showcase-art">
+          <div className="home-showcase-picture">
+            <img
+              src="/images/ai-from-real/accueil-machines-panorama.webp"
+              alt="Illustration IA de nos machines : panneau fontaine sur le côté, photobooth noir et or sur trépied, miroir photo, vidéo 360 et grand Vogue Booth, avec Phonebooth et micro sur une table basse"
+              width="1915"
+              height="821"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
+        <div className="home-showcase-content">
+          <div className="home-showcase-copy">
+            <p className="home-showcase-eyebrow">Photobooth · Miroir · 360° · Vogue</p>
+            <h1 id="home-showcase-title">Une animation photo pour chaque événement.</h1>
+            <p className="home-showcase-lead">Vos invités posent, sourient et repartent avec leurs souvenirs. Nos machines et nos options donnent vie à votre événement, à Paris et en Île-de-France.</p>
+            <div className="home-showcase-actions">
+              <QuoteButton className="home-showcase-primary" />
+              <a href="/prestations/">Voir toutes les animations</a>
+            </div>
+            <div className="home-showcase-proof">
+              <span><strong>+700</strong> événements</span>
+              <span><strong>{siteConfig.reviews.rating}</strong> sur Google</span>
+              <span>Installation incluse</span>
+            </div>
+          </div>
+          <aside className="home-showcase-offer" aria-labelledby="home-showcase-offer-title">
+            <div className="home-showcase-thumb">
+              <img src="/images/collection-2026/photobooth-noir-or-900.webp" alt="Notre photobooth noir et or" width="900" height="1200" />
+            </div>
+            <div>
+              <p className="home-showcase-badge">★ Le plus demandé</p>
+              <h2 id="home-showcase-offer-title">Photobooth</h2>
+              <p className="home-showcase-price">400 € · 5 heures</p>
+            </div>
+            <a href="/prestations/photobooth/" data-event="cta_service_click" data-event-label="Accueil Photobooth">Découvrir le Photobooth →</a>
+          </aside>
+          <aside className="home-showcase-film" aria-label="Vidéo de nos événements">
             <video
+              id="home-showcase-video"
               key={heroVideoEnabled ? "playing" : "poster"}
-              className="home-hero-video-primary"
               autoPlay={heroVideoEnabled}
               loop
               muted
               playsInline
-              preload="none"
+              preload="metadata"
               poster="/images/hero-pub-2024.webp"
+              aria-label="Les animations MySelfieBooth en situation"
             >
               {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
             </video>
-          </figure>
-        </div>
-        <div className="home-hero-overlay" />
-        <div className="home-container home-hero-grid">
-          <div className="home-hero-copy" data-reveal>
-            <p className="home-eyebrow">Photobooth · Miroir · 360 · Vogue</p>
-            <h1>Location de photobooth à Paris et en Île-de-France</h1>
-            <p>Vos invités posent, sourient et repartent avec leurs photos. Photobooth à 400 € pour 5 h, miroir photo, vidéo 360 et Vogue Booth pour mariages, anniversaires et entreprises.</p>
-            <ul className="home-hero-facts">
-              <li><strong>+700</strong> événements réalisés</li>
-              <li><strong>5 ans</strong> d'expertise</li>
-              <li><strong>{siteConfig.reviews.rating}</strong> sur Google</li>
-            </ul>
-            <div className="home-actions">
-              <QuoteButton />
-              <a className="home-button home-button-secondary" href="/prestations/">Voir toutes les prestations</a>
-            </div>
-          </div>
-          <aside className="home-hero-offer" data-reveal>
-            <div className="home-hero-offer-media"><img src="/images/ai-from-real/photobooth-accueil-panoramique.webp" alt="Mise en scène IA de notre photobooth noir et or dans une réception élégante" width="1200" height="800" fetchPriority="high" /></div>
-            <div className="home-hero-offer-body">
-              <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
-              <p className="home-offer-price">400 € · 5 heures</p>
-              <ul>
-                <li>Tirages personnalisés selon la formule</li>
-                <li>Livraison et installation cadrées</li>
-                <li>Galerie après l'événement</li>
-              </ul>
-              <a href="/prestations/photobooth/">Découvrir le Photobooth</a>
-              <small>Île-de-France · déplacement et options confirmés sur devis</small>
+            <span className="home-showcase-film-label">● L’ambiance en vidéo</span>
+            <div className="home-showcase-film-bottom">
+              <strong>Vos événements,<br />en mouvement.</strong>
+              <button
+                type="button"
+                aria-controls="home-showcase-video"
+                aria-pressed={heroVideoEnabled}
+                onClick={() => setHeroVideoEnabled(value => !value)}
+              >{heroVideoEnabled ? "Arrêter la vidéo" : "Voir la vidéo"}</button>
             </div>
           </aside>
         </div>
-        <button type="button" className="home-video-control" aria-pressed={heroVideoEnabled} onClick={() => setHeroVideoEnabled(value => !value)}>{heroVideoEnabled ? "Arrêter la vidéo" : "Voir l’ambiance en vidéo"}</button>
+        <span className="home-showcase-note">Illustration IA de nos animations</span>
       </section>
 
       <section className="home-trust-band" aria-label="Repères MySelfieBooth">
