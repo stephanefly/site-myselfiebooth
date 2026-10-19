@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <link rel="preload" as="image" href="/images/ai-from-real/accueil-machines-panorama.webp" />
+        <link rel="preload" as="image" href="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-proportions" />
       </Head>
       <Layout
         metaProps={{

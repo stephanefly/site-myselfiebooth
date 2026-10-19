@@ -61,7 +61,7 @@ export default function HomePage() {
         <div className="home-showcase-art">
           <div className="home-showcase-picture">
             <img
-              src="/images/ai-from-real/accueil-machines-panorama.webp"
+              src="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-proportions"
               alt="Illustration IA de nos machines : panneau fontaine sur le côté, photobooth noir et or sur trépied, miroir photo, vidéo 360 et grand Vogue Booth, avec Phonebooth et micro sur une table basse"
               width="1915"
               height="821"
