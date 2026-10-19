@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   brandLogos,
   faqs,
@@ -8,9 +7,9 @@ import {
   services,
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
+import useRevealMotion from "../../hooks/useRevealMotion";
 import { homeInstagramMedia } from "../../data/instagramMedia";
 import VisualGallery, { VisualImage } from "../VisualGallery";
-import useRevealMotion from "../../hooks/useRevealMotion";
 
 function SectionIntro({ eyebrow, title }) {
   return (
@@ -42,70 +41,43 @@ const packAiImages = {
 const featuredReviews = googleReviews.slice(0, 3);
 
 export default function HomePage() {
-  const [heroVideoEnabled, setHeroVideoEnabled] = useState(true);
   const pageRef = useRevealMotion("home");
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setHeroVideoEnabled(!motionQuery.matches);
-    update();
-    motionQuery.addEventListener?.("change", update);
-    return () => {
-      motionQuery.removeEventListener?.("change", update);
-    };
-  }, []);
 
   return (
     <div className="home-page" ref={pageRef}>
-      <section className="home-hero">
-        <div className="home-hero-media" aria-hidden="true">
-          <figure className="home-hero-film home-hero-film-primary">
-            <video
-              key={heroVideoEnabled ? "playing" : "poster"}
-              className="home-hero-video-primary"
-              autoPlay={heroVideoEnabled}
-              loop
-              muted
-              playsInline
-              preload="none"
-              poster="/images/hero-pub-2024.webp"
-            >
-              {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
-            </video>
-          </figure>
-        </div>
-        <div className="home-hero-overlay" />
-        <div className="home-container home-hero-grid">
-          <div className="home-hero-copy" data-reveal>
-            <p className="home-eyebrow">Photobooth · Miroir · 360 · Vogue</p>
-            <h1>Location de photobooth à Paris et en Île-de-France</h1>
-            <p>Vos invités posent, sourient et repartent avec leurs photos. Photobooth à 400 € pour 5 h, miroir photo, vidéo 360 et Vogue Booth pour mariages, anniversaires et entreprises.</p>
-            <ul className="home-hero-facts">
-              <li><strong>+700</strong> événements réalisés</li>
-              <li><strong>5 ans</strong> d'expertise</li>
-              <li><strong>{siteConfig.reviews.rating}</strong> sur Google</li>
-            </ul>
+      <section className="home-hero home-hero-refresh" aria-labelledby="home-hero-title">
+        <div className="home-container home-hero-refresh-inner">
+          <div className="home-hero-refresh-copy" data-reveal>
+            <p className="home-eyebrow">Paris · Île-de-France</p>
+            <h1 id="home-hero-title">Une animation photo pour chaque événement.</h1>
+            <p className="home-hero-refresh-lead">Photos, vidéos et souvenirs à partager. Découvrez nos quatre machines et choisissez l’ambiance qui vous ressemble.</p>
             <div className="home-actions">
-              <QuoteButton />
-              <a className="home-button home-button-secondary" href="/prestations/">Voir toutes les prestations</a>
+              <a className="home-button home-button-primary" href="#prestations">Choisir mon animation</a>
+              <a className="home-button home-button-secondary-dark" href="/realisations-videos/">Voir les vidéos</a>
             </div>
           </div>
-          <aside className="home-hero-offer" data-reveal>
-            <div className="home-hero-offer-media"><img src="/images/ai-from-real/photobooth-accueil-panoramique.webp" alt="Mise en scène IA de notre photobooth noir et or dans une réception élégante" width="1200" height="800" fetchPriority="high" /></div>
-            <div className="home-hero-offer-body">
-              <div><p>Le plus demandé</p><strong>Photobooth</strong></div>
-              <p className="home-offer-price">400 € · 5 heures</p>
-              <ul>
-                <li>Tirages personnalisés selon la formule</li>
-                <li>Livraison et installation cadrées</li>
-                <li>Galerie après l'événement</li>
-              </ul>
-              <a href="/prestations/photobooth/">Découvrir le Photobooth</a>
-              <small>Île-de-France · déplacement et options confirmés sur devis</small>
+          <div className="home-hero-product-wrap">
+            <div className="home-hero-product-collage" aria-label="Photobooth, miroir photo, vidéo 360 et Vogue Booth">
+              <a className="home-hero-product" href="/prestations/photobooth/" aria-label="Découvrir le Photobooth">
+                <img src="/images/ai-from-real/photobooth-reception-900.webp" alt="Photobooth noir et or installé dans une réception" width="900" height="600" fetchPriority="high" />
+                <span className="home-hero-product-label"><strong>Photobooth</strong><small>Les souvenirs imprimés</small></span>
+              </a>
+              <a className="home-hero-product" href="/prestations/miroirbooth/" aria-label="Découvrir le Miroir photo">
+                <img src="/images/ai-from-real/miroirbooth-reception-900.webp" alt="Miroir photo doré dans un décor de réception" width="900" height="600" />
+                <span className="home-hero-product-label"><strong>Miroir photo</strong><small>L’animation interactive</small></span>
+              </a>
+              <a className="home-hero-product" href="/prestations/videobooth/" aria-label="Découvrir la vidéo 360">
+                <img src="/images/ai-from-real/360-booth-reception-900.webp" alt="Plateforme vidéo 360 préparée pour un événement" width="900" height="600" />
+                <span className="home-hero-product-label"><strong>Vidéo 360°</strong><small>Le clip de la soirée</small></span>
+              </a>
+              <a className="home-hero-product" href="/prestations/voguebooth/" aria-label="Découvrir le Vogue Booth">
+                <img src="/images/ai-from-real/vogue-booth-reception-900.webp" alt="Vogue Booth installé dans une réception élégante" width="900" height="600" />
+                <span className="home-hero-product-label"><strong>Vogue Booth</strong><small>Le portrait glamour</small></span>
+              </a>
             </div>
-          </aside>
+            <p className="home-hero-visual-note">Visuels d’illustration</p>
+          </div>
         </div>
-        <button type="button" className="home-video-control" aria-pressed={heroVideoEnabled} onClick={() => setHeroVideoEnabled(value => !value)}>{heroVideoEnabled ? "Arrêter la vidéo" : "Voir l’ambiance en vidéo"}</button>
       </section>
 
       <section className="home-trust-band" aria-label="Repères MySelfieBooth">
