@@ -27,7 +27,7 @@ for (const route of routes) {
     for (const attribute of ['autoplay', 'loop', 'muted', 'playsinline']) {
       assert.match(heroVideo, new RegExp(`\\b${attribute}(?:[\\s=>])`, 'i'), `Hero video must have ${attribute}`);
     }
-    assert.match(heroVideo, /<source[^>]+src="\/videos\/PUB_2024\.mp4"/, 'Load the hero video for automatic playback');
+    assert.match(heroVideo, /<source[^>]+src="\/videos\/PUB_2024\.mp4(?:\?[^"\s]*)?"/, 'Load the hero video for automatic playback');
   }
 }
 console.log(`Experience check OK: ${routes.length} key pages, unique IDs, one breadcrumb, visible FAQ/schema parity and Photobooth 400 € / 5 h.`);

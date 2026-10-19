@@ -103,22 +103,22 @@ export default function HomePage() {
               loop
               muted
               playsInline
+              controls
               preload="metadata"
               poster="/images/hero-pub-2024.webp"
               aria-label="Les animations MySelfieBooth en situation"
             >
-              {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4" type="video/mp4" /> : null}
+              {heroVideoEnabled ? <source src="/videos/PUB_2024.mp4?v=20261019-fullhd" type="video/mp4" /> : null}
             </video>
-            <span className="home-showcase-film-label">● L’ambiance en vidéo</span>
-            <div className="home-showcase-film-bottom">
-              <strong>Vos événements,<br />en mouvement.</strong>
-              <button
-                type="button"
-                aria-controls="home-showcase-video"
-                aria-pressed={heroVideoEnabled}
-                onClick={() => setHeroVideoEnabled(value => !value)}
-              >{heroVideoEnabled ? "Arrêter la vidéo" : "Voir la vidéo"}</button>
-            </div>
+            {!heroVideoEnabled && (
+              <div className="home-showcase-film-bottom">
+                <button
+                  type="button"
+                  aria-controls="home-showcase-video"
+                  onClick={() => setHeroVideoEnabled(true)}
+                >Voir la vidéo</button>
+              </div>
+            )}
           </aside>
         </div>
         <span className="home-showcase-note">Illustration IA de nos animations</span>

@@ -2735,7 +2735,7 @@
   overflow: hidden;
   margin-top: 72px;
   aspect-ratio: 1915 / 821;
-  min-height: 0;
+  min-height: 560px;
   color: #faf7f1;
   background: #261c12;
   font-family: Arial, Helvetica, sans-serif;
@@ -2762,9 +2762,9 @@
 .home-showcase-offer h2 { margin: 9px 0 7px; color: #21190e; font-size: 29px; line-height: 1.1; letter-spacing: -.5px; }
 .home-showcase-price { margin: 0; color: #43331b; font-size: 18px; font-weight: 800; }
 .home-showcase-offer > a { grid-column: 1 / -1; display: block; padding: 12px; border-radius: 24px; background: #18130b; color: #fff6e0; font-size: 13px; font-weight: 800; text-align: center; text-decoration: none; }
-.home-showcase-film { grid-column: 2; grid-row: 2; justify-self: end; align-self: end; position: relative; overflow: hidden; width: clamp(320px,26vw,480px); aspect-ratio: 16 / 9; border: 2px solid #edd49a; border-radius: 15px; background: #16130f; box-shadow: 0 12px 38px #000a; }
-.home-showcase-film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.home-showcase-film::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg,#0007,transparent 30%,transparent 60%,#000a); }
+.home-showcase-film { grid-column: 2; grid-row: 2; justify-self: end; align-self: end; position: relative; overflow: hidden; width: clamp(190px,15vw,280px); aspect-ratio: 9 / 16; border: 2px solid #edd49a; border-radius: 15px; background: #16130f; box-shadow: 0 12px 38px #000a; }
+.home-showcase-film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.home-showcase-film::after { display: none; }
 .home-showcase-film-label { position: absolute; z-index: 1; top: 15px; left: 16px; right: 16px; color: #fff5db; font-size: 11px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
 .home-showcase-film-bottom { position: absolute; z-index: 1; bottom: 16px; left: 16px; right: 16px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
 .home-showcase-film-bottom > strong { color: #fff9eb; font: 700 23px/1.1 Georgia, serif; text-shadow: 0 1px 6px #000; }
@@ -2785,7 +2785,7 @@
   .home-showcase-film-bottom button { font-size: 9px; padding: 8px; }
 }
 @media (max-width: 950px) {
-  .home-showcase { min-height: 700px; aspect-ratio: auto; }
+  .home-showcase { min-height: 760px; aspect-ratio: auto; }
   .home-showcase-art img { object-fit: contain; object-position: center 50%; }
   .home-showcase-content { padding-top: 28px; }
   .home-showcase-copy { grid-column: 1 / -1; max-width: 550px; }
@@ -2793,25 +2793,37 @@
   .home-showcase::after { background: linear-gradient(180deg,#100d09c9,transparent 50%,#100d0920); }
   .home-showcase-offer { width: 300px; padding: 14px; grid-template-columns: 60px 1fr; }
   .home-showcase-thumb { width: 60px; height: 86px; }
-  .home-showcase-film { width: 310px; }
+  .home-showcase-film { width: 220px; }
   .home-showcase-film-label { font-size: 9px; }
 }
 @media (max-width: 700px) {
-  .home-showcase { min-height: 0; padding-bottom: 45vw; }
-  .home-showcase-art img { height: auto; top: auto; bottom: 0; object-fit: contain; }
-  .home-showcase-content { position: relative; grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 18px; padding: 28px 22px 20px; background: linear-gradient(180deg,#17110bab,#17110b3b); }
-  .home-showcase-copy { grid-column: 1; grid-row: 1; }
-  .home-showcase-copy h1 { font-size: 36px; max-width: 490px; }
+  .home-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto auto;
+    gap: 20px;
+    min-height: 0;
+    aspect-ratio: auto;
+    padding: 28px 0 18px;
+    background: #17110b;
+  }
+  .home-showcase::after { display: none; }
+  .home-showcase-content { display: contents; }
+  .home-showcase-copy { grid-column: 1; grid-row: 1; margin: 0 20px; }
+  .home-showcase-copy h1 { font-size: 34px; max-width: 490px; }
   .home-showcase-lead { font-size: 12px; max-width: 500px; }
-  .home-showcase-offer { grid-column: 1; grid-row: 2; width: 100%; grid-template-columns: 65px 1fr; gap: 12px 15px; padding: 15px; }
+  .home-showcase-art { position: relative; inset: auto; z-index: auto; grid-column: 1; grid-row: 2; width: 100%; }
+  .home-showcase-picture { position: relative; width: 100%; height: auto; aspect-ratio: 1915 / 821; }
+  .home-showcase-art img { position: relative; inset: auto; width: 100%; height: auto; aspect-ratio: 1915 / 821; object-fit: contain; filter: none; }
+  .home-showcase-offer { grid-column: 1; grid-row: 3; justify-self: stretch; width: auto; margin: 0 18px; grid-template-columns: 65px 1fr; gap: 12px 15px; padding: 15px; }
   .home-showcase-thumb { width: 65px; height: 92px; }
   .home-showcase-badge { font-size: 9px; }
   .home-showcase-offer h2 { font-size: 25px; }
   .home-showcase-price { font-size: 16px; }
   .home-showcase-offer > a { padding: 11px; font-size: 12px; }
-  .home-showcase-film { grid-column: 1; grid-row: 3; width: 100%; aspect-ratio: 16 / 9; }
-  .home-showcase-film-label { font-size: 10px; }
-  .home-showcase-film-bottom > strong { font-size: 22px; }
-  .home-showcase-film-bottom button { font-size: 10px; }
-  .home-showcase-note { bottom: 6px; font-size: 6px; }
+  .home-showcase-film { grid-column: 1; grid-row: 4; justify-self: stretch; width: 100%; margin: 0; aspect-ratio: 9 / 16; border-radius: 0; border-width: 1px 0; }
+  .home-showcase-film video { object-fit: contain; }
+  .home-showcase-film-bottom { bottom: 60px; }
+  .home-showcase-film-bottom button { min-height: 44px; padding: 12px 18px; font-size: 13px; }
+  .home-showcase-note { position: static; grid-column: 1; grid-row: 5; justify-self: center; transform: none; font-size: 7px; text-align: center; }
 }
