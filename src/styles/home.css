@@ -2726,3 +2726,218 @@
   .home-reference-card img { height: 48px; }
   .home-reference-card img.home-reference-wordmark { width: min(92px, 100%); }
 }
+
+/* Homepage-only hero refresh: keep all content below the trust band unchanged. */
+.home-hero-refresh {
+  display: block;
+  min-height: 0;
+  padding: 96px 0 28px;
+  color: #211d16;
+  text-align: left;
+  background:
+    radial-gradient(ellipse at 78% 48%, rgba(223, 188, 119, 0.22), transparent 42%),
+    linear-gradient(112deg, #fcfaf5 0%, #f7f1e6 56%, #eee3d1 100%);
+}
+
+.home-hero-refresh-inner {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 54px);
+}
+
+.home-hero-refresh-copy .home-eyebrow {
+  margin-bottom: 12px;
+  color: #9c7535;
+  font-size: 0.7rem;
+  letter-spacing: 0.19rem;
+}
+
+.home-hero-refresh-copy h1 {
+  max-width: 510px;
+  margin: 0;
+  color: #201d18;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.55rem, 4.2vw, 4.1rem);
+  line-height: 0.99;
+  letter-spacing: -0.045em;
+}
+
+.home-hero-refresh-lead {
+  max-width: 410px;
+  margin: 16px 0 0;
+  color: #514b40;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.home-hero-refresh-copy .home-actions {
+  gap: 10px;
+  margin-top: 21px;
+}
+
+.home-hero-refresh-copy .home-button {
+  min-height: 42px;
+  padding: 0 16px;
+  font-size: 0.83rem;
+}
+
+.home-hero-refresh-copy .home-button-primary {
+  color: #fff;
+  background: #b58a42;
+}
+
+.home-hero-refresh-copy .home-button-secondary-dark {
+  border-color: #cfc3ad;
+  color: #30291e;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.home-hero-product-wrap {
+  min-width: 0;
+}
+
+.home-hero-product-collage {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.home-hero-product {
+  position: relative;
+  min-width: 0;
+  height: clamp(150px, 17vw, 205px);
+  overflow: hidden;
+  border-radius: 10px;
+  color: #fff;
+  background: #6c5740;
+  box-shadow: 0 11px 24px rgba(54, 38, 16, 0.14);
+  isolation: isolate;
+}
+
+.home-hero-product::after {
+  position: absolute;
+  z-index: 1;
+  inset: 28% 0 0;
+  content: "";
+  background: linear-gradient(0deg, rgba(12, 10, 7, 0.82), rgba(12, 10, 7, 0));
+}
+
+.home-hero-product img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 260ms ease;
+}
+
+.home-hero-product:hover img {
+  transform: scale(1.035);
+}
+
+.home-hero-product-label {
+  position: absolute;
+  z-index: 2;
+  right: 12px;
+  bottom: 11px;
+  left: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.home-hero-product-label strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.02rem;
+  line-height: 1.15;
+}
+
+.home-hero-product-label small {
+  color: #f3ead8;
+  font-size: 0.7rem;
+  line-height: 1.3;
+}
+
+.home-hero-visual-note {
+  margin: 7px 2px 0;
+  color: #796f5f;
+  font-size: 0.68rem;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .home-hero-refresh {
+    padding-top: 88px;
+  }
+
+  .home-hero-refresh-inner {
+    grid-template-columns: minmax(250px, 0.82fr) minmax(0, 1.18fr);
+    gap: 22px;
+  }
+
+  .home-hero-refresh-copy h1 {
+    font-size: clamp(2.35rem, 5vw, 3.4rem);
+  }
+
+  .home-hero-product-collage {
+    gap: 9px;
+  }
+
+  .home-hero-product {
+    height: 160px;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-hero-refresh {
+    padding: 88px 0 24px;
+  }
+
+  .home-hero-refresh-inner {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .home-hero-refresh-copy h1 {
+    max-width: 570px;
+    font-size: clamp(2.4rem, 10vw, 3.35rem);
+  }
+
+  .home-hero-refresh-lead {
+    max-width: 540px;
+  }
+
+  .home-hero-product {
+    height: clamp(130px, 39vw, 190px);
+  }
+}
+
+@media (max-width: 380px) {
+  .home-hero-refresh-copy .home-actions {
+    gap: 8px;
+  }
+
+  .home-hero-refresh-copy .home-button {
+    padding: 0 12px;
+    font-size: 0.77rem;
+  }
+
+  .home-hero-product-collage {
+    gap: 7px;
+  }
+
+  .home-hero-product-label {
+    right: 8px;
+    bottom: 8px;
+    left: 9px;
+  }
+
+  .home-hero-product-label strong {
+    font-size: 0.9rem;
+  }
+
+  .home-hero-product-label small {
+    font-size: 0.63rem;
+  }
+}
