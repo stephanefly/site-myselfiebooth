@@ -1,0 +1,94 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "photobooth",
+      "input": "exec-92cf1a70-94a0-4eaa-a0ff-bb0fb1767803.png",
+      "path": "/images/ai-from-real/prestations-2026-photobooth.webp",
+      "sources": [
+        "/images/collection-2026/photobooth-noir-or-900.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Recreate the exact black and gold Photobooth in the reference, viewed in full including its black tripod and top flash with white diffuser. Same rounded black cabinet, ornate gold trim, TWO rectangular light panels beside the round camera, lower touchscreen in a gold picture frame, Greek key side details. Keep its original shape and recognizability. Place a few elegant photo strips on a small side table, no extra machine. Remove all people and original venue."
+    },
+    {
+      "key": "miroirbooth",
+      "input": "exec-1b1ecde8-65fe-4afd-8bf8-ea45cb66e653.png",
+      "path": "/images/ai-from-real/prestations-2026-miroirbooth.webp",
+      "sources": [
+        "/images/collection-2026/miroir-photo-dore-900.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Recreate this exact full-length rectangular ornate GOLD MIRROR PHOTO BOOTH with its glowing ring light above and a subtle purple illuminated inner frame. Keep rectangular shape and carved gold frame; do not turn it into an oval mirror. Entire floor-standing mirror including base visible. Reflection shows the empty ivory venue, NO people or Eiffel Tower. No new equipment."
+    },
+    {
+      "key": "videobooth",
+      "input": "exec-59cef8dc-e41a-44e8-b11a-947ac263b776.png",
+      "path": "/images/ai-from-real/prestations-2026-videobooth.webp",
+      "sources": [
+        "/images/collection-2026/plateforme-video-360-900.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Recreate the exact regular floor 360 VIDEO BOOTH from the reference: low round black circular platform with LED infinity mirror top and blue/green glowing edge, rotating slim black camera arm with a ring light and tablet/phone holder. Show the whole platform and whole arm. Keep the floor rotating platform mechanism, NO overhead arch. A discreet curved black backdrop with widely spaced vertical green LED strips may sit behind it. No people, no red carpet, no extra softboxes."
+    },
+    {
+      "key": "voguebooth",
+      "input": "exec-05f0f392-bd04-4d32-8611-2c32e3db7fc6.png",
+      "path": "/images/ai-from-real/prestations-2026-voguebooth.webp",
+      "sources": [
+        "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Recreate the exact large VOGUE BOOTH magazine cover installation from the reference. Wide and tall BLACK rectangular exterior frame, white curtain interior, clear front with elegant black magazine typography and a large VOGUE heading. Full installation down to its base. The rest of the typography is tasteful French editorial text: VOTRE SOIRÉE À LA UNE, DES INSTANTS INOUBLIABLES. Do not copy personal names or birthdays. No people. The booth must look human-sized, substantial and wide, not a tiny portrait frame."
+    },
+    {
+      "key": "air360booth",
+      "input": "exec-8f006795-eef4-495b-9582-6e91f9530fe9.png",
+      "path": "/images/ai-from-real/prestations-2026-air360booth.webp",
+      "sources": [
+        "/images/airbooth.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Recreate the real AIR360 BOOTH overhead system visible in this reference: large BLACK rectangular arch/gantry, two wide upright columns connected by a horizontal top beam, overhead rotating articulated camera arm and ring light hanging from the top. Camera arm angled over an EMPTY flat limestone floor. Show the entire arch including both column feet, ample breathing space. DO NOT add a circular floor platform, this is an overhead system. Remove the couple, promotional lettering, gold border and all original venue details."
+    },
+    {
+      "key": "ipadbooth",
+      "input": "exec-0dd6bf1c-36eb-4722-8cf9-690933116c30.png",
+      "path": "/images/ai-from-real/prestations-2026-ipadbooth.webp",
+      "sources": [
+        "/images/ipadbooth.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Recreate this exact compact iPad photo kiosk: luminous circular white ring light, central PORTRAIT tablet in black circular inner mount, supported by a simple slim BLACK pedestal and stable flat black floor base. Full kiosk shown top to base. Keep recognizable tablet and ring shape, no extra camera flash or printer. Remove gold border and promotional text from the source. Screen can show a discreet clean camera preview UI without readable text."
+    },
+    {
+      "key": "collection",
+      "input": "exec-001bd7d1-d0e1-48aa-ae55-a272889e9e9f.png",
+      "path": "/images/ai-from-real/prestations-2026-collection.webp",
+      "sources": [
+        "/images/collection-2026/photobooth-noir-or-900.webp",
+        "/images/collection-2026/miroir-photo-dore-900.webp",
+        "/images/collection-2026/plateforme-video-360-900.webp",
+        "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Compose ONE photorealistic premium collection photograph showing all FOUR actual machines from these references in the same ivory gallery. Arrange left to right: black-and-gold Photobooth on tripod with top flash and twin lights, full-length ornate rectangular gold mirror with ring light, low circular 360 LED platform with camera arm, large black-framed VOGUE booth with white curtain and VOGUE title. NO duplicate devices and no fusion of equipment. Each machine must retain its real individual shape. Natural scale: Vogue tallest/widest, mirror tall, tripod photobooth medium, 360 low platform. All bases/feet visible; no machine cuts off another. Wider landscape 3:2 composition, comfortably spaced in a loose row along the wall. No people, no prices, no text overlays, only VOGUE lettering on the Vogue device. This is a website hero image, compose beautifully but keep every product recognizable."
+    },
+    {
+      "key": "souvenirs",
+      "input": "exec-3dcad15f-9704-4da7-aa8c-e506421623da.png",
+      "path": "/images/ai-from-real/prestations-2026-souvenirs.webp",
+      "sources": [
+        "/images/phonebooth.webp",
+        "/images/option-portecle.webp",
+        "/images/option-magnet-premium.webp",
+        "/images/Livre-d'or.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Create a coherent styled still-life of our actual souvenir options on a low cream stone table: ONE vintage black rotary audio guestbook phone with handset resting correctly on it, an open kraft-paper guestbook with neat photo strips on its pages, several ROUND transparent photo keyrings with short leather straps as in reference, two small rectangular rigid photo magnets. Match the real supplied objects. A small white floral bouquet behind, warm daylight. Guest faces on prints may be tiny generic adults, no recreation of identifiable faces needed. Landscape 4:3. No gold promo border, no prices, no large promotional labels, no collage or repeated panels. All objects visible with breathing room, tasteful premium editorial photography."
+    },
+    {
+      "key": "decors",
+      "input": "exec-ca1ea534-8371-4b21-bf0b-2225b66b4cae.png",
+      "path": "/images/ai-from-real/prestations-2026-decors.webp",
+      "sources": [
+        "/images/panneau-fontaine.webp",
+        "/images/Welcomeboard.webp",
+        "/images/fond 360.webp"
+      ],
+      "prompt": "Use case: product-mockup from real reference. High-end editorial product photograph, warm ivory gallery-like reception room, pale limestone floor, subtle beige wall mouldings, soft daylight from the left, small white flower arrangement far in background, restrained brass details. Clean, airy, realistic, luxurious but understated. Not a golden crowded ballroom. Landscape 4:3 composition. Show the full product from its top to all feet/base, centered with 12 percent breathing room on every edge, consistent eye-level three-quarter view. Product is the main subject and clearly recognizable. No people, no prices, no promotional banner, no watermark, no additional devices unless requested. Fidelity to supplied real equipment reference is essential. Create a tasteful interior styling photograph displaying these real decor OPTIONS together in an ivory venue: at left a white rectangular waterfall welcome panel on its white plinth with a subtle luminous inner border and delicate white flowers; at right a separate ornate gold mirror welcome sign on an easel, decorated with a little white floral greenery; a curved black wall with vertical soft green LED strips discreetly further in the background. Keep the white waterfall welcome panel visibly white and water flowing, not a gold photo booth. Simple white calligraphy on its front reads Bienvenue / Emma & Lucas. No people, no gold promotional border, no prices, no giant advertising titles. Landscape 4:3 with all bases visible. Empty limestone floor around objects."
+    }
+  ]
+}

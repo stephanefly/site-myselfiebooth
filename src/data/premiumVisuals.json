@@ -288,18 +288,18 @@
     ]
   },
   "homePapier": {
-    "src": "/images/ai-from-real/prospect-papier-960.webp",
-    "width": 960,
-    "height": 640,
-    "alt": "Mise en scène IA d’un tirage photo tenu en main près d’un livre d’or",
+    "src": "/images/ai-from-real/accueil-tirages-corporate.webp",
+    "width": 1200,
+    "height": 800,
+    "alt": "Mise en scène IA de tirages corporate personnalisés avec une équipe et un cadre bleu et or",
     "sources": [
       {
-        "src": "/images/ai-from-real/prospect-papier-480.webp",
+        "src": "/images/ai-from-real/accueil-tirages-corporate-480.webp",
         "width": 480
       },
       {
-        "src": "/images/ai-from-real/prospect-papier-960.webp",
-        "width": 960
+        "src": "/images/ai-from-real/accueil-tirages-corporate.webp",
+        "width": 1200
       }
     ]
   },

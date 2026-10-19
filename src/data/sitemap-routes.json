@@ -1,11 +1,11 @@
 [
   {
     "path": "/",
-    "lastmod": "2026-10-14"
+    "lastmod": "2026-10-19"
   },
   {
     "path": "/realisations/",
-    "lastmod": "2026-10-13"
+    "lastmod": "2026-10-19"
   },
   {
     "path": "/realisations-videos/",
@@ -13,7 +13,7 @@
   },
   {
     "path": "/prestations/",
-    "lastmod": "2026-10-14"
+    "lastmod": "2026-10-19"
   },
   {
     "path": "/prestations/photobooth/",
@@ -66,10 +66,6 @@
   {
     "path": "/evenements/soirees/",
     "lastmod": "2026-10-14"
-  },
-  {
-    "path": "/event-tech/",
-    "lastmod": "2026-10-11"
   },
   {
     "path": "/zones-intervention/",

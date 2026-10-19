@@ -97,7 +97,7 @@ export const seoGrowthGuides = [
       { question: "Peut-on reprendre l'identité visuelle du produit ?", answer: "Oui, plusieurs éléments peuvent être personnalisés selon le dispositif, notamment le cadre, les couleurs, certains écrans et le décor." },
     ],
     ctaLabel: "Voir les activations de marque",
-    ctaHref: "/event-tech/",
+    ctaHref: "/evenements/corporates/",
   }),
   growthGuide({
     slug: "photobooth-inauguration",

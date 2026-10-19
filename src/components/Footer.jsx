@@ -23,7 +23,6 @@ export default function Footer() {
       links: [
         { label: "Location Photobooth", href: "/prestations/photobooth" },
         { label: "Toutes les prestations", href: "/prestations" },
-        { label: "Event-Tech & activations", href: "/event-tech" },
         { label: "Zones d'intervention", href: "/zones-intervention" },
         { label: "Tarifs détaillés", href: siteConfig.ratesUrl },
         { label: "Nos packs", href: "/prestations#packs" },
@@ -40,7 +39,7 @@ export default function Footer() {
         <div className="footer-brand">
           <a href="/">{siteConfig.name}</a>
           <p>
-            Photobooths premium, 360 Booth, Vogue Booth et activations Event-Tech
+            Photobooths premium, 360 Booth, Vogue Booth et animations personnalisées
             pour entreprises, marques, mariages et événements privés en Île-de-France.
           </p>
           <a

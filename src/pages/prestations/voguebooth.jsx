@@ -184,7 +184,7 @@ const voguePage = {
     { label: "Photobooth pour mariage", href: "/evenements/mariages/" },
     { label: "Comparer avec le Miroirbooth", href: "/prestations/miroirbooth/" },
     { label: "Comparer les animations", href: "/prestations/" },
-    { label: "Event-Tech & activations", href: "/event-tech/" },
+    { label: "Animations pour entreprises", href: "/evenements/corporates/" },
     ...(basePage.relatedLinks || []),
   ],
   meta: {

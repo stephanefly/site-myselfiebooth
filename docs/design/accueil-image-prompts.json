@@ -1,0 +1,57 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "key": "accueil-pack-souvenirs",
+      "sources": [
+        "/images/collection-2026/photobooth-noir-or-900.webp",
+        "/images/phonebooth.webp",
+        "/images/option-portecle.webp"
+      ],
+      "prompt": "Use case: marketing product illustration derived from actual equipment references. Create a photorealistic luxury event scene for a website pack card, landscape 4:3. Warm amber ballroom light, elegant ivory and brass venue, white flowers and candle bokeh, editorial photography. Guests are stylish attractive ADULTS in evening gowns and tailored suits, diverse natural faces, smiling with genuine delight, candid interaction rather than stiff posing. Render real equipment faithfully; never replace it with a generic invented booth. Machines remain recognizable and sufficiently large, no subject cropped at its main silhouette. No price text, no promotional overlay, no watermark. Composition readable at card size. A black and gold Photobooth from the FIRST reference occupies the left third in full: black tripod, rounded black gold-trimmed cabinet, twin rectangular lights beside circular camera, ornate lower touchscreen, top flash. Three adult guests laugh while looking at the booth camera in the middle. In foreground on a low elegant table, one black rotary audio guestbook phone, a few printed photo strips and round clear photo keyrings with leather straps like references. Right guest holds one fresh photo strip. Show the equipment AND happy social interaction. Keep cream/gold luxury style.",
+      "input": "exec-d3a064fc-3133-4fff-84b3-2a5e3515660c.png",
+      "path": "/images/ai-from-real/accueil-pack-souvenirs.webp"
+    },
+    {
+      "key": "accueil-pack-duo",
+      "sources": [
+        "/images/collection-2026/miroir-photo-dore-900.webp",
+        "/images/collection-2026/plateforme-video-360-900.webp"
+      ],
+      "prompt": "Use case: marketing product illustration derived from actual equipment references. Create a photorealistic luxury event scene for a website pack card, landscape 4:3. Warm amber ballroom light, elegant ivory and brass venue, white flowers and candle bokeh, editorial photography. Guests are stylish attractive ADULTS in evening gowns and tailored suits, diverse natural faces, smiling with genuine delight, candid interaction rather than stiff posing. Render real equipment faithfully; never replace it with a generic invented booth. Machines remain recognizable and sufficiently large, no subject cropped at its main silhouette. No price text, no promotional overlay, no watermark. Composition readable at card size. Show TWO distinct faithfully recreated devices: on left the exact tall rectangular ornate GOLD Miroirbooth with purple inner LED border and white ring light above, a stylish adult couple smiling at it. On right the exact low round black 360 platform with blue LED infinity top and slim rotating camera arm holding a ring light; three adult friends having a playful dance on the platform, safe footing. Full mirror visible, round platform and camera arm readable, no generic gold cylinder or oval mirror. A white floral wall gently in background. Spacious coherent single event photo, not a collage.",
+      "input": "exec-824bd4e5-755b-4700-90b8-27dc4d8a2c2f.png",
+      "path": "/images/ai-from-real/accueil-pack-duo.webp"
+    },
+    {
+      "key": "accueil-pack-vogue",
+      "sources": [
+        "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp"
+      ],
+      "prompt": "Use case: marketing product illustration derived from actual equipment references. Create a photorealistic luxury event scene for a website pack card, landscape 4:3. Warm amber ballroom light, elegant ivory and brass venue, white flowers and candle bokeh, editorial photography. Guests are stylish attractive ADULTS in evening gowns and tailored suits, diverse natural faces, smiling with genuine delight, candid interaction rather than stiff posing. Render real equipment faithfully; never replace it with a generic invented booth. Machines remain recognizable and sufficiently large, no subject cropped at its main silhouette. No price text, no promotional overlay, no watermark. Composition readable at card size. The exact human-sized VOGUE BOOTH from reference occupies the main central background: large BLACK rectangular clear-front frame, white curtain, large black VOGUE title and tasteful magazine typography. Two elegant adult friends pose joyfully INSIDE the frame, one in an evening dress and one in a tailored suit, full bodies. A professional adult photographer at lower left aims a camera at them from OUTSIDE the Vogue frame. At lower right a small table with a few printed editorial portraits. All key edges of Vogue booth visible, its black structure and curtains must clearly match the actual reference. Do not show a gold arched generic booth.",
+      "input": "exec-21e26561-c2f5-4e77-aa30-487f72e16788.png",
+      "path": "/images/ai-from-real/accueil-pack-vogue.webp"
+    },
+    {
+      "key": "accueil-tirages-corporate",
+      "sources": [
+        "/images/realisations-machines/tirages-gala.webp",
+        "/images/event-archive/brice-tirages.webp"
+      ],
+      "prompt": "Use case: premium editorial product still life derived from actual photo print references, for a French corporate photo booth website card. Landscape 3:2. A close-up of an elegant hand holding a horizontal glossy 10x15 event photograph in front of two other neat prints on an ivory desk. Printed portraits show a naturally smiling diverse team of ADULT colleagues in smart business clothes at a corporate reception. Frame design navy, white and restrained gold, clear small text SOIRÉE D’ÉQUIPE and a simple abstract geometric corporate monogram, no real third party brand logo, no wedding names. Match authentic photo strip/print paper and image quality from references. Background gently blurred contemporary event reception, warm natural light, white flowers, subtle brass details. The main held photograph fills about 60% of width and is completely visible, clean uncluttered layout, no promotions, no watermark, no giant text overlay. Beautiful credible corporate keepsake, no AI warped hands, fingers anatomically correct.",
+      "input": "exec-1cef8085-efa9-44dc-881b-4f17f34bc2fd.png",
+      "path": "/images/ai-from-real/accueil-tirages-corporate.webp"
+    },
+    {
+      "key": "accueil-options-collection",
+      "sources": [
+        "/images/livre-dor-video.webp",
+        "/images/option-portecle.webp",
+        "/images/option-magnet-premium.webp",
+        "/images/event-archive/brice-tirages.webp"
+      ],
+      "prompt": "Use case: marketing product illustration using actual equipment reference. Create ONE coherent photorealistic editorial product scene for event OPTIONS. Landscape 3:2, airy elegant ivory reception with warm gold lighting, white and pale blush flowers. At rear left a generous freestanding dense WHITE FLOWER WALL, beside it a separate simple curved ivory fabric BACKDROP arch. At rear right reproduce the exact WHITE VIDEO GUESTBOOK KIOSK from first reference: rounded-square white cabinet, one top horizontal LED light and two vertical LED light bars, small round camera above a landscape touchscreen, slim white floor pedestal and circular white base; separate white lectern with black gooseneck MICROPHONE just left of the kiosk. In foreground a low elegant stone/brass TABLE with ROUND clear photo keyrings and short leather straps matching second reference, several small rectangular rigid PHOTO MAGNETS matching third reference, and a few photo print strips inspired by fourth reference. All these options are clearly distinguishable and fully visible, realistically scaled, no merging or duplication. Keep light, premium beige/gold art direction. NO people outside tiny generic adult faces on the prints. No promotional overlaid titles, no prices, no gold border, no watermark. Kiosk screen may read Livre d’or vidéo in simple small text. Show the entire equipment bases and arch tops.",
+      "input": "exec-9210aa50-d4a7-4f65-8b06-b2fbbe0243e2.png",
+      "path": "/images/ai-from-real/accueil-options-collection.webp"
+    }
+  ]
+}

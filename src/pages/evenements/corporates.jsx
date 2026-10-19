@@ -286,7 +286,6 @@ const corporatePage = {
   ],
   faq,
   relatedLinks: [
-    { label: "Event-Tech & activations de marque", href: "/event-tech/" },
     { label: "Prix Photobooth en Île-de-France en 2026", href: "/prix-photobooth-ile-de-france-2026/" },
     { label: "Guide photobooth entreprise", href: "/blog/animation-photobooth-entreprise/" },
     { label: "Quel photobooth pour un salon ou séminaire ?", href: "/blog/photobooth-salon-seminaire/" },
