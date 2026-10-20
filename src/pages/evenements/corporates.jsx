@@ -359,7 +359,7 @@ export default function Corporates() {
             </div>
           </div>
           <p className={styles.heroCaption}>
-            Projection IA · identités fictives · personnalisation sur étude
+            Visuel de projection · personnalisation sur étude
           </p>
         </section>
         <nav
@@ -430,7 +430,7 @@ export default function Corporates() {
                   <span className={styles.photoLabel}>
                     {m.real
                       ? "Photographie réelle"
-                      : "Projection IA issue du réel"}
+                      : "Visuel de projection"}
                   </span>
                   <span className={styles.machineNumber}>0{i + 1}</span>
                 </div>
@@ -496,7 +496,7 @@ export default function Corporates() {
                       alt={`Projection conceptuelle de cabine photo corporate ${c.key === "black" ? "noire et dorée pour un univers de luxe" : c.key === "pink" ? "rose et blanche pour une marque de cosmétique" : "rouge et blanche pour un lancement de produit"}`}
                     />
                     <span className={styles.photoLabel}>
-                      Concept IA · sur étude
+                      Concept sur mesure · sur étude
                     </span>
                   </div>
                   <h3>{c.title}</h3>
@@ -582,7 +582,7 @@ export default function Corporates() {
                   <div className={styles.eventPhoto}>
                     <Photo src={e.image} alt={e.alt} />
                     <span className={styles.photoLabel}>
-                      Projection IA issue du réel
+                      Visuel de projection
                     </span>
                   </div>
                   <div className={styles.eventBody}>
@@ -692,7 +692,7 @@ export default function Corporates() {
               <h3>
                 {real
                   ? "Sur le terrain — photographies réelles"
-                  : "Pour vous projeter — inspirations IA issues du réel"}
+                  : "Pour vous projeter — inspirations créatives"}
               </h3>
               {!real && (
                 <p className={styles.note}>
@@ -710,7 +710,7 @@ export default function Corporates() {
                       </div>
                       <figcaption>
                         {g.title}
-                        <span>{real ? "Photo réelle" : "Projection IA"}</span>
+                        <span>{real ? "Photo réelle" : "Visuel de projection"}</span>
                       </figcaption>
                     </figure>
                   ))}

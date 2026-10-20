@@ -64,7 +64,7 @@ assert.ok(
 assert.match(main, /pas des modèles annoncés en stock/);
 assert.match(main, /Visuels de projection/);
 assert.match(main, /Sur le terrain — photographies réelles/);
-assert.match(main, /inspirations IA issues du réel/);
+assert.match(main, /inspirations créatives/);
 console.log(
   `Corporate export validated: one H1, canonical, Service, ${summaries.length} visible/schema FAQs, ${sources.length} unique images and ${quoteLinks.length} reservation CTAs; no wedding asset or fixed price; explicit concept disclosures.`,
 );

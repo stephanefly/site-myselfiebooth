@@ -62,7 +62,7 @@ export default function HomePage() {
           <div className="home-showcase-picture">
             <img
               src="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-livre-video"
-              alt="Illustration IA de nos machines : grand Vogue Booth à gauche, photobooth noir et or sur trépied, miroir photo, vidéo 360, borne blanche de livre d’or vidéo avec micro et panneau fontaine de bienvenue à droite, avec Phonebooth et micro sur une table basse"
+              alt="Projection de nos machines : grand Vogue Booth à gauche, photobooth noir et or sur trépied, miroir photo, vidéo 360, borne blanche de livre d’or vidéo avec micro et panneau fontaine de bienvenue à droite, avec Phonebooth et micro sur une table basse"
               width="1915"
               height="821"
               fetchPriority="high"
@@ -110,7 +110,7 @@ export default function HomePage() {
             )}
           </aside>
         </div>
-        <span className="home-showcase-note">Illustration IA de nos animations</span>
+        <span className="home-showcase-note">Visuel de projection</span>
       </section>
 
       <section className="home-trust-band" aria-label="Repères MySelfieBooth">
@@ -157,7 +157,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <VisualGallery id="tirages" eyebrow="Vos souvenirs, votre style" title="De belles photos. De vrais souvenirs à emporter." note="Mises en scène IA inspirées de nos tirages. Cadres, formats et personnalisation définis avec vous." items={[
+      <VisualGallery id="tirages" eyebrow="Vos souvenirs, votre style" title="De belles photos. De vrais souvenirs à emporter." note="Des souvenirs qui portent votre signature." items={[
         { name: "homeCadres", title: "Des cadres à votre image", text: "Prénoms, date, couleurs ou logo : le souvenir reprend votre univers." },
         { name: "homeBandes", title: "Plusieurs poses sur une bandelette", text: "Un format à glisser dans un livre d’or ou à garder près de soi." },
         { name: "homePapier", title: "Votre équipe, votre identité", text: "Logo, couleurs et message : des tirages personnalisés pour vos soirées d’entreprise." },
@@ -172,7 +172,7 @@ export default function HomePage() {
               <article key={pack.key} className={`home-pack-card ${pack.featured ? "is-featured" : ""}`} style={{ height: "auto", overflow: "hidden" }}>
                 <img
                   src={packAiImages[pack.key]}
-                  alt={`Illustration IA premium ${pack.name} MySelfieBooth`}
+                  alt={`Projection du pack ${pack.name} MySelfieBooth`}
                   loading="lazy"
                   width="640"
                   height="480"
@@ -188,7 +188,7 @@ export default function HomePage() {
               </article>
             ))}
           </div>
-          <p className="visual-note">Mises en situation IA inspirées de nos vraies machines et de nos options.</p>
+          <p className="visual-note">Inspirations pour composer votre événement.</p>
         </div>
       </section>
 
@@ -211,17 +211,17 @@ export default function HomePage() {
             <article className="home-market-card"><VisualImage name="homeEntreprise" sizes="(max-width: 760px) 92vw, 280px" /><div><span>Entreprises</span><h3>Salons, séminaires et soirées</h3><p>Branding, expérience invités et formats partageables.</p><a href="/evenements/corporates/">Voir les solutions entreprise</a></div></article>
             <article className="home-market-card"><VisualImage name="homeMariage" sizes="(max-width: 760px) 92vw, 280px" /><div><span>Particuliers</span><h3>Mariages, anniversaires et réceptions</h3><p>Photos, vidéos, tirages et souvenirs adaptés au rythme de votre soirée.</p><a href="/evenements/mariages/">Voir les solutions mariage</a></div></article>
           </div>
-          <p className="visual-note">Mises en situation IA de nos animations, à titre d’illustration.</p>
+          <p className="visual-note">Des idées pour imaginer votre événement.</p>
         </div>
       </section>
 
       <section className="home-section home-section-muted" data-reveal>
         <div className="home-container home-option-feature">
-          <img src="/images/ai-from-real/accueil-options-collection.webp" alt="Illustration IA de nos options : mur de fleurs, backdrop, livre d’or vidéo blanc avec micro, magnets et porte-clés photo" width="1200" height="800" loading="lazy" decoding="async" />
+          <img src="/images/ai-from-real/accueil-options-collection.webp" alt="Projection de nos options : mur de fleurs, backdrop, livre d’or vidéo blanc avec micro, magnets et porte-clés photo" width="1200" height="800" loading="lazy" decoding="async" />
           <div>
           <SectionIntro eyebrow="Options" title="Décor, souvenirs et personnalisation" />
           <p className="home-section-lead">Mur de fleurs, backdrop, livre d’or vidéo avec micro, magnets et porte-clés : créez un décor à votre image et des souvenirs à emporter.</p>
-          <p className="visual-note">Mise en scène IA inspirée de nos équipements et souvenirs réels.</p>
+          <p className="visual-note">Les détails qui rendent votre événement unique.</p>
           <div className="home-centered-action"><a href="/prestations/#options" className="home-button home-button-secondary-dark">Voir toutes les options et leurs visuels</a></div>
           </div>
         </div>
