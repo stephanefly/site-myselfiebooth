@@ -267,7 +267,7 @@ export default function MarketingPage({ page }) {
             </div>
             {heroVisual && <figure className="marketing-hero-media" data-reveal>
               {seo?.visual ? <VisualImage name={seo.visual} priority sizes="(max-width: 760px) 92vw, 560px" /> : <img src={heroVisual.src} alt={heroVisual.alt} width="900" height="900" fetchPriority="high" />}
-              {seo?.visual && <figcaption>Mise en scène IA réalisée à partir de nos machines.</figcaption>}
+              {seo?.visual && <figcaption>Visuel de projection.</figcaption>}
             {(page.highlights || []).length > 0 && (
               <aside className="marketing-hero-proof" data-reveal>
                 {(page.highlights || []).map((item) => <span key={item}>{item}</span>)}

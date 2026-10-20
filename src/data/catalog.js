@@ -581,13 +581,13 @@ export const processSteps = [
 export const galleryHighlights = [
   {
     title: "Mur floral en réception",
-    text: "Une mise en scène inspirée de nos vrais décors pour accueillir les portraits des invités.",
+    text: "Un fond floral pour mettre les portraits de vos invités en valeur.",
     image: "/images/event-archive/anogini-photobooth-01.webp",
     category: "Mariages",
   },
   {
     title: "360 Booth en réception",
-    text: "Notre plateforme lumineuse mise en situation dans une réception élégante.",
+    text: "Une animation vidéo immersive pour les temps forts de votre réception.",
     image: "/images/event-archive/brice-equipe-01.webp",
     category: "Mariages",
   },
@@ -605,7 +605,7 @@ export const galleryHighlights = [
   },
   {
     title: "360 Booth pour une activation de marque",
-    text: "Une mise en situation de notre 360 Booth dans un univers de marque premium.",
+    text: "Une expérience vidéo personnalisable aux couleurs de votre marque.",
     image: "/images/event-archive/livre-or-mariage.webp",
     category: "Entreprises",
   },
@@ -623,7 +623,7 @@ export const galleryHighlights = [
   },
   {
     title: "Photobooth prêt à imprimer",
-    text: "Notre borne MySelfieBooth mise en situation avant l'arrivée des invités.",
+    text: "Une animation photo simple à utiliser, du premier portrait au souvenir imprimé.",
     image: "/images/realisations-machines/tirages-gala.webp",
     category: "Machines",
   },

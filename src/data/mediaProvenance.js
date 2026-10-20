@@ -7,7 +7,7 @@ export const MEDIA_KINDS = Object.freeze({
 
 export const MEDIA_LABELS = Object.freeze({
   [MEDIA_KINDS.REAL]: "Image vraie",
-  [MEDIA_KINDS.AI_FROM_REAL]: "Image IA issue du réel",
+  [MEDIA_KINDS.AI_FROM_REAL]: "Visuel de projection",
 });
 
 const AI_FROM_REAL_PATHS = new Set(manifest.map((item) => item.path));

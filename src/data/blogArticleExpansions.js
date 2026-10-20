@@ -1,4 +1,4 @@
-const aiNote = "Visuel d'ambiance généré par IA.";
+const aiNote = "Visuel de projection.";
 
 export const articleExpansions = {
   "choisir-photobooth-mariage": {

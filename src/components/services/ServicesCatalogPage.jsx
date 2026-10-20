@@ -31,7 +31,7 @@ function MachineCard({ machine, index }) {
   return (
     <article id={`machine-${machine.key}`} className="prst-machine">
       <div className="prst-machine-photo">
-        <img src={`${visualRoot}${machine.key}.webp`} alt={`${machine.name} MySelfieBooth en entier, mise en scène inspirée de notre équipement réel`} width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion />
+        <img src={`${visualRoot}${machine.key}.webp`} alt={`${machine.name} MySelfieBooth en entier dans un décor de réception`} width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion />
         <span className="prst-photo-tag">{view.tag}</span><span className="prst-photo-number" aria-hidden="true">0{index + 1}</span>
       </div>
       <div className="prst-machine-body">
@@ -83,7 +83,7 @@ export default function ServicesCatalogPage() {
           <header className="prst-section-heading"><div><p className="prst-kicker">01 / Les machines</p><h2 id="prst-machines-title">À chaque fête,<br /><em>son expérience.</em></h2></div><p>Le charme d’un miroir, l’énergie d’une vidéo ou le plaisir d’une photo imprimée. Choisissez votre façon de créer des souvenirs.</p></header>
           <div id="choisir" className="prst-choose"><span>Vous cherchez…</span><a href="#machine-photobooth">Une photo à emporter <Arrow /></a><a href="#machine-videobooth">Une vidéo à partager <Arrow /></a><a href="#machine-voguebooth">Un effet magazine <Arrow /></a></div>
           <div className="prst-machine-grid">{displayedMachines.map((machine, index) => <MachineCard key={machine.key} machine={machine} index={index} />)}</div>
-          <p className="prst-image-note">Mises en scène IA inspirées de nos équipements. <a href="/realisations/">Voir nos installations en événement <Arrow /></a></p>
+          <p className="prst-image-note"><a href="/realisations/">Voir nos installations en événement <Arrow /></a></p>
         </div></section>
 
         <section id="packs" className="catalog-collection prst-section prst-packs" aria-labelledby="prst-packs-title"><div className="prst-wrap">
@@ -97,7 +97,7 @@ export default function ServicesCatalogPage() {
 
         <section id="options" className="catalog-collection prst-section prst-options" aria-labelledby="prst-options-title"><div className="prst-wrap">
           <header className="prst-section-heading"><div><p className="prst-kicker">03 / Les options</p><h2 id="prst-options-title">Les détails qui font<br /><em>votre événement.</em></h2></div><p>Un message à réécouter, un décor qui accueille vos invités, une photo à garder près de soi. Ajoutez votre touche personnelle.</p></header>
-          <div className="prst-option-grid"><article className="prst-option-group"><div className="prst-option-photo"><img src={`${visualRoot}souvenirs.webp`} alt="Téléphone livre d’or noir, album kraft, porte-clés photo et magnets réunis sur une table, mise en scène inspirée de nos options" width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion /></div><div className="prst-option-body"><p className="prst-kicker">Les souvenirs</p><h3>Bien après la dernière danse.</h3><OptionList names={souvenirNames} /></div></article><article className="prst-option-group"><div className="prst-option-photo"><img src={`${visualRoot}decors.webp`} alt="Panneau fontaine blanc, miroir de bienvenue fleuri et fond LED 360, mise en scène inspirée de nos décors" width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion /></div><div className="prst-option-body"><p className="prst-kicker">Les décors</p><h3>Une entrée en matière qui compte.</h3><OptionList names={decorNames} /></div></article></div>
+          <div className="prst-option-grid"><article className="prst-option-group"><div className="prst-option-photo"><img src={`${visualRoot}souvenirs.webp`} alt="Téléphone livre d’or noir, album kraft, porte-clés photo et magnets réunis sur une table" width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion /></div><div className="prst-option-body"><p className="prst-kicker">Les souvenirs</p><h3>Bien après la dernière danse.</h3><OptionList names={souvenirNames} /></div></article><article className="prst-option-group"><div className="prst-option-photo"><img src={`${visualRoot}decors.webp`} alt="Panneau fontaine blanc, miroir de bienvenue fleuri et fond LED 360" width="1200" height="900" loading="lazy" decoding="async" data-no-load-motion /></div><div className="prst-option-body"><p className="prst-kicker">Les décors</p><h3>Une entrée en matière qui compte.</h3><OptionList names={decorNames} /></div></article></div>
           <div className="prst-studio-options"><div><p className="prst-kicker">Pour aller plus loin</p><h3>Studio Vogue <br />& effets visuels.</h3><a className="prst-text-link" href={siteConfig.quoteUrl}>Ajouter mes options <Arrow /></a></div><OptionList names={studioNames} /></div>
         </div></section>
 

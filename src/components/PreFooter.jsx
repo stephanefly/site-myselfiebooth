@@ -3,7 +3,7 @@ import { siteConfig } from "../data/site";
 export default function PreFooter() {
   return (
     <section className="prefooter">
-      <span className="prefooter-media-label" aria-hidden="true">Image IA issue du réel</span>
+      <span className="prefooter-media-label" aria-hidden="true">Visuel de projection</span>
       <div className="prefooter-container">
         <div>
           <p className="prefooter-eyebrow">Prêt à cadrer votre événement ?</p>

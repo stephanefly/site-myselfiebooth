@@ -13,7 +13,7 @@ export default function Custom404() {
       }}
     >
       <section className="not-found-page">
-        <span className="not-found-media-label" aria-hidden="true">Image IA issue du réel</span>
+        <span className="not-found-media-label" aria-hidden="true">Visuel de projection</span>
         <div className="not-found-container">
           <p>404</p>
           <h1>Cette page n'existe plus, mais votre evenement peut encore etre bien cadre.</h1>

@@ -632,7 +632,7 @@ const photoboothLandingPage = page({
   ],
   story: {
     image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
-    imageAlt: "Fabrication familiale d'un photobooth MySelfieBooth, visuel IA issu de photos réelles de l'atelier",
+    imageAlt: "Projection de la fabrication d'un photobooth dans l'atelier familial MySelfieBooth",
     eyebrow: "Expertise MySelfieBooth",
     title: "Des bornes développées avec une exigence technique de terrain",
     text: "Ingénieur en aéronautique, Stéphane Faure a fabriqué les premières bornes avec son père. Cette maîtrise technique guide aujourd'hui la préparation, les tests et l'installation de chaque photobooth.",
@@ -977,7 +977,7 @@ export const marketingPages = {
       href: "/evenements/corporates",
       linkLabel: "Voir le parcours entreprise",
       image: "/images/ai-from-real/fabrication-famille-photobooth.webp",
-      imageAlt: "Fabrication familiale d'un photobooth MySelfieBooth, visuel IA issu de photos réelles de l'atelier",
+      imageAlt: "Projection de la fabrication d'un photobooth dans l'atelier familial MySelfieBooth",
     },
     faq: [
       {

@@ -88,7 +88,7 @@ export default function PortfolioPage() {
       metaProps={{
         title: "Réalisations Photobooth et 360 Booth | MySelfieBooth",
         description:
-          "Découvrez nos réalisations Photobooth, 360 Booth, Miroirbooth et Vogue Booth en photos et vidéos réelles, avec des créations IA fidèles à nos installations.",
+          "Découvrez nos réalisations Photobooth, 360 Booth, Miroirbooth et Vogue Booth en photos et vidéos réelles, ainsi que des inspirations pour votre événement.",
         ogImage: "/images/ai-from-real/activation-360-entreprise.webp",
         ogImageAlt: "Photobooth MySelfieBooth installé dans un salon professionnel",
         ogUrl: "/realisations/",
@@ -109,9 +109,8 @@ export default function PortfolioPage() {
               <p className="portfolio-eyebrow">Photos, vidéos et coulisses</p>
               <h1>Nos réalisations Photobooth en images.</h1>
               <p>
-                Des installations réelles, des invités en action et des créations IA
-                fidèles à nos machines. Chaque média présenté ici vient d'une scène
-                distincte.
+                Des installations, des invités en action et des souvenirs à emporter.
+                Découvrez nos événements et explorez les inspirations pour le vôtre.
               </p>
               <div className="portfolio-actions">
                 <a href="#cas-reels">Voir les cas réels</a>
@@ -138,7 +137,7 @@ export default function PortfolioPage() {
             <a href="#videos">Vidéos</a>
             <a href="#moments">Moments réels</a>
             <a href="#reportages">Reportages</a>
-            <a href="#creations-ia">IA issue du réel</a>
+            <a href="#creations-ia">Inspirations</a>
             <a href="#details">Détails</a>
           </div>
         </nav>
@@ -254,8 +253,8 @@ export default function PortfolioPage() {
         <section id="creations-ia" className="portfolio-section is-dark" data-reveal>
           <div className="portfolio-container">
             <header className="portfolio-heading">
-              <p className="portfolio-eyebrow">Images IA issues du réel</p>
-              <h2>Des dérivés créés uniquement depuis nos vraies prestations.</h2>
+              <p className="portfolio-eyebrow">Inspirations pour votre événement</p>
+              <h2>Imaginez votre ambiance.</h2>
             </header>
             <MediaGrid items={portfolioCuratedImages} className="is-ai" />
           </div>
@@ -272,7 +271,7 @@ export default function PortfolioPage() {
         </section>
 
         <section className="portfolio-final-cta" data-reveal>
-          <span className="portfolio-final-media-label" aria-hidden="true">Image IA issue du réel</span>
+          <span className="portfolio-final-media-label" aria-hidden="true">Visuel de projection</span>
           <div className="portfolio-container">
             <p className="portfolio-eyebrow">Votre événement</p>
             <h2>Choisissez les images qui correspondent à votre ambiance.</h2>

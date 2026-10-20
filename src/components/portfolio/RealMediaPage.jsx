@@ -183,9 +183,8 @@ export default function RealMediaPage() {
               <p className="eyebrow">100 % terrain</p>
               <h1>Nos vraies prestations, en images.</h1>
               <p className="hero-copy">
-                Cette galerie rassemble les médias réels déjà disponibles dans notre banque :
-                événements, machines, tirages, coulisses et contenus issus de notre Instagram.
-                Les créations IA sont volontairement exclues de cette page.
+                Retrouvez les photos et vidéos de nos événements : les invités, les machines,
+                les souvenirs imprimés et les coulisses de nos installations.
               </p>
               <div className="hero-stats" aria-label="Contenu de la galerie">
                 <div><strong>{allRealMedia.length}</strong><span>médias réels affichés</span></div>
