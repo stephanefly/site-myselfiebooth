@@ -1,60 +1,405 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { siteConfig } from "../data/site";
+import styles from "./Navbar.module.css";
 
-const links = [
-  { label: "Prestations", href: "/prestations" },
-  { label: "Entreprises", href: "/evenements/corporates", professional: true },
-  { label: "Packs", href: "/prestations#packs" },
-  { label: "Options", href: "/prestations#options" },
-  { label: "Événements", href: "/evenements" },
-  { label: "Zones", href: "/zones-intervention" },
-  { label: "Réalisations", href: "/realisations" },
-  { label: "Blog", href: "/blog" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Qui sommes-nous", href: "/a-propos" },
+const navigation = [
+  {
+    id: "experiences",
+    label: "Nos expériences",
+    caption: "Photo & vidéo",
+    links: [
+      { label: "Photobooth", href: "/prestations/photobooth/" },
+      { label: "Miroirbooth", href: "/prestations/miroirbooth/" },
+      { label: "360 Booth", href: "/prestations/videobooth/" },
+      { label: "Air360 Booth", href: "/prestations/air360booth/" },
+      { label: "VogueBooth", href: "/prestations/voguebooth/" },
+      { label: "iPad Booth", href: "/prestations/ipadbooth/" },
+      {
+        label: "Toutes les prestations",
+        href: "/prestations/",
+        overview: true,
+      },
+    ],
+  },
+  {
+    id: "evenements",
+    label: "Événements",
+    caption: "Les occasions de se retrouver",
+    links: [
+      { label: "Mariages", href: "/evenements/mariages/" },
+      { label: "Anniversaires", href: "/evenements/anniversaires/" },
+      { label: "Soirées privées", href: "/evenements/soirees/" },
+      { label: "Tous les événements", href: "/evenements/", overview: true },
+    ],
+  },
+  { label: "Entreprises", href: "/evenements/corporates/" },
+  { label: "Réalisations", href: "/realisations/" },
+  {
+    id: "tarifs",
+    label: "Tarifs & Packs",
+    caption: "Composez votre événement",
+    links: [
+      { label: "Nos packs", href: "/prestations/#packs" },
+      { label: "Nos options", href: "/prestations/#options" },
+      { label: "Tarifs détaillés", href: siteConfig.ratesUrl, external: true },
+    ],
+  },
+  {
+    id: "infos",
+    label: "Plus",
+    caption: "Informations & conseils",
+    secondary: true,
+    links: [
+      { label: "Zones d'intervention", href: "/zones-intervention/" },
+      { label: "Blog", href: "/blog/" },
+      { label: "FAQ", href: "/#faq" },
+      { label: "À propos", href: "/a-propos/" },
+    ],
+  },
 ];
 
+function Chevron() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <path d="m5 7.5 5 5 5-5" />
+    </svg>
+  );
+}
+function Arrow() {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      <path d="m5 15 10-10M5 5h10v10" />
+    </svg>
+  );
+}
+function normalizePath(value) {
+  return value.split("?")[0].replace(/\/+$/, "") || "/";
+}
+
 export default function Navbar() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const closeMenu = () => setIsMenuOpen(false);
+  const [openGroup, setOpenGroup] = useState(null);
+  const [isCompact, setIsCompact] = useState(false);
+  const root = useRef(null);
+  const toggle = useRef(null);
+  const groups = useRef({});
+  const closeTimer = useRef(null);
+  const hoverOpened = useRef(null);
+  const [pathPart, hash = ""] = router.asPath.split("#");
+  const currentPath = normalizePath(pathPart);
+
+  const cancelClose = useCallback(
+    () => window.clearTimeout(closeTimer.current),
+    [],
+  );
+  const closeAll = useCallback(() => {
+    window.clearTimeout(closeTimer.current);
+    hoverOpened.current = null;
+    setOpenGroup(null);
+    setIsMenuOpen(false);
+  }, []);
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 1100px)");
+    const update = () => {
+      setIsCompact(query.matches);
+      closeAll();
+    };
+    update();
+    query.addEventListener("change", update);
+    return () => {
+      query.removeEventListener("change", update);
+      window.clearTimeout(closeTimer.current);
+    };
+  }, [closeAll]);
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", closeAll);
+    router.events.on("hashChangeStart", closeAll);
+    return () => {
+      router.events.off("routeChangeStart", closeAll);
+      router.events.off("hashChangeStart", closeAll);
+    };
+  }, [router.events, closeAll]);
+
+  useEffect(() => {
+    if (!isCompact || !isMenuOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const frame = window.requestAnimationFrame(() =>
+      root.current?.querySelector("[data-navbar-item]")?.focus(),
+    );
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.cancelAnimationFrame(frame);
+    };
+  }, [isCompact, isMenuOpen]);
+
+  useEffect(() => {
+    const outside = (event) => {
+      if (!root.current?.contains(event.target)) closeAll();
+    };
+    const keyboard = (event) => {
+      if (event.key === "Escape" && (openGroup || isMenuOpen)) {
+        event.preventDefault();
+        if (openGroup) {
+          groups.current[openGroup]?.querySelector("button")?.focus();
+          setOpenGroup(null);
+          hoverOpened.current = null;
+        } else {
+          closeAll();
+          toggle.current?.focus();
+        }
+      }
+      if (event.key === "Tab" && isCompact && isMenuOpen) {
+        const focusable = [
+          ...root.current.querySelectorAll("a[href],button:not([disabled])"),
+        ].filter(
+          (element) =>
+            element.tabIndex !== -1 && element.getClientRects().length,
+        );
+        const first = focusable[0],
+          last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first?.focus();
+        }
+      }
+    };
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", keyboard);
+    return () => {
+      document.removeEventListener("pointerdown", outside);
+      document.removeEventListener("keydown", keyboard);
+    };
+  }, [closeAll, isCompact, isMenuOpen, openGroup]);
+
+  const isActive = (href) => {
+    if (!href.startsWith("/")) return false;
+    const [targetPath, targetHash = ""] = href.split("#");
+    return normalizePath(targetPath) === currentPath && targetHash === hash;
+  };
+  const closeMobile = () => {
+    closeAll();
+    toggle.current?.focus();
+  };
+  const enterGroup = (event, id) => {
+    if (
+      event.pointerType !== "mouse" ||
+      !window.matchMedia("(min-width: 1101px) and (hover: hover)").matches
+    )
+      return;
+    cancelClose();
+    hoverOpened.current = id;
+    setOpenGroup(id);
+  };
+  const leaveGroup = (event, id) => {
+    if (isCompact || event.currentTarget.contains(document.activeElement))
+      return;
+    cancelClose();
+    closeTimer.current = window.setTimeout(() => {
+      setOpenGroup((current) => (current === id ? null : current));
+      hoverOpened.current = null;
+    }, 180);
+  };
+  const toggleGroup = (id) => {
+    cancelClose();
+    if (openGroup === id && hoverOpened.current === id)
+      hoverOpened.current = null;
+    else {
+      hoverOpened.current = null;
+      setOpenGroup((current) => (current === id ? null : id));
+    }
+  };
+  const groupKeyboard = (event, id) => {
+    const group = groups.current[id];
+    const links = [...group.querySelectorAll("a[href]")];
+    const onTrigger = event.target === group.querySelector("button");
+    const index = links.indexOf(event.target);
+    if (event.key === "Escape" && openGroup === id) {
+      event.preventDefault();
+      event.stopPropagation();
+      setOpenGroup(null);
+      hoverOpened.current = null;
+      group.querySelector("button").focus();
+      return;
+    }
+    if (
+      !["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key) ||
+      (!onTrigger && index === -1)
+    )
+      return;
+    if (onTrigger && !["ArrowDown", "ArrowUp"].includes(event.key)) return;
+    event.preventDefault();
+    cancelClose();
+    hoverOpened.current = null;
+    setOpenGroup(id);
+    const nextIndex =
+      event.key === "Home"
+        ? 0
+        : event.key === "End"
+          ? links.length - 1
+          : onTrigger
+            ? event.key === "ArrowUp"
+              ? links.length - 1
+              : 0
+            : (index + (event.key === "ArrowDown" ? 1 : -1) + links.length) %
+              links.length;
+    if (openGroup === id) links[nextIndex]?.focus();
+    else window.requestAnimationFrame(() => links[nextIndex]?.focus());
+  };
 
   return (
-    <nav className="nav-shell" aria-label="Navigation principale">
-      <div className="nav-container">
-        <Link href="/" className="nav-brand" onClick={closeMenu}>
+    <nav
+      ref={root}
+      className={`${styles.shell} ${isMenuOpen ? styles.menuOpen : ""}`}
+      aria-label="Navigation principale"
+    >
+      <div className={styles.container}>
+        <Link href="/" className={styles.brand} onClick={closeAll}>
           MySelfieBooth
         </Link>
-
-        <div className={`nav-links ${isMenuOpen ? "is-open" : ""}`} id="menu-principal">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`nav-direct ${link.professional ? "nav-direct-pro" : ""}`}
-              onClick={closeMenu}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <Link
-          href="/evenements/corporates"
-          className="nav-business-mobile"
-          onClick={closeMenu}
+        <div
+          className={`${styles.panel} ${isMenuOpen ? styles.panelOpen : ""}`}
+          id="menu-principal"
+          inert={isCompact && !isMenuOpen ? true : undefined}
         >
-          Entreprises
-        </Link>
-
-        <a className="nav-cta" href={siteConfig.quoteUrl} onClick={closeMenu} data-event="cta_quote_click">
-          Devis en 2 minutes
+          <ul className={styles.items}>
+            {navigation.map((item) =>
+              item.links ? (
+                <li
+                  key={item.id}
+                  className={`${styles.group} ${item.secondary ? styles.secondary : ""}`}
+                  ref={(element) => {
+                    groups.current[item.id] = element;
+                  }}
+                  onPointerEnter={(event) => enterGroup(event, item.id)}
+                  onPointerLeave={(event) => leaveGroup(event, item.id)}
+                  onKeyDown={(event) => groupKeyboard(event, item.id)}
+                  onBlur={(event) => {
+                    if (
+                      !isCompact &&
+                      !event.currentTarget.contains(event.relatedTarget)
+                    ) {
+                      cancelClose();
+                      setOpenGroup((current) =>
+                        current === item.id ? null : current,
+                      );
+                      if (hoverOpened.current === item.id)
+                        hoverOpened.current = null;
+                    }
+                  }}
+                >
+                  <button
+                    type="button"
+                    className={styles.trigger}
+                    aria-expanded={openGroup === item.id}
+                    aria-controls={`navigation-${item.id}`}
+                    aria-label={
+                      item.secondary
+                        ? "Plus : informations et conseils"
+                        : undefined
+                    }
+                    data-active={
+                      item.links.some((link) => isActive(link.href))
+                        ? "true"
+                        : undefined
+                    }
+                    data-navbar-item
+                    onClick={() => toggleGroup(item.id)}
+                  >
+                    <span>{item.label}</span>
+                    <Chevron />
+                  </button>
+                  <div
+                    className={styles.dropdown}
+                    id={`navigation-${item.id}`}
+                    hidden={openGroup !== item.id}
+                  >
+                    <div className={styles.dropdownInner}>
+                      <p className={styles.caption}>{item.caption}</p>
+                      <ul className={styles.submenu}>
+                        {item.links.map((link) => (
+                          <li
+                            key={link.href}
+                            className={
+                              link.overview ? styles.overview : undefined
+                            }
+                          >
+                            {link.external ? (
+                              <a href={link.href} onClick={closeAll}>
+                                {link.label}
+                                <Arrow />
+                              </a>
+                            ) : (
+                              <Link
+                                href={link.href}
+                                onClick={closeAll}
+                                aria-current={
+                                  isActive(link.href)
+                                    ? link.href.includes("#")
+                                      ? "location"
+                                      : "page"
+                                    : undefined
+                                }
+                              >
+                                {link.label}
+                                {link.overview && <Arrow />}
+                              </Link>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              ) : (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={styles.direct}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    onClick={closeAll}
+                    data-navbar-item
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+            )}
+          </ul>
+        </div>
+        <a
+          className={styles.cta}
+          href={siteConfig.quoteUrl}
+          onClick={closeAll}
+          data-event="cta_quote_click"
+        >
+          Demander un devis <Arrow />
         </a>
-
         <button
+          ref={toggle}
           type="button"
-          className="nav-toggle"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={`${styles.toggle} ${isMenuOpen ? styles.toggleOpen : ""}`}
+          onClick={() => (isMenuOpen ? closeMobile() : setIsMenuOpen(true))}
           aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={isMenuOpen}
           aria-controls="menu-principal"
@@ -63,166 +408,15 @@ export default function Navbar() {
           <span />
         </button>
       </div>
-
-      <style jsx global>{`
-        .nav-shell {
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: 1000;
-          width: 100%;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-          background: rgba(8, 8, 8, 0.94);
-          backdrop-filter: blur(18px);
-        }
-
-        .nav-container {
-          width: min(1320px, calc(100% - 32px));
-          min-height: 72px;
-          margin: 0 auto;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 14px;
-        }
-
-        .nav-brand {
-          color: #fff;
-          font-size: 1.24rem;
-          font-weight: 900;
-          letter-spacing: 0;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        .nav-links {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 13px;
-          flex: 1;
-        }
-
-        .nav-direct {
-          min-height: 44px;
-          display: inline-flex;
-          align-items: center;
-          color: #efe9dd;
-          font-size: 0.8rem;
-          font-weight: 800;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        .nav-direct:hover {
-          color: #e5c46b;
-        }
-
-        .nav-direct-pro {
-          color: #e5c46b;
-        }
-
-        .nav-cta {
-          min-height: 44px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 16px;
-          border-radius: 8px;
-          color: #17130a;
-          background: #e5c46b;
-          font-size: 0.84rem;
-          font-weight: 900;
-          text-decoration: none;
-          white-space: nowrap;
-        }
-
-        .nav-business-mobile {
-          display: none;
-        }
-
-        .nav-toggle {
-          display: none;
-          width: 44px;
-          height: 44px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 8px;
-          background: transparent;
-          padding: 0;
-        }
-
-        .nav-toggle span {
-          display: block;
-          width: 18px;
-          height: 2px;
-          margin: 5px auto;
-          background: #fff;
-        }
-
-        @media (max-width: 1320px) {
-          .nav-links {
-            position: absolute;
-            top: 72px;
-            left: 0;
-            width: 100%;
-            display: none;
-            padding: 12px 16px 18px;
-            align-items: stretch;
-            flex-direction: column;
-            gap: 2px;
-            background: #090909;
-          }
-
-          .nav-links.is-open {
-            display: flex;
-          }
-
-          .nav-direct {
-            width: 100%;
-            padding: 0 8px;
-          }
-
-          .nav-cta {
-            display: none;
-          }
-
-          .nav-business-mobile {
-            min-height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: auto;
-            padding: 0 12px;
-            border: 1px solid rgba(229, 196, 107, 0.7);
-            border-radius: 8px;
-            color: #e5c46b;
-            font-size: 0.78rem;
-            font-weight: 900;
-            text-decoration: none;
-            white-space: nowrap;
-          }
-
-          .nav-toggle {
-            display: block;
-          }
-        }
-
-        @media (max-width: 460px) {
-          .nav-container {
-            width: calc(100% - 20px);
-            gap: 8px;
-          }
-
-          .nav-brand {
-            font-size: 1.05rem;
-          }
-
-          .nav-business-mobile {
-            padding: 0 9px;
-            font-size: 0.72rem;
-          }
-        }
-      `}</style>
+      {isMenuOpen && (
+        <button
+          className={styles.backdrop}
+          type="button"
+          tabIndex={-1}
+          aria-label="Fermer le panneau de navigation"
+          onClick={closeMobile}
+        />
+      )}
     </nav>
   );
 }
