@@ -1,30 +1,42 @@
-# Réalisations — sélection authentique du 19 octobre 2026
+# Réalisations — sélection du 20 octobre 2026
 
-Cette page utilise uniquement des photographies et des vidéos originales déjà importées dans le projet. Aucun visuel IA, aucune retouche générative, aucun témoignage inventé.
+La page `/realisations/` utilise les photographies et vidéos originales déjà présentes dans le dépôt. Aucun client, lieu, chiffre ou témoignage n'a été ajouté sans source dans le projet.
 
-## Séquences retenues
+## Événements présentés
 
-| Sujet | Source conservée | Présentation |
+| Sujet | Fichiers originaux | Source et présentation |
 | --- | --- | --- |
-| Cynthia & Ashok — Vogue Booth | `public/videos/instagram/reel-2-C9Ftp2ctg4u.mp4` | Vidéo d’ouverture ; affiche extraite à 12 s, sans retouche |
-| Silass & Brice — mariage | `public/videos/instagram/reel-4-Da-0z-to0VL.mp4` | Film de réception ; affiche extraite à 5 s, sans retouche |
-| Lydia & Vincent — Vogue | `public/videos/vogue-real/vogue-booth-mariage.mp4` | Film original ; recadrage central de l’affiche existante pour retirer les bandes latérales floutées |
-| Alexandra & Loïc — miroir | `public/videos/realisations-machines/miroirbooth-invites.mp4` | Vidéo et affiche d’origine |
-| Invitées sur le 360 | `public/videos/event-archive/360-red-carpet.mp4` | Vidéo et affiche d’origine |
-| Installation avant l’accueil | `public/videos/realisations-machines/installation-photobooth-timelapse.mp4` | Vidéo et affiche d’origine |
+| Cynthia & Ashok | `images/realisations-2026/cynthia-ashok.webp`, `videos/instagram/reel-2-C9Ftp2ctg4u.mp4` | Film d'ouverture, affiche existante extraite à 12 s ; post Instagram `C9Ftp2ctg4u` |
+| Sephora Champs-Élysées | `images/realisations/sephora-360booth.webp` | Photographie existante de l'animation 360 en boutique ; aucune nouvelle prestation ou donnée de campagne revendiquée |
+| Silass & Brice | `images/realisations-2026/silass-brice.webp`, `videos/instagram/reel-4-Da-0z-to0VL.mp4` | Film de réception, affiche extraite à 5 s ; post Instagram `Da-0z-to0VL` |
+| Lydia & Vincent | `images/realisations-2026/lydia-vincent.webp`, `videos/vogue-real/vogue-booth-mariage.mp4` | Vogue Booth de mariage ; affiche existante |
+| Gala | `images/event-archive/goldbooth-gala.webp` | Duo de machines ; aucun nom de client ou lieu ajouté |
+| Alexandra & Loïc | `images/realisations-machines/miroirbooth-invites.webp`, vidéo du même nom | Miroirbooth et habillage visibles dans le média source |
+| Anniversaire Vogue | `images/vogue-real/vogue-booth-anniversaire-card.webp`, `videos/vogue-real/vogue-booth-anniversaire.mp4` | Réception d'anniversaire ; aucun nom de client ajouté |
+| Réception 360 | `images/event-archive/video-posters/360-red-carpet.webp`, `videos/event-archive/360-red-carpet.mp4` | Réception classée dans « Fêtes & soirées » ; aucun type de réception plus précis affirmé |
 
-Les deux posts Instagram identifiés sont reliés à leur publication. Les autres séquences renvoient au profil officiel, sans inventer de permalien. Le profil Instagram n’était pas accessible au navigateur de recherche lors de cette préparation : la sélection repose sur les fichiers originaux déjà disponibles, sans prétendre recenser les publications les plus récentes.
+Le portrait imprimé de Zakaria et Kawtar (`event-archive/caftan-portrait-01.webp`) accompagne l'ouverture. Les autres souvenirs sont les tirages de Silass et Brice, le livre d'or de Samir et Sarah et la fabrication des porte-clés. La vidéo de montage est `videos/realisations-machines/installation-photobooth-timelapse.mp4` avec son affiche existante.
 
-## Photographies
+Les témoignages reprennent sans réécriture les extraits de Kevin Narayanane, Anusha Aravinthan et Lawrence ADZORMI présents dans `googleReviews`. Ils renvoient aux avis Google. Aucun compteur commercial non nécessaire n'est affiché.
 
-- Tirage de Zakaria et Kawtar : `event-archive/caftan-portrait-01.webp`.
-- Tirages de Silass et Brice : `event-archive/brice-tirages.webp`.
-- Livre d’or de Samir et Sarah : `event-archive/livre-or-mariage.webp`.
-- Fabrication des porte-clés : `realisations-machines/fabrication-porte-cles-photo.webp` (source documentée dans `MEDIA_RENDU_MONTAGE_COURT.md`).
-- Photobooth noir et or, miroir doré et plateforme 360 : photos originales de la collection `collection-2026`.
+## Fonctionnement
 
-Les avis sont des extraits existants du jeu `googleReviews` ; un lien vers Google permet de consulter les retours.
+- Galerie filtrable : tous les événements (7), mariages (3), entreprises et galas (2), fêtes et soirées (2).
+- Photos et films s'ouvrent dans une boîte de dialogue native, avec navigation, fermeture par Échap, focus contenu dans la fenêtre et retour au déclencheur.
+- Aucun fichier vidéo n'est demandé avant une interaction. Lecture et son sont contrôlables dans la fenêtre ; les proportions originales y sont conservées.
+- Les photos sous la ligne de flottaison sont chargées paresseusement. L'image d'ouverture est prioritaire.
+- Anciennes ancres `films`, `tirages`, `machines` et `avis-reels` conservées.
+- Styles limités à la page, sans nouvelle dépendance applicative.
 
-## Chargement
+## Vérifications de la refonte
 
-Seule la vidéo d’ouverture peut démarrer automatiquement, sans son. Elle est mise en pause si la préférence système réduit les animations. Les autres films attendent une lecture manuelle (`preload="none"`). Les photos sous la ligne de flottaison sont chargées paresseusement. Les formats vidéo originaux sont conservés sans étirement ni réencodage.
+- `npm run build` : export de 133 pages, contrôles d'intégrité, provenance, galeries, SEO, expérience et références médias réussis.
+- `node scripts/check-realisations.mjs` : sept événements, treize photos uniques, canonique, CollectionPage, ancres conservées, filtres et dialogue accessibles dans l'export, absence de vidéo chargée avant interaction.
+- `node scripts/check-corporate.mjs` : contrôle de non-régression de la page corporate réussi.
+- Chromium/Playwright aux largeurs 1440, 768, 390 et 320 px : médias chargés, aucun débordement ni erreur JavaScript ; filtres 7/3/2/2 ; lecture vidéo, photo agrandie, suivant/précédent, flèches, fermeture Échap et retour du focus vérifiés.
+- Contrôle axe WCAG A/AA du contenu principal et de la fenêtre photo : aucune violation détectée.
+- Lighthouse mobile local sur export compressé selon les directives Apache existantes : performance 93, accessibilité globale 96, bonnes pratiques 100, SEO 100 ; LCP 2,6 s, CLS 0. Le score global d'accessibilité reste affecté par les composants communs existants hors de cette page. Ces mesures de laboratoire ne constituent pas des mesures terrain du site publié.
+- Variante WebP de 600 px pour l'image d'ouverture, obtenue uniquement par redimensionnement et compression de la photographie existante ; environ 49 Ko, sans retouche du contenu.
+
+Rapports et captures conservés dans `/workspace/scratch/realisations-review/`.
+- Lighthouse desktop local : performance 100, accessibilité globale 96, bonnes pratiques 100, SEO 100 ; LCP 0,5 s, CLS 0, TBT 0 ms.

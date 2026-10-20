@@ -1,68 +1,601 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Layout from "../Layout";
+import useRevealMotion from "../../hooks/useRevealMotion";
 import { breadcrumbJsonLd, siteConfig } from "../../data/site";
 import { googleReviews } from "../../data/home";
 import { instagramUrl } from "../../data/instagramMedia";
+import {
+  openingFilm,
+  projects,
+  keepsakes,
+  backstage,
+} from "./realisationsSelection";
 
-// This collection deliberately uses only original event photographs and recordings.
-// Source details and extracted frame timestamps are documented in docs/design/realisations-sources.md.
-const films = [
-  { title: "Silass & Brice", label: "Un mariage qui rassemble", text: "L’entrée des mariés, les animations et toute l’énergie de la réception. Un aperçu de la journée, tel qu’elle a été vécue.", video: "/videos/instagram/reel-4-Da-0z-to0VL.mp4", poster: "/images/realisations-2026/silass-brice.webp", source: "https://www.instagram.com/p/Da-0z-to0VL/", tag: "Reportage de mariage" },
-  { title: "Lydia & Vincent", label: "Leur couverture, leur histoire", text: "Une robe, un costume, deux sourires et un décor Vogue personnalisé pour leur mariage. Découvrez le rendu dans la vraie salle.", video: "/videos/vogue-real/vogue-booth-mariage.mp4", poster: "/images/realisations-2026/lydia-vincent.webp", source: instagramUrl, tag: "Vogue Booth" },
-  { title: "Alexandra & Loïc", label: "Complices devant l’objectif", text: "Des poses spontanées et un habillage à leurs noms : le Miroirbooth devient un petit rendez-vous au cœur de la fête.", video: "/videos/realisations-machines/miroirbooth-invites.mp4", poster: "/images/realisations-machines/miroirbooth-invites.webp", source: instagramUrl, tag: "Miroirbooth" },
-  { title: "L’énergie du 360", label: "Un tour, des rires, un souvenir", text: "La plateforme lumineuse, les invités et la caméra en mouvement. Voici l’expérience 360 pendant une véritable réception.", video: "/videos/event-archive/360-red-carpet.mp4", poster: "/images/event-archive/video-posters/360-red-carpet.webp", source: instagramUrl, tag: "360 Booth" },
+const categories = [
+  "Tout",
+  ...new Set(projects.map((project) => project.category)),
 ];
-const souvenirs = [
-  { image: "/images/event-archive/brice-tirages.webp", title: "Des sourires à emporter", text: "Les tirages du mariage de Silass et Brice : des portraits de couple, de famille et d’amis, réunis dans le même univers.", alt: "Vrais tirages photo du mariage de Silass et Brice avec leurs invités" },
-  { image: "/images/event-archive/livre-or-mariage.webp", title: "Un livre qui raconte la fête", text: "Un album personnalisé pour conserver les photos et les messages de vos proches, puis les retrouver longtemps après.", alt: "Livre d’or photo réel du mariage de Samir et Sarah, couverture noire et dorée" },
-  { image: "/images/realisations-machines/fabrication-porte-cles-photo.webp", title: "Un petit souvenir, une vraie attention", text: "Les photos prennent aussi place dans des porte-clés préparés pour les invités. Un détail qui prolonge le souvenir.", alt: "Fabrication réelle des porte-clés photo MySelfieBooth pour les invités" },
-];
-const installations = [
-  { image: "/images/collection-2026/photobooth-noir-or-900.webp", title: "Le Photobooth noir & or", alt: "Notre vrai Photobooth noir et or installé dans un lieu de réception", href: "/prestations/photobooth/" },
-  { image: "/images/collection-2026/miroir-photo-dore-900.webp", title: "Le miroir à cadre doré", alt: "Notre vrai Miroirbooth doré installé devant la tour Eiffel", href: "/prestations/miroirbooth/" },
-  { image: "/images/collection-2026/plateforme-video-360-900.webp", title: "La plateforme vidéo 360", alt: "Notre vraie plateforme 360 Booth installée avec son bras caméra et ses éclairages", href: "/prestations/videobooth/" },
-];
+const allMedia = [openingFilm, ...projects, ...keepsakes, backstage];
 const reviews = [googleReviews[0], googleReviews[1], googleReviews[4]];
 
-function Arrow() { return <span aria-hidden="true">↗</span>; }
+function Arrow({ down = false }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      aria-hidden="true"
+    >
+      {down ? (
+        <path d="M12 4v16m-6-6 6 6 6-6" />
+      ) : (
+        <path d="m6 18 12-12M6 6h12v12" />
+      )}
+    </svg>
+  );
+}
+function Play() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="m9 5 11 7-11 7V5Z" />
+    </svg>
+  );
+}
+function Photo({ item, priority = false }) {
+  return (
+    <img
+      src={item.image}
+      alt={item.alt}
+      width="900"
+      height="1200"
+      loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : undefined}
+      decoding="async"
+      {...(priority
+        ? {
+            srcSet:
+              "/images/realisations-2026/cynthia-ashok-600.webp 600w, /images/realisations-2026/cynthia-ashok.webp 720w",
+            sizes: "(max-width: 600px) 76vw, (max-width: 1100px) 43vw, 490px",
+          }
+        : {})}
+      data-no-load-motion
+    />
+  );
+}
+function MediaViewer({ activeId, onClose, onChange }) {
+  const dialog = useRef(null);
+  const item = allMedia.find((media) => media.id === activeId);
+  const returnFocus = useRef(null);
+  useEffect(() => {
+    if (!activeId) return undefined;
+    returnFocus.current = document.activeElement;
+    dialog.current?.showModal();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      dialog.current?.close();
+      returnFocus.current?.focus();
+    };
+  }, [Boolean(activeId)]);
+  const move = (direction) => {
+    const index = allMedia.findIndex((media) => media.id === activeId);
+    onChange(
+      allMedia[(index + direction + allMedia.length) % allMedia.length].id,
+    );
+  };
+  return (
+    <dialog
+      ref={dialog}
+      className="rl-viewer"
+      aria-labelledby="rl-viewer-title"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onClick={(event) => {
+        if (event.target === dialog.current) onClose();
+      }}
+      onKeyDown={(event) => {
+        if (event.target.tagName === "VIDEO") return;
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          move(1);
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          move(-1);
+        }
+      }}
+    >
+      {item && (
+        <div className="rl-viewer-panel">
+          <button
+            className="rl-viewer-close"
+            type="button"
+            onClick={onClose}
+            aria-label="Fermer la réalisation"
+            autoFocus
+          >
+            Fermer <span aria-hidden="true">×</span>
+          </button>
+          <div className="rl-viewer-media" key={item.id}>
+            {item.video ? (
+              <video
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                poster={item.image}
+                aria-label={item.title}
+              >
+                <source src={item.video} type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                src={item.image}
+                alt={item.alt}
+                width="1200"
+                height="900"
+                data-no-load-motion
+              />
+            )}
+          </div>
+          <div className="rl-viewer-description">
+            <div>
+              <p className="rl-eyebrow">
+                {item.device || "Souvenirs personnalisés"}
+              </p>
+              <h2 id="rl-viewer-title">{item.title}</h2>
+              <p>{item.description}</p>
+              {item.source && (
+                <a href={item.source} target="_blank" rel="noreferrer">
+                  Retrouver l'événement sur Instagram <Arrow />
+                </a>
+              )}
+            </div>
+            <div className="rl-viewer-controls">
+              <button
+                type="button"
+                onClick={() => move(-1)}
+                aria-label="Réalisation précédente"
+              >
+                ←
+              </button>
+              <span>
+                {allMedia.findIndex((media) => media.id === item.id) + 1} /{" "}
+                {allMedia.length}
+              </span>
+              <button
+                type="button"
+                onClick={() => move(1)}
+                aria-label="Réalisation suivante"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </dialog>
+  );
+}
 
 export default function RealisationsPage() {
-  const heroVideo = useRef(null);
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const respectMotion = () => { if (query.matches) heroVideo.current?.pause(); };
-    respectMotion();
-    query.addEventListener?.("change", respectMotion);
-    return () => query.removeEventListener?.("change", respectMotion);
-  }, []);
+  const [category, setCategory] = useState("Tout");
+  const [activeId, setActiveId] = useState(null);
+  const pageRef = useRevealMotion("realisations-editorial");
+  const selectedProjects = projects.filter(
+    (project) => category === "Tout" || project.category === category,
+  );
   return (
-    <Layout metaProps={{
-      title: "Nos vrais mariages en photos et vidéos | MySelfieBooth",
-      description: "Projetez-vous dans votre mariage avec nos vrais événements : mariés, invités, Photobooth, Miroirbooth, 360 et Vogue. Photos et vidéos de nos événements.",
-      ogUrl: "/realisations/", ogImage: "/images/event-archive/caftan-portrait-01.webp", ogImageAlt: "Souvenir photo réel du mariage de Zakaria et Kawtar",
-      jsonLd: [breadcrumbJsonLd([{ label: "Accueil", href: "/" }, { label: "Réalisations", href: "/realisations/" }]), { "@context": "https://schema.org", "@type": "CollectionPage", name: "Nos mariages et événements réels", url: siteConfig.baseUrl + "/realisations/", description: "Une sélection de photos et de vidéos originales de nos mariages, de nos machines et des souvenirs remis aux invités." }],
-    }}>
-      <div className="wedding-real-page">
-        <section className="catalog-report wed-hero" aria-labelledby="wed-title"><div className="wed-wrap wed-hero-grid">
-          <div className="wed-hero-copy"><p className="wed-eyebrow">Ils l’ont vécu. À vous de l’imaginer.</p><h1 id="wed-title">Votre mariage.<br />Leurs sourires.<br /><em>Vos souvenirs.</em></h1><p>Des mariés, des proches, de vrais moments. Entrez dans nos événements et découvrez ce que vos invités pourraient vivre à vos côtés.</p><div className="wed-actions"><a className="wed-button" href="#films">Voir les moments en vidéo <Arrow /></a><a className="wed-link" href={siteConfig.quoteUrl}>Imaginer mon mariage <Arrow /></a></div><div className="wed-authentic"><span aria-hidden="true">●</span> Photos et vidéos de nos événements.</div></div>
-          <div className="wed-hero-visual"><figure className="wed-hero-film"><video ref={heroVideo} autoPlay loop muted playsInline controls preload="metadata" poster="/images/realisations-2026/cynthia-ashok.webp" aria-label="Le mariage de Cynthia et Ashok dans le Vogue Booth, vidéo originale" data-no-load-motion><source src="/videos/instagram/reel-2-C9Ftp2ctg4u.mp4" type="video/mp4" /></video><figcaption><span>Le vrai jour J</span><strong>Cynthia & Ashok</strong><a href="https://www.instagram.com/p/C9Ftp2ctg4u/" target="_blank" rel="noreferrer">Voir le post Instagram <Arrow /></a></figcaption></figure><figure className="wed-hero-print"><img src="/images/event-archive/caftan-portrait-01.webp" alt="Tirage photo réel de Zakaria et Kawtar le jour de leur mariage" width="1400" height="933" loading="eager" data-no-load-motion /><figcaption>Le bonheur tient aussi sur une photo.</figcaption></figure><div className="wed-hero-seal"><strong>100 %</strong><span>moments vécus</span></div></div>
-        </div></section>
-
-        <div className="wed-proof wed-wrap"><div><strong>700+</strong><span>événements réalisés</span></div><a href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer"><strong>{siteConfig.reviews.rating}</strong><span>sur Google · lire les avis <Arrow /></span></a><div><strong>Vos noms, vos couleurs</strong><span>des souvenirs à votre image</span></div></div>
-        <nav className="wed-nav" aria-label="Découvrir nos vrais événements"><a href="#films">Les émotions en vidéo</a><a href="#tirages">Les souvenirs</a><a href="#machines">Les installations</a><a href="#avis-reels">Les avis</a></nav>
-
-        <section id="films" className="catalog-report wed-section wed-films"><div className="wed-wrap"><header className="wed-heading"><div><p className="wed-eyebrow">Le meilleur aperçu, c’est le réel</p><h2>Le jour J,<br /><em>ça ressemble à ça.</em></h2></div><p>Appuyez sur lecture. Retrouvez l’ambiance des réceptions, les invités qui se prennent au jeu et les machines en action.</p></header><div className="wed-film-grid">{films.map((film) => <article className="wed-film-card" key={film.video}><div className="wed-film-media"><video controls muted playsInline preload="none" poster={film.poster} aria-label={film.title + " — " + film.label} data-no-load-motion><source src={film.video} type="video/mp4" /></video><span>{film.tag}</span></div><div className="wed-film-body"><p className="wed-eyebrow">{film.label}</p><h3>{film.title}</h3><p>{film.text}</p><a className="wed-link" href={film.source} target="_blank" rel="noreferrer">Retrouver nos événements sur Instagram <Arrow /></a></div></article>)}</div><p className="wed-small-note">Vidéos originales de nos événements, conservées dans leur format. Utilisez les commandes pour les agrandir et activer le son lorsqu’il est disponible.</p></div></section>
-
-        <section id="tirages" className="catalog-report wed-section wed-souvenirs"><div className="wed-wrap"><header className="wed-heading"><div><p className="wed-eyebrow">Ce qu’ils gardent après la fête</p><h2>La soirée passe.<br /><em>Les souvenirs restent.</em></h2></div><p>Au-delà de l’animation, il y a ce que l’on emporte : un portrait, un mot, une photo que l’on retrouve avec le même sourire.</p></header><div className="wed-photo-grid">{souvenirs.map((photo) => <figure key={photo.image}><a className="wed-photo-open" href={photo.image} target="_blank" rel="noreferrer" aria-label={"Agrandir : " + photo.title}><img src={photo.image} alt={photo.alt} width="900" height="1200" loading="lazy" decoding="async" data-no-load-motion /><span>Agrandir <Arrow /></span></a><figcaption><h3>{photo.title}</h3><p>{photo.text}</p></figcaption></figure>)}</div></div></section>
-
-        <section className="catalog-report wed-section wed-behind"><div className="wed-wrap wed-behind-grid"><div className="wed-behind-film"><video controls muted playsInline preload="none" poster="/images/realisations-machines/installation-photobooth-timelapse.webp" aria-label="L’installation réelle de notre Photobooth en accéléré" data-no-load-motion><source src="/videos/realisations-machines/installation-photobooth-timelapse.mp4" type="video/mp4" /></video></div><div><p className="wed-eyebrow">La confiance, aussi dans les coulisses</p><h2>Avant le premier sourire,<br /><em>il y a notre équipe.</em></h2><p>Une animation réussie se prépare. Voici l’installation réelle de notre matériel, avant l’arrivée des invités.</p><ul><li><strong>Un emplacement pensé ensemble</strong><span>Accès, espace et alimentation sont cadrés avant votre événement.</span></li><li><strong>Un univers qui vous ressemble</strong><span>Le visuel photo ou vidéo est préparé selon votre formule.</span></li><li><strong>Un accompagnement défini</strong><span>Installation et présence sur place sont précisés dans votre devis.</span></li></ul><a className="wed-link" href="/a-propos/">Rencontrer MySelfieBooth <Arrow /></a></div></div></section>
-
-        <section id="machines" className="catalog-report wed-section wed-installations"><div className="wed-wrap"><header className="wed-heading"><div><p className="wed-eyebrow">Nos machines, dans la vraie vie</p><h2>Du matériel que vous<br /><em>pouvez reconnaître.</em></h2></div><p>Des photos de nos propres équipements installés sur place. Pour choisir aussi avec les yeux.</p></header><div className="wed-machine-grid">{installations.map((machine) => <figure key={machine.image}><div><img src={machine.image} alt={machine.alt} width="900" height="1200" loading="lazy" decoding="async" data-no-load-motion /></div><figcaption><h3>{machine.title}</h3><a className="wed-link" href={machine.href}>Découvrir cette animation <Arrow /></a></figcaption></figure>)}</div><div className="wed-more"><p>Photobooth, miroir, 360 ou Vogue : trouvez l’expérience qui correspond à votre réception.</p><a className="wed-button" href="/prestations/">Comparer les animations <Arrow /></a></div></div></section>
-
-        <section id="avis-reels" className="catalog-report wed-section wed-reviews"><div className="wed-wrap"><header className="wed-heading"><div><p className="wed-eyebrow">Ils nous ont confié leur événement</p><h2>Leurs mots,<br /><em>tout simplement.</em></h2></div><a className="wed-link" href={siteConfig.reviewsUrl} target="_blank" rel="noreferrer">Lire les avis Google <Arrow /></a></header><div className="wed-review-grid">{reviews.map((review) => <figure key={review.name}><span className="wed-stars" aria-label="5 étoiles sur 5">★★★★★</span><blockquote>« {review.text} »</blockquote><figcaption><strong>{review.name}</strong><span>Avis Google · extrait</span></figcaption></figure>)}</div></div></section>
-
-        <section className="catalog-report wed-instagram"><div className="wed-wrap"><div><p className="wed-eyebrow">Les événements continuent</p><h2>Encore plus de moments<br /><em>sur Instagram.</em></h2><p>Nos mariages, les nouvelles installations et les petits instants que l’on aime partager.</p></div><a href={instagramUrl} target="_blank" rel="noreferrer" className="wed-button">@myselfiebooth_paris <Arrow /></a></div></section>
-        <section className="catalog-report wed-final"><div className="wed-wrap"><p className="wed-eyebrow">Et si la prochaine histoire était la vôtre ?</p><h2>Imaginons les souvenirs<br /><em>de votre mariage.</em></h2><p>Votre date, votre lieu, vos envies. Parlons de ce qui rendra votre réception unique.</p><div className="wed-actions"><a className="wed-button" href={siteConfig.quoteUrl}>Préparer mon devis <Arrow /></a><a className="wed-link" href={siteConfig.phoneHref}>{siteConfig.phoneLabel} <Arrow /></a></div></div></section>
+    <Layout
+      metaProps={{
+        title:
+          "Réalisations Photobooth : Mariages & Entreprises | MySelfieBooth",
+        description:
+          "Découvrez nos événements en photos et vidéos : mariages, galas, soirées et activation Sephora. Photobooth, Miroirbooth, Vogue Booth et 360 en action.",
+        ogUrl: "/realisations/",
+        ogImage: "/images/event-archive/goldbooth-gala.webp",
+        ogImageAlt: "Photobooth et miroir MySelfieBooth installés pour un gala",
+        jsonLd: [
+          breadcrumbJsonLd([
+            { label: "Accueil", href: "/" },
+            { label: "Réalisations", href: "/realisations/" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "Les événements MySelfieBooth",
+            url: `${siteConfig.baseUrl}/realisations/`,
+            description:
+              "Photos et vidéos de mariages, réceptions et événements professionnels avec les animations MySelfieBooth.",
+          },
+        ],
+      }}
+    >
+      <div className="realisations-premium" ref={pageRef}>
+        <section
+          className="marketing-realisations rl-hero"
+          aria-labelledby="rl-title"
+        >
+          <div className="rl-wrap rl-hero-grid">
+            <div className="rl-hero-copy">
+              <p className="rl-eyebrow">
+                <span /> LE CARNET D'ÉVÉNEMENTS
+              </p>
+              <h1 id="rl-title">
+                Vos événements.
+                <br />
+                Nos plus beaux
+                <br />
+                <em>souvenirs.</em>
+              </h1>
+              <p>
+                Mariages, galas, activations de marque. Des regards, du
+                mouvement et ce petit moment où tout le monde se prend au jeu.
+              </p>
+              <div className="rl-actions">
+                <a className="rl-button" href="#films">
+                  Explorer les réalisations <Arrow down />
+                </a>
+                <a className="rl-text-link" href={siteConfig.quoteUrl}>
+                  Parlons de votre événement <Arrow />
+                </a>
+              </div>
+              <div className="rl-hero-bottom">
+                <span>PHOTO · VIDÉO · ÉMOTIONS</span>
+                <span>Paris & Île-de-France</span>
+              </div>
+            </div>
+            <div className="rl-hero-art">
+              <button
+                type="button"
+                className="rl-opening"
+                onClick={() => setActiveId(openingFilm.id)}
+                aria-label="Voir le film de Cynthia et Ashok"
+              >
+                <Photo item={openingFilm} priority />
+                <span className="rl-opening-top">
+                  LEUR JOUR. LEUR COUVERTURE.
+                </span>
+                <span className="rl-opening-caption">
+                  <span>
+                    <small>VOGUE BOOTH · MARIAGE</small>
+                    <strong>Cynthia & Ashok</strong>
+                  </span>
+                  <span className="rl-play">
+                    <Play />
+                  </span>
+                </span>
+              </button>
+              <figure className="rl-hero-print">
+                <img
+                  src="/images/event-archive/caftan-portrait-01.webp"
+                  alt="Portrait imprimé de Zakaria et Kawtar le jour de leur mariage"
+                  width="1400"
+                  height="933"
+                  loading="eager"
+                  decoding="async"
+                  data-no-load-motion
+                />
+                <figcaption>
+                  Les instants passent. Les photos restent.
+                </figcaption>
+              </figure>
+              <span className="rl-art-note">L'INSTANT QUI VOUS RESSEMBLE.</span>
+            </div>
+          </div>
+        </section>
+        <div className="rl-strip">
+          <span>Des invités qui participent.</span>
+          <span aria-hidden="true">✧</span>
+          <span>Des souvenirs qui se partagent.</span>
+          <span aria-hidden="true">✧</span>
+          <span>Une expérience à votre image.</span>
+        </div>
+        <section
+          className="marketing-realisations rl-work rl-section"
+          id="films"
+        >
+          <div className="rl-wrap">
+            <header className="rl-heading">
+              <div>
+                <p className="rl-eyebrow">01 / LES HISTOIRES</p>
+                <h2>
+                  À chaque événement,
+                  <br />
+                  <em>son énergie.</em>
+                </h2>
+              </div>
+              <p>
+                Un mariage qui fait danser les générations. Une marque qui crée
+                la rencontre. Choisissez un univers, puis entrez dans
+                l'événement.
+              </p>
+            </header>
+            <div className="rl-filter-row">
+              <div
+                className="rl-filters"
+                role="group"
+                aria-label="Filtrer les réalisations par événement"
+              >
+                {categories.map((value) => (
+                  <button
+                    key={value}
+                    type="button"
+                    aria-pressed={category === value}
+                    onClick={() => setCategory(value)}
+                  >
+                    {value}
+                  </button>
+                ))}
+              </div>
+              <p aria-live="polite" aria-atomic="true">
+                {selectedProjects.length} réalisation
+                {selectedProjects.length > 1 ? "s" : ""}
+              </p>
+            </div>
+            <div
+              className={`rl-project-grid ${category !== "Tout" ? "is-filtered" : ""}`}
+              id="rl-projects"
+            >
+              {selectedProjects.map((project, index) => (
+                <article
+                  className={`rl-project ${project.wide && category === "Tout" ? "is-wide" : ""}`}
+                  key={project.id}
+                >
+                  <button
+                    className="rl-project-open"
+                    type="button"
+                    onClick={() => setActiveId(project.id)}
+                    aria-label={`${project.video ? "Lire le film" : "Agrandir les photos"} : ${project.title}`}
+                  >
+                    <div className="rl-project-media">
+                      <Photo item={project} />
+                      <span className="rl-project-tag">{project.device}</span>
+                      <span className="rl-project-action">
+                        {project.video ? (
+                          <>
+                            <Play /> Voir le film
+                          </>
+                        ) : (
+                          <>
+                            Voir les photos <Arrow />
+                          </>
+                        )}
+                      </span>
+                    </div>
+                    <div className="rl-project-caption">
+                      <div>
+                        <p>{project.subtitle}</p>
+                        <h3>{project.title}</h3>
+                      </div>
+                      <span className="rl-project-index">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                  </button>
+                </article>
+              ))}
+            </div>
+            <div className="rl-work-footer">
+              <p>Votre événement mérite aussi son histoire.</p>
+              <a className="rl-text-link" href={siteConfig.quoteUrl}>
+                Imaginons la vôtre <Arrow />
+              </a>
+            </div>
+          </div>
+        </section>
+        <section
+          className="marketing-realisations rl-keepsakes rl-section"
+          id="tirages"
+        >
+          <div className="rl-wrap">
+            <header className="rl-heading">
+              <div>
+                <p className="rl-eyebrow">02 / CE QUI RESTE</p>
+                <h2>
+                  Plus qu'une photo.
+                  <br />
+                  <em>Un petit morceau de la fête.</em>
+                </h2>
+              </div>
+              <p>
+                Le tirage que l'on affiche. Le livre que l'on ouvre à nouveau.
+                Le détail que l'on garde avec soi.
+              </p>
+            </header>
+            <div className="rl-keepsake-grid">
+              {keepsakes.map((item, index) => (
+                <figure key={item.id} data-reveal>
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(item.id)}
+                    aria-label={`Agrandir : ${item.title}`}
+                  >
+                    <Photo item={item} />
+                    <span>
+                      <Arrow />
+                    </span>
+                  </button>
+                  <figcaption>
+                    <span className="rl-keepsake-number">0{index + 1}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section
+          className="marketing-realisations rl-backstage rl-section"
+          id="machines"
+        >
+          <div className="rl-wrap rl-backstage-grid">
+            <button
+              className="rl-backstage-media"
+              type="button"
+              onClick={() => setActiveId(backstage.id)}
+              aria-label="Voir l'installation du Photobooth en vidéo"
+            >
+              <Photo item={backstage} />
+              <span className="rl-backstage-play">
+                <span className="rl-play">
+                  <Play />
+                </span>
+                <span>
+                  Dans les coulisses
+                  <br />
+                  <strong>Voir l'installation</strong>
+                </span>
+              </span>
+            </button>
+            <div className="rl-backstage-copy">
+              <p className="rl-eyebrow">03 / AVANT LE PREMIER SOURIRE</p>
+              <h2>
+                Vous profitez.
+                <br />
+                <em>On prépare le reste.</em>
+              </h2>
+              <p>
+                Derrière une animation fluide, il y a une équipe, une
+                préparation et des détails qui comptent. Découvrez notre
+                installation, avant l'arrivée de vos invités.
+              </p>
+              <ol>
+                <li>
+                  <span>01</span>
+                  <div>
+                    <h3>Le bon emplacement.</h3>
+                    <p>
+                      Les accès, l'espace et l'alimentation sont définis avec
+                      vous.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span>02</span>
+                  <div>
+                    <h3>Votre univers, jusque sur la photo.</h3>
+                    <p>
+                      La personnalisation est préparée selon la formule choisie.
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <span>03</span>
+                  <div>
+                    <h3>Prêt pour le premier invité.</h3>
+                    <p>
+                      L'installation et les tests précèdent l'ouverture de
+                      l'animation.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+              <a href="/a-propos/" className="rl-text-link">
+                Rencontrer l'équipe <Arrow />
+              </a>
+            </div>
+          </div>
+        </section>
+        <section
+          className="marketing-realisations rl-reviews rl-section"
+          id="avis-reels"
+        >
+          <div className="rl-wrap">
+            <header className="rl-heading">
+              <div>
+                <p className="rl-eyebrow">04 / LEURS MOTS</p>
+                <h2>
+                  Ce qu'ils en gardent.
+                  <br />
+                  <em>Ce qu'ils en disent.</em>
+                </h2>
+              </div>
+              <a
+                href={siteConfig.reviewsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="rl-text-link"
+              >
+                Consulter les avis Google <Arrow />
+              </a>
+            </header>
+            <div className="rl-reviews-grid">
+              {reviews.map((review) => (
+                <figure key={review.name} data-reveal>
+                  <span className="rl-quote-mark" aria-hidden="true">
+                    “
+                  </span>
+                  <blockquote>{review.text}</blockquote>
+                  <figcaption>
+                    <strong>{review.name}</strong>
+                    <span>Avis Google · extrait</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="marketing-realisations rl-discover">
+          <div className="rl-wrap">
+            <p>Vous avez repéré votre animation ?</p>
+            <div>
+              {[
+                ["Photobooth", "/prestations/photobooth/"],
+                ["Miroirbooth", "/prestations/miroirbooth/"],
+                ["Vogue Booth", "/prestations/voguebooth/"],
+                ["360 Booth", "/prestations/videobooth/"],
+              ].map(([label, href]) => (
+                <a key={href} href={href}>
+                  {label}
+                  <Arrow />
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="marketing-realisations rl-final">
+          <div className="rl-wrap">
+            <p className="rl-eyebrow">
+              LA PROCHAINE HISTOIRE COMMENCE AVEC VOUS.
+            </p>
+            <h2>
+              Et si, cette fois,
+              <br />
+              c'était <em>votre événement ?</em>
+            </h2>
+            <p>
+              Une date, un lieu, une envie. Parlons des souvenirs que vous
+              aimeriez créer.
+            </p>
+            <div className="rl-actions">
+              <a className="rl-button" href={siteConfig.quoteUrl}>
+                Imaginons mon événement <Arrow />
+              </a>
+              <a className="rl-text-link" href={siteConfig.phoneHref}>
+                {siteConfig.phoneLabel} <Arrow />
+              </a>
+            </div>
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="rl-instagram"
+            >
+              Suivre les prochains événements sur Instagram <Arrow />
+            </a>
+          </div>
+        </section>
+        <MediaViewer
+          activeId={activeId}
+          onClose={() => setActiveId(null)}
+          onChange={setActiveId}
+        />
       </div>
     </Layout>
   );
