@@ -40,16 +40,35 @@ for (const [key, [price, label, booking]] of Object.entries(offers)) {
     `${key}: no video resource in the initial HTML`,
   );
   const images = [...main.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]);
-  assert.ok(images.length >= 8, `${key}: keep the page focused on imagery`);
+  assert.ok(
+    images.length === 6,
+    `${key}: hero and five gallery images without recommendation cards`,
+  );
   const gallery = main.match(
     /<section id="experience"[^>]*>([\s\S]*?)<\/section>/,
   )?.[1];
   assert.ok(gallery, `${key}: machine gallery exists`);
   assert.equal(
     [...gallery.matchAll(/<figure\b/g)].length,
-    3,
-    `${key}: consistent three-view gallery`,
+    5,
+    `${key}: one gallery including personalization`,
   );
+  assert.equal(
+    [...main.matchAll(/<section\b/g)].length,
+    3,
+    `${key}: three main sections only`,
+  );
+  for (const anchor of [
+    "personnalisation",
+    "formules",
+    "installation",
+    "questions",
+    "autres-experiences",
+  ])
+    assert.ok(
+      ids.includes(anchor),
+      `${key}: preserve existing anchor ${anchor}`,
+    );
   const previews = [...gallery.matchAll(/data-preview="([^"]+)"/g)];
   assert.equal(
     previews.length,
@@ -137,5 +156,5 @@ for (const [key, [price, label, booking]] of Object.entries(offers)) {
   );
 }
 console.log(
-  "Machine pages OK: 6 offers, consistent galleries, lightweight previews, SEO, FAQ, anchors and concise copy.",
+  "Machine pages OK: 6 offers, three sections, unified galleries, lightweight previews, SEO, FAQ, anchors and concise copy.",
 );

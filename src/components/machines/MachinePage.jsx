@@ -39,15 +39,11 @@ function Heading({ eyebrow, children, text }) {
   );
 }
 
-function MediaCard({ media, onOpen, custom = false }) {
+function MediaCard({ media, onOpen }) {
   const responsive = media.src.endsWith("-900.webp");
   return (
     <figure
-      className={
-        custom
-          ? styles.customCard
-          : `${styles.galleryCard} ${media.featured ? styles.featuredCard : ""}`
-      }
+      className={`${styles.galleryCard} ${media.featured ? styles.featuredCard : ""}`}
       data-reveal
     >
       {media.label && <p className={styles.galleryRole}>{media.label}</p>}
@@ -65,11 +61,9 @@ function MediaCard({ media, onOpen, custom = false }) {
               : undefined
           }
           sizes={
-            custom
+            media.featured
               ? "(max-width: 760px) 100vw, 33vw"
-              : media.featured
-                ? "(max-width: 760px) 100vw, 33vw"
-                : "(max-width: 760px) 50vw, 33vw"
+              : "(max-width: 760px) 50vw, 50vw"
           }
           alt={media.alt}
           width="900"
@@ -83,7 +77,7 @@ function MediaCard({ media, onOpen, custom = false }) {
         </span>
       </button>
       <figcaption>
-        {custom ? <h3>{media.caption}</h3> : <strong>{media.caption}</strong>}
+        <strong>{media.caption}</strong>
         {media.text && <p>{media.text}</p>}
       </figcaption>
     </figure>
@@ -215,7 +209,7 @@ export default function MachinePage({ machineKey }) {
             <p className={styles.headline}>{page.headline}</p>
             <p className={styles.heroIntro}>{page.intro}</p>
             <p className={styles.heroPrice}>
-              {page.rates[0].label}
+              <a href="#formules">{page.rates[0].label}</a>
               <span>
                 {machineKey === "voguebooth"
                   ? "Formule particulière · options sur devis"
@@ -230,9 +224,15 @@ export default function MachinePage({ machineKey }) {
                 Voir les images <Arrow down />
               </a>
             </div>
-            <p className={styles.location}>
-              Paris · Melun · Toute l’Île-de-France
+            <p className={styles.heroFacts}>
+              {page.facts.map(([, value]) => value).join(" · ")}
+              {["videobooth", "air360booth"].includes(machineKey) && (
+                <small>
+                  Selon la configuration et l’espace validé avec le lieu.
+                </small>
+              )}
             </p>
+            <p className={styles.location}>Paris · Melun · Île-de-France</p>
           </div>
           <figure
             className={`${styles.heroVisual} ${machineKey === "air360booth" ? styles.wideVisual : ""}`}
@@ -259,39 +259,21 @@ export default function MachinePage({ machineKey }) {
             </figcaption>
           </figure>
         </section>
-        <div className={styles.facts}>
-          {page.facts.map(([label, value]) => (
-            <div key={label}>
-              <span>{label}</span>
-              <strong>{value}</strong>
-            </div>
-          ))}
-        </div>
-        {["videobooth", "air360booth"].includes(machineKey) && (
-          <p className={styles.capacityNote}>
-            * Selon la configuration et l’espace validé avec le lieu.
-          </p>
-        )}
-        <nav
-          className={styles.sectionNav}
-          aria-label={`Découvrir le ${page.name}`}
-        >
-          <a href="#experience">En images</a>
-          <a href="#personnalisation">À votre image</a>
-          <a href="#formules">Votre formule</a>
-          <a href="#installation">Installation</a>
-          <a href="#questions">Questions</a>
-        </nav>
-
         <section
           id="experience"
           className={`marketing-machine ${styles.section} ${styles.light}`}
         >
           <div className={styles.wrap}>
             <Aliases page={page} section="experience" />
-            <Heading eyebrow="L’expérience, en images">
-              {page.name} en images.
+            <Heading eyebrow="La machine · L’expérience · La personnalisation">
+              Découvrez le {page.name}.
             </Heading>
+            <span
+              id="personnalisation"
+              className={styles.anchor}
+              aria-hidden="true"
+            />
+            <Aliases page={page} section="custom" />
             <div className={styles.visualGrid}>
               {page.gallery.map((item) =>
                 item.preview ? (
@@ -305,188 +287,101 @@ export default function MachinePage({ machineKey }) {
                   <MediaCard key={item.src} media={item} onOpen={setMedia} />
                 ),
               )}
-            </div>
-            <a href="/realisations/" className={styles.textLink}>
-              Toutes nos réalisations <Arrow />
-            </a>
-          </div>
-        </section>
-
-        <section
-          id="personnalisation"
-          className={`marketing-machine ${styles.section} ${styles.custom}`}
-        >
-          <div className={styles.wrap}>
-            <Aliases page={page} section="custom" />
-            <Heading eyebrow="À votre image">{page.customTitle}</Heading>
-            <div className={styles.customGrid}>
               {page.custom.map((item) => (
-                <MediaCard
-                  key={item.src}
-                  media={item}
-                  onOpen={setMedia}
-                  custom
-                />
+                <MediaCard key={item.src} media={item} onOpen={setMedia} />
               ))}
             </div>
-            <a href="/evenements/corporates/" className={styles.textLink}>
-              Votre projet de marque sur mesure <Arrow />
-            </a>
-          </div>
-        </section>
-
-        <section
-          className={`marketing-machine ${styles.contexts}`}
-          aria-label="Pour votre événement"
-        >
-          <div className={styles.wrap}>
-            {page.contexts.map(({ title, href }) => (
-              <a key={title} href={href}>
-                <h2>
-                  {title}
-                  <Arrow />
-                </h2>
+            <div className={styles.galleryLinks}>
+              <a href="/realisations/" className={styles.textLink}>
+                Toutes nos réalisations <Arrow />
               </a>
-            ))}
+              <a href="/evenements/corporates/" className={styles.textLink}>
+                Personnalisation entreprise <Arrow />
+              </a>
+            </div>
           </div>
         </section>
 
         <section
           id="formules"
-          className={`marketing-machine ${styles.section} ${styles.offer}`}
+          className={`marketing-machine ${styles.section}`}
         >
-          <div className={`${styles.wrap} ${styles.offerGrid}`}>
-            <div>
-              <Heading eyebrow="Votre formule">
-                L’essentiel est inclus.
-                <br />
-                Les options, à votre choix.
-              </Heading>
-              <a href={page.bookingUrl} className={styles.primary}>
-                Recevoir mon devis <Arrow />
-              </a>
-              <a href={siteConfig.phoneHref} className={styles.phone}>
-                Un conseil ? {siteConfig.phoneLabel}
-              </a>
-            </div>
-            <div className={styles.offerCard} data-reveal>
-              <Aliases page={page} section="offer" />
-              <p className={styles.eyebrow}>{page.name}</p>
-              <div className={styles.rates}>
-                {page.rates.map((rate) => (
-                  <div key={rate.duration}>
-                    <span>{rate.duration}</span>
-                    <strong>
-                      {rate.price} <small>€</small>
-                    </strong>
-                  </div>
-                ))}
+          <div className={styles.wrap}>
+            <Heading eyebrow="Tarifs & informations pratiques">
+              Votre formule.
+            </Heading>
+            <div className={styles.offerGrid}>
+              <div className={styles.offerDetails}>
+                <Aliases page={page} section="offer" />
+                <div className={styles.rates}>
+                  {page.rates.map((rate) => (
+                    <div key={rate.duration}>
+                      <span>{rate.duration}</span>
+                      <strong>
+                        {rate.price} <small>€</small>
+                      </strong>
+                    </div>
+                  ))}
+                </div>
+                <ul className={styles.included}>
+                  {page.includes.map((text) => (
+                    <li key={text}>{text}</li>
+                  ))}
+                </ul>
+                {page.extras && <p className={styles.extras}>{page.extras}</p>}
+                <p className={styles.rateNote}>{page.rateNote}</p>
+                <span
+                  id="installation"
+                  className={styles.anchor}
+                  aria-hidden="true"
+                />
+                <Aliases page={page} section="installation" />
+                <p className={styles.technical}>{page.technical.join(" · ")}</p>
+                <a href={page.bookingUrl} className={styles.primary}>
+                  Recevoir mon devis <Arrow />
+                </a>
+                <a href={siteConfig.phoneHref} className={styles.phone}>
+                  Un conseil ? {siteConfig.phoneLabel}
+                </a>
               </div>
-              <ul>
-                {page.includes.map((text) => (
-                  <li key={text}>{text}</li>
+              <div id="questions" className={styles.faq}>
+                <h3>Avant de réserver</h3>
+                <span id="faq" className={styles.anchor} aria-hidden="true" />
+                {faq.map(({ question, answer }) => (
+                  <details key={question}>
+                    <summary>{question}</summary>
+                    <p>{answer}</p>
+                  </details>
                 ))}
-              </ul>
-              {page.extras && <p className={styles.extras}>{page.extras}</p>}
-              <p className={styles.rateNote}>{page.rateNote}</p>
+                <p className={styles.usefulLinks}>
+                  Pour vos événements :{" "}
+                  {page.contexts.map(({ title, href }, index) => (
+                    <span key={href}>
+                      {index > 0 && " · "}
+                      <a href={href}>{title}</a>
+                    </span>
+                  ))}
+                  . <a href="/zones-intervention/">Nos zones d’intervention</a>.
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
-
-        <section
-          id="installation"
-          className={`marketing-machine ${styles.installation}`}
-          aria-labelledby="installation-title"
-        >
-          <div className={styles.wrap}>
-            <Aliases page={page} section="installation" />
-            <h2 id="installation-title">L’installation, préparée ensemble.</h2>
-            <ul>
-              {page.technical.map((text) => (
-                <li key={text}>{text}</li>
+            <div id="autres-experiences" className={styles.collectionLinks}>
+              <Aliases page={page} section="related" />
+              <span
+                id="liens-utiles"
+                className={styles.anchor}
+                aria-hidden="true"
+              />
+              <span>À découvrir aussi</span>
+              {page.related.map((key) => (
+                <a key={key} href={machinePages[key].href}>
+                  {machinePages[key].name} <Arrow />
+                </a>
               ))}
-            </ul>
-            <a href="/zones-intervention/" className={styles.textLink}>
-              Paris & Île-de-France <Arrow />
-            </a>
-          </div>
-        </section>
-
-        <section
-          id="questions"
-          className={`marketing-machine ${styles.section} ${styles.faq}`}
-        >
-          <div className={`${styles.wrap} ${styles.faqGrid}`}>
-            <Heading eyebrow="En pratique">Vos questions.</Heading>
-            <div>
-              <span id="faq" className={styles.anchor} aria-hidden="true" />
-              {faq.map(({ question, answer }) => (
-                <details key={question}>
-                  <summary>{question}</summary>
-                  <p>{answer}</p>
-                </details>
-              ))}
+              <a href="/prestations/">
+                Toutes les machines <Arrow />
+              </a>
             </div>
-          </div>
-        </section>
-
-        <section
-          id="autres-experiences"
-          className={`marketing-machine ${styles.section} ${styles.related}`}
-        >
-          <div className={styles.wrap}>
-            <Aliases page={page} section="related" />
-            <span
-              id="liens-utiles"
-              className={styles.anchor}
-              aria-hidden="true"
-            />
-            <Heading eyebrow="La collection">À découvrir aussi.</Heading>
-            <div className={styles.relatedGrid}>
-              {page.related.map((key) => {
-                const other = machinePages[key];
-                return (
-                  <a
-                    key={key}
-                    href={other.href}
-                    className={styles.relatedCard}
-                    data-reveal
-                  >
-                    <div className={styles.relatedImage}>
-                      <img
-                        src={`${aiPath}prestations-2026-${key}.webp`}
-                        alt={`${other.name} MySelfieBooth, ${other.label.toLowerCase()}`}
-                        width="900"
-                        height="600"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-                    <div>
-                      <span className={styles.eyebrow}>{other.label}</span>
-                      <h3>
-                        {other.name}
-                        <Arrow />
-                      </h3>
-                    </div>
-                  </a>
-                );
-              })}
-            </div>
-            <a href="/prestations/" className={styles.textLink}>
-              Comparer les expériences <Arrow />
-            </a>
-          </div>
-        </section>
-        <section
-          className={`marketing-machine ${styles.final}`}
-          aria-labelledby="machine-final-title"
-        >
-          <div className={styles.wrap}>
-            <h2 id="machine-final-title">On crée vos souvenirs ?</h2>
-            <a href={page.bookingUrl} className={styles.primary}>
-              Imaginer mon événement <Arrow />
-            </a>
           </div>
         </section>
       </div>
@@ -494,5 +389,3 @@ export default function MachinePage({ machineKey }) {
     </Layout>
   );
 }
-
-const aiPath = "/images/ai-from-real/";
