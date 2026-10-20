@@ -524,5 +524,33 @@
     "sources": [
       "/images/airbooth.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-scene-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-scene-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air-scene-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air-scene-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
   }
 ]

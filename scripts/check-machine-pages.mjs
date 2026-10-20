@@ -40,7 +40,15 @@ for (const [key, [price, label, booking]] of Object.entries(offers)) {
     `${key}: no video transfer before opening the viewer`,
   );
   const images = [...main.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]);
-  assert.ok(images.length >= 3, `${key}: distinct imagery`);
+  assert.ok(images.length >= 7, `${key}: keep the page focused on imagery`);
+  const wordCount = main
+    .replace(/<[^>]+>/g, " ")
+    .split(/\s+/)
+    .filter(Boolean).length;
+  assert.ok(
+    wordCount <= 550,
+    `${key}: keep copy concise, including FAQ (${wordCount} words)`,
+  );
   assert.ok(
     /fetchPriority="high"/.test(images[0]) && /srcSet=/.test(images[0]),
     `${key}: responsive priority hero`,

@@ -38,6 +38,50 @@ function Heading({ eyebrow, children, text }) {
   );
 }
 
+function MediaCard({ media, onOpen, custom = false }) {
+  const responsive = media.src.endsWith("-900.webp");
+  return (
+    <figure
+      className={custom ? styles.customCard : styles.galleryCard}
+      data-reveal
+    >
+      <button
+        type="button"
+        className={styles.mediaButton}
+        onClick={() => onOpen(media)}
+        aria-label={`${media.video ? "Voir la vidéo" : "Agrandir"} : ${media.caption}`}
+      >
+        <img
+          src={media.src}
+          srcSet={
+            responsive
+              ? `${media.src.replace("-900.webp", "-480.webp")} 480w, ${media.src} 900w`
+              : undefined
+          }
+          sizes={
+            custom
+              ? "(max-width: 760px) 100vw, 33vw"
+              : "(max-width: 760px) 50vw, 50vw"
+          }
+          alt={media.alt}
+          width="900"
+          height="675"
+          loading="lazy"
+          decoding="async"
+        />
+        <span className={styles.mediaAction}>
+          {media.video ? "Voir la vidéo" : "Agrandir"}
+          <Arrow />
+        </span>
+      </button>
+      <figcaption>
+        {custom ? <h3>{media.caption}</h3> : <strong>{media.caption}</strong>}
+        {media.text && <p>{media.text}</p>}
+      </figcaption>
+    </figure>
+  );
+}
+
 function MediaDialog({ media, onClose }) {
   const dialog = useRef(null);
   useEffect(() => {
@@ -174,7 +218,7 @@ export default function MachinePage({ machineKey }) {
                 Demander mon devis <Arrow />
               </a>
               <a href="#experience" className={styles.textLink}>
-                Voir l’expérience <Arrow down />
+                Voir les images <Arrow down />
               </a>
             </div>
             <p className={styles.location}>
@@ -206,7 +250,6 @@ export default function MachinePage({ machineKey }) {
             </figcaption>
           </figure>
         </section>
-
         <div className={styles.facts}>
           {page.facts.map(([label, value]) => (
             <div key={label}>
@@ -215,22 +258,20 @@ export default function MachinePage({ machineKey }) {
             </div>
           ))}
         </div>
-        {(machineKey === "videobooth" || machineKey === "air360booth") && (
+        {["videobooth", "air360booth"].includes(machineKey) && (
           <p className={styles.capacityNote}>
-            * Capacité selon la configuration retenue et l’espace validé avec le
-            lieu.
+            * Selon la configuration et l’espace validé avec le lieu.
           </p>
         )}
-
         <nav
           className={styles.sectionNav}
           aria-label={`Découvrir le ${page.name}`}
         >
-          <a href="#experience">L’expérience</a>
-          <a href="#personnalisation">Personnalisation</a>
-          <a href="#formules">Tarifs & inclusions</a>
+          <a href="#experience">En images</a>
+          <a href="#personnalisation">À votre image</a>
+          <a href="#formules">Votre formule</a>
           <a href="#installation">Installation</a>
-          <a href="#questions">Questions fréquentes</a>
+          <a href="#questions">Questions</a>
         </nav>
 
         <section
@@ -239,70 +280,17 @@ export default function MachinePage({ machineKey }) {
         >
           <div className={styles.wrap}>
             <Aliases page={page} section="experience" />
-            <Heading eyebrow="L’expérience, en vrai" text={page.experienceText}>
+            <Heading eyebrow="L’expérience, en images">
               {page.experienceTitle}
             </Heading>
-            <div className={styles.experienceGrid}>
-              <figure className={styles.proof} data-reveal>
-                <button
-                  type="button"
-                  className={styles.mediaButton}
-                  onClick={() => setMedia(page.proof)}
-                  aria-label={`${page.proof.video ? "Voir la vidéo" : "Agrandir la photo"} : ${page.proof.caption}`}
-                >
-                  <img
-                    src={page.proof.src}
-                    alt={page.proof.alt}
-                    width="600"
-                    height="800"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className={styles.mediaAction}>
-                    <span aria-hidden="true">
-                      {page.proof.video ? "▶" : "+"}
-                    </span>{" "}
-                    {page.proof.video ? "Voir la vidéo" : "Agrandir la photo"}
-                  </span>
-                </button>
-                <figcaption>{page.proof.caption}</figcaption>
-              </figure>
-              <div className={styles.experienceDetails}>
-                <div className={styles.benefits}>
-                  {page.benefits.map(([title, text], i) => (
-                    <article key={title} data-reveal>
-                      <span className={styles.index}>0{i + 1}</span>
-                      <div>
-                        <h3>{title}</h3>
-                        <p>{text}</p>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-                {page.detail && (
-                  <figure className={styles.detailPhoto} data-reveal>
-                    <button
-                      type="button"
-                      onClick={() => setMedia(page.detail)}
-                      aria-label={`Agrandir : ${page.detail.caption}`}
-                    >
-                      <img
-                        src={page.detail.src}
-                        alt={page.detail.alt}
-                        width="900"
-                        height="600"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </button>
-                    <figcaption>{page.detail.caption}</figcaption>
-                  </figure>
-                )}
-                <a href="/realisations/" className={styles.textLink}>
-                  Explorer nos réalisations <Arrow />
-                </a>
-              </div>
+            <div className={styles.visualGrid}>
+              {[page.proof, page.detail].filter(Boolean).map((item) => (
+                <MediaCard key={item.src} media={item} onOpen={setMedia} />
+              ))}
             </div>
+            <a href="/realisations/" className={styles.textLink}>
+              Toutes nos réalisations <Arrow />
+            </a>
           </div>
         </section>
 
@@ -314,28 +302,18 @@ export default function MachinePage({ machineKey }) {
             <Aliases page={page} section="custom" />
             <Heading eyebrow="À votre image">{page.customTitle}</Heading>
             <div className={styles.customGrid}>
-              {page.custom.map(([title, text], i) => (
-                <article key={title} data-reveal>
-                  <div className={styles.customMark} aria-hidden="true">
-                    {["Aa", "◈", "+"][i]}
-                    <span>0{i + 1}</span>
-                  </div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
+              {page.custom.map((item) => (
+                <MediaCard
+                  key={item.src}
+                  media={item}
+                  onOpen={setMedia}
+                  custom
+                />
               ))}
             </div>
-            <div className={styles.brandCallout}>
-              <p>
-                Vous imaginez une expérience de marque ?{" "}
-                <span>
-                  Habillage et scénographie spécifiques sont étudiés sur mesure.
-                </span>
-              </p>
-              <a href="/evenements/corporates/" className={styles.textLink}>
-                Découvrir l’univers entreprise <Arrow />
-              </a>
-            </div>
+            <a href="/evenements/corporates/" className={styles.textLink}>
+              Votre projet de marque sur mesure <Arrow />
+            </a>
           </div>
         </section>
 
@@ -344,12 +322,12 @@ export default function MachinePage({ machineKey }) {
           aria-label="Pour votre événement"
         >
           <div className={styles.wrap}>
-            {page.contexts.map(([title, text, href]) => (
+            {page.contexts.map(({ title, href }) => (
               <a key={title} href={href}>
                 <h2>
-                  {title} <Arrow />
+                  {title}
+                  <Arrow />
                 </h2>
-                <p>{text}</p>
               </a>
             ))}
           </div>
@@ -362,17 +340,12 @@ export default function MachinePage({ machineKey }) {
           <div className={`${styles.wrap} ${styles.offerGrid}`}>
             <div>
               <Heading eyebrow="Votre formule">
-                Une offre claire.
+                L’essentiel est inclus.
                 <br />
-                Un événement bien préparé.
+                Les options, à votre choix.
               </Heading>
-              <p className={styles.offerIntro}>
-                Choisissez votre durée, partagez votre date et votre lieu. Nous
-                précisons les conditions et les options dans une proposition
-                personnalisée.
-              </p>
               <a href={page.bookingUrl} className={styles.primary}>
-                Recevoir ma proposition <Arrow />
+                Recevoir mon devis <Arrow />
               </a>
               <a href={siteConfig.phoneHref} className={styles.phone}>
                 Un conseil ? {siteConfig.phoneLabel}
@@ -391,7 +364,6 @@ export default function MachinePage({ machineKey }) {
                   </div>
                 ))}
               </div>
-              <h3>Ce qui est prévu</h3>
               <ul>
                 {page.includes.map((text) => (
                   <li key={text}>{text}</li>
@@ -405,47 +377,20 @@ export default function MachinePage({ machineKey }) {
 
         <section
           id="installation"
-          className={`marketing-machine ${styles.section} ${styles.light}`}
+          className={`marketing-machine ${styles.installation}`}
+          aria-labelledby="installation-title"
         >
           <div className={styles.wrap}>
             <Aliases page={page} section="installation" />
-            <Heading
-              eyebrow="Avant le jour J"
-              text="Nous vérifions les contraintes du lieu et les détails de votre événement avant de confirmer l’installation."
-            >
-              Le bon emplacement.
-              <br />
-              Le bon accompagnement.
-            </Heading>
-            <div className={styles.technical}>
-              {page.technical.map(([title, text], i) => (
-                <article key={title} data-reveal>
-                  <span className={styles.index}>0{i + 1}</span>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
+            <h2 id="installation-title">L’installation, préparée ensemble.</h2>
+            <ul>
+              {page.technical.map((text) => (
+                <li key={text}>{text}</li>
               ))}
-            </div>
-            <ol className={styles.steps}>
-              <li>
-                <strong>Votre projet</strong>
-                <span>Date, lieu, invités et envies.</span>
-              </li>
-              <li>
-                <strong>Notre proposition</strong>
-                <span>Formule, personnalisation et logistique.</span>
-              </li>
-              <li>
-                <strong>Votre événement</strong>
-                <span>Une installation préparée en amont.</span>
-              </li>
-            </ol>
-            <p className={styles.area}>
-              Paris, Melun et toute l’Île-de-France.{" "}
-              <a href="/zones-intervention/">
-                Consulter les zones d’intervention <Arrow />
-              </a>
-            </p>
+            </ul>
+            <a href="/zones-intervention/" className={styles.textLink}>
+              Paris & Île-de-France <Arrow />
+            </a>
           </div>
         </section>
 
@@ -454,11 +399,7 @@ export default function MachinePage({ machineKey }) {
           className={`marketing-machine ${styles.section} ${styles.faq}`}
         >
           <div className={`${styles.wrap} ${styles.faqGrid}`}>
-            <Heading eyebrow="Les détails qui comptent">
-              Vos questions,
-              <br />
-              nos réponses.
-            </Heading>
+            <Heading eyebrow="En pratique">Vos questions.</Heading>
             <div>
               <span id="faq" className={styles.anchor} aria-hidden="true" />
               {faq.map(({ question, answer }) => (
@@ -482,9 +423,7 @@ export default function MachinePage({ machineKey }) {
               className={styles.anchor}
               aria-hidden="true"
             />
-            <Heading eyebrow="Trouvez votre expérience">
-              Une autre façon de créer des souvenirs.
-            </Heading>
+            <Heading eyebrow="La collection">À découvrir aussi.</Heading>
             <div className={styles.relatedGrid}>
               {page.related.map((key) => {
                 const other = machinePages[key];
@@ -508,37 +447,27 @@ export default function MachinePage({ machineKey }) {
                     <div>
                       <span className={styles.eyebrow}>{other.label}</span>
                       <h3>
-                        {other.name} <Arrow />
+                        {other.name}
+                        <Arrow />
                       </h3>
-                      <p>{other.promise}</p>
                     </div>
                   </a>
                 );
               })}
             </div>
             <a href="/prestations/" className={styles.textLink}>
-              Comparer toutes les expériences <Arrow />
+              Comparer les expériences <Arrow />
             </a>
           </div>
         </section>
-
         <section
           className={`marketing-machine ${styles.final}`}
           aria-labelledby="machine-final-title"
         >
           <div className={styles.wrap}>
-            <p className={styles.eyebrow}>La suite commence avec vous</p>
-            <h2 id="machine-final-title">
-              Et si on créait
-              <br />
-              <span>vos prochains souvenirs ?</span>
-            </h2>
-            <p>Une date, un lieu, une envie. Parlons de votre {page.name}.</p>
+            <h2 id="machine-final-title">On crée vos souvenirs ?</h2>
             <a href={page.bookingUrl} className={styles.primary}>
               Imaginer mon événement <Arrow />
-            </a>
-            <a href={siteConfig.phoneHref} className={styles.textLink}>
-              Parlons-en au {siteConfig.phoneLabel}
             </a>
           </div>
         </section>

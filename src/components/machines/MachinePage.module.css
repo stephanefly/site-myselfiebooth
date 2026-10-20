@@ -300,17 +300,7 @@
 .light .eyebrow {
   color: #80602c;
 }
-.experienceGrid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 70px;
-  align-items: start;
-}
-.proof {
-  max-width: 460px;
-}
-.mediaButton,
-.detailPhoto button {
+.mediaButton {
   display: block;
   border: 0;
   padding: 0;
@@ -346,45 +336,6 @@
 .mediaAction > span {
   font-size: 16px;
 }
-.proof figcaption,
-.detailPhoto figcaption {
-  font-size: 11px;
-  color: #65665b;
-  line-height: 1.5;
-  margin-top: 12px;
-}
-.benefits article {
-  display: flex;
-  gap: 22px;
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #d9d6cb;
-}
-.index {
-  color: #86632b;
-  font-size: 11px;
-  font-weight: 700;
-  padding-top: 4px;
-}
-.benefits h3 {
-  margin-bottom: 9px;
-}
-.benefits p,
-.technical p {
-  font-size: 14px;
-  color: #5b5e53;
-  line-height: 1.8;
-}
-.detailPhoto {
-  margin-top: 30px !important;
-  margin-bottom: 15px !important;
-}
-.detailPhoto button {
-  height: 240px;
-}
-.detailPhoto img {
-  object-fit: contain;
-}
 .experienceDetails > .textLink {
   margin-top: 8px;
 }
@@ -400,20 +351,6 @@
   border-top: 1px solid #444536;
   padding-top: 22px;
 }
-.customMark {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-  color: var(--gold);
-  font-size: 44px;
-  font-weight: 400;
-}
-.customMark > span {
-  font-size: 10px;
-  color: #aaa999;
-  align-self: start;
-}
 .customGrid h3 {
   margin-top: 15px;
   margin-bottom: 14px;
@@ -422,28 +359,6 @@
   color: #bdbfb2;
   font-size: 14px;
   line-height: 1.8;
-}
-.brandCallout {
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #383a2f;
-  margin-top: 50px;
-  padding-top: 28px;
-}
-.brandCallout p {
-  font-size: 16px;
-}
-.brandCallout p > span {
-  display: block;
-  color: #bdbfb2;
-  font-size: 13px;
-  margin-top: 4px;
-}
-.brandCallout a {
-  flex-shrink: 0;
-  color: var(--gold);
 }
 .contexts {
   background: #e6dfcf;
@@ -484,12 +399,6 @@
 }
 .offer .heading {
   margin-bottom: 25px;
-}
-.offerIntro {
-  max-width: 440px;
-  color: #bbbdaf;
-  font-size: 15px;
-  margin-bottom: 30px !important;
 }
 .phone {
   display: block;
@@ -569,49 +478,6 @@
   margin-top: 24px !important;
   padding-top: 18px;
   border-top: 1px solid #3d4032;
-}
-.technical {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 35px;
-}
-.technical h3 {
-  margin-top: 17px;
-  margin-bottom: 15px;
-}
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  list-style: none;
-  padding: 30px 0 0;
-  margin: 45px 0 0;
-  border-top: 1px solid #d2cfbf;
-  gap: 35px;
-}
-.steps li {
-  border-left: 2px solid #b79955;
-  padding-left: 20px;
-}
-.steps strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-}
-.steps span {
-  display: block;
-  font-size: 12px;
-  color: #656858;
-  margin-top: 6px;
-}
-.area {
-  font-size: 12px;
-  color: #646754;
-  margin-top: 34px !important;
-}
-.area a {
-  color: #5c4b22;
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 .faq {
   background: #ece8dc;
@@ -837,9 +703,6 @@
   .heroIntro {
     font-size: 14px;
   }
-  .experienceGrid {
-    gap: 40px;
-  }
   .offerGrid {
     gap: 45px;
   }
@@ -854,11 +717,6 @@
   }
   .rates strong {
     font-size: 45px;
-  }
-  .brandCallout {
-    align-items: start;
-    flex-direction: column;
-    gap: 15px;
   }
   .section {
     padding-block: 80px;
@@ -983,43 +841,23 @@
     font-size: 14px;
     margin-top: 20px !important;
   }
-  .experienceGrid,
   .offerGrid,
   .faqGrid {
     grid-template-columns: 1fr;
     gap: 35px;
   }
-  .proof {
-    width: min(100%, 430px);
-    margin-inline: auto !important;
-  }
   .mediaButton {
     max-height: 500px;
   }
-  .benefits article {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-  }
-  .detailPhoto button {
-    height: 260px;
-  }
-  .customGrid,
-  .technical {
+  .customGrid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
   .customGrid article {
     padding-top: 12px;
   }
-  .customMark {
-    height: 65px;
-    font-size: 36px;
-  }
   .customGrid h3 {
     margin-top: 5px;
-  }
-  .brandCallout {
-    margin-top: 35px;
   }
   .contexts {
     padding-block: 30px;
@@ -1042,18 +880,6 @@
   }
   .rates strong {
     font-size: 48px;
-  }
-  .technical article {
-    padding-bottom: 20px;
-    border-bottom: 1px solid #d2cfbf;
-  }
-  .technical h3 {
-    margin-top: 10px;
-  }
-  .steps {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 15px;
   }
   .faq .heading {
     margin-bottom: 0;
@@ -1112,4 +938,229 @@
 }
 :global(body):has(.page) :global(.site-breadcrumbs a) {
   color: #c9c7b7;
+}
+
+/* Images lead; copy is limited to captions, offers and the FAQ. */
+.page .section {
+  padding-block: 64px;
+}
+.heading {
+  margin-bottom: 30px;
+}
+.heroVisual {
+  height: 640px;
+}
+.visualGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+.galleryCard,
+.customCard {
+  min-width: 0;
+}
+.galleryCard .mediaButton {
+  height: 520px;
+  aspect-ratio: auto;
+  background: #e2ddd1;
+}
+.galleryCard figcaption {
+  margin-top: 13px;
+  color: #5c6052;
+  font-size: 12px;
+}
+.galleryCard figcaption strong {
+  font-weight: 500;
+}
+.visualGrid + .textLink {
+  margin-top: 20px;
+}
+.mediaAction {
+  gap: 12px;
+  padding: 9px 14px;
+  font-size: 11px;
+  bottom: 15px;
+  left: 15px;
+}
+.mediaAction svg {
+  width: 15px;
+  height: 15px;
+}
+.customGrid {
+  gap: 24px;
+}
+.customGrid:has(> :nth-child(2):last-child) {
+  grid-template-columns: 1fr 1fr;
+}
+.customCard .mediaButton {
+  aspect-ratio: 4/3;
+  background: #25251f;
+}
+.customCard img {
+  object-fit: contain;
+}
+.customCard figcaption {
+  padding-top: 18px;
+}
+.customCard h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+}
+.customCard p {
+  margin: 0;
+  color: #c3c5b6;
+  font-size: 12px;
+}
+.custom > div > .textLink {
+  margin-top: 25px;
+  color: var(--gold);
+}
+.contexts {
+  padding-block: 27px;
+}
+.offerCard ul {
+  padding-top: 16px;
+}
+.installation {
+  background: #e8e2d3;
+  color: #292e20;
+  padding-block: 28px;
+}
+.installation > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.installation h2 {
+  font-size: 18px;
+  letter-spacing: -0.015em;
+}
+.installation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.installation li {
+  font-size: 11px;
+  color: #505542;
+}
+.installation li::before {
+  content: "✓";
+  color: #71602f;
+  margin-right: 7px;
+}
+.installation a {
+  font-size: 11px;
+}
+.final {
+  padding-block: 60px;
+}
+.final h2 {
+  margin-top: 0;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+}
+@media (max-width: 1100px) {
+  .heroVisual {
+    height: 650px;
+  }
+  .galleryCard .mediaButton {
+    height: 430px;
+  }
+}
+@media (max-width: 760px) {
+  .page .section {
+    padding-block: 42px;
+  }
+  .heading {
+    margin-bottom: 24px;
+  }
+  .heading h2 {
+    font-size: 29px;
+  }
+  .heroVisual {
+    height: 290px;
+  }
+  .wideVisual {
+    height: auto;
+  }
+  .visualGrid {
+    gap: 12px;
+  }
+  .galleryCard .mediaButton {
+    height: 260px;
+  }
+  .galleryCard figcaption {
+    font-size: 10px;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+  .galleryCard .mediaAction {
+    left: 8px;
+    bottom: 9px;
+    padding: 8px 9px;
+    gap: 5px;
+    font-size: 10px;
+  }
+  .galleryCard .mediaAction svg {
+    display: none;
+  }
+  .customGrid,
+  .customGrid:has(> :nth-child(2):last-child) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .customCard .mediaButton {
+    height: 260px;
+    aspect-ratio: auto;
+  }
+  .customCard figcaption {
+    padding-top: 12px;
+  }
+  .customCard h3 {
+    font-size: 18px;
+  }
+  .customCard p {
+    font-size: 12px;
+  }
+  .contexts {
+    padding-block: 8px;
+  }
+  .contexts a {
+    padding-block: 16px;
+  }
+  .contexts h2 {
+    font-size: 17px;
+  }
+  .offerGrid {
+    gap: 28px;
+  }
+  .installation > div {
+    display: block;
+  }
+  .installation h2 {
+    font-size: 18px;
+  }
+  .installation ul {
+    display: block;
+    margin-top: 13px;
+  }
+  .installation li + li {
+    margin-top: 7px;
+  }
+  .installation .textLink {
+    margin-top: 10px;
+  }
+  .final {
+    padding-block: 40px;
+  }
+}
+@media (max-width: 360px) {
+  .galleryCard .mediaButton {
+    height: 220px;
+  }
 }

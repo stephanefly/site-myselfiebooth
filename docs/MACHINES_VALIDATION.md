@@ -12,12 +12,31 @@ page, catalogue partagé, prix, liens de réservation et autres pages sont prés
 Les anciennes ancres explicites, les ancres des sections génériques et `#faq`
 restent disponibles.
 
-Chaque page présente son expérience, des médias réels, la personnalisation,
-les usages, les formules, les contraintes du lieu, cinq questions dédiées et
-deux alternatives. Les visuels iPad Booth et Air360 ont été créés à partir des
-photos des machines ; leur provenance est tracée dans le manifeste interne.
-La rubrique « L’expérience, en vrai » utilise exclusivement des médias réels.
-Les vidéos sont chargées seulement après ouverture de la fenêtre de lecture.
+La dernière révision donne la priorité aux images : galerie de deux grandes
+vues, deux ou trois cartes de personnalisation illustrées, légendes courtes,
+offre et installation condensées. Les détails restent disponibles dans les
+cinq réponses de FAQ, raccourcies sans supprimer les conditions essentielles.
+Les photos réelles et les visuels créés à partir des machines sont tracés dans
+le manifeste interne. Aucun visuel de projection n’est présenté comme une
+réalisation d’un nouveau client. Les vidéos se chargent uniquement à l’ouverture.
+
+## Réduction du texte et place des images
+
+Comparaison Playwright à 1440 px, FAQ fermée, sur le contenu propre à la page.
+
+| Page | Mots visibles avant → après | Images avant → après |
+| --- | ---: | ---: |
+| Photobooth | 682 → 321 | 5 → 8 |
+| Miroirbooth | 685 → 320 | 5 → 8 |
+| 360 Booth | 695 → 339 | 5 → 8 |
+| Air360 Booth | 706 → 344 | 5 → 8 |
+| Vogue Booth | 709 → 330 | 5 → 8 |
+| iPad Booth | 690 → 325 | 4 → 7 |
+
+Le texte visible diminue de 51 à 53 %. La hauteur du contenu diminue d’environ
+30 % sur ordinateur. Même en comptant les réponses de FAQ, chaque page reste
+sous 450 mots. Le contrôle automatique protège un minimum de sept images
+distinctes et un plafond de 550 mots, FAQ comprise.
 
 ## Offres conservées
 
@@ -45,7 +64,7 @@ valider avant confirmation. Personnalisations complexes et options sur devis.
 - `node scripts/check-corporate.mjs` et `node scripts/check-realisations.mjs` :
   réussis.
 - Playwright / Chromium : 6 pages × 4 largeurs (1440, 768, 390, 320 px).
-  Les 12 cas mobiles ont été rejoués après la dernière adaptation du hero.
+  Les 24 cas ont été vérifiés après la révision visuelle.
   Aucun débordement horizontal, média manquant, échec HTTP local ou erreur JS.
   Vérification de la FAQ au clavier, des ancres sous la navigation fixe,
   ouverture des photos/vidéos, métadonnées vidéo, fermeture par Échap et retour
@@ -64,15 +83,15 @@ Core Web Vitals.
 
 | Page | Performance mobile | SEO | Bonnes pratiques | LCP mobile | CLS |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Photobooth | 97 | 100 | 100 | 2,63 s | 0 |
-| Miroirbooth | 95 | 100 | 100 | 3,00 s | 0 |
-| 360 Booth | 95 | 100 | 100 | 3,01 s | 0 |
-| Air360 Booth | 95 | 100 | 100 | 3,00 s | 0 |
-| Vogue Booth | 94 | 100 | 100 | 3,15 s | 0 |
-| iPad Booth | 96 | 100 | 100 | 2,70 s | 0 |
+| Photobooth | 96 | 100 | 100 | 2,78 s | 0 |
+| Miroirbooth | 92 | 100 | 100 | 3,31 s | 0 |
+| 360 Booth | 93 | 100 | 100 | 3,23 s | 0 |
+| Air360 Booth | 92 | 100 | 100 | 3,38 s | 0 |
+| Vogue Booth | 91 | 100 | 100 | 3,38 s | 0 |
+| iPad Booth | 95 | 100 | 100 | 2,93 s | 0 |
 
 Photobooth desktop : performance 100, SEO 100, bonnes pratiques 100,
-LCP 0,55 s, CLS 0. Blocage JavaScript mobile mesuré entre 24 et 61 ms.
+LCP 0,55 s, CLS 0. Blocage JavaScript mobile mesuré entre 21 et 65 ms.
 
 L’accessibilité Lighthouse globale reste à 96 : les signalements concernent
 le contraste du pré-footer et le contraste/libellé du CTA du footer partagés,
