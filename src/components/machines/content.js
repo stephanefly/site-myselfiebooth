@@ -1,6 +1,6 @@
 import { machines } from "../../data/catalog";
 
-// Catalogue offers preserved; detailed conditions remain in the visible FAQ.
+// Catalogue offers preserved. Media show the relevant device; options remain qualified.
 const details = {
   photobooth: {
     number: "01",
@@ -18,25 +18,9 @@ const details = {
     promise: "Le plaisir de repartir avec sa photo.",
     facts: [
       ["Le souvenir", "Photos & tirages"],
-      ["La formule", "5 h d’animation"],
+      ["Le dispositif", "Borne photo"],
       ["L’accompagnement", "Animateur inclus"],
     ],
-    experienceTitle: "Les sourires, en images.",
-    proof: {
-      src: "/images/collection-2026/photobooth-noir-or-900.webp",
-      alt: "Photobooth noir et doré MySelfieBooth installé sur un tapis rouge dans une salle de réception",
-      caption: "Notre Photobooth, prêt à accueillir vos invités",
-      video:
-        "/videos/realisations-machines/installation-photobooth-timelapse.mp4",
-      videoLabel: "Voir l’installation du Photobooth",
-      transcript:
-        "L’équipe installe la borne photo, prépare l’espace de prise de vue et effectue les réglages avant l’arrivée des invités.",
-    },
-    detail: {
-      src: "/images/collection-2026/exemples-tirages-personnalises-900.webp",
-      alt: "Exemples réels de tirages photo avec cadres et compositions personnalisés",
-      caption: "Des tirages à l’image de votre événement",
-    },
     customTitle: "Vos couleurs. Vos souvenirs.",
     custom: [
       {
@@ -44,12 +28,6 @@ const details = {
         caption: "Votre cadre photo",
         text: "Prénoms, date ou logo sur le modèle personnalisé.",
         alt: "Exemples de cadres photo personnalisés pour une réception",
-      },
-      {
-        src: "/images/ai-from-real/prestations-2026-photobooth.webp",
-        caption: "Votre espace photo",
-        text: "Décor et habillage spécifiques sur étude et devis.",
-        alt: "Photobooth noir et doré présenté dans un espace de réception",
       },
       {
         src: "/images/option-portecle.webp",
@@ -121,6 +99,31 @@ const details = {
       custom: [],
       installation: ["ile-de-france", "logistique"],
     },
+    gallery: [
+      {
+        src: "/images/collection-2026/photobooth-noir-or-900.webp",
+        alt: "Photobooth noir et doré MySelfieBooth installé sur un tapis rouge dans une salle de réception",
+        caption: "La borne photo noire et dorée",
+        label: "La machine",
+      },
+      {
+        src: "/images/machines-premium/photobooth-apercu.webp",
+        alt: "Séquence réelle le photobooth en réception MySelfieBooth",
+        label: "En action",
+        caption: "Le Photobooth en réception",
+        preview: "/videos/machines-premium/photobooth-apercu.mp4",
+        video: "/videos/machines-premium/photobooth-sequence.mp4",
+        videoLabel: "Animation Le Photobooth en réception",
+        transcript:
+          "La caméra présente la borne photo noire et dorée installée dans une salle de réception.",
+      },
+      {
+        src: "/images/collection-2026/exemples-tirages-personnalises-900.webp",
+        alt: "Exemples réels de tirages photo avec cadres et compositions personnalisés",
+        caption: "Les tirages personnalisés",
+        label: "Vos souvenirs",
+      },
+    ],
   },
   miroirbooth: {
     number: "02",
@@ -138,43 +141,22 @@ const details = {
     promise: "Une animation qui fait aussi partie du décor.",
     facts: [
       ["Le souvenir", "Photos & tirages"],
-      ["L’expérience", "Miroir tactile"],
+      ["Le dispositif", "Miroir tactile"],
       ["L’accompagnement", "Animateur inclus"],
     ],
-    experienceTitle: "Le miroir fait son entrée.",
-    proof: {
-      src: "/images/realisations-machines/miroirbooth-invites.webp",
-      alt: "Des invités prennent la pose devant le Miroirbooth lors d’une réception",
-      caption: "Le Miroirbooth, au milieu des invités",
-      video: "/videos/realisations-machines/miroirbooth-invites.mp4",
-      videoLabel: "Voir le Miroirbooth en réception",
-      transcript:
-        "Des invités se rassemblent devant le miroir photo interactif, prennent la pose et découvrent l’animation pendant une réception.",
-    },
-    detail: {
-      src: "/images/collection-2026/miroir-photo-dore-900.webp",
-      alt: "Miroir photo MySelfieBooth au cadre doré installé face à la tour Eiffel",
-      caption: "Un cadre doré, une présence parisienne",
-    },
     customTitle: "L’élégance, à votre image.",
     custom: [
       {
-        src: "/images/ai-from-real/prospect-cadres-960.webp",
-        caption: "Le cadre de vos photos",
-        text: "Prénoms, couleurs ou logo, selon le modèle validé.",
-        alt: "Cadres photo personnalisés avec compositions pour une réception",
+        src: "/images/realisations-machines/personnalisation-tirages.webp",
+        alt: "Exemples de modèles photo personnalisés pour des événements MySelfieBooth",
+        caption: "Votre modèle photo",
+        text: "Prénoms, date et couleurs selon le modèle validé.",
       },
       {
-        src: "/images/ai-from-real/prestations-2026-miroirbooth.webp",
-        caption: "Un décor coordonné",
-        text: "Fond et scénographie complémentaires, sur devis.",
-        alt: "Grand Miroirbooth au cadre doré dans un salon élégant",
-      },
-      {
-        src: "/images/event-archive/brice-tirages.webp",
-        caption: "Des souvenirs à conserver",
-        text: "Tirages et galerie selon la formule retenue.",
-        alt: "Tirages photo personnalisés réalisés pendant une réception",
+        src: "/images/ai-from-real/miroirbooth-paris-premium.webp",
+        alt: "Miroir photo doré présenté dans un décor de réception parisien",
+        caption: "Votre décor",
+        text: "Un espace coordonné, en option et sur devis.",
       },
     ],
     contexts: [
@@ -246,6 +228,31 @@ const details = {
       installation: ["installation-miroir"],
       related: ["photobooth-vs-miroirbooth"],
     },
+    gallery: [
+      {
+        src: "/images/collection-2026/miroir-photo-dore-900.webp",
+        alt: "Miroir photo MySelfieBooth au cadre doré installé face à la tour Eiffel",
+        caption: "Le miroir photo grand format",
+        label: "La machine",
+      },
+      {
+        src: "/images/machines-premium/miroirbooth-apercu.webp",
+        alt: "Séquence réelle les invités prennent la pose MySelfieBooth",
+        label: "En action",
+        caption: "Les invités prennent la pose",
+        preview: "/videos/machines-premium/miroirbooth-apercu.mp4",
+        video: "/videos/machines-premium/miroirbooth-sequence.mp4",
+        videoLabel: "Animation Les invités prennent la pose",
+        transcript:
+          "Des invités posent devant le miroir ; le cadre photo personnalisé accompagne leurs portraits.",
+      },
+      {
+        src: "/images/event-archive/brice-tirages.webp",
+        caption: "Les photos à conserver",
+        alt: "Tirages photo personnalisés réalisés pendant une réception",
+        label: "Vos souvenirs",
+      },
+    ],
   },
   videobooth: {
     number: "03",
@@ -262,33 +269,12 @@ const details = {
     heroPosition: "52% center",
     promise: "Le souvenir se vit aussi en mouvement.",
     facts: [
-      ["Le résultat", "Vidéos 4K"],
-      ["Le groupe", "Jusqu’à 5 personnes*"],
+      ["Le souvenir", "Vidéos 4K"],
+      ["Le dispositif", "Plateforme 360°"],
       ["L’accompagnement", "Animateur inclus"],
     ],
-    experienceTitle: "Le mouvement vous va bien.",
-    proof: {
-      src: "/images/event-archive/video-posters/360-red-carpet.webp",
-      alt: "Deux invitées sur la plateforme vidéo 360 pendant une soirée",
-      caption: "Une séquence 360, pendant une vraie soirée",
-      video: "/videos/event-archive/360-red-carpet.mp4",
-      videoLabel: "Regarder une vidéo 360 Booth",
-      transcript:
-        "Deux invitées posent et bougent sur la plateforme lumineuse pendant que la caméra tourne autour d’elles dans une salle de réception.",
-    },
-    detail: {
-      src: "/images/collection-2026/plateforme-video-360-900.webp",
-      alt: "Installation réelle de la plateforme vidéo 360 avec éclairages et balisage",
-      caption: "La plateforme et son espace d’animation",
-    },
     customTitle: "Votre signature, en mouvement.",
     custom: [
-      {
-        src: "/images/ai-from-real/prestations-2026-videobooth.webp",
-        caption: "Votre scène vidéo",
-        text: "Implantation et décor adaptés, sur devis.",
-        alt: "Plateforme vidéo 360 avec éclairages dans un décor de réception",
-      },
       {
         src: "/images/fond 360.webp",
         caption: "Une ambiance lumineuse",
@@ -296,10 +282,10 @@ const details = {
         alt: "Fond LED vert proposé en option pour une animation vidéo 360",
       },
       {
-        src: "/images/realisations/sephora-360booth.webp",
-        caption: "L’univers de votre marque",
-        text: "Logo et habillage vidéo selon configuration.",
-        alt: "Installation réelle du 360 Booth lors d’un événement Sephora",
+        src: "/images/ai-from-real/prestations-2026-videobooth.webp",
+        alt: "Installation vidéo 360 avec plateforme et éclairages coordonnés",
+        caption: "Votre configuration",
+        text: "Implantation et habillage vidéo selon votre projet.",
       },
     ],
     contexts: [
@@ -371,6 +357,31 @@ const details = {
       installation: ["securite-360"],
       related: ["360-vs-photobooth"],
     },
+    gallery: [
+      {
+        src: "/images/collection-2026/plateforme-video-360-900.webp",
+        alt: "Installation réelle de la plateforme vidéo 360 avec éclairages et balisage",
+        caption: "La plateforme et son espace dédié",
+        label: "La machine",
+      },
+      {
+        src: "/images/machines-premium/videobooth-apercu.webp",
+        alt: "Séquence réelle la plateforme 360 en mouvement MySelfieBooth",
+        label: "En action",
+        caption: "La plateforme 360 en mouvement",
+        preview: "/videos/machines-premium/videobooth-apercu.mp4",
+        video: "/videos/machines-premium/videobooth-sequence.mp4",
+        videoLabel: "Animation La plateforme 360 en mouvement",
+        transcript:
+          "Deux invitées posent sur la plateforme pendant la rotation de la caméra.",
+      },
+      {
+        src: "/images/realisations/sephora-360booth.webp",
+        alt: "Plateforme vidéo 360 MySelfieBooth installée lors d’une activation Sephora",
+        label: "En entreprise",
+        caption: "Une activation de marque",
+      },
+    ],
   },
   air360booth: {
     number: "04",
@@ -387,25 +398,10 @@ const details = {
     heroPosition: "62% center",
     promise: "Le grand format, pour les moments de groupe.",
     facts: [
-      ["Le résultat", "Vidéos 4K"],
-      ["Le groupe", "Jusqu’à 10 personnes*"],
+      ["Le souvenir", "Vidéos 4K"],
+      ["Le dispositif", "Caméra en hauteur"],
       ["L’accompagnement", "Animateur inclus"],
     ],
-    experienceTitle: "Le groupe au grand complet.",
-    proof: {
-      src: "/images/machines-premium/air360-en-action.webp",
-      alt: "Participants réunis sous l’Air360 Booth pendant une prestation MySelfieBooth",
-      caption: "L’Air360 en action, avec nos invités",
-      video: "/videos/machines-premium/air360-en-action.mp4",
-      videoLabel: "Voir l’Air360 Booth en action",
-      transcript:
-        "Un groupe d’invités participe à une séquence sous la structure Air360. La caméra en hauteur enregistre leurs mouvements pendant la réception.",
-    },
-    detail: {
-      src: "/images/airbooth.webp",
-      alt: "Structure réelle de l’Air360 Booth avec des participants sous la caméra en hauteur",
-      caption: "Une structure ouverte pour filmer les groupes",
-    },
     customTitle: "Votre univers, en grand.",
     custom: [
       {
@@ -413,12 +409,6 @@ const details = {
         caption: "La scène grand format",
         text: "Une implantation étudiée pour votre lieu.",
         alt: "Structure Air360 Booth ouverte avec caméra montée en hauteur",
-      },
-      {
-        src: "/images/ai-from-real/machines-air-scene-900.webp",
-        caption: "L’esprit de votre événement",
-        text: "Habillage vidéo personnalisé ; décor spécifique sur devis.",
-        alt: "Air360 avec groupe de participants dans un espace événementiel lumineux",
       },
       {
         src: "/images/fond 360.webp",
@@ -491,6 +481,27 @@ const details = {
     ],
     related: ["videobooth", "voguebooth"],
     aliases: {},
+    gallery: [
+      {
+        src: "/images/airbooth.webp",
+        alt: "Structure réelle de l’Air360 Booth avec des participants sous la caméra en hauteur",
+        caption: "La caméra en hauteur",
+        label: "La machine",
+      },
+      {
+        src: "/images/ai-from-real/machines-air-scene-900.webp",
+        caption: "Les souvenirs de groupe",
+        alt: "Air360 avec groupe de participants dans un espace événementiel lumineux",
+        label: "En situation",
+        featured: true,
+      },
+      {
+        src: "/images/ai-from-real/machines-air-detail-900.webp",
+        alt: "Vue de la poutre supérieure et du bras de caméra en hauteur de l’Air360 Booth",
+        label: "En détail",
+        caption: "La caméra au-dessus du groupe",
+      },
+    ],
   },
   voguebooth: {
     number: "05",
@@ -507,25 +518,10 @@ const details = {
     heroPosition: "55% center",
     promise: "Le décor devient une partie du souvenir.",
     facts: [
-      ["L’univers", "Effet magazine"],
-      ["La formule", "5 h de location"],
-      ["À personnaliser", "Visuel & décor"],
+      ["Le souvenir", "Portraits"],
+      ["Le dispositif", "Décor lumineux"],
+      ["L’accompagnement", "Photographe en option"],
     ],
-    experienceTitle: "À vous la une.",
-    proof: {
-      src: "/images/vogue-real/vogue-booth-anniversaire-card.webp",
-      alt: "Vogue Booth personnalisé installé pour un anniversaire",
-      caption: "Un Vogue Booth personnalisé pour un anniversaire",
-      video: "/videos/vogue-real/vogue-booth-anniversaire.mp4",
-      videoLabel: "Découvrir le Vogue Booth en événement",
-      transcript:
-        "La vidéo présente le Vogue Booth installé pour un anniversaire, son encadrement façon couverture de magazine et son décor de rideaux.",
-    },
-    detail: {
-      src: "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp",
-      alt: "Vogue Booth MySelfieBooth avec rideaux blancs et façade personnalisée",
-      caption: "Lumière, rideaux et façade personnalisable",
-    },
     customTitle: "Une couverture qui vous ressemble.",
     custom: [
       {
@@ -539,12 +535,6 @@ const details = {
         caption: "Votre scénographie",
         text: "Décor et fleurs complémentaires sur étude et devis.",
         alt: "Vogue Booth lumineux avec composition florale dans un décor de réception",
-      },
-      {
-        src: "/images/collection-2026/portrait-vogue-booth-900.webp",
-        caption: "Votre portrait",
-        text: "Photographe et impressions disponibles en option.",
-        alt: "Portrait réalisé dans le décor lumineux Vogue Booth MySelfieBooth",
       },
     ],
     contexts: [
@@ -611,6 +601,31 @@ const details = {
       installation: ["installation-vogue"],
       related: ["vogue-vs-photobooth"],
     },
+    gallery: [
+      {
+        src: "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp",
+        alt: "Vogue Booth MySelfieBooth avec rideaux blancs et façade personnalisée",
+        caption: "Le décor lumineux effet magazine",
+        label: "La machine",
+      },
+      {
+        src: "/images/machines-premium/voguebooth-apercu.webp",
+        alt: "Séquence réelle les invités à la une MySelfieBooth",
+        label: "En action",
+        caption: "Les invités à la une",
+        preview: "/videos/machines-premium/voguebooth-apercu.mp4",
+        video: "/videos/machines-premium/voguebooth-sequence.mp4",
+        videoLabel: "Animation Les invités à la une",
+        transcript:
+          "Des invités posent dans le cadre Vogue Booth personnalisé pendant une réception.",
+      },
+      {
+        src: "/images/collection-2026/portrait-vogue-booth-900.webp",
+        caption: "Le portrait façon magazine",
+        alt: "Portrait réalisé dans le décor lumineux Vogue Booth MySelfieBooth",
+        label: "Vos portraits",
+      },
+    ],
   },
   ipadbooth: {
     number: "06",
@@ -628,28 +643,22 @@ const details = {
     promise: "L’animation photo qui trouve sa place chez vous.",
     facts: [
       ["Le souvenir", "Photos numériques"],
-      ["Le format", "Borne compacte"],
-      ["La location", "24 à 48 heures"],
+      ["Le dispositif", "Borne compacte"],
+      ["L’accompagnement", "Selon formule"],
     ],
-    experienceTitle: "Petit format, grands sourires.",
-    proof: {
-      src: "/images/ipadbooth.webp",
-      alt: "iPad Booth MySelfieBooth avec tablette au centre d’un anneau lumineux",
-      caption: "La tablette et son anneau lumineux",
-    },
     customTitle: "Simple. Compact. À votre image.",
     custom: [
+      {
+        src: "/images/ai-from-real/machines-ipad-boutique-900.webp",
+        alt: "iPad Booth compact dans un espace de boutique bleu et blanc",
+        caption: "Votre espace photo",
+        text: "Un format compact pour votre lieu et votre univers.",
+      },
       {
         src: "/images/ai-from-real/prestations-2026-ipadbooth.webp",
         caption: "Votre visuel personnalisé",
         text: "Logo, couleurs ou message sur le modèle photo validé.",
         alt: "iPad Booth compact avec anneau lumineux et tablette sur pied",
-      },
-      {
-        src: "/images/ai-from-real/prestations-2026-decors.webp",
-        caption: "Votre point photo",
-        text: "Un fond soigné et un espace adapté à votre lieu.",
-        alt: "Décors de réception pour composer un espace photo événementiel",
       },
     ],
     contexts: [
@@ -712,11 +721,27 @@ const details = {
     ],
     related: ["photobooth", "miroirbooth"],
     aliases: {},
-    detail: {
-      src: "/images/ai-from-real/machines-ipad-scene-900.webp",
-      alt: "iPad Booth avec anneau lumineux utilisé dans un décor de boutique rose et blanc",
-      caption: "Un format pensé pour vos boutiques et vos fêtes",
-    },
+    gallery: [
+      {
+        src: "/images/ipadbooth.webp",
+        alt: "iPad Booth MySelfieBooth avec tablette au centre d’un anneau lumineux",
+        caption: "La tablette et son anneau lumineux",
+        label: "La machine",
+      },
+      {
+        src: "/images/ai-from-real/machines-ipad-scene-900.webp",
+        alt: "iPad Booth avec anneau lumineux utilisé dans un décor de boutique rose et blanc",
+        caption: "Le format compact pour vos événements",
+        label: "En situation",
+        featured: true,
+      },
+      {
+        src: "/images/ai-from-real/machines-ipad-interface-900.webp",
+        alt: "Aperçu d’un modèle photo bleu et doré sur la tablette d’un iPad Booth",
+        label: "Votre visuel",
+        caption: "Le modèle photo à votre image",
+      },
+    ],
   },
 };
 

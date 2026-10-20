@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile, stat } from "node:fs/promises";
 
 // Guard commercial distinctions as well as the exported SEO and lazy media.
 const offers = {
@@ -37,10 +37,37 @@ for (const [key, [price, label, booking]] of Object.entries(offers)) {
     assert.ok(ids.includes(fragment), `${key}: working fragment ${fragment}`);
   assert.ok(
     !/<video\b|<source\b/.test(main),
-    `${key}: no video transfer before opening the viewer`,
+    `${key}: no video resource in the initial HTML`,
   );
   const images = [...main.matchAll(/<img\b[^>]*>/g)].map((m) => m[0]);
-  assert.ok(images.length >= 7, `${key}: keep the page focused on imagery`);
+  assert.ok(images.length >= 8, `${key}: keep the page focused on imagery`);
+  const gallery = main.match(
+    /<section id="experience"[^>]*>([\s\S]*?)<\/section>/,
+  )?.[1];
+  assert.ok(gallery, `${key}: machine gallery exists`);
+  assert.equal(
+    [...gallery.matchAll(/<figure\b/g)].length,
+    3,
+    `${key}: consistent three-view gallery`,
+  );
+  const previews = [...gallery.matchAll(/data-preview="([^"]+)"/g)];
+  assert.equal(
+    previews.length,
+    ["ipadbooth", "air360booth"].includes(key) ? 0 : 1,
+    `${key}: only use verified motion footage`,
+  );
+  if (previews.length) {
+    assert.equal(
+      previews[0][1],
+      `/videos/machines-premium/${key}-apercu.mp4`,
+      `${key}: machine-specific preview`,
+    );
+    assert.ok(
+      (await stat(`public${previews[0][1]}`)).size <= 350_000,
+      `${key}: lightweight preview`,
+    );
+    await access(`public/videos/machines-premium/${key}-sequence.mp4`);
+  }
   const wordCount = main
     .replace(/<[^>]+>/g, " ")
     .split(/\s+/)
@@ -110,5 +137,5 @@ for (const [key, [price, label, booking]] of Object.entries(offers)) {
   );
 }
 console.log(
-  "Machine pages OK: 6 offers, price/duration consistency, SEO, FAQ, anchors, descriptive images and videos loaded on demand.",
+  "Machine pages OK: 6 offers, consistent galleries, lightweight previews, SEO, FAQ, anchors and concise copy.",
 );

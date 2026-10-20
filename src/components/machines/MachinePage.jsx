@@ -3,6 +3,7 @@ import Layout from "../Layout";
 import useRevealMotion from "../../hooks/useRevealMotion";
 import { absoluteUrl, faqJsonLd, siteConfig } from "../../data/site";
 import { heroImage, machinePages } from "./content";
+import MachineMotion from "./MachineMotion";
 import styles from "./MachinePage.module.css";
 
 function Arrow({ down = false }) {
@@ -42,9 +43,14 @@ function MediaCard({ media, onOpen, custom = false }) {
   const responsive = media.src.endsWith("-900.webp");
   return (
     <figure
-      className={custom ? styles.customCard : styles.galleryCard}
+      className={
+        custom
+          ? styles.customCard
+          : `${styles.galleryCard} ${media.featured ? styles.featuredCard : ""}`
+      }
       data-reveal
     >
+      {media.label && <p className={styles.galleryRole}>{media.label}</p>}
       <button
         type="button"
         className={styles.mediaButton}
@@ -61,7 +67,9 @@ function MediaCard({ media, onOpen, custom = false }) {
           sizes={
             custom
               ? "(max-width: 760px) 100vw, 33vw"
-              : "(max-width: 760px) 50vw, 50vw"
+              : media.featured
+                ? "(max-width: 760px) 100vw, 33vw"
+                : "(max-width: 760px) 50vw, 33vw"
           }
           alt={media.alt}
           width="900"
@@ -128,6 +136,7 @@ function MediaDialog({ media, onClose }) {
               key={media.video}
               src={media.video}
               controls
+              autoPlay
               playsInline
               preload="metadata"
               aria-label={media.videoLabel}
@@ -281,12 +290,21 @@ export default function MachinePage({ machineKey }) {
           <div className={styles.wrap}>
             <Aliases page={page} section="experience" />
             <Heading eyebrow="L’expérience, en images">
-              {page.experienceTitle}
+              {page.name} en images.
             </Heading>
             <div className={styles.visualGrid}>
-              {[page.proof, page.detail].filter(Boolean).map((item) => (
-                <MediaCard key={item.src} media={item} onOpen={setMedia} />
-              ))}
+              {page.gallery.map((item) =>
+                item.preview ? (
+                  <MachineMotion
+                    key={item.src}
+                    media={item}
+                    onOpen={setMedia}
+                    suspended={!!media}
+                  />
+                ) : (
+                  <MediaCard key={item.src} media={item} onOpen={setMedia} />
+                ),
+              )}
             </div>
             <a href="/realisations/" className={styles.textLink}>
               Toutes nos réalisations <Arrow />

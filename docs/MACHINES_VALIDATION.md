@@ -2,41 +2,43 @@
 
 ## Périmètre
 
-Refonte des six pages `/prestations/photobooth/`, `/prestations/miroirbooth/`,
-`/prestations/videobooth/`, `/prestations/air360booth/`, `/prestations/voguebooth/`
-et `/prestations/ipadbooth/`.
+Les six pages machines : Photobooth, Miroirbooth, 360 Booth, Air360 Booth,
+Vogue Booth et iPad Booth. Navigation générale, autres pages, prix et liens
+vers le devis restent préservés.
 
-Le composant `src/components/machines/MachinePage.jsx`, sa feuille CSS isolée et
-son contenu dédié remplacent les longues pages génériques. Navigation, pied de
-page, catalogue partagé, prix, liens de réservation et autres pages sont préservés.
-Les anciennes ancres explicites, les ancres des sections génériques et `#faq`
-restent disponibles.
+## Cohérence et médias
 
-La dernière révision donne la priorité aux images : galerie de deux grandes
-vues, deux ou trois cartes de personnalisation illustrées, légendes courtes,
-offre et installation condensées. Les détails restent disponibles dans les
-cinq réponses de FAQ, raccourcies sans supprimer les conditions essentielles.
-Les photos réelles et les visuels créés à partir des machines sont tracés dans
-le manifeste interne. Aucun visuel de projection n’est présenté comme une
-réalisation d’un nouveau client. Les vidéos se chargent uniquement à l’ouverture.
+- Même structure : hero, trois repères identiques pour les informations clés,
+  galerie de trois vues, deux cartes de personnalisation, formule et FAQ courte.
+- Huit visuels distincts par page, dont deux suggestions d’autres machines.
+- Galeries propres à chaque dispositif : machine, expérience et souvenir ou visuel.
+  Les textes restent sous 450 mots, FAQ comprise.
+- Quatre aperçus réels en boucle, sans audio. Chaque extrait a été inspecté et
+  recadré dans le temps pour montrer le bon équipement. Les anciens liens vers
+  des montages mélangeant plusieurs dispositifs ont été remplacés sur ces pages.
+- Lecture uniquement lorsque l’aperçu est visible, arrêt hors écran, avec l’onglet
+  masqué ou à l’ouverture de la fenêtre de lecture. La pause manuelle est conservée.
+- Pas de chargement automatique avec mouvements réduits ou économie de données.
+  Le bouton de lecture reste disponible. La séquence agrandie charge seulement au clic.
+- L’Air360 et l’iPad Booth utilisent des photos dédiées et des visuels de
+  personnalisation : aucune vidéo d’une autre machine n’est utilisée pour ces
+  deux appareils. Le GIF nommé `air360-en-action.gif` a été exclu après inspection :
+  il montre une plateforme 360 classique, pas la structure Air360.
+- Les visuels créés à partir des photos de machines restent tracés dans le manifeste
+  interne. Aucun nouveau client, témoignage ou événement réel n’est inventé.
 
-## Réduction du texte et place des images
+### Sources des extraits
 
-Comparaison Playwright à 1440 px, FAQ fermée, sur le contenu propre à la page.
+Les boucles utilisent du MP4 silencieux, plus léger qu’un GIF. Les fichiers
+`*-sequence.mp4` servent à la lecture agrandie ; les `*-apercu.mp4` sont les
+versions légères. Les originaux ont été conservés.
 
-| Page | Mots visibles avant → après | Images avant → après |
-| --- | ---: | ---: |
-| Photobooth | 682 → 321 | 5 → 8 |
-| Miroirbooth | 685 → 320 | 5 → 8 |
-| 360 Booth | 695 → 339 | 5 → 8 |
-| Air360 Booth | 706 → 344 | 5 → 8 |
-| Vogue Booth | 709 → 330 | 5 → 8 |
-| iPad Booth | 690 → 325 | 4 → 7 |
-
-Le texte visible diminue de 51 à 53 %. La hauteur du contenu diminue d’environ
-30 % sur ordinateur. Même en comptant les réponses de FAQ, chaque page reste
-sous 450 mots. Le contrôle automatique protège un minimum de sept images
-distinctes et un plafond de 550 mots, FAQ comprise.
+| Machine | Source réelle | Début extrait | Durée exportée | Aperçu |
+| --- | --- | ---: | ---: | ---: |
+| Photobooth | `/videos/realisations-machines/photobooth-miroir-espace-eden.mp4` | 4 s | 6.00 s | 213 Kio |
+| Miroirbooth | `/videos/realisations-machines/miroirbooth-invites.mp4` | 11 s | 6.00 s | 291 Kio |
+| 360 Booth | `/videos/event-archive/360-red-carpet.mp4` | 1 s | 4.05 s | 172 Kio |
+| Vogue Booth | `/videos/instagram/reel-2-C9Ftp2ctg4u.mp4` | 6 s | 6.00 s | 253 Kio |
 
 ## Offres conservées
 
@@ -49,54 +51,47 @@ distinctes et un plafond de 550 mots, FAQ comprise.
 | Vogue Booth | 500 € / 5 h ; corporate à partir de 900 € HT selon brief |
 | iPad Booth | 250 € / 24 à 48 h |
 
-Vogue : photographe et impressions en option. iPad : offre numérique, livraison
-optionnelle et animateur selon formule. Les capacités 360 / Air360 restent
-soumises à la configuration ; l’espace et les conditions techniques sont à
-valider avant confirmation. Personnalisations complexes et options sur devis.
+Vogue : photographe et impressions en option. iPad : formule numérique, livraison
+optionnelle et animateur selon formule. Capacités 360/Air360 selon configuration,
+installation et personnalisations spécifiques soumises à validation et devis.
 
 ## Vérifications
 
-- `npm run build` : export de 133 pages, contrôles des images, provenance,
-  sources, SEO, FAQ, médias et absence de doublon sur une page réussis.
-- `node scripts/check-machine-pages.mjs` : tarifs/durées, machine sélectionnée
-  dans le devis, H1, canonical, Service, FAQ visible/JSON-LD, ancres, images
-  descriptives et vidéos à la demande validés sur les six pages.
-- `node scripts/check-corporate.mjs` et `node scripts/check-realisations.mjs` :
-  réussis.
-- Playwright / Chromium : 6 pages × 4 largeurs (1440, 768, 390, 320 px).
-  Les 24 cas ont été vérifiés après la révision visuelle.
-  Aucun débordement horizontal, média manquant, échec HTTP local ou erreur JS.
-  Vérification de la FAQ au clavier, des ancres sous la navigation fixe,
-  ouverture des photos/vidéos, métadonnées vidéo, fermeture par Échap et retour
-  du focus au bouton d’origine.
-- Axe : zéro violation dans les contenus refaits à 1440 et 390 px et dans les
-  fenêtres de médias à 390 px.
-- Comparaison avant/après : contenu principal, footer, title, description et
-  canonical identiques pour les 127 pages hors périmètre.
+- `npm run build` : export de 133 pages et contrôles d’intégrité, provenance,
+  sources, SEO, FAQ et médias réussis.
+- `node scripts/check-machine-pages.mjs` : six offres, prix, ancres, trois vues,
+  aperçus propres à chaque machine sous 350 Ko, huit images et texte court validés.
+- `node scripts/check-corporate.mjs` et `node scripts/check-realisations.mjs` : réussis.
+- Playwright / Chromium : six pages × quatre largeurs (1440, 768, 390 et 320 px).
+  Les huit cas Air360/360 ont été rejoués après la correction des sources.
+  Images décodées, absence d’erreur JS/HTTP locale ou de débordement, FAQ au clavier,
+  ancres, agrandissement, Échap et retour du focus vérifiés.
+- Aperçus : lecture manuelle avec mouvements réduits, pause, ouverture de la séquence,
+  conservation de la pause après fermeture. Puis lecture automatique à l’écran,
+  pause hors écran et persistance de la pause manuelle sur les quatre machines.
+  Le mode économie de données empêche bien le chargement automatique.
+- Axe : zéro violation dans les contenus à 1440/390 px, y compris les commandes de
+  lecture et les vidéos intégrées, ainsi que les fenêtres vidéo à 390 px.
+- Comparaison : contenu principal, footer, title, description et canonical des
+  127 pages hors périmètre inchangés.
 - `git diff --check` : réussi.
 
 ## Lighthouse
 
-Mesures locales de l’export de production avec compression HTTP, Chromium et
-simulation mobile Lighthouse. Scores de laboratoire, sans mesure terrain des
-Core Web Vitals.
+Dernières mesures de l’export local avec compression HTTP, Chromium et simulation
+mobile Lighthouse. Pages représentatives avec et sans aperçu vidéo. Il s’agit de
+mesures de laboratoire, sans mesure terrain des Core Web Vitals.
 
-| Page | Performance mobile | SEO | Bonnes pratiques | LCP mobile | CLS |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Photobooth | 96 | 100 | 100 | 2,78 s | 0 |
-| Miroirbooth | 92 | 100 | 100 | 3,31 s | 0 |
-| 360 Booth | 93 | 100 | 100 | 3,23 s | 0 |
-| Air360 Booth | 92 | 100 | 100 | 3,38 s | 0 |
-| Vogue Booth | 91 | 100 | 100 | 3,38 s | 0 |
-| iPad Booth | 95 | 100 | 100 | 2,93 s | 0 |
+| Page | Format | Performance | SEO | Bonnes pratiques | LCP | CLS |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Photobooth | mobile | 97 | 100 | 100 | 2.63 s | 0 |
+| Miroirbooth | mobile | 93 | 100 | 100 | 3.23 s | 0 |
+| iPad Booth | mobile | 95 | 100 | 100 | 2.93 s | 0 |
+| Photobooth | desktop | 100 | 100 | 100 | 0.55 s | 0 |
+| Air360 Booth | mobile | 92 | 100 | 100 | 3.38 s | 0 |
+| 360 Booth | mobile | 93 | 100 | 100 | 3.23 s | 0 |
 
-Photobooth desktop : performance 100, SEO 100, bonnes pratiques 100,
-LCP 0,55 s, CLS 0. Blocage JavaScript mobile mesuré entre 21 et 65 ms.
-
-L’accessibilité Lighthouse globale reste à 96 : les signalements concernent
-le contraste du pré-footer et le contraste/libellé du CTA du footer partagés,
-hors périmètre de cette refonte. Les sections et fenêtres créées ne présentent
-aucune violation Axe dans les scénarios contrôlés.
-
-Ces vérifications portent sur l’export local ; elles ne confirment pas une
-mise en production ni des résultats Lighthouse du serveur public.
+Accessibilité Lighthouse globale : 96. Les signalements restants concernent le
+pré-footer et le CTA du footer partagés, hors périmètre. Les contenus et les
+commandes créés ne présentent aucune violation Axe dans les scénarios contrôlés.
+Ces contrôles locaux ne confirment pas la fin d’un déploiement en production.

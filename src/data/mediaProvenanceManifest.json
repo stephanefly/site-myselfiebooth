@@ -552,5 +552,47 @@
     "sources": [
       "/images/airbooth.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-boutique-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-boutique-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-interface-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-interface-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air-detail-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air-detail-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
   }
 ]
