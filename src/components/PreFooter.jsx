@@ -2,127 +2,121 @@ import { siteConfig } from "../data/site";
 
 export default function PreFooter() {
   return (
-    <section className="prefooter">
-      <span className="prefooter-media-label" aria-hidden="true">Visuel de projection</span>
+    <section
+      className="prefooter marketing-prefooter"
+      aria-labelledby="prefooter-title"
+    >
       <div className="prefooter-container">
-        <div>
-          <p className="prefooter-eyebrow">Prêt à cadrer votre événement ?</p>
-          <h2>Recevez une proposition claire pour votre date, votre lieu et votre format.</h2>
-          <span>{siteConfig.microcopy}</span>
+        <div className="prefooter-copy">
+          <p className="prefooter-eyebrow">À vous de jouer</p>
+          <h2 id="prefooter-title">Imaginons votre événement.</h2>
+          <p className="prefooter-description">
+            Parlez-nous de votre projet, nous préparons votre devis sur mesure.
+          </p>
         </div>
-        <div className="prefooter-actions">
-          <a className="prefooter-primary" href={siteConfig.quoteUrl} data-event="cta_quote_click">
-            {siteConfig.primaryCtaLabel}
-          </a>
-          <a className="prefooter-secondary" href={siteConfig.phoneHref} data-event="phone_click">
-            {siteConfig.phoneCtaLabel}
-          </a>
-        </div>
+        <a
+          className="prefooter-primary"
+          href={siteConfig.quoteUrl}
+          data-event="cta_quote_click"
+        >
+          {siteConfig.primaryCtaLabel}
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M5 19 19 5M5 5h14v14" />
+          </svg>
+        </a>
       </div>
-
       <style jsx>{`
         .prefooter {
-          position: relative;
-          padding: 56px 0;
-          overflow: hidden;
-          color: #fff;
-          background:
-            linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.7)),
-            url("/images/ai-from-real/hero-photobooth-reception.webp") center / cover;
+          padding: 44px 0;
+          border-top: 1px solid #35372d;
+          color: #f7f4ec;
+          background: #111310;
+          font-family: "Roboto", sans-serif;
           text-align: left;
         }
-
         .prefooter-container {
-          width: min(1180px, calc(100% - 32px));
+          width: min(1180px, calc(100% - 48px));
           margin: 0 auto;
-          display: grid;
-          grid-template-columns: 1fr auto;
+          display: flex;
+          justify-content: space-between;
           gap: 32px;
           align-items: center;
         }
-
-        .prefooter-media-label {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          z-index: 2;
-          padding: 5px 9px;
-          border: 1px solid rgba(255, 255, 255, 0.72);
-          border-radius: 999px;
-          color: #171717;
-          background: rgba(232, 200, 97, 0.94);
-          font-size: 0.62rem;
-          font-weight: 900;
-          letter-spacing: 0.05em;
-          line-height: 1;
-          text-transform: uppercase;
-        }
-
         .prefooter-eyebrow {
-          margin: 0 0 12px;
-          color: #e5c46b;
-          font-size: 0.78rem;
-          font-weight: 900;
-          letter-spacing: 0.16rem;
+          margin: 0 0 10px;
+          color: #d6b774;
+          font-size: 10px;
+          font-weight: 700;
+          line-height: 1.6;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
         }
-
-        h2 {
-          max-width: 760px;
+        .prefooter h2 {
           margin: 0;
-          color: #fff;
-          font-size: clamp(1.8rem, 3vw, 3rem);
-          line-height: 1.08;
-        }
-
-        span {
-          display: block;
-          margin-top: 14px;
-          color: #d8d1c4;
+          color: #f7f4ec;
+          font-size: clamp(1.65rem, 3vw, 2.5rem);
           font-weight: 700;
+          line-height: 1.2;
+          letter-spacing: -0.035em;
+          text-wrap: balance;
         }
-
-        .prefooter-actions {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-          justify-content: flex-end;
+        .prefooter-description {
+          max-width: 520px;
+          margin: 12px 0 0;
+          color: #bec0b5;
+          font-size: 14px;
+          line-height: 1.65;
         }
-
-        .prefooter-primary,
-        .prefooter-secondary {
-          min-height: 46px;
+        .prefooter-primary {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 0 20px;
-          border-radius: 999px;
-          font-weight: 900;
+          flex-shrink: 0;
+          gap: 24px;
+          min-height: 50px;
+          padding: 14px 22px;
+          border: 1px solid #d6b774;
+          border-radius: 4px;
+          color: #15160f;
+          background: #d6b774;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1.5;
           text-decoration: none;
+          transition: background 0.2s;
         }
-
-        .prefooter-primary {
-          color: #17130a;
-          background: #e5c46b;
+        .prefooter-primary:hover {
+          background: #ecd29a;
         }
-
-        .prefooter-secondary {
-          color: #fff;
-          border: 1px solid rgba(255, 255, 255, 0.28);
+        .prefooter-primary:focus-visible {
+          outline: 3px solid #f7f4ec;
+          outline-offset: 5px;
         }
-
         @media (max-width: 760px) {
+          .prefooter {
+            padding: 32px 0;
+          }
           .prefooter-container {
-            grid-template-columns: 1fr;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 22px;
           }
-
-          .prefooter-actions {
-            justify-content: stretch;
+          .prefooter-description {
+            font-size: 13px;
           }
-
-          .prefooter-primary,
-          .prefooter-secondary {
-            width: 100%;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .prefooter-primary {
+            transition: none;
           }
         }
       `}</style>

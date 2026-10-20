@@ -1,8 +1,33 @@
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { siteConfig } from "../data/site";
 
 export default function MobileQuoteBar() {
+  const { asPath } = useRouter();
+  const [atPageEnd, setAtPageEnd] = useState(false);
+
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return undefined;
+    const visible = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
+      setAtPageEnd(visible.size > 0);
+    });
+    document
+      .querySelectorAll(".prefooter, footer#contact")
+      .forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [asPath]);
+
   return (
-    <div className="mobile-quote-bar" aria-label="Actions rapides">
+    <div
+      className="mobile-quote-bar"
+      aria-label="Actions rapides"
+      hidden={atPageEnd}
+    >
       <a href={siteConfig.quoteUrl} data-event="cta_quote_click">
         {siteConfig.primaryCtaLabel}
       </a>
@@ -25,6 +50,10 @@ export default function MobileQuoteBar() {
           background: rgba(10, 10, 10, 0.88);
           backdrop-filter: blur(16px);
           box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+        }
+
+        .mobile-quote-bar[hidden] {
+          display: none;
         }
 
         a {
