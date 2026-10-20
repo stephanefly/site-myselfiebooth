@@ -482,5 +482,47 @@
       "/images/collection-2026/plateforme-video-360-900.webp"
     ],
     "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-ipad-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/ipadbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air360-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air360-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
+  },
+  {
+    "path": "/images/ai-from-real/machines-air360-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/airbooth.webp"
+    ]
   }
 ]

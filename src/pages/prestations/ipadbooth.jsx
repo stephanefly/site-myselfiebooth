@@ -1,6 +1,5 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
-import { marketingPages } from "../../data/marketingPages";
+import MachinePage from "../../components/machines/MachinePage";
 
-export default function Ipadbooth() {
-  return <MarketingPage page={marketingPages.ipadbooth} />;
+export default function Page() {
+  return <MachinePage machineKey="ipadbooth" />;
 }

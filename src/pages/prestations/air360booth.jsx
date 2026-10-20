@@ -1,6 +1,5 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
-import { marketingPages } from "../../data/marketingPages";
+import MachinePage from "../../components/machines/MachinePage";
 
-export default function Air360booth() {
-  return <MarketingPage page={marketingPages.air360booth} />;
+export default function Page() {
+  return <MachinePage machineKey="air360booth" />;
 }
