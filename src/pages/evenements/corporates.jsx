@@ -1,327 +1,827 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
-import { marketingPages } from "../../data/marketingPages";
-
-const basePage = marketingPages.corporates;
-
-const searchIntentSection = {
-  anchor: "photobooth-entreprise",
-  eyebrow: "Entreprise, salon & séminaire",
-  title: "Location photobooth entreprise pour salon, séminaire et soirée corporate",
-  text:
-    "Pour une soirée d'entreprise, un séminaire, un salon ou un lancement de produit, le Photobooth doit être rapide à comprendre, visible et cohérent avec votre marque. Nous adaptons la machine, la personnalisation, le flux invités et la logistique au format de votre événement.",
-  cards: [
-    {
-      title: "Photobooth entreprise",
-      text: "Photos personnalisées, souvenirs et galerie pour collaborateurs, clients ou partenaires.",
-    },
-    {
-      title: "Salon professionnel",
-      text: "Animation pensée pour attirer sur le stand sans créer une file d'attente trop longue.",
-    },
-    {
-      title: "Séminaire",
-      text: "Un moment collectif facile à intégrer à une pause, un cocktail ou une soirée interne.",
-    },
-    {
-      title: "Lancement de produit",
-      text: "Habillage visuel, logo et contenus adaptés à l'univers de la marque et de l'opération.",
-    },
-  ],
-};
-
-const corporateOffersSection = {
-  anchor: "offres-corporate",
-  eyebrow: "Offres Corporate",
-  title: "Des offres pensées par objectif, pas seulement par machine",
-  text:
-    "Pour les entreprises et les agences, nous construisons la prestation autour du résultat attendu : engagement, contenu social, image premium ou activation de marque. Les tarifs sont ajustés au brief, au lieu, à la durée et au niveau de personnalisation.",
-  cards: [
-    {
-      title: "Brand Experience — dès 900 € HT",
-      text: "Photobooth ou Miroirbooth, personnalisation de marque, installation, accompagnement, galerie et bilan post-événement selon le dispositif.",
-    },
-    {
-      title: "Social Content — dès 1 090 € HT",
-      text: "360 Booth ou Vogue Booth, habillage personnalisé et contenus courts pensés pour être récupérés et réutilisés après l'événement.",
-    },
-    {
-      title: "Vogue Portrait Studio — dès 900 € HT",
-      text: "Mise en scène lumineuse, rendu éditorial, personnalisation et configuration adaptée aux galas, lancements et opérations image.",
-    },
-    {
-      title: "Photobooth IA — projet pilote",
-      text: "Transformation visuelle assistée par IA et univers de marque sur étude. Le dispositif, les rendus et les règles de transparence sont validés avant commercialisation.",
-    },
-  ],
-};
-
-const useCasesSection = {
-  anchor: "cas-usage-entreprise",
-  eyebrow: "Cas d'usage",
-  title: "Quel photobooth choisir selon l'objectif de l'événement d'entreprise ?",
-  text:
-    "Une animation corporate performante commence par l'objectif. Attirer sur un stand, créer un souvenir collaborateurs, produire du contenu social ou installer une expérience premium ne nécessite pas le même parcours ni la même machine.",
-  cards: [
-    {
-      title: "Salon professionnel",
-      text: "Privilégiez un parcours rapide, visible depuis l'allée, avec une personnalisation lisible et un emplacement qui ne bloque pas le stand.",
-    },
-    {
-      title: "Séminaire & team building",
-      text: "Le Photobooth ou le Miroirbooth fonctionnent bien comme animation collective pendant une pause, un cocktail ou la soirée de clôture.",
-    },
-    {
-      title: "Lancement de produit",
-      text: "Le Vogue Booth, le 360 Booth ou une activation sur mesure peuvent produire un contenu plus visuel et cohérent avec un univers de campagne.",
-    },
-    {
-      title: "Soirée clients ou collaborateurs",
-      text: "Tirages personnalisés, galerie et branding permettent d'associer le souvenir de la soirée à l'identité de l'entreprise.",
-    },
-  ],
-};
-
-const innovationSection = {
-  anchor: "event-tech",
-  eyebrow: "Event-Tech & Innovation",
-  title: "Des expériences interactives à intégrer aux activations de marque",
-  text:
-    "Nous développons une approche plus logicielle de l'animation événementielle : automatisation, personnalisation avancée et expériences interactives. Les nouveautés sont proposées sur étude lorsqu'elles apportent une vraie valeur au parcours invité.",
-  cards: [
-    {
-      title: "AI Sticker & portrait augmenté",
-      text: "Concept pilote de transformation ou stylisation d'un portrait dans un univers de marque, avec rendus validés avant l'événement.",
-    },
-    {
-      title: "Live Wall interactif",
-      text: "Affichage dynamique des contenus créés pendant l'événement sur écran ou mur dédié, sous réserve de validation technique du lieu.",
-    },
-    {
-      title: "Lead Capture",
-      text: "Collecte de coordonnées ou qualification de contacts possible sur projet, avec parcours, consentement et destination des données définis en amont.",
-    },
-    {
-      title: "Automatisation post-événement",
-      text: "Remise des médias, synthèse d'activité et reporting peuvent être automatisés lorsque le dispositif permet de mesurer les données utiles.",
-    },
-  ],
-};
-
-const briefSection = {
-  anchor: "brief-corporate",
-  eyebrow: "Brief efficace",
-  title: "Les informations à préparer pour obtenir un devis corporate précis",
-  text:
-    "Plus le brief est clair, plus la proposition peut être pertinente. Les informations essentielles sont la date, le lieu, les horaires, le nombre attendu de participants, l'objectif de l'animation, les contraintes de marque et les livrables souhaités.",
-  cards: [
-    {
-      title: "Objectif business",
-      text: "Engagement, trafic stand, contenu social, souvenir collaborateurs, image premium ou collecte de contacts : l'objectif oriente le dispositif.",
-    },
-    {
-      title: "Flux attendu",
-      text: "Le nombre de participants et la durée disponible permettent d'estimer le temps de passage et le niveau d'accompagnement nécessaire.",
-    },
-    {
-      title: "Charte graphique",
-      text: "Logo, couleurs, typographies, messages et contraintes de validation doivent être transmis assez tôt pour préparer le rendu.",
-    },
-    {
-      title: "Contraintes du lieu",
-      text: "Accès, badges, sécurité, quai, ascenseur, parking, alimentation, Wi-Fi et horaires techniques sont intégrés à la préparation.",
-    },
-  ],
-};
-
-const dataSection = {
-  anchor: "donnees-lead-capture",
-  eyebrow: "Données & lead capture",
-  title: "Collecte de contacts : cadrer le consentement avant l'événement",
-  text:
-    "Lorsqu'une activation inclut une collecte de coordonnées, le parcours doit rester clair pour le participant. Les champs demandés, la finalité, le consentement, le stockage et la destination des données doivent être définis avec le client avant la mise en production.",
-  cards: [
-    {
-      title: "Champs utiles uniquement",
-      text: "Limiter la collecte aux informations nécessaires réduit la friction et accélère le passage sur le dispositif.",
-    },
-    {
-      title: "Consentement explicite",
-      text: "Le participant doit comprendre ce qu'il accepte et pour quelle utilisation les données sont demandées.",
-    },
-    {
-      title: "Destination des données",
-      text: "Export, transmission ou intégration éventuelle doivent être définis en amont afin d'éviter les traitements improvisés après l'événement.",
-    },
-    {
-      title: "Parcours alternatif",
-      text: "Selon le projet, il peut être pertinent de séparer la création du contenu de l'inscription marketing pour conserver une expérience fluide.",
-    },
-  ],
-};
-
-const corporateReportSection = {
-  anchor: "rapport-corporate-automatique",
-  eyebrow: "Reporting post-événement",
-  title: "Rapport corporate automatique après votre événement",
-  text:
-    "Pour les formules corporate concernées, un rapport synthétique peut être généré après l'événement afin de mesurer l'utilisation de l'animation et de faciliter votre bilan interne. Les indicateurs dépendent des fonctions réellement activées et des données disponibles sur la prestation.",
-  cards: [
-    {
-      title: "Activité de l'animation",
-      text: "Nombre de sessions, photos ou vidéos produites et volume global d'utilisation lorsque ces données sont disponibles.",
-    },
-    {
-      title: "Partage des contenus",
-      text: "Téléchargements, QR codes, emails ou autres actions de partage peuvent être intégrés au bilan lorsque le dispositif permet de les mesurer.",
-    },
-    {
-      title: "Temps forts",
-      text: "Identification des périodes de forte utilisation et des principaux volumes de contenus afin de mieux comprendre le rythme de l'animation.",
-    },
-    {
-      title: "Livrable exploitable",
-      text: "Un bilan clair à transmettre à votre équipe, votre agence ou votre client avec les indicateurs disponibles et les contenus remis après l'événement.",
-    },
-  ],
-};
-
-const procurementSection = {
-  anchor: "organisation-achat",
-  eyebrow: "Organisation & achat",
-  title: "Une prestation compatible avec les contraintes d'une entreprise ou d'une agence",
-  text:
-    "Les projets corporate impliquent souvent plusieurs interlocuteurs : communication, événementiel, achats, agence, lieu, sécurité ou production. Nous cadrons les informations opérationnelles et les livrables pour faciliter la validation avant le jour J.",
-  cards: [
-    {
-      title: "Devis détaillé",
-      text: "Machine, durée, personnalisation, options, déplacement et conditions spécifiques sont distingués pour faciliter la validation interne.",
-    },
-    {
-      title: "Référent projet",
-      text: "Un interlocuteur identifié limite les pertes d'information entre le client, l'agence, le lieu et l'équipe terrain.",
-    },
-    {
-      title: "Planning de validation",
-      text: "Les éléments graphiques et techniques sont idéalement validés avant la semaine de l'événement afin de garder une marge de test.",
-    },
-    {
-      title: "Livrables définis",
-      text: "Galerie, médias, exports, reporting ou autres éléments remis après l'événement sont précisés avant confirmation.",
-    },
-  ],
-};
-
-const reliabilitySection = {
-  anchor: "fiabilite",
-  eyebrow: "Fiabilité & exploitation",
-  title: "Une prestation préparée pour réduire les imprévus le jour J",
-  text:
-    "Sur un événement professionnel, la qualité du rendu ne suffit pas : la préparation, les accès, les tests, le flux invités et la remise des contenus doivent être cadrés avant l'ouverture.",
-  cards: [
-    {
-      title: "Contrôles avant événement",
-      text: "Machine, personnalisation, accès, horaires, alimentation et configuration sont vérifiés avant la prestation.",
-    },
-    {
-      title: "Tests après installation",
-      text: "La configuration est testée sur place avant l'ouverture de l'animation afin de limiter les incidents de dernière minute.",
-    },
-    {
-      title: "Interlocuteur identifié",
-      text: "Un référent est défini pour la prestation afin de simplifier les échanges entre votre équipe, le lieu et MySelfieBooth.",
-    },
-    {
-      title: "Bilan post-événement",
-      text: "Selon le dispositif, nous pouvons restituer les contenus produits et des indicateurs disponibles comme le nombre de sessions, photos ou vidéos.",
-    },
-  ],
-};
-
-const faq = [
-  {
-    question: "Quel photobooth choisir pour un événement d'entreprise ?",
-    answer:
-      "Le Photobooth convient aux tirages et à un usage simple, le Miroirbooth à une mise en scène premium, le 360 Booth à la vidéo sociale et le Vogue Booth à un photocall très visuel. Le choix dépend surtout de l'objectif et du flux attendu.",
-  },
-  {
-    question: "Peut-on personnaliser le photobooth avec notre charte graphique ?",
-    answer:
-      "Oui. Logo, couleurs, cadre photo, messages et plusieurs éléments de l'expérience peuvent être adaptés selon la formule et les fichiers fournis.",
-  },
-  {
-    question: "Peut-on collecter des leads avec un photobooth ?",
-    answer:
-      "Une mécanique de lead capture peut être étudiée. Les champs, le consentement, le stockage et la destination des données doivent être définis avant l'événement.",
-  },
-  {
-    question: "Fournissez-vous un reporting après l'événement ?",
-    answer:
-      "Selon le dispositif, des indicateurs comme le nombre de sessions, de contenus produits ou certaines actions de partage peuvent être consolidés dans un bilan post-événement.",
-  },
-  {
-    question: "Intervenez-vous sur les salons professionnels en Île-de-France ?",
-    answer:
-      "Oui. Nous étudions les prestations sur salons, séminaires, lancements et soirées corporate à Paris et en Île-de-France selon le lieu, les accès et le calendrier.",
-  },
-  ...(basePage.faq || []),
-];
-
-const corporatePage = {
-  ...basePage,
-  title: "Photobooth entreprise & activations de marque",
-  description:
-    "Location photobooth entreprise pour salon, séminaire, soirée corporate et lancement de produit en Île-de-France, avec branding, 360 Booth, Vogue Booth et reporting selon le dispositif.",
-  highlights: ["Offres dès 900 € HT", "Brand Experience", "Event-Tech & reporting"],
-  sections: [
-    searchIntentSection,
-    corporateOffersSection,
-    useCasesSection,
-    innovationSection,
-    briefSection,
-    dataSection,
-    corporateReportSection,
-    procurementSection,
-    reliabilitySection,
-    ...basePage.sections,
-  ],
+import { useState } from "react";
+import Layout from "../../components/Layout";
+import useRevealMotion from "../../hooks/useRevealMotion";
+import { faqJsonLd } from "../../data/site";
+import {
+  machines,
+  customizations,
+  events,
+  steps,
+  gallery,
+  packages,
   faq,
-  relatedLinks: [
-    { label: "Prix Photobooth en Île-de-France en 2026", href: "/prix-photobooth-ile-de-france-2026/" },
-    { label: "Guide photobooth entreprise", href: "/blog/animation-photobooth-entreprise/" },
-    { label: "Quel photobooth pour un salon ou séminaire ?", href: "/blog/photobooth-salon-seminaire/" },
-    { label: "Comparer les animations", href: "/prestations/" },
-    { label: "Zones d'intervention", href: "/zones-intervention/" },
-    ...(basePage.relatedLinks || []),
-  ],
-  meta: {
-    ...basePage.meta,
-    title: "Location Photobooth Entreprise | MySelfieBooth",
+  quoteUrl,
+} from "../../components/corporate/content";
+import styles from "../../components/corporate/Corporate.module.css";
+
+const media = "/images/ai-from-real/corporate-";
+const cabins = [
+  {
+    key: "black",
+    title: "Luxe & matière",
     description:
-      "Location photobooth entreprise pour salon, séminaire, soirée corporate et activation de marque : branding, 360 Booth, Vogue Booth et reporting.",
-    ogTitle: "Photobooth entreprise & activations de marque",
-    ogDescription:
-      "Des animations photo et vidéo pensées pour l'engagement, le contenu de marque, l'innovation et le reporting post-événement.",
-    jsonLd: basePage.meta.jsonLd.map((entry) => {
-      if (entry["@type"] !== "Service") {
-        return entry;
-      }
-
-      return {
-        ...entry,
-        name: "Location Photobooth entreprise et activation de marque",
-        description:
-          "Photobooth, 360 Booth, Vogue Booth et Event-Tech pour entreprise, salon, séminaire et activation de marque avec branding et reporting selon le dispositif.",
-        offers: {
-          "@type": "Offer",
-          price: "900",
-          priceCurrency: "EUR",
-          description: "Offres corporate à partir de 900 euros HT, ajustées selon le brief, le lieu, la durée et la personnalisation.",
-        },
-      };
-    }),
+      "Noir profond, détails dorés et façade signée. Une présence architecturale pour un univers de maison de luxe.",
   },
+  {
+    key: "pink",
+    title: "Beauté & lumière",
+    description:
+      "Rose et blanc, lignes douces et éclairage intégré. Une piste créative pour un lancement cosmétique.",
+  },
+  {
+    key: "red",
+    title: "Impact & couleur",
+    description:
+      "Rouge et blanc, graphisme affirmé et parois personnalisées. Un concept pour révéler un nouveau produit.",
+  },
+];
+const meta = {
+  title: "Photobooth Corporate Paris & Cabine Sur Mesure | MySelfieBooth",
+  description:
+    "Photobooth personnalisé entreprise à Paris : habillage de marque, VogueBooth, vidéo 360 et cabines photo sur mesure. Créons votre expérience corporate sur devis.",
+  ogUrl: "/evenements/corporates/",
+  ogImage: `${media}hero-1440.webp`,
+  ogImageAlt:
+    "Projection de machines photo personnalisées pour un événement corporate parisien",
+  jsonLd: [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Expériences photo et vidéo corporate personnalisées",
+      serviceType:
+        "Location photobooth entreprise et conception de dispositifs photo sur mesure",
+      url: "https://myselfiebooth-paris.fr/evenements/corporates/",
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: "Paris et Île-de-France",
+      },
+      provider: {
+        "@type": "Organization",
+        name: "MySelfieBooth",
+        url: "https://myselfiebooth-paris.fr",
+      },
+      description:
+        "Personnalisation de photobooths, miroirs photo, VogueBooths et vidéos 360. Cabines photo sur mesure proposées après étude de faisabilité, sur devis.",
+    },
+    faqJsonLd(faq),
+  ],
 };
-
+function Arrow() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      aria-hidden="true"
+    >
+      <path d="M6 18 18 6M6 6h12v12" />
+    </svg>
+  );
+}
+function Quote({
+  children = "Créer mon expérience sur mesure",
+  secondary = false,
+}) {
+  return (
+    <a
+      href={quoteUrl}
+      className={`${styles.button} ${secondary ? styles.outline : ""}`}
+      data-analytics-event="cta_quote_click"
+    >
+      {children}
+      <Arrow />
+    </a>
+  );
+}
+function Heading({ eyebrow, title, children }) {
+  return (
+    <header className={styles.heading}>
+      <p className={styles.eyebrow}>{eyebrow}</p>
+      <h2>{title}</h2>
+      {children && <p>{children}</p>}
+    </header>
+  );
+}
+function Photo({
+  src,
+  alt,
+  eager = false,
+  responsive = false,
+  className = "",
+}) {
+  return (
+    <img
+      className={className}
+      src={src}
+      alt={alt}
+      width="1200"
+      height="800"
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : undefined}
+      decoding={eager ? "sync" : "async"}
+      data-no-load-motion={eager ? true : undefined}
+      {...(src.includes("cabin-")
+        ? {
+            srcSet: `${src.replace("900.webp", "480.webp")} 480w, ${src} 900w`,
+            sizes: "(max-width: 760px) 100vw, 33vw",
+          }
+        : responsive
+          ? {
+              srcSet: `${media}hero-720.webp 720w, ${media}hero-840.webp 840w, ${media}hero-1440.webp 1440w`,
+              sizes: "100vw",
+            }
+          : {})}
+    />
+  );
+}
+function BrandDrawing({ branded }) {
+  return (
+    <svg
+      viewBox="0 0 700 450"
+      role="img"
+      aria-label={
+        branded
+          ? "Simulation d'une borne habillée aux couleurs d'une marque"
+          : "Illustration d'une borne noire standard"
+      }
+    >
+      <ellipse cx="350" cy="411" rx="153" ry="15" fill="#000" opacity=".2" />
+      <path d="M330 290h40v105h-40z" fill="#343434" />
+      <path d="M275 397h150l18 14H257z" fill="#222" />
+      <rect
+        x="225"
+        y="47"
+        width="250"
+        height="265"
+        rx="25"
+        fill={branded ? "#f0e3c9" : "#242424"}
+        stroke={branded ? "#c09a56" : "#777"}
+        strokeWidth="3"
+      />
+      {branded && (
+        <>
+          <path d="M227 215L474 90v80L227 295z" fill="#a77d3b" opacity=".28" />
+          <path d="M228 115l245 140" stroke="#ad8952" strokeWidth="2" />
+        </>
+      )}
+      <circle
+        cx="350"
+        cy="89"
+        r="19"
+        fill="#111"
+        stroke="#a48d65"
+        strokeWidth="4"
+      />
+      <circle cx="350" cy="89" r="7" fill="#525869" />
+      <rect
+        x="254"
+        y="125"
+        width="192"
+        height="118"
+        rx="5"
+        fill={branded ? "#151310" : "#444"}
+        stroke="#888"
+      />
+      <text
+        x="350"
+        y="176"
+        textAnchor="middle"
+        fill={branded ? "#ddc28c" : "#fff"}
+        fontSize={branded ? "21" : "18"}
+        letterSpacing="4"
+      >
+        {branded ? "ATELIER" : "PHOTO"}
+      </text>
+      <text
+        x="350"
+        y="202"
+        textAnchor="middle"
+        fill="#eee"
+        fontSize="10"
+        letterSpacing="2"
+      >
+        {branded ? "VOTRE INSTANT SIGNATURE" : "TOUCHEZ POUR COMMENCER"}
+      </text>
+      <rect x="300" y="267" width="100" height="7" rx="2" fill="#111" />
+      {branded && (
+        <text
+          x="350"
+          y="295"
+          textAnchor="middle"
+          fill="#63502e"
+          fontSize="10"
+          letterSpacing="3"
+        >
+          ÉDITION PRIVÉE
+        </text>
+      )}
+    </svg>
+  );
+}
+function Comparison() {
+  const [position, setPosition] = useState(50);
+  return (
+    <div className={styles.comparison}>
+      <div className={styles.compareCanvas}>
+        <BrandDrawing branded={false} />
+        <div
+          className={styles.compareOverlay}
+          style={{ clipPath: `inset(0 0 0 ${position}%)` }}
+        >
+          <BrandDrawing branded />
+        </div>
+        <span className={styles.compareLine} style={{ left: `${position}%` }}>
+          <span aria-hidden="true">↔</span>
+        </span>
+        <div className={styles.compareLabels}>
+          <span>Machine standard</span>
+          <span>Machine personnalisée</span>
+        </div>
+      </div>
+      <label htmlFor="corporate-comparison">
+        Faites glisser pour révéler la personnalisation{" "}
+        <span aria-hidden="true">↔</span>
+      </label>
+      <input
+        id="corporate-comparison"
+        type="range"
+        min="0"
+        max="100"
+        value={position}
+        aria-valuetext={`${100 - position} % de la machine personnalisée visible`}
+        onChange={(e) => setPosition(Number(e.target.value))}
+      />
+      <p className={styles.note}>
+        Simulation graphique d'habillage · identité fictive · rendu à valider
+        sur le modèle retenu.
+      </p>
+    </div>
+  );
+}
+function DesignIcon({ index }) {
+  return (
+    <svg viewBox="0 0 120 85" fill="none" aria-hidden="true">
+      <rect
+        x="1"
+        y="1"
+        width="118"
+        height="83"
+        rx="5"
+        stroke="currentColor"
+        opacity=".25"
+      />
+      {index % 3 === 0 ? (
+        <>
+          <rect
+            x="42"
+            y="12"
+            width="36"
+            height="50"
+            rx="5"
+            stroke="currentColor"
+          />
+          <circle cx="60" cy="23" r="5" stroke="currentColor" />
+          <rect
+            x="48"
+            y="35"
+            width="24"
+            height="16"
+            fill="currentColor"
+            opacity=".3"
+          />
+          <path
+            d="M60 62v12m-15 0h30M8 20l22 12m60 16l22 12"
+            stroke="currentColor"
+          />
+        </>
+      ) : index % 3 === 1 ? (
+        <>
+          <circle cx="60" cy="40" r="25" stroke="currentColor" />
+          <path d="M40 57l20-36 20 36H40z" stroke="currentColor" />
+          <path d="M15 15h15m60 55h15" stroke="currentColor" />
+        </>
+      ) : (
+        <>
+          <rect x="25" y="12" width="70" height="61" stroke="currentColor" />
+          <path
+            d="M34 23h52M34 62h52M34 30v24h52V30H34z"
+            stroke="currentColor"
+          />
+          <circle cx="60" cy="42" r="8" fill="currentColor" opacity=".25" />
+        </>
+      )}
+    </svg>
+  );
+}
 export default function Corporates() {
-  return <MarketingPage page={corporatePage} />;
+  const revealRef = useRevealMotion("corporate-premium");
+  return (
+    <Layout metaProps={meta}>
+      <div className={styles.page} ref={revealRef}>
+        <section
+          className={`marketing-corporate ${styles.hero}`}
+          aria-labelledby="corporate-title"
+        >
+          <div className={styles.heroPhoto}>
+            <Photo
+              src={`${media}hero-1440.webp`}
+              alt="Projection publicitaire : photobooth, miroir interactif et plateau 360 personnalisés dans un salon parisien lors d'un événement de marque"
+              eager
+              responsive
+            />
+          </div>
+          <div className={styles.heroContent}>
+            <p className={styles.eyebrow}>
+              MYSELFIEBOOTH · BRAND EXPERIENCES · PARIS
+            </p>
+            <h1 id="corporate-title">
+              Photobooth Corporate &amp; Expériences Photo <em>Sur Mesure</em>
+            </h1>
+            <p className={styles.heroLead}>
+              Transformez vos événements professionnels en expériences de marque
+              mémorables. Photobooths personnalisés, cabines photo sur mesure et
+              dispositifs immersifs aux couleurs de votre entreprise.
+            </p>
+            <div className={styles.actions}>
+              <Quote />
+              <a
+                href="#realisations"
+                className={`${styles.button} ${styles.outline}`}
+              >
+                Découvrir nos réalisations <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+            <div className={styles.heroPromises}>
+              <span>Identité de marque</span>
+              <span>Conception sur mesure</span>
+              <span>Accompagnement événementiel</span>
+            </div>
+          </div>
+          <p className={styles.heroCaption}>
+            Projection IA · identités fictives · personnalisation sur étude
+          </p>
+        </section>
+        <nav
+          className={styles.navigation}
+          aria-label="Explorer l'offre corporate"
+        >
+          <a href="#machines">Les machines</a>
+          <a href="#cabines">Cabines sur mesure</a>
+          <a href="#personnalisation">Personnalisation</a>
+          <a href="#realisations">Réalisations</a>
+          <a href="#offres-corporate">Les formules</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <section
+          className={`marketing-corporate ${styles.intro} ${styles.wrap}`}
+          id="photobooth-entreprise"
+        >
+          <p className={styles.eyebrow}>BIEN PLUS QU'UNE ANIMATION PHOTO</p>
+          <h2>
+            Votre univers.
+            <br />
+            Notre savoir-faire.
+            <br />
+            <em>Une expérience qui reste.</em>
+          </h2>
+          <div>
+            <p>
+              Une marque se reconnaît dans les détails. L'habillage d'une borne,
+              la lumière d'un portrait, la mise en page d'un tirage : chaque
+              point de contact peut raconter votre histoire.
+            </p>
+            <p>
+              Pour les entreprises, les agences événementielles et les maisons
+              de luxe, MySelfieBooth imagine des expériences photo et vidéo
+              personnalisées à Paris et en Île-de-France. Du brief à
+              l'exploitation événementielle, nous étudions un dispositif à la
+              hauteur de votre projet.
+            </p>
+            <a className={styles.textLink} href="#personnalisation">
+              Explorer les possibilités <Arrow />
+            </a>
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.section} ${styles.wrap}`}
+          id="machines"
+        >
+          <span id="formats-b2b" />
+          <Heading
+            eyebrow="01 / LA COLLECTION"
+            title={
+              <>
+                Nos machines.
+                <br />
+                <em>Votre signature.</em>
+              </>
+            }
+          >
+            Quatre expériences, autant de façons de faire vivre votre marque.
+            Les possibilités de personnalisation sont confirmées selon le modèle
+            et le projet.
+          </Heading>
+          <div className={styles.machineGrid}>
+            {machines.map((m, i) => (
+              <article className={styles.machine} key={m.name} data-reveal>
+                <div className={styles.machinePhoto}>
+                  <Photo src={m.image} alt={m.alt} />
+                  <span className={styles.photoLabel}>
+                    {m.real
+                      ? "Photographie réelle"
+                      : "Projection IA issue du réel"}
+                  </span>
+                  <span className={styles.machineNumber}>0{i + 1}</span>
+                </div>
+                <div className={styles.machineBody}>
+                  <p className={styles.eyebrow}>{m.tag}</p>
+                  <h3>{m.name}</h3>
+                  <p>{m.text}</p>
+                  <ul>
+                    {m.features.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                  <p className={styles.ideal}>{m.ideal}</p>
+                  <a href={m.href} className={styles.textLink}>
+                    Découvrir le dispositif <Arrow />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.cabinSection}`}
+          id="cabines"
+        >
+          <div className={styles.wrap}>
+            <div className={styles.cabinIntro}>
+              <Heading
+                eyebrow="NOUVEAU TERRITOIRE CRÉATIF / SUR ÉTUDE"
+                title={
+                  <>
+                    Une cabine photo.
+                    <br />
+                    <em>Un monde à votre image.</em>
+                  </>
+                }
+              >
+                Concevons une architecture de marque, fermée ou semi-ouverte,
+                autour de l'expérience photo. Une installation temporaire pour
+                vos événements professionnels, pensée à partir de votre brief.
+              </Heading>
+              <div>
+                <p>
+                  Façade imprimée, logo et visuels, parois et fond photo
+                  personnalisés : chaque surface devient un espace d'expression.
+                </p>
+                <p>
+                  Éclairage LED intégré, écran tactile, appareil photo,
+                  impression ou partage numérique sont étudiés selon la
+                  configuration. Location événementielle ou dispositif
+                  réutilisable : chaque projet est soumis à une étude de
+                  faisabilité technique et logistique.
+                </p>
+                <Quote>Demander une cabine personnalisée</Quote>
+              </div>
+            </div>
+            <div className={styles.cabinGrid}>
+              {cabins.map((c) => (
+                <article key={c.key} data-reveal>
+                  <div className={styles.cabinPhoto}>
+                    <Photo
+                      src={`${media}cabin-${c.key}-900.webp`}
+                      alt={`Projection conceptuelle de cabine photo corporate ${c.key === "black" ? "noire et dorée pour un univers de luxe" : c.key === "pink" ? "rose et blanche pour une marque de cosmétique" : "rouge et blanche pour un lancement de produit"}`}
+                    />
+                    <span className={styles.photoLabel}>
+                      Concept IA · sur étude
+                    </span>
+                  </div>
+                  <h3>{c.title}</h3>
+                  <p>{c.description}</p>
+                </article>
+              ))}
+            </div>
+            <p className={styles.note}>
+              Visuels de projection — réalisations sur mesure soumises à étude
+              technique. Ces concepts ne constituent pas des produits
+              actuellement en stock. Identités de marque fictives.
+            </p>
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.section} ${styles.wrap}`}
+          id="personnalisation"
+        >
+          <Heading
+            eyebrow="02 / L'ART DU DÉTAIL"
+            title={
+              <>
+                La personnalisation n'a pas
+                <br />
+                <em>de limites créatives.</em>
+              </>
+            }
+          >
+            Votre marque ne s'adapte pas à nos machines. Nos dispositifs
+            s'adaptent à votre univers.
+          </Heading>
+          <div className={styles.customGrid}>
+            {customizations.map(([number, title, text], i) => (
+              <article key={number} data-reveal>
+                <DesignIcon index={i} />
+                <span className={styles.smallNumber}>{number}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+          <div className={styles.compareGrid}>
+            <div>
+              <p className={styles.eyebrow}>
+                LE MÊME DISPOSITIF. UNE AUTRE PRÉSENCE.
+              </p>
+              <h3>
+                De la machine
+                <br />à <em>l'objet de marque.</em>
+              </h3>
+              <p>
+                Habillage, interface et cadre photo composent une expérience
+                cohérente. Explorez le principe d'une transformation visuelle,
+                puis imaginons la vôtre.
+              </p>
+              <Quote secondary>Parlons de votre identité</Quote>
+            </div>
+            <Comparison />
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.eventsSection}`}
+          id="cas-usage-entreprise"
+        >
+          <div className={styles.wrap}>
+            <Heading
+              eyebrow="03 / LES RENDEZ-VOUS DE VOTRE MARQUE"
+              title={
+                <>
+                  L'expérience juste.
+                  <br />
+                  <em>Au bon moment.</em>
+                </>
+              }
+            >
+              De l'animation photo d'un salon professionnel au photobooth de
+              lancement produit, le dispositif s'adapte à votre objectif, votre
+              espace et vos invités.
+            </Heading>
+            <div className={styles.eventsGrid}>
+              {events.map((e) => (
+                <article key={e.title} data-reveal>
+                  <div className={styles.eventPhoto}>
+                    <Photo src={e.image} alt={e.alt} />
+                    <span className={styles.photoLabel}>
+                      Projection IA issue du réel
+                    </span>
+                  </div>
+                  <div className={styles.eventBody}>
+                    <h3>{e.title}</h3>
+                    <p>{e.text}</p>
+                    <span>{e.machines}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.section} ${styles.wrap}`}
+          id="accompagnement"
+        >
+          <span id="organisation-achat" />
+          <span id="fiabilite" />
+          <Heading
+            eyebrow="04 / DE L'IDÉE AU JOUR J"
+            title={
+              <>
+                Une expérience premium.
+                <br />
+                <em>De A à Z.</em>
+              </>
+            }
+          >
+            Un projet créatif mérite une exécution soignée. Nous préparons avec
+            vous le rendu et les conditions concrètes de son exploitation.
+          </Heading>
+          <ol className={styles.steps}>
+            {steps.map(([title, text], i) => (
+              <li key={title} data-reveal>
+                <span>0{i + 1}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className={styles.serviceNote}>
+            <p>
+              Un interlocuteur dédié selon l'organisation du projet. Une équipe
+              d'animation professionnelle selon la prestation. Une préparation
+              technique et logistique adaptée aux contraintes de votre
+              entreprise.
+            </p>
+            <p>
+              Interventions multi-jours, prestations supplémentaires et
+              installations complexes : <strong>sur devis</strong>.
+            </p>
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.trust}`}
+          id="references"
+        >
+          <div className={styles.wrap}>
+            <p className={styles.eyebrow}>
+              LA CONFIANCE SE CONSTRUIT SUR LE TERRAIN
+            </p>
+            <h2>Ils nous font confiance.</h2>
+            <div className={styles.logos}>
+              {[
+                ["TotalEnergies", "totalenergies.png"],
+                ["Sephora", "sephora.webp"],
+                ["Safran", "safran.webp"],
+              ].map(([name, file]) => (
+                <div key={name}>
+                  <img
+                    src={`/logos/${file}`}
+                    alt={name}
+                    width="210"
+                    height="80"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <p>
+              Des références autorisées. Des projets abordés avec la même
+              attention au détail.
+            </p>
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.section} ${styles.wrap}`}
+          id="realisations"
+        >
+          <Heading
+            eyebrow="05 / REGARDS SUR L'EXPÉRIENCE"
+            title={
+              <>
+                Le réel nous inspire.
+                <br />
+                <em>Votre brief ouvre la suite.</em>
+              </>
+            }
+          >
+            Des photographies de nos événements et des projections créatives,
+            présentées séparément pour vous aider à imaginer votre dispositif.
+          </Heading>
+          {[true, false].map((real) => (
+            <div className={styles.galleryGroup} key={String(real)}>
+              <h3>
+                {real
+                  ? "Sur le terrain — photographies réelles"
+                  : "Pour vous projeter — inspirations IA issues du réel"}
+              </h3>
+              {!real && (
+                <p className={styles.note}>
+                  Ces inspirations ne représentent pas des réalisations clients.
+                  Personnalisations et décors soumis à validation.
+                </p>
+              )}
+              <div className={styles.galleryGrid}>
+                {gallery
+                  .filter((g) => Boolean(g.real) === real)
+                  .map((g) => (
+                    <figure key={g.image} data-reveal>
+                      <div>
+                        <Photo src={g.image} alt={g.alt} />
+                      </div>
+                      <figcaption>
+                        {g.title}
+                        <span>{real ? "Photo réelle" : "Projection IA"}</span>
+                      </figcaption>
+                    </figure>
+                  ))}
+              </div>
+            </div>
+          ))}
+          <a href="/realisations/" className={styles.textLink}>
+            Explorer les réalisations MySelfieBooth <Arrow />
+          </a>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.packagesSection}`}
+          id="offres-corporate"
+        >
+          <div className={styles.wrap}>
+            <Heading
+              eyebrow="06 / TROIS UNIVERS, UN PROJET UNIQUE"
+              title={
+                <>
+                  L'ambition de votre marque.
+                  <br />
+                  <em>La formule qui lui ressemble.</em>
+                </>
+              }
+            >
+              Aucun événement ne se ressemble. Nos propositions sont construites
+              selon votre brief, la durée, le lieu et les possibilités
+              techniques validées.
+            </Heading>
+            <div className={styles.packages}>
+              {packages.map((p, i) => (
+                <article key={p.name} data-reveal>
+                  <span className={styles.smallNumber}>
+                    0{i + 1} / SUR DEVIS
+                  </span>
+                  <h3>{p.name}</h3>
+                  <p className={styles.packageSubtitle}>{p.subtitle}</p>
+                  <p>{p.text}</p>
+                  <ul>
+                    {p.features.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                  <Quote secondary>Recevoir une proposition</Quote>
+                </article>
+              ))}
+            </div>
+            <p className={styles.note}>
+              Matériel, fonctionnalités, accompagnement et options sont
+              confirmés dans le devis, après validation de la faisabilité.
+            </p>
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.section} ${styles.wrap} ${styles.faq}`}
+          id="faq"
+        >
+          <Heading
+            eyebrow="LES RÉPONSES AVANT LE BRIEF"
+            title={
+              <>
+                Votre projet.
+                <br />
+                <em>En toute clarté.</em>
+              </>
+            }
+          />
+          <div>
+            {faq.map((f) => (
+              <details key={f.question}>
+                <summary>
+                  {f.question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+        <section
+          className={`marketing-corporate ${styles.final}`}
+          id="brief-corporate"
+        >
+          <span id="event-tech" />
+          <span id="donnees-lead-capture" />
+          <span id="rapport-corporate-automatique" />
+          <div className={styles.wrap}>
+            <p className={styles.eyebrow}>
+              VOTRE PROCHAINE EXPÉRIENCE COMMENCE ICI
+            </p>
+            <h2>
+              Imaginons ensemble votre prochaine <em>expérience de marque.</em>
+            </h2>
+            <p>
+              Une date, un lieu, une intention. Partagez votre brief et donnons
+              forme à une expérience qui vous ressemble.
+            </p>
+            <Quote>Obtenir une proposition sur mesure</Quote>
+            <div className={styles.related}>
+              <a href="/blog/animation-photobooth-entreprise/">
+                Le guide entreprise
+              </a>
+              <a href="/blog/photobooth-salon-seminaire/">
+                Préparer un salon ou un séminaire
+              </a>
+              <a href="/prestations/">Tous les dispositifs</a>
+              <a href="/zones-intervention/">Zones d'intervention</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </Layout>
+  );
 }

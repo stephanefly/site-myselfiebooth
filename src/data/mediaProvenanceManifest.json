@@ -404,5 +404,83 @@
       "/images/realisations-machines/tirages-gala.webp",
       "/images/event-archive/brice-tirages.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/corporate-hero-720.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-hero-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-cabin-black-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-cabin-black-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-cabin-pink-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-cabin-pink-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-cabin-red-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-cabin-red-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
+  },
+  {
+    "path": "/images/ai-from-real/corporate-hero-840.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Projection conceptuelle corporate ; identité fictive ; aucune réalisation client ni disponibilité en stock."
   }
 ]
