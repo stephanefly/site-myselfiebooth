@@ -55,9 +55,9 @@ export default function PreFooter() {
           margin: 0 0 10px;
           color: #d6b774;
           font-size: 10px;
-          font-weight: 700;
-          line-height: 1.6;
-          letter-spacing: 0.16em;
+          font-weight: 600;
+          line-height: 1.7;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
         }
         .prefooter h2 {
@@ -65,8 +65,8 @@ export default function PreFooter() {
           color: #f7f4ec;
           font-size: clamp(1.65rem, 3vw, 2.5rem);
           font-weight: 700;
-          line-height: 1.2;
-          letter-spacing: -0.035em;
+          line-height: 1.12;
+          letter-spacing: normal;
           text-wrap: balance;
         }
         .prefooter-description {
@@ -89,7 +89,7 @@ export default function PreFooter() {
           color: #15160f;
           background: #d6b774;
           font-size: 13px;
-          font-weight: 700;
+          font-weight: 600;
           line-height: 1.5;
           text-decoration: none;
           transition: background 0.2s;
