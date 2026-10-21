@@ -3,6 +3,15 @@ import { machines, options, servicePacks } from "../../data/catalog";
 import { absoluteUrl, breadcrumbJsonLd, faqJsonLd, siteConfig } from "../../data/site";
 
 const visualRoot = "/images/ai-from-real/prestations-2026-";
+const packVisualRoot = "/images/ai-from-real/prestations-pack-";
+const packIllustrations = {
+  souvenirs: "Photobooth noir et or, Phonebooth audio et porte-clés photo du Pack Souvenirs",
+  "immersion-360": "Plateau vidéo 360, livre d’or vidéo et fond lumineux LED du Pack Immersion 360",
+  signature: "Miroirbooth doré, livre d’or vidéo et panneau fontaine fleuri du Pack Signature",
+  "duo-vip": "Miroirbooth et plateau vidéo 360 dans un décor floral pour le Pack Duo VIP",
+  "vogue-premium": "Vogue Booth, photographe et tirages photo pour le Pack Vogue Premium",
+  "mariage-prestige": "Miroirbooth, Vogue Booth et plateau 360 avec fond LED et mur floral du Pack Mariage Prestige",
+};
 const machinePresentation = {
   photobooth: { type: "Photo & impression", tag: "Le plus demandé", line: "Les sourires deviennent des souvenirs.", text: "Notre borne noir et or réunit vos invités devant l’objectif. Ils posent, personnalisent leur photo et repartent avec un tirage selon la formule choisie.", facts: ["Tirages personnalisés selon formule", "Animateur sur place", "Galerie après l’événement"], capacity: "Petits et moyens groupes" },
   miroirbooth: { type: "Photo & impression", tag: "L’élégance du miroir", line: "Un grand miroir. Un vrai moment de partage.", text: "Son cadre doré et son écran tactile attirent les regards. Une animation photo qui habille votre réception et donne envie à chacun de participer.", facts: ["Grand miroir tactile", "Animateur sur place", "Tirages selon formule & galerie"], capacity: "Du duo au groupe" },
@@ -89,6 +98,19 @@ export default function ServicesCatalogPage() {
         <section id="packs" className="catalog-collection prst-section prst-packs" aria-labelledby="prst-packs-title"><div className="prst-wrap">
           <header className="prst-section-heading"><div><p className="prst-kicker">02 / Les packs</p><h2 id="prst-packs-title">Les bonnes associations.<br /><em>Tout simplement.</em></h2></div><p>Plusieurs animations, un même événement. Nos packs réunissent machines, décors et souvenirs pour composer une expérience complète.</p></header>
           <div className="prst-pack-grid">{servicePacks.map((pack, index) => <article className={`prst-pack ${pack.key === "duo-vip" ? "prst-pack-featured" : ""}`} key={pack.key}>
+            <div className="prst-pack-visual">
+              <img
+                src={`${packVisualRoot}${pack.key}-900.webp`}
+                srcSet={`${packVisualRoot}${pack.key}-480.webp 480w, ${packVisualRoot}${pack.key}-900.webp 900w`}
+                sizes="(max-width: 600px) calc(100vw - 40px), (max-width: 800px) 46vw, (max-width: 1100px) 30vw, 390px"
+                alt={packIllustrations[pack.key]}
+                width="900"
+                height="675"
+                loading="lazy"
+                decoding="async"
+                data-no-load-motion
+              />
+            </div>
             <div className="prst-pack-top"><span className="prst-kicker">{pack.tag}</span><span className="prst-pack-number" aria-hidden="true">0{index + 1}</span></div><h3>{pack.name}</h3><p>{pack.description}</p><ul className="prst-checks">{pack.features.map((feature) => <li key={feature}>{feature}</li>)}</ul><div className="prst-pack-bottom"><p className="prst-pack-price">À partir de <strong>{pack.price.replace(/^À partir de /, "").replace("euros", "€")}</strong></p><a className="prst-button" href={pack.bookingUrl}>Choisir ce pack <Arrow /></a></div>
           </article>)}</div>
           <div className="prst-combos"><article id="machine-packvip"><p className="prst-kicker">Le duo essentiel</p><h3>Miroirbooth + 360 Booth</h3><p>Photo imprimée et vidéo réunies dans notre Pack VIP.</p><div><strong>{vip.catalogPrice}</strong><a className="prst-text-link" href="/prestations/packvip/">Découvrir le Pack VIP <Arrow /></a></div></article><article id="machine-personnalise"><p className="prst-kicker">Votre événement, votre formule</p><h3>Vous imaginez autre chose ?</h3><p>Plusieurs espaces, un lancement de marque ou une grande réception : composons votre installation.</p><a className="prst-text-link" href="/prestations/personnalise/">Créer ma formule sur mesure <Arrow /></a></article></div>

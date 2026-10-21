@@ -93,9 +93,26 @@
 .prst-packs p { color: #c1bfb6; }
 .prestations-page .prst-packs .prst-kicker { color: #d9bf83; }
 .prst-pack-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
-.prst-pack { display: flex; flex-direction: column; padding: 26px; background: #2b2c27; border: 1px solid #4a4a40; border-radius: 5px; }
+.prst-pack { --pack-inset: 26px; display: flex; flex-direction: column; padding: var(--pack-inset); overflow: hidden; background: #2b2c27; border: 1px solid #4a4a40; border-radius: 5px; }
+.prst-pack-visual {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 3;
+  margin: calc(-1 * var(--pack-inset)) calc(-1 * var(--pack-inset)) 24px;
+  overflow: hidden;
+  background: #1a1b17;
+}
+.prestations-page .prst-pack-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .prst-pack:hover .prst-pack-visual img { transform: scale(1.025); }
+}
 .prst-pack-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 30px; }
-.prst-pack-number { color: #7e7f73; font: italic 21px Georgia,serif; }
+.prst-pack-number { color: #b6b8ab; font: italic 21px Georgia,serif; }
 .prst-pack h3 { font-family: Georgia,serif; font-size: 27px; min-height: 2.5em; }
 .prst-pack > p { margin-top: 14px; font-size: 12px; }
 .prst-pack .prst-checks { margin: 24px 0 30px; }
@@ -111,7 +128,7 @@
 .prestations-page .prst-pack-featured .prst-kicker { color: #765722; }
 .prst-pack-featured .prst-checks li { color: #24221e; }
 .prst-pack-featured .prst-checks li::before { color: #765722; }
-.prst-pack-featured .prst-pack-number { color: #9b885f; }
+.prst-pack-featured .prst-pack-number { color: #765722; }
 .prestations-page .prst-pack-featured .prst-pack-price { color: #655d4f; }
 .prst-pack-featured .prst-pack-price strong { color: #24221e; }
 .prestations-page .prst-pack-featured .prst-button { background: #24221e; color: #fff; border-color: #24221e; }
@@ -185,7 +202,7 @@
   .prst-navigation { gap: 34px; }
   .prst-machine-body { padding: 24px; }
   .prst-machine-title h3 { font-size: 30px; }
-  .prst-pack { padding: 22px; }
+  .prst-pack { --pack-inset: 22px; }
   .prst-pack h3 { font-size: 25px; }
 }
 @media (max-width:800px) {
@@ -254,7 +271,7 @@
   .prst-machine-actions .prst-text-link { justify-self: start; }
   .prestations-page .prst-image-note { line-height: 1.8; font-size: 9px; }
   .prst-image-note a { display: inline-block; }
-  .prst-pack { padding: 26px; }
+  .prst-pack { --pack-inset: 26px; }
   .prst-pack h3 { font-size: 30px; }
   .prst-pack > p { font-size: 13px; }
   .prst-pack .prst-checks li { font-size: 12px; }
@@ -293,6 +310,6 @@
   .prst-machine-body { padding: 20px 16px; }
   .prst-machine-title strong { font-size: 23px; }
   .prst-option-list, .prst-studio-options .prst-option-list { grid-template-columns: 1fr; gap: 18px; }
-  .prst-pack { padding: 23px; }
+  .prst-pack { --pack-inset: 23px; }
 }
 @media (prefers-reduced-motion:reduce) { .prestations-page .prst-button { transition: none; } }
