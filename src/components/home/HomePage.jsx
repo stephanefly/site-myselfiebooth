@@ -288,9 +288,71 @@ export default function HomePage() {
 
       <ServiceAreaLinks />
 
-      <section className="home-final-cta" data-page-conclusion data-reveal>
-        <div className="home-container"><p className="home-eyebrow">Votre événement</p><h2>Créons les souvenirs de votre prochain événement.</h2><QuoteButton /></div>
+      <section className="home-final-cta home-event-invitation" aria-labelledby="home-event-title" data-page-conclusion data-reveal>
+        <div className="home-container home-event-inner">
+          <div className="home-event-copy">
+            <p className="home-eyebrow">Votre événement</p>
+            <h2 id="home-event-title">Un événement à votre image.</h2>
+            <p className="home-event-description">Parlons de vos envies pour créer un moment qui vous ressemble.</p>
+          </div>
+          <a className="home-event-button" href={siteConfig.quoteUrl} data-event="cta_quote_click" data-event-label="Accueil événement">
+            Parlons de votre événement <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </section>
+      <style jsx>{`
+        .home-event-invitation {
+          padding: 44px 0;
+          color: #faf7ee;
+          background: #294b3f;
+        }
+        .home-event-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 32px 48px;
+          text-align: left;
+        }
+        .home-event-copy { min-width: 0; }
+        .home-event-invitation .home-eyebrow { margin-bottom: 10px; color: #efd39b; }
+        .home-event-invitation h2 {
+          margin: 0;
+          color: #faf7ee;
+          font-size: clamp(1.75rem, 3vw, 2.35rem);
+          line-height: 1.2;
+        }
+        .home-event-invitation .home-event-description {
+          max-width: 560px;
+          margin: 14px 0 0;
+          color: #e1e8dd;
+          font-size: 1rem;
+          line-height: 1.65;
+        }
+        .home-event-button {
+          display: inline-flex;
+          flex-shrink: 0;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+          min-height: 50px;
+          padding: 14px 24px;
+          border: 1px solid #faf7ee;
+          border-radius: 999px;
+          background: #faf7ee;
+          color: #294b3f;
+          font-size: 0.95rem;
+          font-weight: 700;
+          line-height: 1.4;
+          text-decoration: none;
+        }
+        .home-event-button:hover { background: #efd39b; border-color: #efd39b; }
+        .home-event-button:focus-visible { outline: 3px solid #efd39b; outline-offset: 5px; }
+        @media (max-width: 760px) {
+          .home-event-invitation { padding: 36px 0; }
+          .home-event-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+          .home-event-button { width: 100%; padding-inline: 16px; }
+        }
+      `}</style>
     </div>
   );
 }
