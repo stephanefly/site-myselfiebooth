@@ -303,7 +303,7 @@ export default function HomePage() {
       <style jsx>{`
         .home-page .home-event-invitation {
           padding: 44px 0;
-          color: #253b30;
+          color: #171717;
           background: #f7f3ea !important;
           border-top: 1px solid #ded5c3;
           border-bottom: 1px solid #ded5c3;
@@ -319,14 +319,14 @@ export default function HomePage() {
         .home-event-invitation .home-eyebrow { margin-bottom: 10px; color: #806231; }
         .home-event-invitation h2 {
           margin: 0;
-          color: #253b30;
+          color: #171717;
           font-size: clamp(1.75rem, 3vw, 2.35rem);
           line-height: 1.2;
         }
         .home-event-invitation .home-event-description {
           max-width: 560px;
           margin: 14px 0 0;
-          color: #586457;
+          color: #6f6a61;
           font-size: 1rem;
           line-height: 1.65;
         }
@@ -338,16 +338,16 @@ export default function HomePage() {
           gap: 18px;
           min-height: 50px;
           padding: 14px 24px;
-          border: 1px solid #294b3f;
+          border: 1px solid #171717;
           border-radius: 999px;
-          background: #294b3f;
+          background: #171717;
           color: #faf7ee;
           font-size: 0.95rem;
           font-weight: 700;
           line-height: 1.4;
           text-decoration: none;
         }
-        .home-event-button:hover { background: #253b30; border-color: #253b30; }
+        .home-event-button:hover { background: #171717; border-color: #171717; }
         .home-event-button:focus-visible { outline: 3px solid #efd39b; outline-offset: 5px; }
         @media (max-width: 760px) {
           .home-event-invitation { padding: 36px 0; }
