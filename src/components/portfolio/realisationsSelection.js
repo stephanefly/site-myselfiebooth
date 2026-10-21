@@ -143,3 +143,43 @@ export const backstage = {
   description:
     "Du matériel préparé, un emplacement vérifié, une installation testée. Découvrez le montage de notre Photobooth en accéléré.",
 };
+
+// Original equipment footage already documented in the repository media archive.
+export const machineFilms = [
+  {
+    id: "machine-photobooth", title: "Le Photobooth noir & or", device: "Photobooth",
+    image: "/images/collection-2026/photobooth-noir-or-900.webp",
+    alt: "Notre véritable Photobooth noir et or installé dans une salle de réception",
+    video: "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+    description: "Découvrez notre borne photo installée à l’Espace Eden, aux côtés du miroir. Son allure noire et dorée s’intègre au décor de la réception et crée un point de rendez-vous pour les photos entre proches.",
+    detail: "À regarder : la machine dans la salle et la place de l’espace photo.",
+    href: "/prestations/photobooth/",
+  },
+  {
+    id: "machine-miroir", title: "Le Miroirbooth doré", device: "Miroirbooth",
+    image: "/images/event-archive/video-posters/miroirbooth-installation.webp",
+    alt: "Notre miroir photo à cadre doré dans son installation réelle",
+    video: "/videos/realisations-machines/miroirbooth-invites.mp4",
+    description: "Un grand miroir, un cadre doré et des invités qui prennent la pose. Retrouvez Alexandra et Loïc devant leur habillage personnalisé pour voir comment cette animation prend vie pendant un mariage.",
+    detail: "À regarder : les invités devant le miroir et la personnalisation à leurs noms.",
+    href: "/prestations/miroirbooth/",
+  },
+  {
+    id: "machine-360", title: "La plateforme vidéo 360", device: "360 Booth",
+    image: "/images/collection-2026/plateforme-video-360-900.webp",
+    alt: "Notre véritable plateforme 360 avec son bras caméra et ses éclairages",
+    video: "/videos/event-archive/360-red-carpet.mp4",
+    description: "Les invités montent sur le plateau et la caméra tourne autour d’eux. La vidéo de réception montre l’animation en mouvement : une autre façon de capturer les poses, les rires et l’énergie de la soirée.",
+    detail: "À regarder : le plateau lumineux, le mouvement de la caméra et les poses des invités.",
+    href: "/prestations/air360booth/",
+  },
+  {
+    id: "machine-vogue", title: "Le Vogue Booth personnalisé", device: "Vogue Booth",
+    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
+    alt: "Notre décor Vogue Booth personnalisé installé pour un mariage",
+    video: "/videos/vogue-real/vogue-booth-mariage.mp4",
+    description: "Un décor de couverture de magazine pour devenir les protagonistes de votre événement. Regardez Lydia et Vincent dans leur Vogue Booth de mariage : leurs noms et leur date font partie du décor.",
+    detail: "À regarder : le décor grandeur nature et la couverture personnalisée du mariage.",
+    href: "/prestations/voguebooth/",
+  },
+];

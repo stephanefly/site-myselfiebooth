@@ -30,8 +30,16 @@ assert.equal(
   7,
   "All selected events must be visible before filtering",
 );
-for (const id of ["films", "tirages", "machines", "avis-reels"]) {
+for (const id of ["nos-machines", "films", "tirages", "machines", "avis-reels"]) {
   assert.ok(main.includes(`id="${id}"`), `Preserve the existing ${id} anchor`);
+}
+assert.equal(
+  [...main.matchAll(/class="rl-machine-card"/g)].length,
+  4,
+  "Four original machines must have a dedicated video card",
+);
+for (const slug of ["photobooth", "miroirbooth", "air360booth", "voguebooth"]) {
+  assert.ok(main.includes(`href="/prestations/${slug}/"`), `Link the ${slug} service`);
 }
 const images = [...main.matchAll(/<img\b[^>]+src="([^"]+)"/g)].map(
   (match) => match[1],

@@ -8,13 +8,14 @@ import {
   projects,
   keepsakes,
   backstage,
+  machineFilms,
 } from "./realisationsSelection";
 
 const categories = [
   "Tout",
   ...new Set(projects.map((project) => project.category)),
 ];
-const allMedia = [openingFilm, ...projects, ...keepsakes, backstage];
+const allMedia = [openingFilm, ...projects, ...keepsakes, backstage, ...machineFilms];
 const reviews = [googleReviews[0], googleReviews[1], googleReviews[4]];
 
 function Arrow({ down = false }) {
@@ -234,12 +235,14 @@ export default function RealisationsPage() {
                 <em>souvenirs.</em>
               </h1>
               <p>
-                Mariages, galas, activations de marque. Des regards, du
-                mouvement et ce petit moment où tout le monde se prend au jeu.
+                Découvrez nos vrais Photobooth, Miroirbooth, Vogue Booth et
+                plateformes 360, installés lors de mariages, galas et soirées.
+                Des photos de nos équipements et des vidéos tournées sur place
+                pour imaginer votre propre événement.
               </p>
               <div className="rl-actions">
-                <a className="rl-button" href="#films">
-                  Explorer les réalisations <Arrow down />
+                <a className="rl-button" href="#nos-machines">
+                  Voir nos machines en vidéo <Arrow down />
                 </a>
                 <a className="rl-text-link" href={siteConfig.quoteUrl}>
                   Parlons de votre événement <Arrow />
@@ -296,6 +299,44 @@ export default function RealisationsPage() {
           <span aria-hidden="true">✧</span>
           <span>Une expérience à votre image.</span>
         </div>
+        <section className="marketing-realisations rl-machine-section rl-section" id="nos-machines" aria-labelledby="rl-machines-title">
+          <div className="rl-wrap">
+            <header className="rl-heading">
+              <div>
+                <p className="rl-eyebrow">NOS MACHINES / EN CONDITIONS RÉELLES</p>
+                <h2 id="rl-machines-title">Voyez la machine.<br /><em>Vivez l’expérience.</em></h2>
+              </div>
+              <p>Du matériel installé dans de vraies salles, avec de vrais invités.
+                Chaque film vous montre une animation de notre collection :
+                découvrez son allure, son fonctionnement et l’ambiance qu’elle crée.</p>
+            </header>
+            <div className="rl-machine-grid">
+              {machineFilms.map((machine) => (
+                <article className="rl-machine-card" key={machine.id}>
+                  <button type="button" className="rl-machine-film" onClick={() => setActiveId(machine.id)} aria-label={`Voir la vidéo : ${machine.title}`}>
+                    <Photo item={machine} />
+                    <span className="rl-project-tag">{machine.device}</span>
+                    <span className="rl-project-action"><Play /> Voir la vidéo</span>
+                  </button>
+                  <div className="rl-machine-copy">
+                    <h3>{machine.title}</h3>
+                    <p>{machine.description}</p>
+                    <p className="rl-machine-detail">{machine.detail}</p>
+                    <a className="rl-text-link" href={machine.href}>Découvrir cette animation <Arrow /></a>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="rl-machine-note">Lancez un film pour le voir en grand et activer le son.
+              Pour préparer votre installation, indiquez-nous votre date, votre lieu et
+              la machine qui vous plaît : nous préciserons ensemble l’espace nécessaire,
+              la personnalisation et l’accompagnement dans votre devis.</p>
+            <div className="rl-actions">
+              <a className="rl-button" href={siteConfig.quoteUrl}>Préparer mon événement <Arrow /></a>
+              <a className="rl-text-link" href="#films">Voir les événements <Arrow down /></a>
+            </div>
+          </div>
+        </section>
         <section
           className="marketing-realisations rl-work rl-section"
           id="films"
