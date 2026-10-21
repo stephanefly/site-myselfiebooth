@@ -300,7 +300,23 @@ export default function HomePage() {
 
 
 
+      <aside className="home-coverage-note home-container" aria-label="Déplacements">
+        <p>Nous intervenons dans toute l’Île-de-France et les régions limitrophes, ainsi qu’à Lyon et en Normandie. Pour toute autre destination, nous étudions votre projet et vous proposons un devis sur mesure.</p>
+      </aside>
+
       <style jsx>{`
+        .home-coverage-note {
+          padding: 24px 0 32px;
+          border-top: 1px solid #ded5c3;
+          text-align: center;
+        }
+        .home-coverage-note p {
+          max-width: 820px;
+          margin: 0 auto;
+          color: #6f6a61;
+          font-size: .85rem;
+          line-height: 1.8;
+        }
         .home-page .home-event-invitation {
           width: min(1180px, calc(100% - 32px));
           margin: 32px auto;
