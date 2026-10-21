@@ -8,7 +8,6 @@ import {
   services,
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
-import ServiceAreaLinks from "../ServiceAreaLinks";
 import { homeInstagramMedia } from "../../data/instagramMedia";
 import VisualGallery, { VisualImage } from "../VisualGallery";
 import useRevealMotion from "../../hooks/useRevealMotion";
@@ -299,7 +298,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ServiceAreaLinks />
 
 
       <style jsx>{`
