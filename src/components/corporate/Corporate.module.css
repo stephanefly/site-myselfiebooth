@@ -1218,6 +1218,6 @@
     height: 350px;
   }
   .heroPhoto img {
-    object-position: 60% top;
+    object-position: right top;
   }
 }

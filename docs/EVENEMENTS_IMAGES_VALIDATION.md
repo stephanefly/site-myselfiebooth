@@ -13,3 +13,11 @@ Vérifications locales sur l’export statique :
 - Lighthouse mobile local : portail 90, mariages 91, corporate 96 en performance ; SEO et bonnes pratiques 100, CLS 0. Accessibilité 96, avec les limites communes du site déjà présentes. Mesures simulées, non assimilables aux données terrain des Core Web Vitals.
 
 Captures, résultats navigateur et rapports Lighthouse : `/workspace/scratch/event-hero-refresh/` (artefacts locaux non versionnés). Le contrôle public du déploiement reste indisponible depuis cet environnement réseau.
+
+## Ajustement des univers anniversaire et entreprise
+
+À la demande du propriétaire, le visuel anniversaire montre désormais une jeune femme en robe rouge de princesse, avec un diadème et trois amies. Le corporate montre quatre collaborateurs en costumes et tailleurs, portant des badges professionnels, près du photobooth et du Miroirbooth. Le cadrage mobile corporate privilégie la partie droite de la photographie afin de montrer l’équipe. Les cartes du portail, les textes alternatifs et le partage social suivent ces changements ; huit nouvelles variantes WebP évitent de réutiliser les anciennes URL en cache.
+
+Build, contrôles SEO, médias, provenance, corporate et machines validés. Trois pages vérifiées à 320, 390, 768 et 1 440 px : toutes les images décodent, aucun débordement ni erreur HTTP/JavaScript. Les 130 autres contenus principaux restent strictement identiques. Les artefacts de cette retouche se trouvent dans `/workspace/scratch/event-images-outfits/`.
+
+Après l’ajustement du cadrage mobile, nouveau contrôle corporate aux quatre largeurs réussi. Lighthouse mobile final : anniversaires 91 et corporate 96 en performance ; SEO et bonnes pratiques 100, CLS 0 sur les deux pages.

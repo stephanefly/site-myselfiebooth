@@ -15,7 +15,7 @@ import {
 import styles from "../../components/corporate/Corporate.module.css";
 
 const media = "/images/ai-from-real/corporate-";
-const heroMedia = "/images/ai-from-real/evenement-ouverture-corporates-";
+const heroMedia = "/images/ai-from-real/evenement-entreprise-equipe-";
 const cabins = [
   {
     key: "black",
@@ -43,7 +43,7 @@ const meta = {
   ogUrl: "/evenements/corporates/",
   ogImage: `${heroMedia}1440.webp`,
   ogImageAlt:
-    "Photobooth personnalisé, Miroirbooth doré et plateau vidéo 360 dans une galerie événementielle contemporaine",
+    "Équipe en costumes et tailleurs avec badges professionnels réunie près d’un photobooth personnalisé et d’un Miroirbooth",
   jsonLd: [
     {
       "@context": "https://schema.org",
@@ -327,7 +327,7 @@ export default function Corporates() {
           <div className={styles.heroPhoto}>
             <Photo
               src={`${heroMedia}1440.webp`}
-              alt="Photobooth habillé ivoire et bronze, Miroirbooth doré et plateau vidéo 360 dans une galerie parisienne lors d’un événement de marque"
+              alt="Quatre collaborateurs en costumes et tailleurs avec badges professionnels partagent leurs photos près d’un photobooth personnalisé et d’un Miroirbooth doré"
               eager
               responsive
             />

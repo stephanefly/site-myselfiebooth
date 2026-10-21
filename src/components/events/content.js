@@ -141,9 +141,9 @@ export const eventPages = {
     eyebrow: "Votre anniversaire, votre ambiance",
     intro:
       "Un anniversaire intime ou une grande fête : donnez à vos invités une bonne raison de se retrouver devant l’objectif. Photos, vidéos et portraits magazine prennent les couleurs de votre soirée.",
-    hero: "evenement-ouverture-anniversaires",
+    hero: "evenement-anniversaire-princesse",
     heroAlt:
-      "Photobooth noir et doré avec trois amis et leurs tirages dans un décor d’anniversaire pêche et corail",
+      "Jeune femme en robe rouge de princesse et ses trois amies devant un photobooth noir et doré, dans un décor d’anniversaire rouge et or",
     heroPosition: "50% center",
     cta: "Préparer mon anniversaire",
     machineTitle: "Trois façons de faire la fête.",
