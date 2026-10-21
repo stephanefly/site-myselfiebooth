@@ -40,3 +40,17 @@ Les témoignages reprennent sans réécriture les extraits de Kevin Narayanane, 
 
 Rapports et captures conservés dans `/workspace/scratch/realisations-review/`.
 - Lighthouse desktop local : performance 100, accessibilité globale 96, bonnes pratiques 100, SEO 100 ; LCP 0,5 s, CLS 0, TBT 0 ms.
+
+
+## Mise en avant des machines — 21 octobre 2026
+
+Une section `nos-machines`, placée avant les événements et accessible depuis le bouton principal, présente quatre équipements réels avec descriptions et liens vers leurs prestations. Les films s’ouvrent dans le lecteur existant, uniquement après clic.
+
+| Machine | Photo | Film original |
+| --- | --- | --- |
+| Photobooth noir & or | `collection-2026/photobooth-noir-or-900.webp` | `realisations-machines/photobooth-miroir-espace-eden.mp4` |
+| Miroirbooth doré | `event-archive/video-posters/miroirbooth-installation.webp` | `realisations-machines/miroirbooth-invites.mp4` |
+| Plateforme 360 | `collection-2026/plateforme-video-360-900.webp` | `event-archive/360-red-carpet.mp4` |
+| Vogue Booth | `vogue-real/vogue-booth-mariage-card.webp` | `vogue-real/vogue-booth-mariage.mp4` |
+
+Les photos présentent les équipements ; les films montrent leur utilisation lors d’événements. Les descriptions précisent ce que le visiteur peut regarder, puis les informations utiles pour préparer son devis. Aucun média généré ni nouvelle promesse commerciale ajouté.

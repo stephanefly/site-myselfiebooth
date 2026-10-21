@@ -1378,3 +1378,19 @@
 .realisations-premium .rl-hero-print {
   position: absolute !important;
 }
+
+/* Real equipment films: scoped to the portfolio. */
+.realisations-premium .rl-machine-section { background: #f1ecdf; }
+.rl-machine-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.rl-machine-card { min-width: 0; background: #fffdf8; border: 1px solid #ded8cb; }
+.rl-machine-film { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #181714; cursor: pointer; overflow: hidden; }
+.rl-machine-film img { width: 100%; height: clamp(280px, 32vw, 420px); object-fit: contain; display: block; }
+.rl-machine-copy { padding: clamp(20px, 3vw, 32px); }
+.realisations-premium .rl-machine-copy h3 { margin-bottom: 14px; }
+.rl-machine-copy p { line-height: 1.75; }
+.realisations-premium .rl-machine-detail { margin: 16px 0 22px; font-size: .85rem; color: #655c4c; }
+.realisations-premium .rl-machine-note { max-width: 780px; margin-top: 32px; line-height: 1.75; }
+@media (max-width: 640px) {
+  .rl-machine-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .rl-machine-film img { height: 330px; }
+}
