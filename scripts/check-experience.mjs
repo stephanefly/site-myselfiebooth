@@ -11,7 +11,9 @@ for (const route of routes) {
   const breadcrumbs = [...html.matchAll(/<nav[^>]+aria-label="Fil d(?:’|&#x27;|')Ariane"/g)];
   assert.ok(breadcrumbs.length <= 1, `Duplicate breadcrumbs: /${route}`);
   const schemas = [...html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map(m => JSON.parse(m[1]));
-  const summaries = [...html.matchAll(/<summary[^>]*>(.*?)<\/summary>/g)].map(m => decode(m[1].replace(/<[^>]*>/g, "")));
+  // Navigation disclosures are not FAQ questions.
+  const faqHtml = html.replace(/<details\b[^>]*\bdata-navigation-disclosure(?:="[^"]*")?[^>]*>[\s\S]*?<\/details>/g, "");
+  const summaries = [...faqHtml.matchAll(/<summary[^>]*>(.*?)<\/summary>/g)].map(m => decode(m[1].replace(/<[^>]*>/g, "")));
   for (const schema of schemas.filter(s => s['@type'] === 'FAQPage')) {
     assert.deepEqual(schema.mainEntity.map(q => q.name), summaries, `FAQ markup must match visible questions: /${route}`);
   }

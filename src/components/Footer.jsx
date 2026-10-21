@@ -44,6 +44,7 @@ function FooterGroup({ group, desktop }) {
   return (
     <details
       className="footer-group"
+      data-navigation-disclosure
       open={expanded}
       onToggle={(event) => setExpanded(event.currentTarget.open)}
     >

@@ -19,7 +19,7 @@ export default function ServiceAreaLinks() {
         <a className="service-area-primary" href="/zones-intervention/">
           Voir nos zones d’intervention <span aria-hidden="true">↗</span>
         </a>
-        <details className="service-area-details">
+        <details className="service-area-details" data-navigation-disclosure>
           <summary>Le détail par département</summary>
           <nav className="service-area-links" aria-label="Départements d’intervention">
             {areas.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
