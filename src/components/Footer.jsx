@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { siteConfig } from "../data/site";
 import SocialMedia from "./SocialMedia";
 
@@ -70,6 +71,8 @@ function FooterGroup({ group, desktop }) {
 }
 
 export default function Footer() {
+  const { pathname } = useRouter();
+  const showInstagramPhotos = pathname !== "/realisations-videos";
   const [desktop, setDesktop] = useState(false);
   const year = new Date().getFullYear();
 
@@ -83,6 +86,23 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="footer">
+      <section className="footer-instagram" aria-labelledby="footer-instagram-title">
+        <div className={`footer-instagram-inner${showInstagramPhotos ? "" : " footer-instagram-text-only"}`}>
+          <div className="footer-instagram-copy">
+            <p className="footer-instagram-kicker">Suivez les coulisses</p>
+            <h2 id="footer-instagram-title">La suite se passe<br />sur Instagram.</h2>
+            <p>Nos événements, vos sourires et les idées pour votre prochain moment.</p>
+            <a className="footer-instagram-button" href={siteConfig.socialLinks.find((social) => social.name === "Instagram").href} target="_blank" rel="noopener noreferrer">
+              @myselfiebooth_paris <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          {showInstagramPhotos && <a className="footer-instagram-photos" href={siteConfig.socialLinks.find((social) => social.name === "Instagram").href} target="_blank" rel="noopener noreferrer" aria-label="Découvrez nos événements sur Instagram (nouvel onglet)">
+            <img src="/videos/instagram/reel-1-DO30-rNiDdA.jpg" alt="Les coulisses de MySelfieBooth sur Instagram" width="360" height="480" loading="lazy" />
+            <img src="/videos/instagram/reel-2-C9Ftp2ctg4u.jpg" alt="Une célébration haute en couleur sur Instagram" width="360" height="480" loading="lazy" />
+            <img src="/videos/instagram/reel-3-DQxM5TnCOKL.jpg" alt="Notre Photobooth au salon du mariage" width="360" height="480" loading="lazy" />
+          </a>}
+        </div>
+      </section>
       <div className="footer-intro">
         <div className="footer-container">
           <div className="footer-brand">
@@ -125,6 +145,22 @@ export default function Footer() {
       </div>
 
       <style jsx global>{`
+        .footer-instagram { background: #f7f3ea; color: #171717; padding: 56px 0; }
+        .footer-instagram-inner { width: min(1180px, calc(100% - 48px)); margin: 0 auto; display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+        .footer-instagram-text-only { grid-template-columns: 1fr; }
+        .footer-instagram-kicker { margin: 0 0 14px; color: #806231; text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 700; }
+        .footer-instagram h2 { margin: 0; color: #171717; font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.1; letter-spacing: -.04em; text-align: left; }
+        .footer-instagram-copy > p:not(.footer-instagram-kicker) { max-width: 340px; margin: 18px 0 22px; color: #6f6a61; font-size: .95rem; line-height: 1.75; }
+        .footer .footer-instagram-button { display: inline-flex; align-items: center; gap: 24px; min-height: 48px; padding: 12px 20px; border: 1px solid #171717; border-radius: 999px; color: #faf7ee; background: #171717; font-size: .88rem; font-weight: 600; text-decoration: none; }
+        .footer .footer-instagram-button:hover { background: #39342c; color: #fff; }
+        .footer-instagram-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 12px 0; }
+        .footer-instagram-photos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; }
+        .footer-instagram-photos img:nth-child(2) { transform: translateY(-12px); }
+        @media (max-width: 760px) {
+          .footer-instagram { padding: 36px 0; }
+          .footer-instagram-inner { grid-template-columns: 1fr; gap: 28px; }
+          .footer-instagram-photos { gap: 8px; }
+        }
         .footer { padding: 0; color: #f7f3ea; background: #171717; text-align: left; font-family: "Roboto", sans-serif; }
         .footer-intro { background: #171717; border-top: 0; }
         .footer-container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px 96px; align-items: start; padding: 64px 0 48px; }
