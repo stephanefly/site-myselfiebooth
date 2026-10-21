@@ -27,11 +27,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify contact mail handler without sending email
+        run: |
+          php -l public/contact.php
+          python3 scripts/test-contact.py
+
       - name: Build static Next.js site
         run: npm run build
 
       - name: Verify exported site
-        run: test -f out/index.html
+        run: |
+          test -f out/index.html
+          node scripts/check-contact.mjs
 
       - name: Install SFTP client
         run: sudo apt-get update && sudo apt-get install -y lftp

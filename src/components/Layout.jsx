@@ -6,6 +6,7 @@ import MobileQuoteBar from "./MobileQuoteBar";
 import AnalyticsEvents from "./AnalyticsEvents";
 import AnalyticsConsent from "./AnalyticsConsent";
 import Breadcrumbs from "./Breadcrumbs";
+import ContactRequest from "./ContactRequest";
 
 const Layout = ({ children, metaProps, showPreFooter = true }) => {
   return (
@@ -16,7 +17,7 @@ const Layout = ({ children, metaProps, showPreFooter = true }) => {
       <a className="skip-link" href="#contenu">Aller au contenu</a>
       <Navbar />
       <Breadcrumbs />
-      <main id="contenu">{children}</main>
+      <main id="contenu">{children}<ContactRequest /></main>
       {showPreFooter && <PreFooter />}
       <Footer />
       <MobileQuoteBar />

@@ -30,7 +30,9 @@ assert.ok(
   faq?.mainEntity.length >= 4,
   "A substantive corporate FAQ is required",
 );
-const summaries = [...main.matchAll(/<summary[^>]*>(.*?)<\/summary>/g)].map(
+// The contact disclosure is not a FAQ question.
+const faqMarkup = main.replace(/<details\b[^>]*\bdata-navigation-disclosure(?:="[^"]*")?[^>]*>[\s\S]*?<\/details>/g, "");
+const summaries = [...faqMarkup.matchAll(/<summary[^>]*>(.*?)<\/summary>/g)].map(
   (match) => decode(match[1].replace(/<span[^>]*>[\s\S]*?<\/span>/g, "")),
 );
 assert.deepEqual(
