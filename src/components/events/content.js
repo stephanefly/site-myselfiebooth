@@ -12,9 +12,9 @@ export const eventPages = {
     eyebrow: "Le jour où tout se partage",
     intro:
       "Des premières poses aux messages de vos proches, créez un espace où toutes les générations se retrouvent. Des photos à garder, des voix à réécouter et un décor à votre image.",
-    hero: "vogue-stephane-juliette",
+    hero: "evenement-ouverture-mariages",
     heroAlt:
-      "Vogue Booth de mariage personnalisé Stephane & Juliette, 21.08.2021, dans un décor de réception doré",
+      "Couple de mariés dans un Vogue Booth personnalisé Stephane & Juliette, 21.08.2021, au sein d’une orangerie ouverte sur un jardin",
     heroPosition: "55% center",
     cta: "Imaginer notre animation",
     machineTitle: "À chaque couple, son expérience.",
@@ -141,9 +141,9 @@ export const eventPages = {
     eyebrow: "Votre anniversaire, votre ambiance",
     intro:
       "Un anniversaire intime ou une grande fête : donnez à vos invités une bonne raison de se retrouver devant l’objectif. Photos, vidéos et portraits magazine prennent les couleurs de votre soirée.",
-    hero: "evenements-anniversaires",
+    hero: "evenement-ouverture-anniversaires",
     heroAlt:
-      "Photobooth noir et doré avec trois amis et leurs tirages dans un décor d’anniversaire bordeaux et champagne",
+      "Photobooth noir et doré avec trois amis et leurs tirages dans un décor d’anniversaire pêche et corail",
     heroPosition: "50% center",
     cta: "Préparer mon anniversaire",
     machineTitle: "Trois façons de faire la fête.",
@@ -257,9 +257,9 @@ export const eventPages = {
     eyebrow: "Réceptions privées · soirées VIP",
     intro:
       "Un miroir qui attire les regards, des vidéos qui captent l’ambiance et des photos à partager. Faites de l’animation un vrai rendez-vous dans votre soirée, sans casser le rythme de la fête.",
-    hero: "evenements-soirees",
+    hero: "evenement-ouverture-soirees",
     heroAlt:
-      "Miroirbooth doré avec deux invités en tenue de soirée dans un salon parisien éclairé de lumières chaudes",
+      "Deux invitées sur un plateau vidéo 360 lumineux lors d’une soirée sur un rooftop parisien à l’heure bleue",
     heroPosition: "50% center",
     cta: "Imaginer ma soirée",
     machineTitle: "L’allure, le mouvement, la pose.",

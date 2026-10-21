@@ -773,5 +773,151 @@
     "sources": [
       "/images/collection-2026/miroir-photo-dore-900.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-mariages-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-mariages-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-mariages-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-anniversaires-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-anniversaires-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-anniversaires-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-soirees-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-soirees-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-soirees-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-portail-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/miroir-photo-dore-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-portail-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/miroir-photo-dore-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-portail-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/miroir-photo-dore-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-corporates-720.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-corporates-840.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-corporates-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-corporates-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/evenement-ouverture-corporates-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/photobooth-noir-or-900.webp",
+      "/images/collection-2026/miroir-photo-dore-900.webp",
+      "/images/collection-2026/plateforme-video-360-900.webp"
+    ],
+    "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
   }
 ]

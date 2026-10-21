@@ -15,6 +15,7 @@ import {
 import styles from "../../components/corporate/Corporate.module.css";
 
 const media = "/images/ai-from-real/corporate-";
+const heroMedia = "/images/ai-from-real/evenement-ouverture-corporates-";
 const cabins = [
   {
     key: "black",
@@ -40,9 +41,9 @@ const meta = {
   description:
     "Photobooth personnalisé entreprise à Paris : habillage de marque, VogueBooth, vidéo 360 et cabines photo sur mesure. Créons votre expérience corporate sur devis.",
   ogUrl: "/evenements/corporates/",
-  ogImage: `${media}hero-1440.webp`,
+  ogImage: `${heroMedia}1440.webp`,
   ogImageAlt:
-    "Projection de machines photo personnalisées pour un événement corporate parisien",
+    "Photobooth personnalisé, Miroirbooth doré et plateau vidéo 360 dans une galerie événementielle contemporaine",
   jsonLd: [
     {
       "@context": "https://schema.org",
@@ -128,7 +129,7 @@ function Photo({
           }
         : responsive
           ? {
-              srcSet: `${media}hero-720.webp 720w, ${media}hero-840.webp 840w, ${media}hero-1440.webp 1440w`,
+              srcSet: `${heroMedia}720.webp 720w, ${heroMedia}840.webp 840w, ${heroMedia}1440.webp 1440w`,
               sizes: "100vw",
             }
           : {})}
@@ -325,8 +326,8 @@ export default function Corporates() {
         >
           <div className={styles.heroPhoto}>
             <Photo
-              src={`${media}hero-1440.webp`}
-              alt="Projection publicitaire : photobooth, miroir interactif et plateau 360 personnalisés dans un salon parisien lors d'un événement de marque"
+              src={`${heroMedia}1440.webp`}
+              alt="Photobooth habillé ivoire et bronze, Miroirbooth doré et plateau vidéo 360 dans une galerie parisienne lors d’un événement de marque"
               eager
               responsive
             />

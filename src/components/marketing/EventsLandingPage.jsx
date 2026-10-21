@@ -9,8 +9,8 @@ const audiences = [
     eyebrow: "Professionnels",
     title: "Entreprises, marques et agences",
     text: "Soirée d’entreprise, séminaire, salon ou lancement : choisissez une animation visible, personnalisable et adaptée au flux de vos invités.",
-    image: "/images/realisations/sephora-360booth.webp",
-    alt: "Animation vidéo 360 lors d'un événement professionnel Sephora à Paris",
+    image: "/images/ai-from-real/evenement-ouverture-corporates-900.webp",
+    alt: "Photobooth personnalisé, Miroirbooth et plateau 360 dans un espace événementiel contemporain",
     href: "/evenements/corporates/",
     link: "Voir les solutions entreprise",
   },
@@ -18,8 +18,8 @@ const audiences = [
     eyebrow: "Mariages",
     title: "Votre mariage, votre histoire",
     text: "Photobooth, tirages, Miroirbooth ou Vogue Booth : créez de beaux souvenirs que vos proches peuvent garder.",
-    image: "/images/vogue-real/vogue-booth-mariage-card.webp",
-    alt: "Vogue Booth installé pour un mariage",
+    image: "/images/ai-from-real/evenement-ouverture-mariages-900.webp",
+    alt: "Couple de mariés dans un Vogue Booth personnalisé au sein d’une orangerie",
     href: "/evenements/mariages/",
     link: "Voir les solutions mariage",
   },
@@ -27,7 +27,7 @@ const audiences = [
     eyebrow: "Anniversaires",
     title: "Une fête à votre image",
     text: "Photos personnalisées, vidéo 360 ou couverture de magazine : faites de votre anniversaire un moment à partager et à garder.",
-    image: "/images/ai-from-real/evenements-anniversaires-900.webp",
+    image: "/images/ai-from-real/evenement-ouverture-anniversaires-900.webp",
     alt: "Photobooth noir et doré avec des invités et leurs photos pendant un anniversaire",
     href: "/evenements/anniversaires/",
     link: "Préparer mon anniversaire",
@@ -36,8 +36,8 @@ const audiences = [
     eyebrow: "Soirées privées",
     title: "La fête prend une autre allure",
     text: "Un miroir élégant, des portraits magazine et des vidéos en mouvement pour vos réceptions et soirées VIP.",
-    image: "/images/ai-from-real/evenements-soirees-900.webp",
-    alt: "Miroirbooth doré avec deux invités dans un décor de soirée parisienne",
+    image: "/images/ai-from-real/evenement-ouverture-soirees-900.webp",
+    alt: "Deux invitées sur un plateau vidéo 360 lors d’une soirée sur un rooftop parisien",
     href: "/evenements/soirees/",
     link: "Imaginer ma soirée",
   },
@@ -143,8 +143,8 @@ export default function EventsLandingPage() {
         ogTitle: "Vos événements, vos souvenirs | MySelfieBooth",
         ogDescription:
           "Découvrez les animations photo et vidéo MySelfieBooth pour les entreprises, les mariages et les réceptions privées en Île-de-France.",
-        ogImage: "/images/event-archive/brice-equipe-01.webp",
-        ogImageAlt: "Invités dans un Vogue Booth personnalisé pendant une réception",
+        ogImage: "/images/ai-from-real/evenement-ouverture-portail-1440.webp",
+        ogImageAlt: "Miroirbooth doré avec deux invitées dans un espace de réception élégant",
         ogUrl: "/evenements/",
       }}
     >
@@ -163,20 +163,20 @@ export default function EventsLandingPage() {
               </div>
               <p className="events-area-note">Installation en Île-de-France · autres régions sur étude du projet</p>
             </div>
-            <div className="events-hero-visual" aria-label="Vogue Booth et tirages photo réels">
+            <div className="events-hero-visual" aria-label="Miroirbooth et tirages personnalisés">
               <figure className="events-hero-main">
                 <img
-                  src="/images/evenements-reels/vogue-reception-900.webp"
-                  srcSet="/images/evenements-reels/vogue-reception-480.webp 480w, /images/evenements-reels/vogue-reception-900.webp 900w"
+                  src="/images/ai-from-real/evenement-ouverture-portail-900.webp"
+                  srcSet={[480, 900].map((width) => `/images/ai-from-real/evenement-ouverture-portail-${width}.webp ${width}w`).join(", ")}
                   sizes="(max-width: 980px) 76vw, 44vw"
                   data-no-load-motion
                   loading="eager"
-                  alt="Invités réunis dans un Vogue Booth installé lors d'une réception"
+                  alt="Deux invitées prennent la pose devant un Miroirbooth doré pendant une réception"
                   width="900"
                   height="1200"
                   fetchPriority="high"
                 />
-                <figcaption>Une installation réelle</figcaption>
+                <figcaption>La fête se partage</figcaption>
               </figure>
               <figure className="events-hero-print">
                 <img
