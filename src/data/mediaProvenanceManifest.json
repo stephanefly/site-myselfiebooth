@@ -594,5 +594,32 @@
     "sources": [
       "/images/airbooth.webp"
     ]
+  },
+  {
+    "path": "/images/ai-from-real/vogue-stephane-juliette-480.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp",
+      "/images/collection-2026/portrait-vogue-booth-900.webp"
+    ],
+    "editedFrom": "/images/ai-from-real/vogue-booth-reception-1440.webp"
+  },
+  {
+    "path": "/images/ai-from-real/vogue-stephane-juliette-900.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp",
+      "/images/collection-2026/portrait-vogue-booth-900.webp"
+    ],
+    "editedFrom": "/images/ai-from-real/vogue-booth-reception-1440.webp"
+  },
+  {
+    "path": "/images/ai-from-real/vogue-stephane-juliette-1440.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/collection-2026/vogue-booth-rideaux-blancs-900.webp",
+      "/images/collection-2026/portrait-vogue-booth-900.webp"
+    ],
+    "editedFrom": "/images/ai-from-real/vogue-booth-reception-1440.webp"
   }
 ]

@@ -512,9 +512,9 @@ const details = {
     seoTitle: "Location Vogue Booth Paris | Décor magazine dès 500 €",
     seoDescription:
       "Un Vogue Booth lumineux et personnalisable à Paris pour mariage, gala ou marque. 500 € pour 5 h ; photographe et impressions en option. Demandez votre devis.",
-    hero: "vogue-booth-reception",
+    hero: "vogue-stephane-juliette",
     heroAlt:
-      "Vogue Booth lumineux avec façade effet couverture de magazine dans un décor de gala",
+      "Vogue Booth lumineux personnalisé Stephane & Juliette, 21.08.2021, dans un décor de réception doré",
     heroPosition: "55% center",
     promise: "Le décor devient une partie du souvenir.",
     facts: [
