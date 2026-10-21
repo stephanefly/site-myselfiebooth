@@ -164,6 +164,19 @@ export default function HomePage() {
         { name: "homePapier", title: "Votre équipe, votre identité", text: "Logo, couleurs et message : des tirages personnalisés pour vos soirées d’entreprise." },
       ]} />
 
+      <section className="home-final-cta home-event-invitation" aria-labelledby="home-event-title" data-page-conclusion data-reveal>
+        <div className="home-container home-event-inner">
+          <div className="home-event-copy">
+            <p className="home-eyebrow">Votre événement</p>
+            <h2 id="home-event-title">Un événement à votre image.</h2>
+            <p className="home-event-description">Parlons de vos envies pour créer un moment qui vous ressemble.</p>
+          </div>
+          <a className="home-event-button" href={siteConfig.quoteUrl} data-event="cta_quote_click" data-event-label="Accueil événement">
+            Parlons de votre événement <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
       <section id="packs" className="home-section home-section-muted home-packs-section" data-reveal>
         <div className="home-container">
           <SectionIntro eyebrow="Formules prêtes à réserver" title="Trois packs pour décider plus facilement" />
@@ -288,18 +301,7 @@ export default function HomePage() {
 
       <ServiceAreaLinks />
 
-      <section className="home-final-cta home-event-invitation" aria-labelledby="home-event-title" data-page-conclusion data-reveal>
-        <div className="home-container home-event-inner">
-          <div className="home-event-copy">
-            <p className="home-eyebrow">Votre événement</p>
-            <h2 id="home-event-title">Un événement à votre image.</h2>
-            <p className="home-event-description">Parlons de vos envies pour créer un moment qui vous ressemble.</p>
-          </div>
-          <a className="home-event-button" href={siteConfig.quoteUrl} data-event="cta_quote_click" data-event-label="Accueil événement">
-            Parlons de votre événement <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </section>
+
       <style jsx>{`
         .home-page .home-event-invitation {
           padding: 44px 0;
