@@ -304,13 +304,16 @@ export default function HomePage() {
 
       <style jsx>{`
         .home-page .home-event-invitation {
-          padding: 44px 0;
+          width: min(1180px, calc(100% - 32px));
+          margin: 32px auto;
+          padding: 44px 40px;
+          border-radius: 18px;
           color: #171717;
           background: #f7f3ea !important;
-          border-top: 1px solid #ded5c3;
-          border-bottom: 1px solid #ded5c3;
+          border: 1px solid #ded5c3;
         }
         .home-event-inner {
+          width: 100%;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -352,7 +355,7 @@ export default function HomePage() {
         .home-event-button:hover { background: #171717; border-color: #171717; }
         .home-event-button:focus-visible { outline: 3px solid #efd39b; outline-offset: 5px; }
         @media (max-width: 760px) {
-          .home-event-invitation { padding: 36px 0; }
+          .home-page .home-event-invitation { margin: 20px auto; padding: 30px 24px; border-radius: 14px; }
           .home-event-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
           .home-event-button { width: 100%; padding-inline: 16px; }
         }
