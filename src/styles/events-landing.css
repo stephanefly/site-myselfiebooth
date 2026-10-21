@@ -728,3 +728,15 @@
     transition: none;
   }
 }
+
+/* Event hub breadcrumbs sit below the shared fixed navigation. */
+body:has(.events-landing) .site-breadcrumbs {
+  width: min(1180px, calc(100% - 48px));
+  padding-top: 88px;
+  padding-bottom: 12px;
+}
+body:has(.events-landing) .site-breadcrumbs span { color: #625b4e; }
+
+/* Preserve the image composition when the provenance annotator marks its hosts. */
+.events-landing .events-hero-main,
+.events-landing .events-hero-print { position: absolute !important; }

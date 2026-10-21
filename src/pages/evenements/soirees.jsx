@@ -1,6 +1,5 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
-import { marketingPages } from "../../data/marketingPages";
+import EventPage from "../../components/events/EventPage";
 
 export default function Soirees() {
-  return <MarketingPage page={marketingPages.soirees} />;
+  return <EventPage eventKey="soirees" />;
 }

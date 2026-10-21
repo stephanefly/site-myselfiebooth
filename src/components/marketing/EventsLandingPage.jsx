@@ -15,13 +15,31 @@ const audiences = [
     link: "Voir les solutions entreprise",
   },
   {
-    eyebrow: "Particuliers",
-    title: "Mariages et réceptions privées",
+    eyebrow: "Mariages",
+    title: "Votre mariage, votre histoire",
     text: "Photobooth, tirages, Miroirbooth ou Vogue Booth : créez de beaux souvenirs que vos proches peuvent garder.",
     image: "/images/vogue-real/vogue-booth-mariage-card.webp",
     alt: "Vogue Booth installé pour un mariage",
     href: "/evenements/mariages/",
     link: "Voir les solutions mariage",
+  },
+  {
+    eyebrow: "Anniversaires",
+    title: "Une fête à votre image",
+    text: "Photos personnalisées, vidéo 360 ou couverture de magazine : faites de votre anniversaire un moment à partager et à garder.",
+    image: "/images/ai-from-real/evenements-anniversaires-900.webp",
+    alt: "Photobooth noir et doré avec des invités et leurs photos pendant un anniversaire",
+    href: "/evenements/anniversaires/",
+    link: "Préparer mon anniversaire",
+  },
+  {
+    eyebrow: "Soirées privées",
+    title: "La fête prend une autre allure",
+    text: "Un miroir élégant, des portraits magazine et des vidéos en mouvement pour vos réceptions et soirées VIP.",
+    image: "/images/ai-from-real/evenements-soirees-900.webp",
+    alt: "Miroirbooth doré avec deux invités dans un décor de soirée parisienne",
+    href: "/evenements/soirees/",
+    link: "Imaginer ma soirée",
   },
 ];
 
@@ -126,12 +144,12 @@ export default function EventsLandingPage() {
         ogDescription:
           "Découvrez les animations photo et vidéo MySelfieBooth pour les entreprises, les mariages et les réceptions privées en Île-de-France.",
         ogImage: "/images/event-archive/brice-equipe-01.webp",
-        ogImageAlt: "Photobooth MySelfieBooth installé dans une réception",
+        ogImageAlt: "Invités dans un Vogue Booth personnalisé pendant une réception",
         ogUrl: "/evenements/",
       }}
     >
       <div className="events-landing">
-        <section className="events-hero">
+        <section className="marketing-events events-hero">
           <div className="events-wrap events-hero-grid">
             <div className="events-hero-copy">
               <p className="events-eyebrow">Mariages · entreprises · soirées privées</p>
@@ -145,10 +163,14 @@ export default function EventsLandingPage() {
               </div>
               <p className="events-area-note">Installation en Île-de-France · autres régions sur étude du projet</p>
             </div>
-            <div className="events-hero-visual" aria-label="Photobooth et tirages photo réels">
+            <div className="events-hero-visual" aria-label="Vogue Booth et tirages photo réels">
               <figure className="events-hero-main">
                 <img
-                  src="/images/event-archive/brice-equipe-01.webp"
+                  src="/images/evenements-reels/vogue-reception-900.webp"
+                  srcSet="/images/evenements-reels/vogue-reception-480.webp 480w, /images/evenements-reels/vogue-reception-900.webp 900w"
+                  sizes="(max-width: 980px) 76vw, 44vw"
+                  data-no-load-motion
+                  loading="eager"
                   alt="Invités réunis dans un Vogue Booth installé lors d'une réception"
                   width="900"
                   height="1200"
@@ -158,7 +180,11 @@ export default function EventsLandingPage() {
               </figure>
               <figure className="events-hero-print">
                 <img
-                  src="/images/event-archive/composition-tirages-reference.webp"
+                  src="/images/evenements-reels/tirages-personnalises-300.webp"
+                  srcSet="/images/evenements-reels/tirages-personnalises-300.webp 300w, /images/evenements-reels/tirages-personnalises-480.webp 480w"
+                  sizes="(max-width: 980px) 32vw, 18vw"
+                  data-no-load-motion
+                  decoding="async"
                   alt="Exemples de tirages personnalisés remis aux invités"
                   width="900"
                   height="900"
@@ -170,7 +196,7 @@ export default function EventsLandingPage() {
           </div>
         </section>
 
-        <section className="events-audience-section" id="publics">
+        <section className="marketing-events events-audience-section" id="publics">
           <div className="events-wrap">
             <header className="events-section-heading">
               <p className="events-eyebrow">Pour qui ?</p>
@@ -181,7 +207,7 @@ export default function EventsLandingPage() {
               {audiences.map((item) => (
                 <article className="events-audience-card" key={item.href}>
                   <a className="events-audience-image" href={item.href} tabIndex="-1" aria-hidden="true">
-                    <img src={item.image} alt="" loading="lazy" width="900" height="700" />
+                    <img src={item.image} srcSet={item.image.endsWith("-900.webp") ? `${item.image.replace("-900.webp", "-480.webp")} 480w, ${item.image} 900w` : undefined} sizes="(max-width: 720px) 40vw, 24vw" alt={item.alt} loading="lazy" width="900" height="700" data-no-load-motion />
                   </a>
                   <div className="events-audience-copy">
                     <span>{item.eyebrow}</span>
@@ -202,7 +228,7 @@ export default function EventsLandingPage() {
           </div>
         </section>
 
-        <section className="events-machine-section" id="machines">
+        <section className="marketing-events events-machine-section" id="machines">
           <div className="events-wrap">
             <header className="events-section-heading events-heading-split">
               <div>
@@ -230,7 +256,7 @@ export default function EventsLandingPage() {
           </div>
         </section>
 
-        <section className="events-print-section" id="tirages">
+        <section className="marketing-events events-print-section" id="tirages">
           <div className="events-wrap">
             <div className="events-print-intro">
               <div>
@@ -254,7 +280,7 @@ export default function EventsLandingPage() {
         </section>
 
         {(page.faq || []).length > 0 && (
-          <section className="events-faq-section" id="faq">
+          <section className="marketing-events events-faq-section" id="faq">
             <div className="events-wrap events-faq-grid">
               <header className="events-section-heading">
                 <p className="events-eyebrow">Avant de choisir</p>
@@ -272,7 +298,7 @@ export default function EventsLandingPage() {
           </section>
         )}
 
-        <section className="events-final-cta">
+        <section className="marketing-events events-final-cta">
           <div className="events-wrap events-final-cta-inner">
             <div><p className="events-eyebrow">Votre date, votre lieu</p><h2>Racontez-nous l’événement que vous préparez.</h2></div>
             <a className="events-button events-button-gold" href={siteConfig.quoteUrl}>Demander mon devis <span aria-hidden="true">↗</span></a>
