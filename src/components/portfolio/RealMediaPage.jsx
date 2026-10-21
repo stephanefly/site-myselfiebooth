@@ -1,6 +1,6 @@
 import Layout from "../Layout";
 import { siteConfig } from "../../data/site";
-import { instagramMedia, instagramUrl } from "../../data/instagramMedia";
+import { instagramMedia } from "../../data/instagramMedia";
 import { eventArchivePhotos, eventArchiveVideos } from "../../data/eventArchive";
 import {
   portfolioDetailImages,
@@ -165,6 +165,8 @@ function MediaCard({ item, index }) {
 export default function RealMediaPage() {
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         title: "Photos réelles Photobooth, 360 & Vogue | MySelfieBooth",
         description:
@@ -245,17 +247,10 @@ export default function RealMediaPage() {
                 <MediaCard key={`${item.sourceId}-${item.image}`} item={item} index={index} />
               ))}
             </div>
-            <div className="instagram-cta">
-              <div>
-                <p className="eyebrow">Encore plus de contenu</p>
-                <h2>Suivre les nouvelles prestations sur Instagram</h2>
-              </div>
-              <a href={instagramUrl} target="_blank" rel="noreferrer">@myselfiebooth_paris</a>
-            </div>
           </div>
         </section>
 
-        <section className="final-cta">
+        <section className="final-cta" data-page-conclusion>
           <div className="real-media-container">
             <p className="eyebrow">Votre événement</p>
             <h2>Choisissez l'expérience que vous voulez reproduire.</h2>

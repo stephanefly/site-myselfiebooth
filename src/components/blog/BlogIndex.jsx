@@ -5,6 +5,8 @@ import { absoluteUrl, siteConfig } from "../../data/site";
 export default function BlogIndex() {
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         title: "Conseils mariage et animations photo | MySelfieBooth",
         description:
@@ -52,7 +54,7 @@ export default function BlogIndex() {
           </div>
         </section>
 
-        <section className="blog-index-cta">
+        <section className="blog-index-cta" data-page-conclusion>
           <div className="blog-container">
             <p>Votre date est déjà fixée ?</p>
             <h2>Recevez une proposition adaptée à votre événement.</h2>

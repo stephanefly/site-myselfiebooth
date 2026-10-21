@@ -38,6 +38,8 @@ const itemListJsonLd = {
 export default function ZonesIntervention() {
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         title: "Location Photobooth Île-de-France | Zones d’intervention",
         description:
@@ -134,7 +136,7 @@ export default function ZonesIntervention() {
           </div>
         </section>
 
-        <section className="zones-cta">
+        <section className="zones-cta" data-page-conclusion>
           <div className="zones-container">
             <p className="zones-eyebrow">Votre ville n'est pas listée ?</p>
             <h2>Envoyez-nous le lieu exact de votre événement.</h2>

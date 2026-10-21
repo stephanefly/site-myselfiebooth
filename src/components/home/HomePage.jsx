@@ -8,6 +8,7 @@ import {
   services,
 } from "../../data/home";
 import { siteConfig } from "../../data/site";
+import ServiceAreaLinks from "../ServiceAreaLinks";
 import { homeInstagramMedia } from "../../data/instagramMedia";
 import VisualGallery, { VisualImage } from "../VisualGallery";
 import useRevealMotion from "../../hooks/useRevealMotion";
@@ -285,7 +286,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="home-final-cta" data-reveal>
+      <ServiceAreaLinks />
+
+      <section className="home-final-cta" data-page-conclusion data-reveal>
         <div className="home-container"><p className="home-eyebrow">Votre événement</p><h2>Créons les souvenirs de votre prochain événement.</h2><QuoteButton /></div>
       </section>
     </div>

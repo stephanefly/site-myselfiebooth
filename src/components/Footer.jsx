@@ -1,96 +1,162 @@
+import { useEffect, useState } from "react";
 import { siteConfig } from "../data/site";
+import SocialMedia from "./SocialMedia";
 
-const eventLinks = [
-  { label: "Entreprises", href: "/evenements/corporates" },
-  { label: "Mariages", href: "/evenements/mariages" },
-  { label: "Anniversaires", href: "/evenements/anniversaires" },
-  { label: "Soirées", href: "/evenements/soirees" },
+const linkGroups = [
+  {
+    title: "Découvrir",
+    links: [
+      { label: "Les machines et les packs", href: "/prestations/" },
+      { label: "Nos réalisations", href: "/realisations/" },
+      { label: "Les tarifs détaillés", href: siteConfig.ratesUrl },
+      { label: "Notre équipe", href: "/a-propos/" },
+      { label: "Les conseils du blog", href: "/blog/" },
+    ],
+  },
+  {
+    title: "Événements et lieux",
+    links: [
+      { label: "Mariages", href: "/evenements/mariages/" },
+      { label: "Entreprises", href: "/evenements/corporates/" },
+      { label: "Anniversaires", href: "/evenements/anniversaires/" },
+      { label: "Soirées", href: "/evenements/soirees/" },
+      { label: "Toutes nos zones d’intervention", href: "/zones-intervention/" },
+    ],
+  },
+  {
+    title: "Informations pratiques",
+    links: [
+      { label: "Confidentialité", href: "/privacy-policy/" },
+      { label: "Mentions légales", href: "/terms/" },
+      { label: "Conditions de location", href: "/conditions/" },
+      { label: "Déjà client ? Laisser un avis", href: siteConfig.reviewCtaUrl },
+    ],
+  },
 ];
 
-const infoLinks = [
-  { label: "Qui sommes-nous", href: "/a-propos" },
-  { label: "Blog", href: "/blog" },
-  { label: "Confidentialité", href: "/privacy-policy" },
-  { label: "Mentions légales", href: "/terms" },
-  { label: "Conditions", href: "/conditions" },
-];
+function FooterGroup({ group, desktop }) {
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    setExpanded(desktop);
+  }, [desktop]);
+
+  return (
+    <details
+      className="footer-group"
+      open={expanded}
+      onToggle={(event) => setExpanded(event.currentTarget.open)}
+    >
+      <summary>
+        {group.title}
+        <span className="footer-expand" aria-hidden="true" />
+      </summary>
+      <nav className="footer-group-links" aria-label={group.title}>
+        {group.links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            {...(link.href === siteConfig.reviewCtaUrl
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+    </details>
+  );
+}
 
 export default function Footer() {
+  const [desktop, setDesktop] = useState(false);
   const year = new Date().getFullYear();
-  const linkGroups = [
-    {
-      title: "Découvrir",
-      links: [
-        { label: "Location Photobooth", href: "/prestations/photobooth" },
-        { label: "Toutes les prestations", href: "/prestations" },
-        { label: "Zones d'intervention", href: "/zones-intervention" },
-        { label: "Tarifs détaillés", href: siteConfig.ratesUrl },
-        { label: "Nos packs", href: "/prestations#packs" },
-        { label: "Réalisations", href: "/realisations" },
-      ],
-    },
-    { title: "Événements", links: eventLinks },
-    { title: "Infos", links: infoLinks },
-  ];
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 761px)");
+    const update = () => setDesktop(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
 
   return (
     <footer id="contact" className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <a href="/">{siteConfig.name}</a>
-          <p>
-            Photobooths premium, 360 Booth, Vogue Booth et animations personnalisées
-            pour entreprises, marques, mariages et événements privés en Île-de-France.
-          </p>
+          <a href="/" className="footer-brand-name">{siteConfig.name}</a>
+          <p>Des animations photo et vidéo pour vos événements à Paris et en Île-de-France.</p>
           <a
             className="footer-review"
             href={siteConfig.reviewsUrl}
             target="_blank"
-            rel="noreferrer"
-            aria-label="Consulter les avis MySelfieBooth sur Google Maps"
+            rel="noopener noreferrer"
           >
-            <span className="footer-review-mark" aria-hidden="true">G</span>
-            <div>
-              <strong>Les avis MySelfieBooth</strong>
-              <span>Consulter les retours sur Google Maps</span>
-            </div>
+            Lire les avis de nos clients <span aria-hidden="true">↗</span>
           </a>
-          <a className="footer-review-cta" href={siteConfig.reviewCtaUrl} target="_blank" rel="noreferrer">
-            Déjà client ? Laisser un avis Google
-          </a>
-          <a className="footer-quote" href={siteConfig.quoteUrl}>{siteConfig.primaryCtaLabel}</a>
         </div>
 
-        {linkGroups.map((group) => (
-          <div key={group.title} className="footer-group">
-            <h3>{group.title}</h3>
-            {group.links.map((link) => (
-              <a key={`${group.title}-${link.href}-${link.label}`} href={link.href}>{link.label}</a>
-            ))}
-          </div>
-        ))}
-
-        <div className="footer-group footer-contact">
-          <h3>Zones & contact</h3>
-          <a href={siteConfig.phoneHref}>{siteConfig.phoneLabel}</a>
+        <div className="footer-contact">
+          <h2>Parlons de votre événement</h2>
+          <a href={siteConfig.phoneHref} data-event="phone_click">{siteConfig.phoneLabel}</a>
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-          <a href="/paris/">Paris</a>
-          <a href="/location-photobooth/seine-et-marne/">Seine-et-Marne (77)</a>
-          <a href="/location-photobooth/essonne/">Essonne (91)</a>
-          <a href="/zones-intervention/">Toutes les zones</a>
-          <a href="/lyon/">Lyon</a>
-          <a href="/rouen/">Rouen et Normandie</a>
-          <a href={siteConfig.mapsUrl} target="_blank" rel="noreferrer" data-event="maps_view_click">Voir sur Google Maps</a>
+          <SocialMedia />
+        </div>
+
+        <div className="footer-navigation">
+          {linkGroups.map((group) => (
+            <FooterGroup key={group.title} group={group} desktop={desktop} />
+          ))}
         </div>
       </div>
 
       <div className="footer-bottom">
         <span>&copy; {year} {siteConfig.name}. Tous droits réservés.</span>
-        <button type="button" onClick={() => window.dispatchEvent(new Event("myselfiebooth:open-cookie-settings"))}>Gérer les cookies</button>
+        <button
+          type="button"
+          onClick={() => window.dispatchEvent(new Event("myselfiebooth:open-cookie-settings"))}
+        >
+          Gérer les cookies
+        </button>
       </div>
 
-      <style jsx>{`
-        .footer{color:#fff;background:#050505;text-align:left}.footer-container{width:min(1180px,calc(100% - 32px));margin:0 auto;display:grid;grid-template-columns:minmax(260px,1.35fr) repeat(4,minmax(0,1fr));gap:28px;padding:44px 0 30px}.footer-brand>a{color:#fff;font-size:1.5rem;font-weight:900;text-decoration:none}.footer-brand p{max-width:320px;margin:14px 0 20px;color:#cfc8ba;line-height:1.6}.footer-review{display:flex;gap:12px;align-items:center;max-width:280px;padding:12px;border-radius:8px;color:#17130a;background:#fff;text-decoration:none}.footer-review-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#17130a;color:#fff;font-weight:900;font-size:1.05rem;flex:0 0 34px}.footer-review strong,.footer-review span{display:block;line-height:1.3}.footer-review div span{color:#5f5a50;font-size:.88rem}.footer-brand .footer-review-cta{display:inline-flex;margin-top:10px;color:#e5c46b;font-size:.82rem;font-weight:800;text-decoration:none}.footer-quote{display:inline-flex;align-items:center;justify-content:center;min-height:44px;margin-top:18px;padding:0 18px;border-radius:8px;color:#17130a;background:#e5c46b;font-size:.9rem;font-weight:900;text-decoration:none;text-align:center}.footer-group{display:grid;align-content:start;gap:10px}.footer-group h3{margin:0 0 6px;color:#e5c46b;font-size:.88rem;letter-spacing:.12rem;text-transform:uppercase}.footer-group a,.footer-group span{color:#efe9dd;text-decoration:none;line-height:1.35}.footer-group a:hover{color:#e5c46b}.footer-bottom{width:min(1180px,calc(100% - 32px));margin:0 auto;display:flex;justify-content:space-between;gap:18px;padding:18px 0 26px;border-top:1px solid rgba(255,255,255,.12);color:#9f9787;font-size:.9rem}.footer-bottom button{padding:0;border:0;color:#d6cdbd;background:transparent;font:inherit;text-decoration:underline;cursor:pointer}@media(max-width:1100px){.footer-container{grid-template-columns:repeat(3,minmax(0,1fr))}.footer-brand{grid-column:span 3}}@media(max-width:720px){.footer-container{grid-template-columns:1fr}.footer-brand{grid-column:span 1}.footer-bottom{flex-direction:column}}
+      <style jsx global>{`
+        .footer { color: #f7f4ec; background: #090b08; text-align: left; font-family: "Roboto", sans-serif; }
+        .footer-container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 42px 72px; padding: 52px 0 32px; }
+        .footer-brand-name { color: #f7f4ec; font-size: 23px; font-weight: 700; text-decoration: none; }
+        .footer-brand p { max-width: 340px; margin: 16px 0; color: #aeb3a8; font-size: 14px; line-height: 1.7; }
+        .footer-review { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; color: #d6b774; font-size: 13px; text-decoration: none; }
+        .footer-contact h2 { margin: 0 0 14px; color: #f7f4ec; font-size: 15px; font-weight: 600; line-height: 1.5; }
+        .footer-contact > a { display: table; min-height: 44px; padding: 10px 0; color: #c8cbbf; font-size: 14px; line-height: 1.7; text-decoration: none; overflow-wrap: anywhere; }
+        .footer-navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; grid-column: 1 / -1; padding-top: 32px; border-top: 1px solid #282d25; }
+        .footer-group { min-width: 0; }
+        .footer-group summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 44px; color: #f7f4ec; font-size: 14px; font-weight: 600; line-height: 1.5; list-style: none; cursor: pointer; }
+        .footer-group summary::-webkit-details-marker { display: none; }
+        .footer-expand { position: relative; flex: 0 0 12px; width: 12px; height: 12px; color: #d6b774; }
+        .footer-expand::before, .footer-expand::after { content: ""; position: absolute; top: 5px; left: 0; width: 12px; height: 1px; background: currentColor; }
+        .footer-expand::after { transform: rotate(90deg); }
+        .footer-group[open] .footer-expand::after { transform: rotate(0deg); }
+        .footer-group-links { display: grid; gap: 2px; padding: 8px 0 16px; }
+        .footer-group-links a { display: flex; align-items: center; min-height: 44px; color: #aeb3a8; font-size: 13px; line-height: 1.6; text-decoration: none; }
+        .footer a:hover { color: #ecd29a; }
+        .footer a:focus-visible, .footer button:focus-visible, .footer summary:focus-visible { outline: 2px solid #d6b774; outline-offset: 4px; }
+        .footer-bottom { width: min(1180px, calc(100% - 48px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0 28px; border-top: 1px solid #282d25; color: #92978d; font-size: 12px; line-height: 1.6; }
+        .footer-bottom button { min-height: 44px; padding: 8px 0; border: 0; color: #c8cbbf; background: transparent; font: inherit; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+        @media (min-width: 1101px) {
+          .footer-container { grid-template-columns: 1.2fr 2fr 1fr; gap: 48px; }
+          .footer-brand { grid-column: 1; grid-row: 1; }
+          .footer-navigation { grid-column: 2; grid-row: 1; gap: 28px; padding-top: 0; border-top: 0; }
+          .footer-contact { grid-column: 3; grid-row: 1; }
+        }
+        @media (max-width: 760px) {
+          .footer-container { grid-template-columns: 1fr; gap: 32px; padding: 36px 0 20px; }
+          .footer-navigation { grid-template-columns: 1fr; gap: 0; padding-top: 0; border-top: 0; }
+          .footer-group { border-top: 1px solid #282d25; }
+          .footer-group:last-child { border-bottom: 1px solid #282d25; }
+          .footer-group summary { min-height: 60px; }
+          .footer-group-links { padding: 0 0 16px 14px; border-left: 1px solid #63563a; }
+          .footer-bottom { flex-direction: column; align-items: flex-start; gap: 4px; padding-bottom: max(28px, env(safe-area-inset-bottom)); border-top: 0; }
+        }
       `}</style>
     </footer>
   );

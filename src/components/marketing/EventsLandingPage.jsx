@@ -135,6 +135,8 @@ const printSamples = [
 export default function EventsLandingPage() {
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         ...page.meta,
         title: "Photobooth pour mariage et entreprise en Île-de-France | MySelfieBooth",
@@ -298,7 +300,7 @@ export default function EventsLandingPage() {
           </section>
         )}
 
-        <section className="marketing-events events-final-cta">
+        <section className="marketing-events events-final-cta" data-page-conclusion>
           <div className="events-wrap events-final-cta-inner">
             <div><p className="events-eyebrow">Votre date, votre lieu</p><h2>Racontez-nous l’événement que vous préparez.</h2></div>
             <a className="events-button events-button-gold" href={siteConfig.quoteUrl}>Demander mon devis <span aria-hidden="true">↗</span></a>

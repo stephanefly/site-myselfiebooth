@@ -52,6 +52,8 @@ export default function AboutPage() {
 
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         title: "Stéphane Faure, ingénieur et fondateur | MySelfieBooth",
         description:
@@ -279,7 +281,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="about-final-cta" data-reveal>
+        <section className="about-final-cta" data-page-conclusion data-reveal>
           <div className="about-container">
             <p className="about-eyebrow">Votre événement</p>
             <h2>Parlez directement avec l'équipe qui va le préparer.</h2>

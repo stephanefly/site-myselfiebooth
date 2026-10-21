@@ -1,5 +1,4 @@
 import Navbar from "./Navbar";
-import SocialMedia from "./SocialMedia";
 import PreFooter from "./PreFooter";
 import Footer from "./Footer";
 import Meta from "./Meta";
@@ -8,7 +7,7 @@ import AnalyticsEvents from "./AnalyticsEvents";
 import AnalyticsConsent from "./AnalyticsConsent";
 import Breadcrumbs from "./Breadcrumbs";
 
-const Layout = ({ children, metaProps }) => {
+const Layout = ({ children, metaProps, showPreFooter = true }) => {
   return (
     <>
       <Meta {...metaProps} />
@@ -18,8 +17,7 @@ const Layout = ({ children, metaProps }) => {
       <Navbar />
       <Breadcrumbs />
       <main id="contenu">{children}</main>
-      <SocialMedia />
-      <PreFooter />
+      {showPreFooter && <PreFooter />}
       <Footer />
       <MobileQuoteBar />
     </>
