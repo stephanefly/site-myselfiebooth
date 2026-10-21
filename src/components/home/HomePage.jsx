@@ -300,22 +300,50 @@ export default function HomePage() {
 
 
 
-      <aside className="home-coverage-note home-container" aria-label="Déplacements">
-        <p>Nous intervenons dans toute l’Île-de-France et les régions limitrophes, ainsi qu’à Lyon et en Normandie. Pour toute autre destination, nous étudions votre projet et vous proposons un devis sur mesure.</p>
+      <aside className="home-coverage-note home-container" aria-labelledby="home-coverage-title">
+        <svg className="home-coverage-map" viewBox="0 0 220 230" role="img" aria-label="Carte schématique de France : Île-de-France, Normandie et Lyon">
+          <path d="M108 13 L124 25 L140 24 L148 39 L171 44 L180 61 L197 69 L186 89 L183 111 L169 128 L178 147 L169 164 L181 177 L162 192 L145 192 L129 204 L108 199 L91 188 L72 184 L65 163 L59 143 L62 122 L52 109 L45 94 L29 91 L14 79 L19 69 L39 70 L47 61 L67 62 L80 51 L79 32 L93 38 L99 25 Z" fill="#e9dfca" stroke="#b89b63" strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M194 193 L200 187 L202 200 L197 217 L192 209 Z" fill="#e9dfca" stroke="#b89b63" strokeWidth="1.5" strokeLinejoin="round" />
+          <circle cx="92" cy="66" r="5" fill="#806231" />
+          <circle cx="117" cy="76" r="5" fill="#171717" />
+          <circle cx="151" cy="147" r="5" fill="#171717" />
+          <text x="36" y="52">Normandie</text>
+          <text x="128" y="79">IDF</text>
+          <text x="161" y="151">Lyon</text>
+        </svg>
+        <div className="home-coverage-copy">
+          <h2 id="home-coverage-title">Et si on venait jusqu’à vous ?</h2>
+          <p>Nous intervenons dans toute l’Île-de-France et les régions limitrophes, ainsi qu’à Lyon et en Normandie. Pour toute autre destination, nous étudions votre projet et vous proposons un devis sur mesure.</p>
+        </div>
       </aside>
 
       <style jsx>{`
         .home-coverage-note {
-          padding: 24px 0 32px;
-          border-top: 1px solid #ded5c3;
-          text-align: center;
+          display: flex;
+          align-items: center;
+          gap: 32px;
+          margin: 12px auto 40px;
+          padding: 22px 36px;
+          border: 1px solid #e2d8c6;
+          border-radius: 16px;
+          background: #f7f3ea;
+          text-align: left;
         }
+        .home-coverage-map { display: block; flex: 0 0 120px; width: 120px; height: 126px; }
+        .home-coverage-map text { fill: #51483a; font: 10px Roboto, sans-serif; }
+        .home-coverage-copy { min-width: 0; }
+        .home-coverage-copy h2 { margin: 0 0 10px; color: #171717; font-size: 1.25rem; line-height: 1.3; text-align: left; }
         .home-coverage-note p {
           max-width: 820px;
-          margin: 0 auto;
+          margin: 0;
           color: #6f6a61;
           font-size: .85rem;
           line-height: 1.8;
+        }
+        @media (max-width: 600px) {
+          .home-coverage-note { gap: 16px; padding: 24px; flex-direction: column; align-items: flex-start; margin-bottom: 28px; }
+          .home-coverage-map { flex-basis: auto; width: 92px; height: 96px; }
+          .home-coverage-copy h2 { font-size: 1.15rem; }
         }
         .home-page .home-event-invitation {
           width: min(1180px, calc(100% - 32px));
