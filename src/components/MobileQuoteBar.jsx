@@ -17,7 +17,7 @@ export default function MobileQuoteBar() {
       setAtPageEnd(visible.size > 0);
     });
     document
-      .querySelectorAll(".prefooter, footer#contact")
+      .querySelectorAll("[data-page-conclusion], .prefooter, footer#contact")
       .forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [asPath]);

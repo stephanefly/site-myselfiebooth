@@ -85,6 +85,8 @@ export default function PortfolioPage() {
 
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         title: "Réalisations Photobooth et 360 Booth | MySelfieBooth",
         description:
@@ -270,7 +272,7 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        <section className="portfolio-final-cta" data-reveal>
+        <section className="portfolio-final-cta" data-page-conclusion data-reveal>
           <span className="portfolio-final-media-label" aria-hidden="true">Visuel de projection</span>
           <div className="portfolio-container">
             <p className="portfolio-eyebrow">Votre événement</p>

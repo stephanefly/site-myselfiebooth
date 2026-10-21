@@ -318,7 +318,7 @@ function DesignIcon({ index }) {
 export default function Corporates() {
   const revealRef = useRevealMotion("corporate-premium");
   return (
-    <Layout metaProps={meta}>
+    <Layout showPreFooter={false} metaProps={meta}>
       <div className={styles.page} ref={revealRef}>
         <section
           className={`marketing-corporate ${styles.hero}`}
@@ -793,6 +793,7 @@ export default function Corporates() {
         </section>
         <section
           className={`marketing-corporate ${styles.final}`}
+          data-page-conclusion
           id="brief-corporate"
         >
           <span id="event-tech" />
@@ -810,16 +811,6 @@ export default function Corporates() {
               forme à une expérience qui vous ressemble.
             </p>
             <Quote>Obtenir une proposition sur mesure</Quote>
-            <div className={styles.related}>
-              <a href="/blog/animation-photobooth-entreprise/">
-                Le guide entreprise
-              </a>
-              <a href="/blog/photobooth-salon-seminaire/">
-                Préparer un salon ou un séminaire
-              </a>
-              <a href="/prestations/">Tous les dispositifs</a>
-              <a href="/zones-intervention/">Zones d'intervention</a>
-            </div>
           </div>
         </section>
       </div>

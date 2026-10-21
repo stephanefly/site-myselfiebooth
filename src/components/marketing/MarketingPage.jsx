@@ -228,7 +228,7 @@ export default function MarketingPage({ page }) {
   };
 
   return (
-    <Layout metaProps={meta}>
+    <Layout showPreFooter={false} metaProps={meta}>
       <article className="marketing-page" ref={pageRef}>
         <section className="marketing-hero">
           <div className="marketing-container marketing-hero-grid">
@@ -347,7 +347,7 @@ export default function MarketingPage({ page }) {
         <FounderStory story={page.story} />
         {seo?.visual && <ServiceAreaLinks />}
 
-        <section className="marketing-final-cta" data-reveal>
+        <section className="marketing-final-cta" data-page-conclusion data-reveal>
           <div className="marketing-container">
             <p>{page.finalEyebrow || "Votre événement"}</p>
             <h2>{page.finalTitle || "Recevez votre proposition personnalisée."}</h2>

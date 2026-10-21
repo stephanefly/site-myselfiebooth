@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
 import HomePage from "../components/home/HomePage";
-import HomeSearchIntentSection from "../components/home/HomeSearchIntentSection";
 import { faqs } from "../data/home";
 import { absoluteUrl, faqJsonLd, siteConfig } from "../data/site";
 
@@ -12,6 +11,8 @@ export default function Home() {
         <link rel="preload" as="image" href="/images/ai-from-real/accueil-machines-panorama.webp?v=20261019-livre-video" />
       </Head>
       <Layout
+
+        showPreFooter={false}
         metaProps={{
           title:
             "Location Photobooth Paris & Île-de-France | MySelfieBooth",
@@ -45,7 +46,6 @@ export default function Home() {
         }}
       >
         <HomePage />
-        <HomeSearchIntentSection />
       </Layout>
     </>
   );

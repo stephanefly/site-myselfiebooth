@@ -2,9 +2,8 @@ import { siteConfig } from "../data/site";
 
 export default function SocialMedia() {
   return (
-    <section className="social-section">
-      <div className="social-container">
-        <p>Suivre les coulisses, les événements et les réalisations</p>
+    <nav className="social-section" aria-label="Nos réseaux sociaux">
+      <p>Les coulisses de nos événements</p>
         <div className="social-links">
           {siteConfig.socialLinks.map((social) => (
             <a
@@ -15,15 +14,18 @@ export default function SocialMedia() {
               aria-label={social.name}
             >
               <span>{social.name}</span>
-              <b aria-hidden="true">↗</b>
             </a>
           ))}
         </div>
-      </div>
 
       <style jsx>{`
-        .social-section{padding:28px 0;color:#fff;background:#111;text-align:left}.social-container{width:min(1180px,calc(100% - 32px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px}p{margin:0;color:#efe9dd;font-weight:800}.social-links{display:flex;gap:10px;flex-wrap:wrap}.social-links a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:#fff;text-decoration:none;font-weight:800;background:rgba(255,255,255,.06)}.social-links b{color:#c9a24d;font-size:.9rem}@media(max-width:720px){.social-container{align-items:flex-start;flex-direction:column}}
+        .social-section { margin-top: 28px; text-align: left; }
+        p { margin: 0 0 8px; color: #92978d; font-size: 12px; line-height: 1.6; }
+        .social-links { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+        .social-links a { display: inline-flex; align-items: center; min-height: 44px; color: #d6b774; font-size: 13px; text-decoration: none; }
+        .social-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
+        .social-links a:focus-visible { outline: 2px solid #d6b774; outline-offset: 4px; }
       `}</style>
-    </section>
+    </nav>
   );
 }

@@ -73,7 +73,7 @@ export default function ServicesCatalogPage() {
     ],
   };
   return (
-    <Layout metaProps={metaProps}>
+    <Layout showPreFooter={false} metaProps={metaProps}>
       <div className="prestations-page">
         <section className="catalog-collection prst-hero" aria-labelledby="prestations-title">
           <div className="prst-hero-copy">
@@ -132,7 +132,7 @@ export default function ServicesCatalogPage() {
 
         <section className="catalog-collection prst-section prst-process" aria-labelledby="prst-process-title"><div className="prst-wrap"><p className="prst-kicker">Avec vous, du début à la fin</p><h2 id="prst-process-title">Vous profitez.<br /><em>On prépare les souvenirs.</em></h2><ol><li><span>01</span><h3>On imagine</h3><p>Votre date, votre lieu, vos invités : nous cadrons la bonne formule ensemble.</p></li><li><span>02</span><h3>On personnalise</h3><p>Vos noms, vos couleurs ou votre marque donnent le ton aux photos et aux vidéos.</p></li><li><span>03</span><h3>On installe</h3><p>Notre équipe prépare l’espace selon la formule et les contraintes du lieu.</p></li><li><span>04</span><h3>Vous célébrez</h3><p>Vos invités profitent de l’animation, puis retrouvent les contenus dans leur galerie.</p></li></ol></div></section>
         <section className="catalog-collection prst-section prst-faq" aria-labelledby="prst-faq-title"><div className="prst-wrap prst-faq-layout"><div><p className="prst-kicker">Encore une hésitation ?</p><h2 id="prst-faq-title">On vous<br /><em>répond.</em></h2><a className="prst-text-link" href={siteConfig.phoneHref}>Parlons de votre événement <Arrow /></a></div><div>{faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div></section>
-        <section className="catalog-collection prst-final"><div className="prst-wrap"><p className="prst-kicker">À vous de créer la suite</p><h2>On fait de votre événement<br /><em>un beau souvenir ?</em></h2><p>Une date, un lieu et quelques envies. Nous vous proposons la formule adaptée.</p><div className="prst-actions"><a className="prst-button prst-button-gold" href={siteConfig.quoteUrl}>Demander mon devis <Arrow /></a><a className="prst-text-link" href={siteConfig.phoneHref}>{siteConfig.phoneLabel} <Arrow /></a></div></div></section>
+        <section className="catalog-collection prst-final" data-page-conclusion><div className="prst-wrap"><p className="prst-kicker">À vous de créer la suite</p><h2>On fait de votre événement<br /><em>un beau souvenir ?</em></h2><p>Une date, un lieu et quelques envies. Nous vous proposons la formule adaptée.</p><div className="prst-actions"><a className="prst-button prst-button-gold" href={siteConfig.quoteUrl}>Demander mon devis <Arrow /></a></div></div></section>
       </div>
     </Layout>
   );

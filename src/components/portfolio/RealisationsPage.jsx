@@ -3,7 +3,6 @@ import Layout from "../Layout";
 import useRevealMotion from "../../hooks/useRevealMotion";
 import { breadcrumbJsonLd, siteConfig } from "../../data/site";
 import { googleReviews } from "../../data/home";
-import { instagramUrl } from "../../data/instagramMedia";
 import {
   openingFilm,
   projects,
@@ -191,6 +190,8 @@ export default function RealisationsPage() {
   );
   return (
     <Layout
+
+      showPreFooter={false}
       metaProps={{
         title:
           "Réalisations Photobooth : Mariages & Entreprises | MySelfieBooth",
@@ -381,9 +382,9 @@ export default function RealisationsPage() {
               ))}
             </div>
             <div className="rl-work-footer">
-              <p>Votre événement mérite aussi son histoire.</p>
-              <a className="rl-text-link" href={siteConfig.quoteUrl}>
-                Imaginons la vôtre <Arrow />
+              <p>Vous avez repéré votre animation ?</p>
+              <a className="rl-text-link" href="/prestations/#machines">
+                Comparer les machines <Arrow />
               </a>
             </div>
           </div>
@@ -541,25 +542,7 @@ export default function RealisationsPage() {
             </div>
           </div>
         </section>
-        <section className="marketing-realisations rl-discover">
-          <div className="rl-wrap">
-            <p>Vous avez repéré votre animation ?</p>
-            <div>
-              {[
-                ["Photobooth", "/prestations/photobooth/"],
-                ["Miroirbooth", "/prestations/miroirbooth/"],
-                ["Vogue Booth", "/prestations/voguebooth/"],
-                ["360 Booth", "/prestations/videobooth/"],
-              ].map(([label, href]) => (
-                <a key={href} href={href}>
-                  {label}
-                  <Arrow />
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-        <section className="marketing-realisations rl-final">
+        <section className="marketing-realisations rl-final" data-page-conclusion>
           <div className="rl-wrap">
             <p className="rl-eyebrow">
               LA PROCHAINE HISTOIRE COMMENCE AVEC VOUS.
@@ -577,18 +560,7 @@ export default function RealisationsPage() {
               <a className="rl-button" href={siteConfig.quoteUrl}>
                 Imaginons mon événement <Arrow />
               </a>
-              <a className="rl-text-link" href={siteConfig.phoneHref}>
-                {siteConfig.phoneLabel} <Arrow />
-              </a>
             </div>
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="rl-instagram"
-            >
-              Suivre les prochains événements sur Instagram <Arrow />
-            </a>
           </div>
         </section>
         <MediaViewer
