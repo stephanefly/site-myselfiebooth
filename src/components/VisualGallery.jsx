@@ -24,7 +24,7 @@ export const serviceGalleries = {
   phonebooth: [{ name: "phone", title: "Le livre d’or audio", text: "Un téléphone à cadran pour garder la voix et les messages de vos proches." }],
 };
 
-export default function VisualGallery({ items, title = "Les machines et les souvenirs, en images", id = "photos", eyebrow = "Photos de notre collection", note }) {
+export default function VisualGallery({ items, title = "Les machines et les souvenirs, en images", id = "photos", eyebrow = "Photos de notre collection", note, children }) {
   if (!items?.length) return null;
   return <section id={id} className="visual-section" aria-labelledby={`${id}-title`}>
     <div className="visual-container">
@@ -36,6 +36,7 @@ export default function VisualGallery({ items, title = "Les machines et les souv
           <figcaption><h3>{item.title}</h3><p>{item.text}</p></figcaption>
         </figure>)}
       </div>
+      {children}
       {note ? <p className="visual-note">{note}</p> : null}
     </div>
   </section>;

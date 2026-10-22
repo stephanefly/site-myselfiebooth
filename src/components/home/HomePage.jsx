@@ -10,6 +10,7 @@ import {
 import { siteConfig } from "../../data/site";
 import { homeInstagramMedia } from "../../data/instagramMedia";
 import VisualGallery, { VisualImage } from "../VisualGallery";
+import HomeSouvenirFormats from "./HomeSouvenirFormats";
 import useRevealMotion from "../../hooks/useRevealMotion";
 
 function SectionIntro({ eyebrow, title }) {
@@ -161,7 +162,9 @@ export default function HomePage() {
         { name: "homeCadres", title: "Des cadres à votre image", text: "Prénoms, date, couleurs ou logo : le souvenir reprend votre univers." },
         { name: "homeBandes", title: "Plusieurs poses sur une bandelette", text: "Un format à glisser dans un livre d’or ou à garder près de soi." },
         { name: "homePapier", title: "Votre équipe, votre identité", text: "Logo, couleurs et message : des tirages personnalisés pour vos soirées d’entreprise." },
-      ]} />
+      ]}>
+        <HomeSouvenirFormats />
+      </VisualGallery>
 
       <section className="home-final-cta home-event-invitation" aria-labelledby="home-event-title" data-page-conclusion data-reveal>
         <div className="home-container home-event-inner">
