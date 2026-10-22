@@ -1,0 +1,172 @@
+{
+  "measured": {
+    "otherMainSectionsUnchanged": 137,
+    "changedOtherPages": [],
+    "originalMediaHashesUnchanged": 429,
+    "deliveryDecodeChecks": [
+      {
+        "id": "360-reception",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "cynthia-ashok",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "noel",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "invites-photobooth",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "maries-miroir",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "phonebooth",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "silass-brice",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "alexandra-loic",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "eden",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "gala-juristes",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "installation",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "salon",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "anniversaire-vogue",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "invites-fete",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "showreel",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "sephora-extrait",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "soiree-extrait",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "tirages-extrait",
+        "exit": 0,
+        "errors": ""
+      },
+      {
+        "id": "atelier-porte-cles",
+        "exit": 0,
+        "errors": ""
+      }
+    ],
+    "staticAccessibility": {
+      "uniqueIds": true,
+      "validAriaReferences": true,
+      "imageAlternativesPresent": true,
+      "fixedColorPairChecks": [
+        {
+          "foreground": "#171817",
+          "background": "#d6b774",
+          "ratio": 9.23
+        },
+        {
+          "foreground": "#806231",
+          "background": "#f5f2eb",
+          "ratio": 5.06
+        },
+        {
+          "foreground": "#b9b5ac",
+          "background": "#1b1c19",
+          "ratio": 8.37
+        },
+        {
+          "foreground": "#686257",
+          "background": "#f5f2eb",
+          "ratio": 5.41
+        },
+        {
+          "foreground": "#e0cda6",
+          "background": "#212221",
+          "ratio": 10.23
+        }
+      ],
+      "nativeBrowserAudit": false
+    },
+    "heroPosterBytes": 26922,
+    "heroPreviewBytes": 279100,
+    "originalSelectedVideoBytes": 82719785,
+    "newFullVideoBytes": 39031624,
+    "newPreviewTotalBytes": 4768615,
+    "publicPageDataGzipBytes": 3346,
+    "manifestPrivateDataExposed": false,
+    "initialVideoElements": 0,
+    "lighthouse": null,
+    "fieldCoreWebVitals": null
+  },
+  "domSimulation": {
+    "environment": "JSDOM simulation; media/dialog/visibility APIs mocked, no browser layout or codec measurements",
+    "initialEntries": 10,
+    "expandedEntries": 20,
+    "filterCounts": {
+      "Mariages": 6,
+      "Entreprises": 1,
+      "Anniversaires & soirées": 7,
+      "Photobooth": 7,
+      "Miroirbooth": 6,
+      "360 Booth": 2,
+      "VogueBooth": 4,
+      "Coulisses": 4
+    },
+    "manualVideoWithSaveData": true,
+    "navigation": true,
+    "cancelAndFocusReturn": true,
+    "photoViewer": true,
+    "singleVideoLimit": true,
+    "reducedMotionPauses": true,
+    "soundControl": true,
+    "videoErrorFallback": true,
+    "externalHostsBlocked": [],
+    "javascriptErrors": []
+  }
+}

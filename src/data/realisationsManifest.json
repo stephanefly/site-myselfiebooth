@@ -1,0 +1,1735 @@
+{
+  "version": 1,
+  "auditedAt": "2026-10-22",
+  "rightsConfirmation": "Owner confirmed all real project media and existing displayed logos on 2026-10-22 in this conversation. Unknown or AI provenance is excluded.",
+  "selectionPolicy": "Editorial score from visual inspection; file variants are not new events. Usage refers to the initial static site snapshot, not lifetime publication history.",
+  "portfolio": [
+    "360-reception",
+    "cynthia-ashok",
+    "noel",
+    "sephora",
+    "invites-photobooth",
+    "maries-miroir",
+    "gala-installation",
+    "phonebooth",
+    "tirages",
+    "anniversaire-vogue",
+    "silass-brice",
+    "alexandra-loic",
+    "equipe-silass",
+    "eden",
+    "gala-juristes",
+    "fabrication",
+    "installation",
+    "salon",
+    "livre-or",
+    "invites-fete"
+  ],
+  "initialVisible": 10,
+  "page": {
+    "hero": "360-reception",
+    "showreel": "showreel",
+    "final": "invites-fete"
+  },
+  "stories": [
+    {
+      "mediaId": "silass-brice",
+      "title": "Silass & Brice",
+      "eyebrow": "Mariage · VogueBooth",
+      "text": "Une réception portée par les mariés et leurs proches. Le VogueBooth et les tirages personnalisés prolongent la fête.",
+      "serviceHref": "/prestations/voguebooth/",
+      "serviceLabel": "Découvrir le VogueBooth",
+      "supplements": [
+        {
+          "src": "/images/event-archive/brice-tirages.webp",
+          "alt": "Les tirages personnalisés du mariage de Silass et Brice",
+          "width": 1050,
+          "height": 1400,
+          "bytes": 263852,
+          "sourceHash": "1ab2693f67a5214e70fc74deda30adec2f865bdd1608cf3ee0b00460c761ad44",
+          "provenance": {
+            "kind": "real",
+            "evidence": "Existing documented event photograph; visually inspected"
+          },
+          "rights": {
+            "status": "owner_confirmed",
+            "confirmedAt": "2026-10-22"
+          }
+        }
+      ]
+    },
+    {
+      "mediaId": "cynthia-ashok",
+      "title": "Cynthia & Ashok",
+      "eyebrow": "Mariage · VogueBooth",
+      "text": "Leurs noms, leurs couleurs et une couverture imaginée pour leur réception. Une expérience photo intégrée au décor du mariage.",
+      "serviceHref": "/prestations/voguebooth/",
+      "serviceLabel": "Découvrir le VogueBooth",
+      "supplements": [
+        {
+          "src": "/images/realisations-2026/cynthia-ashok.webp",
+          "alt": "Cynthia et Ashok dans leur VogueBooth personnalisé",
+          "width": 720,
+          "height": 1280,
+          "bytes": 103490,
+          "sourceHash": "923b7311b575021149b58865e25859af485870fd2b08bee5aab19653b260530b",
+          "provenance": {
+            "kind": "real",
+            "evidence": "Existing documented event photograph; visually inspected"
+          },
+          "rights": {
+            "status": "owner_confirmed",
+            "confirmedAt": "2026-10-22"
+          }
+        }
+      ]
+    },
+    {
+      "mediaId": "gala-juristes",
+      "title": "Gala des Juristes",
+      "eyebrow": "Gala · Souvenirs imprimés",
+      "text": "Une soirée qui continue sur le papier : les portraits des invités se retrouvent dans les tirages du gala.",
+      "serviceHref": "/prestations/",
+      "serviceLabel": "Découvrir les animations photo",
+      "supplements": [
+        {
+          "src": "/images/realisations-machines/tirages-gala.webp",
+          "alt": "Les tirages personnalisés du Gala des Juristes",
+          "width": 720,
+          "height": 1120,
+          "bytes": 68116,
+          "sourceHash": "b384e3887140c58fb705e5619f7ca7c00287016cdfc0543334e4fae21571797b",
+          "provenance": {
+            "kind": "real",
+            "evidence": "Existing documented event photograph; visually inspected"
+          },
+          "rights": {
+            "status": "owner_confirmed",
+            "confirmedAt": "2026-10-22"
+          }
+        }
+      ]
+    }
+  ],
+  "guests": [
+    "invites-photobooth",
+    "soiree-extrait",
+    "tirages-extrait",
+    "noel"
+  ],
+  "backstage": [
+    "installation",
+    "atelier-porte-cles"
+  ],
+  "experiences": [
+    {
+      "key": "photobooth",
+      "mediaId": "eden",
+      "title": "Photobooth",
+      "benefit": "Le souvenir que l’on emporte.",
+      "description": "Des poses en groupe et des tirages personnalisés selon votre formule.",
+      "href": "/prestations/photobooth/"
+    },
+    {
+      "key": "miroir",
+      "mediaId": "alexandra-loic",
+      "title": "Miroirbooth",
+      "benefit": "Un grand miroir, des moments spontanés.",
+      "description": "Une animation interactive qui réunit les invités devant l’objectif.",
+      "href": "/prestations/miroirbooth/"
+    },
+    {
+      "key": "360",
+      "mediaId": "360-reception",
+      "title": "360 Booth",
+      "benefit": "Toute l’énergie, en mouvement.",
+      "description": "Un tour sur la plateforme et une vidéo à partager avec ses proches.",
+      "href": "/prestations/videobooth/"
+    },
+    {
+      "key": "vogue",
+      "mediaId": "cynthia-ashok",
+      "title": "VogueBooth",
+      "benefit": "Votre instant couverture.",
+      "description": "Un décor magazine personnalisé pour prendre la pose et marquer les esprits.",
+      "href": "/prestations/voguebooth/"
+    }
+  ],
+  "assets": [
+    {
+      "id": "360-reception",
+      "type": "video",
+      "sourcePath": "/videos/event-archive/360-red-carpet.mp4",
+      "sourceFamily": "360-reception",
+      "eventId": null,
+      "eventName": null,
+      "title": "La fête, sous tous les angles.",
+      "description": "Deux invitées prennent la pose sur la plateforme 360 lumineuse, pendant une réception.",
+      "alt": "Deux invitées prennent la pose sur la plateforme 360 lumineuse, pendant une réception.",
+      "tags": [
+        "soirees",
+        "360"
+      ],
+      "machine": "360 Booth",
+      "format": "mp4",
+      "orientation": "landscape",
+      "width": 1280,
+      "height": 720,
+      "duration": 5.03,
+      "bytes": 2281416,
+      "hasAudio": true,
+      "sourceHash": "27c387a5afd0ca6f2782c0c3d38654505874dce56223d610c98647b7355ff055",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/event-archive/360-red-carpet.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 94,
+        "reason": "Mouvement, regards et lumière : le meilleur aperçu 360 disponible. Export vertical existant reconnu comme dérivé, pas comme un nouvel événement.",
+        "position": "portfolio",
+        "posterAt": 0.5
+      },
+      "src": "/videos/realisations-showroom/360-reception.mp4",
+      "poster": "/images/realisations-showroom/360-reception.webp",
+      "previewSrc": "/videos/realisations-showroom/360-reception-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/360-reception.mp4",
+        "width": 404,
+        "height": 720,
+        "duration": 5.083333,
+        "bytes": 552834,
+        "hasAudio": true,
+        "posterBytes": 28490,
+        "previewBytes": 279100
+      },
+      "variants": {
+        "hero": "/images/realisations-showroom/360-reception-hero.webp",
+        "experience": "/images/realisations-showroom/360-reception-experience.webp"
+      }
+    },
+    {
+      "id": "cynthia-ashok",
+      "type": "video",
+      "sourcePath": "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4",
+      "sourceFamily": "cynthia-ashok",
+      "eventId": "Cynthia & Ashok",
+      "eventName": "Cynthia & Ashok",
+      "title": "Cynthia & Ashok",
+      "description": "Un Vogue Booth à leurs noms, une réception et des portraits qui prennent des airs de couverture.",
+      "alt": "Un Vogue Booth à leurs noms, une réception et des portraits qui prennent des airs de couverture.",
+      "tags": [
+        "mariages",
+        "vogue"
+      ],
+      "machine": "VogueBooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1280,
+      "duration": 21.61,
+      "bytes": 4511027,
+      "hasAudio": true,
+      "sourceHash": "93135a57bd64018db583dd779704fc1405f18c7995b9442561c803a02e189baf",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/instagram/reel-2-C9Ftp2ctg4u.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 94,
+        "reason": "Projet identifié et autorisé, personnalisation visible, qualité supérieure aux GIF du même événement.",
+        "position": "portfolio",
+        "posterAt": 12,
+        "posterOverrides": {
+          "experience": 11.9
+        }
+      },
+      "src": "/videos/realisations-showroom/cynthia-ashok.mp4",
+      "poster": "/images/realisations-showroom/cynthia-ashok.webp",
+      "previewSrc": "/videos/realisations-showroom/cynthia-ashok-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/cynthia-ashok.mp4",
+        "width": 720,
+        "height": 1280,
+        "duration": 21.583333,
+        "bytes": 2706536,
+        "hasAudio": true,
+        "posterBytes": 76348,
+        "previewBytes": 306919
+      },
+      "variants": {
+        "story": "/images/realisations-showroom/cynthia-ashok-story.webp",
+        "experience": "/images/realisations-showroom/cynthia-ashok-experience.webp"
+      }
+    },
+    {
+      "id": "noel",
+      "type": "video",
+      "sourcePath": "/videos/realisations-machines/photobooth-noel.mp4",
+      "sourceFamily": "noel",
+      "eventId": null,
+      "eventName": null,
+      "title": "La soirée prend la pose.",
+      "description": "Les invités se retrouvent devant le Photobooth pendant une soirée de Noël.",
+      "alt": "Les invités se retrouvent devant le Photobooth pendant une soirée de Noël.",
+      "tags": [
+        "soirees",
+        "photobooth"
+      ],
+      "machine": "Photobooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1120,
+      "duration": 16.42,
+      "bytes": 2261027,
+      "hasAudio": false,
+      "sourceHash": "1a104d4c7a6605109e6636b3cbfb24569262da5201fbd01433af03453b34cc5e",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/realisations-machines/photobooth-noel.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 91,
+        "reason": "Émotions et groupes en action. Le contexte entreprise n’est pas supposé.",
+        "position": "portfolio",
+        "posterAt": 7
+      },
+      "src": "/videos/realisations-showroom/noel.mp4",
+      "poster": "/images/realisations-showroom/noel.webp",
+      "previewSrc": "/videos/realisations-showroom/noel-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/noel.mp4",
+        "width": 720,
+        "height": 1120,
+        "duration": 16.416667,
+        "bytes": 2051201,
+        "hasAudio": false,
+        "posterBytes": 53006,
+        "previewBytes": 326193
+      },
+      "variants": {
+        "guest": "/images/realisations-showroom/noel-guest.webp"
+      }
+    },
+    {
+      "id": "sephora",
+      "type": "photo",
+      "sourcePath": "/images/realisations/sephora-360booth.webp",
+      "sourceFamily": "sephora",
+      "eventId": "Sephora Champs-Élysées",
+      "eventName": "Sephora Champs-Élysées",
+      "title": "Sephora · Champs-Élysées",
+      "description": "Le 360 Booth en animation dans la boutique Sephora des Champs-Élysées.",
+      "alt": "Le 360 Booth en animation dans la boutique Sephora des Champs-Élysées.",
+      "tags": [
+        "entreprises",
+        "360"
+      ],
+      "machine": "360 Booth",
+      "format": "webp",
+      "orientation": "landscape",
+      "width": 720,
+      "height": 427,
+      "duration": null,
+      "bytes": 84154,
+      "hasAudio": null,
+      "sourceHash": "a094458e1375e95b11ecb94baf577cae7f67c1fe8b1f43ff1232d8f1c012e1d1",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/realisations/sephora-360booth.webp"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/evenements/corporates/",
+          "/prestations/videobooth/",
+          "/realisations/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 91,
+        "reason": "Référence corporate documentée ; aucune autre marque ne lui est attribuée.",
+        "position": "portfolio",
+        "posterAt": 1
+      },
+      "src": "/images/realisations-showroom/sephora.webp",
+      "poster": "/images/realisations-showroom/sephora.webp",
+      "delivery": {
+        "src": "/images/realisations-showroom/sephora.webp",
+        "width": 720,
+        "height": 428,
+        "duration": null,
+        "bytes": 72784,
+        "hasAudio": false
+      }
+    },
+    {
+      "id": "invites-photobooth",
+      "type": "video",
+      "sourcePath": "/images/realisations-gifs/photobooth-invites.gif",
+      "sourceFamily": "P:/Montage-EVENT/ALL_MONTAGE/RENDU_MONTAGE-COURT/TO_POST/I RUN.mp4",
+      "eventId": null,
+      "eventName": null,
+      "title": "Entre amis, sans se prendre au sérieux.",
+      "description": "Les invités se réunissent devant le Photobooth et jouent avec les poses et les accessoires.",
+      "alt": "Les invités se réunissent devant le Photobooth et jouent avec les poses et les accessoires.",
+      "tags": [
+        "soirees",
+        "photobooth"
+      ],
+      "machine": "Photobooth",
+      "format": "gif",
+      "orientation": "portrait",
+      "width": 300,
+      "height": 466,
+      "duration": 4.49,
+      "bytes": 1236690,
+      "hasAudio": null,
+      "sourceHash": "001d0613b88ad48a1924ba710dfd160edf00ddf48c24bc1ce22cd198f452e766",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "P:/Montage-EVENT/ALL_MONTAGE/RENDU_MONTAGE-COURT/TO_POST/I RUN.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 1,
+        "renderedOn": [],
+        "filePreviouslyUnrendered": true,
+        "sourcePreviouslyUnexploited": true
+      },
+      "editorial": {
+        "score": 81,
+        "reason": "Source réelle jusque-là non rendue dans le site, plus humaine que les plans de machines vides. Extrait GIF transformé en MP4, sans interpolation ; réservé à une petite carte.",
+        "position": "portfolio",
+        "posterAt": 2.3
+      },
+      "src": "/videos/realisations-showroom/invites-photobooth.mp4",
+      "poster": "/images/realisations-showroom/invites-photobooth.webp",
+      "previewSrc": "/videos/realisations-showroom/invites-photobooth-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/invites-photobooth.mp4",
+        "width": 300,
+        "height": 466,
+        "duration": 4.5,
+        "bytes": 235620,
+        "hasAudio": false,
+        "posterBytes": 22144,
+        "previewBytes": 154607
+      },
+      "variants": {
+        "guest": "/images/realisations-showroom/invites-photobooth-guest.webp"
+      }
+    },
+    {
+      "id": "maries-miroir",
+      "type": "video",
+      "sourcePath": "/videos/event-archive/maries-photobooth.mp4",
+      "sourceFamily": "maries-miroir",
+      "eventId": null,
+      "eventName": null,
+      "title": "Un instant à deux.",
+      "description": "Les mariés posent devant un Miroirbooth installé face à un décor de roses rouges.",
+      "alt": "Les mariés posent devant un Miroirbooth installé face à un décor de roses rouges.",
+      "tags": [
+        "mariages",
+        "miroir"
+      ],
+      "machine": "Miroirbooth",
+      "format": "mp4",
+      "orientation": "landscape",
+      "width": 1280,
+      "height": 720,
+      "duration": 5.67,
+      "bytes": 2566175,
+      "hasAudio": true,
+      "sourceHash": "3e1eeb7f34e7586da8544df571d97627588a6ad893ff63f0f72cfdc9a78eaec4",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/event-archive/maries-photobooth.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 90,
+        "reason": "Le matériel visible est un Miroirbooth, malgré le nom historique du fichier. Mariage visible, couple non nommé.",
+        "position": "portfolio",
+        "posterAt": 0.4
+      },
+      "src": "/videos/realisations-showroom/maries-miroir.mp4",
+      "poster": "/images/realisations-showroom/maries-miroir.webp",
+      "previewSrc": "/videos/realisations-showroom/maries-miroir-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/maries-miroir.mp4",
+        "width": 404,
+        "height": 720,
+        "duration": 5.75,
+        "bytes": 387032,
+        "hasAudio": true,
+        "posterBytes": 34480,
+        "previewBytes": 237928
+      },
+      "variants": {}
+    },
+    {
+      "id": "gala-installation",
+      "type": "photo",
+      "sourcePath": "/images/event-archive/goldbooth-gala.webp",
+      "sourceFamily": "gala-installation",
+      "eventId": null,
+      "eventName": null,
+      "title": "Le noir, l’or et les belles soirées.",
+      "description": "Un Photobooth et un Miroirbooth noir et or installés dans une salle de gala.",
+      "alt": "Un Photobooth et un Miroirbooth noir et or installés dans une salle de gala.",
+      "tags": [
+        "soirees",
+        "photobooth",
+        "miroir"
+      ],
+      "machine": "Photobooth & Miroirbooth",
+      "format": "webp",
+      "orientation": "portrait",
+      "width": 1050,
+      "height": 1400,
+      "duration": null,
+      "bytes": 201830,
+      "hasAudio": null,
+      "sourceHash": "e4115f31b9b3852ff21e2a1fffdaf6d508a3230e5429d4bab52f4d525171caa4",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/event-archive/goldbooth-gala.webp"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/evenements/corporates/",
+          "/realisations/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 86,
+        "reason": "Matériel réel dans son contexte. Ce gala non identifié n’est pas attribué au Gala des Juristes.",
+        "position": "portfolio",
+        "posterAt": 1
+      },
+      "src": "/images/realisations-showroom/gala-installation.webp",
+      "poster": "/images/realisations-showroom/gala-installation.webp",
+      "delivery": {
+        "src": "/images/realisations-showroom/gala-installation.webp",
+        "width": 900,
+        "height": 1200,
+        "duration": null,
+        "bytes": 169982,
+        "hasAudio": false
+      }
+    },
+    {
+      "id": "phonebooth",
+      "type": "video",
+      "sourcePath": "/videos/event-archive/phonebooth-message.mp4",
+      "sourceFamily": "phonebooth",
+      "eventId": null,
+      "eventName": null,
+      "title": "Un message, juste pour vous.",
+      "description": "Une invitée laisse un message vocal au Phonebooth pendant une réception.",
+      "alt": "Une invitée laisse un message vocal au Phonebooth pendant une réception.",
+      "tags": [],
+      "machine": "Phonebooth",
+      "format": "mp4",
+      "orientation": "landscape",
+      "width": 1280,
+      "height": 720,
+      "duration": 10.6,
+      "bytes": 4740100,
+      "hasAudio": true,
+      "sourceHash": "f127b78ccd97f4acb06ec1d3d2a388c0fe2edb9bd5e3e8e80665aba2f7b03476",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/event-archive/phonebooth-message.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 87,
+        "reason": "Interaction réelle et souvenir émotionnel ; aucun type de réception plus précis n’est inventé.",
+        "position": "portfolio",
+        "posterAt": 4
+      },
+      "src": "/videos/realisations-showroom/phonebooth.mp4",
+      "poster": "/images/realisations-showroom/phonebooth.webp",
+      "previewSrc": "/videos/realisations-showroom/phonebooth-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/phonebooth.mp4",
+        "width": 404,
+        "height": 720,
+        "duration": 10.666667,
+        "bytes": 806074,
+        "hasAudio": true,
+        "posterBytes": 22384,
+        "previewBytes": 287925
+      },
+      "variants": {}
+    },
+    {
+      "id": "tirages",
+      "type": "photo",
+      "sourcePath": "/images/event-archive/composition-tirages-reference.webp",
+      "sourceFamily": "composition-tirages-source-family",
+      "eventId": null,
+      "eventName": null,
+      "title": "Des souvenirs à emporter.",
+      "description": "Une composition de vrais tirages personnalisés, bandes photo et portraits de réception.",
+      "alt": "Une composition de vrais tirages personnalisés, bandes photo et portraits de réception.",
+      "tags": [],
+      "machine": "Tirages photo",
+      "format": "webp",
+      "orientation": "portrait",
+      "width": 1200,
+      "height": 1280,
+      "duration": null,
+      "bytes": 404058,
+      "hasAudio": null,
+      "sourceHash": "9bf70a43c8b4b90aefb8916d05275d3af21dd89ea51844516f982760eb28de33",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "composition-tirages-source-family"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [],
+        "filePreviouslyUnrendered": true,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 85,
+        "reason": "Fichier jusque-là non rendu mais même photographie que les versions tirages-personnalises-300/480 : ne compte pas comme une nouvelle source.",
+        "position": "portfolio",
+        "posterAt": 1
+      },
+      "src": "/images/realisations-showroom/tirages.webp",
+      "poster": "/images/realisations-showroom/tirages.webp",
+      "delivery": {
+        "src": "/images/realisations-showroom/tirages.webp",
+        "width": 900,
+        "height": 960,
+        "duration": null,
+        "bytes": 204452,
+        "hasAudio": false
+      }
+    },
+    {
+      "id": "livre-or",
+      "type": "photo",
+      "sourcePath": "/images/event-archive/livre-or-mariage.webp",
+      "sourceFamily": "livre-or",
+      "eventId": "Samir & Sarah",
+      "eventName": "Samir & Sarah",
+      "title": "Samir & Sarah · Les mots restent.",
+      "description": "Le livre d’or photo de Samir et Sarah, personnalisé en noir et doré.",
+      "alt": "Le livre d’or photo de Samir et Sarah, personnalisé en noir et doré.",
+      "tags": [
+        "mariages"
+      ],
+      "machine": null,
+      "format": "webp",
+      "orientation": "portrait",
+      "width": 1050,
+      "height": 1400,
+      "duration": null,
+      "bytes": 45084,
+      "hasAudio": null,
+      "sourceHash": "17d474f5efa14064db44c3df2911db074df776cb7279b8e9916528bf7c611559",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/event-archive/livre-or-mariage.webp"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/evenements/mariages/",
+          "/realisations/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 83,
+        "reason": "Souvenir réel documenté ; complète les vidéos par une autre expérience.",
+        "position": "portfolio",
+        "posterAt": 1
+      },
+      "src": "/images/realisations-showroom/livre-or.webp",
+      "poster": "/images/realisations-showroom/livre-or.webp",
+      "delivery": {
+        "src": "/images/realisations-showroom/livre-or.webp",
+        "width": 900,
+        "height": 1200,
+        "duration": null,
+        "bytes": 39402,
+        "hasAudio": false
+      }
+    },
+    {
+      "id": "silass-brice",
+      "type": "video",
+      "sourcePath": "/videos/instagram/reel-4-Da-0z-to0VL.mp4",
+      "sourceFamily": "silass-brice",
+      "eventId": "Silass & Brice",
+      "eventName": "Silass & Brice",
+      "title": "Silass & Brice",
+      "description": "L’entrée des mariés, leurs proches et toute l’énergie de la réception.",
+      "alt": "L’entrée des mariés, leurs proches et toute l’énergie de la réception.",
+      "tags": [
+        "mariages",
+        "vogue"
+      ],
+      "machine": "VogueBooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1280,
+      "duration": 71.7,
+      "bytes": 17306421,
+      "hasAudio": true,
+      "sourceHash": "6e390508155ae408521e0050a5108d43a15d4477aee689529c150483a8594e1a",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/instagram/reel-4-Da-0z-to0VL.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 95,
+        "reason": "Film de mariage particulièrement vivant et identifié. Aucun nombre d’invités revendiqué malgré le texte incrusté dans l’original.",
+        "position": "portfolio",
+        "posterAt": 5
+      },
+      "src": "/videos/realisations-showroom/silass-brice.mp4",
+      "poster": "/images/realisations-showroom/silass-brice.webp",
+      "previewSrc": "/videos/realisations-showroom/silass-brice-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/silass-brice.mp4",
+        "width": 720,
+        "height": 1280,
+        "duration": 71.625,
+        "bytes": 10548412,
+        "hasAudio": true,
+        "posterBytes": 62752,
+        "previewBytes": 317197
+      },
+      "variants": {
+        "story": "/images/realisations-showroom/silass-brice-story.webp"
+      }
+    },
+    {
+      "id": "alexandra-loic",
+      "type": "video",
+      "sourcePath": "/videos/realisations-machines/miroirbooth-invites.mp4",
+      "sourceFamily": "alexandra-loic",
+      "eventId": "Alexandra & Loïc",
+      "eventName": "Alexandra & Loïc",
+      "title": "Alexandra & Loïc",
+      "description": "Un Miroirbooth personnalisé, des accessoires et des invités qui se prennent au jeu.",
+      "alt": "Un Miroirbooth personnalisé, des accessoires et des invités qui se prennent au jeu.",
+      "tags": [
+        "mariages",
+        "miroir"
+      ],
+      "machine": "Miroirbooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1120,
+      "duration": 18.0,
+      "bytes": 3223734,
+      "hasAudio": false,
+      "sourceHash": "1db202134d49147680d4ba1f568f3977868182bc6c16ce5c205123ab709584eb",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/realisations-machines/miroirbooth-invites.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 93,
+        "reason": "Visages et réactions. Les aperçus compressés du même film sont regroupés comme des variantes.",
+        "position": "portfolio",
+        "posterAt": 14
+      },
+      "src": "/videos/realisations-showroom/alexandra-loic.mp4",
+      "poster": "/images/realisations-showroom/alexandra-loic.webp",
+      "previewSrc": "/videos/realisations-showroom/alexandra-loic-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/alexandra-loic.mp4",
+        "width": 720,
+        "height": 1120,
+        "duration": 18.0,
+        "bytes": 2589376,
+        "hasAudio": false,
+        "posterBytes": 48282,
+        "previewBytes": 325209
+      },
+      "variants": {
+        "experience": "/images/realisations-showroom/alexandra-loic-experience.webp"
+      }
+    },
+    {
+      "id": "equipe-silass",
+      "type": "photo",
+      "sourcePath": "/images/event-archive/brice-equipe-01.webp",
+      "sourceFamily": "equipe-silass-photo-family",
+      "eventId": "Silass & Brice",
+      "eventName": "Silass & Brice",
+      "title": "Silass & Brice · Côté équipe",
+      "description": "L’équipe MySelfieBooth devant le VogueBooth personnalisé du mariage de Silass et Brice.",
+      "alt": "L’équipe MySelfieBooth devant le VogueBooth personnalisé du mariage de Silass et Brice.",
+      "tags": [
+        "mariages",
+        "coulisses",
+        "vogue"
+      ],
+      "machine": "VogueBooth",
+      "format": "webp",
+      "orientation": "portrait",
+      "width": 1050,
+      "height": 1400,
+      "duration": null,
+      "bytes": 171416,
+      "hasAudio": null,
+      "sourceHash": "a9b6700ee9c6a0079bb44bbea58bd3f582f00cf15e0b4840ee2efa78e7e15bb9",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "equipe-silass-photo-family"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [],
+        "filePreviouslyUnrendered": true,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 86,
+        "reason": "Même événement explicitement nommé, autre photographie. Les versions equipe-myselfiebooth et vogue-reception sont des variantes : pas un média réellement inédit.",
+        "position": "portfolio",
+        "posterAt": 1
+      },
+      "src": "/images/realisations-showroom/equipe-silass.webp",
+      "poster": "/images/realisations-showroom/equipe-silass.webp",
+      "delivery": {
+        "src": "/images/realisations-showroom/equipe-silass.webp",
+        "width": 900,
+        "height": 1200,
+        "duration": null,
+        "bytes": 133424,
+        "hasAudio": false
+      }
+    },
+    {
+      "id": "eden",
+      "type": "video",
+      "sourcePath": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4",
+      "sourceFamily": "eden",
+      "eventId": null,
+      "eventName": null,
+      "title": "Une réception à l’Espace Eden",
+      "description": "Le Photobooth et le Miroirbooth installés dans une salle de réception de l’Espace Eden.",
+      "alt": "Le Photobooth et le Miroirbooth installés dans une salle de réception de l’Espace Eden.",
+      "tags": [
+        "photobooth",
+        "miroir"
+      ],
+      "machine": "Photobooth & Miroirbooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1120,
+      "duration": 14.0,
+      "bytes": 2477088,
+      "hasAudio": false,
+      "sourceHash": "29ba6a8aac7b4cd65b3303b7a611a22eb97bb8bb3ea1cc304ca531f85fe62e45",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/realisations-machines/photobooth-miroir-espace-eden.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 86,
+        "reason": "Installation et duo de machines documentés. Aucun couple ou type de fête supposé.",
+        "position": "portfolio",
+        "posterAt": 6.3
+      },
+      "src": "/videos/realisations-showroom/eden.mp4",
+      "poster": "/images/realisations-showroom/eden.webp",
+      "previewSrc": "/videos/realisations-showroom/eden-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/eden.mp4",
+        "width": 720,
+        "height": 1120,
+        "duration": 14.0,
+        "bytes": 2031174,
+        "hasAudio": false,
+        "posterBytes": 52010,
+        "previewBytes": 301612
+      },
+      "variants": {
+        "experience": "/images/realisations-showroom/eden-experience.webp"
+      }
+    },
+    {
+      "id": "gala-juristes",
+      "type": "video",
+      "sourcePath": "/videos/realisations-machines/tirages-gala.mp4",
+      "sourceFamily": "gala-juristes",
+      "eventId": "Gala des Juristes",
+      "eventName": "Gala des Juristes",
+      "title": "Gala des Juristes · Le souvenir imprimé",
+      "description": "Les invités et les tirages personnalisés portant le nom du Gala des Juristes.",
+      "alt": "Les invités et les tirages personnalisés portant le nom du Gala des Juristes.",
+      "tags": [
+        "soirees"
+      ],
+      "machine": "Tirages photo",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1120,
+      "duration": 14.0,
+      "bytes": 900639,
+      "hasAudio": false,
+      "sourceHash": "e8e7262ecdb5740dde3aadb4b9fec67ac829ec4a59ba3fc08e0ebcc71f720c6a",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/realisations-machines/tirages-gala.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 89,
+        "reason": "Le nom est lisible dans le média. Aucune marque, salle ou prestation supplémentaire attribuée. La machine ayant produit les tirages n’est pas établie ; seul le souvenir imprimé est revendiqué.",
+        "position": "portfolio",
+        "posterAt": 6
+      },
+      "src": "/videos/realisations-showroom/gala-juristes.mp4",
+      "poster": "/images/realisations-showroom/gala-juristes.webp",
+      "previewSrc": "/videos/realisations-showroom/gala-juristes-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/gala-juristes.mp4",
+        "width": 720,
+        "height": 1120,
+        "duration": 14.0,
+        "bytes": 909180,
+        "hasAudio": false,
+        "posterBytes": 78814,
+        "previewBytes": 234389
+      },
+      "variants": {
+        "story": "/images/realisations-showroom/gala-juristes-story.webp"
+      }
+    },
+    {
+      "id": "fabrication",
+      "type": "photo",
+      "sourcePath": "/images/equipe/fabrication-photobooth-en-famille.webp",
+      "sourceFamily": "fabrication",
+      "eventId": null,
+      "eventName": null,
+      "title": "Le savoir-faire commence ici.",
+      "description": "La fabrication d’une borne photo dans l’atelier familial MySelfieBooth.",
+      "alt": "La fabrication d’une borne photo dans l’atelier familial MySelfieBooth.",
+      "tags": [
+        "coulisses",
+        "photobooth"
+      ],
+      "machine": "Photobooth",
+      "format": "webp",
+      "orientation": "portrait",
+      "width": 1200,
+      "height": 1600,
+      "duration": null,
+      "bytes": 155968,
+      "hasAudio": null,
+      "sourceHash": "a41492180ad3fbcfeb619c5d7fa717472d842c0763860ee759f1656caa985b0e",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/equipe/fabrication-photobooth-en-famille.webp"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/",
+          "/a-propos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 87,
+        "reason": "Preuve concrète de fabrication déjà documentée sur la page À propos.",
+        "position": "portfolio",
+        "posterAt": 1
+      },
+      "src": "/images/realisations-showroom/fabrication.webp",
+      "poster": "/images/realisations-showroom/fabrication.webp",
+      "delivery": {
+        "src": "/images/realisations-showroom/fabrication.webp",
+        "width": 900,
+        "height": 1200,
+        "duration": null,
+        "bytes": 89098,
+        "hasAudio": false
+      }
+    },
+    {
+      "id": "installation",
+      "type": "video",
+      "sourcePath": "/videos/realisations-machines/installation-photobooth-timelapse.mp4",
+      "sourceFamily": "installation",
+      "eventId": null,
+      "eventName": null,
+      "title": "Avant le premier invité.",
+      "description": "L’équipe installe le Photobooth dans la salle, en accéléré.",
+      "alt": "L’équipe installe le Photobooth dans la salle, en accéléré.",
+      "tags": [
+        "coulisses",
+        "photobooth"
+      ],
+      "machine": "Photobooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1120,
+      "duration": 14.0,
+      "bytes": 1420555,
+      "hasAudio": false,
+      "sourceHash": "8fb8c254439e6bc60567c31766a8cc8e7b72b0cd9f28cbe99eae5bbd3a534ecd",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/realisations-machines/installation-photobooth-timelapse.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 90,
+        "reason": "Montage réel et lisible, preuve technique sans promesse ajoutée.",
+        "position": "portfolio",
+        "posterAt": 8
+      },
+      "src": "/videos/realisations-showroom/installation.mp4",
+      "poster": "/images/realisations-showroom/installation.webp",
+      "previewSrc": "/videos/realisations-showroom/installation-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/installation.mp4",
+        "width": 720,
+        "height": 1120,
+        "duration": 14.0,
+        "bytes": 1545667,
+        "hasAudio": false,
+        "posterBytes": 81094,
+        "previewBytes": 248493
+      },
+      "variants": {
+        "backstage": "/images/realisations-showroom/installation-backstage.webp"
+      }
+    },
+    {
+      "id": "salon",
+      "type": "video",
+      "sourcePath": "/videos/instagram/reel-3-DQxM5TnCOKL.mp4",
+      "sourceFamily": "salon",
+      "eventId": null,
+      "eventName": null,
+      "title": "Au salon, les animations prennent vie.",
+      "description": "Une présentation des machines, des tirages et de l’expérience MySelfieBooth au salon du mariage.",
+      "alt": "Une présentation des machines, des tirages et de l’expérience MySelfieBooth au salon du mariage.",
+      "tags": [
+        "photobooth",
+        "miroir",
+        "coulisses"
+      ],
+      "machine": "Photobooth & Miroirbooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1280,
+      "duration": 63.69,
+      "bytes": 18940014,
+      "hasAudio": true,
+      "sourceHash": "c6df2ace233fb977bca963a26a00e7d2f2ee4d7d53406d3904cc7bd56688efce",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/instagram/reel-3-DQxM5TnCOKL.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 87,
+        "reason": "Format reportage distinct des mariages, propos dans le film conservés sans faux témoignage.",
+        "position": "portfolio",
+        "posterAt": 26
+      },
+      "src": "/videos/realisations-showroom/salon.mp4",
+      "poster": "/images/realisations-showroom/salon.webp",
+      "previewSrc": "/videos/realisations-showroom/salon-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/salon.mp4",
+        "width": 720,
+        "height": 1280,
+        "duration": 63.600998,
+        "bytes": 9427635,
+        "hasAudio": true,
+        "posterBytes": 114082,
+        "previewBytes": 326157
+      },
+      "variants": {}
+    },
+    {
+      "id": "anniversaire-vogue",
+      "type": "video",
+      "sourcePath": "/videos/vogue-real/vogue-booth-anniversaire.mp4",
+      "sourceFamily": "anniversaire-vogue",
+      "eventId": null,
+      "eventName": null,
+      "title": "Ce soir, vous faites la une.",
+      "description": "Le Vogue Booth installé parmi les tables d’une réception d’anniversaire.",
+      "alt": "Le Vogue Booth installé parmi les tables d’une réception d’anniversaire.",
+      "tags": [
+        "soirees",
+        "vogue"
+      ],
+      "machine": "VogueBooth",
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1280,
+      "duration": 9.05,
+      "bytes": 3021482,
+      "hasAudio": true,
+      "sourceHash": "ebafca8ad7daeac92cc4c2efdbcd932b9200564d1e84112149b7497abca023b9",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/vogue-real/vogue-booth-anniversaire.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 3,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 87,
+        "reason": "Anniversaire documenté, autre mise en scène réelle du VogueBooth.",
+        "position": "portfolio",
+        "posterAt": 7.5
+      },
+      "src": "/videos/realisations-showroom/anniversaire-vogue.mp4",
+      "poster": "/images/realisations-showroom/anniversaire-vogue.webp",
+      "previewSrc": "/videos/realisations-showroom/anniversaire-vogue-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/anniversaire-vogue.mp4",
+        "width": 720,
+        "height": 1280,
+        "duration": 9.0,
+        "bytes": 1429058,
+        "hasAudio": true,
+        "posterBytes": 79664,
+        "previewBytes": 319550
+      },
+      "variants": {}
+    },
+    {
+      "id": "invites-fete",
+      "type": "video",
+      "sourcePath": "/videos/event-archive/invites-en-fete.mp4",
+      "sourceFamily": "invites-fete",
+      "eventId": null,
+      "eventName": null,
+      "title": "Les sourires se répondent.",
+      "description": "Des invitées profitent de la réception et posent devant le Miroirbooth.",
+      "alt": "Des invitées profitent de la réception et posent devant le Miroirbooth.",
+      "tags": [
+        "soirees",
+        "miroir"
+      ],
+      "machine": "Miroirbooth",
+      "format": "mp4",
+      "orientation": "landscape",
+      "width": 1280,
+      "height": 720,
+      "duration": 4.8,
+      "bytes": 2126463,
+      "hasAudio": true,
+      "sourceHash": "41c488ac0802891f812bb56e01051b5a56f662ece681c713dacc9a52aea9ece6",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/event-archive/invites-en-fete.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 90,
+        "reason": "Humain, spontané et coloré ; la nature exacte de la réception reste inconnue.",
+        "position": "portfolio",
+        "posterAt": 0.7
+      },
+      "src": "/videos/realisations-showroom/invites-fete.mp4",
+      "poster": "/images/realisations-showroom/invites-fete.webp",
+      "previewSrc": "/videos/realisations-showroom/invites-fete-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/invites-fete.mp4",
+        "width": 404,
+        "height": 720,
+        "duration": 4.875,
+        "bytes": 397355,
+        "hasAudio": true,
+        "posterBytes": 21818,
+        "previewBytes": 250606
+      },
+      "variants": {
+        "final": "/images/realisations-showroom/invites-fete-final.webp"
+      }
+    },
+    {
+      "id": "showreel",
+      "type": "video",
+      "sourcePath": "/videos/PUB_2024.mp4",
+      "sourceFamily": "showreel",
+      "eventId": null,
+      "eventName": null,
+      "title": "Best of MySelfieBooth",
+      "description": "Le film de présentation existant : machines, personnalisation et invités en mouvement.",
+      "alt": "Le film de présentation existant : machines, personnalisation et invités en mouvement.",
+      "tags": [
+        "coulisses"
+      ],
+      "machine": null,
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 1080,
+      "height": 1920,
+      "duration": 8.27,
+      "bytes": 10039588,
+      "hasAudio": true,
+      "sourceHash": "d452e57eff7394dfef946f52f231b8774cfc96eb6130c3a72152a024648f7d9c",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/PUB_2024.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 90,
+        "reason": "Véritable montage déjà présent, recompressé sans fabriquer une nouvelle compilation.",
+        "position": "showreel",
+        "posterAt": 3
+      },
+      "src": "/videos/realisations-showroom/showreel.mp4",
+      "poster": "/images/realisations-showroom/showreel.webp",
+      "previewSrc": "/videos/realisations-showroom/showreel-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/showreel.mp4",
+        "width": 720,
+        "height": 1280,
+        "duration": 8.333333,
+        "bytes": 1275691,
+        "hasAudio": true,
+        "posterBytes": 53924,
+        "previewBytes": 308481
+      },
+      "variants": {}
+    },
+    {
+      "id": "sephora-extrait",
+      "type": "video",
+      "sourcePath": "/images/reel-gifs/booth-360-sephora.gif",
+      "sourceFamily": "sephora-extrait",
+      "eventId": "Sephora Champs-Élysées",
+      "eventName": "Sephora Champs-Élysées",
+      "title": "L’expérience 360 chez Sephora",
+      "description": "Des visiteurs découvrent la plateforme 360 dans la boutique Sephora des Champs-Élysées.",
+      "alt": "Des visiteurs découvrent la plateforme 360 dans la boutique Sephora des Champs-Élysées.",
+      "tags": [
+        "entreprises",
+        "360"
+      ],
+      "machine": "360 Booth",
+      "format": "gif",
+      "orientation": "portrait",
+      "width": 240,
+      "height": 427,
+      "duration": 4.72,
+      "bytes": 791917,
+      "hasAudio": null,
+      "sourceHash": "927a0d5bdb60edf53d318358aa44d683536266ed081acc814224a82095c8a4cd",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/reel-gifs/booth-360-sephora.gif"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 1,
+        "renderedOn": [],
+        "filePreviouslyUnrendered": true,
+        "sourcePreviouslyUnexploited": true
+      },
+      "editorial": {
+        "score": 82,
+        "reason": "Nouvel extrait animé issu d’une source réelle auparavant non rendue. Format limité à une petite largeur, sans le faire passer pour une nouvelle collaboration.",
+        "position": "corporate",
+        "posterAt": 1.5
+      },
+      "src": "/videos/realisations-showroom/sephora-extrait.mp4",
+      "poster": "/images/realisations-showroom/sephora-extrait.webp",
+      "previewSrc": "/videos/realisations-showroom/sephora-extrait-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/sephora-extrait.mp4",
+        "width": 240,
+        "height": 428,
+        "duration": 4.708333,
+        "bytes": 135822,
+        "hasAudio": false,
+        "posterBytes": 17950,
+        "previewBytes": 86350
+      },
+      "variants": {}
+    },
+    {
+      "id": "soiree-extrait",
+      "type": "video",
+      "sourcePath": "/images/reel-gifs/animation-soiree-tour-eiffel.gif",
+      "sourceFamily": "soiree-extrait",
+      "eventId": null,
+      "eventName": null,
+      "title": "La soirée continue.",
+      "description": "Deux personnes dansent pendant une soirée dans un espace vitré.",
+      "alt": "Deux personnes dansent pendant une soirée dans un espace vitré.",
+      "tags": [
+        "soirees"
+      ],
+      "machine": null,
+      "format": "gif",
+      "orientation": "portrait",
+      "width": 320,
+      "height": 400,
+      "duration": 2.76,
+      "bytes": 595563,
+      "hasAudio": null,
+      "sourceHash": "21303b484fcb51b758d7fefb38391093f2cb00d4403a271e01f18612c813db68",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/reel-gifs/animation-soiree-tour-eiffel.gif"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 1,
+        "renderedOn": [],
+        "filePreviouslyUnrendered": true,
+        "sourcePreviouslyUnexploited": true
+      },
+      "editorial": {
+        "score": 80,
+        "reason": "Source inexploitée et réaction spontanée. Le lieu exact et la tour Eiffel ne sont pas affirmés.",
+        "position": "guests",
+        "posterAt": 1
+      },
+      "src": "/videos/realisations-showroom/soiree-extrait.mp4",
+      "poster": "/images/realisations-showroom/soiree-extrait.webp",
+      "previewSrc": "/videos/realisations-showroom/soiree-extrait-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/soiree-extrait.mp4",
+        "width": 320,
+        "height": 400,
+        "duration": 2.75,
+        "bytes": 57508,
+        "hasAudio": false,
+        "posterBytes": 11496,
+        "previewBytes": 40255
+      },
+      "variants": {
+        "guest": "/images/realisations-showroom/soiree-extrait-guest.webp"
+      }
+    },
+    {
+      "id": "tirages-extrait",
+      "type": "video",
+      "sourcePath": "/images/realisations-gifs/tirages-sur-mesure.gif",
+      "sourceFamily": "tirages-extrait",
+      "eventId": null,
+      "eventName": null,
+      "title": "Le plaisir de repartir avec sa photo.",
+      "description": "Des tirages personnalisés sont présentés à la main, sur plusieurs formats.",
+      "alt": "Des tirages personnalisés sont présentés à la main, sur plusieurs formats.",
+      "tags": [
+        "photobooth"
+      ],
+      "machine": null,
+      "format": "gif",
+      "orientation": "portrait",
+      "width": 300,
+      "height": 466,
+      "duration": 3.99,
+      "bytes": 1421047,
+      "hasAudio": null,
+      "sourceHash": "05a21268c99ad575fa16d156750fac2c724432404a62f17be598f73206027ac4",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/images/realisations-gifs/tirages-sur-mesure.gif"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 1,
+        "renderedOn": [],
+        "filePreviouslyUnrendered": true,
+        "sourcePreviouslyUnexploited": true
+      },
+      "editorial": {
+        "score": 82,
+        "reason": "Source réelle distincte jusque-là non rendue, documentaire source IMG_8152.MOV, désormais disponible en petit MP4.",
+        "position": "guests",
+        "posterAt": 1
+      },
+      "src": "/videos/realisations-showroom/tirages-extrait.mp4",
+      "poster": "/images/realisations-showroom/tirages-extrait.webp",
+      "previewSrc": "/videos/realisations-showroom/tirages-extrait-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/tirages-extrait.mp4",
+        "width": 300,
+        "height": 466,
+        "duration": 4.0,
+        "bytes": 153648,
+        "hasAudio": false,
+        "posterBytes": 21404,
+        "previewBytes": 94400
+      },
+      "variants": {
+        "guest": "/images/realisations-showroom/tirages-extrait-guest.webp"
+      }
+    },
+    {
+      "id": "atelier-porte-cles",
+      "type": "video",
+      "sourcePath": "/videos/realisations-machines/fabrication-porte-cles-photo.mp4",
+      "sourceFamily": "atelier-porte-cles",
+      "eventId": null,
+      "eventName": null,
+      "title": "Les petits détails du souvenir.",
+      "description": "La préparation des porte-clés photo, des portraits jusqu’à l’assemblage.",
+      "alt": "La préparation des porte-clés photo, des portraits jusqu’à l’assemblage.",
+      "tags": [
+        "coulisses"
+      ],
+      "machine": null,
+      "format": "mp4",
+      "orientation": "portrait",
+      "width": 720,
+      "height": 1120,
+      "duration": 12.21,
+      "bytes": 2858839,
+      "hasAudio": false,
+      "sourceHash": "cbb4c99445a07a73b1ba09954a49456b02c0912aa00283b61cc407c3d57e1299",
+      "provenance": {
+        "kind": "real",
+        "evidence": "Visual inspection of the original file and existing project metadata",
+        "reference": "/videos/realisations-machines/fabrication-porte-cles-photo.mp4"
+      },
+      "rights": {
+        "status": "owner_confirmed",
+        "confirmedAt": "2026-10-22",
+        "scope": "Public display on the MySelfieBooth website",
+        "evidence": "Owner confirmation in this conversation: all real project media and existing client logos are authorized"
+      },
+      "previousUsage": {
+        "category": 2,
+        "renderedOn": [
+          "/realisations-videos/"
+        ],
+        "filePreviouslyUnrendered": false,
+        "sourcePreviouslyUnexploited": false
+      },
+      "editorial": {
+        "score": 85,
+        "reason": "Geste réel de préparation, distinct des images d’illustration utilisées ailleurs.",
+        "position": "backstage",
+        "posterAt": 8
+      },
+      "src": "/videos/realisations-showroom/atelier-porte-cles.mp4",
+      "poster": "/images/realisations-showroom/atelier-porte-cles.webp",
+      "previewSrc": "/videos/realisations-showroom/atelier-porte-cles-preview.mp4",
+      "delivery": {
+        "src": "/videos/realisations-showroom/atelier-porte-cles.mp4",
+        "width": 720,
+        "height": 1120,
+        "duration": 12.208333,
+        "bytes": 1791801,
+        "hasAudio": false,
+        "posterBytes": 61948,
+        "previewBytes": 323244
+      },
+      "variants": {
+        "backstage": "/images/realisations-showroom/atelier-porte-cles-backstage.webp"
+      }
+    }
+  ],
+  "preparation": {
+    "originalFilesPreserved": true,
+    "videoCodec": "H.264",
+    "container": "MP4",
+    "previewAudio": false,
+    "previewMaxSeconds": 6,
+    "frameInterpolation": false,
+    "description": "Only embedded black side bars are cropped. Posters and previews are exported from real source frames."
+  }
+}
