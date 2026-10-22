@@ -1745,11 +1745,12 @@
       "duration": 8,
       "bytes": 738841,
       "hasAudio": true,
-      "sourceHash": "2670f1a825536a7f1bcc31939246eb11d61e49aad4016bb3b7a474a9aa7bbf89",
+      "sourceHash": "14299788f912ddd3d36938d2b3402a3617ffc034e71660c893d625dd61b2c1fd",
       "provenance": {
         "kind": "real",
         "evidence": "Owner-provided event montage; source and extracted scene visually reviewed",
-        "reference": "MONTAGE_WEEKEND-AVEC-MYSELFIEBOOTH/MONTAGE_WEEKEND-AVEC-MYSELFIEBOOTH.mp4"
+        "reference": "MONTAGE_WEEKEND-AVEC-MYSELFIEBOOTH/MONTAGE_WEEKEND-AVEC-MYSELFIEBOOTH.mp4",
+        "originalSourceHash": "2670f1a825536a7f1bcc31939246eb11d61e49aad4016bb3b7a474a9aa7bbf89"
       },
       "rights": {
         "status": "owner_confirmed",
