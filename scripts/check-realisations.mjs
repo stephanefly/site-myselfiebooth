@@ -14,7 +14,7 @@ const manifest = JSON.parse(
   readFileSync("src/data/realisationsManifest.json", "utf8"),
 );
 const publicShowroom = preparePublicShowroom(manifest);
-assert.equal(publicShowroom.assets.length, 25);
+assert.equal(publicShowroom.assets.length, 26);
 assert.ok(
   !/sourceHash|sourcePath|editorial|rights|P:\//.test(
     JSON.stringify(publicShowroom),
@@ -22,13 +22,13 @@ assert.ok(
   "Editorial evidence and internal paths must stay outside the public page data",
 );
 const selected = selectPortfolio(manifest);
-assert.equal(selected.length, 20);
-assert.equal(selected.filter((item) => item.type === "video").length, 14);
+assert.equal(selected.length, 21);
+assert.equal(selected.filter((item) => item.type === "video").length, 15);
 assert.equal(
   selected
     .slice(0, manifest.initialVisible)
     .filter((item) => item.type === "video").length,
-  7,
+  8,
 );
 assert.equal(
   new Set(selected.map((item) => item.sourceFamily)).size,
@@ -158,7 +158,7 @@ const schemas = [
   ),
 ].map((m) => JSON.parse(m[1]));
 const collection = schemas.find((s) => s["@type"] === "CollectionPage");
-assert.equal(collection.mainEntity.itemListElement.length, 20);
+assert.equal(collection.mainEntity.itemListElement.length, 21);
 assert.ok(
   !schemas.some((s) => s["@type"] === "AggregateRating"),
   "Do not invent an aggregate rating schema",
