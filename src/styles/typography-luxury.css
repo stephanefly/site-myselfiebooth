@@ -9,29 +9,29 @@ body *:not(code):not(pre):not(kbd):not(samp) {
   font-family: var(--font-body) !important;
 }
 
-body :is(h1, h2, h3, h4, h5, h6) {
+body *:not(code):not(pre):not(kbd):not(samp):is(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-editorial) !important;
   font-weight: 600 !important;
   font-kerning: normal;
 }
 
-body :is(h1, h2) {
+body *:not(code):not(pre):not(kbd):not(samp):is(h1, h2) {
   letter-spacing: -0.025em !important;
 }
 
-body :is(h3, h4, h5, h6) {
+body *:not(code):not(pre):not(kbd):not(samp):is(h3, h4, h5, h6) {
   letter-spacing: -0.015em !important;
   font-weight: 500 !important;
 }
 
-body :is(h1, h2, h3, h4, h5, h6) em,
-body :is(h1, h2, h3, h4, h5, h6) i {
+body *:not(code):not(pre):not(kbd):not(samp):is(h1, h2, h3, h4, h5, h6) em,
+body *:not(code):not(pre):not(kbd):not(samp):is(h1, h2, h3, h4, h5, h6) i {
   font-family: var(--font-editorial) !important;
   font-style: italic !important;
   font-weight: 500 !important;
 }
 
-body .nav-brand {
+body *:not(code):not(pre):not(kbd):not(samp).nav-brand {
   font-family: var(--font-editorial) !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
