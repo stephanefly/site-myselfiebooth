@@ -7,7 +7,7 @@ const formats = [
     title: "Porte-clés photo",
     text: "Votre photo en petit format, à emporter avec vos clés.",
     image: "/images/editorial-ai/accueil-souvenir-porte-cles.webp",
-    alt: "Illustration IA de porte-clés photo transparents avec des portraits de mariage",
+    alt: "Porte-clés photo transparents avec des portraits de mariage",
     href: "/prestations/#options",
     linkLabel: "Voir les options",
   },
@@ -16,7 +16,7 @@ const formats = [
     title: "Magnets photo",
     text: "Vos portraits transformés en magnets à garder bien en vue.",
     image: "/images/editorial-ai/accueil-souvenir-magnets.webp",
-    alt: "Illustration IA de quatre magnets photo personnalisés sur un réfrigérateur crème",
+    alt: "Quatre magnets photo personnalisés sur un réfrigérateur crème",
     href: "/prestations/#options",
     linkLabel: "Découvrir les magnets",
   },
@@ -25,7 +25,7 @@ const formats = [
     title: "Votre vidéo 360 sur téléphone",
     text: "Un clip à retrouver sur mobile et à partager après votre passage.",
     image: "/images/editorial-ai/accueil-souvenir-360-mobile.webp",
-    alt: "Illustration IA d’un téléphone affichant une vidéo 360 de mariage",
+    alt: "Téléphone affichant une vidéo 360 de mariage",
     href: "/prestations/videobooth/",
     linkLabel: "Voir le 360 Booth",
   },
@@ -34,7 +34,7 @@ const formats = [
     title: "Impression Vogue Booth",
     text: "Le portrait façon magazine en tirage papier, selon l’option choisie.",
     image: "/images/editorial-ai/accueil-souvenir-impression-vogue.webp",
-    alt: "Illustration IA de tirages papier Vogue Booth avec des portraits façon magazine",
+    alt: "Tirages papier Vogue Booth avec des portraits façon magazine",
     href: "/prestations/voguebooth/",
     linkLabel: "Voir le Vogue Booth",
   },
@@ -58,7 +58,6 @@ export default function HomeSouvenirFormats() {
           </article>
         ))}
       </div>
-      <p className={styles.caption}>Illustrations générées par IA.</p>
       <a className={styles.instagram} href={instagramUrl} target="_blank" rel="noopener noreferrer">D’autres idées sur notre Instagram ↗</a>
     </section>
   );

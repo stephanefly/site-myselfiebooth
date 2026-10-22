@@ -4,9 +4,9 @@ import blogArticleIllustrations from "./blogArticleIllustrations.json";
 const visual = (src, alt) => ({ src, alt });
 
 export const editorialVisuals = {
-  planning: visual("/images/editorial-ai/preparer-mariage.webp", "Illustration IA : carnet, calendrier et papeterie pour préparer un mariage"),
-  reception: visual("/images/editorial-ai/reception-mariage.webp", "Illustration IA : salle de réception avec tables fleuries et accès à un jardin"),
-  guests: visual("/images/editorial-ai/invites-photobooth.webp", "Illustration IA : des invités de plusieurs générations réunis dans un espace photo"),
+  planning: visual("/images/editorial-ai/preparer-mariage.webp", "Illustration : carnet, calendrier et papeterie pour préparer un mariage"),
+  reception: visual("/images/editorial-ai/reception-mariage.webp", "Illustration : salle de réception avec tables fleuries et accès à un jardin"),
+  guests: visual("/images/editorial-ai/invites-photobooth.webp", "Illustration : des invités de plusieurs générations réunis dans un espace photo"),
   photo: visual("/images/ai-from-real/hero-photobooth-reception.webp", "Projection d'une borne photobooth dans un décor de réception"),
   prints: visual("/images/ai-from-real/tirages-invites-mariage-gala.webp", "Projection de tirages photo personnalisés et de souvenirs de réception"),
   audio: visual("/images/ai-from-real/phonebooth-livre-or-audio-900.webp", "Projection d'un téléphone livre d'or audio pour les messages des invités"),
