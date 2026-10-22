@@ -84,7 +84,7 @@ export default function AboutPage() {
                 <a className="about-button is-primary" href="/prestations">
                   Découvrir nos prestations
                 </a>
-                <a className="about-button is-secondary" href={siteConfig.quoteUrl}>
+                <a className="about-button is-secondary" href={siteConfig.contactUrl}>
                   Parler de votre projet
                 </a>
               </div>
@@ -285,8 +285,8 @@ export default function AboutPage() {
           <div className="about-container">
             <p className="about-eyebrow">Votre événement</p>
             <h2>Parlez directement avec l'équipe qui va le préparer.</h2>
-            <a href={siteConfig.quoteUrl} data-event="cta_quote_click">
-              Obtenir mon devis en 2 minutes
+            <a href={siteConfig.contactUrl} data-event="contact_click">
+              Parlons de votre projet
             </a>
           </div>
         </section>

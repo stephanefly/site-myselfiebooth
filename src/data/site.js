@@ -4,6 +4,7 @@ export const siteConfig = {
   name: "MySelfieBooth",
   baseUrl: "https://myselfiebooth-paris.fr",
   quoteUrl: "https://reservation.myselfiebooth-paris.fr/",
+  contactUrl: "/contact/",
   ratesUrl: "https://reservation.myselfiebooth-paris.fr/tarifs/",
   phoneLabel: "06 99 73 39 98",
   phoneHref: "tel:0699733998",

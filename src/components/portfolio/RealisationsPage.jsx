@@ -241,7 +241,7 @@ export default function RealisationsPage() {
                 <a className="rl-button" href="#films">
                   Explorer les réalisations <Arrow down />
                 </a>
-                <a className="rl-text-link" href={siteConfig.quoteUrl}>
+                <a className="rl-text-link" href={siteConfig.contactUrl}>
                   Parlons de votre événement <Arrow />
                 </a>
               </div>
@@ -557,7 +557,7 @@ export default function RealisationsPage() {
               aimeriez créer.
             </p>
             <div className="rl-actions">
-              <a className="rl-button" href={siteConfig.quoteUrl}>
+              <a className="rl-button" href={siteConfig.contactUrl}>
                 Imaginons mon événement <Arrow />
               </a>
             </div>

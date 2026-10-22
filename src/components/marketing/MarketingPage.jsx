@@ -66,7 +66,7 @@ function QuickNavigation({ page }) {
             <a key={link.href} href={link.href}>{link.label}</a>
           ))}
         </div>
-        <a className="marketing-quick-cta" href={bookingUrl}>Devis</a>
+        <a className="marketing-quick-cta" href={page.requestUrl || bookingUrl}>{page.requestUrl === siteConfig.contactUrl ? "Contact" : "Devis"}</a>
       </div>
     </nav>
   );
@@ -352,8 +352,8 @@ export default function MarketingPage({ page }) {
           <div className="marketing-container">
             <p>{page.finalEyebrow || "Votre événement"}</p>
             <h2>{page.finalTitle || "Recevez votre proposition personnalisée."}</h2>
-            <a href={bookingUrl} data-event="cta_quote_click" data-event-label="CTA final">
-              Demander mon devis
+            <a href={page.requestUrl || bookingUrl} data-event={page.requestUrl === siteConfig.contactUrl ? "contact_click" : "cta_quote_click"} data-event-label="CTA final">
+              {page.requestUrl === siteConfig.contactUrl ? "Parlons de votre projet" : "Demander mon devis"}
             </a>
           </div>
         </section>

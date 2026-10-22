@@ -70,6 +70,7 @@ function page({
   caseStudies,
   story,
   primaryCta,
+  requestUrl,
   secondaryCta,
   phoneCta,
   category,
@@ -107,6 +108,7 @@ function page({
     caseStudies,
     story,
     testimonials,
+    requestUrl,
     primaryCta: primaryCta || { label: siteConfig.primaryCtaLabel, href: siteConfig.quoteUrl },
     secondaryCta: secondaryCta || { label: siteConfig.secondaryCtaLabel, href: "/prestations#machines" },
     phoneCta: phoneCta || { label: siteConfig.phoneCtaLabel, href: siteConfig.phoneHref },
@@ -145,10 +147,11 @@ function machinePage(machine) {
     ],
     category: "Location photobooth",
     primaryCta: {
-      label: "Choisir " + machine.name,
+      label: machine.key === "personnalise" ? "Créer ma formule sur mesure" : "Choisir " + machine.name,
       href: machine.bookingUrl || siteConfig.quoteUrl,
-      event: "cta_quote_click",
+      event: machine.key === "personnalise" ? "contact_click" : "cta_quote_click",
     },
+    requestUrl: machine.key === "personnalise" ? siteConfig.contactUrl : undefined,
     secondaryCta: {
       label: "Voir tous les tarifs",
       href: siteConfig.ratesUrl,
@@ -215,8 +218,8 @@ const eventPages = {
     highlights: ["Branding", "Logistique", "Contenus"],
     primaryCta: {
       label: siteConfig.professionalCtaLabel,
-      href: siteConfig.quoteUrl,
-      event: "cta_quote_click",
+      href: siteConfig.contactUrl,
+      event: "contact_click",
     },
     secondaryCta: {
       label: "Voir les formats B2B",

@@ -1,3 +1,4 @@
+import { siteConfig } from "./site";
 import { serviceVisuals } from "./serviceVisuals";
 
 export const machines = [
@@ -340,7 +341,7 @@ export const machines = [
     personalization: "Parcours sur mesure",
     sharing: "Selon machines et options",
     catalogPrice: "Sur devis",
-    bookingUrl: "https://reservation.myselfiebooth-paris.fr/",
+    bookingUrl: siteConfig.contactUrl,
     includes: [
       "Réduction selon le combo",
       "Organisation adaptée au lieu",

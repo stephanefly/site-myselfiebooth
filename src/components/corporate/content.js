@@ -1,4 +1,6 @@
-export const quoteUrl = "https://reservation.myselfiebooth-paris.fr/";
+import { siteConfig } from "../../data/site";
+
+export const contactUrl = siteConfig.contactUrl;
 export const machines = [
   {
     name: "Photobooth personnalisé",

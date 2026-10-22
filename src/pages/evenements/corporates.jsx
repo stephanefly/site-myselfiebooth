@@ -10,7 +10,7 @@ import {
   gallery,
   packages,
   faq,
-  quoteUrl,
+  contactUrl,
 } from "../../components/corporate/content";
 import styles from "../../components/corporate/Corporate.module.css";
 
@@ -86,9 +86,9 @@ function Quote({
 }) {
   return (
     <a
-      href={quoteUrl}
+      href={contactUrl}
       className={`${styles.button} ${secondary ? styles.outline : ""}`}
-      data-analytics-event="cta_quote_click"
+      data-event="contact_click"
     >
       {children}
       <Arrow />

@@ -173,7 +173,7 @@ export default function HomePage() {
             <h2 id="home-event-title">Un événement à votre image.</h2>
             <p className="home-event-description">Parlons de vos envies pour créer un moment qui vous ressemble.</p>
           </div>
-          <a className="home-event-button" href={siteConfig.quoteUrl} data-event="cta_quote_click" data-event-label="Accueil événement">
+          <a className="home-event-button" href={siteConfig.contactUrl} data-event="contact_click" data-event-label="Accueil événement">
             Parlons de votre événement <span aria-hidden="true">→</span>
           </a>
         </div>
