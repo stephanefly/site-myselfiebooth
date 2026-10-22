@@ -215,7 +215,7 @@ export default function MarketingPage({ page }) {
   const router = useRouter();
   const pagePath = `${router.asPath.split(/[?#]/)[0].replace(/\/$/, "")}/`;
   const seo = pageSeo[pagePath];
-  const heroVisual = page.illustration || (seo?.visual ? premiumVisuals[seo.visual] : pageVisuals[pagePath]);
+  const heroVisual = page.heroVisual || page.illustration || (seo?.visual ? premiumVisuals[seo.visual] : pageVisuals[pagePath]);
   const meta = {
     ...page.meta,
     ...(seo ? { title: seo.title, description: seo.description, ogTitle: seo.title, ogDescription: seo.description } : {}),

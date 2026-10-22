@@ -53,8 +53,8 @@ const formats = [
     text: "Vos tirages et leurs messages réunis dans un album à feuilleter.",
     image: "/images/ai-from-real/accueil-souvenir-livre-or-photo.webp",
     alt: "Livre d’or ouvert avec photos de mariage et messages manuscrits dorés",
-    href: "/prestations/#options",
-    linkLabel: "Voir les options",
+    href: "/options/livre-or-photo/",
+    linkLabel: "Découvrir le livre d’or photo",
   },
   {
     key: "livre-or-video",
@@ -62,7 +62,7 @@ const formats = [
     text: "Des messages filmés pour retrouver les visages et les émotions de la soirée.",
     image: "/images/ai-from-real/accueil-souvenir-livre-or-video.webp",
     alt: "Borne blanche de livre d’or vidéo avec caméra, écran et pupitre à microphone",
-    href: "/prestations/#options",
+    href: "/options/livre-or-video/",
     linkLabel: "Découvrir le livre d’or vidéo",
   },
   {
@@ -71,8 +71,8 @@ const formats = [
     text: "Un accueil fleuri et lumineux, avec un rideau d’eau pour habiller votre entrée.",
     image: "/images/ai-from-real/accueil-souvenir-panneau-fontaine.webp",
     alt: "Panneau fontaine blanc de bienvenue avec rideau d’eau et compositions florales",
-    href: "/options/panneau/",
-    linkLabel: "Découvrir le panneau",
+    href: "/options/panneau-fontaine/",
+    linkLabel: "Découvrir le panneau fontaine",
   },
 ];
 
