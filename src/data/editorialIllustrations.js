@@ -1,3 +1,5 @@
+import blogArticleIllustrations from "./blogArticleIllustrations.json";
+
 // Illustrations éditoriales : elles ne représentent pas des prestations locales réalisées.
 const visual = (src, alt) => ({ src, alt });
 
@@ -16,27 +18,10 @@ export const editorialVisuals = {
   birthday: visual("/images/ai-from-real/evenement-ouverture-anniversaires-900.webp", "Projection d'un espace photo pour une fête d'anniversaire"),
 };
 
-const groups = {
-  planning: ["budget-mariage-repartition", "cadeaux-liste-urne-mariage", "checklist-location-photobooth", "checklist-semaine-avant-mariage", "choisir-date-saison-mariage", "choisir-prestataires-mariage", "duree-location-photobooth", "faire-part-site-mariage-informations", "liste-invites-mariage", "planning-jour-j-mariage", "planning-mariage-12-mois", "prix-location-photobooth"],
-  reception: ["ceremonie-laique-mariage", "choisir-lieu-reception-mariage", "cocktail-vin-honneur-mariage", "decoration-mariage-coherente", "hebergement-transport-invites-mariage", "lendemain-retour-mariage", "menu-traiteur-mariage", "musique-mariage-playlist-dj", "plan-b-pluie-mariage", "plan-table-mariage"],
-  guests: ["animations-mariage-sans-gener-invites", "discours-mariage-reussis", "mariage-accessible-personnes-agees-handicap", "mariage-avec-enfants", "photos-groupe-mariage", "photobooth-bapteme-communion"],
-  prints: ["personnalisation-tirages-photobooth-mariage", "personnaliser-photobooth", "photobooth-mariage-combien-tirages", "livre-or-photo-photobooth", "magnet-ou-porte-cle-photo"],
-  audio: ["livre-or-photo-ou-audio", "phonebooth-livre-or-audio", "phonebooth-messages-mariage"],
-  corporate: ["animation-photobooth-entreprise", "photobooth-gala-entreprise", "photobooth-inauguration", "photobooth-lancement-produit", "photobooth-noel-entreprise", "photobooth-salon-seminaire", "photobooth-soiree-cse", "photobooth-team-building"],
-  video: ["360-booth-mariage-securite-espace", "photobooth-ou-360-booth"],
-  air360: ["360-booth-ou-air360"],
-  vogue: ["photobooth-ou-vogue-booth", "vogue-booth-effet-magazine", "voguebooth-mariage-installation", "fond-decor-photobooth"],
-  mirror: ["miroirbooth-ou-photobooth-mariage"],
-  birthday: ["photobooth-anniversaire"],
-  photo: ["choisir-pack-photobooth", "choisir-photobooth-mariage", "espace-installation-photobooth", "meilleur-emplacement-photobooth", "photobooth-avec-ou-sans-animateur", "photobooth-interieur-ou-exterieur", "photobooth-petite-salle", "temps-installation-photobooth"],
-};
-
-const articleVisualKeys = Object.fromEntries(
-  Object.entries(groups).flatMap(([key, slugs]) => slugs.map((slug) => [slug, key])),
-);
-
 export function articleIllustration(slug) {
-  return editorialVisuals[articleVisualKeys[slug] || "photo"];
+  const illustration = blogArticleIllustrations[slug];
+  if (!illustration) throw new Error(`Illustration dédiée manquante pour l’article : ${slug}`);
+  return illustration;
 }
 
 export function localIllustration(location) {
