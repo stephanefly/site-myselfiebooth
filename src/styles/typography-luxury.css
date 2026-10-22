@@ -1,0 +1,36 @@
+:root {
+  --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-editorial: "Bodoni Moda", Didot, "Times New Roman", serif;
+}
+
+/* Keep one typographic system across legacy pages and newer page designs. */
+body,
+body *:not(code):not(pre):not(kbd):not(samp) {
+  font-family: var(--font-body) !important;
+}
+
+body :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-editorial) !important;
+  font-weight: 400 !important;
+  font-kerning: normal;
+}
+
+body :is(h1, h2) {
+  letter-spacing: -0.035em !important;
+}
+
+body :is(h3, h4, h5, h6) {
+  letter-spacing: -0.02em !important;
+}
+
+body :is(h1, h2, h3, h4, h5, h6) em,
+body :is(h1, h2, h3, h4, h5, h6) i {
+  font-family: var(--font-editorial) !important;
+  font-style: italic !important;
+}
+
+body .nav-brand {
+  font-family: var(--font-editorial) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em !important;
+}
