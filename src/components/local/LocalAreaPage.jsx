@@ -5,10 +5,10 @@ import { absoluteUrl, faqJsonLd, siteConfig } from "../../data/site";
 import styles from "./LocalAreaPage.module.css";
 
 const animations = [
-  { key: "photo", title: "Photobooth", href: "/prestations/photobooth/", text: "Une borne photo pour prendre la pose à plusieurs et repartir avec des tirages personnalisés, selon la formule choisie." },
-  { key: "mirror", title: "Miroir photobooth", href: "/prestations/miroirbooth/", text: "Un grand miroir à cadre doré qui associe animation photo et décoration pour une réception, un mariage ou un gala." },
-  { key: "video", title: "Vidéo 360 Booth", href: "/prestations/videobooth/", text: "Une animation vidéo avec caméra en mouvement. L'espace nécessaire et la circulation sont validés avec votre lieu." },
-  { key: "vogue", title: "Vogue Booth", href: "/prestations/voguebooth/", text: "Un décor lumineux inspiré d'une couverture de magazine, à personnaliser pour un mariage, une soirée ou une entreprise." },
+  { key: "photo", title: "Photobooth", href: "/prestations/photobooth/", text: "Photos de groupe et tirages personnalisés selon votre formule." },
+  { key: "mirror", title: "Miroir photobooth", href: "/prestations/miroirbooth/", text: "Un miroir doré pour animer et décorer votre réception." },
+  { key: "video", title: "Vidéo 360 Booth", href: "/prestations/videobooth/", text: "Des vidéos en mouvement à partager avec vos invités." },
+  { key: "vogue", title: "Vogue Booth", href: "/prestations/voguebooth/", text: "Un décor lumineux pour des portraits façon magazine." },
 ];
 
 export default function LocalAreaPage({ page, area }) {
@@ -16,9 +16,13 @@ export default function LocalAreaPage({ page, area }) {
   const place = page.place || `à ${area.name}`;
   const canonicalPath = page.meta.ogUrl?.replace(siteConfig.baseUrl, "");
   const seo = pageSeo[canonicalPath];
-  const sections = page.sections || [];
-  const faqs = page.faq || [];
-  const links = [...new Map((page.relatedLinks || []).map((link) => [link.href, link])).values()];
+  const faqs = [
+    { question: "Quel budget prévoir ?", answer: ["lyon", "rouen"].includes(area.slug) ? "Le prix dépend du lieu, de la durée et de l’animation. Demandez un devis avec les frais de déplacement." : "Photobooth : 400 € pour 5 h. Déplacement et options confirmés sur devis." },
+    { question: "Livrez-vous dans mon secteur ?", answer: "Les demandes sont étudiées selon la date et l’adresse. Déplacement et installation sont confirmés sur devis." },
+    { question: "Que faut-il prévoir ?", answer: "Un emplacement dégagé, une prise électrique et les consignes d’accès du lieu. Nous validons l’espace avec vous." },
+  ];
+  const links = [...new Map((page.relatedLinks || []).map((link) => [link.href, link])).values()]
+    .filter((link) => link.href !== "/zones-intervention/").slice(0, 4);
   const meta = {
     ...page.meta,
     ...(seo ? { title: seo.title, description: seo.description, ogTitle: seo.title, ogDescription: seo.description } : {}),
@@ -58,17 +62,15 @@ export default function LocalAreaPage({ page, area }) {
         <nav className={`${styles.container} ${styles.quickLinks}`} aria-label="Sur cette page">
           <a href="#votre-secteur">Votre secteur</a>
           <a href="#animations-en-images">Les animations</a>
-          {sections[0] && <a href={`#${sections[0].anchor || "conseils-1"}`}>Préparer la prestation</a>}
           {faqs.length > 0 && <a href="#faq">Questions fréquentes</a>}
         </nav>
 
         <section id="votre-secteur" className={styles.section}>
           <div className={styles.container}>
             <p className={styles.eyebrow}>Votre événement {place}</p>
-            <h2>Une animation adaptée à votre lieu et à vos invités</h2>
-            <p className={styles.text}>Pour un mariage, une réception privée ou un événement d’entreprise {place}, le choix du photobooth dépend de l’espace disponible, du nombre d’invités et du souvenir recherché. Photos imprimées, vidéo 360 ou décor Vogue : nous vous orientons vers le dispositif adapté à votre projet.</p>
-            <p className={styles.text}>{area.logistics || "L’adresse, les conditions d’accès, les horaires de montage et les frais de déplacement sont vérifiés avant de confirmer la prestation."} Le devis précise la durée, la personnalisation, les impressions prévues et les options retenues.</p>
-            {area.nearby?.length > 0 && <p className={styles.nearby}>Dans votre secteur : {area.nearby.join(" · ")}. Les disponibilités et conditions de déplacement sont confirmées selon l’adresse exacte.</p>}
+            <h2>Une animation qui vous ressemble</h2>
+            <p className={styles.text}>{area.angle || `Mariage, soirée ou entreprise ${place} : choisissez votre animation photo ou vidéo. Installation et déplacement confirmés sur devis.`}</p>
+            {area.nearby?.length > 0 && <p className={styles.nearby}>Secteurs proches : {area.nearby.join(" · ")}.</p>}
           </div>
         </section>
 
@@ -76,7 +78,7 @@ export default function LocalAreaPage({ page, area }) {
           <div className={styles.container}>
             <p className={styles.eyebrow}>Photo & vidéo</p>
             <h2>Découvrez les animations en images</h2>
-            <p className={styles.text}>Comparez les formats et choisissez le souvenir qui correspond à votre événement. Les illustrations présentent des ambiances possibles ; la configuration est définie avec vous.</p>
+            <p className={styles.text}>Quatre formats pour vos souvenirs. Illustrations d’ambiance.</p>
             <div className={styles.animationGrid}>
               {animations.map((animation) => (
                 <article className={styles.animationCard} key={animation.key}>
@@ -91,24 +93,6 @@ export default function LocalAreaPage({ page, area }) {
             </div>
           </div>
         </section>
-
-        {sections.map((section, index) => (
-          <section key={section.anchor || section.title} id={section.anchor || `conseils-${index + 1}`} className={`${styles.section} ${index % 2 ? styles.muted : ""}`}>
-            <div className={styles.container}>
-              {section.eyebrow && <p className={styles.eyebrow}>{section.eyebrow}</p>}
-              <h2>{section.title}</h2>
-              {section.text && <p className={styles.text}>{section.text}</p>}
-              {section.cards?.length > 0 && <div className={styles.cardGrid}>
-                {section.cards.map((card) => (
-                  <div className={styles.textCard} key={card.title}>
-                    <h3>{card.title}</h3>
-                    <p>{card.text}</p>
-                  </div>
-                ))}
-              </div>}
-            </div>
-          </section>
-        ))}
 
         {faqs.length > 0 && <section id="faq" className={styles.section}>
           <div className={styles.container}>
@@ -125,10 +109,10 @@ export default function LocalAreaPage({ page, area }) {
 
         <section className={`${styles.section} ${styles.muted}`}>
           <div className={styles.container}>
-            <h2>Les zones et conseils à découvrir</h2>
+            <h2>À proximité et à découvrir</h2>
             <div className={styles.relatedLinks}>
               <a href="/zones-intervention/">Toutes les zones d’intervention</a>
-              {links.filter((link) => link.href !== "/zones-intervention/").map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}
+              {links.map((link) => <a href={link.href} key={link.href}>{link.label}</a>)}
             </div>
           </div>
         </section>
@@ -136,8 +120,8 @@ export default function LocalAreaPage({ page, area }) {
         <section className={styles.finalCta} data-page-conclusion>
           <div className={styles.container}>
             <p className={styles.eyebrow}>{area.name} · Votre projet</p>
-            <h2>{page.finalTitle || "Parlons de votre événement."}</h2>
-            <p>Indiquez la date, le lieu, les horaires et le nombre d’invités pour recevoir une proposition adaptée.</p>
+            <h2>Parlons de votre événement.</h2>
+            <p>Envoyez la date, le lieu et le nombre d’invités.</p>
             <div className={styles.actions}>
               <a className={styles.primary} href={siteConfig.quoteUrl} data-event="cta_quote_click" data-event-label={`Devis final ${area.name}`}>Demander mon devis</a>
               <a className={styles.secondary} href={siteConfig.phoneHref}>Appeler {siteConfig.phoneLabel}</a>

@@ -8,6 +8,7 @@ const routes = [
   ...["paris", "lyon", "rouen"].map((slug) => ({ slug, route: `/${slug}/` })),
 ];
 let minimumWords = Infinity;
+let maximumWords = 0;
 for (const { slug, route } of routes) {
   const html = await readFile(path.join("out", route, "index.html"), "utf8");
   const main = html.match(/<main\b[^>]*id="contenu"[^>]*>([\s\S]*?)<\/main>/)?.[1];
@@ -18,8 +19,10 @@ for (const { slug, route } of routes) {
   const text = main.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, " ")
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, " ").replace(/<[^>]+>/g, " ");
   const wordCount = text.split(/\s+/).filter(Boolean).length;
-  assert.ok(wordCount >= 300, `Texte insuffisant (${wordCount} mots) : ${route}`);
+  assert.ok(wordCount >= 150, `Contenu local insuffisant (${wordCount} mots) : ${route}`);
+  assert.ok(wordCount <= 450, `Page locale trop longue (${wordCount} mots) : ${route}`);
   minimumWords = Math.min(minimumWords, wordCount);
+  maximumWords = Math.max(maximumWords, wordCount);
   const images = main.match(/<img\b[^>]*>/g) || [];
   assert.ok(images.length >= 5, `Moins de cinq images dans la page : ${route}`);
   for (const image of images) {
@@ -31,4 +34,4 @@ for (const { slug, route } of routes) {
 }
 const directoryConfig = await readFile("out/location-photobooth/.htaccess", "utf8");
 assert.match(directoryConfig, /^DirectoryIndex index\.html$/m);
-console.log(`Pages locales OK : ${routes.length} pages avec contenu HTML immédiat, au moins ${minimumWords} mots et cinq images chacune.`);
+console.log(`Pages locales OK : ${routes.length} pages courtes (${minimumWords} à ${maximumWords} mots), avec contenu HTML immédiat et cinq images chacune.`);
