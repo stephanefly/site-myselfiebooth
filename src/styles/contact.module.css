@@ -21,7 +21,11 @@
 .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 13px 22px; border: 1px solid #25231f; border-radius: 999px; background: #25231f; color: #fff; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
 .button:hover { background: #493e2b; }
 .button:focus-visible, .page a:focus-visible { outline: 3px solid #806231; outline-offset: 4px; }
-.trap { display: none; }
+.fields .trap { display: none; }
+.fields:disabled { opacity: .65; }
+.notice { margin-top: 22px; padding: 16px; border: 1px solid #d8c7a3; border-left: 3px solid #b89445; border-radius: 8px; color: #302c25; background: #f5f2ec; line-height: 1.7; }
+.notice:focus-visible { outline: 2px solid #806231; outline-offset: 3px; }
+.notice a { color: inherit; }
 .thanks { width: min(700px, calc(100% - 40px)); margin: auto; line-height: 1.8; }
 .thanks h1 { line-height: 1.2; }
 .thanks p a { color: inherit; }

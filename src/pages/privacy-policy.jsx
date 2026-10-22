@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
         },
         {
           title: "Acheminement des messages",
-          text: "Les messages du formulaire de contact sont transmis à notre équipe via FormSubmit, qui assure leur acheminement vers contact@myselfiebooth-paris.fr. Les informations envoyées comprennent les champs que vous renseignez dans le formulaire.",
+          text: "Les messages du formulaire de contact sont transmis à notre équipe via Web3Forms, qui assure leur acheminement vers contact@myselfiebooth-paris.fr. Les informations envoyées comprennent les champs que vous renseignez dans le formulaire.",
         },
         {
           title: "Mesure d'audience et cookies",
