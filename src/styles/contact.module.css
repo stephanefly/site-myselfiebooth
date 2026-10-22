@@ -22,9 +22,8 @@
 .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: 13px 22px; border: 1px solid #25231f; border-radius: 999px; background: #25231f; color: #fff; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
 .button:hover { background: #493e2b; }
 .button:focus-visible, .page a:focus-visible { outline: 3px solid #806231; outline-offset: 4px; }
-.success, .error { margin-top: 22px; padding: 16px; border: 1px solid; border-radius: 8px; line-height: 1.7; }
-.success { color: #235135; background: #f0f7f1; }
-.error { color: #842c24; background: #fff3f0; }
+.success, .error { margin-top: 22px; padding: 16px; border: 1px solid #d8c7a3; border-left: 3px solid #b89445; border-radius: 8px; color: #302c25; background: #f5f2ec; line-height: 1.7; }
+.success:focus-visible, .error:focus-visible { outline: 2px solid #806231; outline-offset: 3px; }
 .error a { color: inherit; }
 .trap { display: none; }
 .thanks { width: min(700px, calc(100% - 40px)); margin: auto; line-height: 1.8; }

@@ -102,7 +102,7 @@
 
 .catalog-benefit-band {
   color: #fff;
-  background: #7c2530;
+  background: #171717;
 }
 
 .catalog-benefits {
@@ -152,7 +152,7 @@
 
 .catalog-jump-nav .catalog-jump-cta {
   margin-left: auto;
-  color: #7c2530;
+  color: #806231;
 }
 
 .catalog-section {
@@ -190,7 +190,7 @@
   border: 1px solid #d9d8d2;
   border-radius: 8px;
   background: #fff;
-  scrollbar-color: #7c2530 #ecebe7;
+  scrollbar-color: #806231 #ecebe7;
 }
 
 .catalog-compare-scroll:focus-visible {
@@ -234,7 +234,7 @@
 }
 
 .catalog-compare-table a {
-  color: #7c2530;
+  color: #806231;
   font-weight: 900;
   text-underline-offset: 3px;
 }
@@ -292,7 +292,7 @@
   overflow: hidden;
   padding: 0;
   border: 1px solid #d8d8d2;
-  border-top: 4px solid #7c2530;
+  border-top: 4px solid #806231;
   border-radius: 8px;
   color: #171717;
   background: #fff;
@@ -431,7 +431,7 @@
 .catalog-machine-heading p {
   display: none;
   margin: 0 0 4px;
-  color: #7c2530;
+  color: #806231;
   font-size: 0.72rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -571,7 +571,7 @@
 
 .catalog-pack-body > span,
 .catalog-option-card span {
-  color: #7c2530;
+  color: #806231;
   font-size: 0.7rem;
   font-weight: 900;
   text-transform: uppercase;

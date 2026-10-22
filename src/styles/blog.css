@@ -1,6 +1,6 @@
 .blog-page {
   color: #171717;
-  background: #f6f6f3;
+  background: #f5f2ec;
   text-align: left;
 }
 
@@ -168,7 +168,7 @@
 }
 
 .blog-card-meta span:first-child {
-  color: #7c2530;
+  color: #806231;
 }
 
 .blog-card h2 {
@@ -350,7 +350,7 @@
   height: 8px;
   border-radius: 50%;
   content: "";
-  background: #32705a;
+  background: #b89445;
 }
 
 .blog-article-layout {
@@ -393,7 +393,7 @@
 .blog-article-content ul {
   margin: 18px 0 0;
   padding: 18px 22px 18px 42px;
-  border-left: 3px solid #32705a;
+  border-left: 3px solid #b89445;
   background: #fff;
 }
 
@@ -447,7 +447,7 @@
   position: sticky;
   top: 110px;
   padding: 24px;
-  border-top: 3px solid #7c2530;
+  border-top: 3px solid #806231;
   background: #fff;
 }
 
@@ -493,7 +493,7 @@
 }
 
 .blog-article-aside nav a:hover {
-  color: #7c2530;
+  color: #806231;
 }
 
 .blog-aside-cta {
@@ -519,7 +519,7 @@
 .blog-aside-service a {
   display: block;
   margin-top: 8px;
-  color: #7c2530;
+  color: #806231;
   font-size: 0.84rem;
   font-weight: 900;
   line-height: 1.4;
@@ -540,7 +540,7 @@
 .blog-article-cta {
   padding: 48px 0;
   color: #fff;
-  background: #7c2530;
+  background: #171717;
 }
 
 .blog-article-cta .blog-container {
@@ -551,20 +551,25 @@
 }
 
 .blog-article-cta .blog-eyebrow {
-  color: #f1d691;
+  color: #d6b774;
 }
 
 .blog-article-cta h2 {
   margin: 0;
-  color: #fff;
+  color: #faf7ee;
   font-size: 2.2rem;
 }
 
 .blog-article-cta a {
   flex: 0 0 auto;
   margin: 0;
-  background: #fff;
+  border-radius: 999px;
+  color: #171717;
+  background: #d6b774;
 }
+
+.blog-article-cta a:hover { background: #ecd29a; }
+.blog-article-cta a:focus-visible { outline: 3px solid #faf7ee; outline-offset: 4px; }
 
 .blog-related {
   padding: 68px 0 76px;
@@ -602,7 +607,7 @@
 }
 
 .blog-related-grid span {
-  color: #7c2530;
+  color: #806231;
   font-size: 0.76rem;
   font-weight: 900;
   text-transform: uppercase;

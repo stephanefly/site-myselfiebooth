@@ -1,34 +1,34 @@
-/* A distinct full-width band for the final invitation on every page. */
-main [data-page-conclusion] {
-  background: #294b3f !important;
+/* Final invitations follow the site's charcoal, ivory and gold palette. */
+main [data-page-conclusion]:not(.home-event-invitation) {
+  background: #171717 !important;
   color: #faf7ee;
-  border-top: 1px solid #809583;
-  border-bottom: 1px solid #809583;
+  border-top: 1px solid #45413b;
+  border-bottom: 1px solid #45413b;
 }
 
-main [data-page-conclusion] h2 {
-  color: #faf7ee;
+main [data-page-conclusion]:not(.home-event-invitation) h2 {
+  color: #faf7ee !important;
 }
 
-main [data-page-conclusion] p {
-  color: #e1e8dd;
+main [data-page-conclusion]:not(.home-event-invitation) p {
+  color: #ded8cb !important;
 }
 
-main [data-page-conclusion] :is([class*="eyebrow"], [class*="kicker"]) {
-  color: #efd39b;
+main [data-page-conclusion]:not(.home-event-invitation) :is([class*="eyebrow"], [class*="kicker"]) {
+  color: #d6b774 !important;
 }
 
 section.prefooter.marketing-prefooter {
-  background: #294b3f;
-  border-top-color: #809583;
-  border-bottom: 1px solid #809583;
+  background: #171717;
+  border-top-color: #45413b;
+  border-bottom: 1px solid #45413b;
 }
 
 .realisations-premium .rl-reviews {
-  --rl-text: #253b30;
-  --rl-muted: #5c6659;
+  --rl-text: #25231f;
+  --rl-muted: #625d54;
   --rl-gold: #806231;
-  color: #253b30;
+  color: #25231f;
   background: #eee5d6;
 }
 
