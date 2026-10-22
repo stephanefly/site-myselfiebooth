@@ -80,6 +80,10 @@ jobs:
           })().catch(error => { console.error(error.message); process.exit(1); });
           NODE
 
+      - name: Test contact delivery when explicitly requested
+        if: contains(github.event.head_commit.message, '[test-contact-delivery]')
+        run: node scripts/check-contact-delivery.mjs
+
       - name: Notify IndexNow of updated URLs
         continue-on-error: true
         env:

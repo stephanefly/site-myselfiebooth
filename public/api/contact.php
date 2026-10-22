@@ -65,6 +65,11 @@ function contact_handle(array $server, array $input, ?callable $send = null, ?ca
     try {
         $allowed = $rateLimit ? $rateLimit($server['REMOTE_ADDR'] ?? 'unknown') : contact_rate_limit($server['REMOTE_ADDR'] ?? 'unknown');
         if (!$allowed) return contact_response(429, 'rate_limited', 'Un message a déjà été envoyé récemment. Patientez une minute avant de réessayer.');
+    } catch (Throwable $error) {
+        error_log('MySelfieBooth contact: rate limit storage unavailable');
+        return contact_response(503, 'storage_unavailable', 'L’envoi est momentanément indisponible. Contactez-nous par e-mail ou téléphone.');
+    }
+    try {
         $recipient = 'contact@myselfiebooth-paris.fr';
         $subject = '=?UTF-8?B?' . base64_encode('Nouveau message depuis le site MySelfieBooth') . '?=';
         $body = "Nouveau message du formulaire de contact\n\nNom : " . $fields['name'] . "\nE-mail : " . $fields['email'] . "\nTéléphone : " . ($fields['phone'] ?: 'Non renseigné') . "\nDate : " . ($fields['event_date'] ?: 'Non renseignée') . "\nLieu : " . ($fields['city'] ?: 'Non renseigné') . "\n\nMessage :\n" . $fields['message'];

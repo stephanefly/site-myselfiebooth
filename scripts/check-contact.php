@@ -47,6 +47,8 @@ $failed = contact_handle($request, $input, static function (): bool { return fal
 check_contact($failed['status'] === 503 && !$failed['ok'], 'Transport failure must never claim success.');
 $exception = contact_handle($request, $input, static function (): bool { throw new RuntimeException('mail unavailable'); }, $allow);
 check_contact($exception['status'] === 503 && !$exception['ok'], 'Transport exception must never claim success.');
+$storage = contact_handle($request, $input, $sender, static function (): bool { throw new RuntimeException('storage unavailable'); });
+check_contact($storage['status'] === 503 && $storage['code'] === 'storage_unavailable', 'Storage failure must be identifiable without exposing details.');
 $minimal = contact_handle($request, ['name' => 'Test', 'email' => 'test@example.com', 'message' => 'Bonjour'], $sender, $allow);
 check_contact($minimal['ok'], 'Optional fields must remain optional.');
 
