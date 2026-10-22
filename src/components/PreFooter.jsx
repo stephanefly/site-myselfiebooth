@@ -36,7 +36,7 @@ export default function PreFooter() {
       </div>
       <style jsx>{`
         .prefooter {
-          padding: 44px 0;
+          padding: 26px 0;
           border-top: 1px solid #35372d;
           color: #f7f4ec;
           background: #111310;
@@ -48,11 +48,11 @@ export default function PreFooter() {
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
-          gap: 32px;
+          gap: 24px;
           align-items: center;
         }
         .prefooter-eyebrow {
-          margin: 0 0 10px;
+          margin: 0 0 6px;
           color: #d6b774;
           font-size: 10px;
           font-weight: 600;
@@ -63,7 +63,7 @@ export default function PreFooter() {
         .prefooter h2 {
           margin: 0;
           color: #f7f4ec;
-          font-size: clamp(1.65rem, 3vw, 2.5rem);
+          font-size: clamp(1.65rem, 3vw, 2.1rem);
           font-weight: 700;
           line-height: 1.12;
           letter-spacing: normal;
@@ -71,7 +71,7 @@ export default function PreFooter() {
         }
         .prefooter-description {
           max-width: 520px;
-          margin: 12px 0 0;
+          margin: 8px 0 0;
           color: #bec0b5;
           font-size: 14px;
           line-height: 1.65;
@@ -82,8 +82,8 @@ export default function PreFooter() {
           justify-content: center;
           flex-shrink: 0;
           gap: 24px;
-          min-height: 50px;
-          padding: 14px 22px;
+          min-height: 44px;
+          padding: 11px 20px;
           border: 1px solid #d6b774;
           border-radius: 4px;
           color: #15160f;
@@ -103,12 +103,12 @@ export default function PreFooter() {
         }
         @media (max-width: 760px) {
           .prefooter {
-            padding: 32px 0;
+            padding: 22px 0;
           }
           .prefooter-container {
             align-items: flex-start;
             flex-direction: column;
-            gap: 22px;
+            gap: 16px;
           }
           .prefooter-description {
             font-size: 13px;
