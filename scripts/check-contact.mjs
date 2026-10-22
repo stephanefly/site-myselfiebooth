@@ -1,31 +1,23 @@
 import assert from "node:assert/strict";
-import { contactRecipient, contactEndpoint, contactAjaxEndpoint, contactPayload, contactResult } from "../src/lib/contactForm.mjs";
+import { readFile, readdir } from "node:fs/promises";
+import { contactEndpoint, contactThanksUrl } from "../src/lib/contactForm.mjs";
 
-const valid = { name: " Émilie Test ", email: "visitor@example.com", message: "Une question pour notre événement.", event_date: "2027-06-12" };
-const data = (values) => {
-  const form = new FormData();
-  for (const [key, value] of Object.entries(values)) form.set(key, value);
-  return form;
-};
-const body = contactPayload(data(valid));
-assert.equal(contactRecipient, "contact@myselfiebooth-paris.fr");
-assert.equal(contactEndpoint, "https://formsubmit.co/contact@myselfiebooth-paris.fr");
-assert.equal(contactAjaxEndpoint, "https://formsubmit.co/ajax/contact@myselfiebooth-paris.fr");
-assert.equal(body.get("name"), "Émilie Test");
-assert.equal(body.get("email"), valid.email);
-assert.equal(body.get("message"), valid.message);
-assert.equal(body.get("date"), "2027-06-12");
-assert.equal(body.get("_template"), "table");
-assert.equal(body.get("_captcha"), "false");
-assert.equal(body.get("_next"), "https://myselfiebooth-paris.fr/contact/merci/");
-assert.equal(contactPayload(data({ name: "Test", email: "test@example.com", message: "Bonjour" })).get("date"), "");
-for (const override of [{ name: " " }, { message: " " }, { message: "a".repeat(5001) }, { email: "invalid" }, { email: "user@example.com\r\nBcc: other@example.com" }, { _honey: "spam" }, { event_date: "2027-02-30" }]) {
-  assert.throws(() => contactPayload(data({ ...valid, ...override })));
+const html = await readFile(new URL("../out/contact/index.html", import.meta.url), "utf8");
+const form = html.match(/<form\b[^>]*>[\s\S]*?<\/form>/)?.[0];
+assert.ok(form, "Export must include the contact form");
+assert.ok(form.includes(`action="${contactEndpoint}"`));
+assert.match(form, /method="post"/);
+for (const name of ["name", "email", "message"]) {
+  const field = form.match(new RegExp(`<(?:input|textarea)\\b[^>]*name="${name}"[^>]*>`))?.[0];
+  assert.ok(field?.includes("required"), `${name} must be required`);
+  if (name === "email") assert.match(field, /type="email"/);
 }
-assert.equal(contactResult({ success: true }), "sent");
-assert.equal(contactResult({ success: "true" }), "sent");
-assert.equal(contactResult({ success: "false" }), "error");
-assert.equal(contactResult({ success: true, message: "This form needs Activation. Check your email." }), "activation_required");
-assert.equal(contactResult({ success: false, message: "Please confirm your email address" }), "activation_required");
-assert.equal(contactResult(null), "error");
-console.log("Contact checks OK: recipient, payload, validation, reply email and activation states. No PHP or email sent.");
+assert.ok(form.includes(`name="_next" value="${contactThanksUrl}"`));
+assert.match(form, /name="_honey"/);
+const source = await readFile(new URL("../src/pages/contact/index.jsx", import.meta.url), "utf8");
+assert.doesNotMatch(source, /onSubmit|preventDefault|fetch\(/, "Browser must submit directly to the service");
+const thanks = await readFile(new URL("../out/contact/merci/index.html", import.meta.url), "utf8");
+assert.match(thanks, /name="robots" content="noindex, follow"/);
+const files = await readdir(new URL("../out/", import.meta.url), { recursive: true });
+assert.ok(!files.some(file => /\.php$/i.test(file)), "Static export must not include PHP");
+console.log("Exported native contact form verified: destination, required fields, confirmation page and no PHP. No message sent.");

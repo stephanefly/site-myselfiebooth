@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Layout from "../../components/Layout";
 import useRevealMotion from "../../hooks/useRevealMotion";
-import { faqJsonLd } from "../../data/site";
+import { brandLogos, faqJsonLd } from "../../data/site";
 import {
   machines,
   customizations,
@@ -649,15 +649,12 @@ export default function Corporates() {
             </p>
             <h2>Ils nous font confiance.</h2>
             <div className={styles.logos}>
-              {[
-                ["TotalEnergies", "totalenergies.png"],
-                ["Sephora", "sephora.webp"],
-                ["Safran", "safran.webp"],
-              ].map(([name, file]) => (
+              {brandLogos.map(({ name, src }) => (
                 <div key={name}>
                   <img
-                    src={`/logos/${file}`}
-                    alt={name}
+                    src={src}
+                    alt={`Logo ${name}`}
+                    decoding="async"
                     width="210"
                     height="80"
                     loading="lazy"

@@ -5,11 +5,6 @@ on:
     branches:
       - master
   workflow_dispatch:
-    inputs:
-      test_contact_delivery:
-        description: Send one test submission to the contact mailbox
-        type: boolean
-        default: false
 
 concurrency:
   group: deploy-myselfiebooth-production
@@ -32,11 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify contact form without sending email
-        run: node scripts/check-contact.mjs
-
       - name: Build static Next.js site
         run: npm run build
+
+      - name: Verify exported contact form without sending email
+        run: node scripts/check-contact.mjs
 
       - name: Verify exported site
         run: test -f out/index.html
@@ -69,7 +64,7 @@ jobs:
           bye
           EOF
 
-      - name: Verify deployed contact form without sending email
+      - name: Verify deployed contact form and client logos
         run: |
           node <<'NODE'
           (async () => {
@@ -77,15 +72,14 @@ jobs:
             const headers = { Accept: 'application/json', 'Cache-Control': 'no-cache' };
             const page = await fetch(`${origin}/contact/?release=${process.env.GITHUB_SHA}`, { headers });
             if (!page.ok || !(await page.text()).includes('action="https://formsubmit.co/contact@myselfiebooth-paris.fr"')) throw new Error('Contact page not available');
+            const corporate = await fetch(`${origin}/evenements/corporates/?release=${process.env.GITHUB_SHA}`, { headers });
+            const references = (await corporate.text()).match(/id="references"[\s\S]*?<\/section>/)?.[0] || '';
+            if (!corporate.ok || (references.match(/src="\/logos\//g) || []).length !== 16) throw new Error('Expected 16 client logos on the corporate page');
             const retired = await fetch(`${origin}/api/contact.php`, { headers });
             if (retired.status !== 410) throw new Error('Former PHP endpoint must be retired');
-            console.log('Contact page verified; former PHP endpoint retired. No submission made.');
+            console.log('Contact page and 16 client logos verified; former PHP endpoint retired. No submission made.');
           })().catch(error => { console.error(error.message); process.exit(1); });
           NODE
-
-      - name: Test contact delivery when explicitly requested
-        if: contains(github.event.head_commit.message, '[test-contact-delivery]') || (github.event_name == 'workflow_dispatch' && inputs.test_contact_delivery)
-        run: node scripts/check-contact-delivery.mjs
 
       - name: Notify IndexNow of updated URLs
         continue-on-error: true
