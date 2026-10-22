@@ -205,6 +205,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="visual-note">Inspirations pour composer votre événement.</p>
+          <div className="home-centered-action"><a href="/prix-photobooth-ile-de-france-2026/" className="home-button home-button-secondary-dark">Comparer les prix Photobooth en 2026</a></div>
         </div>
       </section>
 
