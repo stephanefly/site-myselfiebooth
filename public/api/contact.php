@@ -6,6 +6,12 @@ function contact_response(int $status, string $code, string $message): array
     return ['status' => $status, 'ok' => $status === 200, 'code' => $code, 'message' => $message];
 }
 
+function contact_native_mail(string $recipient, string $subject, string $body, array $headers): bool
+{
+    // IONOS needs an envelope sender belonging to the hosted domain as well as From.
+    return mail($recipient, $subject, $body, $headers, '-fcontact@myselfiebooth-paris.fr');
+}
+
 function contact_rate_limit(string $ip): bool
 {
     $directory = sys_get_temp_dir() . '/myselfiebooth-contact';
@@ -74,7 +80,10 @@ function contact_handle(array $server, array $input, ?callable $send = null, ?ca
         $subject = '=?UTF-8?B?' . base64_encode('Nouveau message depuis le site MySelfieBooth') . '?=';
         $body = "Nouveau message du formulaire de contact\n\nNom : " . $fields['name'] . "\nE-mail : " . $fields['email'] . "\nTéléphone : " . ($fields['phone'] ?: 'Non renseigné') . "\nDate : " . ($fields['event_date'] ?: 'Non renseignée') . "\nLieu : " . ($fields['city'] ?: 'Non renseigné') . "\n\nMessage :\n" . $fields['message'];
         $headers = ['From' => 'MySelfieBooth <contact@myselfiebooth-paris.fr>', 'Reply-To' => $fields['email'], 'MIME-Version' => '1.0', 'Content-Type' => 'text/plain; charset=UTF-8'];
-        $sender = $send ?? 'mail';
+        if ($send === null && !is_callable('mail')) {
+            return contact_response(503, 'transport_unavailable', 'L’envoi est momentanément indisponible. Contactez-nous par e-mail ou téléphone.');
+        }
+        $sender = $send ?? 'contact_native_mail';
         if (!is_callable($sender) || !$sender($recipient, $subject, $body, $headers)) {
             return contact_response(503, 'send_failed', 'L’envoi n’a pas abouti. Réessayez ou contactez-nous par e-mail ou téléphone.');
         }
