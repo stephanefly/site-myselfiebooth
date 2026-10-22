@@ -1,5 +1,22 @@
 RewriteEngine On
 
+# Ne pas afficher le contenu des répertoires sans page d'accueil.
+Options -Indexes
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+# Pages de test et ancien contact sans contenu utile : retrait définitif.
+# Ces règles s'appliquent même si les anciens fichiers existent encore sur IONOS.
+RewriteRule ^(?:Test|test-deploiement|contact)(?:/index\.html|/|\.html)?$ - [G,L,NC]
+
+# Anciennes adresses : conserver les liens vers leur équivalent actuel.
+RewriteRule ^about(?:/index\.html|/|\.html)?$ /a-propos/ [R=301,L,NE]
+RewriteRule ^photobooth(?:/index\.html|/|\.html)?$ /prestations/photobooth/ [R=301,L,NE]
+RewriteRule ^evenement/mariage(?:/index\.html|/|\.html)?$ /evenements/mariages/ [R=301,L,NE]
+RewriteRule ^option/phonebooth(?:/index\.html|/|\.html)?$ /options/phonebooth/ [R=301,L,NE]
+RewriteRule ^prestation/360booth(?:/index\.html|/|\.html)?$ /prestations/videobooth/ [R=301,L,NE]
+RewriteRule ^prestation/(air360booth|ipadbooth|miroirbooth|packvip|photobooth|voguebooth)(?:/index\.html|/|\.html)?$ /prestations/$1/ [R=301,L,NE]
+
 # Ancienne page retirée : préserver les liens vers les solutions entreprise.
 RewriteRule ^event-tech(?:/index\.html|/|\.html)?$ /evenements/corporates/ [R=301,L,NE]
 
