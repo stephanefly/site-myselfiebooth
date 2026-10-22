@@ -1,4 +1,4 @@
-import MarketingPage from "../../components/marketing/MarketingPage";
+import LocalAreaPage from "../../components/local/LocalAreaPage";
 import localSeoPages from "../../data/local-seo-pages.json";
 import { localIllustration } from "../../data/editorialIllustrations";
 import {
@@ -100,6 +100,7 @@ function buildPage(location) {
   return {
     key: `local-${location.slug}`,
     eyebrow: `${location.department} · ${location.code}`,
+    place,
     title,
     description,
     illustration: localIllustration(location),
@@ -394,7 +395,7 @@ function buildPage(location) {
 }
 
 export default function LocalPhotoboothPage({ location }) {
-  return <MarketingPage page={buildPage(location)} />;
+  return <LocalAreaPage page={buildPage(location)} area={location} />;
 }
 
 export function getStaticPaths() {

@@ -34,7 +34,7 @@ const blogRoutes = Array.from(blogSlugs.entries())
 const localRoutes = localSeoPages
   .map((location) => ({
     path: `/location-photobooth/${location.slug}/`,
-    lastmod: "2026-10-14",
+    lastmod: "2026-10-22",
   }))
   .filter((route) => !staticPaths.has(route.path));
 

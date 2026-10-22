@@ -1,4 +1,4 @@
-import MarketingPage from "../components/marketing/MarketingPage";
+import LocalAreaPage from "../components/local/LocalAreaPage";
 import { marketingPages } from "../data/marketingPages";
 
 const basePage = marketingPages.lyon;
@@ -50,5 +50,5 @@ const lyonPage = {
 };
 
 export default function Lyon() {
-  return <MarketingPage page={lyonPage} />;
+  return <LocalAreaPage page={lyonPage} area={{ slug: "lyon", name: "Lyon" }} />;
 }

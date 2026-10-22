@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prebuild": "node scripts/check-image-integrity.mjs && node scripts/check-media-provenance.mjs && node scripts/check-gallery-sources.mjs && node scripts/generate-sitemap.mjs && node scripts/clean-next-build.mjs",
-    "build": "next build && node scripts/version-static-assets.mjs && node scripts/add-sitemap-images.mjs && node scripts/check-built-seo.mjs && node scripts/check-experience.mjs && node scripts/check-blog-illustrations.mjs && node scripts/check-page-media.mjs && node scripts/check-unused-media.mjs",
+    "build": "next build && node scripts/version-static-assets.mjs && node scripts/add-sitemap-images.mjs && node scripts/check-built-seo.mjs && node scripts/check-experience.mjs && node scripts/check-local-pages.mjs && node scripts/check-blog-illustrations.mjs && node scripts/check-page-media.mjs && node scripts/check-unused-media.mjs",
     "seo:check": "node scripts/check-built-seo.mjs",
     "images:check": "node scripts/check-media-provenance.mjs",
     "provenance:check": "node scripts/check-media-provenance.mjs",
@@ -13,7 +13,8 @@
     "media:check": "node scripts/check-page-media.mjs && node scripts/check-unused-media.mjs",
     "export": "next export",
     "start": "next start",
-    "blog:images:check": "node scripts/check-blog-illustrations.mjs"
+    "blog:images:check": "node scripts/check-blog-illustrations.mjs",
+    "local:check": "node scripts/check-local-pages.mjs"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",

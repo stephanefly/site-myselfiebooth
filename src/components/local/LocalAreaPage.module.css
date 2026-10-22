@@ -1,0 +1,46 @@
+.page { display: block; color: #171717; background: #f7f3ea; text-align: left; }
+.page * { box-sizing: border-box; }
+.container { width: min(1180px, calc(100% - 36px)); margin: 0 auto; }
+.hero { padding: 100px 0 56px; color: #fff; background: #111; }
+.heroGrid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; gap: 40px; }
+.eyebrow { margin: 0 0 12px; color: #947024; font-size: .8rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.hero .eyebrow, .finalCta .eyebrow { color: #e5c46b; }
+.page h1 { margin: 0 0 20px; color: inherit; font-size: clamp(2rem, 4.3vw, 3.7rem); line-height: 1.1; overflow-wrap: break-word; }
+.page h2 { max-width: 900px; margin: 0 0 20px; color: inherit; font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1.18; }
+.page h3 { margin: 0 0 10px; color: inherit; font-size: 1.15rem; line-height: 1.35; }
+.lead, .text { font-size: 1.05rem; line-height: 1.8; }
+.lead { color: #e6e0d4; }
+.text { max-width: 940px; margin: 0 0 20px; }
+.highlights { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; padding: 0; list-style: none; }
+.highlights li { padding: 6px 11px; border: 1px solid #625537; border-radius: 6px; color: #f0dbac; font-size: .85rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.primary, .secondary { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; padding: 12px 20px; border: 1px solid #d9bd78; border-radius: 8px; font-weight: 800; line-height: 1.4; text-align: center; text-decoration: none; }
+.primary { color: #171717; background: #e5c46b; }
+.secondary { color: #fff; background: transparent; }
+.heroImage { min-width: 0; margin: 0; overflow: hidden; border: 1px solid #403829; border-radius: 14px; }
+.heroImage img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.heroImage figcaption { padding: 10px 14px; color: #ded6c7; background: #201d18; font-size: .78rem; }
+.quickLinks { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 24px 0; border-bottom: 1px solid #d8cfbd; }
+.quickLinks a, .relatedLinks a { color: #694c17; text-underline-offset: 4px; font-weight: 700; }
+.section { padding: 56px 0; scroll-margin-top: 100px; }
+.muted { background: #eee8db; }
+.nearby { margin-top: 24px; padding: 20px; border-left: 3px solid #b89445; background: #fff; line-height: 1.8; }
+.animationGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.animationCard { min-width: 0; overflow: hidden; border: 1px solid #d8cfbd; border-radius: 12px; background: #fff; }
+.animationCard img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.animationCard > div { padding: 20px; }
+.animationCard p { margin: 0 0 16px; line-height: 1.7; }
+.animationCard a { color: #694c17; font-weight: 800; text-underline-offset: 4px; }
+.cardGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 26px; }
+.textCard { padding: 24px; border: 1px solid #d8cfbd; border-radius: 12px; background: #fff; }
+.textCard p { margin: 0; color: #4f4a41; line-height: 1.8; }
+.faq { max-width: 940px; }
+.faq details { margin-bottom: 12px; border: 1px solid #d8cfbd; border-radius: 10px; background: #fff; }
+.faq summary { padding: 20px; cursor: pointer; font-weight: 800; }
+.faq details p { margin: 0; padding: 0 20px 20px; line-height: 1.8; }
+.relatedLinks { display: flex; flex-wrap: wrap; gap: 14px 24px; }
+.finalCta { padding: 64px 0; color: #fff; background: #111; }
+.finalCta > div > p:not(.eyebrow) { max-width: 760px; color: #e6e0d4; line-height: 1.8; }
+.page a:focus-visible, .faq summary:focus-visible { outline: 3px solid #b89445; outline-offset: 5px; }
+@media (max-width: 960px) { .heroGrid { grid-template-columns: 1fr; gap: 28px; } .animationGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .heroImage { max-width: 720px; } }
+@media (max-width: 600px) { .hero { padding: 92px 0 36px; } .section { padding: 38px 0; } .cardGrid, .animationGrid { grid-template-columns: 1fr; } .animationCard { max-width: 100%; } .animationCard img { aspect-ratio: 3 / 2; } .actions { flex-direction: column; align-items: stretch; } .textCard { padding: 20px; } }

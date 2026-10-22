@@ -1,4 +1,4 @@
-import MarketingPage from "../components/marketing/MarketingPage";
+import LocalAreaPage from "../components/local/LocalAreaPage";
 import { marketingPages } from "../data/marketingPages";
 
 const basePage = marketingPages.paris;
@@ -55,5 +55,5 @@ const parisPage = {
 };
 
 export default function Paris() {
-  return <MarketingPage page={parisPage} />;
+  return <LocalAreaPage page={parisPage} area={{ slug: "paris", name: "Paris", nearby: ["Boulogne-Billancourt", "Saint-Denis", "Vincennes", "Issy-les-Moulineaux"] }} />;
 }

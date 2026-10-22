@@ -1,4 +1,4 @@
-import MarketingPage from "../components/marketing/MarketingPage";
+import LocalAreaPage from "../components/local/LocalAreaPage";
 import { marketingPages } from "../data/marketingPages";
 
 const basePage = marketingPages.rouen;
@@ -50,5 +50,5 @@ const rouenPage = {
 };
 
 export default function Rouen() {
-  return <MarketingPage page={rouenPage} />;
+  return <LocalAreaPage page={rouenPage} area={{ slug: "rouen", name: "Rouen" }} />;
 }
