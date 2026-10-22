@@ -97,7 +97,12 @@ for (const htmlFile of htmlFiles) {
     const mediaPath = normalizeLocalPath(item.src);
     if (!mediaPath) continue;
 
-    counts.set(mediaPath, (counts.get(mediaPath) || 0) + 1);
+    // Le sommaire du blog réutilise volontairement les illustrations thématiques.
+    // Les images principales des articles et des autres pages restent uniques.
+    const editorialThumbnail = page === "blog/index.html"
+      && item.type === "image"
+      && /\bclass="blog-card-thumbnail"/.test(item.tag || "");
+    if (!editorialThumbnail) counts.set(mediaPath, (counts.get(mediaPath) || 0) + 1);
 
     if ((item.type === "image" || item.type === "poster") && isContentImage(mediaPath)) {
       if (!globalImageUsage.has(mediaPath)) globalImageUsage.set(mediaPath, []);

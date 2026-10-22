@@ -3,14 +3,17 @@ import manifest from "./mediaProvenanceManifest.json";
 export const MEDIA_KINDS = Object.freeze({
   REAL: "real",
   AI_FROM_REAL: "ai_from_real",
+  AI_GENERATED: "ai_generated",
 });
 
 export const MEDIA_LABELS = Object.freeze({
   [MEDIA_KINDS.REAL]: "Image vraie",
   [MEDIA_KINDS.AI_FROM_REAL]: "Visuel de projection",
+  [MEDIA_KINDS.AI_GENERATED]: "Illustration IA",
 });
 
-const AI_FROM_REAL_PATHS = new Set(manifest.map((item) => item.path));
+const AI_FROM_REAL_PATHS = new Set(manifest.filter((item) => item.kind === "ai_from_real").map((item) => item.path));
+const AI_GENERATED_PATHS = new Set(manifest.filter((item) => item.kind === "ai_generated").map((item) => item.path));
 
 const NON_CONTENT_PREFIXES = [
   "/icons/",
@@ -38,6 +41,8 @@ export function isContentMedia(value) {
 
 export function getMediaKind(value) {
   const source = pathname(value);
+
+  if (AI_GENERATED_PATHS.has(source)) return MEDIA_KINDS.AI_GENERATED;
 
   if (AI_FROM_REAL_PATHS.has(source) || source.startsWith("/images/ai-cards/")) {
     return MEDIA_KINDS.AI_FROM_REAL;

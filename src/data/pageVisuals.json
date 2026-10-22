@@ -96,25 +96,19 @@
     "kind": "real"
   },
   "/paris/": {
-    "src": "/images/page-visuals/paris.jpg",
-    "alt": "Invités utilisant le Miroirbooth MySelfieBooth",
-    "source": "/videos/realisations-machines/miroirbooth-invites.mp4",
-    "time": 8.3,
-    "kind": "real"
+    "src": "/images/ai-from-real/hero-photobooth-reception.webp",
+    "alt": "Projection d’un photobooth dans une ambiance de réception",
+    "kind": "ai_from_real"
   },
   "/lyon/": {
-    "src": "/images/page-visuals/lyon.jpg",
-    "alt": "Photobooth MySelfieBooth installé pour une réception",
-    "source": "/videos/realisations-machines/photobooth-noel.mp4",
-    "time": 7.4,
-    "kind": "real"
+    "src": "/images/ai-from-real/hero-photobooth-reception.webp",
+    "alt": "Projection d’un photobooth dans une ambiance de réception",
+    "kind": "ai_from_real"
   },
   "/rouen/": {
-    "src": "/images/page-visuals/rouen.jpg",
-    "alt": "Installation d’un Photobooth MySelfieBooth",
-    "source": "/videos/realisations-machines/installation-photobooth-timelapse.mp4",
-    "time": 9.4,
-    "kind": "real"
+    "src": "/images/ai-from-real/hero-photobooth-reception.webp",
+    "alt": "Projection d’un photobooth dans une ambiance de réception",
+    "kind": "ai_from_real"
   },
   "/prix-photobooth-ile-de-france-2026/": {
     "src": "/images/page-visuals/prix-photobooth-ile-de-france-2026.jpg",

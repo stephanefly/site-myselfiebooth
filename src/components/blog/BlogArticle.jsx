@@ -60,7 +60,8 @@ export default function BlogArticle({ article }) {
     <Layout metaProps={metaProps}>
       <article className="blog-page blog-article">
         <header className="blog-article-hero">
-          <div className="blog-container">
+          <div className="blog-container blog-article-hero-grid">
+            <div>
             <div className="blog-card-meta">
               <span>{article.category}</span>
               <span>{article.readTime}</span>
@@ -71,6 +72,13 @@ export default function BlogArticle({ article }) {
               Publié le {article.publishedAt} par <a href="/a-propos/">Stéphane Faure</a>
               {article.modifiedAt ? <> · Mis à jour le {article.modifiedAt}</> : null}
             </span>
+            </div>
+            <figure>
+              <div className="blog-article-hero-image">
+                <img src={article.image} alt={article.imageAlt} width="960" height="640" fetchPriority="high" decoding="async" />
+              </div>
+              <figcaption>{article.imageCaption}</figcaption>
+            </figure>
           </div>
         </header>
 

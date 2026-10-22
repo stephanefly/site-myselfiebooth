@@ -36,9 +36,12 @@ export default function BlogIndex() {
               <span>{blogArticles.length} guides pratiques</span>
             </div>
 
-            <div className="blog-card-grid is-text-only">
+            <div className="blog-card-grid">
               {blogArticles.map((article, index) => (
                 <article className={`blog-card ${index === 0 ? "is-featured" : ""}`} key={article.slug}>
+                  <a className="blog-card-image" href={`/blog/${article.slug}/`} tabIndex={-1} aria-hidden="true">
+                    <img className="blog-card-thumbnail" src={article.image} alt="" width="960" height="640" loading="lazy" decoding="async" />
+                  </a>
                   <div className="blog-card-body">
                     <div className="blog-card-meta">
                       <span>{article.topic || article.category}</span>

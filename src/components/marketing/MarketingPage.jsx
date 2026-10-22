@@ -215,7 +215,7 @@ export default function MarketingPage({ page }) {
   const router = useRouter();
   const pagePath = `${router.asPath.split(/[?#]/)[0].replace(/\/$/, "")}/`;
   const seo = pageSeo[pagePath];
-  const heroVisual = seo?.visual ? premiumVisuals[seo.visual] : pageVisuals[pagePath];
+  const heroVisual = page.illustration || (seo?.visual ? premiumVisuals[seo.visual] : pageVisuals[pagePath]);
   const meta = {
     ...page.meta,
     ...(seo ? { title: seo.title, description: seo.description, ogTitle: seo.title, ogDescription: seo.description } : {}),
@@ -266,7 +266,8 @@ export default function MarketingPage({ page }) {
               </div>
             </div>
             {heroVisual && <figure className="marketing-hero-media" data-reveal>
-              {seo?.visual ? <VisualImage name={seo.visual} priority sizes="(max-width: 760px) 92vw, 560px" /> : <img src={heroVisual.src} alt={heroVisual.alt} width="900" height="900" fetchPriority="high" />}
+              {seo?.visual && !page.illustration ? <VisualImage name={seo.visual} priority sizes="(max-width: 760px) 92vw, 560px" /> : <img src={heroVisual.src} alt={heroVisual.alt} width={page.illustration ? 960 : 900} height={page.illustration ? 640 : 900} fetchPriority="high" decoding="async" />}
+              {page.illustration && <figcaption>Illustration d’ambiance pour votre événement.</figcaption>}
               {seo?.visual && <figcaption>Visuel de projection.</figcaption>}
             {(page.highlights || []).length > 0 && (
               <aside className="marketing-hero-proof" data-reveal>

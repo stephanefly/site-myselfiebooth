@@ -3,6 +3,7 @@ import { articleExpansions } from "./blogArticleExpansions";
 import { articleVisuals } from "./blogVisuals";
 import { weddingGuides } from "./blogWeddingGuides";
 import { serviceGuides } from "./blogServiceGuides";
+import { articleIllustration } from "./editorialIllustrations";
 
 const baseBlogArticles = [
   {
@@ -672,7 +673,15 @@ export const blogArticles = [
   ...weddingGuides,
   ...serviceGuides,
   ...legacyBlogArticles,
-];
+].map((article) => {
+  const illustration = articleIllustration(article.slug);
+  return {
+    ...article,
+    image: illustration.src,
+    imageAlt: illustration.alt,
+    imageCaption: "Illustration d’ambiance : le décor et la configuration sont adaptés à votre projet.",
+  };
+});
 
 export function getBlogArticle(slug) {
   return blogArticles.find((article) => article.slug === slug);

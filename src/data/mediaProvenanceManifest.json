@@ -988,5 +988,26 @@
       "/images/collection-2026/miroir-photo-dore-900.webp"
     ],
     "usage": "Illustration événementielle générée à partir des silhouettes réelles ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/preparer-mariage.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-10-22",
+    "generator": "image_gen",
+    "prompt": "Illustration éditoriale : carnet de préparation de mariage, calendrier, calculatrice, papeterie crème et fleurs, lumière naturelle."
+  },
+  {
+    "path": "/images/editorial-ai/reception-mariage.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-10-22",
+    "generator": "image_gen",
+    "prompt": "Illustration éditoriale : réception de mariage couverte, tables fleuries, allée dégagée et jardin, sans lieu réel identifié."
+  },
+  {
+    "path": "/images/editorial-ai/invites-photobooth.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-10-22",
+    "generator": "image_gen",
+    "prompt": "Illustration éditoriale : invités adultes de plusieurs générations réunis autour d’une borne photo dans une réception."
   }
 ]

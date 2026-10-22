@@ -1,5 +1,6 @@
 import MarketingPage from "../../components/marketing/MarketingPage";
 import localSeoPages from "../../data/local-seo-pages.json";
+import { localIllustration } from "../../data/editorialIllustrations";
 import {
   absoluteUrl,
   breadcrumbJsonLd,
@@ -101,6 +102,7 @@ function buildPage(location) {
     eyebrow: `${location.department} · ${location.code}`,
     title,
     description,
+    illustration: localIllustration(location),
     image: "/images/ai-from-real/hero-photobooth-reception.webp",
     imageAlt: `Photobooth MySelfieBooth pour événement ${place}`,
     highlights: ["Photobooth : 400 € / 5 h", "360 & Vogue Booth", "Déplacement sur devis"],
@@ -121,6 +123,26 @@ function buildPage(location) {
       },
     ],
     sections: [
+      {
+        anchor: "conseils-secteur",
+        eyebrow: `${location.name} · Préparation`,
+        title: `Préparer votre animation photo ${place}`,
+        text: `Pour vos ${location.focus} ${place}, commencez par définir le souvenir attendu : une photo imprimée, un message audio ou une vidéo à partager. ${location.angle} Les demandes autour de ${location.nearby.join(", ")} sont étudiées avec la même attention au lieu exact et aux horaires.`,
+        cards: [
+          {
+            title: "Un emplacement qui fonctionne",
+            text: "Choisissez une zone visible depuis les espaces de réception, sans bloquer une porte ou une issue. Vérifiez avec le lieu la prise électrique, le recul photo et la circulation des invités avant de choisir le matériel.",
+          },
+          {
+            title: `Les accès dans votre secteur (${location.code})`,
+            text: `${location.logistics} Transmettez l'adresse et les consignes de livraison dès la demande de devis : elles permettent de vérifier les conditions de déplacement et le temps à prévoir.`,
+          },
+          {
+            title: "Des souvenirs à votre image",
+            text: "Préparez les noms et la date pour un mariage, ou le logo et les couleurs pour une entreprise. Précisez le nombre d'invités et les impressions souhaitées : les éléments inclus et les options seront confirmés dans la proposition.",
+          },
+        ],
+      },
       {
         anchor: "location-photobooth-local",
         eyebrow: "Votre événement",
