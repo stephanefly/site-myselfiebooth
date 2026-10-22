@@ -288,16 +288,16 @@ section[id] {
 
 
 /* --- Legacy Sections --- */
-section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]):not([class*="blog-"]):not([data-page-conclusion]) {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]):not([class*="blog-"]):not([data-page-conclusion]):not([data-contact-page]) {
   text-align: center;
 }
 
-section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]):not([class*="blog-"]):not([data-page-conclusion]) h2 {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]):not([class*="blog-"]):not([data-page-conclusion]):not([data-contact-page]) h2 {
   font-size: 2.5rem;
   color: #333;
 }
 
-section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]):not([class*="blog-"]):not([data-page-conclusion]) p {
+section:not([class*="home-"]):not([class*="marketing-"]):not([class*="catalog-"]):not([class*="about-"]):not([class*="cookie-"]):not([class*="blog-"]):not([data-page-conclusion]):not([data-contact-page]) p {
   font-size: 1.1rem;
   color: #555;
 }

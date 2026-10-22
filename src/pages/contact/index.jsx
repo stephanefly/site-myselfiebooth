@@ -41,15 +41,29 @@ export default function Contact() {
       ogUrl: "/contact/",
       jsonLd: [breadcrumbJsonLd([{ label: "Accueil", href: "/" }, { label: "Contact", href: "/contact/" }])],
     }}>
-      <section className={styles.page}>
+      <section className={styles.page} data-contact-page>
         <div className={styles.layout}>
           <div className={styles.intro}>
             <p className={styles.eyebrow}>On en parle ?</p>
             <h1>Parlons de votre événement.</h1>
-            <p>Une question, une idée ou besoin d’un conseil ? Écrivez-nous et racontez-nous votre projet.</p>
-            <a className={styles.phone} href={siteConfig.phoneHref} data-event="phone_click">{siteConfig.phoneLabel}</a>
-            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-            <p className={styles.quote}>Vous connaissez déjà votre date et vos envies ? <a href={siteConfig.quoteUrl}>Demander un devis</a></p>
+            <p className={styles.lead}>Une question ou une idée ? Racontez-nous votre projet, nous vous aidons à choisir votre animation.</p>
+            <div className={styles.contactMethods}>
+              <a className={styles.contactMethod} href={siteConfig.phoneHref} data-event="phone_click">
+                <span className={styles.contactIcon} aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a15 15 0 0 1-7-7l2-2-2-5Z" /></svg></span>
+                <span className={styles.contactDetails}><span className={styles.contactLabel}>Par téléphone</span><span className={styles.phone}>{siteConfig.phoneLabel}</span></span>
+                <span className={styles.contactArrow} aria-hidden="true">↗</span>
+              </a>
+              <a className={styles.contactMethod} href={`mailto:${siteConfig.email}`}>
+                <span className={styles.contactIcon} aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></span>
+                <span className={styles.contactDetails}><span className={styles.contactLabel}>Par e-mail</span><span className={styles.email}>{siteConfig.email}</span></span>
+                <span className={styles.contactArrow} aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <p className={styles.area}>À Paris et dans toute l’Île-de-France.</p>
+            <div className={styles.quote}>
+              <p>Votre date et vos envies sont déjà définies ?</p>
+              <a href={siteConfig.quoteUrl}>Demander un devis <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <div className={styles.panel}>
             <h2>Votre message</h2>
@@ -69,7 +83,7 @@ export default function Contact() {
                   <label htmlFor="contact-date">Date de l’événement <span>(facultatif)</span><input id="contact-date" name="event_date" type="date" /></label>
                 </div>
                 <label htmlFor="contact-city">Ville ou lieu <span>(facultatif)</span><input id="contact-city" name="city" autoComplete="address-level2" maxLength={120} /></label>
-                <label htmlFor="contact-message">Votre message <span aria-hidden="true">*</span><textarea id="contact-message" name="message" rows={6} maxLength={5000} required placeholder="Votre projet, vos questions, les animations qui vous intéressent…" /></label>
+                <label htmlFor="contact-message">Votre message <span aria-hidden="true">*</span><textarea id="contact-message" name="message" rows={5} maxLength={5000} required placeholder="Votre projet, vos questions, les animations qui vous intéressent…" /></label>
                 <input className={styles.trap} type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                 <p className={styles.privacy}>Vos informations servent à répondre à votre demande. <a href="/privacy-policy/">Politique de confidentialité</a></p>
                 <button className={styles.button} type="submit">{status === "sending" ? "Envoi en cours…" : "Envoyer mon message"}</button>
