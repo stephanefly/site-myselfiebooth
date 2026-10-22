@@ -31,6 +31,7 @@ const routeLabels = {
   "privacy-policy": "Confidentialité",
   conditions: "Conditions",
   merci: "Merci",
+  contact: "Contact",
 };
 
 const breadcrumbAliases = {

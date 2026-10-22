@@ -56,6 +56,7 @@ const navigation = [
       { label: "Blog", href: "/blog/" },
       { label: "FAQ", href: "/#faq" },
       { label: "À propos", href: "/a-propos/" },
+      { label: "Contact", href: "/contact/" },
     ],
   },
 ];

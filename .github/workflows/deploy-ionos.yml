@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify contact handler without sending email
+        run: php -l public/api/contact.php && php scripts/check-contact.php
+
       - name: Build static Next.js site
         run: npm run build
 
@@ -59,6 +62,23 @@ jobs:
           mirror -R --verbose --parallel=4 --exclude-glob _next/ out/ "$SFTP_PATH"
           bye
           EOF
+
+      - name: Verify deployed contact form without sending email
+        run: |
+          node <<'NODE'
+          (async () => {
+            const origin = 'https://myselfiebooth-paris.fr';
+            const headers = { Accept: 'application/json', 'Cache-Control': 'no-cache' };
+            const page = await fetch(`${origin}/contact/?release=${process.env.GITHUB_SHA}`, { headers });
+            if (!page.ok || !(await page.text()).includes('action="/api/contact.php"')) throw new Error('Contact page not available');
+            const endpoint = `${origin}/api/contact.php?release=${process.env.GITHUB_SHA}`;
+            const method = await fetch(endpoint, { headers });
+            if (method.status !== 405 || (await method.json()).code !== 'method_not_allowed') throw new Error('PHP contact endpoint is not executing');
+            const invalid = await fetch(endpoint, { method: 'POST', headers: { ...headers, Origin: origin, 'Content-Type': 'application/x-www-form-urlencoded' }, body: '' });
+            if (invalid.status !== 400 || (await invalid.json()).code !== 'invalid_fields') throw new Error('Contact validation is not active');
+            console.log('Contact page and PHP validation verified. No valid message submitted; no email sent.');
+          })().catch(error => { console.error(error.message); process.exit(1); });
+          NODE
 
       - name: Notify IndexNow of updated URLs
         continue-on-error: true

@@ -122,6 +122,7 @@ export default function Footer() {
             <h2>On en parle ?</h2>
             <a href={siteConfig.phoneHref} data-event="phone_click">{siteConfig.phoneLabel} <span aria-hidden="true">↗</span></a>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+            <a href="/contact/">Envoyer un message <span aria-hidden="true">↗</span></a>
             <SocialMedia />
           </div>
         </div>
