@@ -6,9 +6,8 @@ const formats = [
     key: "porte-cles",
     title: "Porte-clés photo",
     text: "Votre photo en petit format, à emporter avec vos clés.",
-    type: "video",
-    video: "/videos/home-souvenirs/porte-cles-photo.mp4",
-    poster: "/images/event-archive/porte-cles-fabrication.webp",
+    image: "/images/editorial-ai/accueil-souvenir-porte-cles.webp",
+    alt: "Illustration IA de porte-clés photo transparents avec des portraits de mariage",
     href: "/prestations/#options",
     linkLabel: "Voir les options",
   },
@@ -16,9 +15,8 @@ const formats = [
     key: "magnets",
     title: "Magnets photo",
     text: "Vos portraits transformés en magnets à garder bien en vue.",
-    type: "image",
-    image: "/images/option-magnet-premium.webp",
-    alt: "Quatre magnets photo personnalisés présentés sur un réfrigérateur",
+    image: "/images/editorial-ai/accueil-souvenir-magnets.webp",
+    alt: "Illustration IA de quatre magnets photo personnalisés sur un réfrigérateur crème",
     href: "/prestations/#options",
     linkLabel: "Découvrir les magnets",
   },
@@ -26,9 +24,8 @@ const formats = [
     key: "360-mobile",
     title: "Votre vidéo 360 sur téléphone",
     text: "Un clip à retrouver sur mobile et à partager après votre passage.",
-    type: "phone",
-    video: "/videos/home-souvenirs/video-360-mobile.mp4",
-    poster: "/images/event-archive/video-posters/360-red-carpet.webp",
+    image: "/images/editorial-ai/accueil-souvenir-360-mobile.webp",
+    alt: "Illustration IA d’un téléphone affichant une vidéo 360 de mariage",
     href: "/prestations/videobooth/",
     linkLabel: "Voir le 360 Booth",
   },
@@ -36,9 +33,8 @@ const formats = [
     key: "impression-vogue",
     title: "Impression Vogue Booth",
     text: "Le portrait façon magazine en tirage papier, selon l’option choisie.",
-    type: "print",
-    image: "/images/collection-2026/portrait-vogue-booth-900.webp",
-    alt: "Portrait Vogue Booth personnalisé pour un mariage, présenté dans un cadre papier",
+    image: "/images/editorial-ai/accueil-souvenir-impression-vogue.webp",
+    alt: "Illustration IA de tirages papier Vogue Booth avec des portraits façon magazine",
     href: "/prestations/voguebooth/",
     linkLabel: "Voir le Vogue Booth",
   },
@@ -52,17 +48,7 @@ export default function HomeSouvenirFormats() {
         {formats.map((format) => (
           <article className={styles.card} key={format.key} data-souvenir-format={format.key}>
             <div className={styles.media}>
-              {format.video ? (
-                <div className={format.type === "phone" ? styles.phone : styles.videoFrame}>
-                  <video controls muted loop playsInline preload="none" poster={format.poster} aria-label={format.title} data-no-load-motion>
-                    <source src={format.video} type="video/mp4" />
-                  </video>
-                </div>
-              ) : (
-                <div className={format.type === "print" ? styles.paper : styles.imageFrame}>
-                  <img src={format.image} alt={format.alt} width="900" height="900" loading="lazy" decoding="async" data-no-load-motion />
-                </div>
-              )}
+              <img src={format.image} alt={format.alt} width="900" height="900" loading="lazy" decoding="async" data-no-load-motion />
             </div>
             <div className={styles.body}>
               <h4>{format.title}</h4>
@@ -72,6 +58,7 @@ export default function HomeSouvenirFormats() {
           </article>
         ))}
       </div>
+      <p className={styles.caption}>Illustrations générées par IA.</p>
       <a className={styles.instagram} href={instagramUrl} target="_blank" rel="noopener noreferrer">D’autres idées sur notre Instagram ↗</a>
     </section>
   );
