@@ -38,6 +38,42 @@ const formats = [
     href: "/prestations/voguebooth/",
     linkLabel: "Voir le Vogue Booth",
   },
+  {
+    key: "phonebooth",
+    title: "Phonebooth audio",
+    text: "Les voix, les rires et les petits mots de vos invités à réécouter.",
+    image: "/images/ai-from-real/accueil-souvenir-phonebooth.webp",
+    alt: "Téléphone rétro crème avec combiné décroché sur une table fleurie",
+    href: "/options/phonebooth/",
+    linkLabel: "Découvrir le Phonebooth",
+  },
+  {
+    key: "livre-or-photo",
+    title: "Livre d’or photo",
+    text: "Vos tirages et leurs messages réunis dans un album à feuilleter.",
+    image: "/images/ai-from-real/accueil-souvenir-livre-or-photo.webp",
+    alt: "Livre d’or ouvert avec photos de mariage et messages manuscrits dorés",
+    href: "/prestations/#options",
+    linkLabel: "Voir les options",
+  },
+  {
+    key: "livre-or-video",
+    title: "Livre d’or vidéo",
+    text: "Des messages filmés pour retrouver les visages et les émotions de la soirée.",
+    image: "/images/ai-from-real/accueil-souvenir-livre-or-video.webp",
+    alt: "Borne blanche de livre d’or vidéo avec caméra, écran et pupitre à microphone",
+    href: "/prestations/#options",
+    linkLabel: "Découvrir le livre d’or vidéo",
+  },
+  {
+    key: "panneau-fontaine",
+    title: "Panneau fontaine",
+    text: "Un accueil fleuri et lumineux, avec un rideau d’eau pour habiller votre entrée.",
+    image: "/images/ai-from-real/accueil-souvenir-panneau-fontaine.webp",
+    alt: "Panneau fontaine blanc de bienvenue avec rideau d’eau et compositions florales",
+    href: "/options/panneau/",
+    linkLabel: "Découvrir le panneau",
+  },
 ];
 
 export default function HomeSouvenirFormats() {

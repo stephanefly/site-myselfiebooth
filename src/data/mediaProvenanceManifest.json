@@ -1432,5 +1432,41 @@
     "kind": "ai_generated",
     "generatedAt": "2026-10-22",
     "prompt": "Create ONE square photorealistic premium product illustration for a French event photobooth website. Warm ivory, champagne and soft gold palette, elegant wedding reception atmosphere, natural window light, shallow depth of field, believable materials, immaculate professional commercial still-life photograph. No pricing, no watermark, no big added captions or webpage layout. Central composition with breathing room, readable product at thumbnail size. This is an illustrative scene, not a documentary photo. Two tangible glossy PAPER PHOTO PRINTS on an ivory reception table. Main large print held gently by a hand, showing an elegant fictional female adult wedding guest in a black dress posing inside a large black rectangular magazine-cover photobooth structure. Across the top INSIDE the printed photograph the single accurate word VOGUE is printed in refined black high-fashion serif. The second print lying behind shows a different joyful adult couple in the same magazine frame. White paper borders, visible paper thickness and a gentle curl clearly communicate printed photos to take home. Soft gold and white flowers in background, no other text, no price labels."
+  },
+  {
+    "path": "/images/ai-from-real/accueil-souvenir-phonebooth.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/phonebooth.webp"
+    ],
+    "generatedAt": "2026-10-22",
+    "prompt": "Create ONE square premium photorealistic product photograph for a wedding photobooth website, using the attached real product photo as the faithful reference for the actual product. Warm ivory, cream and champagne gold palette, soft natural light, understated white flowers, elegant French wedding atmosphere, matching a polished website collection of photo keepsakes. Remove ALL promotional overlays, giant labels, watermarks, price labels and borders from the source. Do not add a webpage layout or any explanatory captions. Product must remain clearly recognizable and physically plausible, centered with breathing room, clear at thumbnail size. Show a cream vintage rotary telephone audio guestbook on an ivory table, coiled cable correctly attached, a wedding guest gently lifting its receiver to leave a message (only an elegant hand is needed). A tasteful small gold frame and white flowers sit behind. Focus on the telephone, not signage. No added text."
+  },
+  {
+    "path": "/images/ai-from-real/accueil-souvenir-livre-or-photo.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/event-archive/livre-or-mariage.webp"
+    ],
+    "generatedAt": "2026-10-22",
+    "prompt": "Create ONE square premium photorealistic product photograph for a wedding photobooth website, using the attached real product photo as the faithful reference for the actual product. Warm ivory, cream and champagne gold palette, soft natural light, understated white flowers, elegant French wedding atmosphere, matching a polished website collection of photo keepsakes. Remove ALL promotional overlays, giant labels, watermarks, price labels and borders from the source. Do not add a webpage layout or any explanatory captions. Product must remain clearly recognizable and physically plausible, centered with breathing room, clear at thumbnail size. Show the black spiral-bound wedding photo guestbook OPEN on an ivory linen reception table. Its dark pages hold a few small white-bordered printed photobooth portraits of fictional joyful adult guests, with a few short handwritten gold-ink wishes (subtle, not dominant). A hand with a gold pen is writing on one page. Keep real scrapbook material, black spiral binding and paper character from the reference, use fictional portraits and no readable personal names or dates. One coherent close-up, not a collage layout."
+  },
+  {
+    "path": "/images/ai-from-real/accueil-souvenir-livre-or-video.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/livre-dor-video.webp"
+    ],
+    "generatedAt": "2026-10-22",
+    "prompt": "Create ONE square premium photorealistic product photograph for a wedding photobooth website, using the attached real product photo as the faithful reference for the actual product. Warm ivory, cream and champagne gold palette, soft natural light, understated white flowers, elegant French wedding atmosphere, matching a polished website collection of photo keepsakes. Remove ALL promotional overlays, giant labels, watermarks, price labels and borders from the source. Do not add a webpage layout or any explanatory captions. Product must remain clearly recognizable and physically plausible, centered with breathing room, clear at thumbnail size. Faithfully recreate the WHITE VIDEO GUESTBOOK KIOSK: upright rectangular rounded-edge head on a white slim pedestal with round base, central dark camera lens above a horizontal landscape touchscreen, three bright white LED light bars around upper/side edges, PLUS the separate matching white sloping lectern with a black gooseneck microphone next to it. Show BOTH white kiosk and microphone lectern clearly in a refined ivory reception corner. Touchscreen shows a small natural video greeting preview of fictional adult wedding guests. No invented robot design, no handheld phone, no labels or branding. Keep the physical proportions of the real device."
+  },
+  {
+    "path": "/images/ai-from-real/accueil-souvenir-panneau-fontaine.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/panneau-fontaine.webp"
+    ],
+    "generatedAt": "2026-10-22",
+    "prompt": "Create ONE square premium photorealistic product photograph for a wedding photobooth website, using the attached real product photo as the faithful reference for the actual product. Warm ivory, cream and champagne gold palette, soft natural light, understated white flowers, elegant French wedding atmosphere, matching a polished website collection of photo keepsakes. Remove ALL promotional overlays, giant labels, watermarks, price labels and borders from the source. Do not add a webpage layout or any explanatory captions. Product must remain clearly recognizable and physically plausible, centered with breathing room, clear at thumbnail size. Faithfully recreate this WHITE WATERFALL WELCOME PANEL with tall rectangular glass/mirror water surface inside thick rounded white illuminated frame, set on the real wide low white rectangular base. A fine continuous flowing water curtain subtly shimmers down the glass. Pale white and blush flower arrangements decorate top left corner and lower right near base, matching reference placement. Refined gold calligraphy on the glass can say only 'Bienvenue'. Show the whole free-standing panel and low base in a light elegant wedding entrance. This is a WATER WALL welcome sign, not a drink fountain, champagne tower or outdoor stone fountain. No extra jets or devices."
   }
 ]
