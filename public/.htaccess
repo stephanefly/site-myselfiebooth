@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteRule ^api/contact\.php$ - [G,L,NC]
 
 # Ne pas afficher le contenu des répertoires sans page d'accueil.
 Options -Indexes

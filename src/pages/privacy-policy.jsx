@@ -16,6 +16,10 @@ export default function PrivacyPolicy() {
           text: "Ces informations servent à répondre à votre demande, établir une proposition, préparer la prestation et assurer le suivi de la relation commerciale.",
         },
         {
+          title: "Acheminement des messages",
+          text: "Les messages du formulaire de contact sont transmis à notre équipe via FormSubmit, qui assure leur acheminement vers contact@myselfiebooth-paris.fr. Les informations envoyées comprennent les champs que vous renseignez dans le formulaire.",
+        },
+        {
           title: "Mesure d'audience et cookies",
           text: "Google Analytics n'est chargé qu'après votre accord dans le bandeau de consentement. Vous pouvez refuser sans perdre l'accès au site et modifier votre choix depuis le lien Gérer les cookies en bas de page.",
         },

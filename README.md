@@ -23,9 +23,11 @@ Les push sur `master` déclenchent GitHub Actions, puis le contenu de `out/` est
 
 ## Formulaire de contact
 
-La page `/contact/` envoie les demandes à `contact@myselfiebooth-paris.fr` via `public/api/contact.php`. L’hébergement doit exécuter PHP 8 avec la fonction `mail()` disponible et autoriser l’écriture dans son répertoire temporaire pour limiter les envois répétés. L’adresse du visiteur sert uniquement de `Reply-To` après validation ; le destinataire et l’expéditeur restent fixes.
+La page `/contact/` utilise un formulaire HTML avec envoi AJAX via FormSubmit vers `contact@myselfiebooth-paris.fr`. Le champ `email` permet de répondre au visiteur. Le traitement ne nécessite aucun PHP ni identifiant SMTP dans le site. Les paramètres d’envoi sont dans `src/lib/contactForm.mjs`.
 
-`php scripts/check-contact.php` vérifie la validation, la limitation et les erreurs d’envoi avec un transport simulé, sans envoyer d’e-mail. Le déploiement contrôle ensuite la page et le refus d’une soumission vide sur l’hébergement, sans soumettre de message réel. La distribution finale dans la boîte de réception doit être confirmée avec un message autorisé.
+FormSubmit exige une confirmation de l’adresse destinataire à la première utilisation : après une soumission, ouvrir l’e-mail d’activation reçu dans la boîte contact et cliquer sur son lien. Sans cette activation, la distribution des messages n’est pas confirmée. Documentation : https://formsubmit.co/.
+
+`node scripts/check-contact.mjs` vérifie les champs, le destinataire et les réponses du service sans soumettre de message. Pour envoyer un unique test réel, lancer **Deploy MySelfieBooth to IONOS** avec `test_contact_delivery` coché, ou utiliser un commit portant `[test-contact-delivery]`. Le résultat distingue une activation nécessaire d’une soumission acceptée. La réception en boîte doit être confirmée séparément. L’ancien traitement PHP est supprimé du serveur et son adresse renvoie HTTP 410.
 
 Les références clients affichées sur le site sont volontairement limitées aux références publiquement validées. Les anciens logos non utilisés sont supprimés afin que le contrôle des médias inutilisés reste bloquant avant mise en production.
 

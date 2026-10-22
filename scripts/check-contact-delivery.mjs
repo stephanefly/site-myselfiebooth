@@ -1,31 +1,24 @@
-// A real delivery test, explicitly enabled for a one-off diagnostic commit.
+// One real submission, explicitly enabled by a diagnostic commit or manual run.
+import { contactAjaxEndpoint, contactRecipient, contactPayload, contactResult } from "../src/lib/contactForm.mjs";
 const origin = "https://myselfiebooth-paris.fr";
-const endpoint = `${origin}/api/contact.php`;
-const headers = { Accept: "application/json", Origin: origin, "Cache-Control": "no-cache" };
-const cases = [
-  ["missing-fields", {}, 400],
-  ["invalid-email", { name: "Test technique", email: "not-an-email", message: "Vérification des champs." }, 400],
-  ["header-injection", { name: "Test technique", email: "test@example.com\r\nBcc: other@example.com", message: "Vérification des champs." }, 400],
-  ["invalid-date", { name: "Test technique", email: "test@example.com", event_date: "2027-02-30", message: "Vérification des champs." }, 400],
-];
-for (const [name, input, status] of cases) {
-  const response = await fetch(endpoint, { method: "POST", headers, body: new URLSearchParams(input), signal: AbortSignal.timeout(20000) });
-  const result = await response.json();
-  console.log(`${name}: HTTP ${response.status}, code=${result.code}`);
-  if (response.status !== status || result.ok) throw new Error(`${name}: unexpected validation result`);
-}
-
 const reference = `CONTACT-${process.env.GITHUB_RUN_ID || Date.now()}`;
-const response = await fetch(endpoint, {
-  method: "POST", headers,
-  body: new URLSearchParams({
-    name: "Test technique MySelfieBooth",
-    email: "contact@myselfiebooth-paris.fr",
-    message: `Message de test technique du formulaire de contact. Aucune demande de réservation. Référence : ${reference}. Ce message vérifie l’envoi vers contact@myselfiebooth-paris.fr.`,
-  }),
+const form = new FormData();
+form.set("name", "Test technique MySelfieBooth");
+form.set("email", contactRecipient);
+form.set("message", `Message de test technique du formulaire de contact, sans demande de réservation. Référence : ${reference}. Destinataire : ${contactRecipient}.`);
+const body = contactPayload(form);
+body.set("_subject", `Test du formulaire MySelfieBooth — ${reference}`);
+const response = await fetch(contactAjaxEndpoint, {
+  method: "POST",
+  headers: { Accept: "application/json", Origin: origin, Referer: `${origin}/contact/` },
+  body,
   signal: AbortSignal.timeout(30000),
 });
 const result = await response.json();
-console.log(JSON.stringify({ test: "real-delivery", reference, status: response.status, code: result.code, accepted: result.ok }));
-if (!response.ok || !result.ok) throw new Error(`Contact delivery failed: ${result.code}`);
-console.log("Message accepted by the hosting mail transport. Inbox receipt still needs verification.");
+const state = contactResult(result);
+console.log(JSON.stringify({ test: "real-delivery", recipient: contactRecipient, reference, status: response.status, state }));
+if (!response.ok || state === "error") {
+  console.log(String(result.message || "").replace(/https?:\/\/\S+/g, "[service URL]").slice(0, 350));
+  throw new Error("The submission was not accepted by the form service.");
+}
+console.log(state === "activation_required" ? "Recipient activation required: check the email sent by FormSubmit. Delivery is not confirmed." : "Submission accepted by FormSubmit. Check for an activation email on first use, then confirm inbox receipt.");

@@ -5,6 +5,11 @@ on:
     branches:
       - master
   workflow_dispatch:
+    inputs:
+      test_contact_delivery:
+        description: Send one test submission to the contact mailbox
+        type: boolean
+        default: false
 
 concurrency:
   group: deploy-myselfiebooth-production
@@ -27,8 +32,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify contact handler without sending email
-        run: php -l public/api/contact.php && php scripts/check-contact.php
+      - name: Verify contact form without sending email
+        run: node scripts/check-contact.mjs
 
       - name: Build static Next.js site
         run: npm run build
@@ -60,6 +65,7 @@ jobs:
           mirror -R --verbose --parallel=4 out/images/ "$SFTP_PATH/images/"
           mirror -R --verbose --parallel=4 out/logos/ "$SFTP_PATH/logos/"
           mirror -R --verbose --parallel=4 --exclude-glob _next/ out/ "$SFTP_PATH"
+          rm -f "$SFTP_PATH/api/contact.php"
           bye
           EOF
 
@@ -70,18 +76,15 @@ jobs:
             const origin = 'https://myselfiebooth-paris.fr';
             const headers = { Accept: 'application/json', 'Cache-Control': 'no-cache' };
             const page = await fetch(`${origin}/contact/?release=${process.env.GITHUB_SHA}`, { headers });
-            if (!page.ok || !(await page.text()).includes('action="/api/contact.php"')) throw new Error('Contact page not available');
-            const endpoint = `${origin}/api/contact.php?release=${process.env.GITHUB_SHA}`;
-            const method = await fetch(endpoint, { headers });
-            if (method.status !== 405 || (await method.json()).code !== 'method_not_allowed') throw new Error('PHP contact endpoint is not executing');
-            const invalid = await fetch(endpoint, { method: 'POST', headers: { ...headers, Origin: origin, 'Content-Type': 'application/x-www-form-urlencoded' }, body: '' });
-            if (invalid.status !== 400 || (await invalid.json()).code !== 'invalid_fields') throw new Error('Contact validation is not active');
-            console.log('Contact page and PHP validation verified. No valid message submitted; no email sent.');
+            if (!page.ok || !(await page.text()).includes('action="https://formsubmit.co/contact@myselfiebooth-paris.fr"')) throw new Error('Contact page not available');
+            const retired = await fetch(`${origin}/api/contact.php`, { headers });
+            if (retired.status !== 410) throw new Error('Former PHP endpoint must be retired');
+            console.log('Contact page verified; former PHP endpoint retired. No submission made.');
           })().catch(error => { console.error(error.message); process.exit(1); });
           NODE
 
       - name: Test contact delivery when explicitly requested
-        if: contains(github.event.head_commit.message, '[test-contact-delivery]')
+        if: contains(github.event.head_commit.message, '[test-contact-delivery]') || (github.event_name == 'workflow_dispatch' && inputs.test_contact_delivery)
         run: node scripts/check-contact-delivery.mjs
 
       - name: Notify IndexNow of updated URLs

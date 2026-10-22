@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Layout from "../../components/Layout";
 import { breadcrumbJsonLd, siteConfig } from "../../data/site";
+import { contactEndpoint, contactAjaxEndpoint, contactSubject, contactThanksUrl, contactPayload, contactResult } from "../../lib/contactForm.mjs";
 import styles from "../../styles/contact.module.css";
 
 export default function Contact() {
@@ -12,22 +13,23 @@ export default function Contact() {
     event.preventDefault();
     if (status === "sending") return;
     const form = event.currentTarget;
-    const body = new URLSearchParams(new FormData(form));
-    setStatus("sending");
     setError("");
     try {
-      const response = await fetch(form.action, {
+      const body = contactPayload(new FormData(form));
+      setStatus("sending");
+      const response = await fetch(contactAjaxEndpoint, {
         method: "POST",
         headers: { Accept: "application/json" },
         body,
+        signal: typeof AbortSignal !== "undefined" && typeof AbortSignal.timeout === "function" ? AbortSignal.timeout(25000) : undefined,
       });
       const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error(result.message || "L’envoi n’a pas abouti. Réessayez ou contactez-nous par e-mail.");
+      if (!response.ok || contactResult(result) !== "sent") throw new Error("L’envoi est momentanément indisponible. Réessayez ou contactez-nous par e-mail.");
       setStatus("sent");
       form.reset();
     } catch (failure) {
       setStatus("error");
-      setError(failure instanceof TypeError || failure instanceof SyntaxError
+      setError(failure instanceof TypeError || failure instanceof SyntaxError || failure.name === "TimeoutError" || failure.name === "AbortError"
         ? "La connexion a été interrompue. Réessayez ou contactez-nous par e-mail."
         : failure.message);
     }
@@ -54,7 +56,11 @@ export default function Contact() {
           <div className={styles.panel}>
             <h2>Votre message</h2>
             <p className={styles.hint}>Seuls le nom, l’e-mail et le message sont obligatoires.</p>
-            <form action="/api/contact.php" method="post" onSubmit={submit}>
+            <form action={contactEndpoint} method="post" onSubmit={submit}>
+              <input type="hidden" name="_subject" value={contactSubject} />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={contactThanksUrl} />
               <fieldset disabled={status === "sending"} className={styles.fields}>
                 <div className={styles.row}>
                   <label htmlFor="contact-name">Votre nom <span aria-hidden="true">*</span><input id="contact-name" name="name" autoComplete="name" maxLength={100} required /></label>
@@ -66,7 +72,7 @@ export default function Contact() {
                 </div>
                 <label htmlFor="contact-city">Ville ou lieu <span>(facultatif)</span><input id="contact-city" name="city" autoComplete="address-level2" maxLength={120} /></label>
                 <label htmlFor="contact-message">Votre message <span aria-hidden="true">*</span><textarea id="contact-message" name="message" rows={6} maxLength={5000} required placeholder="Votre projet, vos questions, les animations qui vous intéressent…" /></label>
-                <div className={styles.trap} aria-hidden="true"><label htmlFor="contact-website">Votre site<input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></label></div>
+                <div className={styles.trap} aria-hidden="true"><label htmlFor="contact-website">Votre site<input id="contact-website" name="_honey" tabIndex={-1} autoComplete="off" /></label></div>
                 <p className={styles.privacy}>Vos informations servent à répondre à votre demande. <a href="/privacy-policy/">Politique de confidentialité</a></p>
                 <button className={styles.button} type="submit">{status === "sending" ? "Envoi en cours…" : "Envoyer mon message"}</button>
               </fieldset>
