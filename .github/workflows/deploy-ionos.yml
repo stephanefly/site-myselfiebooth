@@ -74,10 +74,10 @@ jobs:
             if (!page.ok || !(await page.text()).includes('action="https://api.web3forms.com/submit"')) throw new Error('Contact page not available');
             const corporate = await fetch(`${origin}/evenements/corporates/?release=${process.env.GITHUB_SHA}`, { headers });
             const references = (await corporate.text()).match(/id="references"[\s\S]*?<\/section>/)?.[0] || '';
-            if (!corporate.ok || (references.match(/src="\/logos\//g) || []).length !== 16) throw new Error('Expected 16 client logos on the corporate page');
+            if (!corporate.ok || (references.match(/src="\/logos\//g) || []).length !== 3) throw new Error('Expected 3 verified client logos on the corporate page');
             const retired = await fetch(`${origin}/api/contact.php`, { headers });
             if (retired.status !== 410) throw new Error('Former PHP endpoint must be retired');
-            console.log('Contact page and 16 client logos verified; former PHP endpoint retired. No submission made.');
+            console.log('Contact page and 3 verified client logos checked; former PHP endpoint retired. No submission made.');
           })().catch(error => { console.error(error.message); process.exit(1); });
           NODE
 
