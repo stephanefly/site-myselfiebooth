@@ -7,6 +7,8 @@ const areas = [
   ["Seine-Saint-Denis · 93", "/location-photobooth/seine-saint-denis/"],
   ["Val-de-Marne · 94", "/location-photobooth/val-de-marne/"],
   ["Val-d’Oise · 95", "/location-photobooth/val-doise/"],
+  ["Rouen · Normandie", "/rouen/"],
+  ["Lyon · région lyonnaise", "/lyon/"],
 ];
 
 export default function ServiceAreaLinks() {
@@ -16,14 +18,14 @@ export default function ServiceAreaLinks() {
         <div className="service-area-copy">
         <p className="visual-eyebrow">Votre lieu de réception</p>
         <h2 id="service-area-title">À Paris et dans toute l’Île-de-France</h2>
-        <p>Nous préparons la livraison et l’installation selon votre salle, les horaires et les accès. Votre événement se déroule ailleurs en France ? Nous étudions aussi votre projet selon la date et la logistique.</p>
+        <p>Nous préparons la livraison et l’installation selon votre salle, les horaires et les accès. Nous intervenons aussi en Normandie et dans la région lyonnaise, selon la date et la logistique de votre événement.</p>
         <a className="service-area-primary" href="/zones-intervention/">
           Voir nos zones d’intervention <span aria-hidden="true">↗</span>
         </a>
         </div>
         <details className="service-area-details" data-navigation-disclosure open>
-          <summary>Nos départements d’intervention <span aria-hidden="true">+</span></summary>
-          <nav className="service-area-links" aria-label="Départements d’intervention">
+          <summary>Nos zones d’intervention <span aria-hidden="true">+</span></summary>
+          <nav className="service-area-links" aria-label="Zones d’intervention">
             {areas.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           </nav>
         </details>
