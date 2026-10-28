@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import localSeoPages from "../data/local-seo-pages.json";
+import { photoForArea } from "../data/localPhotos";
 import { absoluteUrl, siteConfig } from "../data/site";
 
 const departments = [
@@ -34,6 +35,17 @@ const itemListJsonLd = {
     url: absoluteUrl(item.href),
   })),
 };
+
+function ZonePhoto({ slug }) {
+  const photo = photoForArea(slug);
+  if (!photo) return null;
+  return (
+    <figure className="zone-card-media">
+      <img src={photo.src} alt={photo.alt} width="960" height="640" loading="lazy" decoding="async" />
+      <figcaption>Photo : {photo.author || "Wikimedia Commons"}</figcaption>
+    </figure>
+  );
+}
 
 export default function ZonesIntervention() {
   return (
@@ -80,15 +92,21 @@ export default function ZonesIntervention() {
             <div className="zones-grid zones-grid-departments">
               {departmentPages.map((area) => (
                 <a key={area.slug} className="zone-card zone-card-featured" href={`/location-photobooth/${area.slug}/`}>
-                  <span>{area.code}</span>
-                  <h3>{area.name}</h3>
-                  <p>{area.angle}</p>
+                  <ZonePhoto slug={area.slug} />
+                  <div className="zone-card-copy">
+                    <span>{area.code}</span>
+                    <h3>{area.name}</h3>
+                    <p>{area.angle}</p>
+                  </div>
                 </a>
               ))}
               <a className="zone-card zone-card-featured" href="/paris/">
-                <span>75</span>
-                <h3>Paris</h3>
-                <p>Événements privés, corporate, lancements, salons et activations avec logistique adaptée aux lieux parisiens.</p>
+                <ZonePhoto slug="paris" />
+                <div className="zone-card-copy">
+                  <span>75</span>
+                  <h3>Paris</h3>
+                  <p>Événements privés, corporate, lancements, salons et activations avec logistique adaptée aux lieux parisiens.</p>
+                </div>
               </a>
             </div>
           </div>
@@ -107,9 +125,12 @@ export default function ZonesIntervention() {
                 <div className="zones-grid">
                   {items.map((area) => (
                     <a key={area.slug} className="zone-card" href={`/location-photobooth/${area.slug}/`}>
-                      <span>{area.code}</span>
-                      <h3>{area.name}</h3>
-                      <p>{area.focus}</p>
+                      <ZonePhoto slug={area.slug} />
+                      <div className="zone-card-copy">
+                        <span>{area.code}</span>
+                        <h3>{area.name}</h3>
+                        <p>{area.focus}</p>
+                      </div>
                     </a>
                   ))}
                 </div>
@@ -128,10 +149,10 @@ export default function ZonesIntervention() {
               </p>
             </div>
             <div className="zones-grid">
-              <a className="zone-card" href="/paris/"><h3>Paris</h3><p>Photobooth premium, entreprise, mariage et activation de marque.</p></a>
-              <a className="zone-card" href="/lyon/"><h3>Lyon</h3><p>Prestations photo et vidéo selon disponibilité et conditions de déplacement.</p></a>
-              <a className="zone-card" href="/rouen/"><h3>Rouen & Normandie</h3><p>Mariage, entreprise et événements sur étude selon le lieu.</p></a>
-              <a className="zone-card" href="/evenements/corporates/"><h3>Événement d’entreprise</h3><p>Animation photo, vidéo et personnalisation pour vos équipes et votre marque.</p></a>
+              <a className="zone-card" href="/paris/"><ZonePhoto slug="paris" /><div className="zone-card-copy"><h3>Paris</h3><p>Photobooth premium, entreprise, mariage et activation de marque.</p></div></a>
+              <a className="zone-card" href="/lyon/"><ZonePhoto slug="lyon" /><div className="zone-card-copy"><h3>Lyon</h3><p>Prestations photo et vidéo selon disponibilité et conditions de déplacement.</p></div></a>
+              <a className="zone-card" href="/rouen/"><ZonePhoto slug="rouen" /><div className="zone-card-copy"><h3>Rouen & Normandie</h3><p>Mariage, entreprise et événements sur étude selon le lieu.</p></div></a>
+              <a className="zone-card zone-card-simple" href="/evenements/corporates/"><h3>Événement d’entreprise</h3><p>Animation photo, vidéo et personnalisation pour vos équipes et votre marque.</p></a>
             </div>
           </div>
         </section>
@@ -166,12 +187,18 @@ export default function ZonesIntervention() {
         .zones-heading p:not(.zones-eyebrow) { color: #5e584e; line-height: 1.7; }
         .zones-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
         .zones-grid-departments { grid-template-columns: repeat(4, minmax(0,1fr)); }
-        .zone-card { min-height: 165px; padding: 22px; border: 1px solid #dbd0bb; border-radius: 14px; color: #171717; background: #fff; text-decoration: none; box-shadow: 0 10px 28px rgba(30,20,5,.05); transition: transform .18s ease, border-color .18s ease; }
+        .zone-card { display: flex; flex-direction: column; min-height: 245px; padding: 0; overflow: hidden; border: 1px solid #dbd0bb; border-radius: 14px; color: #171717; background: #fff; text-decoration: none; box-shadow: 0 10px 28px rgba(30,20,5,.05); transition: transform .18s ease, border-color .18s ease; }
+        .zone-card-media { position: relative; width: 100%; height: 136px; margin: 0; background: #29251c; }
+        .zone-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .zone-card-media figcaption { position: absolute; bottom: 0; right: 0; padding: 4px 7px; color: #fff; background: rgba(0,0,0,.72); font-size: .63rem; line-height: 1.3; }
+        .zone-card-copy { flex: 1; padding: 17px 20px 20px; }
+        .zone-card-simple { padding: 22px; }
         .zone-card:hover { transform: translateY(-2px); border-color: #c59d48; }
         .zone-card span { color: #a47a27; font-size: .78rem; font-weight: 900; letter-spacing: .1rem; }
         .zone-card h3 { margin: 10px 0 8px; font-size: 1.14rem; }
         .zone-card p { margin: 0; color: #625b50; line-height: 1.55; font-size: .92rem; }
         .zone-card-featured { background: #111; color: #fff; border-color: #312b20; }
+        .zone-card-featured .zone-card-media { height: 150px; }
         .zone-card-featured p { color: #d6cdbd; }
         .zones-cta { padding: 82px 0; color: #fff; background: #111; }
         .zones-cta h2 { max-width: 820px; font-size: clamp(2rem, 5vw, 3.8rem); }
