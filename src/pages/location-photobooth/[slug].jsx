@@ -1,6 +1,6 @@
 import LocalAreaPage from "../../components/local/LocalAreaPage";
 import localSeoPages from "../../data/local-seo-pages.json";
-import { localIllustration } from "../../data/editorialIllustrations";
+import { photoForArea } from "../../data/localPhotos";
 import {
   absoluteUrl,
   breadcrumbJsonLd,
@@ -103,7 +103,7 @@ function buildPage(location) {
     place,
     title,
     description,
-    illustration: localIllustration(location),
+    illustration: photoForArea(location.slug),
     image: "/images/ai-from-real/hero-photobooth-reception.webp",
     imageAlt: `Photobooth MySelfieBooth pour événement ${place}`,
     highlights: ["Photobooth : 400 € / 5 h", "360 & Vogue Booth", "Déplacement sur devis"],
