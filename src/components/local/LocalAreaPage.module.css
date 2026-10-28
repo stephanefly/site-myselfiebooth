@@ -19,7 +19,7 @@
 .secondary { color: #fff; background: transparent; }
 .heroImage { min-width: 0; margin: 0; overflow: hidden; border: 1px solid #403829; border-radius: 14px; }
 .heroImage img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
-.heroImage figcaption { padding: 10px 14px; color: #ded6c7; background: #201d18; font-size: .78rem; }
+.heroImage figcaption { padding: 10px 14px; color: #ded6c7; background: #201d18; font-size: .78rem; line-height: 1.6; }\n.heroImage figcaption a { color: #e5c46b; text-decoration: underline; text-underline-offset: 2px; margin-left: 6px; }
 .quickLinks { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 24px 0; border-bottom: 1px solid #d8cfbd; }
 .quickLinks a, .relatedLinks a { color: #694c17; text-underline-offset: 4px; font-weight: 700; }
 .section { padding: 56px 0; scroll-margin-top: 100px; }
