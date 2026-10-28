@@ -1,5 +1,6 @@
 import Layout from "../Layout";
 import { editorialVisuals } from "../../data/editorialIllustrations";
+import { photoForArea } from "../../data/localPhotos";
 import { pageSeo } from "../../data/pageSeo";
 import { absoluteUrl, faqJsonLd, siteConfig } from "../../data/site";
 import styles from "./LocalAreaPage.module.css";
@@ -12,7 +13,7 @@ const animations = [
 ];
 
 export default function LocalAreaPage({ page, area }) {
-  const illustration = page.illustration || editorialVisuals.guests;
+  const illustration = photoForArea(area.slug) || page.illustration || editorialVisuals.guests;
   const place = page.place || `à ${area.name}`;
   const canonicalPath = page.meta.ogUrl?.replace(siteConfig.baseUrl, "");
   const seo = pageSeo[canonicalPath];
@@ -54,7 +55,9 @@ export default function LocalAreaPage({ page, area }) {
             </div>
             <figure className={styles.heroImage}>
               <img src={illustration.src} alt={illustration.alt} width="960" height="640" fetchPriority="high" decoding="async" data-no-load-motion />
-              <figcaption>Illustration d’ambiance pour votre événement.</figcaption>
+              <figcaption>
+                {illustration.caption ? <>{illustration.caption}. {illustration.source && <a href={illustration.source} target="_blank" rel="noopener noreferrer">Photo : {illustration.author || "Wikimedia Commons"} · source et licence</a>}</> : "Illustration d’ambiance pour votre événement."}
+              </figcaption>
             </figure>
           </div>
         </header>
