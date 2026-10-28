@@ -167,7 +167,7 @@ export default function ZonesIntervention() {
         </section>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         .zones-page { background: #f7f3ea; color: #171717; text-align: left; }
         .zones-container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
         .zones-hero { padding: 128px 0 72px; color: #fff; background: #070707; }
