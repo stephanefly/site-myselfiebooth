@@ -149,7 +149,7 @@ export default function ZonesIntervention() {
               </p>
             </div>
             <div className="zones-grid">
-              <a className="zone-card" href="/paris/"><ZonePhoto slug="paris" /><div className="zone-card-copy"><h3>Paris</h3><p>Photobooth premium, entreprise, mariage et activation de marque.</p></div></a>
+              <a className="zone-card" href="/paris/"><ZonePhoto slug="paris-secteur" /><div className="zone-card-copy"><h3>Paris</h3><p>Photobooth premium, entreprise, mariage et activation de marque.</p></div></a>
               <a className="zone-card" href="/lyon/"><ZonePhoto slug="lyon" /><div className="zone-card-copy"><h3>Lyon</h3><p>Prestations photo et vidéo selon disponibilité et conditions de déplacement.</p></div></a>
               <a className="zone-card" href="/rouen/"><ZonePhoto slug="rouen" /><div className="zone-card-copy"><h3>Rouen & Normandie</h3><p>Mariage, entreprise et événements sur étude selon le lieu.</p></div></a>
               <a className="zone-card zone-card-simple" href="/evenements/corporates/"><h3>Événement d’entreprise</h3><p>Animation photo, vidéo et personnalisation pour vos équipes et votre marque.</p></a>
