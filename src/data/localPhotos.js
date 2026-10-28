@@ -179,6 +179,50 @@ const files = {
   }
 };
 
+// Visuels distincts des fiches de villes afin d'éviter les doublons sur la page des zones.
+const departmentFiles = {
+  "seine-et-marne": {
+    "file": "Château de Fontainebleau, 2013 (26) - Cour du Cheval blanc panoramique.jpg",
+    "place": "Cour du Cheval Blanc, château de Fontainebleau",
+    "author": ""
+  },
+  "essonne": {
+    "file": "Esplanade Nelson Mandela - Évry-Courcouronnes (FR91) - 2026-08-15 - 1.jpg",
+    "place": "Esplanade Nelson Mandela à Évry-Courcouronnes",
+    "author": ""
+  },
+  "hauts-de-seine": {
+    "file": "GrandeArche.jpg",
+    "place": "Grande Arche et quartier d'affaires de La Défense",
+    "author": ""
+  },
+  "seine-saint-denis": {
+    "file": "ParisSaintDenisFromSky April2016.jpg",
+    "place": "Vue aérienne de Saint-Denis et du Stade de France",
+    "author": "Citizen59"
+  },
+  "val-de-marne": {
+    "file": "Donjon du château de Vincennes (XIVe siècle), vu de la cour entre les pavillons du roi et de la reine (XVIIe siècle).JPG",
+    "place": "Donjon du château de Vincennes",
+    "author": "Benoît Pupin"
+  },
+  "yvelines": {
+    "file": "Jardin Versailles.jpg",
+    "place": "Jardins du château de Versailles et bassin de Latone",
+    "author": "Vincent Bloch"
+  },
+  "val-doise": {
+    "file": "Axe majeur de Cergy July 2016 03.jpg",
+    "place": "Axe Majeur de Cergy",
+    "author": ""
+  },
+  "paris-secteur": {
+    "file": "Eiffel Tower located on the Champ de Mars in Paris, France.jpg",
+    "place": "Tour Eiffel depuis le Champ de Mars",
+    "author": "Aliva Sahoo"
+  }
+};
+
 const departmentPhotoSlugs = {
   "seine-et-marne": "fontainebleau",
   "essonne": "evry-courcouronnes",
@@ -190,7 +234,7 @@ const departmentPhotoSlugs = {
 };
 
 export function photoForArea(slug) {
-  const entry = files[departmentPhotoSlugs[slug] || slug];
+  const entry = departmentFiles[slug] || files[departmentPhotoSlugs[slug] || slug];
   if (!entry) return null;
   const filename = encodeURIComponent(entry.file.replace(/ /g, "_"));
   return {
