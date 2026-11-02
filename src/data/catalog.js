@@ -359,7 +359,7 @@ export const machines = [
 ];
 
 export const options = [
-  { name: "Panneaux photo XXL", image: "/images/editorial-ai/panneaux-xxl-duo.webp", href: "/options/panneaux-xxl/", text: "Portraits grand format, prénoms et date sur panneaux blancs de 2 × 1 m. De 1 à 6 panneaux, dès 150 €." },
+  { name: "Panneaux photo XXL", image: "/images/editorial-ai/panneaux-xxl-duo.webp?v=20261102-cinema", href: "/options/panneaux-xxl/", text: "Portraits grand format, prénoms et date sur panneaux blancs de 2 × 1 m. De 1 à 6 panneaux, dès 150 €." },
   { name: "Mur floral", image: "/images/decoration-voguebooth.webp", text: "Décor photo premium pour un rendu plus élégant." },
   { name: "Phonebooth audio", image: "/images/phonebooth.webp", href: "/options/phonebooth", text: "Téléphone livre d'or rétro qui enregistre les messages vocaux." },
   { name: "Porte-clés photo", image: "/images/option-portecle.webp", text: "Tirage personnalisé placé dans un porte-clés souvenir." },

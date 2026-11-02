@@ -336,37 +336,37 @@
     ]
   },
   "panneauxXxlDuo": {
-    "src": "/images/editorial-ai/panneaux-xxl-duo.webp",
+    "src": "/images/editorial-ai/panneaux-xxl-duo.webp?v=20261102-cinema",
     "width": 1200,
     "height": 800,
     "alt": "Deux panneaux blancs photo et texte pour accueillir une réception",
     "sources": [
       {
-        "src": "/images/editorial-ai/panneaux-xxl-duo.webp",
+        "src": "/images/editorial-ai/panneaux-xxl-duo.webp?v=20261102-cinema",
         "width": 1200
       }
     ]
   },
   "panneauxXxlQuatre": {
-    "src": "/images/editorial-ai/panneaux-xxl-quatre.webp",
+    "src": "/images/editorial-ai/panneaux-xxl-quatre.webp?v=20261102-cinema",
     "width": 1200,
     "height": 800,
     "alt": "Quatre panneaux XXL avec photos du couple en extérieur et texte sous les images",
     "sources": [
       {
-        "src": "/images/editorial-ai/panneaux-xxl-quatre.webp",
+        "src": "/images/editorial-ai/panneaux-xxl-quatre.webp?v=20261102-cinema",
         "width": 1200
       }
     ]
   },
   "panneauxXxlVille": {
-    "src": "/images/editorial-ai/panneaux-xxl-ville.webp",
+    "src": "/images/editorial-ai/panneaux-xxl-ville.webp?v=20261102-cinema",
     "width": 1200,
     "height": 800,
     "alt": "Deux panneaux photo personnalisés avec portraits en tenues élégantes et bande blanche de texte",
     "sources": [
       {
-        "src": "/images/editorial-ai/panneaux-xxl-ville.webp",
+        "src": "/images/editorial-ai/panneaux-xxl-ville.webp?v=20261102-cinema",
         "width": 1200
       }
     ]

@@ -7,7 +7,7 @@ const details = {
     "title": "Des panneaux photo XXL pour raconter votre histoire",
     "metaTitle": "Panneaux photo XXL personnalisés Paris | MySelfieBooth",
     "description": "Personnalisez votre réception avec des panneaux photo XXL de 2 × 1 m : portraits, prénoms, date et message. De 1 à 6 panneaux, à partir de 150 €.",
-    "image": "/images/editorial-ai/panneaux-xxl-duo.webp",
+    "image": "/images/editorial-ai/panneaux-xxl-duo.webp?v=20261102-cinema",
     "imageAlt": "Deux panneaux blancs XXL avec portraits de couple en extérieur, prénoms, date et message sous les photos",
     "highlights": [
         "2 × 1 m par panneau",
@@ -19,7 +19,7 @@ const details = {
             "anchor": "personnalisation",
             "eyebrow": "Votre création",
             "title": "Vos portraits et vos mots accueillent vos invités",
-            "text": "Sur un panneau blanc, votre photo occupe les trois quarts supérieurs. Le quart inférieur accueille vos prénoms, un Welcome, la date ou une courte phrase. Vos images de shooting en extérieur deviennent un décor personnel pour votre mariage, anniversaire ou réception.",
+            "text": "Sur un panneau blanc, votre photo occupe les trois quarts supérieurs. Une marge blanche encadre la photo et le quart inférieur accueille une seule ligne de texte : vos prénoms, un Welcome, la date ou une courte phrase. Vos images de shooting en extérieur deviennent un décor personnel pour votre mariage, anniversaire ou réception.",
             "cards": [
                 {
                     "title": "Vos photos",
@@ -45,7 +45,7 @@ const details = {
     "faq": [
         {
             "question": "Quelles sont les dimensions des panneaux ?",
-            "answer": "Chaque panneau mesure 2 mètres de haut sur 1 mètre de large, avec un fond blanc, une photo en partie haute et votre texte en bas."
+            "answer": "Chaque panneau mesure 2 mètres de haut sur 1 mètre de large, avec un fond blanc, une photo en partie haute et une ligne de texte en bas."
         },
         {
             "question": "Combien coûtent les panneaux photo XXL ?",

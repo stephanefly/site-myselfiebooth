@@ -5,8 +5,8 @@ const formats = [
   {
     key: "panneaux-xxl",
     title: "Panneaux photo XXL",
-    text: "Vos photos de couple en grand format, avec vos prénoms, votre date et votre message.",
-    image: "/images/editorial-ai/panneaux-xxl-quatre.webp",
+    text: "Vos photos de couple en grand format, avec une ligne de texte personnalisée.",
+    image: "/images/editorial-ai/panneaux-xxl-quatre.webp?v=20261102-cinema",
     alt: "Quatre panneaux photo blancs personnalisés avec portraits, prénoms et date",
     href: "/options/panneaux-xxl/",
     linkLabel: "Découvrir les panneaux XXL",
