@@ -53,12 +53,12 @@ export default function ZonesIntervention() {
 
       showPreFooter={false}
       metaProps={{
-        title: "Location Photobooth Île-de-France | Zones d’intervention",
+        title: "Location Photobooth : Île-de-France, Lyon, Normandie",
         description:
-          "Photobooth, miroir photo, 360 et Vogue Booth à Paris et dans les 8 départements d’Île-de-France. Autres régions françaises sur étude du projet.",
-        ogTitle: "Zones d'intervention Photobooth | MySelfieBooth",
+          "Photobooth, Miroirbooth, 360 Booth et Vogue Booth en Île-de-France, Normandie et région lyonnaise. Disponibilité et déplacement confirmés sur devis.",
+        ogTitle: "Location Photobooth : nos zones | MySelfieBooth",
         ogDescription:
-          "Location de Photobooth, Miroirbooth, 360 Booth et Vogue Booth dans les principales villes d'Île-de-France et sur étude ailleurs en France.",
+          "Découvrez nos zones d’intervention en Île-de-France, Normandie et région lyonnaise pour vos animations photo et vidéo.",
         ogImage: siteConfig.defaultOgImage,
         ogUrl: absoluteUrl("/zones-intervention/"),
         jsonLd: [itemListJsonLd],
@@ -68,9 +68,9 @@ export default function ZonesIntervention() {
         <section className="zones-hero">
           <div className="zones-container">
             <p className="zones-eyebrow">Zones d'intervention</p>
-            <h1>Location de photobooth en Île-de-France et au-delà</h1>
+            <h1>Location de photobooth en Île-de-France, Normandie et région lyonnaise</h1>
             <p className="zones-lead">
-              MySelfieBooth intervient pour les mariages, entreprises, salons, soirées et activations de marque.
+              MySelfieBooth propose ses animations photo et vidéo en Île-de-France et étudie les événements en Normandie et dans la région lyonnaise.
               Chaque déplacement est confirmé selon la date, le lieu, les accès, les horaires et le matériel demandé.
             </p>
             <div className="zones-actions">
