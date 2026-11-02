@@ -292,7 +292,7 @@ export default function MarketingPage({ page }) {
         )}
 
         <QuickNavigation page={page} />
-        <VisualGallery items={serviceGalleries[seo?.visual]} />
+        <VisualGallery items={page.gallery || serviceGalleries[seo?.visual]} title={page.galleryTitle} eyebrow={page.galleryEyebrow} note={page.galleryNote} />
         <PathwayGrid items={page.pathways || []} />
 
         {(page.sections || []).map((section, index) => (

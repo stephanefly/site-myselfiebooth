@@ -1468,5 +1468,29 @@
     ],
     "generatedAt": "2026-10-22",
     "prompt": "Create ONE square premium photorealistic product photograph for a wedding photobooth website, using the attached real product photo as the faithful reference for the actual product. Warm ivory, cream and champagne gold palette, soft natural light, understated white flowers, elegant French wedding atmosphere, matching a polished website collection of photo keepsakes. Remove ALL promotional overlays, giant labels, watermarks, price labels and borders from the source. Do not add a webpage layout or any explanatory captions. Product must remain clearly recognizable and physically plausible, centered with breathing room, clear at thumbnail size. Faithfully recreate this WHITE WATERFALL WELCOME PANEL with tall rectangular glass/mirror water surface inside thick rounded white illuminated frame, set on the real wide low white rectangular base. A fine continuous flowing water curtain subtly shimmers down the glass. Pale white and blush flower arrangements decorate top left corner and lower right near base, matching reference placement. Refined gold calligraphy on the glass can say only 'Bienvenue'. Show the whole free-standing panel and low base in a light elegant wedding entrance. This is a WATER WALL welcome sign, not a drink fountain, champagne tower or outdoor stone fountain. No extra jets or devices."
+  },
+  {
+    "path": "/images/editorial-ai/panneaux-xxl-duo.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-02",
+    "generator": "image_gen",
+    "prompt": "Illustration catalogue : panneaux XXL blancs de 2 × 1 m avec portraits professionnels de couple en extérieur sur les trois quarts supérieurs, prénoms, Welcome, date et phrase personnelle sous les images. Réception décorée, tenues de ville élégantes. Composition duo.",
+    "usage": "Illustration de personnalisation, aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/panneaux-xxl-quatre.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-02",
+    "generator": "image_gen",
+    "prompt": "Illustration catalogue : panneaux XXL blancs de 2 × 1 m avec portraits professionnels de couple en extérieur sur les trois quarts supérieurs, prénoms, Welcome, date et phrase personnelle sous les images. Réception décorée, tenues de ville élégantes. Composition quatre.",
+    "usage": "Illustration de personnalisation, aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/panneaux-xxl-ville.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-02",
+    "generator": "image_gen",
+    "prompt": "Illustration catalogue : panneaux XXL blancs de 2 × 1 m avec portraits professionnels de couple en extérieur sur les trois quarts supérieurs, prénoms, Welcome, date et phrase personnelle sous les images. Réception décorée, tenues de ville élégantes. Composition ville.",
+    "usage": "Illustration de personnalisation, aucune réalisation client revendiquée."
   }
 ]

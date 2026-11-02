@@ -1,6 +1,67 @@
 import { absoluteUrl, breadcrumbJsonLd, faqJsonLd, siteConfig } from "./site";
 
 const details = {
+  "panneaux-xxl": {
+    "label": "Panneaux photo XXL",
+    "eyebrow": "Vos photos, en grand",
+    "title": "Des panneaux photo XXL pour raconter votre histoire",
+    "metaTitle": "Panneaux photo XXL personnalisés Paris | MySelfieBooth",
+    "description": "Personnalisez votre réception avec des panneaux photo XXL de 2 × 1 m : portraits, prénoms, date et message. De 1 à 6 panneaux, à partir de 150 €.",
+    "image": "/images/editorial-ai/panneaux-xxl-duo.webp",
+    "imageAlt": "Deux panneaux blancs XXL avec portraits de couple en extérieur, prénoms, date et message sous les photos",
+    "highlights": [
+        "2 × 1 m par panneau",
+        "Photos & texte personnalisés",
+        "De 1 à 6 panneaux"
+    ],
+    "sections": [
+        {
+            "anchor": "personnalisation",
+            "eyebrow": "Votre création",
+            "title": "Vos portraits et vos mots accueillent vos invités",
+            "text": "Sur un panneau blanc, votre photo occupe les trois quarts supérieurs. Le quart inférieur accueille vos prénoms, un Welcome, la date ou une courte phrase. Vos images de shooting en extérieur deviennent un décor personnel pour votre mariage, anniversaire ou réception.",
+            "cards": [
+                {
+                    "title": "Vos photos",
+                    "text": "Envoyez vos portraits en haute définition pour préparer une impression grand format."
+                },
+                {
+                    "title": "Votre texte",
+                    "text": "Prénoms, date, bienvenue ou phrase personnelle : le texte est placé sous la photo."
+                },
+                {
+                    "title": "Votre composition",
+                    "text": "Un duo pour accueillir vos proches ou plusieurs panneaux pour mettre en scène votre histoire."
+                }
+            ]
+        },
+        {
+            "anchor": "preparation",
+            "eyebrow": "La préparation",
+            "title": "Choisissez vos photos, nous préparons la mise en page",
+            "text": "Indiquez le nombre de panneaux, transmettez vos images et votre texte, puis validez la composition avec notre équipe. La livraison, l’installation et les éventuels décors floraux ou accessoires sont précisés dans votre devis."
+        }
+    ],
+    "faq": [
+        {
+            "question": "Quelles sont les dimensions des panneaux ?",
+            "answer": "Chaque panneau mesure 2 mètres de haut sur 1 mètre de large, avec un fond blanc, une photo en partie haute et votre texte en bas."
+        },
+        {
+            "question": "Combien coûtent les panneaux photo XXL ?",
+            "answer": "Les prix par lot sont de 150 € pour 1 panneau, 300 € pour 2, 350 € pour 3, 400 € pour 4, 450 € pour 5 et 500 € pour 6. Livraison, installation et accessoires éventuels sont précisés au devis."
+        },
+        {
+            "question": "Peut-on choisir des photos sans tenue de mariage ?",
+            "answer": "Oui. Un shooting en tenues élégantes, des photos de couple ou des portraits personnels peuvent servir à la composition, selon la qualité des fichiers."
+        },
+        {
+            "question": "Les fleurs et les photophores des visuels sont-ils compris ?",
+            "answer": "Les visuels illustrent des idées de mise en scène. Les décorations, accessoires et modalités d’installation sont définis dans votre devis."
+        }
+    ],
+    "finalTitle": "Imaginez votre entrée en grand format."
+},
   "livre-or-photo": {
     label: "Livre d’or photo",
     eyebrow: "Photos & petits mots",

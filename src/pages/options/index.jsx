@@ -33,6 +33,7 @@ const optionsPage = {
     ...(basePage.sections || []),
   ],
   relatedLinks: [
+    { label: "Panneaux photo XXL personnalisés", href: "/options/panneaux-xxl/" },
     { label: "Guide : personnaliser un photobooth", href: "/blog/personnaliser-photobooth/" },
     { label: "Livre d'or audio Phonebooth", href: "/options/phonebooth/" },
     { label: "Comparer les animations", href: "/prestations/" },

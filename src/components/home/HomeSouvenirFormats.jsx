@@ -3,6 +3,15 @@ import styles from "./HomeSouvenirFormats.module.css";
 
 const formats = [
   {
+    key: "panneaux-xxl",
+    title: "Panneaux photo XXL",
+    text: "Vos photos de couple en grand format, avec vos prénoms, votre date et votre message.",
+    image: "/images/editorial-ai/panneaux-xxl-quatre.webp",
+    alt: "Quatre panneaux photo blancs personnalisés avec portraits, prénoms et date",
+    href: "/options/panneaux-xxl/",
+    linkLabel: "Découvrir les panneaux XXL",
+  },
+  {
     key: "porte-cles",
     title: "Porte-clés photo",
     text: "Votre photo en petit format, à emporter avec vos clés.",

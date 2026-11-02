@@ -18,6 +18,7 @@ const routeLabels = {
   options: "Options",
   phonebooth: "Phonebooth",
   panneau: "Panneau de bienvenue",
+  "panneaux-xxl": "Panneaux photo XXL",
   "panneau-fontaine": "Panneau fontaine",
   "livre-or-photo": "Livre d’or photo",
   "livre-or-video": "Livre d’or vidéo",
