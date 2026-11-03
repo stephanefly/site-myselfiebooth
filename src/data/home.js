@@ -46,7 +46,7 @@ const publicServicePrices = {
   photobooth: "400 € pour 5 h",
   miroirbooth: "À partir de 450 euros",
   videobooth: "À partir de 400 euros",
-  voguebooth: "À partir de 500 euros",
+  voguebooth: "À partir de 550 euros",
 };
 
 export const selectorNeeds = catalogSelectorNeeds.map((item) => ({
