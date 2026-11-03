@@ -509,9 +509,9 @@ const details = {
     headline: "Votre événement mérite sa une.",
     intro:
       "Un décor lumineux façon couverture de magazine. Visuel personnalisé ; photographe et impressions en option.",
-    seoTitle: "Location Vogue Booth Paris | Décor magazine dès 500 €",
+    seoTitle: "Location Vogue Booth Paris | Décor magazine dès 550 €",
     seoDescription:
-      "Un Vogue Booth lumineux et personnalisable à Paris pour mariage, gala ou marque. 500 € pour 5 h ; photographe et impressions en option. Demandez votre devis.",
+      "Un Vogue Booth lumineux et personnalisable à Paris pour mariage, gala ou marque. 550 € pour 5 h ; photographe et impressions en option. Demandez votre devis.",
     hero: "vogue-stephane-juliette",
     heroAlt:
       "Vogue Booth lumineux personnalisé Stephane & Juliette, 21.08.2021, dans un décor de réception doré",
@@ -554,8 +554,8 @@ const details = {
     rates: [
       {
         duration: "5 heures",
-        price: 500,
-        label: "500 € pour 5 h",
+        price: 550,
+        label: "550 € pour 5 h",
       },
     ],
     includes: [
@@ -566,7 +566,7 @@ const details = {
     extras:
       "Photographe, impressions et décoration additionnelle en option, sur devis.",
     rateNote:
-      "Formule particulière à partir de 500 €. Projets corporate et Portrait Studio à partir de 900 € HT, selon le brief et les options.",
+      "Formule particulière à partir de 550 €. Projets corporate et Portrait Studio à partir de 900 € HT, selon le brief et les options.",
     technical: [
       "Accès, surface et hauteur à valider",
       "Du recul pour les portraits",
@@ -579,7 +579,7 @@ const details = {
       ],
       [
         "Quel est le prix du Vogue Booth ?",
-        "500 € pour 5 h pour les particuliers : structure lumineuse, installation et visuel personnalisé. Corporate et Portrait Studio dès 900 € HT selon brief.",
+        "550 € pour 5 h pour les particuliers : structure lumineuse, installation et visuel personnalisé. Corporate et Portrait Studio dès 900 € HT selon brief.",
       ],
       [
         "Le photographe et les impressions sont-ils inclus ?",

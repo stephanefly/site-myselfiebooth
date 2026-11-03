@@ -74,7 +74,7 @@ const pricePage = {
           text: "Une animation vidéo dynamique pour créer des contenus courts et personnalisés autour des invités.",
         },
         {
-          title: "Vogue Booth — dès 500 €",
+          title: "Vogue Booth — dès 550 €",
           text: "Un décor lumineux effet magazine pouvant être configuré comme Portrait Studio pour un rendu plus éditorial.",
         },
       ],
@@ -188,7 +188,7 @@ const pricePage = {
           { "@type": "Offer", name: "Photobooth — 5 h", price: "400", priceCurrency: "EUR" },
           { "@type": "Offer", name: "Miroirbooth", price: "450", priceCurrency: "EUR" },
           { "@type": "Offer", name: "360 Booth", price: "400", priceCurrency: "EUR" },
-          { "@type": "Offer", name: "Vogue Booth", price: "500", priceCurrency: "EUR" },
+          { "@type": "Offer", name: "Vogue Booth", price: "550", priceCurrency: "EUR" },
         ],
       },
       faqJsonLd(faq),
