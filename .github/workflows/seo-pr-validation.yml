@@ -1,0 +1,35 @@
+name: Validate SEO pull request
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/seo-pr-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Build and validate without deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build static site and run SEO / price checks
+        run: npm run build
+      - name: Validate contact form export
+        run: node scripts/check-contact.mjs
