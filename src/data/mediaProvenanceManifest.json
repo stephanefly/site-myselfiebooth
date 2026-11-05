@@ -1492,5 +1492,29 @@
     "generator": "image_gen",
     "prompt": "Illustration catalogue : panneaux photo XXL blancs, portraits glamour de couple en tenues de soirée noires, éclairage cinématographique extérieur. Marges blanches visibles en haut et de chaque côté de la photo. Une seule ligne noire centrée sous chaque photo : prénoms, Welcome, date ou courte phrase. Réception fleurie, aucune réalisation client revendiquée.",
     "usage": "Illustration de personnalisation, aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/salon-photobooth-personnalise-20261105.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Photobooth compact noir et or habillé bleu et blanc sur stand NOVA fictif dans un salon professionnel ; visiteurs avec badges et tirages personnalisés.",
+    "usage": "Projection commerciale de personnalisation en salon, identité fictive ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/salon-360-visiteurs-20261105.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "360 Booth avec quatre visiteurs professionnels sur plateforme et bras caméra dans un salon ; identité NOVA fictive.",
+    "usage": "Projection commerciale de personnalisation en salon, identité fictive ; aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/salon-vogue-stand-20261105.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Voguebooth ouvert noir et or avec cadre VOTRE MARQUE, visiteurs et photographe dans un salon professionnel.",
+    "usage": "Projection commerciale de personnalisation en salon, identité fictive ; aucune réalisation client revendiquée."
   }
 ]
