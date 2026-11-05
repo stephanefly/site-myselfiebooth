@@ -1,9 +1,14 @@
 import Layout from "../Layout";
 import { editorialVisuals } from "../../data/editorialIllustrations";
+import { eventArchivePhotos } from "../../data/eventArchive";
 import { photoForArea } from "../../data/localPhotos";
 import { pageSeo } from "../../data/pageSeo";
 import { absoluteUrl, faqJsonLd, siteConfig } from "../../data/site";
 import styles from "./LocalAreaPage.module.css";
+
+const realExamples = ["anogini-photobooth-01", "goldbooth-gala", "brice-tirages"]
+  .map((slug) => eventArchivePhotos.find((photo) => photo.slug === slug))
+  .filter(Boolean);
 
 const animations = [
   { key: "photo", title: "Photobooth", href: "/prestations/photobooth/", text: "Photos de groupe et tirages personnalisés selon votre formule." },
@@ -65,6 +70,7 @@ export default function LocalAreaPage({ page, area }) {
         <nav className={`${styles.container} ${styles.quickLinks}`} aria-label="Sur cette page">
           <a href="#votre-secteur">Votre secteur</a>
           <a href="#animations-en-images">Les animations</a>
+          <a href="#prestations-reelles">Prestations réelles</a>
           {faqs.length > 0 && <a href="#faq">Questions fréquentes</a>}
         </nav>
 
@@ -94,6 +100,41 @@ export default function LocalAreaPage({ page, area }) {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section id="prestations-reelles" className={styles.section}>
+          <div className={styles.container}>
+            <p className={styles.eyebrow}>Nos réalisations · Photos réelles</p>
+            <h2>Des prestations MySelfieBooth pour votre projet {place}</h2>
+            <p className={styles.text}>
+              Découvrez des installations et des souvenirs photographiés lors de véritables
+              événements MySelfieBooth : borne photo, miroir de gala et tirages personnalisés.
+              Ces exemples illustrent notre savoir-faire ; ils ne sont pas présentés comme
+              ayant nécessairement été réalisés à {area.name}.
+            </p>
+            <div className={styles.realGrid}>
+              {realExamples.map((example) => (
+                <figure className={styles.realCard} key={example.slug}>
+                  <img
+                    src={example.image}
+                    alt={example.alt}
+                    width="900"
+                    height="675"
+                    loading="lazy"
+                    decoding="async"
+                    data-no-load-motion
+                  />
+                  <figcaption>
+                    <strong>{example.title}</strong>
+                    <span>Photographie d'une prestation réelle MySelfieBooth</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <a className={styles.realLink} href="/realisations/">
+              Voir toutes nos réalisations
+            </a>
           </div>
         </section>
 
