@@ -1524,5 +1524,46 @@
     "generator": "image_gen",
     "prompt": "Stand professionnel modeste blanc et bleu avec logo fictif VOTRE ENTREPRISE, borne photobooth noire intégrée au module latéral et visiteurs avec badges devant. Scène réaliste, pas de grandiose ni de réalisation client revendiquée.",
     "usage": "Projection commerciale de stand et d'intégration de borne ; faisabilité à valider selon projet."
+  },
+  {
+    "path": "/images/editorial-ai/stand-notre-photobooth-header-v2.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/campaigns/photobooth-reel-20261105.webp"
+    ],
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Vrai modèle noir et doré sur pied intégré à un stand professionnel blanc et bleu avec visiteurs, identité fictive.",
+    "usage": "Projection commerciale, aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/ai-from-real/vogue-witcher-ameliore-v2.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/campaigns/vogue-reel-witcher-20261105.webp"
+    ],
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Retouche de la photographie fournie du Voguebooth The Witcher : perspective, netteté et éclairage, structure et personnalisation existantes conservées.",
+    "usage": "Retouche de la photo fournie de la personnalisation existante."
+  },
+  {
+    "path": "/images/editorial-ai/notre-photobooth-salon-detail-v2.webp",
+    "kind": "ai_from_real",
+    "sources": [
+      "/images/campaigns/photobooth-reel-20261105.webp"
+    ],
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Vrai modèle photobooth noir et doré replacé sur stand professionnel, sans réception de mariage, scène de démonstration.",
+    "usage": "Projection commerciale, aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/cadres-photo-corporate-trio-v2.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Trois pistes de cadres corporate blanc bleu, noir or, blanc turquoise avec logos fictifs et portraits de visiteurs de salon. Démonstration de personnalisation.",
+    "usage": "Projection commerciale, aucune réalisation client revendiquée."
   }
 ]
