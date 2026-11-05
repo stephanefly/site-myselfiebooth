@@ -204,7 +204,7 @@ export default function MachinePage({ machineKey }) {
               {page.label}
             </p>
             <h1 id="machine-title">
-              Location <span>{page.name}</span>
+              Location <span>{page.name}</span>{["photobooth", "miroirbooth"].includes(machineKey) ? " à Paris et en Île-de-France" : null}
             </h1>
             <p className={styles.headline}>{page.headline}</p>
             <p className={styles.heroIntro}>{page.intro}</p>
