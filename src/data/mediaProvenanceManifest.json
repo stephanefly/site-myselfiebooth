@@ -1526,7 +1526,7 @@
     "usage": "Projection commerciale de stand et d'intégration de borne ; faisabilité à valider selon projet."
   },
   {
-    "path": "/images/editorial-ai/stand-notre-photobooth-header-v2.webp",
+    "path": "/images/ai-from-real/stand-notre-photobooth-header-v2.webp",
     "kind": "ai_from_real",
     "sources": [
       "/images/campaigns/photobooth-reel-20261105.webp"
@@ -1548,7 +1548,7 @@
     "usage": "Retouche de la photo fournie de la personnalisation existante."
   },
   {
-    "path": "/images/editorial-ai/notre-photobooth-salon-detail-v2.webp",
+    "path": "/images/ai-from-real/notre-photobooth-salon-detail-v2.webp",
     "kind": "ai_from_real",
     "sources": [
       "/images/campaigns/photobooth-reel-20261105.webp"
