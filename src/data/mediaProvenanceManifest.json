@@ -1565,5 +1565,13 @@
     "generator": "image_gen",
     "prompt": "Trois pistes de cadres corporate blanc bleu, noir or, blanc turquoise avec logos fictifs et portraits de visiteurs de salon. Démonstration de personnalisation.",
     "usage": "Projection commerciale, aucune réalisation client revendiquée."
+  },
+  {
+    "path": "/images/editorial-ai/cadre-photo-qr-demo-v1.webp",
+    "kind": "ai_generated",
+    "generatedAt": "2026-11-05",
+    "generator": "image_gen",
+    "prompt": "Maquette corporate de photo souvenir et carte de visite avec logo fictif VOTRE ENTREPRISE, visiteurs de salon et coordonnées. QR code vectoriel calculé ajouté au rendu et décodage vérifié vers https://myselfiebooth-paris.fr/.",
+    "usage": "Exemple de personnalisation, aucune réalisation client revendiquée. Lien du QR et mise en page à valider avant impression."
   }
 ]
