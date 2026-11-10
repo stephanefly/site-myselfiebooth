@@ -1,3 +1,4 @@
+import TemplatePersonalization from "./TemplatePersonalization";
 import Navbar from "./Navbar";
 import PreFooter from "./PreFooter";
 import Footer from "./Footer";
@@ -16,7 +17,7 @@ const Layout = ({ children, metaProps, showPreFooter = true }) => {
       <a className="skip-link" href="#contenu">Aller au contenu</a>
       <Navbar />
       <Breadcrumbs />
-      <main id="contenu">{children}</main>
+      <main id="contenu">{children}<TemplatePersonalization /></main>
       {showPreFooter && <PreFooter />}
       <Footer />
       <MobileQuoteBar />

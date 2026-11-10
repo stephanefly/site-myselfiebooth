@@ -26,7 +26,7 @@ const details = {
       {
         src: "/images/ai-from-real/prospect-cadres-960.webp",
         caption: "Votre cadre photo",
-        text: "Prénoms, date ou logo sur le modèle personnalisé.",
+        text: "Décrivez vos envies : notre designer crée votre cadre photo avec notre IA spécialisée en templates. Création incluse dans le tarif.",
         alt: "Exemples de cadres photo personnalisés pour une réception",
       },
       {
@@ -60,7 +60,7 @@ const details = {
     includes: [
       "Livraison et installation",
       "Animateur sur place",
-      "Modèle de tirage personnalisé",
+      "Template photo designer + IA inclus",
       "Impressions illimitées selon la formule",
       "Galerie web après l’événement",
     ],
@@ -78,7 +78,7 @@ const details = {
       ],
       [
         "Peut-on personnaliser les photos avec un logo ou des prénoms ?",
-        "Oui : prénoms, date, couleurs ou logo sur le modèle photo, validé avec vous avant l’événement.",
+        "Oui : décrivez vos envies, prénoms, date, couleurs ou logo. Notre designer crée votre cadre photo avec notre IA spécialisée en templates. Cette création sur mesure est incluse dans le tarif.",
       ],
       [
         "Combien de place faut-il prévoir ?",
@@ -150,7 +150,7 @@ const details = {
         src: "/images/realisations-machines/personnalisation-tirages.webp",
         alt: "Exemples de modèles photo personnalisés pour des événements MySelfieBooth",
         caption: "Votre modèle photo",
-        text: "Prénoms, date et couleurs selon le modèle validé.",
+        text: "Votre thème, vos couleurs et vos textes : notre designer crée votre cadre avec notre IA spécialisée en templates, sans supplément.",
       },
       {
         src: "/images/ai-from-real/miroirbooth-paris-premium.webp",
@@ -188,7 +188,7 @@ const details = {
     includes: [
       "Livraison et installation",
       "Animateur sur place",
-      "Modèle photo personnalisé",
+      "Template photo designer + IA inclus",
       "Impressions illimitées selon la formule",
       "Galerie web après l’événement",
     ],
