@@ -7,10 +7,10 @@ const details = {
     label: "Photo · Impression",
     headline: "Des instants spontanés. Des souvenirs à garder.",
     intro:
-      "Photos personnalisées, tirages à emporter et galerie web. Une animation accompagnée pour vos fêtes et événements d’entreprise.",
-    seoTitle: "Location Photobooth Paris — 400 € pour 5 h | MySelfieBooth",
+      "Louez un Photobooth à Paris ou en Seine-et-Marne pour votre mariage, anniversaire ou événement d’entreprise. Vos invités repartent avec un tirage personnalisé et retrouvent leurs photos dans une galerie web.",
+    seoTitle: "Location Photobooth Paris & IDF | 400 € pour 5 h",
     seoDescription:
-      "Location de photobooth à Paris et en Île-de-France : 400 € pour 5 h, animateur, tirages personnalisés selon formule et galerie web. Demandez votre devis.",
+      "Louez un Photobooth à Paris et en Île-de-France pour mariage, soirée ou entreprise : 400 € pour 5 h, tirages personnalisés, installation et galerie web. Devis.",
     hero: "photobooth-reception",
     heroAlt:
       "Borne photo noire et dorée MySelfieBooth dans un décor de réception élégant",
@@ -130,10 +130,10 @@ const details = {
     label: "Photo · Miroir interactif",
     headline: "Un grand miroir. Une vraie présence.",
     intro:
-      "Un miroir tactile, un cadre doré et des photos personnalisées. Pour les mariages, galas et soirées d’entreprise.",
-    seoTitle: "Location Miroirbooth Paris | Miroir photo dès 450 €",
+      "Un grand miroir tactile au cadre doré pour les mariages, galas, séminaires et soirées d’entreprise à Paris et en Île-de-France. Les invités prennent la pose et repartent avec leurs souvenirs photo.",
+    seoTitle: "Location Miroir Photobooth Paris | Dès 450 €",
     seoDescription:
-      "Un miroir photobooth interactif pour votre mariage, gala ou entreprise à Paris. Dès 450 € pour 3 h, animateur et photos personnalisées selon formule.",
+      "Location Miroirbooth à Paris et en Île-de-France : miroir photo interactif pour mariage ou entreprise. Dès 450 € pour 3 h, tirages personnalisés et galerie.",
     hero: "miroirbooth-reception",
     heroAlt:
       "Miroir photo interactif au cadre doré et anneau lumineux dans une réception",

@@ -37,9 +37,9 @@ const cabins = [
   },
 ];
 const meta = {
-  title: "Photobooth Corporate Paris & Cabine Sur Mesure | MySelfieBooth",
+  title: "Location Photobooth Entreprise Paris | Salons & Séminaires",
   description:
-    "Photobooth personnalisé entreprise à Paris : habillage de marque, VogueBooth, vidéo 360 et cabines photo sur mesure. Créons votre expérience corporate sur devis.",
+    "Location photobooth entreprise à Paris : séminaire, salon professionnel, lancement ou soirée. Tirages avec logo, animation 360, Vogue Booth et devis personnalisé.",
   ogUrl: "/evenements/corporates/",
   ogImage: `${heroMedia}1440.webp`,
   ogImageAlt:
@@ -337,12 +337,13 @@ export default function Corporates() {
               MYSELFIEBOOTH · BRAND EXPERIENCES · PARIS
             </p>
             <h1 id="corporate-title">
-              Photobooth Corporate &amp; Expériences Photo <em>Sur Mesure</em>
+              Location Photobooth Entreprise <em>à Paris</em>
             </h1>
             <p className={styles.heroLead}>
-              Transformez vos événements professionnels en expériences de marque
-              mémorables. Photobooths personnalisés, cabines photo sur mesure et
-              dispositifs immersifs aux couleurs de votre entreprise.
+              Pour vos salons professionnels, séminaires, lancements et soirées
+              d’entreprise : Photobooth personnalisé, tirages aux couleurs de
+              votre marque, Miroirbooth et vidéos 360. Vos visiteurs repartent
+              avec un souvenir concret et votre identité visuelle.
             </p>
             <div className={styles.actions}>
               <Quote />
